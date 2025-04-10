@@ -55,6 +55,26 @@ class AibabelController {
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
        _findArbDataUsecase = findArbDataUsecase;
 
+  Future<void> sync({required String token}) async {
+    // Ensure the current directory is a git directory
+    final ensureGitDirResp = await _ensureGitDirectoryIsConfigured();
+    if (ensureGitDirResp.isError()) return printRespError(ensureGitDirResp);
+
+    final yamlInfoResp = await _getCodeBaseYamlInfo();
+    if (yamlInfoResp.isError()) return printRespError(yamlInfoResp);
+    final CodeBaseYamlInfo yamlInfo = yamlInfoResp.getOrThrow();
+
+    final GitVariables gitVariables = await _getProjectGitDependenciesUsecase();
+
+    await Dependencies.client.syncProject(
+      name: yamlInfo.projectName,
+      description: yamlInfo.projectDescription ?? '',
+      codeBasePathJson: '',
+      shaIdentifier: gitVariables.projectShaIdentifier,
+      token: token,
+    );
+  }
+
   Future<void> createNewVersion({
     required String token,
     required LabelLocale labelLocale,
