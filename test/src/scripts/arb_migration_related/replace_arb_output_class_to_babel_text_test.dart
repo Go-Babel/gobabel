@@ -15,7 +15,7 @@ void main() {
   });
 
   test('Should replace as expected', () async {
-    final newContent = await usecase(
+    final newContent = usecase(
       fileName: 'dummy_file.dart',
       fileContent: _dummyInputFileContent,
     );

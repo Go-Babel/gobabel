@@ -3,6 +3,7 @@ import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/generated_files_reference/babel_text.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 
 class WriteBabelTextFileIntoDirectory {
   Future<void> call() async {
@@ -10,6 +11,9 @@ class WriteBabelTextFileIntoDirectory {
     final String projectShaIdentifier =
         Dependencies.gitVariables.projectShaIdentifier;
     final Directory curr = Directory.current;
+    final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
+        Dependencies.arbData?.allDeclarationFunctions ?? {};
+
     FileSystemEntity? libDirectory;
 
     await for (final FileSystemEntity fileEntity in curr.list()) {
@@ -46,6 +50,10 @@ class WriteBabelTextFileIntoDirectory {
 
     for (final BabelFunctionDeclaration d
         in Dependencies.allDeclarationFunctions) {
+      fileContent.write('$d\n');
+    }
+    for (final BabelFunctionDeclaration d
+        in allArbDeclarationFunctions.values) {
       fileContent.write('$d\n');
     }
     fileContent.write('\n}');

@@ -24,7 +24,7 @@ class ReplaceArbOutputClassToBabelTextUsecase {
     final keysCluster = allDeclarationFunctions.keys.splitIntoGroups(100);
     for (final List<L10nKey> keys in keysCluster) {
       final regex = RegExp(
-        '$arbKeyRegexIdentifier(?:${keys.join('|')})',
+        '$arbKeyRegexIdentifier(${keys.join('|')})',
         multiLine: true,
       );
 
@@ -32,6 +32,9 @@ class ReplaceArbOutputClassToBabelTextUsecase {
         // final matchText = match.text;
         // print(matchText);
         final String matchedKey = match.group(1)!;
+        final String keyName = match.group(2)!;
+
+        Dependencies.addLabelContextPath(keyName, fileName);
         return match.text.replaceAll(matchedKey, 'BabelText');
       });
     }

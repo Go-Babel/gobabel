@@ -50,9 +50,12 @@ class UpdateDartFileContentStringsUsecase {
     Dependencies.allDeclarationFunctions.addAll(allDeclarationFunctions);
 
     final String projectName = Dependencies.codeBaseYamlInfo.projectName;
-    final String importText = "import 'package:$projectName/$kBabelFileName';";
+    final String importText =
+        newLabelsKeys.isEmpty
+            ? ""
+            : "import 'package:$projectName/$kBabelFileName';\nk";
     // Add import to the top of the file
-    content = '$importText\n$content';
+    content = '$importText$content';
 
     return content;
   }
