@@ -198,6 +198,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
+  enchanted_regex:
+    dependency: "direct main"
+    description:
+      name: enchanted_regex
+      sha256: "40d068cb3efc95f884c5d4ed4d583c54227e5c6788ef555abe84d2391ac41b2b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.7"
   ffi:
     dependency: transitive
     description:
@@ -557,26 +565,26 @@ packages:
     dependency: transitive
     description:
       name: serverpod_auth_client
-      sha256: dc91bf25c62c18b7a23299b656d88d7d3ba4d00dc02b54b221f8ad71bfe841a5
+      sha256: "25c017454e4bad67780dcaa13d4ced323530c3082813dafda73118e54fad6fb3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.5.1"
   serverpod_client:
     dependency: transitive
     description:
       name: serverpod_client
-      sha256: "67f09bb7ce1b19e1690ce34f390904924d654d9c57680ec9ec7a8c2a88393c88"
+      sha256: "1f99b386ba270ec0ec5d401ab6c051bb0fbcbe03985c1b22ae6e4967a11e7212"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.5.1"
   serverpod_serialization:
     dependency: transitive
     description:
       name: serverpod_serialization
-      sha256: "87d9e769c1189b1fb0eb96a986b673508f351ddee0d472638bcff1f837bf2627"
+      sha256: "39e5ab450ab019b74779a2abe44ad8440bec36772602a5f2f6d57e944f087d9b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.5.1"
   shelf:
     dependency: transitive
     description:

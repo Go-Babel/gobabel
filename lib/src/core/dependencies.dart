@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/go_babel_core.dart';
@@ -17,6 +18,25 @@ class Dependencies {
   static set gitVariables(GitVariables value) {
     _gitVariables = value;
   }
+
+  static ArbData? _arbData;
+  static ArbData? get arbData => _arbData;
+  static set arbData(ArbData? value) {
+    _arbData = value;
+    if (value != null) {
+      final outputClass = value.config.outputClass;
+      final String baseRegexIdentifier =
+          '($outputClass)'
+          // S\s*\.(?:[a-zA-Z0.9()!]|\s)+\.\s*duels
+          r'\s*\.(?:[a-zA-Z0.9()!]|\s)+\.\s*';
+      _arbKeyRegexIdentifier = baseRegexIdentifier;
+    } else {
+      _arbKeyRegexIdentifier = null;
+    }
+  }
+
+  static String? _arbKeyRegexIdentifier;
+  static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
 
   static final List<BabelSupportedLocales> projectLanguages = [];
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
@@ -41,6 +61,7 @@ class Dependencies {
   }
 
   Dependencies.resetAll() {
+    arbData = null;
     _codeBaseYamlInfo = null;
     projectLanguages.clear();
     newLabelsKeys.clear();

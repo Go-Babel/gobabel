@@ -1,6 +1,7 @@
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
 import 'package:gobabel/src/scripts/extract_project_code_base.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
@@ -23,10 +24,12 @@ class AibabelController {
   final UploadNewVersionUsecase _notifyAibabelApiAboutNewVersionUseCase;
   final UpdateDartFileContentStringsUsecase
   _updateDartFileContentStringsUsecase;
+  final FindArbDataUsecase _findArbDataUsecase;
+  final ReplaceArbOutputClassToBabelTextUsecase
+  _replaceArbOutputClassToBabelTextUsecase;
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
-  final FindArbDataUsecase _findArbDataUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
 
   const AibabelController({
@@ -36,13 +39,15 @@ class AibabelController {
     required GetHarcodedStringsUsecase getHarcodedStringsUsecase,
     required RunForEachFileTextUsecase runForEachFileTextUsecase,
     required MapStringsUsecase mapStringsUsecase,
+    required ReplaceArbOutputClassToBabelTextUsecase
+    replaceArbOutputClassToBabelTextUsecase,
     required UpdateDartFileContentStringsUsecase
     updateDartFileContentStringsUsecase,
+    required FindArbDataUsecase findArbDataUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
     required UploadNewVersionUsecase notifyAibabelApiAboutNewVersionUseCase,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
-    required FindArbDataUsecase findArbDataUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
@@ -55,9 +60,12 @@ class AibabelController {
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
        _findArbDataUsecase = findArbDataUsecase,
+       _replaceArbOutputClassToBabelTextUsecase =
+           replaceArbOutputClassToBabelTextUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase;
 
   Future<void> sync({required String token}) async {
+    Dependencies.resetAll();
     // Ensure the current directory is a git directory
     final ensureGitDirResp = await _ensureGitDirectoryIsConfigured();
     if (ensureGitDirResp.isError()) return printRespError(ensureGitDirResp);
@@ -93,8 +101,7 @@ class AibabelController {
       if (yamlInfoResp.isError()) return printRespError(yamlInfoResp);
 
       await _getProjectGitDependenciesUsecase();
-
-      final ArbData? arb = await _findArbDataUsecase();
+      await _findArbDataUsecase();
 
       await _runForEachFileTextUsecase(
         onDartFileFinded: (
@@ -105,7 +112,10 @@ class AibabelController {
             filePath: filePath,
             fileAsString: fileContentAsString,
           );
-          return res;
+          return _replaceArbOutputClassToBabelTextUsecase(
+            fileContent: res,
+            fileName: filePath,
+          );
         },
       );
 

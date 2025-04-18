@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:enchanted_collection/enchanted_collection.dart';
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
@@ -30,17 +31,17 @@ class FindArbDataUsecase {
        _inferDeclarationFunctionFromArbJson =
            inferDeclarationFunctionFromArbJson;
 
-  Future<ArbData?> call() async {
+  Future<void> call() async {
     final Directory curr = Directory.current;
     final List<FileSystemEntity> currList = await curr.list().toList();
 
     final L10nProjectConfig? projConfig = await _getProjectYamlConfig(
       currList.whereType<File>().toList(),
     );
-    if (projConfig == null) return null;
+    if (projConfig == null) return;
 
     final targetDir = Directory(projConfig.arbDir);
-    return _getAllL10nKey(targetDir, projConfig);
+    Dependencies.arbData = await _getAllL10nKey(targetDir, projConfig);
   }
 
   Future<ArbData?> _getAllL10nKey(
@@ -108,10 +109,12 @@ class FindArbDataUsecase {
 
         return 0;
       });
+
       final main = allArbData.first;
       final Map<NewL10nKey, NewL10nKey> uniqueness = _garanteeUniquenessOfKeys(
         main.allKeyValues,
       );
+
       declarationFunctions.addAll(
         _inferDeclarationFunctionFromArbJson(main.allKeyValues),
       );
@@ -141,9 +144,9 @@ class FindArbDataUsecase {
 
     return ArbData(
       config: config,
+      preMadeTranslationArb: preMadeTranslationArb,
       allDeclarationFunctions: declarationFunctions,
       mainPreMadeTranslationArb: mainPreMadeTranslationArb,
-      preMadeTranslationArb: preMadeTranslationArb,
     );
   }
 
