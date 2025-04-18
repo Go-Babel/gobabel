@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:collection/collection.dart';
@@ -6,7 +7,7 @@ import 'package:result_dart/result_dart.dart';
 
 class GetCodeBaseYamlInfoUsecase {
   const GetCodeBaseYamlInfoUsecase();
-  AsyncBabelResult<CodeBaseYamlInfo> call() async {
+  AsyncBabelResult<void> call() async {
     final currentDirectory = Directory.current;
 
     const String targetFile = 'pubspec.yaml';
@@ -62,14 +63,14 @@ class GetCodeBaseYamlInfoUsecase {
       );
     }
 
-    return Success(
-      CodeBaseYamlInfo(
-        projectName: projectName,
-        version: projectVersion,
-        projectDescription: projectDescription,
-        type: projectType,
-      ),
+    Dependencies.codeBaseYamlInfo = CodeBaseYamlInfo(
+      projectName: projectName,
+      version: projectVersion,
+      projectDescription: projectDescription,
+      type: projectType,
     );
+
+    return Success(unit);
   }
 }
 

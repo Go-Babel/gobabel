@@ -6,6 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 
 class MapStringsUsecase {
   final GetDynamicValuesInStringUsecase getDynamicValuesInStringUsecase;
@@ -269,13 +270,10 @@ String garanteeIsNewKey(String input, List<ContextPath> contextPaths) {
   String uniqueInput = getUniqueInput();
 
   // Get a version that is not already calculated
-  while (Dependencies.alreadyExistingLabels.keys.contains(uniqueInput)) {
+  while (Dependencies.newLabelsKeys.keys.contains(uniqueInput)) {
     version++;
     uniqueInput = getUniqueInput();
   }
-
-  Dependencies.alreadyExistingLabels.addAll({uniqueInput: contextPaths});
-  // Dependencies.alreadyExistingLabels.add(uniqueInput);
 
   return uniqueInput;
 }

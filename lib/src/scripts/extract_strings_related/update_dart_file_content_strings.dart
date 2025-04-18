@@ -4,6 +4,7 @@ import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 
 class UpdateDartFileContentStringsUsecase {
   final GetHarcodedStringsUsecase _getHarcodedStringsUsecase;
@@ -22,19 +23,11 @@ class UpdateDartFileContentStringsUsecase {
     final List<String> alreadyExistingLabelsBeforeOperation =
         _retriveAllAibabelConstsFromFile(content);
     for (final alreadyExistingLabel in alreadyExistingLabelsBeforeOperation) {
-      if (Dependencies.alreadyExistingLabels.containsKey(
-        alreadyExistingLabel,
-      )) {
-        Dependencies.alreadyExistingLabels[alreadyExistingLabel]!.add(filePath);
-      } else {
-        Dependencies.alreadyExistingLabels[alreadyExistingLabel] = [filePath];
-      }
+      Dependencies.addLabelContextPath(alreadyExistingLabel, filePath);
     }
 
     final strings = _getHarcodedStringsUsecase(fileAsString);
-    // final Map<L10nKey, L10nValue> values = {};
-    final Map<L10nKey, ({L10nValue key, List<ContextPath> contextPaths})>
-    values = {};
+    final Map<L10nKey, L10nValue> newLabelsKeys = {};
 
     Set<BabelFunctionDeclaration> allDeclarationFunctions = {};
     for (final HardCodedStringSource string in strings) {
@@ -48,15 +41,12 @@ class UpdateDartFileContentStringsUsecase {
         result.endIndex,
         result.aibabelFunctionImplementationString,
       );
-
-      values[result.l10nUniqueKey] = (
-        key: result.l10nValue,
-        contextPaths: [filePath],
-      );
+      newLabelsKeys[result.l10nUniqueKey] = result.l10nValue;
+      Dependencies.addLabelContextPath(result.l10nUniqueKey, filePath);
       allDeclarationFunctions.addAll(result.aibabelFunctionDeclaration);
     }
 
-    Dependencies.newLabels.addAll(values);
+    Dependencies.newLabelsKeys.addAll(newLabelsKeys);
     Dependencies.allDeclarationFunctions.addAll(allDeclarationFunctions);
 
     final String projectName = Dependencies.codeBaseYamlInfo.projectName;

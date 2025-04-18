@@ -1,7 +1,7 @@
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
+import 'package:gobabel/src/scripts/extract_project_code_base.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/update_dart_file_content_strings.dart';
@@ -10,23 +10,24 @@ import 'package:gobabel/src/scripts/edit_each_file_content.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
-import 'package:gobabel/src/scripts/notify_aibabel_api_about_new_version.dart';
+import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 class AibabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final RunForEachFileTextUsecase _runForEachFileTextUsecase;
+  final UploadNewVersionUsecase _notifyAibabelApiAboutNewVersionUseCase;
   final UpdateDartFileContentStringsUsecase
   _updateDartFileContentStringsUsecase;
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
-  final NotifyAibabelApiAboutNewVersionUseCase
-  _notifyAibabelApiAboutNewVersionUseCase;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final FindArbDataUsecase _findArbDataUsecase;
+  final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
 
   const AibabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
@@ -38,22 +39,23 @@ class AibabelController {
     required UpdateDartFileContentStringsUsecase
     updateDartFileContentStringsUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
-    required NotifyAibabelApiAboutNewVersionUseCase
-    notifyAibabelApiAboutNewVersionUseCase,
+    required UploadNewVersionUsecase notifyAibabelApiAboutNewVersionUseCase,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required FindArbDataUsecase findArbDataUsecase,
+    required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
        _updateDartFileContentStringsUsecase =
            updateDartFileContentStringsUsecase,
-       _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
        _notifyAibabelApiAboutNewVersionUseCase =
            notifyAibabelApiAboutNewVersionUseCase,
+       _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
-       _findArbDataUsecase = findArbDataUsecase;
+       _findArbDataUsecase = findArbDataUsecase,
+       _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase;
 
   Future<void> sync({required String token}) async {
     // Ensure the current directory is a git directory
@@ -62,14 +64,16 @@ class AibabelController {
 
     final yamlInfoResp = await _getCodeBaseYamlInfo();
     if (yamlInfoResp.isError()) return printRespError(yamlInfoResp);
-    final CodeBaseYamlInfo yamlInfo = yamlInfoResp.getOrThrow();
+    final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
 
-    final GitVariables gitVariables = await _getProjectGitDependenciesUsecase();
+    await _getProjectGitDependenciesUsecase();
+    final GitVariables gitVariables = Dependencies.gitVariables;
+    final CodeBaseFolder codeBase = await _extractProjectCodeBaseUsecase();
 
-    await Dependencies.client.syncProject(
+    await Dependencies.client.syncProject.sincronize(
       name: yamlInfo.projectName,
       description: yamlInfo.projectDescription ?? '',
-      codeBasePathJson: '',
+      projectCodeBase: codeBase,
       shaIdentifier: gitVariables.projectShaIdentifier,
       token: token,
     );
@@ -77,22 +81,18 @@ class AibabelController {
 
   Future<void> createNewVersion({
     required String token,
-    required LabelLocale labelLocale,
+    required BabelSupportedLocales labelLocale,
   }) async {
     try {
+      Dependencies.resetAll();
       // Ensure the current directory is a git directory
       final ensureGitDirResp = await _ensureGitDirectoryIsConfigured();
       if (ensureGitDirResp.isError()) return printRespError(ensureGitDirResp);
 
       final yamlInfoResp = await _getCodeBaseYamlInfo();
       if (yamlInfoResp.isError()) return printRespError(yamlInfoResp);
-      final CodeBaseYamlInfo yamlInfo = yamlInfoResp.getOrThrow();
-      Dependencies.codeBaseYamlInfo = yamlInfo;
-      Dependencies.alreadyExistingLabels = {};
-      Dependencies.newLabels = {};
 
-      final GitVariables gitVariables =
-          await _getProjectGitDependenciesUsecase();
+      await _getProjectGitDependenciesUsecase();
 
       final ArbData? arb = await _findArbDataUsecase();
 
@@ -109,14 +109,13 @@ class AibabelController {
         },
       );
 
-      await _writeBabelTextFileIntoDirectory(
-        projectShaIdentifier: gitVariables.projectShaIdentifier,
-        version: yamlInfo.version,
-      );
+      await _writeBabelTextFileIntoDirectory();
+
+      final CodeBaseFolder codeBase = await _extractProjectCodeBaseUsecase();
+
       await _notifyAibabelApiAboutNewVersionUseCase(
-        labelLocale: labelLocale,
         token: token,
-        gitVariables: gitVariables,
+        projectCodeBase: codeBase,
       );
     } catch (e) {
       printError(
@@ -129,7 +128,7 @@ class AibabelController {
   }
 }
 
-void printRespError(ResultDart result) {
+void printRespError(ResultDart<dynamic, dynamic> result) {
   print('\x1B[31m${result.exceptionOrNull()}\x1B[0m');
 }
 

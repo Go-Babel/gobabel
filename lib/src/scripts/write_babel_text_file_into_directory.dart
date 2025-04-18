@@ -5,10 +5,10 @@ import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/generated_files_reference/babel_text.dart';
 
 class WriteBabelTextFileIntoDirectory {
-  Future<void> call({
-    required String version,
-    required String projectShaIdentifier,
-  }) async {
+  Future<void> call() async {
+    final String version = Dependencies.codeBaseYamlInfo.version;
+    final String projectShaIdentifier =
+        Dependencies.gitVariables.projectShaIdentifier;
     final Directory curr = Directory.current;
     FileSystemEntity? libDirectory;
 

@@ -22,22 +22,21 @@ const String _textLayer1 = r'''final String personsListage6 =
       'Lets see:\n${persons.map((p) => 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
             return "Name: ${e.name}";
           })}').toList()}';''';
-const String _textLayer2 =
-    r'''Lets see:\n${persons.map((p) => 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
-            return e.name;
-          })}';
-}).toList()}''';
+// const String _textLayer2 =
+//     r'''Lets see:\n${persons.map((p) => 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
+//             return e.name;
+//           })}';
+// }).toList()}''';
 const String _textLayer3 = r'''Lets see:\n${persons.map((p) {
     return 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
       return "Name: ${e.name}";
     })}';
   }).toList()}''';
-
-const String _textLayer4 = r'''persons.map((p) {
-    return 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
-      return e.name;
-    })}';
-  }).toList()''';
+// const String _textLayer4 = r'''persons.map((p) {
+//     return 'Name: ${p.name}, im ${p.age} years old.\nChildren: ${p.children.map((e) {
+//       return e.name;
+//     })}';
+//   }).toList()''';
 
 
 /*

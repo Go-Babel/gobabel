@@ -1,28 +1,52 @@
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 
 class Dependencies {
-  static String _versionId = '';
-  static String get versionId => _versionId;
-  static late CodeBaseYamlInfo _codeBaseYamlInfo;
-  static CodeBaseYamlInfo get codeBaseYamlInfo => _codeBaseYamlInfo;
+  static String get versionId => codeBaseYamlInfo.version.toVersionId;
+  static CodeBaseYamlInfo? _codeBaseYamlInfo;
+  static CodeBaseYamlInfo get codeBaseYamlInfo => _codeBaseYamlInfo!;
   static set codeBaseYamlInfo(CodeBaseYamlInfo value) {
     _codeBaseYamlInfo = value;
-    _versionId = value.version.toVersionId;
   }
 
-  static Map<L10nKey, ({L10nValue key, List<ContextPath> contextPaths})>
-  newLabels = {};
-  static Map<L10nKey, List<ContextPath>> alreadyExistingLabels = {};
-  static Set<BabelFunctionDeclaration> allDeclarationFunctions = {};
+  static GitVariables? _gitVariables;
+  static GitVariables get gitVariables => _gitVariables!;
+  static set gitVariables(GitVariables value) {
+    _gitVariables = value;
+  }
+
+  static final List<BabelSupportedLocales> projectLanguages = [];
+  static final Map<L10nKey, L10nValue> newLabelsKeys = {};
+  static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
+      _pathAppearancesPerKey;
+  static final Map<L10nKey, Set<ContextPath>> _pathAppearancesPerKey = {};
+  static final Set<BabelFunctionDeclaration> allDeclarationFunctions = {};
+  static Map<
+    LanguageCode,
+    Map<CountryCode, Map<TranslationKey, TranslationContent>>
+  >
+  madeTranslations = {};
 
   static final Client client = Client('http://$ipAddress:8080/');
 
+  static void addLabelContextPath(L10nKey key, ContextPath contextPaths) {
+    if (_pathAppearancesPerKey.containsKey(key)) {
+      _pathAppearancesPerKey[key]!.add(contextPaths);
+    } else {
+      _pathAppearancesPerKey[key] = {contextPaths};
+    }
+  }
+
   Dependencies.resetAll() {
-    newLabels = {};
-    alreadyExistingLabels = {};
-    allDeclarationFunctions = {};
+    _codeBaseYamlInfo = null;
+    projectLanguages.clear();
+    newLabelsKeys.clear();
+    _pathAppearancesPerKey.clear();
+    allDeclarationFunctions.clear();
+    madeTranslations.clear();
   }
 }
 

@@ -1,6 +1,5 @@
 import 'dart:io';
-
-import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel_core/go_babel_core.dart';
 
 typedef NewString = String;
 
