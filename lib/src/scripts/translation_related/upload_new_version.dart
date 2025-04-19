@@ -13,7 +13,8 @@ class UploadNewVersionUsecase {
       token: token,
       projectCodeBase: projectCodeBase,
       madeTranslations: Dependencies.madeTranslations,
-      shaIdentifier: gitVariables.projectShaIdentifier,
+      projectShaIdentifier: gitVariables.projectShaIdentifier,
+      currentCommitSha: gitVariables.latestShaIdentifier,
       pathsOfKeys: ArbKeysAppearancesPath(
         pathAppearancesPerKey: Dependencies.pathAppearancesPerKey,
       ),

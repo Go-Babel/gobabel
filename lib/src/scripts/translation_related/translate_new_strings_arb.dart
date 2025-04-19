@@ -21,7 +21,7 @@ class TranslateNewStringsArbUsecase {
     for (final projectLanguage in Dependencies.projectLanguages) {
       final result = await Dependencies.client.translateArb.translate(
         token: token,
-        shaIdentifier: gitVariables.projectShaIdentifier,
+        projectShaIdentifier: gitVariables.projectShaIdentifier,
         toLanguageCode: projectLanguage.languageCode,
         toCountryCode: projectLanguage.countryCode,
         referenceLanguageCode: referenceLocale.languageCode,

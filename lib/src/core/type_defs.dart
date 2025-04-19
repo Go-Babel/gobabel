@@ -6,3 +6,5 @@ typedef AsyncBabelResult<T extends Object> = AsyncResultDart<T, String>;
 typedef BabelFunctionDeclaration = String;
 typedef FileContent = String;
 typedef BabelFunctionImplementation = String;
+typedef ShaCommit = String;
+typedef ChangedPaths = String;

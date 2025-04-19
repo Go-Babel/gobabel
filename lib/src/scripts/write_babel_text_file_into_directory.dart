@@ -9,7 +9,7 @@ class WriteBabelTextFileIntoDirectory {
   Future<void> call() async {
     final String version = Dependencies.codeBaseYamlInfo.version;
     final String projectShaIdentifier =
-        Dependencies.gitVariables.projectShaIdentifier;
+        Dependencies.gitVariables.projectShaIdentifier.toString();
     final Directory curr = Directory.current;
     final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
         Dependencies.arbData?.allDeclarationFunctions ?? {};

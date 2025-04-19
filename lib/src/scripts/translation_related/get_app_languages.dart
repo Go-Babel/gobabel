@@ -8,12 +8,18 @@ class GetAppLanguagesUsecase {
     final languagesResponse = await Dependencies.client.syncProject
         .getProjectLanguages(
           token: token,
-          shaIdentifier: gitVariables.projectShaIdentifier,
+          projectShaIdentifier: gitVariables.projectShaIdentifier,
         );
+
+    if (languagesResponse == null || languagesResponse.isEmpty) {
+      throw Exception(
+        'Failed to get project dependencies. Please run sync command if it\'s a new project. Double-check if your token key is valid and not misstyped.',
+      );
+    }
 
     final List<BabelSupportedLocales> castedSupportedLocales = [];
 
-    for (final language in languagesResponse!) {
+    for (final language in languagesResponse) {
       final castedLanguage = BabelSupportedLocales.fromLocale(
         language.languageCode,
         language.countryCode,

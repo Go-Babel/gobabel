@@ -37,7 +37,8 @@ class Dependencies {
 
   static String? _arbKeyRegexIdentifier;
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
-
+  static List<({String sha, DateTime updatedDate})> versionsShas = [];
+  static final Set<ChangedPaths> changedPaths = {};
   static final List<BabelSupportedLocales> projectLanguages = [];
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
   static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
@@ -64,6 +65,8 @@ class Dependencies {
     arbData = null;
     _codeBaseYamlInfo = null;
     projectLanguages.clear();
+    changedPaths.clear();
+    versionsShas.clear();
     newLabelsKeys.clear();
     _pathAppearancesPerKey.clear();
     allDeclarationFunctions.clear();

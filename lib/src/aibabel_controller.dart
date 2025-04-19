@@ -10,7 +10,9 @@ import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/edit_each_file_content.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_last_commit_sha_stamps.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
+import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -31,6 +33,9 @@ class AibabelController {
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
+  final GetAppLanguagesUsecase _getAppLanguagesUsecase;
+  final GetProjectLastCommitShaStampsUsecase
+  _getProjectLastCommitShaStampsUsecase;
 
   const AibabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
@@ -49,6 +54,9 @@ class AibabelController {
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
+    required GetAppLanguagesUsecase getAppLanguagesUsecase,
+    required GetProjectLastCommitShaStampsUsecase
+    getProjectLastCommitShaStampsUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
@@ -62,7 +70,10 @@ class AibabelController {
        _findArbDataUsecase = findArbDataUsecase,
        _replaceArbOutputClassToBabelTextUsecase =
            replaceArbOutputClassToBabelTextUsecase,
-       _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase;
+       _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
+       _getAppLanguagesUsecase = getAppLanguagesUsecase,
+       _getProjectLastCommitShaStampsUsecase =
+           getProjectLastCommitShaStampsUsecase;
 
   Future<void> sync({required String token}) async {
     Dependencies.resetAll();
@@ -82,7 +93,7 @@ class AibabelController {
       name: yamlInfo.projectName,
       description: yamlInfo.projectDescription ?? '',
       projectCodeBase: codeBase,
-      shaIdentifier: gitVariables.projectShaIdentifier,
+      projectShaIdentifier: gitVariables.projectShaIdentifier,
       token: token,
     );
   }
@@ -93,6 +104,9 @@ class AibabelController {
   }) async {
     try {
       Dependencies.resetAll();
+      await _getProjectLastCommitShaStampsUsecase(token: token);
+      await _getAppLanguagesUsecase(token: token);
+
       // Ensure the current directory is a git directory
       final ensureGitDirResp = await _ensureGitDirectoryIsConfigured();
       if (ensureGitDirResp.isError()) return printRespError(ensureGitDirResp);
