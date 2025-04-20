@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/files_verification.dart';
@@ -36,8 +38,13 @@ class Dependencies {
     }
   }
 
-  static FilesVerification? filesVerificationState;
+  static Directory? _targetDirectory;
+  static Directory get targetDirectory => _targetDirectory ?? Directory.current;
+  static void setTargetDirectory(Directory? dirr) {
+    _targetDirectory = dirr;
+  }
 
+  static FilesVerification? filesVerificationState;
   static String? _arbKeyRegexIdentifier;
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
   static final Set<ChangedFilePath> changedPaths = {};
@@ -64,6 +71,7 @@ class Dependencies {
   }
 
   Dependencies.resetAll() {
+    _targetDirectory = null;
     arbData = null;
     _codeBaseYamlInfo = null;
     filesVerificationState = null;

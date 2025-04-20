@@ -79,7 +79,7 @@ final exceptedResult = {
 
 Future<void> get() async {
   // Replace this with the path to your Git repository
-  final repoPath = Directory.current.path;
+  final repoPath = Dependencies.targetDirectory.path;
 
   // Check if the directory is a Git repository
   final gitDir = Directory('$repoPath/.git');

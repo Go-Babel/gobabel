@@ -32,7 +32,7 @@ class FindArbDataUsecase {
            inferDeclarationFunctionFromArbJson;
 
   Future<void> call() async {
-    final Directory curr = Directory.current;
+    final Directory curr = Dependencies.targetDirectory;
     final List<FileSystemEntity> currList = await curr.list().toList();
 
     final L10nProjectConfig? projConfig = await _getProjectYamlConfig(

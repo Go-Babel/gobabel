@@ -33,12 +33,11 @@ class RunForEachFileTextUsecase {
     )
     onDartFileFinded,
   ) async {
-    final Directory curr = Directory.current;
+    final Directory curr = Dependencies.targetDirectory;
     final dirrPath = curr.path;
     for (final ChangedFilePath filePath in changedFilesPath) {
       final String path = filePath;
       final String directoryFilePath = '$dirrPath/$path';
-      // print(directoryFilePath);
 
       await _runForDir(File(directoryFilePath), onDartFileFinded);
     }
@@ -51,7 +50,7 @@ class RunForEachFileTextUsecase {
     )
     onDartFileFinded,
   ) async {
-    final Directory curr = Directory.current;
+    final Directory curr = Dependencies.targetDirectory;
     final List<FileSystemEntity> allSystemEntities = [];
     await for (final FileSystemEntity fileEntity in curr.list()) {
       if (fileEntity is File) continue;

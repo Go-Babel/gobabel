@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 
 class ExtractProjectCodeBaseUsecase {
@@ -25,7 +26,7 @@ class ExtractProjectCodeBaseUsecase {
     CodeBaseFolder? lib;
     Directory? libDirr;
 
-    final Directory curr = Directory.current;
+    final Directory curr = Dependencies.targetDirectory;
     await for (final FileSystemEntity fileEntity in curr.list()) {
       if (fileEntity is File) continue;
       final f = (fileEntity as Directory);

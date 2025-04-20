@@ -8,7 +8,7 @@ import 'package:result_dart/result_dart.dart';
 class GetCodeBaseYamlInfoUsecase {
   const GetCodeBaseYamlInfoUsecase();
   AsyncBabelResult<void> call() async {
-    final currentDirectory = Directory.current;
+    final currentDirectory = Dependencies.targetDirectory;
 
     const String targetFile = 'pubspec.yaml';
 

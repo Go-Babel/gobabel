@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:path/path.dart';
 
@@ -7,7 +8,7 @@ class ExcludeNotUsedAnymoreArbDependenciesUsecase {
     if (arb == null) return;
 
     final String arbDirFullPath = join(
-      Directory.current.path,
+      Dependencies.targetDirectory.path,
       arb.config.arbDir,
     );
     if (await Directory(arbDirFullPath).exists()) {
@@ -15,14 +16,14 @@ class ExcludeNotUsedAnymoreArbDependenciesUsecase {
     }
 
     final String outputDirFullPath = join(
-      Directory.current.path,
+      Dependencies.targetDirectory.path,
       arb.config.outputDir,
     );
     if (await Directory(outputDirFullPath).exists()) {
       await Directory(outputDirFullPath).delete(recursive: true);
     }
     final String l10nFilePath = join(
-      Directory.current.path,
+      Dependencies.targetDirectory.path,
       arb.config.l10nFileName,
     );
     if (await File(l10nFilePath).exists()) {

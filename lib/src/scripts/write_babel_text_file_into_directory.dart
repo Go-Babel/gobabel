@@ -10,7 +10,7 @@ class WriteBabelTextFileIntoDirectory {
     final String version = Dependencies.codeBaseYamlInfo.version;
     final String projectShaIdentifier =
         Dependencies.gitVariables.projectShaIdentifier.toString();
-    final Directory curr = Directory.current;
+    final Directory curr = Dependencies.targetDirectory;
     final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
         Dependencies.arbData?.allDeclarationFunctions ?? {};
 

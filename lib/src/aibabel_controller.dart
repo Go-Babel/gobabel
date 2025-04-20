@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -101,11 +103,13 @@ class AibabelController {
   Future<void> createNewVersion({
     required String token,
     required BabelSupportedLocales labelLocale,
+    Directory? directory,
   }) async {
     try {
       Dependencies.resetAll();
       await _setTargetFilesUsecase(token: token);
       await _getAppLanguagesUsecase(token: token);
+      Dependencies.setTargetDirectory(directory);
 
       // Ensure the current directory is a git directory
       final ensureGitDirResp = await _ensureGitDirectoryIsConfigured();

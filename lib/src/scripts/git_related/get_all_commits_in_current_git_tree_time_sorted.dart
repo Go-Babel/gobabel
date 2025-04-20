@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 
 class GetAllCommitsInCurrentGitTreeOrdoredByTime {
   Future<List<ShaCommit>> call() async {
     // Replace this with the path to your Git repository
-    final repoPath = Directory.current.path;
+    final repoPath = Dependencies.targetDirectory.path;
 
     // Check if the directory is a Git repository
     final gitDir = Directory('$repoPath/.git');
