@@ -12,6 +12,7 @@ import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configur
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_last_commit_sha_stamps.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
+import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
@@ -34,8 +35,8 @@ class AibabelController {
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
   final GetAppLanguagesUsecase _getAppLanguagesUsecase;
-  final GetProjectLastCommitShaStampsUsecase
-  _getProjectLastCommitShaStampsUsecase;
+
+  final SetTargetFilesUsecase _setTargetFilesUsecase;
 
   const AibabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
@@ -57,6 +58,7 @@ class AibabelController {
     required GetAppLanguagesUsecase getAppLanguagesUsecase,
     required GetProjectLastCommitShaStampsUsecase
     getProjectLastCommitShaStampsUsecase,
+    required SetTargetFilesUsecase setTargetFilesUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
@@ -72,8 +74,7 @@ class AibabelController {
            replaceArbOutputClassToBabelTextUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
-       _getProjectLastCommitShaStampsUsecase =
-           getProjectLastCommitShaStampsUsecase;
+       _setTargetFilesUsecase = setTargetFilesUsecase;
 
   Future<void> sync({required String token}) async {
     Dependencies.resetAll();
@@ -104,7 +105,7 @@ class AibabelController {
   }) async {
     try {
       Dependencies.resetAll();
-      await _getProjectLastCommitShaStampsUsecase(token: token);
+      await _setTargetFilesUsecase(token: token);
       await _getAppLanguagesUsecase(token: token);
 
       // Ensure the current directory is a git directory

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/scripts/git_related/get_changed_files_between_commits.dart';
+import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -35,9 +36,10 @@ class Dependencies {
     }
   }
 
+  static FilesVerification? filesVerificationState;
+
   static String? _arbKeyRegexIdentifier;
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
-  static List<({String sha, DateTime updatedDate})> versionsShas = [];
   static final Set<ChangedPaths> changedPaths = {};
   static final List<BabelSupportedLocales> projectLanguages = [];
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
@@ -64,9 +66,9 @@ class Dependencies {
   Dependencies.resetAll() {
     arbData = null;
     _codeBaseYamlInfo = null;
+    filesVerificationState = null;
     projectLanguages.clear();
     changedPaths.clear();
-    versionsShas.clear();
     newLabelsKeys.clear();
     _pathAppearancesPerKey.clear();
     allDeclarationFunctions.clear();

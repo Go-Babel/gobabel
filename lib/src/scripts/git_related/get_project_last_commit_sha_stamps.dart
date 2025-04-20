@@ -2,7 +2,9 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 
 class GetProjectLastCommitShaStampsUsecase {
-  Future<void> call({required String token}) async {
+  Future<List<({String sha, DateTime updatedDate})>> call({
+    required String token,
+  }) async {
     final GitVariables gitVariables = Dependencies.gitVariables;
     final shaUpdates = await Dependencies.client.syncProject.getLastUpdateSha(
       token: token,
@@ -15,6 +17,6 @@ class GetProjectLastCommitShaStampsUsecase {
       );
     }
 
-    Dependencies.versionsShas = shaUpdates;
+    return shaUpdates;
   }
 }
