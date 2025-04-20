@@ -1,57 +1,226 @@
+import 'dart:io';
 import 'package:args/args.dart';
+import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/gobabel_controller.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/validate_candidate_string.dart';
+import 'package:gobabel/src/scripts/git_related/get_all_commits_in_current_git_tree_time_sorted.dart';
+import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
+import 'package:gobabel_core/go_babel_core.dart';
+import 'package:yaml/yaml.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
+import 'package:gobabel/src/scripts/extract_project_code_base.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/update_dart_file_content_strings.dart';
+import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
+import 'package:gobabel/src/scripts/edit_each_file_content.dart';
+import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_last_commit_sha_stamps.dart';
+import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
+import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
+import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
+import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
+import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 
-const String version = '0.0.1';
+Future<void> main(List<String> arguments) async {
+  final GobabelController controller = GobabelController(
+    ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
+    getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
+    getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
+      validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+    ),
+    runForEachFileTextUsecase: RunForEachFileTextUsecase(),
+    mapStringsUsecase: MapStringsUsecase(
+      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+    ),
+    replaceArbOutputClassToBabelTextUsecase:
+        ReplaceArbOutputClassToBabelTextUsecase(),
+    updateDartFileContentStringsUsecase: UpdateDartFileContentStringsUsecase(
+      getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
+        validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+      ),
+      mapStringsUsecase: MapStringsUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      ),
+      retriveAllAibabelConstsFromFile: RetriveAllAibabelConstsFromFile(),
+    ),
+    findArbDataUsecase: FindArbDataUsecase(
+      extractLocationDataFromArbFileName:
+          ExtractLocationDataFromArbFileNameUsecase(),
+      getProjectYamlConfig: GetProjectYamlConfigUsecase(),
+      garanteeUniquenessOfKeys: GaranteeUniquenessOfKeysUsecase(),
+      inferDeclarationFunctionFromArbJson:
+          InferDeclarationFunctionFromArbJsonUsecase(),
+    ),
+    writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
+    notifyAibabelApiAboutNewVersionUseCase: UploadNewVersionUsecase(),
+    resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
+    getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(),
+    extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
+    getAppLanguagesUsecase: GetAppLanguagesUsecase(),
+    getProjectLastCommitShaStampsUsecase:
+        GetProjectLastCommitShaStampsUsecase(),
+    setTargetFilesUsecase: SetTargetFilesUsecase(
+      setChangedDartFilesBetweenCommitsUsecase:
+          SetChangedDartFilesBetweenCommitsUsecase(),
+      getProjectLastCommitShaStampsUsecase:
+          GetProjectLastCommitShaStampsUsecase(),
+      getAllCommitsInCurrentGitTreeOrdoredByTime:
+          GetAllCommitsInCurrentGitTreeOrdoredByTime(),
+    ),
+  );
 
-ArgParser buildParser() {
-  return ArgParser()
-    ..addFlag(
-      'help',
-      abbr: 'h',
-      negatable: false,
-      help: 'Print this usage information.',
-    )
-    ..addFlag(
-      'verbose',
-      abbr: 'v',
-      negatable: false,
-      help: 'Show additional command output.',
-    )
-    ..addFlag('version', negatable: false, help: 'Print the tool version.');
-}
+  // Set up the argument parser
+  final parser =
+      ArgParser()
+        ..addFlag('sync', abbr: 's', help: 'Perform sync operation')
+        ..addFlag('generate', abbr: 'g', help: 'Generate new version')
+        ..addOption(
+          'language',
+          abbr: 'l',
+          help: 'Language in format language_country, e.g., en_US',
+        )
+        ..addOption('api-key', abbr: 'k', help: 'API key')
+        ..addFlag(
+          'help',
+          abbr: 'h',
+          help: 'Show this help message',
+          negatable: false,
+        )
+        ..addFlag(
+          'version',
+          abbr: 'v',
+          help: 'Show the package version',
+          negatable: false,
+        );
 
-void printUsage(ArgParser argParser) {
-  print('Usage: dart gobabel.dart <flags> [arguments]');
-  print(argParser.usage);
-}
-
-void main(List<String> arguments) {
-  final ArgParser argParser = buildParser();
+  // Parse the arguments
+  ArgResults argResults;
   try {
-    final ArgResults results = argParser.parse(arguments);
-    bool verbose = false;
-
-    // Process the parsed arguments.
-    if (results.flag('help')) {
-      printUsage(argParser);
-      return;
-    }
-    if (results.flag('version')) {
-      print('gobabel version: $version');
-      return;
-    }
-    if (results.flag('verbose')) {
-      verbose = true;
-    }
-
-    // Act on the arguments provided.
-    print('Positional arguments: ${results.rest}');
-    if (verbose) {
-      print('[VERBOSE] All arguments: ${results.arguments}');
-    }
-  } on FormatException catch (e) {
-    // Print usage information if an invalid argument was provided.
-    print(e.message);
-    print('');
-    printUsage(argParser);
+    argResults = parser.parse(arguments);
+  } catch (e) {
+    print('❌ Error parsing arguments: $e'.red);
+    printUsage(parser);
+    return;
   }
+
+  // Handle the --help flag
+  if (argResults['help'] as bool) {
+    printUsage(parser);
+    return;
+  }
+
+  // Handle the --version flag
+  if (argResults['version'] as bool) {
+    try {
+      final version = await getPackageVersion();
+      print('go_babel version: $version');
+    } catch (e) {
+      print('❌ Error reading package version: $e'.red);
+    }
+    return;
+  }
+
+  // Check for mutually exclusive operations
+  if (argResults['sync'] as bool && argResults['generate'] as bool) {
+    print(
+      '❌ Error: Cannot perform both sync and generate operations at the same time.',
+    );
+    printUsage(parser);
+    return;
+  }
+
+  // Ensure an operation is specified
+  if (!(argResults['sync'] as bool) && !(argResults['generate'] as bool)) {
+    print('❌ Error: Must specify either --sync or --generate.'.red);
+    printUsage(parser);
+    return;
+  }
+
+  // Handle the sync command
+  if (argResults['sync'] as bool) {
+    if (argResults['api-key'] == null) {
+      print('❌ Error: --api-key is required for sync operation.'.red);
+      printUsage(parser);
+      return;
+    }
+    final apiKey = argResults['api-key'] as String;
+    try {
+      await controller.sync(token: apiKey);
+      print('✅  Sync operation completed successfully.'.green);
+    } catch (e) {
+      print('❌ Error during sync operation: $e'.red);
+    }
+  }
+  // Handle the generate command
+  else if (argResults['generate'] as bool) {
+    if (argResults['language'] == null) {
+      print('❌ Error: --language is required for generate operation.'.red);
+      printUsage(parser);
+      return;
+    }
+    if (argResults['api-key'] == null) {
+      print('❌ Error: --api-key is required for generate operation.'.red);
+      printUsage(parser);
+      return;
+    }
+    final language = argResults['language'] as String;
+    final apiKey = argResults['api-key'] as String;
+    // Split the language into languageCode and countryCode
+    final parts = language.split('_');
+    if (parts.length != 2) {
+      print(
+        '❌ Error: Invalid language format.\nExpected language_country, in this exact format, e.g., en_US.'
+            .red,
+      );
+      return;
+    }
+    final languageCode = parts[0];
+    final countryCode = parts[1];
+    try {
+      final BabelSupportedLocales? babelSupportedLocale =
+          BabelSupportedLocales.fromLocale(languageCode, countryCode);
+      if (babelSupportedLocale == null) {
+        print('❌ Error: Invalid language/country code for $language'.red);
+        return;
+      }
+      await controller.createNewVersion(
+        token: apiKey,
+        labelLocale: babelSupportedLocale,
+      );
+      print('✅ Generate operation completed successfully.'.green);
+    } catch (e) {
+      print('${'❌ Error during generate operation:'.red}\n$e');
+    }
+  }
+}
+
+// Helper function to read the package version from pubspec.yaml
+Future<String> getPackageVersion() async {
+  final file = File('pubspec.yaml');
+  if (!await file.exists()) {
+    throw Exception('pubspec.yaml not found');
+  }
+  final content = await file.readAsString();
+  final yaml = loadYaml(content);
+  final version = yaml['version'];
+  if (version == null) {
+    throw Exception('Version not specified in pubspec.yaml');
+  }
+  return version.toString();
+}
+
+// Helper function to display usage information
+void printUsage(ArgParser parser) {
+  print('ℹ️ Usage: go_babel [options]'.white);
+  print('Options:'.white);
+  print(parser.usage.white);
 }

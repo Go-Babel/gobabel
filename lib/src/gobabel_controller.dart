@@ -22,7 +22,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/go_babel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-class AibabelController {
+class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final RunForEachFileTextUsecase _runForEachFileTextUsecase;
@@ -39,7 +39,7 @@ class AibabelController {
   final GetAppLanguagesUsecase _getAppLanguagesUsecase;
   final SetTargetFilesUsecase _setTargetFilesUsecase;
 
-  const AibabelController({
+  const GobabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
     ensureGitDirectoryIsConfigured,
     required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
