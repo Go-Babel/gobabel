@@ -35,7 +35,6 @@ class AibabelController {
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
   final GetAppLanguagesUsecase _getAppLanguagesUsecase;
-
   final SetTargetFilesUsecase _setTargetFilesUsecase;
 
   const AibabelController({

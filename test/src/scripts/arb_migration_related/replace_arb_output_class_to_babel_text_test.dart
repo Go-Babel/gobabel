@@ -9,7 +9,7 @@ void main() {
   final ReplaceArbOutputClassToBabelTextUsecase usecase =
       ReplaceArbOutputClassToBabelTextUsecase();
 
-  setUpAll(() {
+  setUp(() {
     Dependencies.resetAll();
     Dependencies.arbData = _mockArbData;
   });

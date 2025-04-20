@@ -8,6 +8,6 @@ abstract class FilesVerification with _$FilesVerification {
   factory FilesVerification.fromZero() = _FilesVerificationFromZero;
 
   factory FilesVerification.fromLastCommit({
-    required List<ChangedPaths> changedFilesPath,
+    required List<ChangedFilePath> changedFilesPath,
   }) = _FilesVerificationFromLastCommit;
 }
