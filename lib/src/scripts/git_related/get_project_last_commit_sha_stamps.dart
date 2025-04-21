@@ -5,6 +5,8 @@ class GetProjectLastCommitShaStampsUsecase {
   Future<List<({String sha, DateTime updatedDate})>> call({
     required String token,
   }) async {
+    Dependencies.gitBarLoading.increment();
+
     final GitVariables gitVariables = Dependencies.gitVariables;
     final shaUpdates = await Dependencies.client.syncProject.getLastUpdateSha(
       token: token,

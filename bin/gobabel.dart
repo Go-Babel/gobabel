@@ -66,8 +66,6 @@ Future<void> main(List<String> arguments) async {
     getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(),
     extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
     getAppLanguagesUsecase: GetAppLanguagesUsecase(),
-    getProjectLastCommitShaStampsUsecase:
-        GetProjectLastCommitShaStampsUsecase(),
     setTargetFilesUsecase: SetTargetFilesUsecase(
       setChangedDartFilesBetweenCommitsUsecase:
           SetChangedDartFilesBetweenCommitsUsecase(),

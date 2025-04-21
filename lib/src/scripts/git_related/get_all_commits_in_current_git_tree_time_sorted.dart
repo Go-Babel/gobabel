@@ -5,6 +5,7 @@ import 'package:gobabel/src/core/type_defs.dart';
 
 class GetAllCommitsInCurrentGitTreeOrdoredByTime {
   Future<List<ShaCommit>> call() async {
+    Dependencies.gitBarLoading.increment();
     // Replace this with the path to your Git repository
     final repoPath = Dependencies.targetDirectory.path;
 

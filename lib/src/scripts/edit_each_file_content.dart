@@ -1,6 +1,9 @@
 import 'dart:io';
+import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel/src/gobabel_controller.dart';
+import 'package:gobabel/src/scripts/extract_project_code_base.dart';
 import 'package:gobabel_core/go_babel_core.dart';
 
 typedef NewString = String;
@@ -33,13 +36,21 @@ class RunForEachFileTextUsecase {
     )
     onDartFileFinded,
   ) async {
+    final desc = "Analysing dart files with potential translation labels";
+    final p = FillingBar(
+      desc: desc,
+      total: changedFilesPath.length,
+      time: true,
+      percentage: true,
+    );
     final Directory curr = Dependencies.targetDirectory;
     final dirrPath = curr.path;
     for (final ChangedFilePath filePath in changedFilesPath) {
       final String path = filePath;
       final String directoryFilePath = '$dirrPath/$path';
 
-      await _runForDir(File(directoryFilePath), onDartFileFinded);
+      await _runForFile(File(directoryFilePath), onDartFileFinded);
+      p.increment();
     }
   }
 
@@ -51,48 +62,60 @@ class RunForEachFileTextUsecase {
     onDartFileFinded,
   ) async {
     final Directory curr = Dependencies.targetDirectory;
-    final List<FileSystemEntity> allSystemEntities = [];
-    await for (final FileSystemEntity fileEntity in curr.list()) {
-      if (fileEntity is File) continue;
-      final f = (fileEntity as Directory);
-      await for (final FileSystemEntity fileEntity in f.list()) {
-        if (fileEntity is File) {
-          allSystemEntities.add(fileEntity);
-        }
-      }
-    }
+    final List<File> allTargetFiles = await runWithSpinner(() async {
+      return await _getAllDartFilesThatNeedToBeAnalysed(curr);
+    }, message: 'Uploading new version to Gobabel server');
+    final desc = "Analysing dart files with potential translation labels";
 
-    for (final FileSystemEntity entity in allSystemEntities) {
-      await _runForDir(entity, onDartFileFinded);
+    final p = FillingBar(
+      desc: desc,
+      total: allTargetFiles.length,
+      time: true,
+      percentage: true,
+    );
+
+    for (final File file in allTargetFiles) {
+      p.increment();
+      await _runForFile(file, onDartFileFinded);
     }
   }
 
-  /// Recursive function to run [onFileFinded] for each file string in [dir]
-  /// All [entity.children] are already loaded
-  Future<void> _runForDir(
-    FileSystemEntity entity,
+  Future<void> _runForFile(
+    File file,
     Future<NewString?> Function(
       ContextPath filePath,
       String fileContentAsString,
     )
-    onFileFinded,
+    onDartFileFinded,
   ) async {
-    if (entity is File) {
-      final File file = entity;
-      final bool exists = await file.exists();
-      // Ignore if not dart file
-      if (!file.path.endsWith('.dart') || !exists) return;
+    final bool exists = await file.exists();
+    // Ignore if not dart file
+    if (!file.path.endsWith('.dart') || !exists) return;
 
-      final String fileContentAsString = await file.readAsString();
-      final String filePath = file.path;
-      final newFile = await onFileFinded(filePath, fileContentAsString);
-      if (newFile == null) return;
-      await file.writeAsString(newFile);
-    } else {
-      final Directory dir = entity as Directory;
-      await for (final FileSystemEntity entity in dir.list()) {
-        await _runForDir(entity, onFileFinded);
+    final String fileContentAsString = await file.readAsString();
+    final String filePath = file.path;
+    final newFile = await onDartFileFinded(filePath, fileContentAsString);
+    if (newFile == null) return;
+    await file.writeAsString(newFile);
+  }
+
+  Future<List<File>> _getAllDartFilesThatNeedToBeAnalysed(Directory dir) async {
+    if (!await dir.exists()) {
+      throw FileSystemException("Directory not found", dir.path);
+    }
+
+    final List<File> files = [];
+    await for (final entity in dir.list(recursive: true, followLinks: false)) {
+      if (entity is File) {
+        final isInIgnoreFolder = ignoreFolders.any(
+          (folderName) => entity.path.contains('/$folderName/'),
+        );
+        if (isInIgnoreFolder) continue;
+        if (entity.path.endsWith('.dart')) {
+          files.add(entity);
+        }
       }
     }
+    return files;
   }
 }
