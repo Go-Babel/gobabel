@@ -1,197 +1,118 @@
 import 'package:gobabel/src/generated_files_reference/babel_text_dependencies.dart';
 
-const String babelText = '''${babelTextDependencies}class Babel {
+const String babelText = 
+    babelTextDependencies +
+    r'''class Babel {
   static Babel? _instance;
-  static late final SharedPreferences _prefs;
   final SharedPreferencesAsync _asyncPrefs = SharedPreferencesAsync();
   // Singleton pattern, avoid self instance
   Babel._();
   static Babel get instance => _instance ??= Babel._();
   static Babel get i => _instance ??= Babel._();
 
-  final Map<String, String> translationsMap = {};
-  late BabelSupportedLocales selectedLanguage;
+  Map<String, String> translationsMap = {};
 
-  final Completer<List<BabelSupportedLocales>> _allLanguages = Completer();
-  Completer<List<BabelSupportedLocales>> get allLanguages {
-    if (!_allLanguages.isCompleted) {
-      _fetchLanguages().then((languages) {
-        if (allLanguages.isCompleted) return;
-
-        _allLanguages.complete(languages);
-      });
+  late ArbState _arbState;
+  final Completer<void> _loading = Completer();
+  ArbData get selectedArb {
+    if (_loading.isCompleted == false) {
+      throw Exception('Babel is not initialized yet');
     }
-    return _allLanguages;
+    return _arbState.selectedLanguage;
+  }
+
+  List<ArbData> get allLanguages {
+    if (_loading.isCompleted == false) {
+      throw Exception('Babel is not initialized yet');
+    }
+    return _arbState.arbData;
   }
 
   Future<void> initialize({required SharedPreferences? prefs}) async {
-    _prefs = prefs ?? await SharedPreferences.getInstance();
-
-    final cacheLanguage = await _getCacheLanguage();
-    final bool haveLanguageCache = cacheLanguage != null;
-
-    if (haveLanguageCache) {
-      selectedLanguage = cacheLanguage;
-      final updateLink = await _fetchMostUpdatedArbDownloadLink(cacheLanguage);
-      final isSameLink = await _isSameLinkAsCache(updateLink);
-      if (isSameLink) {
-        final cacheArbJson = await _getCacheArbJson();
-        if (cacheArbJson != null) {
-          translationsMap.addAll(cacheArbJson);
-        } else {
-          final arbJson = await _downloadArbJson(updateLink);
-          translationsMap.addAll(arbJson);
-          await _updateCacheArbJson(arbJson);
-        }
+    final ArbState? cacheArbState = await _getCacheArbState();
+    try {
+      final ArbState apiState = await _fetchArbData();
+      final isCacheUpToDate =
+          cacheArbState != null &&
+          cacheArbState.lastUpdatedAt.isAtSameMomentAs(apiState.lastUpdatedAt);
+      if (isCacheUpToDate) {
+        final cacheArb = await _getCacheArb();
+        translationsMap =
+            cacheArb ??
+            await () async {
+              final downloadLink = cacheArbState.selectedLanguage.downloadLink;
+              final downloaded = await _downloadArb(downloadLink);
+              await _setCacheArb(downloaded);
+              return downloaded;
+            }();
+        _arbState = cacheArbState;
+        _loading.complete();
       } else {
-        final arbJson = await _downloadArbJson(updateLink);
-        translationsMap.addAll(arbJson);
-        await _updateCacheArbJson(arbJson);
-        await _updateArbCacheLink(updateLink);
+        _arbState = apiState;
+        final arbJson = await _downloadArb(
+          apiState.selectedLanguage.downloadLink,
+        );
+        await _setCacheArb(arbJson);
+        await _setCacheArbState(apiState);
+        translationsMap = arbJson;
+        _loading.complete();
       }
-    } else {
-      final translations = await _fetchLanguages();
-      _allLanguages.complete(translations);
-      final defaultTranslation = await _determineDefaultSelectedTranslation(
-        translations,
-      );
-      final arbLink = await _fetchMostUpdatedArbDownloadLink(
-        defaultTranslation,
-      );
-      final arbJson = await _downloadArbJson(arbLink);
-      translationsMap.addAll(arbJson);
-      await _updateCacheArbJson(arbJson);
-      await _updateArbCacheLink(arbLink);
-      await _saveCacheLanguage(defaultTranslation);
-      selectedLanguage = defaultTranslation;
+    } catch (e) {
+      if (cacheArbState != null) {
+        final cacheArb = await _getCacheArb();
+        if (cacheArb == null) {
+          throw Exception('Failed to fetch languages: $e');
+        }
+        translationsMap = cacheArb;
+        _arbState = cacheArbState;
+      } else {
+        throw Exception('Failed to fetch languages: $e');
+      }
     }
   }
 
-  Future<Map<String, String>> _downloadArbJson(String url) async {
-    final response = await http.get(Uri.parse(url));
+  Future<void> _setCacheArbState(ArbState state) async {
+    await _asyncPrefs.setString(
+      'cache_arb_state',
+      await jsonEncodeWithIsolate(state.toMap()),
+    );
+  }
+
+  Future<ArbState?> _getCacheArbState() async {
+    final arbJson = await _asyncPrefs.getString('cache_arb_state');
+    if (arbJson == null) return null;
+    return ArbState.fromMap(await jsonDecodeWithIsolate(arbJson));
+  }
+
+  Future<Map<String, String>> _downloadArb(String downloadLink) async {
+    final response = await http.get(Uri.parse(downloadLink));
     if (response.statusCode != 200) {
       throw Exception('Failed to download arb json');
     }
 
-    final decodedJson = jsonDecode(response.body) as Map;
+    final decodedJson = jsonDecodeWithIsolate(response.body) as Map;
     return decodedJson.cast<String, String>();
   }
 
-  Future<void> changeLanguage(BabelSupportedLocales newLanguage) async {
-    final allLanguages = await _allLanguages.future;
-    if (!allLanguages.contains(newLanguage)) {
-      throw Exception(
-        'Language not supported. See supported languages by calling Babel.instance.allLanguages getter',
-      );
-    }
-    final arbLink = await _fetchMostUpdatedArbDownloadLink(newLanguage);
-    final arbJson = await _downloadArbJson(arbLink);
-    translationsMap.clear();
-    translationsMap.addAll(arbJson);
-    await _updateCacheArbJson(arbJson);
-    await _updateArbCacheLink(arbLink);
-    await _saveCacheLanguage(newLanguage);
-    selectedLanguage = newLanguage;
+  Future<Map<String, String>?> _getCacheArb() async {
+    final arbJson = await _asyncPrefs.getString('cache_arb');
+    if (arbJson == null) return null;
+    return (jsonDecodeWithIsolate(arbJson) as Map).cast<String, String>();
   }
 
-  Future<Map<_TranslationKey, _TranslationContent>?> _getCacheArbJson() async {
-    final cacheJson = await _asyncPrefs.getString('cacheArbJson');
-
-    if (cacheJson == null) return null;
-
-    return (jsonDecode(cacheJson) as Map)
-        .cast<_TranslationKey, _TranslationContent>();
-  }
-
-  Future<void> _updateCacheArbJson(
-    Map<_TranslationKey, _TranslationContent> arbJson,
-  ) async {
-    await _asyncPrefs.setString('cacheArbJson', jsonEncode(arbJson));
-  }
-
-  Future<BabelSupportedLocales?> _saveCacheLanguage(
-    BabelSupportedLocales locale,
-  ) async {
-    await _prefs.setString('cacheLanguage', locale.toString());
-    return locale;
-  }
-
-  Future<BabelSupportedLocales?> _getCacheLanguage() async {
-    final language = _prefs.getString('cacheLanguage');
-    if (language != null) {
-      return BabelSupportedLocales.fromString(language);
-    }
-    return null;
-  }
-
-  Future<bool> _isSameLinkAsCache(String link) async {
-    final cacheArbLink = _getCacheArbLink();
-    return cacheArbLink == link;
-  }
-
-  Future<bool> _updateArbCacheLink(String link) async {
-    return _prefs.setString('cacheLink', link);
-  }
-
-  String? _getCacheArbLink() {
-    return _prefs.getString('cacheLink');
-  }
-
-  Future<String> _fetchMostUpdatedArbDownloadLink(
-    BabelSupportedLocales translation,
-  ) async {
-    final resp = await http.get(
-      Uri(
-        host: _gobabelRoute,
-        path: '/labels/arb_download_url',
-        queryParameters: {
-          'languageCode': translation.languageCode,
-          'countryCode': translation.countryCode,
-          'projectShaIdentifier': _projectShaIdentifier,
-          'projectVersion': _projectVersion,
-        },
-      ),
+  Future<void> _setCacheArb(Map<String, String> arbJson) async {
+    await _asyncPrefs.setString(
+      'cache_arb',
+      await jsonEncodeWithIsolate(arbJson),
     );
-
-    if (resp.statusCode != 200) {
-      throw Exception('Failed to fetch arb download link');
-    }
-
-    return resp.body;
   }
 
-  Future<BabelSupportedLocales> _determineDefaultSelectedTranslation(
-    List<BabelSupportedLocales> translations,
-  ) async {
-    final String locale;
-    if (kIsWeb) {
-      locale = html.window.navigator.language; // e.g., en-US, fr-FR, es-ES
-    } else {
-      locale = io.Platform.localeName;
-    }
-    final String localeLanguageCode =
-        locale.contains('-') ? locale.split('-').first : locale;
-    final String? localeCountryCode =
-        locale.contains('-') ? locale.split('-').last : null;
-
-    return BabelSupportedLocales.fromLocale(
-          localeLanguageCode,
-          localeCountryCode,
-        ) ??
-        (translations.contains(BabelSupportedLocales.enUS)
-            ? BabelSupportedLocales.enUS
-            : translations.first);
-  }
-
-  Future<List<BabelSupportedLocales>> _fetchLanguages() async {
+  Future<ArbState> _fetchArbData() async {
     final resp = await http.get(
       Uri(
         host: _gobabelRoute,
         path: '/labels/available_locales',
-        queryParameters: {
-          'projectShaIdentifier': _projectShaIdentifier,
-          'projectVersion': _projectVersion,
-        },
+        queryParameters: {'projectShaIdentifier': _projectShaIdentifier},
       ),
     );
 
@@ -199,13 +120,26 @@ const String babelText = '''${babelTextDependencies}class Babel {
       throw Exception('Failed to fetch languages');
     }
 
-    final locales =
-        (jsonDecode(resp.body) as List)
-            .cast<Map>()
-            .map(BabelSupportedLocales.fromMap)
-            .toList();
+    final map = (await jsonDecodeWithIsolate(resp.body)) as Map;
+    return ArbState.fromMapApi(map);
+  }
 
-    return locales;
+  Future<void> changeSelectedLanguage(BabelSupportedLocales language) async {
+    final index = allLanguages.indexWhere(
+      (element) => element.locale == language,
+    );
+    if (index == -1) {
+      throw Exception(
+        'Language not found. Needs to be in [ Babel.allLanguages ]',
+      );
+    }
+    final downloadLink = selectedArb.downloadLink;
+    final arb = await _downloadArb(downloadLink);
+
+    await _setCacheArbState(_arbState);
+    await _setCacheArb(arb);
+
+    _arbState = _arbState.copyWith(selectedLanguageIndex: index);
   }
 
   String _getByKey(String key) {
