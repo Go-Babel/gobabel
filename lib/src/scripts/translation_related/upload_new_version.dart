@@ -5,13 +5,13 @@ import 'package:gobabel_client/gobabel_client.dart';
 class UploadNewVersionUsecase {
   Future<void> call({
     required String token,
-    required CodeBaseFolder projectCodeBase,
+    required Set<String> projectCodeBaseFolders,
   }) async {
     final GitVariables gitVariables = Dependencies.gitVariables;
 
     await Dependencies.client.translations.updateTranslations(
       token: token,
-      projectCodeBase: projectCodeBase,
+      projectCodeBaseFolders: projectCodeBaseFolders,
       madeTranslations: Dependencies.madeTranslations,
       projectShaIdentifier: gitVariables.projectShaIdentifier,
       currentCommitSha: gitVariables.latestShaIdentifier,

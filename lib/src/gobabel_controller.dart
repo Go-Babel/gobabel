@@ -18,7 +18,6 @@ import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
-import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/go_babel_core.dart';
 
 class GobabelController {
@@ -89,7 +88,7 @@ class GobabelController {
     await _getProjectGitDependenciesUsecase();
     p.increment();
 
-    final CodeBaseFolder codeBase = await runWithSpinner(
+    final Set<String> codeBase = await runWithSpinner(
       () async {
         return await _extractProjectCodeBaseUsecase();
       },
@@ -105,7 +104,7 @@ class GobabelController {
         await Dependencies.client.syncProject.sincronize(
           name: yamlInfo.projectName,
           description: yamlInfo.projectDescription ?? '',
-          projectCodeBase: codeBase,
+          projectCodeBaseFolders: codeBase,
           projectShaIdentifier: gitVariables.projectShaIdentifier,
           token: token,
         );
@@ -160,12 +159,12 @@ class GobabelController {
 
       await _writeBabelTextFileIntoDirectory();
 
-      final CodeBaseFolder codeBase = await _extractProjectCodeBaseUsecase();
+      final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
 
       await runWithSpinner(() async {
         await _notifyGobabelApiAboutNewVersionUseCase(
           token: token,
-          projectCodeBase: codeBase,
+          projectCodeBaseFolders: codeBase,
         );
       }, message: 'Uploading new version to Gobabel server');
     } catch (e) {

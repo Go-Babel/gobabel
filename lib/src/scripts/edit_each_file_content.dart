@@ -3,10 +3,7 @@ import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
-import 'package:gobabel/src/scripts/extract_project_code_base.dart';
 import 'package:gobabel_core/go_babel_core.dart';
-
-typedef NewString = String;
 
 class RunForEachFileTextUsecase {
   Future<void> call({
@@ -119,3 +116,18 @@ class RunForEachFileTextUsecase {
     return files;
   }
 }
+
+// Thease are the folders that we want to ignore because we know that they are
+// no relevant dart files in them.
+final Set<String> ignoreFolders = {
+  '.dart_tool',
+  '.idea',
+  'android',
+  'ios',
+  'lib',
+  'linux',
+  'macos',
+  'test',
+  'web',
+  'windows',
+};
