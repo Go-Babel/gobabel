@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class ExtractLocationDataFromArbFileNameUsecase {
   BabelSupportedLocales call(String filename) {

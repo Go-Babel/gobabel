@@ -4,7 +4,7 @@ import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class UpdateDartFileContentStringsUsecase {
   final GetHarcodedStringsUsecase _getHarcodedStringsUsecase;

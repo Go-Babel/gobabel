@@ -2,7 +2,7 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:test/test.dart';
 
 void main() {

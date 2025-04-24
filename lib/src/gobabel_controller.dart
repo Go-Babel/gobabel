@@ -18,7 +18,7 @@ import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;

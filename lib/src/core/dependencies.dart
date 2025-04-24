@@ -7,7 +7,7 @@ import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class Dependencies {
   static String get versionId => codeBaseYamlInfo.version.toVersionId;

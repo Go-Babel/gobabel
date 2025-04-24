@@ -8,7 +8,7 @@ import 'package:collection/collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 part 'flutter_generated_file_repository.dart';
 

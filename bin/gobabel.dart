@@ -11,7 +11,7 @@ import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_
 import 'package:gobabel/src/scripts/extract_strings_related/validate_candidate_string.dart';
 import 'package:gobabel/src/scripts/git_related/get_all_commits_in_current_git_tree_time_sorted.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';

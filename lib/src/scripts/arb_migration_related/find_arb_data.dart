@@ -8,7 +8,7 @@ import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 
 class FindArbDataUsecase {

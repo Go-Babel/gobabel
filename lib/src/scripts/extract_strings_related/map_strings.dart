@@ -6,7 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class MapStringsUsecase {
   final GetDynamicValuesInStringUsecase getDynamicValuesInStringUsecase;

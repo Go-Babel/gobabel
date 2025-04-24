@@ -1,5 +1,5 @@
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 typedef NewL10nKey = L10nKey;
 

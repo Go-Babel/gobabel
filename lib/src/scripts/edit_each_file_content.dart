@@ -3,7 +3,7 @@ import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class RunForEachFileTextUsecase {
   Future<void> call({

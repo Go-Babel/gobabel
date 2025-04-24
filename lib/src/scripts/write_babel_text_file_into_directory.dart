@@ -3,7 +3,7 @@ import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/generated_files_reference/babel_text.dart';
-import 'package:gobabel_core/go_babel_core.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class WriteBabelTextFileIntoDirectory {
   Future<void> call() async {
