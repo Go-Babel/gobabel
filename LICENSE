@@ -1,0 +1,9 @@
+# SDK for GoBabel
+
+This repository contains the official SDK for integrating with GoBabel. The SDK is licensed under a proprietary license that allows use only for integration with our service and prohibits competitive use. We welcome contributions under our Contributor License Agreement; however, please note that GoBabel itself is proprietary and protected by copyright and other intellectual property laws.
+
+## Contributing
+Please feel free to contribute to the code.
+
+## License
+This project is licensed under a custom proprietary license - read the LICENSE file for details.
