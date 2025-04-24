@@ -1,5 +1,5 @@
 name: gobabel
-description: A sample command-line application with basic argument parsing.
+description: Translate your api with only one cli command.
 version: 0.0.1
 repository: https://github.com/Go-Babel/gobabel
 issue: https://github.com/Go-Babel/gobabel/issues
