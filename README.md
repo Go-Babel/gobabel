@@ -1,3 +1,5 @@
+> ❌ Not prod ready yet.
+
 ### ▶️ go_babel: The official package of GOBABEL
 A package for translating your code base with only `one command`. The package will `extract` the `hard-coded` strings, recognize what strings are configurations strings and what of them are labels that will be displayed to the final user and should be translated. Then, all files are uploaded to gobabel servers and bal be visualized in your dashboard.
 

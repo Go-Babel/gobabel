@@ -286,16 +286,20 @@ packages:
   gobabel_client:
     dependency: "direct main"
     description:
-      path: "../go_babel_app/gobabel_client"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "35f387a2626d5f0c748d9a650096428e06e5181c"
+      url: "git@github.com:Go-Babel/gobabel_client.git"
+    source: git
     version: "0.0.0"
   gobabel_core:
     dependency: "direct main"
     description:
-      path: "../gobabel_core"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "70c96d5011c93fd84785b2eaff19849fdc65eb08"
+      url: "git@github.com:Go-Babel/gobabel_core.git"
+    source: git
     version: "1.0.0"
   graphs:
     dependency: transitive
