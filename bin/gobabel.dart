@@ -87,6 +87,7 @@ Future<void> main(List<String> arguments) async {
           help: 'Language in format language_country, e.g., en_US',
         )
         ..addOption('api-key', abbr: 'k', help: 'API key')
+        ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
           'help',
           abbr: 'h',
@@ -142,6 +143,11 @@ Future<void> main(List<String> arguments) async {
     printUsage(parser);
     return;
   }
+  final apiPath = argResults['path'] as String?;
+  final directory = resolvePath(apiPath);
+  if (apiPath != null) {
+    print('ℹ️  Running for dirrectory: $directory'.wheat);
+  }
 
   // Handle the sync command
   if (argResults['sync'] as bool) {
@@ -152,10 +158,11 @@ Future<void> main(List<String> arguments) async {
     }
     final apiKey = argResults['api-key'] as String;
     try {
-      await controller.sync(token: apiKey);
+      await controller.sync(token: apiKey, directory: directory);
       print('✅  Sync operation completed successfully.'.green);
+      exit(1);
     } catch (e) {
-      print('\n❌ Error during sync operation:\n$e'.red);
+      throw Exception('\n❌ Error during sync operation:\n$e'.red);
     }
   }
   // Handle the generate command
@@ -193,10 +200,12 @@ Future<void> main(List<String> arguments) async {
       await controller.createNewVersion(
         token: apiKey,
         labelLocale: babelSupportedLocale,
+        directory: directory,
       );
       print('✅ Generate operation completed successfully.'.green);
+      exit(1);
     } catch (e) {
-      print('${'❌ Error during generate operation:'.red}\n$e');
+      throw Exception('\n❌ Error during generate operation:\n$e'.red);
     }
   }
 }
@@ -221,4 +230,43 @@ void printUsage(ArgParser parser) {
   print('ℹ️ Usage: go_babel [options]'.white);
   print('Options:'.white);
   print(parser.usage.white);
+}
+
+Directory resolvePath(String? pathInput) {
+  // If pathInput is null, return current directory
+  final currDir = Directory.current;
+  if (pathInput == null) {
+    return currDir;
+  }
+
+  // Normalize path input (handles trailing slashes)
+  String normalizedPath = pathInput.trim();
+  if (normalizedPath.isEmpty) {
+    return currDir;
+  }
+
+  // Split the path into segments
+  List<String> segments =
+      normalizedPath
+          .split(RegExp(r'[\\/]'))
+          .where((s) => s.isNotEmpty)
+          .toList();
+
+  // Start from current directory
+  Directory current = currDir;
+
+  for (String segment in segments) {
+    if (segment == '..') {
+      // Move up one directory
+      current = Directory.fromUri(current.uri.resolve('..'));
+    } else if (segment == '.') {
+      // Stay in current directory (optional handling)
+      continue;
+    } else {
+      // Append the segment to the path
+      current = Directory.fromUri(current.uri.resolve('$segment/'));
+    }
+  }
+
+  return current;
 }

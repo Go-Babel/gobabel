@@ -39,9 +39,9 @@ class Dependencies {
     }
   }
 
-  static Directory? _targetDirectory;
-  static Directory get targetDirectory => _targetDirectory ?? Directory.current;
-  static void setTargetDirectory(Directory? dirr) {
+  static late Directory _targetDirectory;
+  static Directory get targetDirectory => _targetDirectory;
+  static void setTargetDirectory(Directory dirr) {
     _targetDirectory = dirr;
   }
 
@@ -73,7 +73,6 @@ class Dependencies {
 
   Dependencies.resetAll() {
     gitBarLoading = _initialBarLoading;
-    _targetDirectory = null;
     arbData = null;
     _codeBaseYamlInfo = null;
     filesVerificationState = null;

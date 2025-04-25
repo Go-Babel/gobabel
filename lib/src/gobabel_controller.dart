@@ -74,17 +74,18 @@ class GobabelController {
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
        _setTargetFilesUsecase = setTargetFilesUsecase;
 
-  Future<void> sync({required String token}) async {
+  Future<void> sync({
+    required String token,
+    required Directory directory,
+  }) async {
     Dependencies.resetAll();
-    Dependencies.setTargetDirectory();
+    Dependencies.setTargetDirectory(directory);
 
     final desc = "Initializing project dependencies";
     final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
     p.increment();
     // Ensure the current directory is a git directory
     await _ensureGitDirectoryIsConfigured();
-    print('🚀 success');
-    return;
     p.increment();
     await _getCodeBaseYamlInfo();
     p.increment();
@@ -93,6 +94,7 @@ class GobabelController {
 
     final Set<String> codeBase = await runWithSpinner(
       () async {
+        await Future.delayed(Duration(milliseconds: 1200));
         return await _extractProjectCodeBaseUsecase();
       },
       message: 'Mapping codebase file structure',
@@ -101,11 +103,10 @@ class GobabelController {
 
     final GitVariables gitVariables = Dependencies.gitVariables;
     final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
-    print('🚀 success');
-    return;
 
     await runWithSpinner(
       () async {
+        await Future.delayed(Duration(milliseconds: 1200));
         await Dependencies.client.syncProject.sincronize(
           name: yamlInfo.projectName,
           description: yamlInfo.projectDescription ?? '',
@@ -122,10 +123,12 @@ class GobabelController {
   Future<void> createNewVersion({
     required String token,
     required BabelSupportedLocales labelLocale,
-    Directory? directory,
+    required Directory directory,
   }) async {
     try {
       Dependencies.resetAll();
+      Dependencies.setTargetDirectory(directory);
+
       final desc = "Initializing project dependencies";
       final p = FillingBar(desc: desc, total: 5, time: true, percentage: true);
       p.increment();
@@ -140,7 +143,6 @@ class GobabelController {
       p.increment();
 
       await _setTargetFilesUsecase(token: token);
-      Dependencies.setTargetDirectory(directory);
 
       await runWithSpinner(() async {
         await _findArbDataUsecase();

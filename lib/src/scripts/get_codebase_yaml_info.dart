@@ -26,6 +26,7 @@ class GetCodeBaseYamlInfoUsecase {
     }
 
     final String yamlContent = await File(yamlFile.path).readAsString();
+    // print('$yamlContent');
 
     final String? projectName = yamlContent.getYamlLineContent('name');
     final String? projectDescription = yamlContent.getYamlLineContent(
@@ -47,7 +48,7 @@ class GetCodeBaseYamlInfoUsecase {
                 'a flutter/dart directory and you have the "name" '
                 'field in your "pubspec.yaml" file.\n'
                 'That project name is used as identifier of the '
-                'project in AiBabel Dashboard.'
+                'project in GoBabel Dashboard.'
             .red,
       );
     }
@@ -59,7 +60,7 @@ class GetCodeBaseYamlInfoUsecase {
                 'a flutter/dart directory and you have the "version" '
                 'field in your "pubspec.yaml" file.\n'
                 'That project version is used as identifier of the '
-                'project in AiBabel Dashboard.'
+                'project in GoBabel Dashboard.'
             .red,
       );
     }
@@ -75,6 +76,9 @@ class GetCodeBaseYamlInfoUsecase {
 
 extension on String {
   String? getYamlLineContent(String name) {
-    return RegExp('^$name: (.+)\$').firstMatch(this)?.group(1)?.trim();
+    return RegExp(
+      '^$name: (.+)\$',
+      multiLine: true,
+    ).firstMatch(this)?.group(1)?.trim();
   }
 }
