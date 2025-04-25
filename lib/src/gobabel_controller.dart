@@ -76,12 +76,15 @@ class GobabelController {
 
   Future<void> sync({required String token}) async {
     Dependencies.resetAll();
+    Dependencies.setTargetDirectory();
 
     final desc = "Initializing project dependencies";
     final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
     p.increment();
     // Ensure the current directory is a git directory
     await _ensureGitDirectoryIsConfigured();
+    print('🚀 success');
+    return;
     p.increment();
     await _getCodeBaseYamlInfo();
     p.increment();
@@ -98,6 +101,8 @@ class GobabelController {
 
     final GitVariables gitVariables = Dependencies.gitVariables;
     final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
+    print('🚀 success');
+    return;
 
     await runWithSpinner(
       () async {

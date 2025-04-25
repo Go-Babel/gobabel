@@ -155,7 +155,7 @@ Future<void> main(List<String> arguments) async {
       await controller.sync(token: apiKey);
       print('✅  Sync operation completed successfully.'.green);
     } catch (e) {
-      print('❌ Error during sync operation: $e'.red);
+      print('\n❌ Error during sync operation:\n$e'.red);
     }
   }
   // Handle the generate command

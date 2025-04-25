@@ -286,18 +286,16 @@ packages:
   gobabel_client:
     dependency: "direct main"
     description:
-      name: gobabel_client
-      sha256: "3999f69c0e2369f73139e856c50423bfd9e5ec6da75752b2eca3587370724de0"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../go_babel_app/gobabel_client"
+      relative: true
+    source: path
     version: "0.0.1"
   gobabel_core:
     dependency: "direct main"
     description:
-      name: gobabel_core
-      sha256: "8c6f6695c5f4710ccf7b17868d13f4c9dd398c7d9009b94e0e892cb8f1277fdb"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../gobabel_core"
+      relative: true
+    source: path
     version: "1.0.0"
   graphs:
     dependency: transitive
