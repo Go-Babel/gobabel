@@ -27,7 +27,6 @@ import 'package:gobabel/src/scripts/git_related/get_project_last_commit_sha_stam
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
-import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 
 Future<void> main(List<String> arguments) async {
@@ -61,7 +60,6 @@ Future<void> main(List<String> arguments) async {
           InferDeclarationFunctionFromArbJsonUsecase(),
     ),
     writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
-    notifyAibabelApiAboutNewVersionUseCase: UploadNewVersionUsecase(),
     resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
     getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(),
     extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
@@ -81,11 +79,17 @@ Future<void> main(List<String> arguments) async {
       ArgParser()
         ..addFlag('sync', abbr: 's', help: 'Perform sync operation')
         ..addFlag('generate', abbr: 'g', help: 'Generate new version')
+        ..addFlag(
+          'create',
+          abbr: 'g',
+          help: 'Add a new project in GoBabel system',
+        )
         ..addOption(
           'language',
           abbr: 'l',
           help: 'Language in format language_country, e.g., en_US',
         )
+        ..addOption('attach-to-user-with-id', abbr: 'k', help: 'Attach to user')
         ..addOption('api-key', abbr: 'k', help: 'API key')
         ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
@@ -158,7 +162,7 @@ Future<void> main(List<String> arguments) async {
     }
     final apiKey = argResults['api-key'] as String;
     try {
-      await controller.sync(token: apiKey, directory: directory);
+      await controller.sync(projectApiToken: apiKey, directory: directory);
       print('✅  Sync operation completed successfully.'.green);
       exit(1);
     } catch (e) {
@@ -197,10 +201,32 @@ Future<void> main(List<String> arguments) async {
         print('❌ Error: Invalid language/country code for $language'.red);
         return;
       }
-      await controller.createNewVersion(
-        token: apiKey,
+      await controller.generateNewVersion(
+        projectApiToken: apiKey,
         labelLocale: babelSupportedLocale,
         directory: directory,
+      );
+      print('✅ Generate operation completed successfully.'.green);
+      exit(1);
+    } catch (e) {
+      throw Exception('\n❌ Error during generate operation:\n$e'.red);
+    }
+  } else if (argResults['create'] as bool) {
+    if (argResults['attach-to-user-with-id'] == null) {
+      print(
+        '❌ Error: --attach-to-user-with-id is required for create operation.\n'
+                'You can get account api-key in the account tab in go babel dashboard.'
+            .red,
+      );
+      printUsage(parser);
+      return;
+    }
+    // --attach-to-user-with-id
+    try {
+      final accountApiKey = argResults['attach-to-user-with-id'] as String;
+      await controller.create(
+        directory: directory,
+        accountApiKey: accountApiKey,
       );
       print('✅ Generate operation completed successfully.'.green);
       exit(1);

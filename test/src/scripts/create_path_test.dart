@@ -83,7 +83,7 @@ void main() {
       final paddingStr = ' ' * padding;
       for (final subFolder in folder.subFolders) {
         print(
-          '$paddingStr+${subFolder.name} (${subFolder.subFolders.length} sub folders)',
+          '$paddingStr${subFolder.name} (${subFolder.subFolders.length} sub folders)',
         );
         printFolder(subFolder, padding: padding + 2);
       }

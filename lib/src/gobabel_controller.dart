@@ -16,15 +16,14 @@ import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dar
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
-import 'package:gobabel/src/scripts/translation_related/upload_new_version.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final RunForEachFileTextUsecase _runForEachFileTextUsecase;
-  final UploadNewVersionUsecase _notifyGobabelApiAboutNewVersionUseCase;
   final UpdateDartFileContentStringsUsecase
   _updateDartFileContentStringsUsecase;
   final FindArbDataUsecase _findArbDataUsecase;
@@ -50,7 +49,6 @@ class GobabelController {
     updateDartFileContentStringsUsecase,
     required FindArbDataUsecase findArbDataUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
-    required UploadNewVersionUsecase notifyAibabelApiAboutNewVersionUseCase,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
@@ -62,8 +60,6 @@ class GobabelController {
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
        _updateDartFileContentStringsUsecase =
            updateDartFileContentStringsUsecase,
-       _notifyGobabelApiAboutNewVersionUseCase =
-           notifyAibabelApiAboutNewVersionUseCase,
        _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
@@ -74,8 +70,8 @@ class GobabelController {
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
        _setTargetFilesUsecase = setTargetFilesUsecase;
 
-  Future<void> sync({
-    required String token,
+  Future<void> create({
+    required String accountApiKey,
     required Directory directory,
   }) async {
     Dependencies.resetAll();
@@ -107,12 +103,12 @@ class GobabelController {
     await runWithSpinner(
       () async {
         await Future.delayed(Duration(milliseconds: 1200));
-        await Dependencies.client.syncProject.sincronize(
+        await Dependencies.client.publicCreateProject(
           name: yamlInfo.projectName,
           description: yamlInfo.projectDescription ?? '',
           projectCodeBaseFolders: codeBase,
           projectShaIdentifier: gitVariables.projectShaIdentifier,
-          token: token,
+          accountApiKey: accountApiKey,
         );
       },
       message: 'Syncing project ${yamlInfo.projectName}',
@@ -120,8 +116,54 @@ class GobabelController {
     );
   }
 
-  Future<void> createNewVersion({
-    required String token,
+  Future<void> sync({
+    required String projectApiToken,
+    required Directory directory,
+  }) async {
+    Dependencies.resetAll();
+    Dependencies.setTargetDirectory(directory);
+
+    final desc = "Initializing project dependencies";
+    final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
+    p.increment();
+    // Ensure the current directory is a git directory
+    await _ensureGitDirectoryIsConfigured();
+    p.increment();
+    await _getCodeBaseYamlInfo();
+    p.increment();
+    await _getProjectGitDependenciesUsecase();
+    p.increment();
+
+    final Set<String> codeBase = await runWithSpinner(
+      () async {
+        await Future.delayed(Duration(milliseconds: 1200));
+        return await _extractProjectCodeBaseUsecase();
+      },
+      message: 'Mapping codebase file structure',
+      interval: Duration(milliseconds: 100),
+    );
+
+    final GitVariables gitVariables = Dependencies.gitVariables;
+    final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
+
+    await runWithSpinner(
+      () async {
+        await Future.delayed(Duration(milliseconds: 1200));
+        await Dependencies.client.publicSync(
+          name: yamlInfo.projectName,
+          description: yamlInfo.projectDescription ?? '',
+          projectCodeBaseFolders: codeBase,
+          projectShaIdentifier: gitVariables.projectShaIdentifier,
+          projectApiToken: projectApiToken,
+        );
+      },
+      message: 'Syncing project ${yamlInfo.projectName}',
+      interval: Duration(milliseconds: 120),
+    );
+  }
+
+  Future<void> generateNewVersion({
+    required String projectApiToken,
     required BabelSupportedLocales labelLocale,
     required Directory directory,
   }) async {
@@ -139,10 +181,10 @@ class GobabelController {
       p.increment();
       await _getProjectGitDependenciesUsecase();
       p.increment();
-      await _getAppLanguagesUsecase(token: token);
+      await _getAppLanguagesUsecase(token: projectApiToken);
       p.increment();
 
-      await _setTargetFilesUsecase(token: token);
+      await _setTargetFilesUsecase(projectApiToken: projectApiToken);
 
       await runWithSpinner(() async {
         await _findArbDataUsecase();
@@ -168,10 +210,17 @@ class GobabelController {
 
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
 
+      final GitVariables gitVariables = Dependencies.gitVariables;
       await runWithSpinner(() async {
-        await _notifyGobabelApiAboutNewVersionUseCase(
-          token: token,
+        await Dependencies.client.publicGenerate(
+          projectApiToken: projectApiToken,
           projectCodeBaseFolders: codeBase,
+          madeTranslations: Dependencies.madeTranslations,
+          projectShaIdentifier: gitVariables.projectShaIdentifier,
+          currentCommitSha: gitVariables.latestShaIdentifier,
+          pathsOfKeys: ArbKeysAppearancesPath(
+            pathAppearancesPerKey: Dependencies.pathAppearancesPerKey,
+          ),
         );
       }, message: 'Uploading new version to Gobabel server');
     } catch (e) {

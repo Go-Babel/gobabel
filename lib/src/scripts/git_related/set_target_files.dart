@@ -28,12 +28,14 @@ class SetTargetFilesUsecase {
        _getProjectLastCommitShaStampsUsecase =
            getProjectLastCommitShaStampsUsecase;
 
-  Future<void> call({required String token}) async {
+  Future<void> call({required String projectApiToken}) async {
     final ShaCommit curentSha = Dependencies.gitVariables.latestShaIdentifier;
 
     // Sort. The most recent first.
     final List<({ShaCommit sha, DateTime updatedDate})> projectVersionsShas = [
-      ...await _getProjectLastCommitShaStampsUsecase(token: token),
+      ...await _getProjectLastCommitShaStampsUsecase(
+        projectApiToken: projectApiToken,
+      ),
     ]..sort((a, b) => b.updatedDate.compareTo(a.updatedDate));
 
     if (projectVersionsShas.isEmpty) {

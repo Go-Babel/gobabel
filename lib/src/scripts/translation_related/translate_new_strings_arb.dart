@@ -7,7 +7,7 @@ class TranslateNewStringsArbUsecase {
   const TranslateNewStringsArbUsecase();
 
   Future<void> call({
-    required String token,
+    required String projectApiToken,
     required BabelSupportedLocales referenceLocale,
   }) async {
     final GitVariables gitVariables = Dependencies.gitVariables;
@@ -19,8 +19,8 @@ class TranslateNewStringsArbUsecase {
     madeTranslations = {};
 
     for (final projectLanguage in Dependencies.projectLanguages) {
-      final result = await Dependencies.client.translateArb.translate(
-        token: token,
+      final result = await Dependencies.client.publicTranslateArb.translate(
+        projectApiToken: projectApiToken,
         projectShaIdentifier: gitVariables.projectShaIdentifier,
         toLanguageCode: projectLanguage.languageCode,
         toCountryCode: projectLanguage.countryCode,

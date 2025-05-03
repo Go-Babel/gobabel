@@ -5,7 +5,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 class GetAppLanguagesUsecase {
   Future<void> call({required String token}) async {
     final GitVariables gitVariables = Dependencies.gitVariables;
-    final languagesResponse = await Dependencies.client.syncProject
+    final languagesResponse = await Dependencies.client.publicProject
         .getProjectLanguages(
           projectShaIdentifier: gitVariables.projectShaIdentifier,
         );

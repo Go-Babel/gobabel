@@ -3,13 +3,13 @@ import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dar
 
 class GetProjectLastCommitShaStampsUsecase {
   Future<List<({String sha, DateTime updatedDate})>> call({
-    required String token,
+    required String projectApiToken,
   }) async {
     Dependencies.gitBarLoading.increment();
 
     final GitVariables gitVariables = Dependencies.gitVariables;
-    final shaUpdates = await Dependencies.client.syncProject.getLastUpdateSha(
-      token: token,
+    final shaUpdates = await Dependencies.client.publicProject.getLastUpdateSha(
+      projectApiToken: projectApiToken,
       projectShaIdentifier: gitVariables.projectShaIdentifier,
     );
 

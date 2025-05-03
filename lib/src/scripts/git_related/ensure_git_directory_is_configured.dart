@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:git/git.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:path/path.dart' as path;
 
 class EnsureGitDirectoryIsConfiguredUsecase {
   const EnsureGitDirectoryIsConfiguredUsecase();
