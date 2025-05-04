@@ -19,9 +19,19 @@ class GetProjectGitDependenciesUsecase {
         shellArgs = ['-c', 'git rev-list --parents --reverse HEAD | head -2'];
       }
 
+      final dirrPath = Dependencies.targetDirectory.path;
       // Run the command
-      final ProcessResult result = await Process.run(shell, shellArgs);
+      final ProcessResult result = await Process.run(
+        shell,
+        shellArgs,
+        workingDirectory: dirrPath,
+      );
       final shas = '${result.stdout}'.trim().split('\n');
+      if (shas.length < 2) {
+        throw Exception(
+          'Your project should have at least 2 commits.\nCommits SHA are used as a unique identifier of your project in gobabel system.\nAlso, check if you are in the correct path: $dirrPath',
+        );
+      }
       final projectShaIdentifierText = shas[1].trim().replaceAll(' ', '');
       final BigInt projectShaIdentifier = BigInt.parse(
         projectShaIdentifierText,
@@ -34,7 +44,7 @@ class GetProjectGitDependenciesUsecase {
       );
     } catch (e, s) {
       throw Exception(
-        'Failed to get project dependencies. Please run sync command if it\'s a new project. Double-check if your token key is valid and not misstyped.\n$e\n$s'
+        'Failed to get project dependencies. Please run create command if it\'s a new project. Double-check if your token key is valid and not misstyped.\n\nDETAILS:\n${'$e'.replaceAll('Exception: ', '')}\n$s'
             .red,
       );
     }

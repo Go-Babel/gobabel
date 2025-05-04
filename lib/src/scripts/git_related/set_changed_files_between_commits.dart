@@ -18,13 +18,14 @@ class SetChangedDartFilesBetweenCommitsUsecase {
   /// installed, or not in a Git repository).
   Future<void> call({required String commit1, required String commit2}) async {
     Dependencies.gitBarLoading.increment();
+    final dirrPath = Dependencies.targetDirectory.path;
     // Run the Git diff command with --name-only to get changed file paths
     final result = await Process.run('git', [
       'diff',
       '--name-only',
       commit1,
       commit2,
-    ]);
+    ], workingDirectory: dirrPath);
 
     // Check if the command executed successfully
     if (result.exitCode != 0) {

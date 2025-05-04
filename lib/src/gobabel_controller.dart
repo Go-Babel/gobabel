@@ -125,13 +125,17 @@ class GobabelController {
 
     final desc = "Initializing project dependencies";
     final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
+    await Future<void>.delayed(Duration(milliseconds: 200));
     p.increment();
     // Ensure the current directory is a git directory
     await _ensureGitDirectoryIsConfigured();
+    await Future<void>.delayed(Duration(milliseconds: 200));
     p.increment();
     await _getCodeBaseYamlInfo();
+    await Future<void>.delayed(Duration(milliseconds: 200));
     p.increment();
     await _getProjectGitDependenciesUsecase();
+    await Future<void>.delayed(Duration(milliseconds: 200));
     p.increment();
 
     final Set<String> codeBase = await runWithSpinner(
@@ -173,15 +177,20 @@ class GobabelController {
 
       final desc = "Initializing project dependencies";
       final p = FillingBar(desc: desc, total: 5, time: true, percentage: true);
+      await Future<void>.delayed(Duration(milliseconds: 200));
       p.increment();
       // Ensure the current directory is a git directory
       await _ensureGitDirectoryIsConfigured();
+      await Future<void>.delayed(Duration(milliseconds: 200));
       p.increment();
       await _getCodeBaseYamlInfo();
+      await Future<void>.delayed(Duration(milliseconds: 200));
       p.increment();
       await _getProjectGitDependenciesUsecase();
+      await Future<void>.delayed(Duration(milliseconds: 200));
       p.increment();
       await _getAppLanguagesUsecase(token: projectApiToken);
+      await Future<void>.delayed(Duration(milliseconds: 200));
       p.increment();
 
       await _setTargetFilesUsecase(projectApiToken: projectApiToken);

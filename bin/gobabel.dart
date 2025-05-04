@@ -81,7 +81,7 @@ Future<void> main(List<String> arguments) async {
         ..addFlag('generate', abbr: 'g', help: 'Generate new version')
         ..addFlag(
           'create',
-          abbr: 'g',
+          abbr: 'c',
           help: 'Add a new project in GoBabel system',
         )
         ..addOption(
@@ -89,7 +89,7 @@ Future<void> main(List<String> arguments) async {
           abbr: 'l',
           help: 'Language in format language_country, e.g., en_US',
         )
-        ..addOption('attach-to-user-with-id', abbr: 'k', help: 'Attach to user')
+        ..addOption('attach-to-user-with-id', abbr: 'u', help: 'Attach to user')
         ..addOption('api-key', abbr: 'k', help: 'API key')
         ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
@@ -112,13 +112,13 @@ Future<void> main(List<String> arguments) async {
   } catch (e) {
     print('❌ Error parsing arguments: $e'.red);
     printUsage(parser);
-    return;
+    exit(1);
   }
 
   // Handle the --help flag
   if (argResults['help'] as bool) {
     printUsage(parser);
-    return;
+    exit(0);
   }
 
   // Handle the --version flag
@@ -126,26 +126,32 @@ Future<void> main(List<String> arguments) async {
     try {
       final version = await getPackageVersion();
       print('go_babel version: $version');
+      exit(1);
     } catch (e) {
       print('❌ Error reading package version: $e'.red);
+      exit(0);
     }
-    return;
   }
 
   // Check for mutually exclusive operations
-  if (argResults['sync'] as bool && argResults['generate'] as bool) {
+  if (argResults['sync'] as bool && argResults['generate'] as bool ||
+      argResults['sync'] as bool && argResults['create'] as bool ||
+      argResults['generate'] as bool && argResults['create'] as bool) {
     print(
-      '❌ Error: Cannot perform both sync and generate operations at the same time.',
+      '❌ Error: Cannot specify --sync, --generate, or --create together. Use one at a time.'
+          .red,
     );
     printUsage(parser);
-    return;
+    exit(1);
   }
 
   // Ensure an operation is specified
-  if (!(argResults['sync'] as bool) && !(argResults['generate'] as bool)) {
+  if (!(argResults['sync'] as bool) &&
+      !(argResults['generate'] as bool) &&
+      !(argResults['create'] as bool)) {
     print('❌ Error: Must specify either --sync or --generate.'.red);
     printUsage(parser);
-    return;
+    exit(1);
   }
   final apiPath = argResults['path'] as String?;
   final directory = resolvePath(apiPath);
@@ -164,9 +170,10 @@ Future<void> main(List<String> arguments) async {
     try {
       await controller.sync(projectApiToken: apiKey, directory: directory);
       print('✅  Sync operation completed successfully.'.green);
-      exit(1);
+      exit(0);
     } catch (e) {
-      throw Exception('\n❌ Error during sync operation:\n$e'.red);
+      print('\n❌ Error during sync operation:\n$e'.red);
+      exit(1);
     }
   }
   // Handle the generate command
@@ -174,12 +181,12 @@ Future<void> main(List<String> arguments) async {
     if (argResults['language'] == null) {
       print('❌ Error: --language is required for generate operation.'.red);
       printUsage(parser);
-      return;
+      exit(0);
     }
     if (argResults['api-key'] == null) {
       print('❌ Error: --api-key is required for generate operation.'.red);
       printUsage(parser);
-      return;
+      exit(0);
     }
     final language = argResults['language'] as String;
     final apiKey = argResults['api-key'] as String;
@@ -187,10 +194,11 @@ Future<void> main(List<String> arguments) async {
     final parts = language.split('_');
     if (parts.length != 2) {
       print(
-        '❌ Error: Invalid language format.\nExpected language_country, in this exact format, e.g., en_US.'
+        '❌ Error: Invalid language format.\n'
+                'Expected language_country, in this exact format, e.g., en_US.'
             .red,
       );
-      return;
+      exit(0);
     }
     final languageCode = parts[0];
     final countryCode = parts[1];
@@ -199,7 +207,7 @@ Future<void> main(List<String> arguments) async {
           BabelSupportedLocales.fromLocale(languageCode, countryCode);
       if (babelSupportedLocale == null) {
         print('❌ Error: Invalid language/country code for $language'.red);
-        return;
+        exit(1);
       }
       await controller.generateNewVersion(
         projectApiToken: apiKey,
@@ -209,7 +217,8 @@ Future<void> main(List<String> arguments) async {
       print('✅ Generate operation completed successfully.'.green);
       exit(1);
     } catch (e) {
-      throw Exception('\n❌ Error during generate operation:\n$e'.red);
+      print('\n❌ Error during generate operation:\n$e'.red);
+      exit(1);
     }
   } else if (argResults['create'] as bool) {
     if (argResults['attach-to-user-with-id'] == null) {
@@ -219,7 +228,7 @@ Future<void> main(List<String> arguments) async {
             .red,
       );
       printUsage(parser);
-      return;
+      exit(0);
     }
     // --attach-to-user-with-id
     try {
@@ -228,10 +237,11 @@ Future<void> main(List<String> arguments) async {
         directory: directory,
         accountApiKey: accountApiKey,
       );
-      print('✅ Generate operation completed successfully.'.green);
+      print('✅ Create operation completed successfully.'.green);
       exit(1);
     } catch (e) {
-      throw Exception('\n❌ Error during generate operation:\n$e'.red);
+      print('\n❌ Error during create operation:\n$e'.red);
+      exit(1);
     }
   }
 }
@@ -240,13 +250,15 @@ Future<void> main(List<String> arguments) async {
 Future<String> getPackageVersion() async {
   final file = File('pubspec.yaml');
   if (!await file.exists()) {
-    throw Exception('pubspec.yaml not found');
+    print('\n❌ pubspec.yaml not found'.red);
+    exit(0);
   }
   final content = await file.readAsString();
   final yaml = loadYaml(content);
   final version = yaml['version'];
   if (version == null) {
-    throw Exception('Version not specified in pubspec.yaml');
+    print('\n❌ Version not specified in pubspec.yaml'.red);
+    exit(0);
   }
   return version.toString();
 }

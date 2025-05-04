@@ -12,7 +12,7 @@ class GetAppLanguagesUsecase {
 
     if (languagesResponse.languages.isEmpty) {
       throw Exception(
-        'Failed to get project dependencies. Please run sync command if it\'s a new project. Double-check if your token key is valid and not misstyped.',
+        'Failed to get project dependencies. Please run create command if it\'s a new project. Double-check if your token key is valid and not misstyped.',
       );
     }
 

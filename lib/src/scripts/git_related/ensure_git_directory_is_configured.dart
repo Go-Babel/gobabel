@@ -7,6 +7,7 @@ class EnsureGitDirectoryIsConfiguredUsecase {
   Future<void> call() async {
     final dirrPath = Dependencies.targetDirectory.path;
     final isCurrentDirectoryAGitDirectory = await GitDir.isGitDir(dirrPath);
+
     if (!isCurrentDirectoryAGitDirectory) {
       throw Exception(
         'Current directory is not a git directory.\n'
