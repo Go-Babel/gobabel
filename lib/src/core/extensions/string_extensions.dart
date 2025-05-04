@@ -7,20 +7,20 @@ extension StringExtensions on String {
 
   String get toCamelCase {
     return
-        // Replace all not digits (only a-z, and digits) by space
-        replaceAll(r'\n', ' ')
-            .replaceAll(RegExp(r'\W'), ' ')
-            .replaceAll(RegExp(r'\s{2,}'), ' ')
-            .camelCase;
+    // Replace all not digits (only a-z, and digits) by space
+    replaceAll(r'\n', ' ')
+        .replaceAll(RegExp(r'\W'), ' ')
+        .replaceAll(RegExp(r'\s{2,}'), ' ')
+        .camelCase;
   }
 
   String get toSnakeCase {
     return
-        // Replace all not digits (only a-z, and digits) by space
-        replaceAll(r'\n', ' ')
-            .replaceAll(RegExp(r'\W'), ' ')
-            .replaceAll(RegExp(r'\s{2,}'), ' ')
-            .snakeCase;
+    // Replace all not digits (only a-z, and digits) by space
+    replaceAll(r'\n', ' ')
+        .replaceAll(RegExp(r'\W'), ' ')
+        .replaceAll(RegExp(r'\s{2,}'), ' ')
+        .snakeCase;
   }
 
   String get rawDynamicValue {
@@ -32,5 +32,18 @@ extension StringExtensions on String {
 
   String get formatToComment {
     return '  /// ${replaceAll(RegExp('\n'), '<p>\n/// ')}';
+  }
+
+  /// Remove everything vefore "/lib"
+  /// For example:
+  /// /Users/igormidev/gobabel/gobabel/lib/src/scripts/git_related/get_project_git_dependencies.dart
+  /// becomes
+  /// lib/src/scripts/git_related/get_project_git_dependencies.dart
+  String get castToCleanPath {
+    final int index = indexOf('/lib');
+    if (index == -1) {
+      return this;
+    }
+    return substring(index);
   }
 }

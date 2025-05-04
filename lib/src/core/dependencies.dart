@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:console_bars/console_bars.dart';
+import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -65,14 +67,14 @@ class Dependencies {
 
   static void addLabelContextPath(L10nKey key, ContextPath contextPaths) {
     if (_pathAppearancesPerKey.containsKey(key)) {
-      _pathAppearancesPerKey[key]!.add(contextPaths);
+      _pathAppearancesPerKey[key]!.add(contextPaths.castToCleanPath);
     } else {
-      _pathAppearancesPerKey[key] = {contextPaths};
+      _pathAppearancesPerKey[key] = {contextPaths.castToCleanPath};
     }
   }
 
   Dependencies.resetAll() {
-    gitBarLoading = _initialBarLoading;
+    if (!isInTest) gitBarLoading = _initialBarLoading;
     arbData = null;
     _codeBaseYamlInfo = null;
     filesVerificationState = null;

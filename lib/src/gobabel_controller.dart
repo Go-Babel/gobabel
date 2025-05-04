@@ -20,6 +20,8 @@ import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
+bool isInTest = true;
+
 class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
@@ -218,8 +220,8 @@ class GobabelController {
       await _writeBabelTextFileIntoDirectory();
 
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
-
       final GitVariables gitVariables = Dependencies.gitVariables;
+
       await runWithSpinner(() async {
         await Dependencies.client.publicGenerate(
           projectApiToken: projectApiToken,

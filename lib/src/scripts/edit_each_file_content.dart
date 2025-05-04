@@ -34,12 +34,16 @@ class RunForEachFileTextUsecase {
     onDartFileFinded,
   ) async {
     final desc = "Analysing dart files with potential translation labels";
-    final p = FillingBar(
-      desc: desc,
-      total: changedFilesPath.length,
-      time: true,
-      percentage: true,
-    );
+
+    final FillingBar? p =
+        isInTest
+            ? null
+            : FillingBar(
+              desc: desc,
+              total: changedFilesPath.length,
+              time: true,
+              percentage: true,
+            );
     final Directory curr = Dependencies.targetDirectory;
     final dirrPath = curr.path;
     for (final ChangedFilePath filePath in changedFilesPath) {
@@ -47,7 +51,7 @@ class RunForEachFileTextUsecase {
       final String directoryFilePath = '$dirrPath/$path';
 
       await _runForFile(File(directoryFilePath), onDartFileFinded);
-      p.increment();
+      p?.increment();
     }
   }
 
@@ -61,18 +65,22 @@ class RunForEachFileTextUsecase {
     final Directory curr = Dependencies.targetDirectory;
     final List<File> allTargetFiles = await runWithSpinner(() async {
       return await _getAllDartFilesThatNeedToBeAnalysed(curr);
-    }, message: 'Uploading new version to Gobabel server');
+    }, message: 'Retriving all files');
     final desc = "Analysing dart files with potential translation labels";
 
-    final p = FillingBar(
-      desc: desc,
-      total: allTargetFiles.length,
-      time: true,
-      percentage: true,
-    );
+    final FillingBar? p =
+        isInTest
+            ? null
+            : FillingBar(
+              desc: desc,
+              total: allTargetFiles.length,
+              time: true,
+              percentage: true,
+            );
 
     for (final File file in allTargetFiles) {
-      p.increment();
+      p?.increment();
+
       await _runForFile(file, onDartFileFinded);
     }
   }
@@ -90,7 +98,9 @@ class RunForEachFileTextUsecase {
     if (!file.path.endsWith('.dart') || !exists) return;
 
     final String fileContentAsString = await file.readAsString();
+
     final String filePath = file.path;
+
     final newFile = await onDartFileFinded(filePath, fileContentAsString);
     if (newFile == null) return;
     await file.writeAsString(newFile);
@@ -104,10 +114,8 @@ class RunForEachFileTextUsecase {
     final List<File> files = [];
     await for (final entity in dir.list(recursive: true, followLinks: false)) {
       if (entity is File) {
-        final isInIgnoreFolder = ignoreFolders.any(
-          (folderName) => entity.path.contains('/$folderName/'),
-        );
-        if (isInIgnoreFolder) continue;
+        final isInIgnoreFile = entity.path.contains('lib/');
+        if (isInIgnoreFile) continue;
         if (entity.path.endsWith('.dart')) {
           files.add(entity);
         }
@@ -116,18 +124,3 @@ class RunForEachFileTextUsecase {
     return files;
   }
 }
-
-// Thease are the folders that we want to ignore because we know that they are
-// no relevant dart files in them.
-final Set<String> ignoreFolders = {
-  '.dart_tool',
-  '.idea',
-  'android',
-  'ios',
-  'lib',
-  'linux',
-  'macos',
-  'test',
-  'web',
-  'windows',
-};
