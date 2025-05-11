@@ -1,22 +1,27 @@
-// | Name            | Example             |
-// | --------------- | ------------------- |
-// | `camelCase`     | `helloWorld`        |
-// | `constantCase`  | `HELLO_WORLD`       |
-// | `dotCase`       | `hello.world`       |
-// | `headerCase`    | `Hello-World`       |
-// | `lowerCase`     | `hello world`       |
-// | `mustacheCase`  | `{{ Hello World }}` |
-// | `pascalCase`    | `HelloWorld`        |
-// | `pascalDotCase` | `Hello.World`       |
-// | `paramCase`     | `hello-world`       |
-// | `pathCase`      | `hello/world`       |
-// | `sentenceCase`  | `Hello world`       |
-// | `snakeCase`     | `hello_world`       |
-// | `titleCase`     | `Hello World`       |
-// | `upperCase`     | `HELLO WORLD`       |
+// | Name            | Example                     |
+// | --------------- | --------------------------- |
+// | `importCase`    | `package:dartz/dartz.dart`  |
+// | `camelCase`     | `helloWorld`                |
+// | `constantCase`  | `HELLO_WORLD`               |
+// | `dotCase`       | `hello.world`               |
+// | `headerCase`    | `Hello-World`               |
+// | `lowerCase`     | `hello world`               |
+// | `mustacheCase`  | `{{ Hello World }}`         |
+// | `pascalCase`    | `HelloWorld`                |
+// | `pascalDotCase` | `Hello.World`               |
+// | `paramCase`     | `hello-world`               |
+// | `pathCase`      | `hello/world`               |
+// | `sentenceCase`  | `Hello world`               |
+// | `snakeCase`     | `hello_world`               |
+// | `titleCase`     | `Hello World`               |
+// | `upperCase`     | `HELLO WORLD`               | (?<!\w)\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)
 
 class CaseIdentifyRegex {
   // If you wan't without end suffix optional (ex: .dart), use: (?<!\w)\w{1,}(?:\/\w+){1,}\/?(?!\w)
+  static const String importCase =
+      r'\w+:(?:(?:(?:\w|\.)+$)|'
+      '$pathCase)';
+  // r'\w+:' + pathCase;
   static const String pathCase =
       r'(?<!\w)\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)';
   static const String camelCase =
@@ -45,6 +50,7 @@ class CaseIdentifyRegex {
     return matches.first.start == 0 && matches.first.end == value.length;
   }
 
+  static bool isImportCase(String value) => isCase(value, importCase);
   static bool isPathCase(String value) => isCase(value, pathCase);
   static bool isCamelCase(String value) => isCase(value, camelCase);
   static bool isConstantCase(String value) => isCase(value, constantCase);
@@ -56,7 +62,8 @@ class CaseIdentifyRegex {
   static bool isSnakeCase(String value) => isCase(value, snakeCase);
 
   static bool isAnyCase(String value) {
-    return isCamelCase(value) ||
+    return isImportCase(value) ||
+        isCamelCase(value) ||
         isConstantCase(value) ||
         isDotCase(value) ||
         isHeaderCase(value) ||
