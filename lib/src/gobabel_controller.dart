@@ -27,7 +27,7 @@ class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final RunForEachFileTextUsecase _runForEachFileTextUsecase;
-  final UpdateDartFileContentStringsUsecase
+  final ReplaceHardCodedStringsForBabelTextUsecase
   _updateDartFileContentStringsUsecase;
   final FindArbDataUsecase _findArbDataUsecase;
   final ReplaceArbOutputClassToBabelTextUsecase
@@ -48,7 +48,7 @@ class GobabelController {
     required MapStringsUsecase mapStringsUsecase,
     required ReplaceArbOutputClassToBabelTextUsecase
     replaceArbOutputClassToBabelTextUsecase,
-    required UpdateDartFileContentStringsUsecase
+    required ReplaceHardCodedStringsForBabelTextUsecase
     updateDartFileContentStringsUsecase,
     required FindArbDataUsecase findArbDataUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,

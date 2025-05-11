@@ -42,15 +42,16 @@ Future<void> main(List<String> arguments) async {
     ),
     replaceArbOutputClassToBabelTextUsecase:
         ReplaceArbOutputClassToBabelTextUsecase(),
-    updateDartFileContentStringsUsecase: UpdateDartFileContentStringsUsecase(
-      getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
-        validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
-      ),
-      mapStringsUsecase: MapStringsUsecase(
-        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
-      ),
-      retriveAllAibabelConstsFromFile: RetriveAllAibabelConstsFromFile(),
-    ),
+    updateDartFileContentStringsUsecase:
+        ReplaceHardCodedStringsForBabelTextUsecase(
+          getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
+            validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+          ),
+          mapStringsUsecase: MapStringsUsecase(
+            getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+          ),
+          retriveAllAibabelConstsFromFile: RetriveAllAibabelConstsFromFile(),
+        ),
     findArbDataUsecase: FindArbDataUsecase(
       extractLocationDataFromArbFileName:
           ExtractLocationDataFromArbFileNameUsecase(),
