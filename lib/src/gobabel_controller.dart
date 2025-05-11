@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/extensions/string_extensions.dart';
+import 'package:gobabel/src/core/utils/spinner_loading.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
@@ -79,23 +80,25 @@ class GobabelController {
     Dependencies.resetAll();
     Dependencies.setTargetDirectory(directory);
 
-    final desc = "Initializing project dependencies";
-    final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
-    p.increment();
-    // Ensure the current directory is a git directory
-    await _ensureGitDirectoryIsConfigured();
-    p.increment();
-    await _getCodeBaseYamlInfo();
-    p.increment();
-    await _getProjectGitDependenciesUsecase();
-    p.increment();
+    await runWithSpinner(
+      successMessage: 'Project dependencies initialized',
+      message: 'Initializing project dependencies...',
+      () async {
+        await Future<void>.delayed(Duration(milliseconds: 200));
+        // Ensure the current directory is a git directory
+        await _ensureGitDirectoryIsConfigured();
+        await _getCodeBaseYamlInfo();
+        await _getProjectGitDependenciesUsecase();
+      },
+    );
 
     final Set<String> codeBase = await runWithSpinner(
       () async {
         await Future.delayed(Duration(milliseconds: 1200));
         return await _extractProjectCodeBaseUsecase();
       },
-      message: 'Mapping codebase file structure',
+      successMessage: 'Codebase file structure mapped',
+      message: 'Mapping codebase file structure...',
       interval: Duration(milliseconds: 100),
     );
 
@@ -103,6 +106,8 @@ class GobabelController {
     final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
 
     await runWithSpinner(
+      successMessage: 'Project ${yamlInfo.projectName} created!$endText',
+      message: 'Creating project ${yamlInfo.projectName}...',
       () async {
         await Future.delayed(Duration(milliseconds: 1200));
         await Dependencies.client.publicCreateProject(
@@ -113,8 +118,6 @@ class GobabelController {
           accountApiKey: accountApiKey,
         );
       },
-      message: 'Syncing project ${yamlInfo.projectName}',
-      interval: Duration(milliseconds: 120),
     );
   }
 
@@ -125,27 +128,25 @@ class GobabelController {
     Dependencies.resetAll();
     Dependencies.setTargetDirectory(directory);
 
-    final desc = "Initializing project dependencies";
-    final p = FillingBar(desc: desc, total: 4, time: true, percentage: true);
-    await Future<void>.delayed(Duration(milliseconds: 200));
-    p.increment();
-    // Ensure the current directory is a git directory
-    await _ensureGitDirectoryIsConfigured();
-    await Future<void>.delayed(Duration(milliseconds: 200));
-    p.increment();
-    await _getCodeBaseYamlInfo();
-    await Future<void>.delayed(Duration(milliseconds: 200));
-    p.increment();
-    await _getProjectGitDependenciesUsecase();
-    await Future<void>.delayed(Duration(milliseconds: 200));
-    p.increment();
+    await runWithSpinner(
+      successMessage: 'Project dependencies initialized',
+      message: 'Initializing project dependencies...',
+      () async {
+        await Future<void>.delayed(Duration(milliseconds: 200));
+        // Ensure the current directory is a git directory
+        await _ensureGitDirectoryIsConfigured();
+        await _getCodeBaseYamlInfo();
+        await _getProjectGitDependenciesUsecase();
+      },
+    );
 
     final Set<String> codeBase = await runWithSpinner(
+      successMessage: 'Codebase file structure mapped',
+      message: 'Mapping codebase file structure...',
       () async {
         await Future.delayed(Duration(milliseconds: 1200));
         return await _extractProjectCodeBaseUsecase();
       },
-      message: 'Mapping codebase file structure',
       interval: Duration(milliseconds: 100),
     );
 
@@ -153,6 +154,8 @@ class GobabelController {
     final CodeBaseYamlInfo yamlInfo = Dependencies.codeBaseYamlInfo;
 
     await runWithSpinner(
+      successMessage: 'Project ${yamlInfo.projectName} synced!$endText',
+      message: 'Syncing project ${yamlInfo.projectName}...',
       () async {
         await Future.delayed(Duration(milliseconds: 1200));
         await Dependencies.client.publicSync(
@@ -163,8 +166,6 @@ class GobabelController {
           projectApiToken: projectApiToken,
         );
       },
-      message: 'Syncing project ${yamlInfo.projectName}',
-      interval: Duration(milliseconds: 120),
     );
   }
 
@@ -177,29 +178,32 @@ class GobabelController {
       Dependencies.resetAll();
       Dependencies.setTargetDirectory(directory);
 
-      final desc = "Initializing project dependencies";
-      final p = FillingBar(desc: desc, total: 5, time: true, percentage: true);
-      await Future<void>.delayed(Duration(milliseconds: 200));
-      p.increment();
-      // Ensure the current directory is a git directory
-      await _ensureGitDirectoryIsConfigured();
-      await Future<void>.delayed(Duration(milliseconds: 200));
-      p.increment();
-      await _getCodeBaseYamlInfo();
-      await Future<void>.delayed(Duration(milliseconds: 200));
-      p.increment();
-      await _getProjectGitDependenciesUsecase();
-      await Future<void>.delayed(Duration(milliseconds: 200));
-      p.increment();
-      await _getAppLanguagesUsecase(token: projectApiToken);
-      await Future<void>.delayed(Duration(milliseconds: 200));
-      p.increment();
+      await runWithSpinner(
+        successMessage: 'Project dependencies initialized',
+        message: 'Initializing project dependencies...',
+        () async {
+          await _ensureGitDirectoryIsConfigured();
+          await _getCodeBaseYamlInfo();
+          await _getProjectGitDependenciesUsecase();
+          await _getAppLanguagesUsecase(token: projectApiToken);
+        },
+      );
 
-      await _setTargetFilesUsecase(projectApiToken: projectApiToken);
+      await runWithSpinner(
+        successMessage: 'Mapping target files',
+        message: 'Mapping target files...',
+        () async {
+          await _setTargetFilesUsecase(projectApiToken: projectApiToken);
+        },
+      );
 
-      await runWithSpinner(() async {
-        await _findArbDataUsecase();
-      }, message: 'Mapping arb data if exists');
+      await runWithSpinner(
+        successMessage: 'Data migration analysis completed',
+        message: 'Checking for potential pending data migration...',
+        () async {
+          await _findArbDataUsecase();
+        },
+      );
 
       await _runForEachFileTextUsecase(
         onDartFileFinded: (
@@ -222,18 +226,22 @@ class GobabelController {
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
       final GitVariables gitVariables = Dependencies.gitVariables;
 
-      await runWithSpinner(() async {
-        await Dependencies.client.publicGenerate(
-          projectApiToken: projectApiToken,
-          projectCodeBaseFolders: codeBase,
-          madeTranslations: Dependencies.madeTranslations,
-          projectShaIdentifier: gitVariables.projectShaIdentifier,
-          currentCommitSha: gitVariables.latestShaIdentifier,
-          pathsOfKeys: ArbKeysAppearancesPath(
-            pathAppearancesPerKey: Dependencies.pathAppearancesPerKey,
-          ),
-        );
-      }, message: 'Uploading new version to Gobabel server');
+      await runWithSpinner(
+        successMessage: 'New version created successfully!$endText',
+        message: 'Uploading new version to Gobabel server...',
+        () async {
+          await Dependencies.client.publicGenerate(
+            projectApiToken: projectApiToken,
+            projectCodeBaseFolders: codeBase,
+            madeTranslations: Dependencies.madeTranslations,
+            projectShaIdentifier: gitVariables.projectShaIdentifier,
+            currentCommitSha: gitVariables.latestShaIdentifier,
+            pathsOfKeys: ArbKeysAppearancesPath(
+              pathAppearancesPerKey: Dependencies.pathAppearancesPerKey,
+            ),
+          );
+        },
+      );
     } catch (e) {
       printError(
         'Error creating new version, '
@@ -253,75 +261,5 @@ void printWarning(String text) {
   print('\x1B[33m$text\x1B[0m');
 }
 
-/// Runs [action], showing a spinner plus [message] in the terminal until it
-/// completes. Returns whatever [action] returns (or rethrows its error).
-Future<T> runWithSpinner<T>(
-  Future<T> Function() action, {
-  String message = 'Loading',
-  Duration interval = const Duration(milliseconds: 100),
-}) async {
-  const spinnerChars = ['|', '/', '-', '\\'];
-  int idx = 0;
-
-  // Start a periodic timer to update the spinner
-  final timer = Timer.periodic(interval, (_) {
-    stdout.write('\r${spinnerChars[idx % spinnerChars.length]} $message...');
-    idx++;
-  });
-
-  try {
-    // Await the user-provided action
-    final result = await action();
-    return result;
-  } catch (e) {
-    // Rethrow after cleaning up spinner
-    rethrow;
-  } finally {
-    // Stop spinner and clear line
-    timer.cancel();
-    stdout
-      ..write('\r') // Move to line start
-      ..write(' ' * (message.length + 4)) // Overwrite spinner+message
-      ..write('\r'); // Move back again
-  }
-}
-
-// /// Displays a spinning loading indicator while [task] is running.
-// /// [message] is the custom text to display with the spinner (default: 'Loading').
-// /// Returns the result of the [task].
-// Future<T> showSpinner<T>({
-//   required Future<T> Function() task,
-//   String message = 'Loading',
-// }) async {
-//   const spinner = ['|', '/', '-', '\\'];
-//   const spinDelay = Duration(milliseconds: 100);
-//   int i = 0;
-//   bool isRunning = true;
-
-//   // Hide cursor for cleaner output
-//   stdout.write('\x1B[?25l');
-
-//   // Run the task in the background
-//   final taskFuture = task();
-
-//   // Display spinner while task is running
-//   while (isRunning) {
-//     stdout.write('\r$message ${spinner[i % spinner.length]}'.white);
-//     i++;
-//     await Future.delayed(spinDelay);
-
-//     // Check if task is complete
-//     if (await Future.any([taskFuture.then((_) => true), Future.value(false)])) {
-//       isRunning = false;
-//     }
-//   }
-
-//   // Wait for the task result
-//   final result = await taskFuture;
-
-//   // Clear the line, show cursor, and indicate completion
-//   stdout.write('\r\x1B[K');
-//   stdout.write('\x1B[?25h');
-
-//   return result;
-// }
+final String endText =
+    ' ${'Refresh'.highlightOnSuccessColor} gobabel dashboard to see changes.';

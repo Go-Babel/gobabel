@@ -1,9 +1,6 @@
 import 'dart:io';
-
-import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/core/type_defs.dart';
-import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -74,7 +71,6 @@ class Dependencies {
   }
 
   Dependencies.resetAll() {
-    if (!isInTest) gitBarLoading = _initialBarLoading;
     arbData = null;
     _codeBaseYamlInfo = null;
     filesVerificationState = null;
@@ -85,15 +81,6 @@ class Dependencies {
     allDeclarationFunctions.clear();
     madeTranslations.clear();
   }
-
-  static late FillingBar gitBarLoading;
-
-  FillingBar get _initialBarLoading => FillingBar(
-    desc: "Getting git related dependencies",
-    total: 4,
-    time: true,
-    percentage: true,
-  );
 }
 
 const ipAddress = 'localhost';

@@ -169,7 +169,6 @@ Future<void> main(List<String> arguments) async {
     final apiKey = argResults['api-key'] as String;
     try {
       await controller.sync(projectApiToken: apiKey, directory: directory);
-      print('✅  Sync operation completed successfully.'.green);
       exit(0);
     } catch (e) {
       print('\n❌ Error during sync operation:\n$e'.red);
@@ -214,7 +213,6 @@ Future<void> main(List<String> arguments) async {
         labelLocale: babelSupportedLocale,
         directory: directory,
       );
-      print('✅ Generate operation completed successfully.'.green);
       exit(1);
     } catch (e) {
       print('\n❌ Error during generate operation:\n$e'.red);
@@ -237,7 +235,6 @@ Future<void> main(List<String> arguments) async {
         directory: directory,
         accountApiKey: accountApiKey,
       );
-      print('✅ Create operation completed successfully.'.green);
       exit(1);
     } catch (e) {
       print('\n❌ Error during create operation:\n$e'.red);

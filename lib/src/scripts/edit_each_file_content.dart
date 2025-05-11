@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel/src/core/utils/spinner_loading.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
@@ -63,10 +64,14 @@ class RunForEachFileTextUsecase {
     onDartFileFinded,
   ) async {
     final Directory curr = Dependencies.targetDirectory;
-    final List<File> allTargetFiles = await runWithSpinner(() async {
-      return await _getAllDartFilesThatNeedToBeAnalysed(curr);
-    }, message: 'Retriving all files');
-    final desc = "Analysing dart files with potential translation labels";
+    final List<File> allTargetFiles = await runWithSpinner(
+      successMessage: 'All files retrieved',
+      message: 'Retriving all files that need to be analysed...',
+      () async {
+        return await _getAllDartFilesThatNeedToBeAnalysed(curr);
+      },
+    );
+    final desc = "Analysing dart files for potential translation labels";
 
     final FillingBar? p =
         isInTest
