@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
@@ -135,7 +136,7 @@ class MapStringsUsecase {
           hardCodedString: HardCodedStringSource(
             start: hardCodedString.start,
             end: hardCodedString.end,
-            child: res.l10nValue,
+            child: res.aibabelFunctionImplementationString,
             children: [],
           ),
           filePath: filePath,
@@ -194,17 +195,23 @@ class MappedString {
   }) : l10nUniqueKey = garanteeIsNewKey(l10nKey, [path]);
 
   @override
-  String toString() {
-    return '''MappedString(
-  l10nKey: "$l10nUniqueKey",
-  path: "$path",
-  l10nValue: "$l10nValue",
-  startIndex: $startIndex,
-  endIndex: $endIndex,
-  children: $children,
-  aibabelFunctionImplementationString: "$aibabelFunctionImplementationString",
-  aibabelFunctionDeclarationString: \'\'\'$aibabelFunctionDeclarationString\'\'\',
-)''';
+  String toString({int recursiveIndex = 0}) {
+    final indent = '  ' * recursiveIndex;
+    final childrenString = children
+        .map((child) => child.toString(recursiveIndex: recursiveIndex + 2))
+        .join('\n');
+    return '''${indent}MappedString(
+$indent  l10nKey: "$l10nUniqueKey",
+$indent  path: "$path",
+$indent  l10nValue: "$l10nValue",
+$indent  startIndex: $startIndex,
+$indent  endIndex: $endIndex,
+$indent  aibabelFunctionImplementationString: "$aibabelFunctionImplementationString",
+$indent  aibabelFunctionDeclarationString: \'\'\'$indent${aibabelFunctionDeclarationString.replaceAll('\n', '\n$indent').purple}\'\'\',
+$indent  children: [
+$childrenString
+$indent  ],
+$indent)''';
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
@@ -10,7 +11,95 @@ import '../../utls/dependencies_class_binding.dart';
 const _filePath = '/example/lets_build_something_great.dart';
 void main() {
   setUp(() {
+    resetAllDependencies();
     setDependenciesMock();
+  });
+
+  group('Test the hardcoded example string', () {
+    test('Should map hard coded file mock as expected 1', () {
+      final stringsUsecase = MapStringsUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      );
+
+      final resp = stringsUsecase(
+        hardCodedString: HardCodedStringSource(
+          start: 34,
+          end: 41,
+          child: r"""Private""",
+          children: [],
+        ),
+        filePath: _filePath,
+        isRoot: false,
+      );
+
+      print(resp.toString().steelBlue);
+    });
+    test('Should map hard coded file mock as expected 2', () {
+      final stringsUsecase = MapStringsUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      );
+
+      final resp = stringsUsecase(
+        hardCodedString: HardCodedStringSource(
+          start: 836,
+          end: 890,
+          child: r"""Privacy: ${workSpace.isPrivate ? 'Private' : 'Public'}""",
+          children: [
+            HardCodedStringSource(
+              start: 34,
+              end: 41,
+              child: r"""Private""",
+              children: [],
+            ),
+            HardCodedStringSource(
+              start: 46,
+              end: 52,
+              child: r"""Public""",
+              children: [],
+            ),
+          ],
+        ),
+        filePath: _filePath,
+        isRoot: true,
+      );
+
+      print(resp.toString().orange);
+    });
+  });
+
+  test('Should map hard coded file mock as expected', () {
+    final stringsUsecase = MapStringsUsecase(
+      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+    );
+
+    final resp = stringsUsecase(
+      hardCodedString: HardCodedStringSource(
+        start: 957,
+        end: 1252,
+        child: r"""Workspaces: ${userData.workspaces.map((workspace) {
+                  return 'The workspace ${workspace.name} have ${workspace.members.length} members. Those are: ${workspace.members.asMap().map((index, name) => MapEntry(key, 'Num $index at name $name')).values.join(', ')}';
+                })}""",
+        children: [
+          HardCodedStringSource(
+            start: 78,
+            end: 273,
+            child:
+                r"""The workspace ${workspace.name} have ${workspace.members.length} members. Those are: ${workspace.members.asMap().map((index, name) => MapEntry(key, 'Num $index at name $name')).values.join(', ')}""",
+            children: [
+              HardCodedStringSource(
+                start: 149,
+                end: 173,
+                child: r"""Num $index at name $name""",
+                children: [],
+              ),
+            ],
+          ),
+        ],
+      ),
+      filePath: _filePath,
+      isRoot: true,
+    );
+    print(resp.toString().purple);
   });
 
   test('Should map strings as expected (without children)', () {
@@ -27,8 +116,6 @@ void main() {
       filePath: _filePath,
       isRoot: true,
     );
-    resetAllDependencies();
-    print(resp);
     expect(
       resp,
       MappedString(
@@ -63,7 +150,6 @@ void main() {
       filePath: _filePath,
       isRoot: true,
     );
-    resetAllDependencies();
     expect(
       resp,
       MappedString(
@@ -75,7 +161,7 @@ void main() {
         aibabelFunctionImplementationString:
             "$kBabelClass.your_lessions_are_lessons_map_l_l_name(lessons.map((l) => l.name))",
         aibabelFunctionDeclarationString:
-            '''/// Your lessions are {lessonsMapLLName}.
+            '''  /// Your lessions are {lessonsMapLLName}.
   static String your_lessions_are_lessons_map_l_l_name(Object? lessonsMapLLName) {
     return i._getByKey('your_lessions_are_lessons_map_l_l_name').replaceAll('{lessonsMapLLName}', lessonsMapLLName.toString());
   }''',
@@ -100,7 +186,6 @@ void main() {
       isRoot: true,
     );
     print(resp);
-    // print(resp);
   });
 }
 
