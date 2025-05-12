@@ -1,4 +1,6 @@
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:collection/collection.dart';
+import 'package:gobabel/src/core/extensions/string_extensions.dart';
 
 class HardCodedStringSource {
   final int start;
@@ -9,6 +11,17 @@ class HardCodedStringSource {
 
   /// The sub-strings contained in the [child] string.
   final List<HardCodedStringSource> children;
+
+  // String get arbKey {
+  //   String key = child;
+  //   for (final child in children) {
+  //     final start = child.start;
+  //     final end = child.end;
+  //     key = key.replaceRange(start, end, '');
+  //   }
+  //   print('before: $child\nafter: $key\n\n'.purple);
+  //   return key.toSnakeCase;
+  // }
 
   const HardCodedStringSource({
     required this.start,

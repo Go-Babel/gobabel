@@ -11,7 +11,6 @@ import 'package:gobabel_core/gobabel_core.dart';
 
 class MapStringsUsecase {
   final GetDynamicValuesInStringUsecase getDynamicValuesInStringUsecase;
-
   const MapStringsUsecase({required this.getDynamicValuesInStringUsecase});
 
   MappedString call({
@@ -21,6 +20,9 @@ class MapStringsUsecase {
   }) {
     final bool isLastChildren = hardCodedString.children.isEmpty;
     final String content = hardCodedString.child;
+
+    final String l10nKey = hardCodedString.child.toSnakeCase;
+    // final String l10nKey = hardCodedString.arbKey;
 
     if (isLastChildren) {
       // Will be replaced by the actual content of the variable
@@ -44,7 +46,7 @@ class MapStringsUsecase {
         dynamicFields.add((name: variableName, content: variableContent));
       }
 
-      final String l10nKey = l10nValue.toSnakeCase;
+      // final String l10nKey = l10nValue.toSnakeCase;
       final int startIndex = hardCodedString.start;
       final int endIndex = hardCodedString.end;
 
@@ -100,7 +102,7 @@ class MapStringsUsecase {
         );
       }
 
-      final l10nKey = l10nValue.toSnakeCase;
+      // final l10nKey = l10nValue.toSnakeCase;
 
       final String aibabelFunctionImplementationString =
           '$kBabelClass.$l10nKey(${mappedString.map((e) => e.aibabelFunctionImplementationString).join(', ')})';

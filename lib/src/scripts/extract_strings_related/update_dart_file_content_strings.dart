@@ -42,7 +42,7 @@ class ReplaceHardCodedStringsForBabelTextUsecase {
         result.endIndex + 1,
         result.aibabelFunctionImplementationString,
       );
-      print('$result\n\n-------------------------------\n\n');
+      // print('$result\n\n-------------------------------\n\n');
       newLabelsKeys[result.l10nUniqueKey] = result.l10nValue;
       Dependencies.addLabelContextPath(result.l10nUniqueKey, filePath);
       allDeclarationFunctions.addAll(result.aibabelFunctionDeclaration);
