@@ -1,4 +1,3 @@
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
@@ -42,8 +41,7 @@ class ReplaceHardCodedStringsForBabelTextUsecase {
         result.endIndex + 1,
         result.aibabelFunctionImplementationString,
       );
-      print(result.toString().orange);
-      // print(result.aibabelFunctionDeclarationString.purple);
+      print('$result\n\n-------------------------------\n\n');
       newLabelsKeys[result.l10nUniqueKey] = result.l10nValue;
       Dependencies.addLabelContextPath(result.l10nUniqueKey, filePath);
       allDeclarationFunctions.addAll(result.aibabelFunctionDeclaration);

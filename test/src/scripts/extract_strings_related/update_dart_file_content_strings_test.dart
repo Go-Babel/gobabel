@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
@@ -15,6 +16,7 @@ void main() {
   setUp(() {
     setDependenciesMock();
   });
+
   test('update dart file content strings ...', () async {
     final targetPath =
         '${Directory.current.path}/test/src/scripts/extract_strings_related/test_hardcoded_file.dart';
@@ -36,6 +38,20 @@ void main() {
           'src/scripts/extract_strings_related/update_dart_file_content_strings_test.dart',
     );
 
-    print(res.green);
+    final route = '''class BabelText {
+
+static String _getByKey(String key) {
+  return '';
+}
+
+${Dependencies.allDeclarationFunctions.join('\n\n').orange}
+}''';
+
+    print(
+      (res.green + route.skyBlue).replaceAll(
+        'depend_on_referenced_packages',
+        'depend_on_referenced_packages, non_constant_identifier_names',
+      ),
+    );
   });
 }

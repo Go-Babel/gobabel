@@ -11,6 +11,20 @@ void main() {
       print(dynamicValue);
     }
   });
+  test('Fix #1: Should parse expected value', () {
+    final result = getDynamicValuesInStringUsecase(r'Num $index at name $name');
+    for (final dynamicValue in result) {
+      print(dynamicValue);
+    }
+  });
+  test('Fix #2: Should parse expected value', () {
+    final result = getDynamicValuesInStringUsecase(
+      r'Num $index at name ${person.name}',
+    );
+    for (final dynamicValue in result) {
+      print(dynamicValue);
+    }
+  });
 }
 
 final _testString =

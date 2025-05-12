@@ -23,16 +23,16 @@ void main() {
 
       final resp = stringsUsecase(
         hardCodedString: HardCodedStringSource(
-          start: 34,
-          end: 41,
-          child: r"""Private""",
+          start: 149,
+          end: 173,
+          child: r"""Num $index at name $name""",
           children: [],
         ),
         filePath: _filePath,
         isRoot: false,
       );
 
-      print(resp.toString().steelBlue);
+      print(resp.toString());
     });
     test('Should map hard coded file mock as expected 2', () {
       final stringsUsecase = MapStringsUsecase(
@@ -63,7 +63,7 @@ void main() {
         isRoot: true,
       );
 
-      print(resp.toString().orange);
+      print(resp.toString());
     });
   });
 

@@ -101,7 +101,7 @@ class GetDynamicValuesInStringUsecase {
           (!isCompost || (isCompost && !isInsideComplexDynamicValue));
 
       if (didEndDynamicValueDellimiter) {
-        final targetIndex = isCompost ? index + 1 : index;
+        final targetIndex = (isCompost || isLastChar) ? index + 1 : index;
         final matchStringWithoutBuffer = text.substring(
           bufferStartIndex,
           targetIndex,

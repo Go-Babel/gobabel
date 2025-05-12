@@ -35,12 +35,15 @@ class MapStringsUsecase {
       for (final DynamicValueSection dynamicValue in dynamicValues) {
         final VariableName variableName = dynamicValue.variableName;
         final VariableContent variableContent = dynamicValue.variableContent;
-
+        print(dynamicValue.toString().blue);
+        print('before: $l10nValue'.blue);
         l10nValue = l10nValue.replaceRange(
           dynamicValue.startIndex,
           dynamicValue.endIndex,
           '{$variableName}',
         );
+        print(dynamicValue.toString().yellow);
+        print('after: $l10nValue'.yellow);
         dynamicFields.add((name: variableName, content: variableContent));
       }
 
@@ -61,13 +64,13 @@ class MapStringsUsecase {
       /*
     Example:
     String dashboard_welcome_text(Object? userName) =>
-      i._getByKey('dashboard_welcome_text')
+      _getByKey('dashboard_welcome_text')
           .replaceAll('{userName}', userName.toString());
     */
       VariableContent aibabelFunctionDeclarationString =
           '''${l10nValue.formatToComment}
   static String $l10nKey(${dynamicFields.map((e) => 'Object? ${e.name}').join(', ')}) {
-    return i._getByKey('$l10nKey')${dynamicFields.map((e) => '.replaceAll(\'{${e.name}}\', ${e.name}.toString())').join()};
+    return _getByKey('$l10nKey')${dynamicFields.map((e) => '.replaceAll(\'{${e.name}}\', ${e.name}.toString())').join()};
   }''';
 
       return MappedString(
@@ -111,7 +114,7 @@ class MapStringsUsecase {
       final String aibabelFunctionDeclarationString =
           '''${l10nValue.formatToComment}
   static String $l10nKey(${mappedString.map((e) => 'Object? ${e.l10nUniqueKey}').join(', ')}) {
-    return i._getByKey('$l10nKey')${mappedString.map((e) => '.replaceAll(\'{${e.l10nUniqueKey}}\', ${e.l10nUniqueKey}.toString())').join()};
+    return _getByKey('$l10nKey')${mappedString.map((e) => '.replaceAll(\'{${e.l10nUniqueKey}}\', ${e.l10nUniqueKey}.toString())').join()};
   }''';
 
       if (l10nKey ==
@@ -131,19 +134,19 @@ class MapStringsUsecase {
         path: filePath,
       );
 
-      if (isRoot) {
-        final rootInteration = call(
-          hardCodedString: HardCodedStringSource(
-            start: hardCodedString.start,
-            end: hardCodedString.end,
-            child: res.aibabelFunctionImplementationString,
-            children: [],
-          ),
-          filePath: filePath,
-          isRoot: false,
-        );
-        return rootInteration.copyWith(children: mappedString);
-      }
+      // if (isRoot) {
+      //   final rootInteration = call(
+      //     hardCodedString: HardCodedStringSource(
+      //       start: hardCodedString.start,
+      //       end: hardCodedString.end,
+      //       child: res.l10nValue,
+      //       children: [],
+      //     ),
+      //     filePath: filePath,
+      //     isRoot: false,
+      //   );
+      //   return rootInteration.copyWith(children: mappedString);
+      // }
 
       return res;
     }
@@ -206,12 +209,12 @@ $indent  path: "$path",
 $indent  l10nValue: "$l10nValue",
 $indent  startIndex: $startIndex,
 $indent  endIndex: $endIndex,
-$indent  aibabelFunctionImplementationString: "$aibabelFunctionImplementationString",
-$indent  aibabelFunctionDeclarationString: \'\'\'$indent${aibabelFunctionDeclarationString.replaceAll('\n', '\n$indent').purple}\'\'\',
+$indent  aibabelFunctionImplementationString: "${aibabelFunctionImplementationString.white}",
+$indent  aibabelFunctionDeclarationString: \'\'\'$indent${aibabelFunctionDeclarationString.replaceAll('\n', '\n$indent')}\'\'\',
 $indent  children: [
 $childrenString
 $indent  ],
-$indent)''';
+$indent)'''.green;
   }
 
   @override
