@@ -35,7 +35,6 @@ class ReplaceHardCodedStringsForBabelTextUsecase {
       final MappedString result = _mapStringsUsecase(
         hardCodedString: string,
         filePath: filePath,
-        isRoot: true,
       );
       content = content.replaceRange(
         result.startIndex - 1,

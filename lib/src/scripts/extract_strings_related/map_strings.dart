@@ -16,7 +16,6 @@ class MapStringsUsecase {
   MappedString call({
     required HardCodedStringSource hardCodedString,
     required ContextPath filePath,
-    required bool isRoot,
   }) {
     final String content = hardCodedString.child;
 
@@ -79,7 +78,7 @@ class MapStringsUsecase {
       endIndex: endIndex,
       children: [
         ...hardCodedString.children.map(
-          (e) => call(hardCodedString: e, filePath: filePath, isRoot: false),
+          (e) => call(hardCodedString: e, filePath: filePath),
         ),
       ],
       path: filePath,

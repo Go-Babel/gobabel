@@ -30,7 +30,6 @@ void main() {
           children: [],
         ),
         filePath: _filePath,
-        isRoot: false,
       );
 
       print(resp.toString());
@@ -62,7 +61,41 @@ void main() {
           ],
         ),
         filePath: _filePath,
-        isRoot: true,
+      );
+      print(resp.toString());
+      // expect(resp.toString(), expectedResult.toString());
+    });
+
+    test('Should map hard coded file mock as expected 3', () {
+      final stringsUsecase = MapStringsUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      );
+
+      final resp = stringsUsecase(
+        hardCodedString: HardCodedStringSource(
+          start: 957,
+          end: 1252,
+          child: r"""Workspaces: ${userData.workspaces.map((workspace) {
+                  return 'The workspace ${workspace.name} have ${workspace.members.length} members. Those are: ${workspace.members.asMap().map((index, name) => MapEntry(key, 'Num $index at name $name')).values.join(', ')}';
+                })}""",
+          children: [
+            HardCodedStringSource(
+              start: 78,
+              end: 273,
+              child:
+                  r"""The workspace ${workspace.name} have ${workspace.members.length} members. Those are: ${workspace.members.asMap().map((index, name) => MapEntry(key, 'Num $index at name $name')).values.join(', ')}""",
+              children: [
+                HardCodedStringSource(
+                  start: 149,
+                  end: 173,
+                  child: r"""Num $index at name $name""",
+                  children: [],
+                ),
+              ],
+            ),
+          ],
+        ),
+        filePath: _filePath,
       );
       print(resp.toString());
       // expect(resp.toString(), expectedResult.toString());
@@ -99,7 +132,6 @@ void main() {
         ],
       ),
       filePath: _filePath,
-      isRoot: true,
     );
     print(resp.toString().purple);
   });
@@ -116,7 +148,6 @@ void main() {
         children: [],
       ),
       filePath: _filePath,
-      isRoot: true,
     );
     expect(
       resp,
@@ -150,7 +181,6 @@ void main() {
         children: [],
       ),
       filePath: _filePath,
-      isRoot: true,
     );
     expect(
       resp,
@@ -185,7 +215,6 @@ void main() {
     final resp = stringsUsecase(
       hardCodedString: hardCodedString.first,
       filePath: _filePath,
-      isRoot: true,
     );
     print(resp);
   });
