@@ -35,15 +35,12 @@ class MapStringsUsecase {
       for (final DynamicValueSection dynamicValue in dynamicValues) {
         final VariableName variableName = dynamicValue.variableName;
         final VariableContent variableContent = dynamicValue.variableContent;
-        print(dynamicValue.toString().blue);
-        print('before: $l10nValue'.blue);
+
         l10nValue = l10nValue.replaceRange(
           dynamicValue.startIndex,
           dynamicValue.endIndex,
           '{$variableName}',
         );
-        print(dynamicValue.toString().yellow);
-        print('after: $l10nValue'.yellow);
         dynamicFields.add((name: variableName, content: variableContent));
       }
 
@@ -96,15 +93,11 @@ class MapStringsUsecase {
 
       mappedString.sort((a, b) => b.startIndex.compareTo(a.startIndex));
       for (final MappedString mapped in mappedString) {
-        // print(
-        //     '${mapped.startIndex}, ${mapped.endIndex}---------------- before: $l10nValue\n\n');
         l10nValue = l10nValue.replaceRange(
           mapped.startIndex - 1,
           mapped.endIndex + 1,
           '{${mapped.l10nUniqueKey}}',
         );
-        // print(
-        //     '${mapped.startIndex}, ${mapped.endIndex}---------------- after:  $l10nValue\n\n');
       }
 
       final l10nKey = l10nValue.toSnakeCase;
@@ -116,11 +109,6 @@ class MapStringsUsecase {
   static String $l10nKey(${mappedString.map((e) => 'Object? ${e.l10nUniqueKey}').join(', ')}) {
     return _getByKey('$l10nKey')${mappedString.map((e) => '.replaceAll(\'{${e.l10nUniqueKey}}\', ${e.l10nUniqueKey}.toString())').join()};
   }''';
-
-      if (l10nKey ==
-          'lets_see_n_persons_map_p_name_p_name_im_p_age_years_old_n_children_p_children_map_e_return_name_e_name_to_list') {
-        print('find');
-      }
 
       final res = MappedString(
         l10nKey: l10nKey,

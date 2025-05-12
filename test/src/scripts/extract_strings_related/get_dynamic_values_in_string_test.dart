@@ -7,23 +7,39 @@ void main() {
 
   test('Should return all variables of test text', () {
     final result = getDynamicValuesInStringUsecase(_testString);
-    for (final dynamicValue in result) {
-      print(dynamicValue);
-    }
+    print(result.map((e) => e.variableContent).last);
+
+    expect(result.map((e) => e.variableContent), [
+      r"$accountId",
+      r"${e.full_name}",
+      r"${e.age}",
+      r"${name}",
+      r"${e.children.map((c) => c.name)}",
+      r"$uga_player",
+      r"${made_that_work}",
+      r"${p.children.map(e) => e.friends.map((f) => f.name}",
+      r'''${p.children.map((e) {
+            return e.name;
+          })}''',
+    ]);
   });
   test('Fix #1: Should parse expected value', () {
     final result = getDynamicValuesInStringUsecase(r'Num $index at name $name');
-    for (final dynamicValue in result) {
-      print(dynamicValue);
-    }
+    expect(result.map((e) => e.variableContent), [r"$index", r"$name"]);
   });
   test('Fix #2: Should parse expected value', () {
     final result = getDynamicValuesInStringUsecase(
-      r'Num $index at name ${person.name}',
+      r'Num $index at $name ${person.name}',
     );
-    for (final dynamicValue in result) {
-      print(dynamicValue);
-    }
+
+    expect(result.map((e) => e.variableContent), [
+      r"$index",
+      r"$name",
+      r"${person.name}",
+    ]);
+    // for (final dynamicValue in result) {
+    //   print(dynamicValue);
+    // }
   });
 }
 
