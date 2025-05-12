@@ -1,4 +1,5 @@
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
 import 'package:recase/recase.dart';
 
 extension StringExtensions on String {
@@ -21,6 +22,13 @@ extension StringExtensions on String {
         .replaceAll(RegExp(r'\W'), ' ')
         .replaceAll(RegExp(r'\s{2,}'), ' ')
         .camelCase;
+  }
+
+  String toArbCase(Set<VariableName> variableNames) {
+    return replaceAll(
+      variableNames.map((vN) => '{$vN}').join('|'),
+      '',
+    ).toSnakeCase;
   }
 
   String get toSnakeCase {

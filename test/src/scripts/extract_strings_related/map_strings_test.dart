@@ -35,6 +35,7 @@ void main() {
 
       print(resp.toString());
     });
+
     test('Should map hard coded file mock as expected 2', () {
       final stringsUsecase = MapStringsUsecase(
         getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
@@ -44,7 +45,7 @@ void main() {
         hardCodedString: HardCodedStringSource(
           start: 836,
           end: 890,
-          child: r"""Privacy: ${workSpace.isPrivate ? 'Private' : 'Public'}""",
+          child: r"""Private: ${workSpace.isPrivate ? 'Private' : 'Public'}""",
           children: [
             HardCodedStringSource(
               start: 34,
@@ -63,8 +64,8 @@ void main() {
         filePath: _filePath,
         isRoot: true,
       );
-
       print(resp.toString());
+      // expect(resp.toString(), expectedResult.toString());
     });
   });
 

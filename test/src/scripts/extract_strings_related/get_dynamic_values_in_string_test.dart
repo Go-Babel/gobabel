@@ -27,6 +27,7 @@ void main() {
     final result = getDynamicValuesInStringUsecase(r'Num $index at name $name');
     expect(result.map((e) => e.variableContent), [r"$index", r"$name"]);
   });
+
   test('Fix #2: Should parse expected value', () {
     final result = getDynamicValuesInStringUsecase(
       r'Num $index at $name ${person.name}',
@@ -40,6 +41,14 @@ void main() {
     // for (final dynamicValue in result) {
     //   print(dynamicValue);
     // }
+  });
+
+  test('Fix #3: Should parse expected value', () {
+    final result = getDynamicValuesInStringUsecase(r'Hello, $userName!');
+    for (final dynamicValue in result) {
+      print(dynamicValue);
+    }
+    expect(result.map((e) => e.variableContent), [r"$userName"]);
   });
 }
 

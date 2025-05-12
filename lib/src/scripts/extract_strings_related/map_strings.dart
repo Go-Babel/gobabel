@@ -18,128 +18,72 @@ class MapStringsUsecase {
     required ContextPath filePath,
     required bool isRoot,
   }) {
-    final bool isLastChildren = hardCodedString.children.isEmpty;
     final String content = hardCodedString.child;
 
-    final String l10nKey = hardCodedString.child.toSnakeCase;
-    // final String l10nKey = hardCodedString.arbKey;
+    String l10nValue = content;
+    List<({VariableName name, VariableContent content})> dynamicFields = [];
 
-    if (isLastChildren) {
-      // Will be replaced by the actual content of the variable
-      String l10nValue = content;
-      List<({VariableName name, VariableContent content})> dynamicFields = [];
+    final List<DynamicValueSection> dynamicValues =
+        getDynamicValuesInStringUsecase(content);
 
-      final List<DynamicValueSection> dynamicValues =
-          getDynamicValuesInStringUsecase(content);
+    dynamicValues.sort((a, b) => b.startIndex.compareTo(a.startIndex));
+    final Set<VariableName> variableNames = {};
 
-      dynamicValues.sort((a, b) => b.startIndex.compareTo(a.startIndex));
+    for (final DynamicValueSection dynamicValue in dynamicValues) {
+      final VariableName variableName = dynamicValue.variableName;
+      final VariableContent variableContent = dynamicValue.variableContent;
+      variableNames.add(variableName);
 
-      for (final DynamicValueSection dynamicValue in dynamicValues) {
-        final VariableName variableName = dynamicValue.variableName;
-        final VariableContent variableContent = dynamicValue.variableContent;
+      l10nValue = l10nValue.replaceRange(
+        dynamicValue.startIndex,
+        dynamicValue.endIndex,
+        '{$variableName}',
+      );
+      dynamicFields.add((name: variableName, content: variableContent));
+    }
+    print(variableNames.join('\n').hotPink);
 
-        l10nValue = l10nValue.replaceRange(
-          dynamicValue.startIndex,
-          dynamicValue.endIndex,
-          '{$variableName}',
-        );
-        dynamicFields.add((name: variableName, content: variableContent));
-      }
+    final int startIndex = hardCodedString.start;
+    final int endIndex = hardCodedString.end;
 
-      // final String l10nKey = l10nValue.toSnakeCase;
-      final int startIndex = hardCodedString.start;
-      final int endIndex = hardCodedString.end;
+    // Invert order because we started adding from the end
+    dynamicFields = dynamicFields.reversed.toList();
 
-      // Invert order because we started adding from the end
-      dynamicFields = dynamicFields.reversed.toList();
+    final String l10nKey = l10nValue.toArbCase(variableNames);
 
-      /*
+    /*
     final person = Person(name: 'Igor Miranda', age: 25);
     Example: BabelText.i.dashboard_welcome_text(person.name);
     */
-      VariableName aibabelFunctionImplementationString =
-          '$kBabelClass.$l10nKey(${dynamicFields.map((e) => e.content.rawDynamicValue).join(', ')})';
+    VariableName aibabelFunctionImplementationString =
+        '$kBabelClass.$l10nKey(${dynamicFields.map((e) => e.content.rawDynamicValue).join(', ')})';
 
-      /*
+    /*
     Example:
     String dashboard_welcome_text(Object? userName) =>
       _getByKey('dashboard_welcome_text')
           .replaceAll('{userName}', userName.toString());
     */
-      VariableContent aibabelFunctionDeclarationString =
-          '''${l10nValue.formatToComment}
+    VariableContent aibabelFunctionDeclarationString =
+        '''${l10nValue.formatToComment}
   static String $l10nKey(${dynamicFields.map((e) => 'Object? ${e.name}').join(', ')}) {
     return _getByKey('$l10nKey')${dynamicFields.map((e) => '.replaceAll(\'{${e.name}}\', ${e.name}.toString())').join()};
   }''';
 
-      return MappedString(
-        l10nKey: l10nKey,
-        l10nValue: l10nValue,
-        aibabelFunctionDeclarationString: aibabelFunctionDeclarationString,
-        aibabelFunctionImplementationString:
-            aibabelFunctionImplementationString,
-        startIndex: startIndex,
-        endIndex: endIndex,
-        children: [],
-        path: filePath,
-      );
-    } else {
-      String l10nValue = hardCodedString.child;
-      final List<MappedString> mappedString =
-          hardCodedString.children
-              .map(
-                (e) =>
-                    call(hardCodedString: e, filePath: filePath, isRoot: false),
-              )
-              .toList();
-
-      mappedString.sort((a, b) => b.startIndex.compareTo(a.startIndex));
-      for (final MappedString mapped in mappedString) {
-        l10nValue = l10nValue.replaceRange(
-          mapped.startIndex - 1,
-          mapped.endIndex + 1,
-          '{${mapped.l10nUniqueKey}}',
-        );
-      }
-
-      // final l10nKey = l10nValue.toSnakeCase;
-
-      final String aibabelFunctionImplementationString =
-          '$kBabelClass.$l10nKey(${mappedString.map((e) => e.aibabelFunctionImplementationString).join(', ')})';
-      final String aibabelFunctionDeclarationString =
-          '''${l10nValue.formatToComment}
-  static String $l10nKey(${mappedString.map((e) => 'Object? ${e.l10nUniqueKey}').join(', ')}) {
-    return _getByKey('$l10nKey')${mappedString.map((e) => '.replaceAll(\'{${e.l10nUniqueKey}}\', ${e.l10nUniqueKey}.toString())').join()};
-  }''';
-
-      final res = MappedString(
-        l10nKey: l10nKey,
-        l10nValue: l10nValue,
-        aibabelFunctionDeclarationString: aibabelFunctionDeclarationString,
-        aibabelFunctionImplementationString:
-            aibabelFunctionImplementationString,
-        startIndex: hardCodedString.start,
-        endIndex: hardCodedString.end,
-        children: mappedString,
-        path: filePath,
-      );
-
-      // if (isRoot) {
-      //   final rootInteration = call(
-      //     hardCodedString: HardCodedStringSource(
-      //       start: hardCodedString.start,
-      //       end: hardCodedString.end,
-      //       child: res.l10nValue,
-      //       children: [],
-      //     ),
-      //     filePath: filePath,
-      //     isRoot: false,
-      //   );
-      //   return rootInteration.copyWith(children: mappedString);
-      // }
-
-      return res;
-    }
+    return MappedString(
+      l10nKey: l10nKey,
+      l10nValue: l10nValue,
+      aibabelFunctionDeclarationString: aibabelFunctionDeclarationString,
+      aibabelFunctionImplementationString: aibabelFunctionImplementationString,
+      startIndex: startIndex,
+      endIndex: endIndex,
+      children: [
+        ...hardCodedString.children.map(
+          (e) => call(hardCodedString: e, filePath: filePath, isRoot: false),
+        ),
+      ],
+      path: filePath,
+    );
   }
 }
 
@@ -204,7 +148,7 @@ $indent  aibabelFunctionDeclarationString: \'\'\'$indent${aibabelFunctionDeclara
 $indent  children: [
 $childrenString
 $indent  ],
-$indent)'''.green;
+$indent),'''.green;
   }
 
   @override
@@ -270,10 +214,12 @@ String garanteeIsNewKey(String input, List<ContextPath> contextPaths) {
   String uniqueInput = getUniqueInput();
 
   // Get a version that is not already calculated
-  while (Dependencies.newLabelsKeys.keys.contains(uniqueInput)) {
+  while (Dependencies.uniqueKeys.contains(uniqueInput)) {
+    // while (Dependencies.newLabelsKeys.keys.contains(uniqueInput)) {
     version++;
     uniqueInput = getUniqueInput();
   }
+  Dependencies.uniqueKeys.add(uniqueInput);
 
   return uniqueInput;
 }

@@ -37,7 +37,6 @@ void main() {
       filePath:
           'src/scripts/extract_strings_related/update_dart_file_content_strings_test.dart',
     );
-    return;
 
     final route = '''class BabelText {
 

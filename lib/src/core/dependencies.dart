@@ -49,6 +49,7 @@ class Dependencies {
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
   static final Set<ChangedFilePath> changedPaths = {};
   static final List<BabelSupportedLocales> projectLanguages = [];
+  static final Set<L10nKey> uniqueKeys = {};
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
   static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
       _pathAppearancesPerKey;

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 
 class GetDynamicValuesInStringUsecase {
@@ -24,7 +25,7 @@ class GetDynamicValuesInStringUsecase {
 
     final isEndOfUniqueDynamicValueRegex = RegExp(r'\W');
 
-    final chars = text.split('');
+    final chars = '$text '.split('');
     for (final String currChar in chars) {
       index++;
 
@@ -88,6 +89,7 @@ class GetDynamicValuesInStringUsecase {
 
       final isCompost = type == DynamicValueSectionType.compostVariable;
       final isLastChar = index == chars.length - 1;
+
       final haveType = type != null;
       final isBorder =
           isLastChar ||
@@ -101,7 +103,7 @@ class GetDynamicValuesInStringUsecase {
           (!isCompost || (isCompost && !isInsideComplexDynamicValue));
 
       if (didEndDynamicValueDellimiter) {
-        final targetIndex = (isCompost || isLastChar) ? index + 1 : index;
+        final targetIndex = isCompost ? index + 1 : index;
         final matchStringWithoutBuffer = text.substring(
           bufferStartIndex,
           targetIndex,
