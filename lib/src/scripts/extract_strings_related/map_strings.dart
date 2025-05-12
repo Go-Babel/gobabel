@@ -5,8 +5,8 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
+import 'package:gobabel/src/models/hard_coded_string_source.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class MapStringsUsecase {
