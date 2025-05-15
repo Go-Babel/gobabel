@@ -40,9 +40,9 @@ void main() {
 
     final route = '''class BabelText {
 
-static String _getByKey(String key) {
-  return '';
-}
+    static String _getByKey(String key) {
+      return '';
+    }
 
 ${Dependencies.allDeclarationFunctions.join('\n\n').orange}
 }''';

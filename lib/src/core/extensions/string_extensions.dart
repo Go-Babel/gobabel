@@ -18,17 +18,22 @@ extension StringExtensions on String {
   String get toCamelCase {
     return
     // Replace all not digits (only a-z, and digits) by space
-    replaceAll(r'\n', ' ')
-        .replaceAll(RegExp(r'\W'), ' ')
-        .replaceAll(RegExp(r'\s{2,}'), ' ')
-        .camelCase;
+    replaceAll(RegExp(r'\W'), ' ').replaceAll(RegExp(r'\s{1,}'), ' ').camelCase;
   }
 
   String toArbCase(Set<VariableName> variableNames) {
-    return replaceAll(
-      variableNames.map((vN) => '{$vN}').join('|'),
-      '',
-    ).toSnakeCase;
+    return garanteeIsNewKey(
+      (variableNames.isEmpty
+              ? this
+              : split(
+                RegExp(
+                  variableNames.map((vN) => '{$vN}').join('|'),
+                  multiLine: true,
+                ),
+              ).join('_'))
+          .toCamelCase,
+      // ).map((e) => e.camelCase).join('_'),
+    );
   }
 
   String get toSnakeCase {
@@ -45,6 +50,17 @@ extension StringExtensions on String {
     newS = newS.startsWith(r'$') ? newS.substring(1) : newS;
 
     return newS.startsWith('{') ? newS.substring(1) : newS;
+  }
+
+  // If simple variable, like $variableName, will repleace for variableName
+  // If complex variable, like ${variableName}, will replace for variableName surrounded by quotes (like 'variableName')
+  String get toGoBabelImplementionFunctionParameter {
+    if (startsWith(r'${') && endsWith('}')) {
+      return this;
+    } else if (startsWith(r'$')) {
+      return substring(1);
+    }
+    return this;
   }
 
   String get formatToComment {

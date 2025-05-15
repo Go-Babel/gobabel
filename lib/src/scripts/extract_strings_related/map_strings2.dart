@@ -9,72 +9,84 @@ import 'package:gobabel/src/models/hard_coded_string_source.dart';
 import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
-class MapStringsUsecase {
+class MapStringsUsecase2 {
   final GetDynamicValuesInStringUsecase getDynamicValuesInStringUsecase;
-  const MapStringsUsecase({required this.getDynamicValuesInStringUsecase});
+  const MapStringsUsecase2({required this.getDynamicValuesInStringUsecase});
 
   MappedString call({
     required HardCodedStringSource hardCodedString,
     required ContextPath filePath,
   }) {
-    final bool shouldPrint = !hardCodedString.child.contains('Privacy');
     final children =
         hardCodedString.children
             .map((e) => call(hardCodedString: e, filePath: filePath))
             .toList()
-          ..sort((a, b) => b.startIndex.compareTo(a.startIndex));
-    String l10nValue = hardCodedString.child;
+          ..sort((a, b) => a.startIndex.compareTo(b.startIndex));
+    String content = hardCodedString.child;
+
     for (final child in children) {
-      l10nValue = l10nValue.replaceRange(
-        child.startIndex - 1,
-        child.endIndex + 1,
-        child.aibabelFunctionImplementationString,
+      content = content.replaceRange(
+        child.startIndex,
+        child.endIndex,
+        child.l10nUniqueKey,
       );
     }
 
+    String l10nValue = content;
+    List<({VariableName name, VariableContent content})> dynamicFields = [];
+
     final List<DynamicValueSection> dynamicValues =
-        getDynamicValuesInStringUsecase(l10nValue);
-    print('${dynamicValues.length} dynamicValues: $dynamicValues'.red);
+        getDynamicValuesInStringUsecase(content);
+
     dynamicValues.sort((a, b) => b.startIndex.compareTo(a.startIndex));
-
     final Set<VariableName> variableNames = {};
-    final Set<VariableName> implementationParameters = {};
 
-    if (shouldPrint) print(hardCodedString.child.skyBlue);
     for (final DynamicValueSection dynamicValue in dynamicValues) {
       final VariableName variableName = dynamicValue.variableName;
-      final VariableContent variableContent =
-          dynamicValue.variableContent.rawDynamicValue;
+      final VariableContent variableContent = dynamicValue.variableContent;
       variableNames.add(variableName);
-      implementationParameters.add(variableContent);
-      if (shouldPrint) {
-        print('variableContent: ${dynamicValue.variableContent}'.red);
-        print('variableName: $variableName'.red);
-      }
+
       l10nValue = l10nValue.replaceRange(
         dynamicValue.startIndex,
         dynamicValue.endIndex,
         '{$variableName}',
       );
+      dynamicFields.add((name: variableName, content: variableContent));
     }
-
-    final String l10nKey = l10nValue.toArbCase(variableNames);
-
-    VariableContent gobabelFunctionDeclarationString =
-        '''${l10nValue.formatToComment}
-  static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) {
-    return _getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
-  }''';
-    VariableName gobabelFunctionImplementationString =
-        '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e).join(', ')})';
+    // print(variableNames.join('\n').hotPink);
 
     final int startIndex = hardCodedString.start;
     final int endIndex = hardCodedString.end;
+
+    // Invert order because we started adding from the end
+    dynamicFields = dynamicFields.reversed.toList();
+
+    final String l10nKey = l10nValue.toArbCase(variableNames);
+
+    /*
+    final person = Person(name: 'Igor Miranda', age: 25);
+    Example: BabelText.i.dashboard_welcome_text(person.name);
+    */
+    VariableName aibabelFunctionImplementationString =
+        '$kBabelClass.$l10nKey(${dynamicFields.map((e) => e.content.rawDynamicValue).join(', ')})';
+
+    /*
+    Example:
+    String dashboard_welcome_text(Object? userName) =>
+      _getByKey('dashboard_welcome_text')
+          .replaceAll('{userName}', userName.toString());
+    */
+    VariableContent aibabelFunctionDeclarationString =
+        '''${l10nValue.formatToComment}
+  static String $l10nKey(${dynamicFields.map((e) => 'Object? ${e.name}').join(', ')}) {
+    return _getByKey('$l10nKey')${dynamicFields.map((e) => '.replaceAll(\'{${e.name}}\', ${e.name}.toString())').join()};
+  }''';
+
     return MappedString(
       l10nKey: l10nKey,
       l10nValue: l10nValue,
-      aibabelFunctionDeclarationString: gobabelFunctionDeclarationString,
-      aibabelFunctionImplementationString: gobabelFunctionImplementationString,
+      aibabelFunctionDeclarationString: aibabelFunctionDeclarationString,
+      aibabelFunctionImplementationString: aibabelFunctionImplementationString,
       startIndex: startIndex,
       endIndex: endIndex,
       children: children,
@@ -125,8 +137,7 @@ class MappedString {
     required this.startIndex,
     required this.endIndex,
     required this.children,
-  }) : l10nUniqueKey = l10nKey;
-  // }) : l10nUniqueKey = garanteeIsNewKey(l10nKey);
+  }) : l10nUniqueKey = garanteeIsNewKey(l10nKey, [path]);
 
   @override
   String toString({int recursiveIndex = 0}) {
@@ -140,12 +151,12 @@ $indent  path: "$path",
 $indent  l10nValue: "$l10nValue",
 $indent  startIndex: $startIndex,
 $indent  endIndex: $endIndex,
-$indent  aibabelFunctionImplementationString: "${aibabelFunctionImplementationString.aqua}",
-$indent  aibabelFunctionDeclarationString: \'\'\'${'$indent${aibabelFunctionDeclarationString.replaceAll('\n', '\n$indent')}'.aqua}\'\'\',
+$indent  aibabelFunctionImplementationString: "${aibabelFunctionImplementationString.white}",
+$indent  aibabelFunctionDeclarationString: \'\'\'$indent${aibabelFunctionDeclarationString.replaceAll('\n', '\n$indent')}\'\'\',
 $indent  children: [
 $childrenString
 $indent  ],
-$indent),'''.wheat;
+$indent),'''.green;
   }
 
   @override
@@ -202,12 +213,10 @@ $indent),'''.wheat;
   }
 }
 
-String garanteeIsNewKey(String input) {
+String garanteeIsNewKey(String input, List<ContextPath> contextPaths) {
   int version = 0;
   String getUniqueInput() {
-    return '$input${Dependencies.versionId}${version == 0 ? '' : 'v$version'}';
-    // With underline:
-    // return '${input}_${Dependencies.versionId}${version == 0 ? '' : 'v$version'}';
+    return '${input}_${Dependencies.versionId}${version == 0 ? '' : 'v$version'}';
   }
 
   String uniqueInput = getUniqueInput();

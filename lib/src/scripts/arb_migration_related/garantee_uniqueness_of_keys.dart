@@ -8,7 +8,7 @@ class GaranteeUniquenessOfKeysUsecase {
     final Map<NewL10nKey, NewL10nKey> response = {};
 
     for (final key in allKeyValues.keys) {
-      final uniqueKey = garanteeIsNewKey(key, []);
+      final uniqueKey = garanteeIsNewKey(key);
       response[key] = uniqueKey;
     }
 
