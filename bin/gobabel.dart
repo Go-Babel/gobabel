@@ -2,23 +2,26 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/validate_candidate_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/retrive_all_aibabel_consts_from_file.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
+import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/get_all_commits_in_current_git_tree_time_sorted.dart';
+import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
 import 'package:gobabel/src/scripts/extract_project_code_base.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/update_dart_file_content_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/update_dart_file_content_strings.dart';
 import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/edit_each_file_content.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
@@ -31,6 +34,9 @@ import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 
 Future<void> main(List<String> arguments) async {
   final GobabelController controller = GobabelController(
+    analyseCodebaseIssueIntegrityUsecase:
+        AnalyseCodebaseIssueIntegrityUsecase(),
+    commitAllChangesUsecase: CommitAllChangesUsecase(),
     ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
     getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
     getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
@@ -62,7 +68,9 @@ Future<void> main(List<String> arguments) async {
     ),
     writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
     resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
-    getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(),
+    getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(
+      getGitUserUsecase: GetGitUserUsecase(),
+    ),
     extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
     getAppLanguagesUsecase: GetAppLanguagesUsecase(),
     setTargetFilesUsecase: SetTargetFilesUsecase(

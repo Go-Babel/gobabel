@@ -93,7 +93,7 @@ Future<void> get() async {
     'git',
     ['log', '--reverse', '--pretty=format:%H %an %ad %s', '--date=short'],
     workingDirectory: repoPath,
-    runInShell: true,
+    runInShell: Platform.isWindows,
   );
 
   if (result.exitCode != 0) {

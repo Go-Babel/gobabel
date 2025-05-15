@@ -1,6 +1,6 @@
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
 
-import 'package:gobabel/src/scripts/extract_strings_related/validate_candidate_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
 
 class GetHarcodedStringsUsecase {
   final ValidateCandidateStringUsecase validateCandidateStringUsecase;

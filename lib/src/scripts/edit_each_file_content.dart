@@ -50,9 +50,12 @@ class RunForEachFileTextUsecase {
     for (final ChangedFilePath filePath in changedFilesPath) {
       final String path = filePath;
       final String directoryFilePath = '$dirrPath/$path';
-
-      await _runForFile(File(directoryFilePath), onDartFileFinded);
+      final file = File(directoryFilePath);
       p?.increment();
+
+      if (file.isValidFileForAnalysis == false) continue;
+
+      await _runForFile(file, onDartFileFinded);
     }
   }
 
@@ -119,13 +122,34 @@ class RunForEachFileTextUsecase {
     final List<File> files = [];
     await for (final entity in dir.list(recursive: true, followLinks: false)) {
       if (entity is File) {
-        final isInIgnoreFile = entity.path.contains('lib/');
-        if (isInIgnoreFile) continue;
+        if (entity.isValidFileForAnalysis == false) continue;
+
         if (entity.path.endsWith('.dart')) {
           files.add(entity);
         }
       }
     }
     return files;
+  }
+}
+
+// Extension on File to add size-related methods
+extension FileSizeExtension on File {
+  bool get isValidFileForAnalysis {
+    final exists = existsSync();
+    if (!exists) return false;
+    final isDartFile = path.endsWith('.dart');
+    final isInLib = path.contains('lib/');
+    final isWithinMaxSize = isMbBiggerThan(5) == false;
+    return isDartFile && isInLib && isWithinMaxSize;
+  }
+
+  /// Checks if the file size is bigger than the specified number of megabytes.
+  bool isMbBiggerThan(double megabytes) {
+    // Get file size in bytes
+    final sizeInBytes = lengthSync();
+    // Convert to megabytes (1 MB = 1024 * 1024 bytes)
+    final sizeInMb = sizeInBytes / (1024 * 1024);
+    return sizeInMb > megabytes;
   }
 }

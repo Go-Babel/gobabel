@@ -2,9 +2,9 @@ import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/retrive_all_aibabel_consts_from_file.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class ReplaceHardCodedStringsForBabelTextUsecase {

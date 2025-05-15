@@ -21,7 +21,7 @@ class GetAllCommitsInCurrentGitTreeOrdoredByTime {
       ['log', '--reverse', '--pretty=format:%H', '--date=short'],
       // ['log', '--reverse', '--pretty=format:%H %an %ad %s', '--date=short'],
       workingDirectory: repoPath,
-      runInShell: true,
+      runInShell: Platform.isWindows,
     );
 
     if (result.exitCode != 0) {

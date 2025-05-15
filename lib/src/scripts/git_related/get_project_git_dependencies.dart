@@ -1,10 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:io';
+
 import 'package:chalkdart/chalkstrings.dart';
+
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 
 class GetProjectGitDependenciesUsecase {
+  final GetGitUserUsecase _getGitUserUsecase;
+  GetProjectGitDependenciesUsecase({
+    required GetGitUserUsecase getGitUserUsecase,
+  }) : _getGitUserUsecase = getGitUserUsecase;
   Future<void> call() async {
     try {
       // Use the appropriate shell based on the platform
@@ -38,7 +46,10 @@ class GetProjectGitDependenciesUsecase {
         radix: 16,
       );
       final latestShaIdentifier = shas[0].trim();
+
+      final GitUser user = await _getGitUserUsecase();
       Dependencies.gitVariables = GitVariables(
+        user: user,
         latestShaIdentifier: latestShaIdentifier,
         projectShaIdentifier: projectShaIdentifier,
       );
@@ -52,10 +63,12 @@ class GetProjectGitDependenciesUsecase {
 }
 
 class GitVariables {
+  final GitUser user;
   final ShaCommit latestShaIdentifier;
   final BigInt projectShaIdentifier;
 
   const GitVariables({
+    required this.user,
     required this.projectShaIdentifier,
     required this.latestShaIdentifier,
   });

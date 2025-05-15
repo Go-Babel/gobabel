@@ -1,5 +1,5 @@
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
 import 'package:recase/recase.dart';
 
 extension StringExtensions on String {

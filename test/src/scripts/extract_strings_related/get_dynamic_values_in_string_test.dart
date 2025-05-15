@@ -1,4 +1,4 @@
-import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
 import 'package:test/test.dart';
 
 void main() {

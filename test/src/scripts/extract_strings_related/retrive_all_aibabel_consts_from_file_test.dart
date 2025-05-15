@@ -1,4 +1,4 @@
-import 'package:gobabel/src/scripts/extract_strings_related/retrive_all_aibabel_consts_from_file.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/retrive_all_aibabel_consts_from_file.dart';
 import 'package:test/test.dart';
 
 void main() {

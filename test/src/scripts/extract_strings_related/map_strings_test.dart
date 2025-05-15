@@ -1,10 +1,10 @@
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/constants.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_dynamic_values_in_string.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/validate_candidate_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
 import 'package:test/test.dart';
 
 import '../../utls/dependencies_class_binding.dart';

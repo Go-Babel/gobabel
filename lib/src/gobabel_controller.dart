@@ -4,14 +4,16 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/core/utils/spinner_loading.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
 import 'package:gobabel/src/scripts/extract_project_code_base.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/map_strings.dart';
-import 'package:gobabel/src/scripts/extract_strings_related/update_dart_file_content_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/update_dart_file_content_strings.dart';
 import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/edit_each_file_content.dart';
+import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
@@ -24,6 +26,9 @@ import 'package:gobabel_core/gobabel_core.dart';
 bool isInTest = true;
 
 class GobabelController {
+  final CommitAllChangesUsecase _commitAllChangesUsecase;
+  final AnalyseCodebaseIssueIntegrityUsecase
+  _analyseCodebaseIssueIntegrityUsecase;
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final RunForEachFileTextUsecase _runForEachFileTextUsecase;
@@ -56,8 +61,10 @@ class GobabelController {
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
     required GetAppLanguagesUsecase getAppLanguagesUsecase,
-
     required SetTargetFilesUsecase setTargetFilesUsecase,
+    required AnalyseCodebaseIssueIntegrityUsecase
+    analyseCodebaseIssueIntegrityUsecase,
+    required CommitAllChangesUsecase commitAllChangesUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
@@ -71,7 +78,10 @@ class GobabelController {
            replaceArbOutputClassToBabelTextUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
-       _setTargetFilesUsecase = setTargetFilesUsecase;
+       _setTargetFilesUsecase = setTargetFilesUsecase,
+       _analyseCodebaseIssueIntegrityUsecase =
+           analyseCodebaseIssueIntegrityUsecase,
+       _commitAllChangesUsecase = commitAllChangesUsecase;
 
   Future<void> create({
     required String accountApiKey,
@@ -190,6 +200,16 @@ class GobabelController {
       );
 
       await runWithSpinner(
+        message:
+            'Garanteeing integrity of codebase (static analysis issues)...',
+        successMessage:
+            'Codebase integrity guaranteed. No static analysis issues found',
+        () async {
+          await _analyseCodebaseIssueIntegrityUsecase();
+        },
+      );
+
+      await runWithSpinner(
         successMessage: 'Mapping target files',
         message: 'Mapping target files...',
         () async {
@@ -227,7 +247,7 @@ class GobabelController {
       final GitVariables gitVariables = Dependencies.gitVariables;
 
       await runWithSpinner(
-        successMessage: 'New version created successfully!$endText',
+        successMessage: 'Version uploaded successfully!',
         message: 'Uploading new version to Gobabel server...',
         () async {
           await Dependencies.client.publicGenerate(
@@ -242,6 +262,16 @@ class GobabelController {
           );
         },
       );
+
+      await runWithSpinner(
+        successMessage: 'Changes commited',
+        message: 'Committing changes...',
+        () async {
+          await _commitAllChangesUsecase();
+        },
+      );
+
+      stdout.writeln('New version created successfully!\n${endText.trim()}');
     } catch (e) {
       printError(
         'Error creating new version, '

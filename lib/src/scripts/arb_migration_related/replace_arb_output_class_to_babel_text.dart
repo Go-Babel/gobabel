@@ -12,8 +12,8 @@ class ReplaceArbOutputClassToBabelTextUsecase {
     required FileContent fileContent,
   }) {
     final ArbData? arbData = Dependencies.arbData;
-    final String arbKeyRegexIdentifier = Dependencies.arbKeyRegexIdentifier;
     if (arbData == null) return fileContent;
+    final String arbKeyRegexIdentifier = Dependencies.arbKeyRegexIdentifier;
 
     String newContent = fileContent;
 
