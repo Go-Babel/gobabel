@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
@@ -25,24 +26,10 @@ class GetProjectGitDependenciesUsecase {
        _getProjectOriginUsecase = getProjectOriginUsecase;
   Future<void> call() async {
     try {
-      // Use the appropriate shell based on the platform
-      String shell = Platform.isWindows ? 'cmd' : 'sh';
-      List<String> shellArgs;
-
-      if (Platform.isWindows) {
-        // Windows doesn't have 'head' natively; assuming Git Bash or WSL
-        shellArgs = ['/c', 'git rev-list --parents --reverse HEAD | head -2'];
-      } else {
-        // Unix-like systems (Linux, macOS)
-        shellArgs = ['-c', 'git rev-list --parents --reverse HEAD | head -2'];
-      }
-
       final dirrPath = Dependencies.targetDirectory.path;
       // Run the command
-      final ProcessResult result = await Process.run(
-        shell,
-        shellArgs,
-        workingDirectory: dirrPath,
+      final ProcessResult result = await BabelGitProcessRunner.run(
+        'git rev-list --parents --reverse HEAD | head -2',
       );
       final shas = '${result.stdout}'.trim().split('\n');
       if (shas.length < 2) {
@@ -59,7 +46,6 @@ class GetProjectGitDependenciesUsecase {
       final lastCommit = await getLastLocalCommitInCurrentBranch();
 
       final GitUser user = await _getGitUserUsecase();
-
       final String originUrl = await _getProjectOriginUsecase();
       Dependencies.gitVariables = GitVariables(
         user: user,

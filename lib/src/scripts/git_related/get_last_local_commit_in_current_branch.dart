@@ -1,25 +1,39 @@
-import 'dart:io';
-
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+
+import '../../core/utils/git_process_runner.dart';
 
 class GetLastLocalCommitInCurrentBranchUsecase {
   Future<GitCommit> call() async {
-    // Use a custom log format to make parsing easier
-    const format = '%H|%an|%ae|%ad|%s';
+    const String delimiter = '|||GIT_COMMIT_FIELD_DELIMITER|||';
+    // Git log format specifiers:
+    // %H: commit hash
+    // %an: author name
+    // %ae: author email
+    // %aI: author date, strict ISO 8601 format (good for DateTime.parse)
+    // %s: subject (first line of commit message)
+    // Note: For the full commit message (subject + body), use %B. For this example, %s is simpler.
+    const String gitLogFormat =
+        '"%H$delimiter%an$delimiter%ae$delimiter%aI$delimiter%s"';
 
-    final result = await Process.run('git', [
-      'log',
-      '-1',
-      '--pretty=format:$format',
-      '--date=iso',
-    ]);
+    final result = await BabelGitProcessRunner.run(
+      'git log -1 --pretty=format:$gitLogFormat',
+    );
 
     if (result.exitCode != 0) {
+      print(
+        '\n(exit:${result.exitCode}) ==> ${result.stdout.toString().trim()}'
+            .pink,
+      );
+      print('\ngit log -1 --pretty=format:$gitLogFormat'.hotPink);
       throw Exception('Failed to get last commit: ${result.stderr}');
     }
 
     final output = result.stdout.toString().trim();
-    final parts = output.split('|');
+    final parts = output.split(delimiter);
+
+    // git log -1 --pretty=format:%H|%an|%ae|%ad|%s
+    // git log -1 --pretty=format:"%H$|||GIT_COMMIT_FIELD_DELIMITER|||%an$|||GIT_COMMIT_FIELD_DELIMITER|||%ae$|||GIT_COMMIT_FIELD_DELIMITER|||%aI$|||GIT_COMMIT_FIELD_DELIMITER|||%s"
 
     if (parts.length < 5) {
       throw Exception('⚠️ Unexpected git log output: $output');
