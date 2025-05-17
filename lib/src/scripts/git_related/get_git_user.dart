@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 
 class GetGitUserUsecase {
   Future<GitUser> call() async {
@@ -11,18 +12,11 @@ class GetGitUserUsecase {
       final name = nameResult.stdout.toString().trim();
       final email = emailResult.stdout.toString().trim();
 
-      return GitUser(name: name, email: email);
+      return GitUser(authorName: name, authorEmail: email);
     } catch (e) {
       throw Exception(
         'Failed to get git user information.\nPlease ensure you have Git installed and configured correctly.\nAlso, check if you are in the correct path: ${Dependencies.targetDirectory.path}',
       );
     }
   }
-}
-
-class GitUser {
-  final String name;
-  final String email;
-
-  const GitUser({required this.name, required this.email});
 }

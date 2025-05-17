@@ -15,6 +15,7 @@ import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/edit_each_file_content.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
+import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
@@ -43,6 +44,8 @@ class GobabelController {
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
   final GetAppLanguagesUsecase _getAppLanguagesUsecase;
   final SetTargetFilesUsecase _setTargetFilesUsecase;
+  final GetLastLocalCommitInCurrentBranchUsecase
+  _getLastLocalCommitInCurrentBranch;
 
   const GobabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
@@ -65,6 +68,8 @@ class GobabelController {
     required AnalyseCodebaseIssueIntegrityUsecase
     analyseCodebaseIssueIntegrityUsecase,
     required CommitAllChangesUsecase commitAllChangesUsecase,
+    required GetLastLocalCommitInCurrentBranchUsecase
+    getLastLocalCommitInCurrentBranch,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
@@ -81,7 +86,8 @@ class GobabelController {
        _setTargetFilesUsecase = setTargetFilesUsecase,
        _analyseCodebaseIssueIntegrityUsecase =
            analyseCodebaseIssueIntegrityUsecase,
-       _commitAllChangesUsecase = commitAllChangesUsecase;
+       _commitAllChangesUsecase = commitAllChangesUsecase,
+       _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch;
 
   Future<void> create({
     required String accountApiKey,
@@ -246,11 +252,15 @@ class GobabelController {
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
       final GitVariables gitVariables = Dependencies.gitVariables;
 
-      await runWithSpinner(
+      final GenerateHistory generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',
+
         message: 'Uploading new version to Gobabel server...',
+
         () async {
-          await Dependencies.client.publicGenerate(
+          return await Dependencies.client.publicGenerate(
+            gitCommit: Dependencies.gitVariables.previousCommit,
+            gitUser: Dependencies.gitVariables.user,
             projectApiToken: projectApiToken,
             projectCodeBaseFolders: codeBase,
             madeTranslations: Dependencies.madeTranslations,
@@ -268,6 +278,19 @@ class GobabelController {
         message: 'Committing changes...',
         () async {
           await _commitAllChangesUsecase();
+        },
+      );
+
+      await runWithSpinner(
+        message: 'Mapping bot commit message to gobabel system...',
+        successMessage: 'Bot commit message mapped',
+        () async {
+          final currentCommit = await _getLastLocalCommitInCurrentBranch();
+          await Dependencies.client.publicHistory.setCommit(
+            projectShaIdentifier: gitVariables.projectShaIdentifier,
+            commit: currentCommit,
+            generateHistoryId: generatedVersion.id!,
+          );
         },
       );
 

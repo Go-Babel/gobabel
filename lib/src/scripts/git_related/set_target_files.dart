@@ -32,11 +32,11 @@ class SetTargetFilesUsecase {
     final ShaCommit curentSha = Dependencies.gitVariables.latestShaIdentifier;
 
     // Sort. The most recent first.
-    final List<({ShaCommit sha, DateTime updatedDate})> projectVersionsShas = [
+    final List<ShaCommit> projectVersionsShas = [
       ...await _getProjectLastCommitShaStampsUsecase(
         projectApiToken: projectApiToken,
       ),
-    ]..sort((a, b) => b.updatedDate.compareTo(a.updatedDate));
+    ];
 
     if (projectVersionsShas.isEmpty) {
       Dependencies.filesVerificationState = FilesVerification.fromZero();
@@ -56,7 +56,7 @@ class SetTargetFilesUsecase {
     for (final String commit in allTreeCommits) {
       if (allTreeCommits.contains(commit)) {
         final isWithinLastProjectTrackedCommit = projectVersionsShas.any(
-          (element) => element.sha == commit,
+          (ShaCommit elementShaCommit) => elementShaCommit == commit,
         );
         if (isWithinLastProjectTrackedCommit) {
           lastTrackedCommit = commit;
