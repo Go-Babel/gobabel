@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:test/test.dart';
 
@@ -89,11 +89,8 @@ Future<void> get() async {
   }
 
   // Run git log command to get commits from oldest to newest
-  final result = await Process.run(
-    'git',
-    ['log', '--reverse', '--pretty=format:%H %an %ad %s', '--date=short'],
-    workingDirectory: repoPath,
-    runInShell: Platform.isWindows,
+  final result = await BabelProcessRunner.run(
+    'git log --reverse --pretty=format:"%H %an %ad %s" --date=short',
   );
 
   if (result.exitCode != 0) {

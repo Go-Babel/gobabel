@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
+import 'package:gobabel/src/core/utils/git_process_runner.dart';
 
 class GetAllCommitsInCurrentGitTreeOrdoredByTime {
   Future<List<ShaCommit>> call() async {
@@ -16,12 +17,8 @@ class GetAllCommitsInCurrentGitTreeOrdoredByTime {
 
     // git log --reverse --pretty=format:%H --date=short
     // Run git log command to get commits from oldest to newest
-    final result = await Process.run(
-      'git',
-      ['log', '--reverse', '--pretty=format:%H', '--date=short'],
-      // ['log', '--reverse', '--pretty=format:%H %an %ad %s', '--date=short'],
-      workingDirectory: repoPath,
-      runInShell: Platform.isWindows,
+    final result = await BabelProcessRunner.run(
+      'git log --reverse --pretty=format:"%H" --date=short',
     );
 
     if (result.exitCode != 0) {

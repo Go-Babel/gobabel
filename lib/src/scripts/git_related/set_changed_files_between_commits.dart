@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/utils/git_process_runner.dart';
 
 class SetChangedDartFilesBetweenCommitsUsecase {
   /// Returns a list of file paths that were changed between [commit1] and [commit2].
@@ -17,14 +16,9 @@ class SetChangedDartFilesBetweenCommitsUsecase {
   /// Throws an `Exception` if the Git command fails (e.g., invalid commits, Git not
   /// installed, or not in a Git repository).
   Future<void> call({required String commit1, required String commit2}) async {
-    final dirrPath = Dependencies.targetDirectory.path;
-    // Run the Git diff command with --name-only to get changed file paths
-    final result = await Process.run('git', [
-      'diff',
-      '--name-only',
-      commit1,
-      commit2,
-    ], workingDirectory: dirrPath);
+    final result = await BabelProcessRunner.run(
+      'git diff --name-only $commit1 $commit2',
+    );
 
     // Check if the command executed successfully
     if (result.exitCode != 0) {

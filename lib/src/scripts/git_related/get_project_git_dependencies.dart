@@ -28,7 +28,7 @@ class GetProjectGitDependenciesUsecase {
     try {
       final dirrPath = Dependencies.targetDirectory.path;
       // Run the command
-      final ProcessResult result = await BabelGitProcessRunner.run(
+      final ProcessResult result = await BabelProcessRunner.run(
         'git rev-list --parents --reverse HEAD | head -2',
       );
       final shas = '${result.stdout}'.trim().split('\n');

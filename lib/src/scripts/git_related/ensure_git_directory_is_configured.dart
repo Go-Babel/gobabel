@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:git/git.dart';
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/utils/git_process_runner.dart';
 
 class EnsureGitDirectoryIsConfiguredUsecase {
   const EnsureGitDirectoryIsConfiguredUsecase();
@@ -31,7 +30,7 @@ class EnsureGitDirectoryIsConfiguredUsecase {
     }
 
     // 3. Check if local branch is behind remote
-    final syncStatus = await Process.run('git', ['status', '-uno']);
+    final syncStatus = await BabelProcessRunner.run('git status -uno');
     final statusOutput = syncStatus.stdout.toString();
 
     if (statusOutput.contains('Your branch is behind')) {

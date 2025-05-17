@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/dependencies.dart';
 
-class BabelGitProcessRunner {
+class BabelProcessRunner {
   static Future<ProcessResult> run(String command) async {
     // Use the appropriate shell based on the platform
     String shell = Platform.isWindows ? 'cmd' : 'sh';
@@ -18,6 +18,11 @@ class BabelGitProcessRunner {
 
     final dirrPath = Dependencies.targetDirectory.path;
     // Run the command
-    return await Process.run(shell, shellArgs, workingDirectory: dirrPath);
+    return await Process.run(
+      shell,
+      shellArgs,
+      workingDirectory: dirrPath,
+      // runInShell: Platform.isWindows,
+    );
   }
 }

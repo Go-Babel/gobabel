@@ -1,7 +1,7 @@
-import 'dart:io';
-
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
+
+import '../../core/utils/git_process_runner.dart';
 
 class AnalyseCodebaseIssueIntegrityUsecase {
   /// Performs static analysis on the specified directory (defaults to 'lib').
@@ -13,10 +13,8 @@ class AnalyseCodebaseIssueIntegrityUsecase {
     final dir = Dependencies.targetDirectory;
     final directoryPath = dir.path;
 
-    final processResult = await Process.run(
-      'dart',
-      ['analyze', directoryPath],
-      runInShell: Platform.isWindows, // Useful on Windows for path resolution
+    final processResult = await BabelProcessRunner.run(
+      'dart analyze $directoryPath',
     );
 
     final String stdout = processResult.stdout.toString();

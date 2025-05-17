@@ -16,7 +16,7 @@ class GetLastLocalCommitInCurrentBranchUsecase {
     const String gitLogFormat =
         '"%H$delimiter%an$delimiter%ae$delimiter%aI$delimiter%s"';
 
-    final result = await BabelGitProcessRunner.run(
+    final result = await BabelProcessRunner.run(
       'git log -1 --pretty=format:$gitLogFormat',
     );
 
