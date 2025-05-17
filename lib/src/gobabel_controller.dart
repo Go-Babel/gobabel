@@ -130,6 +130,7 @@ class GobabelController {
           name: yamlInfo.projectName,
           description: yamlInfo.projectDescription ?? '',
           projectCodeBaseFolders: codeBase,
+          originUrl: Dependencies.gitVariables.originUrl,
           projectShaIdentifier: gitVariables.projectShaIdentifier,
           accountApiKey: accountApiKey,
         );
@@ -178,6 +179,7 @@ class GobabelController {
           name: yamlInfo.projectName,
           description: yamlInfo.projectDescription ?? '',
           projectCodeBaseFolders: codeBase,
+          originUrl: Dependencies.gitVariables.originUrl,
           projectShaIdentifier: gitVariables.projectShaIdentifier,
           projectApiToken: projectApiToken,
         );
@@ -263,6 +265,7 @@ class GobabelController {
             gitUser: Dependencies.gitVariables.user,
             projectApiToken: projectApiToken,
             projectCodeBaseFolders: codeBase,
+            originUrl: Dependencies.gitVariables.originUrl,
             madeTranslations: Dependencies.madeTranslations,
             projectShaIdentifier: gitVariables.projectShaIdentifier,
             currentCommitSha: gitVariables.latestShaIdentifier,

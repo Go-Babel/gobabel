@@ -14,6 +14,7 @@ import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/get_all_commits_in_current_git_tree_time_sorted.dart';
 import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
@@ -72,6 +73,7 @@ Future<void> main(List<String> arguments) async {
     writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
     resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
     getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(
+      getProjectOriginUsecase: GetProjectOriginUsecase(),
       getLastLocalCommitInCurrentBranch:
           GetLastLocalCommitInCurrentBranchUsecase(),
       getGitUserUsecase: GetGitUserUsecase(),

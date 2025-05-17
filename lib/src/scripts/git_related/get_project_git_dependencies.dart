@@ -7,18 +7,22 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
+import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 
 class GetProjectGitDependenciesUsecase {
   final GetLastLocalCommitInCurrentBranchUsecase
   getLastLocalCommitInCurrentBranch;
   final GetGitUserUsecase _getGitUserUsecase;
+  final GetProjectOriginUsecase _getProjectOriginUsecase;
   GetProjectGitDependenciesUsecase({
     required GetGitUserUsecase getGitUserUsecase,
     required GetLastLocalCommitInCurrentBranchUsecase
     getLastLocalCommitInCurrentBranch,
+    required GetProjectOriginUsecase getProjectOriginUsecase,
   }) : _getGitUserUsecase = getGitUserUsecase,
-       getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch;
+       getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
+       _getProjectOriginUsecase = getProjectOriginUsecase;
   Future<void> call() async {
     try {
       // Use the appropriate shell based on the platform
@@ -55,9 +59,12 @@ class GetProjectGitDependenciesUsecase {
       final lastCommit = await getLastLocalCommitInCurrentBranch();
 
       final GitUser user = await _getGitUserUsecase();
+
+      final String originUrl = await _getProjectOriginUsecase();
       Dependencies.gitVariables = GitVariables(
         user: user,
         previousCommit: lastCommit,
+        originUrl: originUrl,
         latestShaIdentifier: latestShaIdentifier,
         projectShaIdentifier: projectShaIdentifier,
       );
@@ -74,10 +81,12 @@ class GitVariables {
   final GitUser user;
   final GitCommit previousCommit;
   final String latestShaIdentifier;
+  final String originUrl;
   final BigInt projectShaIdentifier;
 
   const GitVariables({
     required this.user,
+    required this.originUrl,
     required this.projectShaIdentifier,
     required this.latestShaIdentifier,
     required this.previousCommit,
