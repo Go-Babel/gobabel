@@ -214,8 +214,6 @@ class GobabelController {
         },
       );
 
-      throw Exception('test');
-
       await runWithSpinner(
         message:
             'Garanteeing integrity of codebase (static analysis issues)...',

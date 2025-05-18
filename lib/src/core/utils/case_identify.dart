@@ -18,12 +18,19 @@
 
 class CaseIdentifyRegex {
   // If you wan't without end suffix optional (ex: .dart), use: (?<!\w)\w{1,}(?:\/\w+){1,}\/?(?!\w)
+
   static const String importCase =
       r'\w+:(?:(?:(?:\w|\.)+$)|'
-      '$pathCase)';
+      '$_pathCaseSlash)';
   // r'\w+:' + pathCase;
   static const String pathCase =
-      r'(?<!\w)\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)';
+      '(?:$_pathCaseSlash)|(?:$_pathCaseFowardSlash)|(?:$_pathCaseRoute)';
+  static const String _pathCaseRoute =
+      r'^([\/])\w{1,}(?:\.\w+\1?)?$'; // /splash, /splash.dart, /splash.dart/
+  static const String _pathCaseSlash =
+      r'^(?<!\w)\/?\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)$';
+  static const String _pathCaseFowardSlash =
+      r'^(?<!\w)\\?\w{1,}(?:\\\w+){1,}\\?(?:.\w{1,}){0,}(?!\w)$';
   static const String camelCase =
       r'(?<!\w)\d?([a-z][a-z0-9]+)([A-Z][a-z0-9]+){1,}(?!\w)';
   static const String constantCase =
