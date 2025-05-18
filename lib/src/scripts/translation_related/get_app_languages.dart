@@ -4,16 +4,18 @@ import 'package:gobabel_core/gobabel_core.dart';
 
 class GetAppLanguagesUsecase {
   Future<void> call({required String token}) async {
+    final BabelSupportedLocales inputedByUserLocale =
+        Dependencies.referenceLanguage;
     final GitVariables gitVariables = Dependencies.gitVariables;
     final languagesResponse = await Dependencies.client.publicProject
         .getProjectLanguages(
           projectShaIdentifier: gitVariables.projectShaIdentifier,
         );
 
+    Dependencies.maxLanguageCount = languagesResponse.maxLanguageCount;
+
     if (languagesResponse.languages.isEmpty) {
-      throw Exception(
-        'Failed to get project dependencies. Please run create command if it\'s a new project. Double-check if your token key is valid and not misstyped.',
-      );
+      Dependencies.projectLanguages.addAll([inputedByUserLocale]);
     }
 
     final List<BabelSupportedLocales> castedSupportedLocales = [];

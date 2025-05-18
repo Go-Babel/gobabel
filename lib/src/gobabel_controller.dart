@@ -21,6 +21,7 @@ import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dar
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
+import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -47,6 +48,7 @@ class GobabelController {
   final SetTargetFilesUsecase _setTargetFilesUsecase;
   final GetLastLocalCommitInCurrentBranchUsecase
   _getLastLocalCommitInCurrentBranch;
+  final TranslateNewStringsArbUsecase _translateNewStringsArbUsecase;
 
   const GobabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
@@ -71,6 +73,7 @@ class GobabelController {
     required CommitAllChangesUsecase commitAllChangesUsecase,
     required GetLastLocalCommitInCurrentBranchUsecase
     getLastLocalCommitInCurrentBranch,
+    required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _runForEachFileTextUsecase = runForEachFileTextUsecase,
@@ -88,7 +91,8 @@ class GobabelController {
        _analyseCodebaseIssueIntegrityUsecase =
            analyseCodebaseIssueIntegrityUsecase,
        _commitAllChangesUsecase = commitAllChangesUsecase,
-       _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch;
+       _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
+       _translateNewStringsArbUsecase = translateNewStringsArbUsecase;
 
   Future<void> create({
     required String accountApiKey,
@@ -190,10 +194,12 @@ class GobabelController {
 
   Future<void> generateNewVersion({
     required String projectApiToken,
-    required BabelSupportedLocales labelLocale,
+    required BabelSupportedLocales targetLanguage,
     required Directory directory,
   }) async {
     try {
+      Dependencies.referenceLanguage = targetLanguage;
+
       Dependencies.resetAll();
       Dependencies.setTargetDirectory(directory);
 
@@ -255,11 +261,11 @@ class GobabelController {
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
       final GitVariables gitVariables = Dependencies.gitVariables;
 
+      await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
+
       final GenerateHistory generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',
-
         message: 'Uploading new version to Gobabel server...',
-
         () async {
           return await Dependencies.client.publicGenerate(
             gitCommit: Dependencies.gitVariables.previousCommit,

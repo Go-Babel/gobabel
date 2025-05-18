@@ -16,6 +16,7 @@ import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
+import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -36,6 +37,7 @@ import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 
 Future<void> main(List<String> arguments) async {
   final GobabelController controller = GobabelController(
+    translateNewStringsArbUsecase: TranslateNewStringsArbUsecase(),
     getLastLocalCommitInCurrentBranch:
         GetLastLocalCommitInCurrentBranchUsecase(),
     analyseCodebaseIssueIntegrityUsecase:
@@ -226,7 +228,7 @@ Future<void> main(List<String> arguments) async {
       }
       await controller.generateNewVersion(
         projectApiToken: apiKey,
-        labelLocale: babelSupportedLocale,
+        targetLanguage: babelSupportedLocale,
         directory: directory,
       );
       exit(1);

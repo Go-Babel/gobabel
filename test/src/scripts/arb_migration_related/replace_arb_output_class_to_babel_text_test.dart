@@ -88,7 +88,7 @@ extension VideoGroupTypeExt on VideoGroupType {
 
 final _mockArbData = ArbData(
   config: _arbConfig,
-  mainPreMadeTranslationArb: _mockArbFileData,
+  // mainPreMadeTranslationArb: _mockArbFileData,
   preMadeTranslationArb: [_mockArbFileData],
   allDeclarationFunctions: {
     'passing': '',
