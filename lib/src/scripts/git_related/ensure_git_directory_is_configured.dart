@@ -24,8 +24,7 @@ class EnsureGitDirectoryIsConfiguredUsecase {
     if (haveAnyPendingCommit) {
       throw Exception(
         'You have pending commits in your git directory.\n'
-                'Please commit or stash your changes before running this command.'
-            .red,
+        'Please commit or stash your changes before running this command.',
       );
     }
 

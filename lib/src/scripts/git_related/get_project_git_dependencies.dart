@@ -1,9 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:io';
-
-import 'package:chalkdart/chalkstrings.dart';
-
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
@@ -56,8 +53,7 @@ class GetProjectGitDependenciesUsecase {
       );
     } catch (e, s) {
       throw Exception(
-        'Failed to get project dependencies. Please run create command if it\'s a new project. Double-check if your token key is valid and not misstyped.\n\nDETAILS:\n${'$e'.replaceAll('Exception: ', '')}\n$s'
-            .red,
+        'Failed to get project dependencies. Please run create command if it\'s a new project. Double-check if your token key is valid and not misstyped.\n\nDETAILS:\n${'$e'.replaceAll('Exception: ', '')}\n$s',
       );
     }
   }

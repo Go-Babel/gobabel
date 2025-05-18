@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/core/utils/spinner_loading.dart';
@@ -298,23 +299,16 @@ class GobabelController {
       );
 
       stdout.writeln('New version created successfully!\n${endText.trim()}');
-    } catch (e) {
-      printError(
-        'Error creating new version, '
-        'all changes will be reverted.\n',
-        e,
+    } catch (e, s) {
+      stdout.writeln(
+        'Error creating new version, '.red +
+            'all changes in code base will be reverted.\n'.deepPink,
       );
+      // TODO(igor): remove this, just for testing
+      print('\n\n$e\n\n$s'.pink);
       await _resetAllChangesDoneUsecase();
     }
   }
-}
-
-void printError(String text, [Object error = '']) {
-  print('${text.split('\n').map((t) => '\x1B[31m$t\x1B[0m').join('\n')}$error');
-}
-
-void printWarning(String text) {
-  print('\x1B[33m$text\x1B[0m');
 }
 
 final String endText =
