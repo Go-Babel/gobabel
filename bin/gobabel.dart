@@ -121,6 +121,11 @@ Future<void> main(List<String> arguments) async {
           abbr: 'v',
           help: 'Show the package version',
           negatable: false,
+        )
+        ..addFlag(
+          'list-languages',
+          help: 'Show all supported languages',
+          negatable: false,
         );
 
   // Parse the arguments
@@ -144,11 +149,17 @@ Future<void> main(List<String> arguments) async {
     try {
       final version = await getPackageVersion();
       print('go_babel version: $version');
-      exit(1);
+      exit(0);
     } catch (e) {
       print('❌ Error reading package version: $e'.red);
-      exit(0);
+      exit(1);
     }
+  }
+
+  // Handle the --list-languages flag
+  if (argResults['list-languages'] as bool) {
+    printSupportedLanguages();
+    exit(0);
   }
 
   // Check for mutually exclusive operations
@@ -195,18 +206,36 @@ Future<void> main(List<String> arguments) async {
   }
   // Handle the generate command
   else if (argResults['generate'] as bool) {
-    if (argResults['language'] == null) {
-      print('❌ Error: --language is required for generate operation.'.red);
-      printUsage(parser);
-      exit(0);
-    }
     if (argResults['api-key'] == null) {
       print('❌ Error: --api-key is required for generate operation.'.red);
       printUsage(parser);
-      exit(0);
+      exit(1);
     }
-    final language = argResults['language'] as String;
+
     final apiKey = argResults['api-key'] as String;
+    String? language = argResults['language'] as String?;
+
+    // If language is not provided, prompt the user
+    if (language == null) {
+      print('ℹ️  Language is required for generate operation.'.wheat);
+      print('Enter language in format language_country (e.g., en_US)'.wheat);
+      print('Type "list-all" to see all supported languages'.wheat);
+      stdout.write('> ');
+      language = stdin.readLineSync()?.trim();
+
+      // If user wants to see all languages
+      if (language == 'list-all') {
+        printSupportedLanguages();
+        stdout.write('\nNow enter a language code: ');
+        language = stdin.readLineSync()?.trim();
+      }
+
+      if (language == null || language.isEmpty) {
+        print('❌ Error: Language is required.'.red);
+        exit(1);
+      }
+    }
+
     // Split the language into languageCode and countryCode
     final parts = language.split('_');
     if (parts.length != 2) {
@@ -215,7 +244,8 @@ Future<void> main(List<String> arguments) async {
                 'Expected language_country, in this exact format, e.g., en_US.'
             .red,
       );
-      exit(0);
+      printSupportedLanguages();
+      exit(1);
     }
     final languageCode = parts[0];
     final countryCode = parts[1];
@@ -224,6 +254,7 @@ Future<void> main(List<String> arguments) async {
           BabelSupportedLocales.fromLocale(languageCode, countryCode);
       if (babelSupportedLocale == null) {
         print('❌ Error: Invalid language/country code for $language'.red);
+        printSupportedLanguages();
         exit(1);
       }
       await controller.generateNewVersion(
@@ -231,7 +262,7 @@ Future<void> main(List<String> arguments) async {
         targetLanguage: babelSupportedLocale,
         directory: directory,
       );
-      exit(1);
+      exit(0);
     } catch (e) {
       print('\n❌ Error during generate operation:\n$e'.red);
       exit(1);
@@ -283,6 +314,19 @@ void printUsage(ArgParser parser) {
   print('ℹ️ Usage: go_babel [options]'.white);
   print('Options:'.white);
   print(parser.usage.white);
+}
+
+// Helper function to display all supported languages
+void printSupportedLanguages() {
+  print('ℹ️ Supported Languages:'.wheat);
+  print('Format: language_country - Display Name\n'.wheat);
+
+  final locales = BabelSupportedLocales.values;
+
+  for (var locale in locales) {
+    final code = '${locale.languageCode}_${locale.countryCode}'.padRight(6);
+    print('${locale.flagEmoji}  $code - ${locale.displayName}'.white);
+  }
 }
 
 Directory resolvePath(String? pathInput) {

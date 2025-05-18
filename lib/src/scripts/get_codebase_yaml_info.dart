@@ -26,7 +26,6 @@ class GetCodeBaseYamlInfoUsecase {
     }
 
     final String yamlContent = await File(yamlFile.path).readAsString();
-    // print('$yamlContent');
 
     final String? projectName = yamlContent.getYamlLineContent('name');
     final String? projectDescription = yamlContent.getYamlLineContent(

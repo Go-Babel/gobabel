@@ -34,7 +34,6 @@ class MapStringsUsecase {
 
     final List<DynamicValueSection> dynamicValues =
         getDynamicValuesInStringUsecase(l10nValue);
-    print('${dynamicValues.length} dynamicValues: $dynamicValues'.red);
     dynamicValues.sort((a, b) => b.startIndex.compareTo(a.startIndex));
 
     final Set<VariableName> variableNames = {};

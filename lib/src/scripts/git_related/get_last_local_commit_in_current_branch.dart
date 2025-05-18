@@ -1,4 +1,3 @@
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 
 import '../../core/utils/git_process_runner.dart';
@@ -21,11 +20,11 @@ class GetLastLocalCommitInCurrentBranchUsecase {
     );
 
     if (result.exitCode != 0) {
-      print(
-        '\n(exit:${result.exitCode}) ==> ${result.stdout.toString().trim()}'
-            .pink,
-      );
-      print('\ngit log -1 --pretty=format:$gitLogFormat'.hotPink);
+      // print(
+      //   '\n(exit:${result.exitCode}) ==> ${result.stdout.toString().trim()}'
+      //       .pink,
+      // );
+      // print('\ngit log -1 --pretty=format:$gitLogFormat'.hotPink);
       throw Exception('Failed to get last commit: ${result.stderr}');
     }
 

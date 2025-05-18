@@ -37,8 +37,6 @@ class AnalyseCodebaseIssueIntegrityUsecase {
     }
 
     if (exitCode != 0) {
-      print('Static analysis found issues!');
-      print(fullOutput); // Print the output before throwing
       throw Exception(
         'Static analysis failed for directory ${directoryPath.pink}.\n'
         'Eror in ${"fullOutput".pink}.\n'
