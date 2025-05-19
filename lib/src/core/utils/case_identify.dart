@@ -21,16 +21,16 @@ class CaseIdentifyRegex {
 
   static const String importCase =
       r'\w+:(?:(?:(?:\w|\.)+$)|'
-      '$_pathCaseSlash)';
+      '(?:$pathCase))';
   // r'\w+:' + pathCase;
   static const String pathCase =
       '(?:$_pathCaseSlash)|(?:$_pathCaseFowardSlash)|(?:$_pathCaseRoute)';
   static const String _pathCaseRoute =
-      r'^([\/])\w{1,}(?:\.\w+\1?)?$'; // /splash, /splash.dart, /splash.dart/
+      r'([\/])\w{1,}(?:\.\w+\1?)?'; // /splash, /splash.dart, /splash.dart/
   static const String _pathCaseSlash =
-      r'^(?<!\w)\/?\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)$';
+      r'(?<!\w)\/?\w{1,}(?:\/\w+){1,}\/?(?:.\w{1,}){0,}(?!\w)';
   static const String _pathCaseFowardSlash =
-      r'^(?<!\w)\\?\w{1,}(?:\\\w+){1,}\\?(?:.\w{1,}){0,}(?!\w)$';
+      r'(?<!\w)\\?\w{1,}(?:\\\w+){1,}\\?(?:.\w{1,}){0,}(?!\w)';
   static const String camelCase =
       r'(?<!\w)\d?([a-z][a-z0-9]+)([A-Z][a-z0-9]+){1,}(?!\w)';
   static const String constantCase =

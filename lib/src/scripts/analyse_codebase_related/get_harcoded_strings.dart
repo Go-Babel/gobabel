@@ -1,3 +1,4 @@
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
 
 import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
@@ -34,14 +35,17 @@ class GetHarcodedStringsUsecase {
 
     int index = -1;
     for (final String currChar in text.split('')) {
+      final recent = '$penultimateChar$lastChar$currChar';
       index++;
       final alreadyHaveOpenDelimiter = stringChartSelectec != null;
 
-      final isCommentBlocStart = currChar == '/' && lastChar == '*';
+      final isCommentBlocStart =
+          currChar == '/' && lastChar == '*' && !alreadyHaveOpenDelimiter;
       if (isCommentBlocStart) {
         comentBlocIndex++;
       }
-      final isCommentBlocEnd = currChar == '*' && lastChar == '/';
+      final isCommentBlocEnd =
+          currChar == '*' && lastChar == '/' && !alreadyHaveOpenDelimiter;
       if (isCommentBlocEnd) {
         comentBlocIndex--;
       }
@@ -51,7 +55,8 @@ class GetHarcodedStringsUsecase {
         isInsideCommentLine = false;
       }
 
-      final isStartComment = currChar == '/' && lastChar == '/';
+      final isStartComment =
+          currChar == '/' && lastChar == '/' && !alreadyHaveOpenDelimiter;
       if (isStartComment) {
         isInsideCommentLine = true;
         continue;
@@ -108,9 +113,11 @@ class GetHarcodedStringsUsecase {
         stringChartSelectec = currChar;
         bufferStartIndex = index + 1;
       }
+      if (currChar == "'") {
+        print('entered at $index, $recent'.hotPink);
+      }
 
       if (isCurrCharCloseString) {
-        stringChartSelectec = null;
         final content = text.substring(bufferStartIndex, index);
         final startIndex = index - 51;
         final bool isValidString = validateCandidateStringUsecase(
@@ -130,6 +137,7 @@ class GetHarcodedStringsUsecase {
             ),
           );
         }
+        stringChartSelectec = null;
         bufferStartIndex = index;
       }
 

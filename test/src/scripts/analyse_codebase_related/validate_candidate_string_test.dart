@@ -330,10 +330,18 @@ void main() {
 
   group('_doLastCharsIndicateAToStringMethod Tests', () {
     test('Should return true for toString method pattern', () {
-      final result = validateCandidateStringUsecase
-          .doLastCharsIndicateAToStringMethod('''@override
-  String toString() {''');
-      expect(result, isTrue);
+      final result = validateCandidateStringUsecase.validateOtherMappedSenarios(
+        '''@override
+  String toString() {''',
+      );
+      expect(result, isFalse);
+    });
+    test('Should return true for toString method pattern 2', () {
+      final result = validateCandidateStringUsecase.validateOtherMappedSenarios(
+        '''@override
+  String toString() => ''',
+      );
+      expect(result, isFalse);
     });
 
     test('Should return false for non toString method pattern', () {

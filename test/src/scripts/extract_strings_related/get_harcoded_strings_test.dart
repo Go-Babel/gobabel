@@ -24,6 +24,12 @@ void main() {
   });
 
   test('Should map correctly the target file', () async {
+    /*Text(' /* top */'),
+          Text('''
+/*
+top 
+*/
+'''),*/
     final targetPath =
         '${Directory.current.path}/test/src/scripts/extract_strings_related/test_hardcoded_file.dart';
     // '/Users/igormidev/Documents/work/dsf-player-getter/dsf_commum_data_source/lib/src/repositories/fetch_championship_average/auxiliar_functions/evaluate_season_match_info.dart';
@@ -35,6 +41,8 @@ void main() {
         getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
       ),
     ).call(content);
+    print(res.join('\n'));
+    return;
 
     final expectedResult = [
       HardCodedStringSource(
@@ -100,6 +108,24 @@ void main() {
     // for (final HardCodedStringSource string in res) {
     //   print(string);
     // }
+  });
+  test('Should map correctly the target file 2', () async {
+    final targetPath =
+        '${Directory.current.path.replaceAll('gobabel/gobabel', 'gobabel')}/go_babel_app/gobabel_flutter/lib/auth/ui/views/auth_view.dart';
+    // '/Users/igormidev/Documents/work/dsf-player-getter/dsf_commum_data_source/lib/src/repositories/fetch_championship_average/auxiliar_functions/evaluate_season_match_info.dart';
+    print(
+      'targetPath:\n"${Directory.current.path}"\n"$targetPath"\n"/Users/igormidev/gobabel/go_babel_app/gobabel_flutter/lib/auth/ui/views/auth_view.dart"',
+    );
+
+    final File file = File(targetPath);
+    final String content = await file.readAsString();
+    final res = GetHarcodedStringsUsecase(
+      validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      ),
+    ).call(content);
+
+    print(res.join('\n'));
   });
 }
 
