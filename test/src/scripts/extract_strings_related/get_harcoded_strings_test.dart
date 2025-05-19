@@ -24,12 +24,6 @@ void main() {
   });
 
   test('Should map correctly the target file', () async {
-    /*Text(' /* top */'),
-          Text('''
-/*
-top 
-*/
-'''),*/
     final targetPath =
         '${Directory.current.path}/test/src/scripts/extract_strings_related/test_hardcoded_file.dart';
     // '/Users/igormidev/Documents/work/dsf-player-getter/dsf_commum_data_source/lib/src/repositories/fetch_championship_average/auxiliar_functions/evaluate_season_match_info.dart';

@@ -9,7 +9,7 @@ class GetHarcodedStringsUsecase {
     required this.validateCandidateStringUsecase,
   });
 
-  List<HardCodedStringSource> call(String text) {
+  List<HardCodedStringSource> call(String text, {bool isRoot = true}) {
     final List<HardCodedStringSource> hardcodedStrings = [];
     const String charStart1 = "'";
     const String charStart2 = '"';
@@ -40,12 +40,18 @@ class GetHarcodedStringsUsecase {
       final alreadyHaveOpenDelimiter = stringChartSelectec != null;
 
       final isCommentBlocStart =
-          currChar == '/' && lastChar == '*' && !alreadyHaveOpenDelimiter;
+          currChar == '/' &&
+          lastChar == '*' &&
+          !alreadyHaveOpenDelimiter &&
+          isRoot;
       if (isCommentBlocStart) {
         comentBlocIndex++;
       }
       final isCommentBlocEnd =
-          currChar == '*' && lastChar == '/' && !alreadyHaveOpenDelimiter;
+          currChar == '*' &&
+          lastChar == '/' &&
+          !alreadyHaveOpenDelimiter &&
+          isRoot;
       if (isCommentBlocEnd) {
         comentBlocIndex--;
       }
@@ -56,13 +62,17 @@ class GetHarcodedStringsUsecase {
       }
 
       final isStartComment =
-          currChar == '/' && lastChar == '/' && !alreadyHaveOpenDelimiter;
+          currChar == '/' &&
+          lastChar == '/' &&
+          !alreadyHaveOpenDelimiter &&
+          isRoot;
       if (isStartComment) {
         isInsideCommentLine = true;
         continue;
       }
 
-      final isInCommentArea = isInsideCommentLine || comentBlocIndex > 0;
+      final isInCommentArea =
+          (isInsideCommentLine || comentBlocIndex > 0) && isRoot;
 
       final isOpenBraketChar =
           (currChar == '{' && lastChar == r'$' && penultimateChar != r'\') ||
@@ -133,7 +143,7 @@ class GetHarcodedStringsUsecase {
               start: bufferStartIndex,
               end: index,
               child: content,
-              children: call(content),
+              children: call(content, isRoot: false),
             ),
           );
         }

@@ -17,6 +17,12 @@ class TestHardcodedFile extends StatelessWidget {
       body: ListView(
         children: [
           Text(' /* top */'),
+          Text(' /* top */'),
+          Text('''
+/*
+top 
+*/
+'''),
           SizedBox.expand(
             child: Image.network(
               'https://lottie.host/b70b435a-8472-4e19-ad03-71579dd08074/zOcB4gAPwC.lottie',
