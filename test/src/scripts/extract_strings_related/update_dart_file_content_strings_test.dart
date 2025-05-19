@@ -26,7 +26,9 @@ void main() {
     final String content = await file.readAsString();
     final res = ReplaceHardCodedStringsForBabelTextUsecase(
       getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
-        validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+        validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+          getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+        ),
       ),
       mapStringsUsecase: MapStringsUsecase(
         getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),

@@ -1,13 +1,16 @@
 import 'dart:io';
 
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
 import 'package:test/test.dart';
 
 void main() {
   final getHarcodedStringsUsecase = GetHarcodedStringsUsecase(
-    validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+    validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+    ),
   );
 
   test('Should get hardcoded Strings as expected for layer 1', () {
@@ -28,7 +31,9 @@ void main() {
     final File file = File(targetPath);
     final String content = await file.readAsString();
     final res = GetHarcodedStringsUsecase(
-      validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+      validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      ),
     ).call(content);
 
     final expectedResult = [

@@ -5,6 +5,7 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
+import 'package:gobabel/src/core/utils/to_arb_case.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -57,7 +58,7 @@ class MapStringsUsecase {
       );
     }
 
-    final String l10nKey = l10nValue.toArbCase(variableNames);
+    final String l10nKey = l10nValue.toNewArbCase(variableNames);
 
     VariableContent gobabelFunctionDeclarationString =
         '''${l10nValue.formatToComment}

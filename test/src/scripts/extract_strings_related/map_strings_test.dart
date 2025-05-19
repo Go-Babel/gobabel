@@ -294,7 +294,9 @@ MappedString(
 
   test('Should map strings as expected 3', () {
     final getHarcodedStringsUsecase = GetHarcodedStringsUsecase(
-      validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
+      validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      ),
     );
     final hardCodedString = getHarcodedStringsUsecase(_textString3);
     // print(hardCodedString);

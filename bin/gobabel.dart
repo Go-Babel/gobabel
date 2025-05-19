@@ -36,6 +36,11 @@ import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
 
 Future<void> main(List<String> arguments) async {
+  final getHarcodedStringsUsecase = GetHarcodedStringsUsecase(
+    validateCandidateStringUsecase: ValidateCandidateStringUsecase(
+      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+    ),
+  );
   final GobabelController controller = GobabelController(
     translateNewStringsArbUsecase: TranslateNewStringsArbUsecase(),
     getLastLocalCommitInCurrentBranch:
@@ -45,9 +50,7 @@ Future<void> main(List<String> arguments) async {
     commitAllChangesUsecase: CommitAllChangesUsecase(),
     ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
     getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
-    getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
-      validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
-    ),
+    getHarcodedStringsUsecase: getHarcodedStringsUsecase,
     runForEachFileTextUsecase: RunForEachFileTextUsecase(),
     mapStringsUsecase: MapStringsUsecase(
       getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
@@ -56,9 +59,7 @@ Future<void> main(List<String> arguments) async {
         ReplaceArbOutputClassToBabelTextUsecase(),
     updateDartFileContentStringsUsecase:
         ReplaceHardCodedStringsForBabelTextUsecase(
-          getHarcodedStringsUsecase: GetHarcodedStringsUsecase(
-            validateCandidateStringUsecase: ValidateCandidateStringUsecase(),
-          ),
+          getHarcodedStringsUsecase: getHarcodedStringsUsecase,
           mapStringsUsecase: MapStringsUsecase(
             getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
           ),

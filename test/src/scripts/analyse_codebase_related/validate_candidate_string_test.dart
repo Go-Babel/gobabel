@@ -1,4 +1,5 @@
 import 'package:gobabel/src/core/utils/case_identify.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
 import 'package:test/test.dart';
 
@@ -53,8 +54,90 @@ final List<String> _importCaseTest = [
 
 void main() {
   final ValidateCandidateStringUsecase validateCandidateStringUsecase =
-      ValidateCandidateStringUsecase();
+      ValidateCandidateStringUsecase(
+        getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
+      );
 
+  group('Urls', () {
+    test('Should not pass urls', () {
+      final validUrls = [
+        // Invalid URLs
+        'http://-example.com', // label starts with hyphen
+        'example.com-', // label ends with hyphen
+        'example.c', // TLD only 1 character
+        '192.168.0.1', // IP address, not allowed
+        'ftp://example.com', // unsupported scheme
+        '://example.com', // malformed scheme
+        'http//example.com', // missing colon
+        'https:/example.com', // malformed scheme
+        '', // empty string
+        '.example.com', // label starts with dot
+        'example.com.', // trailing dot
+        'example.com#', // fragment without value
+        'example.com?', // query without parameters
+        '/example.com', // path-only, no domain
+        'example.com',
+        'www.example.com',
+        'sub-domain.example.co.uk',
+        'http://example.com',
+        'https://my-site.org/path/to/page?query=123#anchor',
+        'example.com:8080/path?foo=bar',
+        'EXAMPLE.COM',
+        'https://example.com/',
+        'example.co',
+        'a-b.example-domain.io/path123',
+      ];
+
+      for (var potentialUrl in validUrls) {
+        // final result = validateCandidateStringUsecase(potentialUrl);
+        final result = validateCandidateStringUsecase(
+          content: potentialUrl,
+          last50CharsBeforeContent: '',
+        );
+        if (result == true) {
+          print('Test FAILED for "$potentialUrl": expected false, got $result');
+        }
+        expect(result, isFalse);
+      }
+    });
+
+    test('Should not pass urls', () {
+      // A comprehensive set of test cases to validate the URL regex.
+      final tests = <String, bool>{
+        // Valid URLs
+        'example.com': true,
+        'www.example.com': true,
+        'sub-domain.example.co.uk': true,
+        'http://example.com': true,
+        'https://my-site.org/path/to/page?query=123#anchor': true,
+        'example.com:8080/path?foo=bar': true,
+        'EXAMPLE.COM': true, // case-insensitive
+        'https://example.com/': true,
+        'example.co': true,
+        'a-b.example-domain.io/path123': true,
+      };
+
+      // Execute tests
+      tests.forEach((input, expected) {
+        final result =
+            !validateCandidateStringUsecase(
+              content: input,
+              last50CharsBeforeContent: '',
+            );
+        if (result != expected) {
+          print('Test FAILED for "$input": expected $expected, got $result');
+        } else {
+          // print('Test passed for "$input".');
+        }
+        assert(result == expected);
+      });
+      // final result = validateCandidateStringUsecase.call(
+      //   content: r'https://github.com/$owner/$repo/commit/$commitSha',
+      //   last50CharsBeforeContent: '',
+      // );
+      // expect(result, isFalse);
+    });
+  });
   group('Path case', () {
     test('PathCase should not pass (without initial bar)', () {
       final result = validateCandidateStringUsecase.call(

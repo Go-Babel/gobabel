@@ -50,7 +50,7 @@ class CaseIdentifyRegex {
   static bool isCase(String value, String regex) {
     if (value.isEmpty) return false;
 
-    final regExp = RegExp(regex);
+    final regExp = RegExp(regex, multiLine: true);
     final matches = regExp.allMatches(value);
     if (matches.isEmpty) return false;
     if (matches.length > 1) return false;

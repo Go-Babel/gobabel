@@ -1,5 +1,4 @@
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
 import 'package:recase/recase.dart';
 
 extension StringExtensions on String {
@@ -19,21 +18,6 @@ extension StringExtensions on String {
     return
     // Replace all not digits (only a-z, and digits) by space
     replaceAll(RegExp(r'\W'), ' ').replaceAll(RegExp(r'\s{1,}'), ' ').camelCase;
-  }
-
-  String toArbCase(Set<VariableName> variableNames) {
-    return garanteeIsNewKey(
-      (variableNames.isEmpty
-              ? this
-              : split(
-                RegExp(
-                  variableNames.map((vN) => '{$vN}').join('|'),
-                  multiLine: true,
-                ),
-              ).join('_'))
-          .toCamelCase,
-      // ).map((e) => e.camelCase).join('_'),
-    );
   }
 
   String get toSnakeCase {
