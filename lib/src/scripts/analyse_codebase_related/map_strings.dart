@@ -1,8 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/core/constants.dart';
+import 'package:gobabel_core/src/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/core/utils/to_arb_case.dart';
@@ -60,12 +59,12 @@ class MapStringsUsecase {
 
     final String l10nKey = l10nValue.toNewArbCase(variableNames);
 
-    VariableContent gobabelFunctionDeclarationString =
+    BabelFunctionDeclaration gobabelFunctionDeclarationString =
         '''${l10nValue.formatToComment}
   static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) {
     return _getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
   }''';
-    VariableName gobabelFunctionImplementationString =
+    BabelFunctionImplementation gobabelFunctionImplementationString =
         '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e).join(', ')})';
 
     final int startIndex = hardCodedString.start;
@@ -84,8 +83,6 @@ class MapStringsUsecase {
 }
 
 // The camelCase of the name of an variable
-typedef VariableName = String;
-typedef VariableContent = String;
 
 class DynamicFiels {
   final VariableName variableName;

@@ -1,7 +1,4 @@
 typedef ErrorMessage = String;
-typedef BabelFunctionDeclaration = String;
-typedef FileContent = String;
-typedef BabelFunctionImplementation = String;
 typedef ShaCommit = String;
 typedef ChangedFilePath = String;
 typedef NewString = String;

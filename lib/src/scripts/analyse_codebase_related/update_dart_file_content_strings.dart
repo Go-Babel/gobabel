@@ -1,4 +1,4 @@
-import 'package:gobabel/src/core/constants.dart';
+import 'package:gobabel_core/src/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';

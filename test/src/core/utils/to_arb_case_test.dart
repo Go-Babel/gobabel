@@ -67,4 +67,13 @@ void main() {
       expect('[item]'.transformSpecialCharsIfNeeded, equals('[item]'));
     });
   });
+
+  // Here is all bugs that happend
+  group('Group of bug fixes', () {
+    test('Bug #1', () {
+      print('{d} - {j}'.withoutVariables({}));
+      // print('{d} - {j}'.transformSpecialCharsIfNeeded);
+      // expect('{d} - {j}'.transformSpecialCharsIfNeeded, equals('dash  dash  dash'));
+    });
+  });
 }

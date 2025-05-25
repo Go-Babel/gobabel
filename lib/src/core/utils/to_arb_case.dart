@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 extension StringExtensions on String {
   String get transformSpecialCharsIfNeeded {
@@ -14,6 +15,7 @@ extension StringExtensions on String {
     final bool isAllCaractersAreSpecialChars = refLenght == length;
 
     if (isAllCaractersAreSpecialChars == false) {
+      print('afterReplace=${replaceAll(reg, '')}');
       // Does not need to transform special chars
       return this;
     }
