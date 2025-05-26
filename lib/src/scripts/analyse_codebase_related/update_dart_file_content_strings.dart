@@ -1,6 +1,4 @@
-import 'package:gobabel_core/src/constants.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/hard_coded_string_source.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
@@ -8,12 +6,7 @@ import 'package:gobabel/src/scripts/analyse_codebase_related/retrive_all_aibabel
 import 'package:gobabel_core/gobabel_core.dart';
 
 class ReplaceHardCodedStringsForBabelTextUsecase {
-  final GetHarcodedStringsUsecase _getHarcodedStringsUsecase;
-  final MapStringsUsecase _mapStringsUsecase;
-  final RetriveAllAibabelConstsFromFile _retriveAllAibabelConstsFromFile;
   const ReplaceHardCodedStringsForBabelTextUsecase({
-    required GetHarcodedStringsUsecase getHarcodedStringsUsecase,
-    required MapStringsUsecase mapStringsUsecase,
     required RetriveAllAibabelConstsFromFile retriveAllAibabelConstsFromFile,
   }) : _getHarcodedStringsUsecase = getHarcodedStringsUsecase,
        _mapStringsUsecase = mapStringsUsecase,

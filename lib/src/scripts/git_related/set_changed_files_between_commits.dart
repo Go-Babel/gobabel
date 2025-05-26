@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
+import 'package:gobabel/src/models/files_verification.dart';
 
 class SetChangedDartFilesBetweenCommitsUsecase {
   /// Returns a list of file paths that were changed between [commit1] and [commit2].
@@ -41,6 +42,8 @@ class SetChangedDartFilesBetweenCommitsUsecase {
             .toList()
             .toSet();
 
-    Dependencies.changedPaths.addAll(files);
+    Dependencies.filesVerificationState = FilesVerification.fromLastCommit(
+      changedFilesPath: files.toList(),
+    );
   }
 }

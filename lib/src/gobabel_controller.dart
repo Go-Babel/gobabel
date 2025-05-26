@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-import 'package:gobabel/src/core/utils/spinner_loading.dart';
+import 'package:gobabel_core/src/spinner_loading.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';

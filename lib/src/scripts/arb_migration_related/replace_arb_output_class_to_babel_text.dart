@@ -1,7 +1,6 @@
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:enchanted_regex/enchanted_regex.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 

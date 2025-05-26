@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-import 'package:gobabel/src/core/type_defs.dart';
+// import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -47,13 +47,13 @@ class Dependencies {
   static FilesVerification? filesVerificationState;
   static String? _arbKeyRegexIdentifier;
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
-  static final Set<ChangedFilePath> changedPaths = {};
+  // static final Set<ChangedFilePath> changedPaths = {};
 
   static late int maxLanguageCount;
   static late BabelSupportedLocales referenceLanguage;
   static final List<BabelSupportedLocales> projectLanguages = [];
 
-  static final Set<L10nKey> uniqueKeys = {};
+  // static final Set<L10nKey> uniqueKeys = {};
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
   static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
       _pathAppearancesPerKey;
@@ -80,7 +80,7 @@ class Dependencies {
     _codeBaseYamlInfo = null;
     filesVerificationState = null;
     projectLanguages.clear();
-    changedPaths.clear();
+    // changedPaths.clear();
     newLabelsKeys.clear();
     _pathAppearancesPerKey.clear();
     allDeclarationFunctions.clear();

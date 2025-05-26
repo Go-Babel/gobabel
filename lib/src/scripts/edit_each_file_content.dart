@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:console_bars/console_bars.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/type_defs.dart';
-import 'package:gobabel/src/core/utils/spinner_loading.dart';
+import 'package:gobabel_core/src/spinner_loading.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 

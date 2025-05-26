@@ -1,6 +1,5 @@
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/utils/spinner_loading.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';

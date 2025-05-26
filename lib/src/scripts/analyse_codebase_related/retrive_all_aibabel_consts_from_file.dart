@@ -1,4 +1,4 @@
-import 'package:gobabel_core/src/constants.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class RetriveAllAibabelConstsFromFile {
   // Keys of all AiBabel contants [BabelText] in file

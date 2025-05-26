@@ -1,5 +1,4 @@
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class InferDeclarationFunctionFromArbJsonUsecase {

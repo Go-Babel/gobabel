@@ -24,7 +24,13 @@ void main() {
       commit1: '62c704a19aef84febda0c7cc2b42e715171b0001',
       commit2: '63daa6a64efff2e9b6b444cb835d2e67249ec7d4',
     );
-    expect(Dependencies.changedPaths, equals(exceptedResult));
+    expect(
+      Dependencies.filesVerificationState!.maybeMap(
+        fromLastCommit: (value) => value.changedFilesPath.toSet(),
+        orElse: () => <String>{},
+      ),
+      equals(exceptedResult),
+    );
   });
 }
 

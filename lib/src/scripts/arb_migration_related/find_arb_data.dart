@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/dependencies.dart';
-import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';

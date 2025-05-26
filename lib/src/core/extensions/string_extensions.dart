@@ -2,10 +2,6 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:recase/recase.dart';
 
 extension StringExtensions on String {
-  String get successColor {
-    return green;
-  }
-
   String get highlightOnSuccessColor {
     return black.onGreenYellow;
   }
