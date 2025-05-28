@@ -3,17 +3,12 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-import 'package:gobabel_core/src/spinner_loading.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
-import 'package:gobabel/src/scripts/extract_project_code_base.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/update_dart_file_content_strings.dart';
-import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
-import 'package:gobabel/src/scripts/edit_each_file_content.dart';
+import 'package:gobabel/src/scripts/other/extract_project_code_base.dart';
+import 'package:gobabel/src/scripts/other/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
@@ -22,7 +17,7 @@ import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
-import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
+import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
@@ -34,12 +29,6 @@ class GobabelController {
   _analyseCodebaseIssueIntegrityUsecase;
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
-  final RunForEachFileTextUsecase _runForEachFileTextUsecase;
-  final ReplaceHardCodedStringsForBabelTextUsecase
-  _updateDartFileContentStringsUsecase;
-  final FindArbDataUsecase _findArbDataUsecase;
-  final ReplaceArbOutputClassToBabelTextUsecase
-  _replaceArbOutputClassToBabelTextUsecase;
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
@@ -49,19 +38,14 @@ class GobabelController {
   final GetLastLocalCommitInCurrentBranchUsecase
   _getLastLocalCommitInCurrentBranch;
   final TranslateNewStringsArbUsecase _translateNewStringsArbUsecase;
+  final ResolveAllHardcodedStringsUsecase _resolveAllHardcodedStringsUsecase;
+  final ResolveAllArbKeysUsecase _resolveAllArbKeysUsecase;
 
   const GobabelController({
     required EnsureGitDirectoryIsConfiguredUsecase
     ensureGitDirectoryIsConfigured,
-    required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
-    required GetHarcodedStringsUsecase getHarcodedStringsUsecase,
-    required RunForEachFileTextUsecase runForEachFileTextUsecase,
-    required MapStringsUsecase mapStringsUsecase,
-    required ReplaceArbOutputClassToBabelTextUsecase
-    replaceArbOutputClassToBabelTextUsecase,
-    required ReplaceHardCodedStringsForBabelTextUsecase
-    updateDartFileContentStringsUsecase,
-    required FindArbDataUsecase findArbDataUsecase,
+    required ResolveAllHardcodedStringsUsecase
+    resolveAllHardcodedStringsUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
@@ -73,18 +57,15 @@ class GobabelController {
     required CommitAllChangesUsecase commitAllChangesUsecase,
     required GetLastLocalCommitInCurrentBranchUsecase
     getLastLocalCommitInCurrentBranch,
+    required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
     required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
+    required ResolveAllArbKeysUsecase resolveAllArbKeysUsecase,
   }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
+       _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
-       _runForEachFileTextUsecase = runForEachFileTextUsecase,
-       _updateDartFileContentStringsUsecase =
-           updateDartFileContentStringsUsecase,
        _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
-       _findArbDataUsecase = findArbDataUsecase,
-       _replaceArbOutputClassToBabelTextUsecase =
-           replaceArbOutputClassToBabelTextUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
        _setTargetFilesUsecase = setTargetFilesUsecase,
@@ -92,7 +73,8 @@ class GobabelController {
            analyseCodebaseIssueIntegrityUsecase,
        _commitAllChangesUsecase = commitAllChangesUsecase,
        _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
-       _translateNewStringsArbUsecase = translateNewStringsArbUsecase;
+       _translateNewStringsArbUsecase = translateNewStringsArbUsecase,
+       _resolveAllArbKeysUsecase = resolveAllArbKeysUsecase;
 
   Future<void> create({
     required String accountApiKey,
@@ -232,28 +214,9 @@ class GobabelController {
         },
       );
 
-      await runWithSpinner(
-        successMessage: 'Data migration analysis completed',
-        message: 'Checking for potential pending data migration...',
-        () async {
-          await _findArbDataUsecase();
-        },
-      );
-
-      await _runForEachFileTextUsecase(
-        onDartFileFinded: (
-          ContextPath filePath,
-          String fileContentAsString,
-        ) async {
-          final res = _updateDartFileContentStringsUsecase(
-            filePath: filePath,
-            fileAsString: fileContentAsString,
-          );
-          return _replaceArbOutputClassToBabelTextUsecase(
-            fileContent: res,
-            fileName: filePath,
-          );
-        },
+      await _resolveAllArbKeysUsecase();
+      await _resolveAllHardcodedStringsUsecase(
+        projectApiToken: projectApiToken,
       );
 
       await _writeBabelTextFileIntoDirectory();

@@ -1,15 +1,17 @@
 import 'dart:io';
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:dio/dio.dart';
+import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
+import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
+import 'package:gobabel_core/src/usecases/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/get_dynamic_values_in_string.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/retrive_all_aibabel_consts_from_file.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/validate_candidate_string.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/get_all_commits_in_current_git_tree_time_sorted.dart';
 import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
@@ -18,81 +20,20 @@ import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:gobabel_string_extractor/gobabel_labels_extractor.dart';
 import 'package:yaml/yaml.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/replace_arb_output_class_to_babel_text.dart';
-import 'package:gobabel/src/scripts/extract_project_code_base.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/get_harcoded_strings.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/map_strings.dart';
-import 'package:gobabel/src/scripts/analyse_codebase_related/update_dart_file_content_strings.dart';
-import 'package:gobabel/src/scripts/get_codebase_yaml_info.dart';
-import 'package:gobabel/src/scripts/edit_each_file_content.dart';
+import 'package:gobabel/src/scripts/other/extract_project_code_base.dart';
+import 'package:gobabel/src/scripts/other/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_last_commit_sha_stamps.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
-import 'package:gobabel/src/scripts/write_babel_text_file_into_directory.dart';
+import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
 
 Future<void> main(List<String> arguments) async {
-  final getHarcodedStringsUsecase = GetHarcodedStringsUsecase(
-    validateCandidateStringUsecase: ValidateCandidateStringUsecase(
-      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
-    ),
-  );
-  final GobabelController controller = GobabelController(
-    translateNewStringsArbUsecase: TranslateNewStringsArbUsecase(),
-    getLastLocalCommitInCurrentBranch:
-        GetLastLocalCommitInCurrentBranchUsecase(),
-    analyseCodebaseIssueIntegrityUsecase:
-        AnalyseCodebaseIssueIntegrityUsecase(),
-    commitAllChangesUsecase: CommitAllChangesUsecase(),
-    ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
-    getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
-    getHarcodedStringsUsecase: getHarcodedStringsUsecase,
-    runForEachFileTextUsecase: RunForEachFileTextUsecase(),
-    mapStringsUsecase: MapStringsUsecase(
-      getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
-    ),
-    replaceArbOutputClassToBabelTextUsecase:
-        ReplaceArbOutputClassToBabelTextUsecase(),
-    updateDartFileContentStringsUsecase:
-        ReplaceHardCodedStringsForBabelTextUsecase(
-          getHarcodedStringsUsecase: getHarcodedStringsUsecase,
-          mapStringsUsecase: MapStringsUsecase(
-            getDynamicValuesInStringUsecase: GetDynamicValuesInStringUsecase(),
-          ),
-          retriveAllAibabelConstsFromFile: RetriveAllAibabelConstsFromFile(),
-        ),
-    findArbDataUsecase: FindArbDataUsecase(
-      extractLocationDataFromArbFileName:
-          ExtractLocationDataFromArbFileNameUsecase(),
-      getProjectYamlConfig: GetProjectYamlConfigUsecase(),
-      garanteeUniquenessOfKeys: GaranteeUniquenessOfKeysUsecase(),
-      inferDeclarationFunctionFromArbJson:
-          InferDeclarationFunctionFromArbJsonUsecase(),
-    ),
-    writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
-    resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
-    getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(
-      getProjectOriginUsecase: GetProjectOriginUsecase(),
-      getLastLocalCommitInCurrentBranch:
-          GetLastLocalCommitInCurrentBranchUsecase(),
-      getGitUserUsecase: GetGitUserUsecase(),
-    ),
-    extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
-    getAppLanguagesUsecase: GetAppLanguagesUsecase(),
-    setTargetFilesUsecase: SetTargetFilesUsecase(
-      setChangedDartFilesBetweenCommitsUsecase:
-          SetChangedDartFilesBetweenCommitsUsecase(),
-      getProjectLastCommitShaStampsUsecase:
-          GetProjectLastCommitShaStampsUsecase(),
-      getAllCommitsInCurrentGitTreeOrdoredByTime:
-          GetAllCommitsInCurrentGitTreeOrdoredByTime(),
-    ),
-  );
-
   // Set up the argument parser
   final parser =
       ArgParser()
@@ -128,6 +69,52 @@ Future<void> main(List<String> arguments) async {
           help: 'Show all supported languages',
           negatable: false,
         );
+
+  final GobabelController controller = GobabelController(
+    resolveAllArbKeysUsecase: ResolveAllArbKeysUsecase(
+      findArbDataUsecase: FindArbDataUsecase(
+        extractLocationDataFromArbFileName:
+            ExtractLocationDataFromArbFileNameUsecase(),
+        getProjectYamlConfig: GetProjectYamlConfigUsecase(),
+        garanteeUniquenessOfKeys: GaranteeUniquenessOfArbKeysUsecase(),
+        inferDeclarationFunctionFromArbJson:
+            InferDeclarationFunctionFromArbJsonUsecase(),
+      ),
+    ),
+    resolveAllHardcodedStringsUsecase: ResolveAllHardcodedStringsUsecase(
+      addImportIfNeededUsecase: AddImportIfNeededUsecase(),
+      getHarcodedStringsUsecase: GobabelStringExtractorController(
+        client: Dependencies.client,
+      ),
+    ),
+    translateNewStringsArbUsecase: TranslateNewStringsArbUsecase(),
+    getLastLocalCommitInCurrentBranch:
+        GetLastLocalCommitInCurrentBranchUsecase(),
+    analyseCodebaseIssueIntegrityUsecase:
+        AnalyseCodebaseIssueIntegrityUsecase(),
+    commitAllChangesUsecase: CommitAllChangesUsecase(),
+    ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
+    getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
+
+    writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
+    resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
+    getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(
+      getProjectOriginUsecase: GetProjectOriginUsecase(),
+      getLastLocalCommitInCurrentBranch:
+          GetLastLocalCommitInCurrentBranchUsecase(),
+      getGitUserUsecase: GetGitUserUsecase(),
+    ),
+    extractProjectCodeBaseUsecase: ExtractProjectCodeBaseUsecase(),
+    getAppLanguagesUsecase: GetAppLanguagesUsecase(dio: Dio()),
+    setTargetFilesUsecase: SetTargetFilesUsecase(
+      setChangedDartFilesBetweenCommitsUsecase:
+          SetChangedDartFilesBetweenCommitsUsecase(),
+      getProjectLastCommitShaStampsUsecase:
+          GetProjectLastCommitShaStampsUsecase(),
+      getAllCommitsInCurrentGitTreeOrdoredByTime:
+          GetAllCommitsInCurrentGitTreeOrdoredByTime(),
+    ),
+  );
 
   // Parse the arguments
   ArgResults argResults;

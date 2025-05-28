@@ -6,7 +6,6 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
@@ -14,7 +13,7 @@ import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_confi
 class FindArbDataUsecase {
   final ExtractLocationDataFromArbFileNameUsecase
   _extractLocationDataFromArbFileName;
-  final GaranteeUniquenessOfKeysUsecase _garanteeUniquenessOfKeys;
+  final GaranteeUniquenessOfArbKeysUsecase _garanteeUniquenessOfKeys;
   final GetProjectYamlConfigUsecase _getProjectYamlConfig;
   final InferDeclarationFunctionFromArbJsonUsecase
   _inferDeclarationFunctionFromArbJson;
@@ -22,7 +21,7 @@ class FindArbDataUsecase {
     required GetProjectYamlConfigUsecase getProjectYamlConfig,
     required ExtractLocationDataFromArbFileNameUsecase
     extractLocationDataFromArbFileName,
-    required GaranteeUniquenessOfKeysUsecase garanteeUniquenessOfKeys,
+    required GaranteeUniquenessOfArbKeysUsecase garanteeUniquenessOfKeys,
     required InferDeclarationFunctionFromArbJsonUsecase
     inferDeclarationFunctionFromArbJson,
   }) : _getProjectYamlConfig = getProjectYamlConfig,
@@ -133,8 +132,8 @@ class FindArbDataUsecase {
         );
       }
 
-      final Map<NewL10nKey, NewL10nKey> uniqueness = _garanteeUniquenessOfKeys(
-        main.allKeyValues,
+      final Map<NewL10nKey, NewL10nKey> uniqueness = main.allKeyValues.map(
+        (key, value) => MapEntry(_garanteeUniquenessOfKeys(key), value),
       );
 
       declarationFunctions.addAll(

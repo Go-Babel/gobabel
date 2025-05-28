@@ -1,5 +1,4 @@
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-import 'package:gobabel/src/scripts/arb_migration_related/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 extension StringExtensions on String {
@@ -90,9 +89,5 @@ extension StringExtensions on String {
 
   String asArbCase(Set<VariableName> variableNames) {
     return transformSpecialCharsIfNeeded.withoutVariables(variableNames);
-  }
-
-  String toNewArbCase(Set<VariableName> variableNames) {
-    return garanteeIsNewKey(asArbCase(variableNames));
   }
 }

@@ -1,8 +1,11 @@
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:dio/dio.dart';
 
 class GetAppLanguagesUsecase {
+  final Dio dio;
+  GetAppLanguagesUsecase({required this.dio});
   Future<void> call({required String token}) async {
     final BabelSupportedLocales inputedByUserLocale =
         Dependencies.referenceLanguage;
@@ -16,6 +19,22 @@ class GetAppLanguagesUsecase {
 
     if (languagesResponse.languages.isEmpty) {
       Dependencies.projectLanguages.addAll([inputedByUserLocale]);
+    } else {
+      final String downloadLink =
+          languagesResponse.languages.first.downloadLink;
+
+      final response = await dio.get(
+        downloadLink,
+        options: Options(responseType: ResponseType.json),
+      );
+
+      if (response.data is Map<String, dynamic>) {
+        final Map<String, dynamic> arbMap = response.data;
+        // Add all ARB keys to alreadyCreatedUniqueKeys
+        GaranteeUniquenessOfArbKeysUsecase.alreadyCreatedUniqueKeys.addAll(
+          arbMap.keys.where((key) => !key.startsWith('@')),
+        );
+      }
     }
 
     final List<BabelSupportedLocales> castedSupportedLocales = [];

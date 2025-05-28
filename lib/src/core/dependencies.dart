@@ -7,6 +7,7 @@ import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:gobabel_string_extractor/gobabel_labels_extractor.dart';
 
 class Dependencies {
   static String get versionId => codeBaseYamlInfo.version.toVersionId;
@@ -45,15 +46,31 @@ class Dependencies {
   }
 
   static FilesVerification? filesVerificationState;
+
+  static Future<List<File>> get filesToBeAnalysed async {
+    return await filesVerificationState!.map(
+      fromLastCommit: (value) async {
+        final List<File> changedFiles = [];
+        for (final filePath in value.changedFilesPath) {
+          final file = File(filePath);
+          if (await file.exists()) {
+            changedFiles.add(file);
+          }
+        }
+
+        return changedFiles;
+      },
+      fromZero: (value) async => await getEligibleFiles(targetDirectory),
+    );
+  }
+
   static String? _arbKeyRegexIdentifier;
   static String get arbKeyRegexIdentifier => _arbKeyRegexIdentifier!;
-  // static final Set<ChangedFilePath> changedPaths = {};
 
   static late int maxLanguageCount;
   static late BabelSupportedLocales referenceLanguage;
   static final List<BabelSupportedLocales> projectLanguages = [];
 
-  // static final Set<L10nKey> uniqueKeys = {};
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
   static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
       _pathAppearancesPerKey;
@@ -65,7 +82,10 @@ class Dependencies {
   >
   madeTranslations = {};
 
-  static final Client client = Client('http://$ipAddress:8080/');
+  static final Client client = Client(
+    'http://$ipAddress:8080/',
+    connectionTimeout: const Duration(seconds: 60),
+  );
 
   static void addLabelContextPath(L10nKey key, ContextPath contextPaths) {
     if (_pathAppearancesPerKey.containsKey(key)) {
