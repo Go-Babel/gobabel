@@ -43,10 +43,6 @@ extension StringExtensions on String {
     return this;
   }
 
-  String get formatToComment {
-    return '  /// ${replaceAll(RegExp('\n'), '<p>\n/// ')}';
-  }
-
   /// Remove everything vefore "/lib"
   /// For example:
   /// /Users/igormidev/gobabel/gobabel/lib/src/scripts/git_related/get_project_git_dependencies.dart

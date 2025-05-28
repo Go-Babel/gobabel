@@ -1,4 +1,3 @@
-import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 extension StringExtensions on String {
