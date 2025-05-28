@@ -29,7 +29,11 @@ class GetAppLanguagesUsecase {
       );
 
       if (response.data is Map<String, dynamic>) {
-        final Map<String, dynamic> arbMap = response.data;
+        final Map<L10nKey, L10nValue> arbMap =
+            (response.data as Map).cast<L10nKey, L10nValue>();
+
+        Dependencies.referenceLanguageJson = arbMap;
+
         // Add all ARB keys to alreadyCreatedUniqueKeys
         GaranteeUniquenessOfArbKeysUsecase.alreadyCreatedUniqueKeys.addAll(
           arbMap.keys.where((key) => !key.startsWith('@')),

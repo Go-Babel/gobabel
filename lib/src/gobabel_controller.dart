@@ -7,8 +7,8 @@ import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcod
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
-import 'package:gobabel/src/scripts/other/extract_project_code_base.dart';
-import 'package:gobabel/src/scripts/other/get_codebase_yaml_info.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/extract_project_code_base.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/get_codebase_yaml_info.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
 import 'package:gobabel/src/scripts/git_related/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
@@ -219,7 +219,14 @@ class GobabelController {
         projectApiToken: projectApiToken,
       );
 
-      await _writeBabelTextFileIntoDirectory();
+      await runWithSpinner(
+        successMessage: 'BabelText file written',
+        message: 'Writting "BabelText" file into directory...',
+        () async {
+          await Future.delayed(Duration(milliseconds: 800));
+          await _writeBabelTextFileIntoDirectory();
+        },
+      );
 
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
       final GitVariables gitVariables = Dependencies.gitVariables;
