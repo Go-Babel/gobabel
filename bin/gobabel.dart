@@ -4,12 +4,12 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:dio/dio.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
+import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
-import 'package:gobabel_core/src/usecases/garantee_uniqueness_of_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
@@ -71,6 +71,10 @@ Future<void> main(List<String> arguments) async {
         );
 
   final GobabelController controller = GobabelController(
+    resolveAlreadyExistingKey: ResolveAlreadyExistingKey(
+      inferDeclarationFunctionByArbValueUsecase:
+          InferDeclarationFunctionByArbValueUsecase(),
+    ),
     resolveAllArbKeysUsecase: ResolveAllArbKeysUsecase(
       findArbDataUsecase: FindArbDataUsecase(
         extractLocationDataFromArbFileName:
@@ -95,7 +99,6 @@ Future<void> main(List<String> arguments) async {
     commitAllChangesUsecase: CommitAllChangesUsecase(),
     ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
     getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
-
     writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
     resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
     getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(

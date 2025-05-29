@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/core/utils/file_utils.dart';
 import 'package:gobabel/src/generated_files_reference/babel_text.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
@@ -8,27 +9,16 @@ class WriteBabelTextFileIntoDirectory {
     final String version = Dependencies.codeBaseYamlInfo.version;
     final String projectShaIdentifier =
         Dependencies.gitVariables.projectShaIdentifier.toString();
-    final Directory curr = Dependencies.targetDirectory;
+
     final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
         Dependencies.arbData?.allDeclarationFunctions ?? {};
 
-    FileSystemEntity? libDirectory;
-
-    await for (final FileSystemEntity fileEntity in curr.list()) {
-      if (fileEntity is File) continue;
-      final f = (fileEntity as Directory);
-      if (!f.path.endsWith('lib')) continue;
-      libDirectory = f;
+    final String babelPath = await FileUtils.getBabelTextFile;
+    final file = File(babelPath);
+    if (await file.exists()) {
+      await file.delete();
     }
-
-    if (libDirectory == null) {
-      throw Exception('No lib/ directory found');
-    }
-
-    final Directory libDir = libDirectory as Directory;
-
-    final String path = '${libDir.path}/$kBabelFileName';
-    final file = await File(path).create();
+    await file.create(recursive: true);
 
     final StringBuffer fileContent = StringBuffer(
       babelText

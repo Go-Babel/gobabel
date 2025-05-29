@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
+import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -24,6 +25,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 bool isInTest = true;
 
 class GobabelController {
+  final ResolveAlreadyExistingKey _resolveAlreadyExistingKey;
   final CommitAllChangesUsecase _commitAllChangesUsecase;
   final AnalyseCodebaseIssueIntegrityUsecase
   _analyseCodebaseIssueIntegrityUsecase;
@@ -42,6 +44,7 @@ class GobabelController {
   final ResolveAllArbKeysUsecase _resolveAllArbKeysUsecase;
 
   const GobabelController({
+    required ResolveAlreadyExistingKey resolveAlreadyExistingKey,
     required EnsureGitDirectoryIsConfiguredUsecase
     ensureGitDirectoryIsConfigured,
     required ResolveAllHardcodedStringsUsecase
@@ -60,7 +63,8 @@ class GobabelController {
     required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
     required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
     required ResolveAllArbKeysUsecase resolveAllArbKeysUsecase,
-  }) : _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
+  }) : _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
+       _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
@@ -214,6 +218,7 @@ class GobabelController {
         },
       );
 
+      _resolveAlreadyExistingKey();
       await _resolveAllArbKeysUsecase();
       await _resolveAllHardcodedStringsUsecase(
         projectApiToken: projectApiToken,

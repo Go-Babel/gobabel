@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -21,6 +22,13 @@ class GetAppLanguagesUsecase {
       Dependencies.projectLanguages.addAll([inputedByUserLocale]);
     } else {
       final String downloadLink =
+          languagesResponse.languages
+              .firstWhereOrNull(
+                (element) =>
+                    element.languageCode == inputedByUserLocale.languageCode &&
+                    element.countryCode == inputedByUserLocale.countryCode,
+              )
+              ?.downloadLink ??
           languagesResponse.languages.first.downloadLink;
 
       final response = await dio.get(
