@@ -18,9 +18,26 @@ class TranslateNewStringsArbUsecase {
 
     final BabelSupportedLocales referenceLocale =
         Dependencies.referenceLanguage;
-    final int total = Dependencies.projectLanguages.length;
-    for (final entry in Dependencies.projectLanguages.asMap().entries) {
+
+    final pendingToTranslateArb =
+        Dependencies.projectLanguages
+            .where(
+              (BabelSupportedLocales element) =>
+                  element.languageCode != referenceLocale.languageCode &&
+                  element.countryCode != referenceLocale.countryCode,
+            )
+            .toList();
+
+    madeTranslations[referenceLocale.languageCode] = {
+      referenceLocale.countryCode: Dependencies.newLabelsKeys,
+    };
+
+    print('Pending: ${pendingToTranslateArb.length} languages to translate');
+
+    final int total = pendingToTranslateArb.length;
+    for (final entry in pendingToTranslateArb.asMap().entries) {
       final int index = entry.key;
+
       final projectLanguage = entry.value;
 
       final result = await runWithSpinner(
@@ -51,6 +68,7 @@ class TranslateNewStringsArbUsecase {
               .countryCode] =
           result;
     }
+
     Dependencies.madeTranslations = madeTranslations;
   }
 }

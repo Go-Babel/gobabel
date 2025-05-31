@@ -228,12 +228,6 @@ class GobabelController {
         generateLogs: generateLogs,
       );
 
-      if (generateLogs) {
-        await _saveStringData({
-          "madeTranslations": Dependencies.madeTranslations,
-          "pathAppearancesPerKey": Dependencies.pathAppearancesPerKey,
-        }, 'data.json');
-      }
       if (Dependencies.allDeclarationFunctions.isEmpty) {
         try {
           await _resetAllChangesDoneUsecase();
@@ -260,6 +254,23 @@ class GobabelController {
       final GitVariables gitVariables = Dependencies.gitVariables;
 
       await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
+
+      if (generateLogs) {
+        final pathApp = Dependencies.pathAppearancesPerKey.map(
+          (key, value) => MapEntry(key, value.map((e) => e).toList()),
+        );
+        await _saveStringData({
+          "madeTranslations": Dependencies.madeTranslations,
+          "pathAppearancesPerKey": pathApp,
+          "referenceLanguageJson": Dependencies.referenceLanguageJson,
+          "newLabelsKeys": Dependencies.newLabelsKeys,
+          "allDeclarationFunctions":
+              Dependencies.allDeclarationFunctions.toList(),
+        }, 'data.json');
+      }
+      throw Exception(
+        'This is just a test exception to check if the spinner works correctly.',
+      );
 
       final GenerateHistory generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',
@@ -325,5 +336,4 @@ final String endText =
 Future<void> _saveStringData(Map<String, dynamic> data, String fileName) async {
   final outFile = File(p.join(Directory.current.path, fileName));
   await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
-  print('Saved results to ${outFile.path}');
 }

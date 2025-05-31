@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
-// import 'package:gobabel/src/core/type_defs.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
@@ -88,11 +87,13 @@ class Dependencies {
     connectionTimeout: const Duration(seconds: 300),
   );
 
-  static void addLabelContextPath(L10nKey key, ContextPath contextPaths) {
+  static void addLabelContextPath(L10nKey key, ContextPath contextPath) {
+    // '/lib/' + contextPath.split('/lib/').last;
+
     if (_pathAppearancesPerKey.containsKey(key)) {
-      _pathAppearancesPerKey[key]!.add(contextPaths.castToCleanPath);
+      _pathAppearancesPerKey[key]!.add(contextPath.castToCleanPath);
     } else {
-      _pathAppearancesPerKey[key] = {contextPaths.castToCleanPath};
+      _pathAppearancesPerKey[key] = {contextPath.castToCleanPath};
     }
   }
 

@@ -300,8 +300,9 @@ Future<void> runInTryCatch({
           '\n${e.description}'.red,
     );
     exit(1);
-  } catch (e) {
+  } catch (e, s) {
     print('\n❌ $errorMessage:\n$e'.replaceAll('Exception: ', '').darkOrange);
+    print('Stack trace: $s'.red); // Todo(igor): remove this in production
     exit(1);
   }
 }

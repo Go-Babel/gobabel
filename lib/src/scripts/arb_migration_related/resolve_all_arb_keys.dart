@@ -38,6 +38,8 @@ class ResolveAllArbKeysUsecase {
     final Map<L10nKey, BabelFunctionDeclaration> allDeclarationFunctions =
         arbData.allDeclarationFunctions;
 
+    Dependencies.allDeclarationFunctions.addAll(allDeclarationFunctions.values);
+
     final List<File> files = await Dependencies.filesToBeAnalysed;
 
     final FillingBar? p =

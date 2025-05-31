@@ -171,16 +171,12 @@ class FindArbDataUsecase {
       config: config,
       preMadeTranslationArb: preMadeTranslationArb,
       allDeclarationFunctions: declarationFunctions,
-      // mainPreMadeTranslationArb: mainPreMadeTranslationArb,
     );
   }
 
-  ({
-    int placeHoldersCount,
-    Map<L10nKey, L10nValue> allKeyValues,
-    // Map<L10nKey, BabelFunctionDeclaration> allDeclarationFunctions,
-  })?
-  _extract(String jsonContent) {
+  ({int placeHoldersCount, Map<L10nKey, L10nValue> allKeyValues})? _extract(
+    String jsonContent,
+  ) {
     if (jsonContent.isEmpty) {
       return null;
     }

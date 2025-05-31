@@ -58,6 +58,9 @@ class ResolveAllHardcodedStringsUsecase {
 
       // Replace the hardcoded strings with the Babel function implementation
       for (final BabelLabelEntityRootLabel label in value) {
+        Dependencies.allDeclarationFunctions.add(
+          label.babelFunctionDeclaration,
+        );
         final String newText = label.babelFunctionImplementation;
         final int fileStartIndex = label.fileStartIndex;
         final int fileEndIndex = label.fileEndIndex;
