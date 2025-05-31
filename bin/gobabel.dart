@@ -7,6 +7,7 @@ import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/ensure_integrity_of_arb.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
@@ -19,6 +20,7 @@ import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current
 import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:gobabel_string_extractor/gobabel_labels_extractor.dart';
 import 'package:yaml/yaml.dart';
@@ -76,6 +78,7 @@ Future<void> main(List<String> arguments) async {
           InferDeclarationFunctionByArbValueUsecase(),
     ),
     resolveAllArbKeysUsecase: ResolveAllArbKeysUsecase(
+      ensureIntegrityOfArbUsecase: EnsureIntegrityOfArbUsecase(),
       findArbDataUsecase: FindArbDataUsecase(
         extractLocationDataFromArbFileName:
             ExtractLocationDataFromArbFileNameUsecase(),
@@ -187,13 +190,13 @@ Future<void> main(List<String> arguments) async {
       return;
     }
     final apiKey = argResults['api-key'] as String;
-    try {
-      await controller.sync(projectApiToken: apiKey, directory: directory);
-      exit(0);
-    } catch (e) {
-      print('\n❌ Error during sync operation:\n$e'.red);
-      exit(1);
-    }
+
+    await runInTryCatch(
+      errorMessage: 'Error during sync operation',
+      operation: () async {
+        await controller.sync(projectApiToken: apiKey, directory: directory);
+      },
+    );
   }
   // Handle the generate command
   else if (argResults['generate'] as bool) {
@@ -240,24 +243,25 @@ Future<void> main(List<String> arguments) async {
     }
     final languageCode = parts[0];
     final countryCode = parts[1];
-    try {
-      final BabelSupportedLocales? babelSupportedLocale =
-          BabelSupportedLocales.fromLocale(languageCode, countryCode);
-      if (babelSupportedLocale == null) {
-        print('❌ Error: Invalid language/country code for $language'.red);
-        printSupportedLanguages();
-        exit(1);
-      }
-      await controller.generateNewVersion(
-        projectApiToken: apiKey,
-        targetLanguage: babelSupportedLocale,
-        directory: directory,
-      );
-      exit(0);
-    } catch (e) {
-      print('\n❌ Error during generate operation:\n$e'.red);
+
+    final BabelSupportedLocales? babelSupportedLocale =
+        BabelSupportedLocales.fromLocale(languageCode, countryCode);
+    if (babelSupportedLocale == null) {
+      print('❌ Error: Invalid language/country code for $language'.red);
+      printSupportedLanguages();
       exit(1);
     }
+
+    await runInTryCatch(
+      errorMessage: 'Error during generate operation',
+      operation: () async {
+        await controller.generateNewVersion(
+          projectApiToken: apiKey,
+          targetLanguage: babelSupportedLocale,
+          directory: directory,
+        );
+      },
+    );
   } else if (argResults['create'] as bool) {
     if (argResults['attach-to-user-with-id'] == null) {
       print(
@@ -268,18 +272,37 @@ Future<void> main(List<String> arguments) async {
       printUsage(parser);
       exit(0);
     }
-    // --attach-to-user-with-id
-    try {
-      final accountApiKey = argResults['attach-to-user-with-id'] as String;
-      await controller.create(
-        directory: directory,
-        accountApiKey: accountApiKey,
-      );
-      exit(1);
-    } catch (e) {
-      print('\n❌ Error during create operation:\n$e'.red);
-      exit(1);
-    }
+
+    await runInTryCatch(
+      errorMessage: 'Error during create operation',
+      operation: () async {
+        final accountApiKey = argResults['attach-to-user-with-id'] as String;
+        await controller.create(
+          directory: directory,
+          accountApiKey: accountApiKey,
+        );
+      },
+    );
+  }
+}
+
+Future<void> runInTryCatch({
+  required String errorMessage,
+  required Future<void> Function() operation,
+}) async {
+  try {
+    await operation();
+    exit(0);
+  } on BabelException catch (e) {
+    stdout.writeln(
+      '\n❌ $errorMessage:\n'.red +
+          "[ ${e.title} ]".darkOrange +
+          '\n${e.description}'.red,
+    );
+    exit(1);
+  } catch (e) {
+    print('\n❌ $errorMessage:\n$e'.replaceAll('Exception: ', '').darkOrange);
+    exit(1);
   }
 }
 

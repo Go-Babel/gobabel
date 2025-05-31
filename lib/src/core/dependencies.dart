@@ -85,7 +85,7 @@ class Dependencies {
 
   static final Client client = Client(
     'http://$ipAddress:8080/',
-    connectionTimeout: const Duration(seconds: 60),
+    connectionTimeout: const Duration(seconds: 300),
   );
 
   static void addLabelContextPath(L10nKey key, ContextPath contextPaths) {

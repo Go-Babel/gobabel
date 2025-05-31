@@ -10,6 +10,7 @@ class GetAppLanguagesUsecase {
   Future<void> call({required String token}) async {
     final BabelSupportedLocales inputedByUserLocale =
         Dependencies.referenceLanguage;
+
     final GitVariables gitVariables = Dependencies.gitVariables;
     final languagesResponse = await Dependencies.client.publicProject
         .getProjectLanguages(

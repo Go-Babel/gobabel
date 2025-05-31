@@ -10,8 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gobabel_core/gobabel_core.dart';
 
-part 'flutter_generated_file_repository.dart';
-
 const String _gobabelRoute = 'http://localhost:8080';
 const String _projectShaIdentifier = '';
 

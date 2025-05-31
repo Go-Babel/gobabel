@@ -17,7 +17,10 @@ class ResolveAllHardcodedStringsUsecase {
   }) : _getHarcodedStringsUsecase = getHarcodedStringsUsecase,
        _addImportIfNeededUsecase = addImportIfNeededUsecase;
 
-  Future<void> call({required String projectApiToken}) async {
+  Future<void> call({
+    required String projectApiToken,
+    bool generateLogs = false,
+  }) async {
     final projectShaIdentifier = Dependencies.gitVariables.projectShaIdentifier;
 
     final List<File> files = await Dependencies.filesToBeAnalysed;
@@ -26,6 +29,7 @@ class ResolveAllHardcodedStringsUsecase {
       files: files,
       projectApiToken: projectApiToken,
       projectShaIdentifier: projectShaIdentifier,
+      generateLogs: generateLogs,
     );
 
     final FillingBar? p =
@@ -46,6 +50,11 @@ class ResolveAllHardcodedStringsUsecase {
       String fileContent = await file.readAsString();
 
       fileContent = _addImportIfNeededUsecase.call(fileContent: fileContent);
+
+      Dependencies.newLabelsKeys.addAll({
+        for (final BabelLabelEntityRootLabel label in value)
+          label.l10nKey: label.l10nValue,
+      });
 
       // Replace the hardcoded strings with the Babel function implementation
       for (final BabelLabelEntityRootLabel label in value) {

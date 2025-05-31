@@ -1,19 +1,22 @@
 import 'dart:io';
-
 import 'package:console_bars/console_bars.dart';
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:enchanted_regex/enchanted_regex.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/ensure_integrity_of_arb.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class ResolveAllArbKeysUsecase {
   final FindArbDataUsecase _findArbDataUsecase;
+  final EnsureIntegrityOfArbUsecase _ensureIntegrityOfArbUsecase;
 
   const ResolveAllArbKeysUsecase({
     required FindArbDataUsecase findArbDataUsecase,
-  }) : _findArbDataUsecase = findArbDataUsecase;
+    required EnsureIntegrityOfArbUsecase ensureIntegrityOfArbUsecase,
+  }) : _findArbDataUsecase = findArbDataUsecase,
+       _ensureIntegrityOfArbUsecase = ensureIntegrityOfArbUsecase;
 
   Future<void> call() async {
     await runWithSpinner(
@@ -26,6 +29,9 @@ class ResolveAllArbKeysUsecase {
 
     final ArbData? arbData = Dependencies.arbData;
     if (arbData == null) return;
+
+    // Will throw an exception if the arb files are not consistent
+    _ensureIntegrityOfArbUsecase(arbData);
 
     final String arbKeyRegexIdentifier = Dependencies.arbKeyRegexIdentifier;
 

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
@@ -21,6 +22,7 @@ import 'package:gobabel/src/scripts/translation_related/translate_new_strings_ar
 import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 
 bool isInTest = true;
 
@@ -182,6 +184,7 @@ class GobabelController {
     required String projectApiToken,
     required BabelSupportedLocales targetLanguage,
     required Directory directory,
+    bool generateLogs = true,
   }) async {
     try {
       Dependencies.referenceLanguage = targetLanguage;
@@ -222,7 +225,27 @@ class GobabelController {
       await _resolveAllArbKeysUsecase();
       await _resolveAllHardcodedStringsUsecase(
         projectApiToken: projectApiToken,
+        generateLogs: generateLogs,
       );
+
+      if (generateLogs) {
+        await _saveStringData({
+          "madeTranslations": Dependencies.madeTranslations,
+          "pathAppearancesPerKey": Dependencies.pathAppearancesPerKey,
+        }, 'data.json');
+      }
+      if (Dependencies.allDeclarationFunctions.isEmpty) {
+        try {
+          await _resetAllChangesDoneUsecase();
+        } catch (_) {}
+        throw BabelException(
+          title: 'No labels found to be uploaded to Gobabel server',
+          description:
+              'Repository seems to be already up-to-date or there are no '
+              'hardcoded strings in the codebase. Please check your codebase '
+              'for hardcoded strings or try to run Gobabel in another branch.',
+        );
+      }
 
       await runWithSpinner(
         successMessage: 'BabelText file written',
@@ -279,18 +302,28 @@ class GobabelController {
         },
       );
 
-      stdout.writeln('New version created successfully!\n${endText.trim()}');
-    } catch (e, s) {
+      stdout.writeln(
+        'New version created successfully!\n${endText.trim()}'.green,
+      );
+    } catch (e) {
       stdout.writeln(
         'Error creating new version, '.red +
             'all changes in code base will be reverted.\n'.deepPink,
       );
       // TODO(igor): remove this, just for testing
-      print('\n\n$e\n\n$s'.pink);
+      // print('\n\n$e\n\n$s'.pink);
       await _resetAllChangesDoneUsecase();
+      rethrow;
     }
   }
 }
 
 final String endText =
-    ' ${'Refresh'.highlightOnSuccessColor} gobabel dashboard to see changes.';
+    ' ${' Refresh '.highlightOnSuccessColor} gobabel dashboard to see changes.';
+
+/// Saves data to a JSON file
+Future<void> _saveStringData(Map<String, dynamic> data, String fileName) async {
+  final outFile = File(p.join(Directory.current.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
+  print('Saved results to ${outFile.path}');
+}
