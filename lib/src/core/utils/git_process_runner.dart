@@ -17,6 +17,7 @@ class BabelProcessRunner {
     }
 
     final dirrPath = Dependencies.targetDirectory.path;
+
     // Run the command
     return await Process.run(
       shell,

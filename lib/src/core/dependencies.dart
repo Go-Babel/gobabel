@@ -102,7 +102,7 @@ class Dependencies {
     _codeBaseYamlInfo = null;
     filesVerificationState = null;
     projectLanguages.clear();
-    // changedPaths.clear();
+    referenceLanguageJson.clear();
     newLabelsKeys.clear();
     _pathAppearancesPerKey.clear();
     allDeclarationFunctions.clear();

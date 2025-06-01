@@ -190,9 +190,10 @@ class GobabelController {
     required Directory directory,
     bool generateLogs = false,
   }) async {
+    final GenerateHistory? generatedVersion;
+
     try {
       Dependencies.referenceLanguage = targetLanguage;
-
       Dependencies.resetAll();
       Dependencies.setTargetDirectory(directory);
 
@@ -267,16 +268,16 @@ class GobabelController {
         }, 'data.json');
       }
 
-      final GenerateHistory generatedVersion = await runWithSpinner(
+      generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',
         message: 'Uploading new version to Gobabel server...',
         () async {
           return await Dependencies.client.publicGenerate(
-            gitCommit: Dependencies.gitVariables.previousCommit,
-            gitUser: Dependencies.gitVariables.user,
+            gitCommit: gitVariables.previousCommit,
+            gitUser: gitVariables.user,
             projectApiToken: projectApiToken,
             projectCodeBaseFolders: codeBase,
-            originUrl: Dependencies.gitVariables.originUrl,
+            originUrl: gitVariables.originUrl,
             madeTranslations: Dependencies.madeTranslations,
             projectShaIdentifier: gitVariables.projectShaIdentifier,
             currentCommitSha: gitVariables.latestShaIdentifier,
@@ -286,30 +287,41 @@ class GobabelController {
           );
         },
       );
-
-      await runWithSpinner(
-        successMessage: 'Changes commited and synced with Gobabel server',
-        message: 'Committing changes...',
-        () async {
-          await _commitAllChangesUsecase();
-          final currentCommit = await _getLastLocalCommitInCurrentBranch();
-          await Dependencies.client.publicHistory.setCommit(
-            projectShaIdentifier: gitVariables.projectShaIdentifier,
-            commit: currentCommit,
-            generateHistoryId: generatedVersion.id!,
-          );
-        },
-      );
-
-      stdout.writeln(
-        'New version created successfully!\n${endText.trim()}'.green,
-      );
     } catch (e) {
       stdout.writeln(
         'Error creating new version, '.red +
             'all changes in code base will be reverted.\n'.deepPink,
       );
       await _resetAllChangesDoneUsecase();
+      rethrow;
+    }
+
+    try {
+      if (generatedVersion != null) {
+        await runWithSpinner(
+          successMessage: 'Changes commited and synced with Gobabel server',
+          message: 'Committing changes...',
+          () async {
+            await _commitAllChangesUsecase();
+            final currentCommit = await _getLastLocalCommitInCurrentBranch();
+            await Dependencies.client.publicHistory.setCommit(
+              projectShaIdentifier:
+                  Dependencies.gitVariables.projectShaIdentifier,
+              commit: currentCommit,
+              generateHistoryId: generatedVersion!.id!,
+            );
+          },
+        );
+
+        stdout.writeln(
+          'New version created successfully!\n${endText.trim()}'.green,
+        );
+      }
+    } catch (e) {
+      stdout.writeln(
+        'Error creating new version, '.red +
+            'all changes in code base will be reverted.\n'.deepPink,
+      );
       rethrow;
     }
   }

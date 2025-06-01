@@ -1,3 +1,4 @@
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 
@@ -7,6 +8,8 @@ class CommitAllChangesUsecase {
 
     var addResult = await BabelProcessRunner.run('git add .');
     if (addResult.exitCode != 0) {
+      final output = addResult.stdout as String;
+      print(output.cadetBlue);
       throw Exception(
         'GOBABEL bot could not stage translation changes.\n>> Now, you should stage the changes manually\nThis could be a problem with your git configuration.\nAlso, double-check if cli have the permissions for making commits\nPlease check if you have a valid git user configured.',
       );
@@ -19,8 +22,11 @@ class CommitAllChangesUsecase {
         'Gobabel translation | $versionText\n\ngobabel static translation analysis number for version $versionText';
     final author = 'Gobabel Bot <admin@gobabel.io>';
     final commitResult = await BabelProcessRunner.run(
-      'git commit -m $message --author $author',
+      'git commit -m "$message" --author "$author"',
     );
+
+    final output = commitResult.stderr as String;
+    print('(${commitResult.exitCode}) output: ${output.green}');
     if (commitResult.exitCode != 0) {
       throw Exception(
         'GOBABEL bot could not commit translation changes.\n>> Now, you should commit the changes manually\nThis could be a problem with your git configuration.\nAlso, double-check if cli have the permissions for making commits\nPlease check if you have a valid git user configured.',
