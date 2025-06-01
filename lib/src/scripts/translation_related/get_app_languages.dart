@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:dio/dio.dart';
 
@@ -22,15 +23,22 @@ class GetAppLanguagesUsecase {
     if (languagesResponse.languages.isEmpty) {
       Dependencies.projectLanguages.addAll([inputedByUserLocale]);
     } else {
-      final String downloadLink =
+      final String? downloadLink =
           languagesResponse.languages
               .firstWhereOrNull(
                 (element) =>
                     element.languageCode == inputedByUserLocale.languageCode &&
                     element.countryCode == inputedByUserLocale.countryCode,
               )
-              ?.downloadLink ??
-          languagesResponse.languages.first.downloadLink;
+              ?.downloadLink;
+      if (downloadLink == null) {
+        throw BabelException(
+          title:
+              'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
+          description:
+              'Please make sure the language is supported and try again.',
+        );
+      }
 
       final response = await dio.get(
         downloadLink,

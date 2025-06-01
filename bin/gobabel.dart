@@ -89,6 +89,8 @@ Future<void> main(List<String> arguments) async {
       ensureIntegrityOfArbUsecase: EnsureIntegrityOfArbUsecase(),
     ),
     resolveAllHardcodedStringsUsecase: ResolveAllHardcodedStringsUsecase(
+      inferDeclarationFunctionByArbValueUsecase:
+          InferDeclarationFunctionByArbValueUsecase(),
       addImportIfNeededUsecase: AddImportIfNeededUsecase(),
       getHarcodedStringsUsecase: GobabelStringExtractorController(
         client: Dependencies.client,

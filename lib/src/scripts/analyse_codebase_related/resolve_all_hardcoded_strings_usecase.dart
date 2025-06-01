@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
@@ -8,14 +9,20 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:gobabel_string_extractor/gobabel_labels_extractor.dart';
 
 class ResolveAllHardcodedStringsUsecase {
+  final InferDeclarationFunctionByArbValueUsecase
+  _inferDeclarationFunctionByArbValueUsecase;
   final AddImportIfNeededUsecase _addImportIfNeededUsecase;
   final GobabelStringExtractorController _getHarcodedStringsUsecase;
 
   const ResolveAllHardcodedStringsUsecase({
     required AddImportIfNeededUsecase addImportIfNeededUsecase,
     required GobabelStringExtractorController getHarcodedStringsUsecase,
+    required InferDeclarationFunctionByArbValueUsecase
+    inferDeclarationFunctionByArbValueUsecase,
   }) : _getHarcodedStringsUsecase = getHarcodedStringsUsecase,
-       _addImportIfNeededUsecase = addImportIfNeededUsecase;
+       _addImportIfNeededUsecase = addImportIfNeededUsecase,
+       _inferDeclarationFunctionByArbValueUsecase =
+           inferDeclarationFunctionByArbValueUsecase;
 
   Future<void> call({
     required String projectApiToken,
@@ -42,6 +49,9 @@ class ResolveAllHardcodedStringsUsecase {
               percentage: true,
             );
 
+    final referenceLanguageJsonEntries =
+        Dependencies.referenceLanguageJson.entries;
+
     for (final entry in result) {
       p?.increment();
       final FilePath key = entry.key;
@@ -51,27 +61,43 @@ class ResolveAllHardcodedStringsUsecase {
 
       fileContent = _addImportIfNeededUsecase.call(fileContent: fileContent);
 
-      Dependencies.newLabelsKeys.addAll({
-        for (final BabelLabelEntityRootLabel label in value)
-          label.l10nKey: label.l10nValue,
-      });
-
       // Replace the hardcoded strings with the Babel function implementation
       for (final BabelLabelEntityRootLabel label in value) {
-        Dependencies.allDeclarationFunctions.add(
-          label.babelFunctionDeclaration,
-        );
-        final String newText = label.babelFunctionImplementation;
+        final MapEntry<String, String>? alreadyMappedEntry =
+            referenceLanguageJsonEntries.firstWhereOrNull(
+              (element) => element.value == label.l10nValue,
+            );
+        final BabelFunctionDeclaration declarationFunction;
+
+        if (alreadyMappedEntry != null) {
+          final key = alreadyMappedEntry.key;
+          final value = alreadyMappedEntry.value;
+          declarationFunction = _inferDeclarationFunctionByArbValueUsecase(
+            key: key,
+            value: value,
+          );
+          Dependencies.addLabelContextPath(key, file.path);
+        } else {
+          Dependencies.newLabelsKeys.addAll({label.l10nKey: label.l10nValue});
+          Dependencies.allDeclarationFunctions.add(
+            label.babelFunctionDeclaration,
+          );
+          declarationFunction = label.babelFunctionImplementation;
+          Dependencies.addLabelContextPath(label.l10nKey, file.path);
+        }
+
         final int fileStartIndex = label.fileStartIndex;
         final int fileEndIndex = label.fileEndIndex;
 
         fileContent = fileContent.replaceRange(
           fileStartIndex,
           fileEndIndex,
-          newText,
+          declarationFunction,
         );
-        Dependencies.addLabelContextPath(label.l10nKey, file.path);
       }
+
+      // Write the modified content back to the file
+      await file.writeAsString(fileContent);
     }
   }
 }
