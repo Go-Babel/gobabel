@@ -32,8 +32,6 @@ class TranslateNewStringsArbUsecase {
       referenceLocale.countryCode: Dependencies.newLabelsKeys,
     };
 
-    print('Pending: ${pendingToTranslateArb.length} languages to translate');
-
     final int total = pendingToTranslateArb.length;
     for (final entry in pendingToTranslateArb.asMap().entries) {
       final int index = entry.key;

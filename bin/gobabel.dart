@@ -77,16 +77,16 @@ Future<void> main(List<String> arguments) async {
       inferDeclarationFunctionByArbValueUsecase:
           InferDeclarationFunctionByArbValueUsecase(),
     ),
+    findArbDataUsecase: FindArbDataUsecase(
+      extractLocationDataFromArbFileName:
+          ExtractLocationDataFromArbFileNameUsecase(),
+      getProjectYamlConfig: GetProjectYamlConfigUsecase(),
+      garanteeUniquenessOfKeys: GaranteeUniquenessOfArbKeysUsecase(),
+      inferDeclarationFunctionFromArbJson:
+          InferDeclarationFunctionFromArbJsonUsecase(),
+    ),
     resolveAllArbKeysUsecase: ResolveAllArbKeysUsecase(
       ensureIntegrityOfArbUsecase: EnsureIntegrityOfArbUsecase(),
-      findArbDataUsecase: FindArbDataUsecase(
-        extractLocationDataFromArbFileName:
-            ExtractLocationDataFromArbFileNameUsecase(),
-        getProjectYamlConfig: GetProjectYamlConfigUsecase(),
-        garanteeUniquenessOfKeys: GaranteeUniquenessOfArbKeysUsecase(),
-        inferDeclarationFunctionFromArbJson:
-            InferDeclarationFunctionFromArbJsonUsecase(),
-      ),
     ),
     resolveAllHardcodedStringsUsecase: ResolveAllHardcodedStringsUsecase(
       addImportIfNeededUsecase: AddImportIfNeededUsecase(),

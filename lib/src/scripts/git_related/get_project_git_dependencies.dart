@@ -10,7 +10,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 
 class GetProjectGitDependenciesUsecase {
   final GetLastLocalCommitInCurrentBranchUsecase
-  getLastLocalCommitInCurrentBranch;
+  _getLastLocalCommitInCurrentBranch;
   final GetGitUserUsecase _getGitUserUsecase;
   final GetProjectOriginUsecase _getProjectOriginUsecase;
   GetProjectGitDependenciesUsecase({
@@ -19,7 +19,7 @@ class GetProjectGitDependenciesUsecase {
     getLastLocalCommitInCurrentBranch,
     required GetProjectOriginUsecase getProjectOriginUsecase,
   }) : _getGitUserUsecase = getGitUserUsecase,
-       getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
+       _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
        _getProjectOriginUsecase = getProjectOriginUsecase;
   Future<void> call() async {
     try {
@@ -40,7 +40,7 @@ class GetProjectGitDependenciesUsecase {
         radix: 16,
       );
       final latestShaIdentifier = shas[0].trim();
-      final lastCommit = await getLastLocalCommitInCurrentBranch();
+      final lastCommit = await _getLastLocalCommitInCurrentBranch();
 
       final GitUser user = await _getGitUserUsecase();
       final String originUrl = await _getProjectOriginUsecase();

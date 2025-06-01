@@ -9,24 +9,13 @@ import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class ResolveAllArbKeysUsecase {
-  final FindArbDataUsecase _findArbDataUsecase;
   final EnsureIntegrityOfArbUsecase _ensureIntegrityOfArbUsecase;
 
   const ResolveAllArbKeysUsecase({
-    required FindArbDataUsecase findArbDataUsecase,
     required EnsureIntegrityOfArbUsecase ensureIntegrityOfArbUsecase,
-  }) : _findArbDataUsecase = findArbDataUsecase,
-       _ensureIntegrityOfArbUsecase = ensureIntegrityOfArbUsecase;
+  }) : _ensureIntegrityOfArbUsecase = ensureIntegrityOfArbUsecase;
 
   Future<void> call() async {
-    await runWithSpinner(
-      successMessage: 'Data migration analysis completed',
-      message: 'Checking for potential pending data migration...',
-      () async {
-        await _findArbDataUsecase();
-      },
-    );
-
     final ArbData? arbData = Dependencies.arbData;
     if (arbData == null) return;
 

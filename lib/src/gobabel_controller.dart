@@ -6,6 +6,7 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
@@ -27,6 +28,7 @@ import 'package:path/path.dart' as p;
 bool isInTest = true;
 
 class GobabelController {
+  final FindArbDataUsecase _findArbDataUsecase;
   final ResolveAlreadyExistingKey _resolveAlreadyExistingKey;
   final CommitAllChangesUsecase _commitAllChangesUsecase;
   final AnalyseCodebaseIssueIntegrityUsecase
@@ -46,6 +48,7 @@ class GobabelController {
   final ResolveAllArbKeysUsecase _resolveAllArbKeysUsecase;
 
   const GobabelController({
+    required FindArbDataUsecase findArbDataUsecase,
     required ResolveAlreadyExistingKey resolveAlreadyExistingKey,
     required EnsureGitDirectoryIsConfiguredUsecase
     ensureGitDirectoryIsConfigured,
@@ -65,7 +68,8 @@ class GobabelController {
     required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
     required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
     required ResolveAllArbKeysUsecase resolveAllArbKeysUsecase,
-  }) : _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
+  }) : _findArbDataUsecase = findArbDataUsecase,
+       _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
        _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
@@ -184,7 +188,7 @@ class GobabelController {
     required String projectApiToken,
     required BabelSupportedLocales targetLanguage,
     required Directory directory,
-    bool generateLogs = true,
+    bool generateLogs = false,
   }) async {
     try {
       Dependencies.referenceLanguage = targetLanguage;
@@ -210,14 +214,8 @@ class GobabelController {
             'Codebase integrity guaranteed. No static analysis issues found',
         () async {
           await _analyseCodebaseIssueIntegrityUsecase();
-        },
-      );
-
-      await runWithSpinner(
-        successMessage: 'Mapping target files',
-        message: 'Mapping target files...',
-        () async {
           await _setTargetFilesUsecase(projectApiToken: projectApiToken);
+          await _findArbDataUsecase();
         },
       );
 
@@ -268,9 +266,6 @@ class GobabelController {
               Dependencies.allDeclarationFunctions.toList(),
         }, 'data.json');
       }
-      throw Exception(
-        'This is just a test exception to check if the spinner works correctly.',
-      );
 
       final GenerateHistory generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',
@@ -293,17 +288,10 @@ class GobabelController {
       );
 
       await runWithSpinner(
-        successMessage: 'Changes commited',
+        successMessage: 'Changes commited and synced with Gobabel server',
         message: 'Committing changes...',
         () async {
           await _commitAllChangesUsecase();
-        },
-      );
-
-      await runWithSpinner(
-        message: 'Mapping bot commit message to gobabel system...',
-        successMessage: 'Bot commit message mapped',
-        () async {
           final currentCommit = await _getLastLocalCommitInCurrentBranch();
           await Dependencies.client.publicHistory.setCommit(
             projectShaIdentifier: gitVariables.projectShaIdentifier,
@@ -321,8 +309,6 @@ class GobabelController {
         'Error creating new version, '.red +
             'all changes in code base will be reverted.\n'.deepPink,
       );
-      // TODO(igor): remove this, just for testing
-      // print('\n\n$e\n\n$s'.pink);
       await _resetAllChangesDoneUsecase();
       rethrow;
     }
