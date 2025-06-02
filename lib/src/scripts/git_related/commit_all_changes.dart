@@ -25,8 +25,6 @@ class CommitAllChangesUsecase {
       'git commit -m "$message" --author "$author"',
     );
 
-    final output = commitResult.stderr as String;
-    print('(${commitResult.exitCode}) output: ${output.green}');
     if (commitResult.exitCode != 0) {
       throw Exception(
         'GOBABEL bot could not commit translation changes.\n>> Now, you should commit the changes manually\nThis could be a problem with your git configuration.\nAlso, double-check if cli have the permissions for making commits\nPlease check if you have a valid git user configured.',
@@ -34,9 +32,13 @@ class CommitAllChangesUsecase {
     }
 
     // 3. Push to the current branch
-    var pushResult = await BabelProcessRunner.run('git push');
+    final pushResult = await BabelProcessRunner.run('git push -u origin HEAD');
 
     if (pushResult.exitCode != 0) {
+      final output = pushResult.stderr as String;
+      print(
+        '(${pushResult.exitCode}) output: ${output.green}',
+      ); //TODO(igor): Remove this, only for debugging
       throw Exception(
         'GOBABEL bot could not push translation changes.\n>> Now, you should push the changes manually\nThis could be a problem with your git configuration.\nAlso, double-check if cli have the permissions for making commits\nPlease check if you have a valid git user configured.',
       );

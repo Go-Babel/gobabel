@@ -252,6 +252,9 @@ class GobabelController {
       final Set<String> codeBase = await _extractProjectCodeBaseUsecase();
       final GitVariables gitVariables = Dependencies.gitVariables;
 
+      // See if after changes the codebase is still without any issue
+      await _analyseCodebaseIssueIntegrityUsecase();
+
       await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
 
       if (generateLogs) {
