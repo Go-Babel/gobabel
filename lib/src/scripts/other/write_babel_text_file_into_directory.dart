@@ -1,14 +1,17 @@
 import 'dart:io';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/utils/file_utils.dart';
-import 'package:gobabel/src/generated_files_reference/babel_text.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 class WriteBabelTextFileIntoDirectory {
+  final GenerateBabelClassUsecase _generateBabelClassUsecase;
+  WriteBabelTextFileIntoDirectory({
+    GenerateBabelClassUsecase? generateBabelClassUsecase,
+  }) : _generateBabelClassUsecase =
+           generateBabelClassUsecase ?? GenerateBabelClassUsecase();
   Future<void> call() async {
-    final String version = Dependencies.codeBaseYamlInfo.version;
-    final String projectShaIdentifier =
-        Dependencies.gitVariables.projectShaIdentifier.toString();
+    final BigInt projectShaIdentifier =
+        Dependencies.gitVariables.projectShaIdentifier;
 
     final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
         Dependencies.arbData?.allDeclarationFunctions ?? {};
@@ -20,32 +23,15 @@ class WriteBabelTextFileIntoDirectory {
     }
     await file.create(recursive: true);
 
-    final StringBuffer fileContent = StringBuffer(
-      babelText
-          .replaceAll(
-            r"const String _gobabelRoute = 'http://localhost:8080';",
-            "const String _gobabelRoute = 'http://gobabel.dev';",
-          )
-          .replaceAll(
-            r"const String _projectVersion = '';",
-            "const String _projectVersion = '$version';",
-          )
-          .replaceAll(
-            r"const String _projectShaIdentifier = '';",
-            "const String _projectShaIdentifier = '$projectShaIdentifier';",
-          ),
+    await file.writeAsString(
+      _generateBabelClassUsecase(
+        projectShaIdentifier: projectShaIdentifier,
+        declarationFunctions: {
+          ...Dependencies.allDeclarationFunctions,
+          ...allArbDeclarationFunctions.values,
+        },
+      ),
+      mode: FileMode.write,
     );
-
-    for (final BabelFunctionDeclaration d
-        in Dependencies.allDeclarationFunctions) {
-      fileContent.write('$d\n');
-    }
-    for (final BabelFunctionDeclaration d
-        in allArbDeclarationFunctions.values) {
-      fileContent.write('$d\n');
-    }
-    fileContent.write('\n}');
-
-    await file.writeAsString(fileContent.toString(), mode: FileMode.write);
   }
 }
