@@ -63,6 +63,15 @@ class GetCodeBaseYamlInfoUsecase {
             .red,
       );
     }
+    final isDartProject =
+        projectType == ProjectType.dart; // Dart project is not supported yet
+    if (isDartProject) {
+      throw Exception(
+        '❌ Dart projects are not supported yet.\n'
+                'Please ensure you are running the code in a Flutter project directory.'
+            .red,
+      );
+    }
 
     Dependencies.codeBaseYamlInfo = CodeBaseYamlInfo(
       projectName: projectName,

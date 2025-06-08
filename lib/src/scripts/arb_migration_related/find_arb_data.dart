@@ -15,8 +15,6 @@ class FindArbDataUsecase {
   _extractLocationDataFromArbFileName;
   final GaranteeUniquenessOfArbKeysUsecase _garanteeUniquenessOfKeys;
   final GetProjectYamlConfigUsecase _getProjectYamlConfig;
-  final InferDeclarationFunctionFromArbJsonUsecase
-  _inferDeclarationFunctionFromArbJson;
   const FindArbDataUsecase({
     required GetProjectYamlConfigUsecase getProjectYamlConfig,
     required ExtractLocationDataFromArbFileNameUsecase
@@ -26,9 +24,7 @@ class FindArbDataUsecase {
     inferDeclarationFunctionFromArbJson,
   }) : _getProjectYamlConfig = getProjectYamlConfig,
        _extractLocationDataFromArbFileName = extractLocationDataFromArbFileName,
-       _garanteeUniquenessOfKeys = garanteeUniquenessOfKeys,
-       _inferDeclarationFunctionFromArbJson =
-           inferDeclarationFunctionFromArbJson;
+       _garanteeUniquenessOfKeys = garanteeUniquenessOfKeys;
 
   Future<void> call() async {
     final Directory curr = Dependencies.targetDirectory;
@@ -93,7 +89,6 @@ class FindArbDataUsecase {
 
     // late ArbFileData mainPreMadeTranslationArb;
     final List<ArbFileData> preMadeTranslationArb = [];
-    final Map<L10nKey, BabelFunctionDeclaration> declarationFunctions = {};
 
     if (allArbData.isNotEmpty) {
       final targetArbName = config.arbDir;
@@ -136,9 +131,6 @@ class FindArbDataUsecase {
         (key, value) => MapEntry(_garanteeUniquenessOfKeys(key), value),
       );
 
-      declarationFunctions.addAll(
-        _inferDeclarationFunctionFromArbJson(main.allKeyValues),
-      );
       final allArbs =
           allArbData.map((arbData) {
             final locale = _extractLocationDataFromArbFileName(
@@ -170,7 +162,6 @@ class FindArbDataUsecase {
     return ArbData(
       config: config,
       preMadeTranslationArb: preMadeTranslationArb,
-      allDeclarationFunctions: declarationFunctions,
     );
   }
 
@@ -262,11 +253,11 @@ class FindArbDataUsecase {
 class ArbData {
   final L10nProjectConfig config;
   final List<ArbFileData> preMadeTranslationArb;
-  final Map<L10nKey, BabelFunctionDeclaration> allDeclarationFunctions;
+  // final Map<L10nKey, BabelFunctionDeclaration> allDeclarationFunctions;
 
   const ArbData({
     required this.config,
-    required this.allDeclarationFunctions,
+    // required this.allDeclarationFunctions,
     required this.preMadeTranslationArb,
   });
 }

@@ -13,9 +13,6 @@ class WriteBabelTextFileIntoDirectory {
     final BigInt projectShaIdentifier =
         Dependencies.gitVariables.projectShaIdentifier;
 
-    final Map<L10nKey, BabelFunctionDeclaration> allArbDeclarationFunctions =
-        Dependencies.arbData?.allDeclarationFunctions ?? {};
-
     final String babelPath = await FileUtils.getBabelTextFile;
     final file = File(babelPath);
     if (await file.exists()) {
@@ -26,10 +23,7 @@ class WriteBabelTextFileIntoDirectory {
     await file.writeAsString(
       _generateBabelClassUsecase(
         projectShaIdentifier: projectShaIdentifier,
-        declarationFunctions: {
-          ...Dependencies.allDeclarationFunctions,
-          ...allArbDeclarationFunctions.values,
-        },
+        declarationFunctions: Dependencies.allDeclarationFunctions,
       ),
       mode: FileMode.write,
     );

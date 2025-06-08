@@ -32,11 +32,18 @@ class ResolveAllHardcodedStringsUsecase {
 
     final List<File> files = await Dependencies.filesToBeAnalysed;
 
-    final result = await _getHarcodedStringsUsecase.extractAndProcessStrings(
-      files: files,
-      projectApiToken: projectApiToken,
-      projectShaIdentifier: projectShaIdentifier,
-      generateLogs: generateLogs,
+    final extractorResponse = await _getHarcodedStringsUsecase
+        .extractAndProcessStrings(
+          files: files,
+          projectApiToken: projectApiToken,
+          projectShaIdentifier: projectShaIdentifier,
+          generateLogs: generateLogs,
+          projectHardcodedStringKeyCache: Dependencies.hardcodedStringKeyCache,
+        );
+
+    final result = extractorResponse.allHardcodedStrings;
+    Dependencies.newAddedHardcodedStringKeyCache.addAll(
+      extractorResponse.newHardcodedStringKeyCache,
     );
 
     final FillingBar? p =
