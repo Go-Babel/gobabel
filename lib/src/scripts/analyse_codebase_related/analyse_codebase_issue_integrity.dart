@@ -39,7 +39,7 @@ class AnalyseCodebaseIssueIntegrityUsecase {
     if (exitCode != 0) {
       throw Exception(
         'Static analysis failed for directory ${directoryPath.pink}.\n'
-        'Eror in ${"fullOutput".pink}.\n'
+        'Error in ${fullOutput.pink}.\n'
         'Please check the output above for details.',
       );
     }
