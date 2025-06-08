@@ -5,6 +5,7 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
@@ -38,7 +39,8 @@ class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
-  final AddBabelInitializationToMainUsecase _addBabelInitializationToMainUsecase;
+  final AddBabelInitializationToMainUsecase
+  _addBabelInitializationToMainUsecase;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
@@ -50,6 +52,7 @@ class GobabelController {
   final TranslateNewStringsArbUsecase _translateNewStringsArbUsecase;
   final ResolveAllHardcodedStringsUsecase _resolveAllHardcodedStringsUsecase;
   final ResolveAllArbKeysUsecase _resolveAllArbKeysUsecase;
+  final MoveHardCodedStringParamUseCase _moveHardCodedStringParamUseCase;
 
   const GobabelController({
     required FindArbDataUsecase findArbDataUsecase,
@@ -59,7 +62,8 @@ class GobabelController {
     required ResolveAllHardcodedStringsUsecase
     resolveAllHardcodedStringsUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
-    required AddBabelInitializationToMainUsecase addBabelInitializationToMainUsecase,
+    required AddBabelInitializationToMainUsecase
+    addBabelInitializationToMainUsecase,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
@@ -75,13 +79,15 @@ class GobabelController {
     required GetCodeBaseYamlInfoUsecase getCodeBaseYamlInfo,
     required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
     required ResolveAllArbKeysUsecase resolveAllArbKeysUsecase,
+    required MoveHardCodedStringParamUseCase moveHardCodedStringParamUseCase,
   }) : _findArbDataUsecase = findArbDataUsecase,
        _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
        _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
-       _addBabelInitializationToMainUsecase = addBabelInitializationToMainUsecase,
+       _addBabelInitializationToMainUsecase =
+           addBabelInitializationToMainUsecase,
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
@@ -93,7 +99,8 @@ class GobabelController {
        _commitAllChangesUsecase = commitAllChangesUsecase,
        _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
        _translateNewStringsArbUsecase = translateNewStringsArbUsecase,
-       _resolveAllArbKeysUsecase = resolveAllArbKeysUsecase;
+       _resolveAllArbKeysUsecase = resolveAllArbKeysUsecase,
+       _moveHardCodedStringParamUseCase = moveHardCodedStringParamUseCase;
 
   Future<void> create({
     required String accountApiKey,
@@ -229,6 +236,7 @@ class GobabelController {
           await _analyseCodebaseIssueIntegrityUsecase();
           await _setTargetFilesUsecase(projectApiToken: projectApiToken);
           await _findArbDataUsecase();
+          _moveHardCodedStringParamUseCase();
         },
       );
 
