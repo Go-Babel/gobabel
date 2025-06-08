@@ -12,6 +12,7 @@ import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/set_declaration_function.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
+import 'package:gobabel/src/scripts/other/add_babel_initialization_to_main_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
 import 'package:gobabel/src/scripts/git_related/commit_all_changes.dart';
@@ -112,6 +113,7 @@ Future<void> main(List<String> arguments) async {
     ensureGitDirectoryIsConfigured: EnsureGitDirectoryIsConfiguredUsecase(),
     getCodeBaseYamlInfo: GetCodeBaseYamlInfoUsecase(),
     writeBabelTextFileIntoDirectory: WriteBabelTextFileIntoDirectory(),
+    addBabelInitializationToMainUsecase: AddBabelInitializationToMainUsecase(),
     resetAllChangesDoneUsecase: ResetAllChangesDoneUsecase(),
     getProjectGitDependenciesUsecase: GetProjectGitDependenciesUsecase(
       getProjectOriginUsecase: GetProjectOriginUsecase(),

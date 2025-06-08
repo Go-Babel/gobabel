@@ -22,6 +22,7 @@ import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/get_hardcoded_string_key_cache.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
+import 'package:gobabel/src/scripts/other/add_babel_initialization_to_main_usecase.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:path/path.dart' as p;
@@ -37,6 +38,7 @@ class GobabelController {
   final EnsureGitDirectoryIsConfiguredUsecase _ensureGitDirectoryIsConfigured;
   final GetCodeBaseYamlInfoUsecase _getCodeBaseYamlInfo;
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
+  final AddBabelInitializationToMainUsecase _addBabelInitializationToMainUsecase;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
@@ -57,6 +59,7 @@ class GobabelController {
     required ResolveAllHardcodedStringsUsecase
     resolveAllHardcodedStringsUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
+    required AddBabelInitializationToMainUsecase addBabelInitializationToMainUsecase,
     required ResetAllChangesDoneUsecase resetAllChangesDoneUsecase,
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
@@ -78,6 +81,7 @@ class GobabelController {
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
        _getCodeBaseYamlInfo = getCodeBaseYamlInfo,
        _writeBabelTextFileIntoDirectory = writeBabelTextFileIntoDirectory,
+       _addBabelInitializationToMainUsecase = addBabelInitializationToMainUsecase,
        _resetAllChangesDoneUsecase = resetAllChangesDoneUsecase,
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
@@ -249,11 +253,12 @@ class GobabelController {
       }
 
       await runWithSpinner(
-        successMessage: 'BabelText file written',
-        message: 'Writting "BabelText" file into directory...',
+        successMessage: 'BabelText file written and main updated',
+        message: 'Writting "BabelText" file and updating main()...',
         () async {
           await Future.delayed(Duration(milliseconds: 800));
           await _writeBabelTextFileIntoDirectory();
+          await _addBabelInitializationToMainUsecase();
         },
       );
 
