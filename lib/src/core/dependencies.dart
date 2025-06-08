@@ -72,6 +72,9 @@ class Dependencies {
 
   static Map<L10nKey, L10nValue> referenceLanguageJson = {};
   static final Map<L10nKey, L10nValue> newLabelsKeys = {};
+  static late Map<HardCodedString, TranslationKey> hardcodedStringKeyCache;
+  static Map<HardCodedString, TranslationKey> newAddedHardcodedStringKeyCache =
+      {};
   static Map<L10nKey, Set<ContextPath>> get pathAppearancesPerKey =>
       _pathAppearancesPerKey;
   static final Map<L10nKey, Set<ContextPath>> _pathAppearancesPerKey = {};
@@ -104,6 +107,8 @@ class Dependencies {
     projectLanguages.clear();
     referenceLanguageJson.clear();
     newLabelsKeys.clear();
+    hardcodedStringKeyCache.clear();
+    newAddedHardcodedStringKeyCache.clear();
     _pathAppearancesPerKey.clear();
     allDeclarationFunctions.clear();
     madeTranslations.clear();

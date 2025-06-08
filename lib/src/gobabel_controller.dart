@@ -19,6 +19,7 @@ import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dar
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
+import 'package:gobabel/src/scripts/translation_related/get_hardcoded_string_key_cache.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -40,6 +41,7 @@ class GobabelController {
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
   final GetAppLanguagesUsecase _getAppLanguagesUsecase;
+  final GetHardcodedStringKeyCacheUsecase _getHardcodedStringKeyCacheUsecase;
   final SetTargetFilesUsecase _setTargetFilesUsecase;
   final GetLastLocalCommitInCurrentBranchUsecase
   _getLastLocalCommitInCurrentBranch;
@@ -59,6 +61,8 @@ class GobabelController {
     required GetProjectGitDependenciesUsecase getProjectGitDependenciesUsecase,
     required ExtractProjectCodeBaseUsecase extractProjectCodeBaseUsecase,
     required GetAppLanguagesUsecase getAppLanguagesUsecase,
+    required GetHardcodedStringKeyCacheUsecase
+    getHardcodedStringKeyCacheUsecase,
     required SetTargetFilesUsecase setTargetFilesUsecase,
     required AnalyseCodebaseIssueIntegrityUsecase
     analyseCodebaseIssueIntegrityUsecase,
@@ -78,6 +82,7 @@ class GobabelController {
        _getProjectGitDependenciesUsecase = getProjectGitDependenciesUsecase,
        _extractProjectCodeBaseUsecase = extractProjectCodeBaseUsecase,
        _getAppLanguagesUsecase = getAppLanguagesUsecase,
+       _getHardcodedStringKeyCacheUsecase = getHardcodedStringKeyCacheUsecase,
        _setTargetFilesUsecase = setTargetFilesUsecase,
        _analyseCodebaseIssueIntegrityUsecase =
            analyseCodebaseIssueIntegrityUsecase,
@@ -205,6 +210,9 @@ class GobabelController {
           await _getCodeBaseYamlInfo();
           await _getProjectGitDependenciesUsecase();
           await _getAppLanguagesUsecase(token: projectApiToken);
+          await _getHardcodedStringKeyCacheUsecase(
+            projectApiToken: projectApiToken,
+          );
         },
       );
 
@@ -287,6 +295,7 @@ class GobabelController {
             pathsOfKeys: ArbKeysAppearancesPath(
               pathAppearancesPerKey: Dependencies.pathAppearancesPerKey,
             ),
+            hardcodedStringMap: Dependencies.newAddedHardcodedStringKeyCache,
           );
         },
       );

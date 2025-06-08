@@ -10,6 +10,7 @@ import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcod
 import 'package:gobabel/src/scripts/arb_migration_related/ensure_integrity_of_arb.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
+import 'package:gobabel/src/scripts/arb_migration_related/set_declaration_function.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/get_project_yaml_config.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/infer_declaration_function_from_arb_json.dart';
@@ -19,6 +20,7 @@ import 'package:gobabel/src/scripts/git_related/get_git_user.dart';
 import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_origin.dart';
 import 'package:gobabel/src/scripts/git_related/set_changed_files_between_commits.dart';
+import 'package:gobabel/src/scripts/translation_related/get_hardcoded_string_key_cache.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -73,6 +75,7 @@ Future<void> main(List<String> arguments) async {
         );
 
   final GobabelController controller = GobabelController(
+    getHardcodedStringKeyCacheUsecase: GetHardcodedStringKeyCacheUsecase(),
     resolveAlreadyExistingKey: ResolveAlreadyExistingKey(
       inferDeclarationFunctionByArbValueUsecase:
           InferDeclarationFunctionByArbValueUsecase(),
@@ -86,6 +89,10 @@ Future<void> main(List<String> arguments) async {
           InferDeclarationFunctionFromArbJsonUsecase(),
     ),
     resolveAllArbKeysUsecase: ResolveAllArbKeysUsecase(
+      setDeclarationFunctionUsecase: SetDeclarationFunctionUsecase(
+        inferDeclarationFunctionFromArbJson:
+            InferDeclarationFunctionFromArbJsonUsecase(),
+      ),
       ensureIntegrityOfArbUsecase: EnsureIntegrityOfArbUsecase(),
     ),
     resolveAllHardcodedStringsUsecase: ResolveAllHardcodedStringsUsecase(
