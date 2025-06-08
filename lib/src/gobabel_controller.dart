@@ -302,7 +302,10 @@ class GobabelController {
             projectApiToken: projectApiToken,
             projectCodeBaseFolders: codeBase,
             originUrl: gitVariables.originUrl,
-            madeTranslations: Dependencies.madeTranslations,
+            // Create stream of translation chunks
+            madeTranslations: _createTranslationStream(
+              Dependencies.madeTranslations,
+            ),
             projectShaIdentifier: gitVariables.projectShaIdentifier,
             currentCommitSha: gitVariables.latestShaIdentifier,
             pathsOfKeys: ArbKeysAppearancesPath(
@@ -348,6 +351,39 @@ class GobabelController {
             'all changes in code base will be reverted.\n'.deepPink,
       );
       rethrow;
+    }
+  }
+
+  /// Creates a stream of translation chunks that are within API limits
+  Stream<
+    Map<LanguageCode, Map<CountryCode, Map<TranslationKey, TranslationContent>>>
+  >
+  _createTranslationStream(
+    Map<LanguageCode, Map<CountryCode, Map<TranslationKey, TranslationContent>>>
+    madeTranslations,
+  ) async* {
+    for (final entry1 in madeTranslations.entries) {
+      final LanguageCode languageCode = entry1.key;
+      final Map<CountryCode, Map<TranslationKey, TranslationContent>>
+      countryMap = entry1.value;
+
+      for (final entry2 in countryMap.entries) {
+        final CountryCode countryCode = entry2.key;
+        final Map<TranslationKey, TranslationContent> translations =
+            entry2.value;
+
+        // Split translations into manageable chunks
+        final chunks = splitIntoManageableGroupsForApi(translations);
+
+        for (final chunk in chunks) {
+          yield {
+            languageCode: {countryCode: chunk},
+          };
+
+          // Wait 100ms between each chunk to avoid overwhelming the server
+          await Future.delayed(Duration(milliseconds: 100));
+        }
+      }
     }
   }
 }
