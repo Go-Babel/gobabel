@@ -6,6 +6,7 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_param_case.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/remove_const_keyword_usecase.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
@@ -19,6 +20,7 @@ import 'package:gobabel/src/scripts/git_related/get_last_local_commit_in_current
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
+import 'package:gobabel/src/scripts/other/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/translation_related/get_hardcoded_string_key_cache.dart';
 import 'package:gobabel/src/scripts/translation_related/translate_new_strings_arb.dart';
@@ -31,6 +33,8 @@ import 'package:path/path.dart' as p;
 bool isInTest = true;
 
 class GobabelController {
+  final RemoveConstKeywordUsecase _removeConstKeywordUsecase;
+  final DartFixFormatUsecase _dartFixFormatUsecase;
   final FindArbDataUsecase _findArbDataUsecase;
   final ResolveAlreadyExistingKey _resolveAlreadyExistingKey;
   final CommitAllChangesUsecase _commitAllChangesUsecase;
@@ -80,7 +84,11 @@ class GobabelController {
     required TranslateNewStringsArbUsecase translateNewStringsArbUsecase,
     required ResolveAllArbKeysUsecase resolveAllArbKeysUsecase,
     required MoveHardCodedStringParamUseCase moveHardCodedStringParamUseCase,
-  }) : _findArbDataUsecase = findArbDataUsecase,
+    required RemoveConstKeywordUsecase removeConstKeywordUsecase,
+    required DartFixFormatUsecase dartFixFormatUsecase,
+  }) : _removeConstKeywordUsecase = removeConstKeywordUsecase,
+       _dartFixFormatUsecase = dartFixFormatUsecase,
+       _findArbDataUsecase = findArbDataUsecase,
        _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
        _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
@@ -236,7 +244,9 @@ class GobabelController {
           await _analyseCodebaseIssueIntegrityUsecase();
           await _setTargetFilesUsecase(projectApiToken: projectApiToken);
           await _findArbDataUsecase();
-          _moveHardCodedStringParamUseCase();
+          await _moveHardCodedStringParamUseCase();
+          await _removeConstKeywordUsecase();
+          await _dartFixFormatUsecase();
         },
       );
 
@@ -267,6 +277,15 @@ class GobabelController {
           await Future.delayed(Duration(milliseconds: 800));
           await _writeBabelTextFileIntoDirectory();
           await _addBabelInitializationToMainUsecase();
+        },
+      );
+
+      await runWithSpinner(
+        successMessage: 'Codebase integrity post-script ensured',
+        message: 'Ensuring codebase integrity after changes...',
+        () async {
+          await _removeConstKeywordUsecase();
+          await _dartFixFormatUsecase();
         },
       );
 
