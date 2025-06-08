@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
+import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/scripts/other/add_import_if_needed.dart';
-import 'package:gobabel_core/gobabel_core.dart';
 
 class AddBabelInitializationToMainUsecase {
   final AddImportIfNeededUsecase _addImportIfNeededUsecase;
@@ -12,7 +11,7 @@ class AddBabelInitializationToMainUsecase {
   AddBabelInitializationToMainUsecase({
     AddImportIfNeededUsecase? addImportIfNeededUsecase,
   }) : _addImportIfNeededUsecase =
-            addImportIfNeededUsecase ?? AddImportIfNeededUsecase();
+           addImportIfNeededUsecase ?? AddImportIfNeededUsecase();
 
   Future<void> call() async {
     final Directory directory = Dependencies.targetDirectory;
@@ -30,9 +29,7 @@ class AddBabelInitializationToMainUsecase {
     }
 
     if (!await mainFile.exists()) {
-      throw Exception(
-        '❌ Main file not found in the target project'.red,
-      );
+      throw Exception('❌ Main file not found in the target project'.red);
     }
 
     String fileContent = await mainFile.readAsString();
@@ -50,8 +47,7 @@ class AddBabelInitializationToMainUsecase {
     final bool hasAsync = match.group(2) != null;
     final int braceIndex = fileContent.indexOf('{', match.start);
     if (!hasAsync) {
-      fileContent =
-          fileContent.replaceRange(braceIndex, braceIndex, ' async');
+      fileContent = fileContent.replaceRange(braceIndex, braceIndex, ' async');
     }
 
     final insertionIndex = fileContent.indexOf('{', match.start) + 1;
