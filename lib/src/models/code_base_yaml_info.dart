@@ -12,7 +12,4 @@ abstract class CodeBaseYamlInfo with _$CodeBaseYamlInfo {
   }) = _CodeBaseYamlInfo;
 }
 
-enum ProjectType {
-  flutter,
-  dart,
-}
+enum ProjectType { flutter, dart }

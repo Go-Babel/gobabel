@@ -3,8 +3,9 @@ import 'package:test/test.dart';
 void main() {
   group('String Regex Tests', () {
     final stringRegex = RegExp(
-        r"""(r?"(?:[^"\\]|\\.)*?"|r?'(?:[^'\\]|\\.)*?')""",
-        multiLine: true); // Modified to include raw strings (r"..." or r'...')
+      r"""(r?"(?:[^"\\]|\\.)*?"|r?'(?:[^'\\]|\\.)*?')""",
+      multiLine: true,
+    ); // Modified to include raw strings (r"..." or r'...')
 
     test('Simple String', () {
       final text = 'String a = "Hello";';
@@ -40,23 +41,23 @@ void main() {
       final text = 'String f = "Hello \$name!";';
       final match = stringRegex.firstMatch(text);
       expect(
-          match?.group(0),
-          equals(
-              '"Hello \$name!"')); //Correctly matches the whole string literal
+        match?.group(0),
+        equals('"Hello \$name!"'),
+      ); //Correctly matches the whole string literal
 
       final text2 = 'String g = "Hello \${name.toUpperCase()}!";';
       final match2 = stringRegex.firstMatch(text2);
       expect(
-          match2?.group(0),
-          equals(
-              '"Hello \${name.toUpperCase()}!"')); //Correctly matches the whole string literal
+        match2?.group(0),
+        equals('"Hello \${name.toUpperCase()}!"'),
+      ); //Correctly matches the whole string literal
 
       final text3 = 'String h = \'Hello \${name.toUpperCase()}!\';';
       final match3 = stringRegex.firstMatch(text3);
       expect(
-          match3?.group(0),
-          equals(
-              '\'Hello \${name.toUpperCase()}!\'')); //Correctly matches the whole string literal
+        match3?.group(0),
+        equals('\'Hello \${name.toUpperCase()}!\''),
+      ); //Correctly matches the whole string literal
     });
 
     test('Raw String (Double Quotes)', () {
@@ -74,8 +75,10 @@ void main() {
     test('String with Multiple Strings', () {
       final text = 'String k = "Hello"; String l = \'World\'; String m = "!";';
       final matches = stringRegex.allMatches(text);
-      expect(matches.map((e) => e.group(0)).toList(),
-          equals(['"Hello"', '\'World\'', '"!"']));
+      expect(
+        matches.map((e) => e.group(0)).toList(),
+        equals(['"Hello"', '\'World\'', '"!"']),
+      );
     });
 
     test('Multiline String', () {
@@ -88,9 +91,9 @@ void main() {
       final match = stringRegex.firstMatch(text);
       // This will match only up to the first quote in a multiline string.
       expect(
-          match?.group(0),
-          equals(
-              '"""')); //This is because Dart only truly has single-line string literals identified with single and double quotes.  Multiline strings are string literals that span across multiple lines of code.
+        match?.group(0),
+        equals('"""'),
+      ); //This is because Dart only truly has single-line string literals identified with single and double quotes.  Multiline strings are string literals that span across multiple lines of code.
     });
 
     test('String with Comments', () {
@@ -99,8 +102,10 @@ void main() {
         String p = 'World'; /* Another string */
       ''';
       final matches = stringRegex.allMatches(text);
-      expect(matches.map((e) => e.group(0)).toList(),
-          equals(['"Hello"', '\'World\'']));
+      expect(
+        matches.map((e) => e.group(0)).toList(),
+        equals(['"Hello"', '\'World\'']),
+      );
     });
 
     test('String in Complex Code', () {
@@ -116,13 +121,14 @@ void main() {
       ''';
       final matches = stringRegex.allMatches(text);
       expect(
-          matches.map((e) => e.group(0)).toList(),
-          equals([
-            '"Default Name"',
-            "'Hello, \$name!'",
-            'r"Raw String"',
-            '"Another string"'
-          ]));
+        matches.map((e) => e.group(0)).toList(),
+        equals([
+          '"Default Name"',
+          "'Hello, \$name!'",
+          'r"Raw String"',
+          '"Another string"',
+        ]),
+      );
     });
 
     test('Empty String', () {
@@ -152,8 +158,10 @@ void main() {
     test('String followed by another string without space', () {
       final text = 'String u = "Hello""World";';
       final matches = stringRegex.allMatches(text);
-      expect(matches.map((e) => e.group(0)).toList(),
-          equals(['"Hello"', '"World"']));
+      expect(
+        matches.map((e) => e.group(0)).toList(),
+        equals(['"Hello"', '"World"']),
+      );
     });
 
     test('Escaped Dollar Sign', () {
@@ -162,29 +170,35 @@ void main() {
       expect(match?.group(0), equals('"The price is \\\$10"'));
     });
 
-    test('Raw String containing a quote character that matches outer quotes',
-        () {
-      final text = 'String w = r"This contains a quote "";';
-      final match = stringRegex.firstMatch(text);
-      expect(match?.group(0), equals('r"This contains a quote \\""'));
+    test(
+      'Raw String containing a quote character that matches outer quotes',
+      () {
+        final text = 'String w = r"This contains a quote "";';
+        final match = stringRegex.firstMatch(text);
+        expect(match?.group(0), equals('r"This contains a quote \\""'));
 
-      final text2 = 'String x = r\'This contains a quote \\\'\';';
-      final match2 = stringRegex.firstMatch(text2);
-      expect(match2?.group(0), equals('r\'This contains a quote \\\'\''));
-    });
+        final text2 = 'String x = r\'This contains a quote \\\'\';';
+        final match2 = stringRegex.firstMatch(text2);
+        expect(match2?.group(0), equals('r\'This contains a quote \\\'\''));
+      },
+    );
 
     test('String with triple quotes', () {
       final text = 'String triple = """Hello""";';
       final match = stringRegex.firstMatch(text);
-      expect(match?.group(0),
-          equals('"""')); // Matches the opening triple quotes only
+      expect(
+        match?.group(0),
+        equals('"""'),
+      ); // Matches the opening triple quotes only
     });
 
     test('String with triple single quotes', () {
       final text = "String tripleSingle = '''Hello''';";
       final match = stringRegex.firstMatch(text);
-      expect(match?.group(0),
-          equals("'''")); // Matches the opening triple quotes only
+      expect(
+        match?.group(0),
+        equals("'''"),
+      ); // Matches the opening triple quotes only
     });
   });
 }

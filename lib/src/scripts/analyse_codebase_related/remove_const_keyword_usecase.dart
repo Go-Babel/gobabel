@@ -94,14 +94,15 @@ class RemoveConstKeywordUsecase {
             nextToken.type == TokenType.OPEN_CURLY_BRACKET) {
           return true;
         }
-        
+
         // Check if this is a type declaration (variable declaration)
         // If we find another identifier after the first one, it's likely a variable declaration
         // e.g., "const Map<String, int> variableName = ..."
         if (nextToken.type == TokenType.LT) {
           // Skip through generic type parameters to find what comes after
           Token? afterGeneric = _skipGenericTypes(nextToken);
-          if (afterGeneric != null && afterGeneric.type == TokenType.IDENTIFIER) {
+          if (afterGeneric != null &&
+              afterGeneric.type == TokenType.IDENTIFIER) {
             // This looks like: const Type<Generic> variableName
             return false; // This is a variable declaration
           }
@@ -114,13 +115,13 @@ class RemoveConstKeywordUsecase {
 
     return false;
   }
-  
+
   Token? _skipGenericTypes(Token startToken) {
     if (startToken.type != TokenType.LT) return startToken;
-    
+
     Token? current = startToken.next;
     int depth = 1;
-    
+
     while (current != null && depth > 0) {
       if (current.type == TokenType.LT) {
         depth++;
@@ -129,12 +130,12 @@ class RemoveConstKeywordUsecase {
       }
       current = current.next;
     }
-    
+
     // Skip whitespace after closing >
     while (current != null && current.lexeme.trim().isEmpty) {
       current = current.next;
     }
-    
+
     return current;
   }
 }

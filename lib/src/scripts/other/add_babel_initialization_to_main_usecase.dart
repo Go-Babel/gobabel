@@ -51,11 +51,11 @@ class AddBabelInitializationToMainUsecase {
     }
 
     final insertionIndex = fileContent.indexOf('{', match.start) + 1;
-    if (!fileContent.contains('Babel.initialize(')) {
+    if (!fileContent.contains('Babel.instance.initialize(')) {
       fileContent = fileContent.replaceRange(
         insertionIndex,
         insertionIndex,
-        '\n  await Babel.initialize();',
+        '\n  await Babel.instance.initialize();',
       );
     }
 

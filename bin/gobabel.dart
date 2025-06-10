@@ -258,8 +258,23 @@ Future<void> main(List<String> arguments) async {
       printSupportedLanguages();
       exit(1);
     }
-    final languageCode = parts[0];
-    final countryCode = parts[1];
+
+    // Normalize the language format
+    final normalizedLanguage = normalizeLanguageFormat(language);
+    if (normalizedLanguage == null) {
+      print(
+        '❌ Error: Invalid language format.\n'
+                'Expected formats: en_US, enus, enUS, or ENUS.'
+            .red,
+      );
+      printSupportedLanguages();
+      exit(1);
+    }
+
+    // Split the normalized language into languageCode and countryCode
+    final normalizedParts = normalizedLanguage.split('_');
+    final languageCode = normalizedParts[0];
+    final countryCode = normalizedParts[1];
 
     final BabelSupportedLocales? babelSupportedLocale =
         BabelSupportedLocales.fromLocale(languageCode, countryCode);
@@ -359,6 +374,29 @@ void printSupportedLanguages() {
     final code = '${locale.languageCode}_${locale.countryCode}'.padRight(6);
     print('${locale.flagEmoji}  $code - ${locale.displayName}'.white);
   }
+}
+
+// Helper function to normalize language format
+String? normalizeLanguageFormat(String input) {
+  final normalized = input.trim().toLowerCase();
+
+  // If already in correct format (contains underscore)
+  if (normalized.contains('_')) {
+    final parts = normalized.split('_');
+    if (parts.length == 2 && parts[0].length == 2 && parts[1].length == 2) {
+      return '${parts[0]}_${parts[1].toUpperCase()}';
+    }
+    return null; // Invalid format
+  }
+
+  // Handle formats without underscore (e.g., "enus", "enUS", "ENUS")
+  if (normalized.length == 4) {
+    final languageCode = normalized.substring(0, 2);
+    final countryCode = normalized.substring(2, 4).toUpperCase();
+    return '${languageCode}_$countryCode';
+  }
+
+  return null; // Invalid format
 }
 
 Directory resolvePath(String? pathInput) {

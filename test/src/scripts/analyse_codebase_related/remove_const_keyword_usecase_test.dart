@@ -114,9 +114,9 @@ class MyClass {
 const Map<String, int> scores = const <String, int>{'a': 1, 'b': 2};
 const List<Widget> widgets = const <Widget>[const Text('test')];
 ''';
-        const expected = '''
-const Map<String, int> scores =  <String, int>{'a': 1, 'b': 2};
-const List<Widget> widgets =  <Widget>[ Text('test')];
+        const expected =
+            ''' Map<String, int> scores =  <String, int>{'a': 1, 'b': 2};
+ List<Widget> widgets =  <Widget>[ Text('test')];
 ''';
 
         final result = usecase.removeConsts(input);

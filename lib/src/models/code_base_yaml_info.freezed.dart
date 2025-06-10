@@ -12,7 +12,8 @@ part of 'code_base_yaml_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CodeBaseYamlInfo {
@@ -31,14 +32,16 @@ mixin _$CodeBaseYamlInfo {
 /// @nodoc
 abstract class $CodeBaseYamlInfoCopyWith<$Res> {
   factory $CodeBaseYamlInfoCopyWith(
-          CodeBaseYamlInfo value, $Res Function(CodeBaseYamlInfo) then) =
-      _$CodeBaseYamlInfoCopyWithImpl<$Res, CodeBaseYamlInfo>;
+    CodeBaseYamlInfo value,
+    $Res Function(CodeBaseYamlInfo) then,
+  ) = _$CodeBaseYamlInfoCopyWithImpl<$Res, CodeBaseYamlInfo>;
   @useResult
-  $Res call(
-      {String projectName,
-      String? projectDescription,
-      String version,
-      ProjectType type});
+  $Res call({
+    String projectName,
+    String? projectDescription,
+    String version,
+    ProjectType type,
+  });
 }
 
 /// @nodoc
@@ -61,49 +64,59 @@ class _$CodeBaseYamlInfoCopyWithImpl<$Res, $Val extends CodeBaseYamlInfo>
     Object? version = null,
     Object? type = null,
   }) {
-    return _then(_value.copyWith(
-      projectName: null == projectName
-          ? _value.projectName
-          : projectName // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectDescription: freezed == projectDescription
-          ? _value.projectDescription
-          : projectDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ProjectType,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            projectName:
+                null == projectName
+                    ? _value.projectName
+                    : projectName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            projectDescription:
+                freezed == projectDescription
+                    ? _value.projectDescription
+                    : projectDescription // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            version:
+                null == version
+                    ? _value.version
+                    : version // ignore: cast_nullable_to_non_nullable
+                        as String,
+            type:
+                null == type
+                    ? _value.type
+                    : type // ignore: cast_nullable_to_non_nullable
+                        as ProjectType,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$CodeBaseYamlInfoImplCopyWith<$Res>
     implements $CodeBaseYamlInfoCopyWith<$Res> {
-  factory _$$CodeBaseYamlInfoImplCopyWith(_$CodeBaseYamlInfoImpl value,
-          $Res Function(_$CodeBaseYamlInfoImpl) then) =
-      __$$CodeBaseYamlInfoImplCopyWithImpl<$Res>;
+  factory _$$CodeBaseYamlInfoImplCopyWith(
+    _$CodeBaseYamlInfoImpl value,
+    $Res Function(_$CodeBaseYamlInfoImpl) then,
+  ) = __$$CodeBaseYamlInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String projectName,
-      String? projectDescription,
-      String version,
-      ProjectType type});
+  $Res call({
+    String projectName,
+    String? projectDescription,
+    String version,
+    ProjectType type,
+  });
 }
 
 /// @nodoc
 class __$$CodeBaseYamlInfoImplCopyWithImpl<$Res>
     extends _$CodeBaseYamlInfoCopyWithImpl<$Res, _$CodeBaseYamlInfoImpl>
     implements _$$CodeBaseYamlInfoImplCopyWith<$Res> {
-  __$$CodeBaseYamlInfoImplCopyWithImpl(_$CodeBaseYamlInfoImpl _value,
-      $Res Function(_$CodeBaseYamlInfoImpl) _then)
-      : super(_value, _then);
+  __$$CodeBaseYamlInfoImplCopyWithImpl(
+    _$CodeBaseYamlInfoImpl _value,
+    $Res Function(_$CodeBaseYamlInfoImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CodeBaseYamlInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -115,35 +128,42 @@ class __$$CodeBaseYamlInfoImplCopyWithImpl<$Res>
     Object? version = null,
     Object? type = null,
   }) {
-    return _then(_$CodeBaseYamlInfoImpl(
-      projectName: null == projectName
-          ? _value.projectName
-          : projectName // ignore: cast_nullable_to_non_nullable
-              as String,
-      projectDescription: freezed == projectDescription
-          ? _value.projectDescription
-          : projectDescription // ignore: cast_nullable_to_non_nullable
-              as String?,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ProjectType,
-    ));
+    return _then(
+      _$CodeBaseYamlInfoImpl(
+        projectName:
+            null == projectName
+                ? _value.projectName
+                : projectName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        projectDescription:
+            freezed == projectDescription
+                ? _value.projectDescription
+                : projectDescription // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        version:
+            null == version
+                ? _value.version
+                : version // ignore: cast_nullable_to_non_nullable
+                    as String,
+        type:
+            null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                    as ProjectType,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
-  _$CodeBaseYamlInfoImpl(
-      {required this.projectName,
-      required this.projectDescription,
-      required this.version,
-      required this.type});
+  _$CodeBaseYamlInfoImpl({
+    required this.projectName,
+    required this.projectDescription,
+    required this.version,
+    required this.type,
+  });
 
   @override
   final String projectName;
@@ -183,15 +203,18 @@ class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
   @pragma('vm:prefer-inline')
   _$$CodeBaseYamlInfoImplCopyWith<_$CodeBaseYamlInfoImpl> get copyWith =>
       __$$CodeBaseYamlInfoImplCopyWithImpl<_$CodeBaseYamlInfoImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _CodeBaseYamlInfo implements CodeBaseYamlInfo {
-  factory _CodeBaseYamlInfo(
-      {required final String projectName,
-      required final String? projectDescription,
-      required final String version,
-      required final ProjectType type}) = _$CodeBaseYamlInfoImpl;
+  factory _CodeBaseYamlInfo({
+    required final String projectName,
+    required final String? projectDescription,
+    required final String version,
+    required final ProjectType type,
+  }) = _$CodeBaseYamlInfoImpl;
 
   @override
   String get projectName;

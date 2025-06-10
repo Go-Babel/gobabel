@@ -45,11 +45,6 @@ class SetTargetFilesUsecase {
 
     final List<ShaCommit> allTreeCommits =
         await _getAllCommitsInCurrentGitTreeOrdoredByTime.call();
-    if (allTreeCommits.contains(curentSha)) {
-      throw Exception(
-        'Your already generated a translation for this state that your code base currently is.',
-      );
-    }
 
     // The [projectVersionsShas] most recent commit that is inside the [allTreeCommits]
     ShaCommit? lastTrackedCommit;
@@ -68,6 +63,13 @@ class SetTargetFilesUsecase {
     if (lastTrackedCommit == null) {
       Dependencies.filesVerificationState = FilesVerification.fromZero();
       return;
+    }
+
+    final isCurrentLastTrackedCommit = lastTrackedCommit == curentSha;
+    if (isCurrentLastTrackedCommit) {
+      throw Exception(
+        'You already generated a translation for this state that your code base currently is.',
+      );
     }
 
     await _setChangedDartFilesBetweenCommitsUsecase(

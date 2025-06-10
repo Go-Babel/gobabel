@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
+import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/remove_const_keyword_usecase.dart';
@@ -245,10 +246,26 @@ class GobabelController {
           await _setTargetFilesUsecase(projectApiToken: projectApiToken);
           await _findArbDataUsecase();
           await _moveHardCodedStringParamUseCase();
-          await _removeConstKeywordUsecase();
-          await _dartFixFormatUsecase();
         },
       );
+
+      // New
+      await runWithSpinner(
+        successMessage: 'Codebase integrity post-script ensured',
+        message: 'Ensuring codebase integrity after changes...',
+        () async {
+          Dependencies.filesVerificationState = FilesVerification.fromZero();
+          print('Gonna remove const');
+          await _removeConstKeywordUsecase();
+          print('Gonna apply fix remove');
+          // await _dartFixFormatUsecase();
+          print('Gonna apply fix remove');
+          print('Finish');
+        },
+      );
+      if (2 == 2) {
+        return;
+      }
 
       _resolveAlreadyExistingKey();
       await _resolveAllArbKeysUsecase();
