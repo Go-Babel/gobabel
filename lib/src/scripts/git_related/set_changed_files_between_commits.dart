@@ -37,7 +37,12 @@ class SetChangedDartFilesBetweenCommitsUsecase {
                   // Remove empty lines
                   line.isNotEmpty &&
                   // Filter for Dart files
-                  line.endsWith('.dart'),
+                  line.endsWith('.dart') &&
+                  !line.contains('test/') &&
+                  line.contains('lib/') &&
+                  !line.contains('.g.dart') &&
+                  !line.contains('.freezed.dart') &&
+                  !line.contains('.gen.dart'),
             )
             .toList()
             .toSet();

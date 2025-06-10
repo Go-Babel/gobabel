@@ -47,13 +47,20 @@ class GetAppLanguagesUsecase {
 
       if (response.data is Map<String, dynamic>) {
         final Map<L10nKey, L10nValue> arbMap =
-            (response.data as Map).cast<L10nKey, L10nValue>();
+            ((response.data as Map)['record'] as Map)
+                .cast<L10nKey, L10nValue>();
+
+        // print('JSON:\n${JsonEncoder.withIndent('  ').convert(arbMap)}');
 
         Dependencies.referenceLanguageJson = arbMap;
 
         // Add all ARB keys to alreadyCreatedUniqueKeys
         GaranteeUniquenessOfArbKeysUsecase.alreadyCreatedUniqueKeys.addAll(
-          arbMap.keys.where((key) => !key.startsWith('@')),
+          Map.fromEntries(
+            arbMap.keys
+                .where((key) => !key.startsWith('@'))
+                .map((key) => MapEntry(key, 0)),
+          ),
         );
       }
     }

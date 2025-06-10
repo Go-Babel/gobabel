@@ -71,7 +71,7 @@ class Dependencies {
   static final List<BabelSupportedLocales> projectLanguages = [];
 
   static Map<L10nKey, L10nValue> referenceLanguageJson = {};
-  static final Map<L10nKey, L10nValue> newLabelsKeys = {};
+  static Map<L10nKey, L10nValue> newLabelsKeys = {};
   static Map<HardCodedString, TranslationKey> hardcodedStringKeyCache = {};
   static Map<HardCodedString, TranslationKey> newAddedHardcodedStringKeyCache =
       {};

@@ -58,14 +58,29 @@ class RemoveConstKeywordUsecase {
   }
 
   bool _isConstructorCall(Token token, String source) {
-    // Direct collection literals: const [] or const {}
+    // Check if this is a collection literal ([] or {})
     if (token.type == TokenType.OPEN_SQUARE_BRACKET ||
         token.type == TokenType.OPEN_CURLY_BRACKET) {
+      // Check if this collection literal is part of a parameter assignment
+      // by looking backwards for patterns like "= const" or "this.property = const"
+      if (_isInParameterAssignment(token, source)) {
+        return false; // Keep const for parameter assignments
+      }
       return true;
     }
 
     // Generic collection: const <Type>[] or const <Type>{}
     if (token.type == TokenType.LT) {
+      // Look ahead to see if this leads to a collection literal
+      Token? afterGeneric = _skipGenericTypes(token);
+      if (afterGeneric != null &&
+          (afterGeneric.type == TokenType.OPEN_SQUARE_BRACKET ||
+              afterGeneric.type == TokenType.OPEN_CURLY_BRACKET)) {
+        // Check if this is part of a parameter assignment
+        if (_isInParameterAssignment(token, source)) {
+          return false; // Keep const for parameter assignments
+        }
+      }
       return true;
     }
 
@@ -114,6 +129,23 @@ class RemoveConstKeywordUsecase {
     }
 
     return false;
+  }
+
+  bool _isInParameterAssignment(Token token, String source) {
+    // Get the text before the current token to analyze context
+    final beforeText = source.substring(0, token.offset).trim();
+
+    // Look for patterns that indicate parameter assignment:
+    // - "this.property = const"
+    // - "property = const"
+    // - "property: const" (named parameters)
+    final assignmentPatterns = [
+      RegExp(r'this\.\w+\s*=\s*const\s*$'),
+      RegExp(r'\w+\s*=\s*const\s*$'),
+      RegExp(r'\w+\s*:\s*const\s*$'),
+    ];
+
+    return assignmentPatterns.any((pattern) => pattern.hasMatch(beforeText));
   }
 
   Token? _skipGenericTypes(Token startToken) {

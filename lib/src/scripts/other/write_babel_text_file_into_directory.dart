@@ -15,10 +15,6 @@ class WriteBabelTextFileIntoDirectory {
 
     final String babelPath = await FileUtils.getBabelTextFile;
     final file = File(babelPath);
-    if (await file.exists()) {
-      await file.delete();
-    }
-    await file.create(recursive: true);
 
     await file.writeAsString(
       _generateBabelClassUsecase(
