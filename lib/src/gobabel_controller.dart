@@ -30,6 +30,7 @@ import 'package:gobabel/src/scripts/other/add_babel_initialization_to_main_useca
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:path/path.dart' as p;
+import 'package:gobabel/src/scripts/analyse_codebase_related/remove_multiline_string_concatenation.dart';
 
 bool isInTest = true;
 
@@ -58,6 +59,8 @@ class GobabelController {
   final ResolveAllHardcodedStringsUsecase _resolveAllHardcodedStringsUsecase;
   final ResolveAllArbKeysUsecase _resolveAllArbKeysUsecase;
   final MoveHardCodedStringParamUseCase _moveHardCodedStringParamUseCase;
+  final RemoveAdjacentStringLiteralConcatenationUsecase
+  _removeStringConcatenationUsecase;
 
   const GobabelController({
     required FindArbDataUsecase findArbDataUsecase,
@@ -87,6 +90,8 @@ class GobabelController {
     required MoveHardCodedStringParamUseCase moveHardCodedStringParamUseCase,
     required RemoveConstKeywordUsecase removeConstKeywordUsecase,
     required DartFixFormatUsecase dartFixFormatUsecase,
+    required RemoveAdjacentStringLiteralConcatenationUsecase
+    removeStringConcatenationUsecase,
   }) : _removeConstKeywordUsecase = removeConstKeywordUsecase,
        _dartFixFormatUsecase = dartFixFormatUsecase,
        _findArbDataUsecase = findArbDataUsecase,
@@ -109,7 +114,8 @@ class GobabelController {
        _getLastLocalCommitInCurrentBranch = getLastLocalCommitInCurrentBranch,
        _translateNewStringsArbUsecase = translateNewStringsArbUsecase,
        _resolveAllArbKeysUsecase = resolveAllArbKeysUsecase,
-       _moveHardCodedStringParamUseCase = moveHardCodedStringParamUseCase;
+       _moveHardCodedStringParamUseCase = moveHardCodedStringParamUseCase,
+       _removeStringConcatenationUsecase = removeStringConcatenationUsecase;
 
   Future<void> create({
     required String accountApiKey,
@@ -213,7 +219,7 @@ class GobabelController {
     required String projectApiToken,
     required BabelSupportedLocales targetLanguage,
     required Directory directory,
-    bool generateLogs = false,
+    bool generateLogs = true,
   }) async {
     final GenerateHistory? generatedVersion;
 
@@ -244,28 +250,14 @@ class GobabelController {
         () async {
           await _analyseCodebaseIssueIntegrityUsecase();
           await _setTargetFilesUsecase(projectApiToken: projectApiToken);
-          await _findArbDataUsecase();
-          await _moveHardCodedStringParamUseCase();
-        },
-      );
-
-      // New
-      await runWithSpinner(
-        successMessage: 'Codebase integrity post-script ensured',
-        message: 'Ensuring codebase integrity after changes...',
-        () async {
           Dependencies.filesVerificationState = FilesVerification.fromZero();
-          print('Gonna remove const');
+          await _findArbDataUsecase();
+          await _removeStringConcatenationUsecase();
+          await _dartFixFormatUsecase();
+          await _moveHardCodedStringParamUseCase();
           await _removeConstKeywordUsecase();
-          print('Gonna apply fix remove');
-          // await _dartFixFormatUsecase();
-          print('Gonna apply fix remove');
-          print('Finish');
         },
       );
-      if (2 == 2) {
-        return;
-      }
 
       _resolveAlreadyExistingKey();
       await _resolveAllArbKeysUsecase();
@@ -292,17 +284,9 @@ class GobabelController {
         message: 'Writting "BabelText" file and updating main()...',
         () async {
           await Future.delayed(Duration(milliseconds: 800));
+          await _dartFixFormatUsecase();
           await _writeBabelTextFileIntoDirectory();
           await _addBabelInitializationToMainUsecase();
-        },
-      );
-
-      await runWithSpinner(
-        successMessage: 'Codebase integrity post-script ensured',
-        message: 'Ensuring codebase integrity after changes...',
-        () async {
-          await _removeConstKeywordUsecase();
-          await _dartFixFormatUsecase();
         },
       );
 
@@ -310,9 +294,7 @@ class GobabelController {
       final GitVariables gitVariables = Dependencies.gitVariables;
 
       // See if after changes the codebase is still without any issue
-      await _analyseCodebaseIssueIntegrityUsecase();
-
-      await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
+      // await _analyseCodebaseIssueIntegrityUsecase();
 
       if (generateLogs) {
         final pathApp = Dependencies.pathAppearancesPerKey.map(
@@ -327,6 +309,10 @@ class GobabelController {
               Dependencies.allDeclarationFunctions.toList(),
         }, 'data.json');
       }
+
+      if (2 == 2) return;
+
+      await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
 
       generatedVersion = await runWithSpinner(
         successMessage: 'Version uploaded successfully!',

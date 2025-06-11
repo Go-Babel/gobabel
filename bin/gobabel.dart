@@ -40,6 +40,7 @@ import 'package:gobabel/src/scripts/git_related/reset_all_changes_done.dart';
 import 'package:gobabel/src/scripts/git_related/set_target_files.dart';
 import 'package:gobabel/src/scripts/translation_related/get_app_languages.dart';
 import 'package:gobabel/src/scripts/other/write_babel_text_file_into_directory.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/remove_multiline_string_concatenation.dart';
 
 Future<void> main(List<String> arguments) async {
   // Set up the argument parser
@@ -137,6 +138,8 @@ Future<void> main(List<String> arguments) async {
     ),
     removeConstKeywordUsecase: RemoveConstKeywordUsecase(),
     dartFixFormatUsecase: DartFixFormatUsecase(),
+    removeStringConcatenationUsecase:
+        RemoveAdjacentStringLiteralConcatenationUsecase(),
   );
 
   // Parse the arguments
