@@ -23,7 +23,7 @@ void printName({String name = 'John Doe'}) {
   print('Hello, $name!');
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
 
         expect(result, expectedOutput);
       },
@@ -51,7 +51,7 @@ Future<void> showConfirmationDialog({
   // Function logic...
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
 
         expect(result, expectedOutput);
       },
@@ -63,7 +63,7 @@ void greet(String name) {
   print('Hello, \$name!');
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
       expect(result, inputCode);
     });
 
@@ -73,7 +73,7 @@ void setAge({int age = 30}) {
   print('Age: \$age');
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
       expect(result, inputCode);
     });
 
@@ -91,7 +91,7 @@ void printMessage([String message = 'Default message']) {
   print(message);
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
         print('Result: $result');
         expect(result, expectedOutput);
       },
@@ -113,7 +113,7 @@ class MyClass {
   }
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
 
       expect(result, expectedOutput);
     });
@@ -148,28 +148,25 @@ void func3({String? msg , String? detail}) {
   print('$msg, $detail');
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
 
       expect(result, expectedOutput);
     });
 
-    test(
-      'should handle function with expression body (prints warning, no body change)',
-      () {
-        const inputCode = """
+    test('should handle function with expression body', () {
+      const inputCode = """
 String greet([String name = 'Guest']) => 'Hello, \$name!';
 """;
-        const expectedOutputAfterParamChange = """
-String greet([String? name ]) {
+      const expectedOutputAfterParamChange =
+          r"""String greet([String? name ])  {
   name ??= 'Guest';
-  return 'Hello, \$name!';
-};
+  return 'Hello, $name!';
+}
 """;
-        final result = usecase.execute(inputCode);
-        print('Result: $result');
-        expect(result, expectedOutputAfterParamChange);
-      },
-    );
+      final result = usecase.resolveSingleFile(inputCode);
+      print('Result: $result');
+      expect(result, expectedOutputAfterParamChange);
+    });
 
     test('should handle function with an empty body', () {
       const inputCode = """
@@ -178,7 +175,7 @@ void doSomething({String action = 'Nothing'}) {}
       const expectedOutput = """void doSomething({String? action }) {
   action ??= 'Nothing';}
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
       expect(result, expectedOutput);
     });
 
@@ -197,7 +194,7 @@ void complexFunc({String name = 'Default', int age, String? address}) {
   print('$name, $age, $address');
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
         expect(result, expectedOutput);
       },
     );
@@ -218,7 +215,7 @@ void logEvent({String? type = 'INFO', required String message}) {
   print('[$type] $message');
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
       expect(result, expectedOutput);
     });
 
@@ -235,7 +232,7 @@ void mixedParams(int id, [String role = 'User'], {String status = 'Active'}) {
   print('$id, $role, $status');
 }
 """;
-      final result = usecase.execute(inputCode);
+      final result = usecase.resolveSingleFile(inputCode);
 
       expect(result, expectedOutput);
     });
@@ -268,7 +265,7 @@ class MyService {
   }
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
 
         expect(result, expectedOutput);
       },
@@ -289,7 +286,7 @@ void processData(int id, {String category = 'General', bool isActive = true}) {
   print('\$id - \$category (\${isActive ? 'Active' : 'Inactive'})');
 }
 """;
-        final result = usecase.execute(inputCode);
+        final result = usecase.resolveSingleFile(inputCode);
         expect(result, expectedOutput);
       },
     );

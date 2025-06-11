@@ -1,16 +1,38 @@
+import 'dart:io';
+
 import 'package:analyzer/dart/analysis/features.dart';
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/ast/token.dart'; // Added import for Token
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:gobabel/src/core/dependencies.dart';
+import 'package:meta/meta.dart';
 
 /// A use case that transforms Dart code by moving hardcoded string default values
 /// from function parameters inside the function body, making the parameters nullable.
 class MoveHardcodedStringInFuntionParamUsecase {
-  String execute(String fileContent) {
+  Future<void> call() async {
+    final List<File> files = await Dependencies.filesToBeAnalysed;
+    if (files.isEmpty) {
+      return;
+    }
+
+    for (final file in files) {
+      final source = await file.readAsString();
+      final transformed = resolveSingleFile(source);
+      if (transformed != source) {
+        await file.writeAsString(transformed);
+      }
+    }
+  }
+
+  @visibleForTesting
+  String resolveSingleFile(String fileContent) {
     final parseResult = parseString(
       content: fileContent,
       featureSet: FeatureSet.latestLanguageVersion(),
-      throwIfDiagnostics: false, // Allow processing potentially incomplete/invalid code
+      throwIfDiagnostics:
+          false, // Allow processing potentially incomplete/invalid code
     );
     final compilationUnit = parseResult.unit;
 
@@ -24,9 +46,10 @@ class MoveHardcodedStringInFuntionParamUsecase {
 
     String newContent = fileContent;
     for (final mod in modifications) {
-      newContent = newContent.substring(0, mod.offset) +
-                   mod.replacementText +
-                   newContent.substring(mod.offset + mod.length);
+      newContent =
+          newContent.substring(0, mod.offset) +
+          mod.replacementText +
+          newContent.substring(mod.offset + mod.length);
     }
     return newContent;
   }
@@ -101,21 +124,38 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
             if (isStringType) {
               final paramName = paramNameToken.lexeme;
               final defaultValueText = sourceCode.substring(
-                  defaultValueNode.offset, defaultValueNode.end);
+                defaultValueNode.offset,
+                defaultValueNode.end,
+              );
 
               final equalSign = param.separator;
               if (equalSign != null) {
-                parameterModifications.add(_Modification(
-                  equalSign.offset,
-                  defaultValueNode.end - equalSign.offset,
-                  "",
-                ));
+                // 1. Remove " = 'defaultValue'"
+                parameterModifications.add(
+                  _Modification(
+                    equalSign.offset,
+                    defaultValueNode.end - equalSign.offset,
+                    "",
+                  ),
+                );
 
-                parameterModifications.add(_Modification(
-                  paramTypeNode.end,
-                  0,
-                  "?",
-                ));
+                // 2. Add '?' to the type if it's not already nullable
+                // To check if already nullable, we inspect the source text immediately after the type.
+                // This is a simplification; a more robust check would involve deeper AST analysis of the type itself.
+                bool alreadyNullable = false;
+                if (paramTypeNode.end < sourceCode.length &&
+                    sourceCode[paramTypeNode.end] == '?') {
+                  alreadyNullable = true;
+                }
+                if (!alreadyNullable) {
+                  parameterModifications.add(
+                    _Modification(
+                      paramTypeNode.end, // Offset after the type
+                      0, // Length 0 for insertion
+                      "?", // Insert '?'
+                    ),
+                  );
+                }
 
                 assignmentsToAdd.add("  $paramName ??= $defaultValueText;");
               }
@@ -129,20 +169,48 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
       modifications.addAll(parameterModifications);
 
       if (functionBody is BlockFunctionBody) {
-        final bodyStartOffset = functionBody.block.leftBracket.end;
-        String textToInsert = "\n" + assignmentsToAdd.join("\n");
+        final bodyStartOffset =
+            functionBody.block.leftBracket.end; // Offset after '{'
+
+        String textToInsert = "\n${assignmentsToAdd.join("\n")}";
         if (functionBody.block.statements.isNotEmpty) {
           textToInsert += "\n";
         }
-        modifications.add(_Modification(
-          bodyStartOffset,
-          0,
-          textToInsert,
-        ));
+
+        modifications.add(
+          _Modification(
+            bodyStartOffset,
+            0, // Length 0 for insertion
+            textToInsert,
+          ),
+        );
       } else if (functionBody is ExpressionFunctionBody) {
-        print(
-            "Warning: Function '$functionName' with ExpressionFunctionBody at offset ${functionBody.offset} " +
-            "has hardcoded string parameters. Automatic refactoring for this style is not fully supported.");
+        final expressionText = sourceCode.substring(
+          functionBody.expression.offset,
+          functionBody.expression.end,
+        );
+
+        final indentedAssignments = assignmentsToAdd
+            .map((line) => "  ${line.trimLeft()}")
+            .join("\n");
+
+        // Determine if the original function was async
+        String asyncKeyword = functionBody.isAsynchronous ? "async " : "";
+
+        String newBlockBodyString =
+            " $asyncKeyword{\n$indentedAssignments\n  return $expressionText;\n}";
+
+        final Token arrowToken =
+            functionBody.functionDefinition; // This is '=>' or 'async =>' token
+
+        modifications.add(
+          _Modification(
+            arrowToken.offset, // Start of the arrow token
+            (functionBody.end - arrowToken.offset)
+                .toInt(), // Length from arrow to end of expression body
+            newBlockBodyString,
+          ),
+        );
       }
     }
   }
