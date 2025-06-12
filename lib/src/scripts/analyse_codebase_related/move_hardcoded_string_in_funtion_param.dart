@@ -6,11 +6,22 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/token.dart'; // Added import for Token
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/dependencies.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_null_assert_static_analysis_errors.dart';
 import 'package:meta/meta.dart';
 
 /// A use case that transforms Dart code by moving hardcoded string default values
 /// from function parameters inside the function body, making the parameters nullable.
 class MoveHardcodedStringInFuntionParamUsecase {
+  final ResolveNullAssertStaticAnalysisErrorsForStrings
+  _resolveNullAssertStaticAnalysisErrorsForStrings;
+
+  MoveHardcodedStringInFuntionParamUsecase({
+    ResolveNullAssertStaticAnalysisErrorsForStrings?
+    resolveNullAssertStaticAnalysisErrorsForStrings,
+  }) : _resolveNullAssertStaticAnalysisErrorsForStrings =
+           resolveNullAssertStaticAnalysisErrorsForStrings ??
+           ResolveNullAssertStaticAnalysisErrorsForStrings();
+
   Future<void> call() async {
     final List<File> files = await Dependencies.filesToBeAnalysed;
     if (files.isEmpty) {
@@ -21,7 +32,9 @@ class MoveHardcodedStringInFuntionParamUsecase {
       final source = await file.readAsString();
       final transformed = resolveSingleFile(source);
       if (transformed != source) {
-        await file.writeAsString(transformed);
+        await file.writeAsString(
+          _resolveNullAssertStaticAnalysisErrorsForStrings(transformed),
+        );
       }
     }
   }

@@ -6,9 +6,11 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/core/extensions/string_extensions.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_in_funtion_param.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/remove_const_keyword_usecase.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_enum_hardcoded_strings.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/find_arb_data.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -35,6 +37,7 @@ import 'package:gobabel/src/scripts/analyse_codebase_related/remove_multiline_st
 bool isInTest = true;
 
 class GobabelController {
+  final ResolveEnumHardcodedStringsUsecase _resolveEnumHardcodedStringsUsecase;
   final RemoveConstKeywordUsecase _removeConstKeywordUsecase;
   final DartFixFormatUsecase _dartFixFormatUsecase;
   final FindArbDataUsecase _findArbDataUsecase;
@@ -47,6 +50,8 @@ class GobabelController {
   final WriteBabelTextFileIntoDirectory _writeBabelTextFileIntoDirectory;
   final AddBabelInitializationToMainUsecase
   _addBabelInitializationToMainUsecase;
+  final MoveHardcodedStringInFuntionParamUsecase
+  _moveHardcodedStringInFuntionParamUsecase;
   final GetProjectGitDependenciesUsecase _getProjectGitDependenciesUsecase;
   final ResetAllChangesDoneUsecase _resetAllChangesDoneUsecase;
   final ExtractProjectCodeBaseUsecase _extractProjectCodeBaseUsecase;
@@ -63,10 +68,14 @@ class GobabelController {
   _removeStringConcatenationUsecase;
 
   const GobabelController({
+    required ResolveEnumHardcodedStringsUsecase
+    resolveEnumHardcodedStringsUsecase,
     required FindArbDataUsecase findArbDataUsecase,
     required ResolveAlreadyExistingKey resolveAlreadyExistingKey,
     required EnsureGitDirectoryIsConfiguredUsecase
     ensureGitDirectoryIsConfigured,
+    required MoveHardcodedStringInFuntionParamUsecase
+    moveHardcodedStringInFuntionParamUsecase,
     required ResolveAllHardcodedStringsUsecase
     resolveAllHardcodedStringsUsecase,
     required WriteBabelTextFileIntoDirectory writeBabelTextFileIntoDirectory,
@@ -92,9 +101,12 @@ class GobabelController {
     required DartFixFormatUsecase dartFixFormatUsecase,
     required RemoveAdjacentStringLiteralConcatenationUsecase
     removeStringConcatenationUsecase,
-  }) : _removeConstKeywordUsecase = removeConstKeywordUsecase,
+  }) : _resolveEnumHardcodedStringsUsecase = resolveEnumHardcodedStringsUsecase,
+       _removeConstKeywordUsecase = removeConstKeywordUsecase,
        _dartFixFormatUsecase = dartFixFormatUsecase,
        _findArbDataUsecase = findArbDataUsecase,
+       _moveHardcodedStringInFuntionParamUsecase =
+           moveHardcodedStringInFuntionParamUsecase,
        _resolveAlreadyExistingKey = resolveAlreadyExistingKey,
        _ensureGitDirectoryIsConfigured = ensureGitDirectoryIsConfigured,
        _resolveAllHardcodedStringsUsecase = resolveAllHardcodedStringsUsecase,
@@ -253,11 +265,14 @@ class GobabelController {
           Dependencies.filesVerificationState = FilesVerification.fromZero();
           await _findArbDataUsecase();
           await _removeStringConcatenationUsecase();
+          await _resolveEnumHardcodedStringsUsecase();
           await _dartFixFormatUsecase();
+          await _moveHardcodedStringInFuntionParamUsecase();
           await _moveHardCodedStringParamUseCase();
           await _removeConstKeywordUsecase();
         },
       );
+      if (2 == 2) return;
 
       _resolveAlreadyExistingKey();
       await _resolveAllArbKeysUsecase();

@@ -6,9 +6,11 @@ import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/gobabel_controller.dart';
 import 'package:gobabel/src/scripts/analyse_already_used_babel_labels/resolve_already_existing_key.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/analyse_codebase_issue_integrity.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_in_funtion_param.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/remove_const_keyword_usecase.dart';
 import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_all_hardcoded_strings_usecase.dart';
+import 'package:gobabel/src/scripts/analyse_codebase_related/resolve_enum_hardcoded_strings.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/ensure_integrity_of_arb.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/extract_location_data_from_arb_file_name.dart';
 import 'package:gobabel/src/scripts/arb_migration_related/resolve_all_arb_keys.dart';
@@ -80,6 +82,9 @@ Future<void> main(List<String> arguments) async {
         );
 
   final GobabelController controller = GobabelController(
+    resolveEnumHardcodedStringsUsecase: ResolveEnumHardcodedStringsUsecase(),
+    moveHardcodedStringInFuntionParamUsecase:
+        MoveHardcodedStringInFuntionParamUsecase(),
     moveHardCodedStringParamUseCase: MoveHardCodedStringParamUseCase(),
     getHardcodedStringKeyCacheUsecase: GetHardcodedStringKeyCacheUsecase(),
     resolveAlreadyExistingKey: ResolveAlreadyExistingKey(
