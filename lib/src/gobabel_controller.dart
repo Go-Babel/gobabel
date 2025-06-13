@@ -272,7 +272,6 @@ class GobabelController {
           await _removeConstKeywordUsecase();
         },
       );
-      if (2 == 2) return;
 
       _resolveAlreadyExistingKey();
       await _resolveAllArbKeysUsecase();
@@ -324,8 +323,6 @@ class GobabelController {
               Dependencies.allDeclarationFunctions.toList(),
         }, 'data.json');
       }
-
-      if (2 == 2) return;
 
       await _translateNewStringsArbUsecase(projectApiToken: projectApiToken);
 

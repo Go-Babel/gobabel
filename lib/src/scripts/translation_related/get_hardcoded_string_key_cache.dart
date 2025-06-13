@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/dependencies.dart';
 import 'package:gobabel/src/scripts/git_related/get_project_git_dependencies.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 
 class GetHardcodedStringKeyCacheUsecase {
   const GetHardcodedStringKeyCacheUsecase();
@@ -14,5 +15,9 @@ class GetHardcodedStringKeyCacheUsecase {
         );
 
     Dependencies.hardcodedStringKeyCache = cache.keyMap;
+
+    for (final TranslationKey key in cache.keyMap.values) {
+      GaranteeUniquenessOfArbKeysUsecase.addUniqueKeys(key);
+    }
   }
 }

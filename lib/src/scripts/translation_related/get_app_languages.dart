@@ -55,13 +55,9 @@ class GetAppLanguagesUsecase {
         Dependencies.referenceLanguageJson = arbMap;
 
         // Add all ARB keys to alreadyCreatedUniqueKeys
-        GaranteeUniquenessOfArbKeysUsecase.alreadyCreatedUniqueKeys.addAll(
-          Map.fromEntries(
-            arbMap.keys
-                .where((key) => !key.startsWith('@'))
-                .map((key) => MapEntry(key, 0)),
-          ),
-        );
+        for (final k in arbMap.keys.where((key) => !key.startsWith('@'))) {
+          GaranteeUniquenessOfArbKeysUsecase.addUniqueKeys(k);
+        }
       }
     }
 
