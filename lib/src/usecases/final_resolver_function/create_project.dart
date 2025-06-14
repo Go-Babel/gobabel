@@ -32,7 +32,7 @@ AsyncResult<CreateFlowCreatedProjectInGobabelServer> create_createProject(
 
   final createProjectResult = await createProject(
     accountApiKey: payload.accountApiKey,
-    client: payload.client,
+    client: payload.client.server,
     yamlInfo: yamlInfo,
     codeBase: codeBase,
     gitVariables: gitVariables,

@@ -98,11 +98,12 @@ AsyncResult<CreateFlowGotCodeBaseYaml> create_getCodeBaseYamlInfo(
     currentDirectory: payload.directory,
   );
 
-  return ensureGitResult.flatMap((_) {
+  return ensureGitResult.flatMap((yamlInfo) {
     return CreateFlowGotCodeBaseYaml(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,
+      yamlInfo: yamlInfo,
     ).toSuccess();
   });
 }
