@@ -1,6 +1,7 @@
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
+import 'package:gobabel/src/usecases/analyse_codebase/ensure_no_static_error_on_dart_files.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/create_project.dart';
@@ -14,7 +15,7 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
 import 'package:gobabel/src/usecases/remote_project_related/download_reference_arb.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_project_cache_map.dart';
-import 'package:gobabel/src/usecases/translation_data_payload_info/create_translation_payload.dart';
+import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_cache_translation_payload.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -77,6 +78,7 @@ class GobabelConductor {
         .flatMap(generate_getAppLanguages)
         .flatMap(generate_downloadReferenceArb)
         .flatMap(generate_getProjectCacheMap)
-        .flatMap(generate_createTranslationPayload);
+        .flatMap(generate_resolveProjectCacheTranslationPayload)
+        .flatMap(generate_ensureNoStaticErrorOnDartFilesDefault);
   }
 }

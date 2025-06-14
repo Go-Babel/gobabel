@@ -39,10 +39,10 @@ GenerateFlowState _$GenerateFlowStateFromJson(Map<String, dynamic> json) {
       return GenerateFlowDownloadReferenceArb.fromJson(json);
     case 'projectCacheMap':
       return GenerateFlowProjectCacheMap.fromJson(json);
-    case 'createdInitialTranslationPayloadInfo':
-      return GenerateFlowCreatedInitialTranslationPayloadInfo.fromJson(json);
-    case 'resolveProjectCacheTranslation':
-      return GenerateFlowResolveProjectCacheTranslation.fromJson(json);
+    case 'resolvedProjectCacheTranslation':
+      return GenerateFlowResolvedProjectCacheTranslation.fromJson(json);
+    case 'ensuredTheresNoStaticErrorOnDartFiles':
+      return GenerateFlowEnsuredNoStaticErrorOnDartFiles.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -197,9 +197,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -214,9 +214,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -354,9 +354,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -371,9 +371,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -511,9 +511,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -528,9 +528,9 @@ mixin _$GenerateFlowState {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -553,12 +553,10 @@ mixin _$GenerateFlowState {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -575,10 +573,10 @@ mixin _$GenerateFlowState {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -595,10 +593,10 @@ mixin _$GenerateFlowState {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -926,9 +924,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -943,9 +941,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return initial(accountApiKey, directoryPath, inputedByUserLocale);
   }
@@ -1087,9 +1085,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -1104,9 +1102,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return initial?.call(accountApiKey, directoryPath, inputedByUserLocale);
   }
@@ -1248,9 +1246,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -1265,9 +1263,9 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1297,12 +1295,10 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return initial(this);
   }
@@ -1323,10 +1319,10 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return initial?.call(this);
   }
@@ -1347,10 +1343,10 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1674,9 +1670,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -1691,9 +1687,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return createdClient(
       accountApiKey,
@@ -1840,9 +1836,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -1857,9 +1853,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return createdClient?.call(
       accountApiKey,
@@ -2006,9 +2002,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -2023,9 +2019,9 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -2060,12 +2056,10 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return createdClient(this);
   }
@@ -2086,10 +2080,10 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return createdClient?.call(this);
   }
@@ -2110,10 +2104,10 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -2440,9 +2434,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -2457,9 +2451,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return ensuredGit(
       accountApiKey,
@@ -2606,9 +2600,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -2623,9 +2617,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return ensuredGit?.call(
       accountApiKey,
@@ -2772,9 +2766,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -2789,9 +2783,9 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -2826,12 +2820,10 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return ensuredGit(this);
   }
@@ -2852,10 +2844,10 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return ensuredGit?.call(this);
   }
@@ -2876,10 +2868,10 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -3230,9 +3222,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -3247,9 +3239,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotCodeBaseYaml(
       accountApiKey,
@@ -3397,9 +3389,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -3414,9 +3406,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotCodeBaseYaml?.call(
       accountApiKey,
@@ -3564,9 +3556,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -3581,9 +3573,9 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
@@ -3619,12 +3611,10 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotCodeBaseYaml(this);
   }
@@ -3645,10 +3635,10 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotCodeBaseYaml?.call(this);
   }
@@ -3669,10 +3659,10 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
@@ -4037,9 +4027,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -4054,9 +4044,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitUser(
       accountApiKey,
@@ -4205,9 +4195,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -4222,9 +4212,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitUser?.call(
       accountApiKey,
@@ -4373,9 +4363,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -4390,9 +4380,9 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
@@ -4429,12 +4419,10 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitUser(this);
   }
@@ -4455,10 +4443,10 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitUser?.call(this);
   }
@@ -4479,10 +4467,10 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
@@ -4868,9 +4856,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -4885,9 +4873,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotLastLocalCommit(
       accountApiKey,
@@ -5037,9 +5025,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -5054,9 +5042,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotLastLocalCommit?.call(
       accountApiKey,
@@ -5206,9 +5194,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -5223,9 +5211,9 @@ class _$GenerateFlowGotLastLocalCommitImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
@@ -5263,12 +5251,10 @@ class _$GenerateFlowGotLastLocalCommitImpl
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotLastLocalCommit(this);
   }
@@ -5289,10 +5275,10 @@ class _$GenerateFlowGotLastLocalCommitImpl
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotLastLocalCommit?.call(this);
   }
@@ -5313,10 +5299,10 @@ class _$GenerateFlowGotLastLocalCommitImpl
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
@@ -5719,9 +5705,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -5736,9 +5722,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotProjectOriginUrl(
       accountApiKey,
@@ -5889,9 +5875,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -5906,9 +5892,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotProjectOriginUrl?.call(
       accountApiKey,
@@ -6059,9 +6045,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -6076,9 +6062,9 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
@@ -6117,12 +6103,10 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotProjectOriginUrl(this);
   }
@@ -6143,10 +6127,10 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotProjectOriginUrl?.call(this);
   }
@@ -6167,10 +6151,10 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
@@ -6555,9 +6539,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -6572,9 +6556,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitVariables(
       accountApiKey,
@@ -6723,9 +6707,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -6740,9 +6724,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitVariables?.call(
       accountApiKey,
@@ -6891,9 +6875,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -6908,9 +6892,9 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
@@ -6947,12 +6931,10 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitVariables(this);
   }
@@ -6973,10 +6955,10 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotGitVariables?.call(this);
   }
@@ -6997,10 +6979,10 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
@@ -7429,9 +7411,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -7446,9 +7428,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotAppLanguages(
       accountApiKey,
@@ -7600,9 +7582,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -7617,9 +7599,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotAppLanguages?.call(
       accountApiKey,
@@ -7771,9 +7753,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -7788,9 +7770,9 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotAppLanguages != null) {
@@ -7830,12 +7812,10 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotAppLanguages(this);
   }
@@ -7856,10 +7836,10 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return gotAppLanguages?.call(this);
   }
@@ -7880,10 +7860,10 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (gotAppLanguages != null) {
@@ -8347,9 +8327,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -8364,9 +8344,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return downloadReferenceArb(
       accountApiKey,
@@ -8519,9 +8499,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -8536,9 +8516,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return downloadReferenceArb?.call(
       accountApiKey,
@@ -8691,9 +8671,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -8708,9 +8688,9 @@ class _$GenerateFlowDownloadReferenceArbImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (downloadReferenceArb != null) {
@@ -8751,12 +8731,10 @@ class _$GenerateFlowDownloadReferenceArbImpl
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return downloadReferenceArb(this);
   }
@@ -8777,10 +8755,10 @@ class _$GenerateFlowDownloadReferenceArbImpl
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return downloadReferenceArb?.call(this);
   }
@@ -8801,10 +8779,10 @@ class _$GenerateFlowDownloadReferenceArbImpl
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (downloadReferenceArb != null) {
@@ -9280,9 +9258,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -9297,9 +9275,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return projectCacheMap(
       accountApiKey,
@@ -9453,9 +9431,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -9470,9 +9448,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return projectCacheMap?.call(
       accountApiKey,
@@ -9626,9 +9604,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -9643,9 +9621,9 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (projectCacheMap != null) {
@@ -9687,12 +9665,10 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return projectCacheMap(this);
   }
@@ -9713,10 +9689,10 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
     return projectCacheMap?.call(this);
   }
@@ -9737,10 +9713,10 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
     if (projectCacheMap != null) {
@@ -9802,17 +9778,12 @@ abstract class GenerateFlowProjectCacheMap extends GenerateFlowState {
 }
 
 /// @nodoc
-abstract class _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith<
-  $Res
->
+abstract class _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<$Res>
     implements $GenerateFlowStateCopyWith<$Res> {
-  factory _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith(
-    _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl value,
-    $Res Function(_$GenerateFlowCreatedInitialTranslationPayloadInfoImpl) then,
-  ) =
-      __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<
-        $Res
-      >;
+  factory _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith(
+    _$GenerateFlowResolvedProjectCacheTranslationImpl value,
+    $Res Function(_$GenerateFlowResolvedProjectCacheTranslationImpl) then,
+  ) = __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -9828,27 +9799,27 @@ abstract class _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith<
     String downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
-    TranslationPayloadInfo translationPayloadInfo,
+    TranslationPayloadInfo cacheMapTranslationPayloadInfo,
   });
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
   $GitVariablesCopyWith<$Res> get gitVariables;
-  $TranslationPayloadInfoCopyWith<$Res> get translationPayloadInfo;
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo;
 }
 
 /// @nodoc
-class __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<$Res>
+class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
     extends
         _$GenerateFlowStateCopyWithImpl<
           $Res,
-          _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
+          _$GenerateFlowResolvedProjectCacheTranslationImpl
         >
     implements
-        _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith<$Res> {
-  __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl(
-    _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl _value,
-    $Res Function(_$GenerateFlowCreatedInitialTranslationPayloadInfoImpl) _then,
+        _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<$Res> {
+  __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl(
+    _$GenerateFlowResolvedProjectCacheTranslationImpl _value,
+    $Res Function(_$GenerateFlowResolvedProjectCacheTranslationImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of GenerateFlowState
@@ -9867,10 +9838,10 @@ class __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<$Res>
     Object? downloadLink = null,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
-    Object? translationPayloadInfo = null,
+    Object? cacheMapTranslationPayloadInfo = null,
   }) {
     return _then(
-      _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl(
+      _$GenerateFlowResolvedProjectCacheTranslationImpl(
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -9926,10 +9897,10 @@ class __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<$Res>
                 ? _value.projectCacheMap
                 : projectCacheMap // ignore: cast_nullable_to_non_nullable
                     as ProjectCacheMap,
-        translationPayloadInfo:
-            null == translationPayloadInfo
-                ? _value.translationPayloadInfo
-                : translationPayloadInfo // ignore: cast_nullable_to_non_nullable
+        cacheMapTranslationPayloadInfo:
+            null == cacheMapTranslationPayloadInfo
+                ? _value.cacheMapTranslationPayloadInfo
+                : cacheMapTranslationPayloadInfo // ignore: cast_nullable_to_non_nullable
                     as TranslationPayloadInfo,
       ),
     );
@@ -9969,11 +9940,11 @@ class __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TranslationPayloadInfoCopyWith<$Res> get translationPayloadInfo {
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo {
     return $TranslationPayloadInfoCopyWith<$Res>(
-      _value.translationPayloadInfo,
+      _value.cacheMapTranslationPayloadInfo,
       (value) {
-        return _then(_value.copyWith(translationPayloadInfo: value));
+        return _then(_value.copyWith(cacheMapTranslationPayloadInfo: value));
       },
     );
   }
@@ -9981,9 +9952,9 @@ class __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
-    extends GenerateFlowCreatedInitialTranslationPayloadInfo {
-  _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl({
+class _$GenerateFlowResolvedProjectCacheTranslationImpl
+    extends GenerateFlowResolvedProjectCacheTranslation {
+  _$GenerateFlowResolvedProjectCacheTranslationImpl({
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -9996,16 +9967,16 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
     required this.downloadLink,
     required final Map<String, String> referenceArbMap,
     required this.projectCacheMap,
-    required this.translationPayloadInfo,
+    required this.cacheMapTranslationPayloadInfo,
     final String? $type,
   }) : _languages = languages,
        _referenceArbMap = referenceArbMap,
-       $type = $type ?? 'createdInitialTranslationPayloadInfo',
+       $type = $type ?? 'resolvedProjectCacheTranslation',
        super._();
 
-  factory _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl.fromJson(
+  factory _$GenerateFlowResolvedProjectCacheTranslationImpl.fromJson(
     Map<String, dynamic> json,
-  ) => _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplFromJson(json);
+  ) => _$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(json);
 
   @override
   final String accountApiKey;
@@ -10044,21 +10015,21 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
   @override
   final ProjectCacheMap projectCacheMap;
   @override
-  final TranslationPayloadInfo translationPayloadInfo;
+  final TranslationPayloadInfo cacheMapTranslationPayloadInfo;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateFlowState.createdInitialTranslationPayloadInfo(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, translationPayloadInfo: $translationPayloadInfo)';
+    return 'GenerateFlowState.resolvedProjectCacheTranslation(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl &&
+            other is _$GenerateFlowResolvedProjectCacheTranslationImpl &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -10084,8 +10055,12 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
             ) &&
             (identical(other.projectCacheMap, projectCacheMap) ||
                 other.projectCacheMap == projectCacheMap) &&
-            (identical(other.translationPayloadInfo, translationPayloadInfo) ||
-                other.translationPayloadInfo == translationPayloadInfo));
+            (identical(
+                  other.cacheMapTranslationPayloadInfo,
+                  cacheMapTranslationPayloadInfo,
+                ) ||
+                other.cacheMapTranslationPayloadInfo ==
+                    cacheMapTranslationPayloadInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -10103,7 +10078,7 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
     downloadLink,
     const DeepCollectionEquality().hash(_referenceArbMap),
     projectCacheMap,
-    translationPayloadInfo,
+    cacheMapTranslationPayloadInfo,
   );
 
   /// Create a copy of GenerateFlowState
@@ -10111,12 +10086,12 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith<
-    _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
+  _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<
+    _$GenerateFlowResolvedProjectCacheTranslationImpl
   >
   get copyWith =>
-      __$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWithImpl<
-        _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
+      __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<
+        _$GenerateFlowResolvedProjectCacheTranslationImpl
       >(this, _$identity);
 
   @override
@@ -10256,9 +10231,9 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -10273,11 +10248,11 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return createdInitialTranslationPayloadInfo(
+    return resolvedProjectCacheTranslation(
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -10289,7 +10264,7 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       downloadLink,
       referenceArbMap,
       this.projectCacheMap,
-      translationPayloadInfo,
+      cacheMapTranslationPayloadInfo,
     );
   }
 
@@ -10430,9 +10405,9 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -10447,11 +10422,11 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return createdInitialTranslationPayloadInfo?.call(
+    return resolvedProjectCacheTranslation?.call(
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -10463,7 +10438,7 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       downloadLink,
       referenceArbMap,
       this.projectCacheMap,
-      translationPayloadInfo,
+      cacheMapTranslationPayloadInfo,
     );
   }
 
@@ -10604,9 +10579,9 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -10621,13 +10596,13 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
-    if (createdInitialTranslationPayloadInfo != null) {
-      return createdInitialTranslationPayloadInfo(
+    if (resolvedProjectCacheTranslation != null) {
+      return resolvedProjectCacheTranslation(
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -10639,7 +10614,7 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
         downloadLink,
         referenceArbMap,
         this.projectCacheMap,
-        translationPayloadInfo,
+        cacheMapTranslationPayloadInfo,
       );
     }
     return orElse();
@@ -10666,14 +10641,12 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return createdInitialTranslationPayloadInfo(this);
+    return resolvedProjectCacheTranslation(this);
   }
 
   @override
@@ -10692,12 +10665,12 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return createdInitialTranslationPayloadInfo?.call(this);
+    return resolvedProjectCacheTranslation?.call(this);
   }
 
   @override
@@ -10716,27 +10689,27 @@ class _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
-    if (createdInitialTranslationPayloadInfo != null) {
-      return createdInitialTranslationPayloadInfo(this);
+    if (resolvedProjectCacheTranslation != null) {
+      return resolvedProjectCacheTranslation(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplToJson(this);
+    return _$$GenerateFlowResolvedProjectCacheTranslationImplToJson(this);
   }
 }
 
-abstract class GenerateFlowCreatedInitialTranslationPayloadInfo
+abstract class GenerateFlowResolvedProjectCacheTranslation
     extends GenerateFlowState {
-  factory GenerateFlowCreatedInitialTranslationPayloadInfo({
+  factory GenerateFlowResolvedProjectCacheTranslation({
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -10750,13 +10723,13 @@ abstract class GenerateFlowCreatedInitialTranslationPayloadInfo
     required final String downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
-    required final TranslationPayloadInfo translationPayloadInfo,
-  }) = _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl;
-  GenerateFlowCreatedInitialTranslationPayloadInfo._() : super._();
+    required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+  }) = _$GenerateFlowResolvedProjectCacheTranslationImpl;
+  GenerateFlowResolvedProjectCacheTranslation._() : super._();
 
-  factory GenerateFlowCreatedInitialTranslationPayloadInfo.fromJson(
+  factory GenerateFlowResolvedProjectCacheTranslation.fromJson(
     Map<String, dynamic> json,
-  ) = _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl.fromJson;
+  ) = _$GenerateFlowResolvedProjectCacheTranslationImpl.fromJson;
 
   @override
   String get accountApiKey;
@@ -10774,25 +10747,25 @@ abstract class GenerateFlowCreatedInitialTranslationPayloadInfo
   String get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
-  TranslationPayloadInfo get translationPayloadInfo;
+  TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
 
   /// Create a copy of GenerateFlowState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplCopyWith<
-    _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
+  _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<
+    _$GenerateFlowResolvedProjectCacheTranslationImpl
   >
   get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith<$Res>
+abstract class _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<$Res>
     implements $GenerateFlowStateCopyWith<$Res> {
-  factory _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith(
-    _$GenerateFlowResolveProjectCacheTranslationImpl value,
-    $Res Function(_$GenerateFlowResolveProjectCacheTranslationImpl) then,
-  ) = __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>;
+  factory _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith(
+    _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl value,
+    $Res Function(_$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl) then,
+  ) = __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -10808,26 +10781,27 @@ abstract class _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith<$Res>
     String downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
-    TranslationPayloadInfo translationPayloadInfo,
+    TranslationPayloadInfo cacheMapTranslationPayloadInfo,
   });
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
   $GitVariablesCopyWith<$Res> get gitVariables;
-  $TranslationPayloadInfoCopyWith<$Res> get translationPayloadInfo;
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo;
 }
 
 /// @nodoc
-class __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>
+class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
     extends
         _$GenerateFlowStateCopyWithImpl<
           $Res,
-          _$GenerateFlowResolveProjectCacheTranslationImpl
+          _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
         >
-    implements _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith<$Res> {
-  __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl(
-    _$GenerateFlowResolveProjectCacheTranslationImpl _value,
-    $Res Function(_$GenerateFlowResolveProjectCacheTranslationImpl) _then,
+    implements
+        _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<$Res> {
+  __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl(
+    _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl _value,
+    $Res Function(_$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of GenerateFlowState
@@ -10846,10 +10820,10 @@ class __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>
     Object? downloadLink = null,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
-    Object? translationPayloadInfo = null,
+    Object? cacheMapTranslationPayloadInfo = null,
   }) {
     return _then(
-      _$GenerateFlowResolveProjectCacheTranslationImpl(
+      _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl(
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -10905,10 +10879,10 @@ class __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>
                 ? _value.projectCacheMap
                 : projectCacheMap // ignore: cast_nullable_to_non_nullable
                     as ProjectCacheMap,
-        translationPayloadInfo:
-            null == translationPayloadInfo
-                ? _value.translationPayloadInfo
-                : translationPayloadInfo // ignore: cast_nullable_to_non_nullable
+        cacheMapTranslationPayloadInfo:
+            null == cacheMapTranslationPayloadInfo
+                ? _value.cacheMapTranslationPayloadInfo
+                : cacheMapTranslationPayloadInfo // ignore: cast_nullable_to_non_nullable
                     as TranslationPayloadInfo,
       ),
     );
@@ -10948,11 +10922,11 @@ class __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $TranslationPayloadInfoCopyWith<$Res> get translationPayloadInfo {
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo {
     return $TranslationPayloadInfoCopyWith<$Res>(
-      _value.translationPayloadInfo,
+      _value.cacheMapTranslationPayloadInfo,
       (value) {
-        return _then(_value.copyWith(translationPayloadInfo: value));
+        return _then(_value.copyWith(cacheMapTranslationPayloadInfo: value));
       },
     );
   }
@@ -10960,9 +10934,9 @@ class __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GenerateFlowResolveProjectCacheTranslationImpl
-    extends GenerateFlowResolveProjectCacheTranslation {
-  _$GenerateFlowResolveProjectCacheTranslationImpl({
+class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
+    extends GenerateFlowEnsuredNoStaticErrorOnDartFiles {
+  _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl({
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -10975,16 +10949,16 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
     required this.downloadLink,
     required final Map<String, String> referenceArbMap,
     required this.projectCacheMap,
-    required this.translationPayloadInfo,
+    required this.cacheMapTranslationPayloadInfo,
     final String? $type,
   }) : _languages = languages,
        _referenceArbMap = referenceArbMap,
-       $type = $type ?? 'resolveProjectCacheTranslation',
+       $type = $type ?? 'ensuredTheresNoStaticErrorOnDartFiles',
        super._();
 
-  factory _$GenerateFlowResolveProjectCacheTranslationImpl.fromJson(
+  factory _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl.fromJson(
     Map<String, dynamic> json,
-  ) => _$$GenerateFlowResolveProjectCacheTranslationImplFromJson(json);
+  ) => _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(json);
 
   @override
   final String accountApiKey;
@@ -11023,21 +10997,21 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
   @override
   final ProjectCacheMap projectCacheMap;
   @override
-  final TranslationPayloadInfo translationPayloadInfo;
+  final TranslationPayloadInfo cacheMapTranslationPayloadInfo;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GenerateFlowState.resolveProjectCacheTranslation(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, translationPayloadInfo: $translationPayloadInfo)';
+    return 'GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GenerateFlowResolveProjectCacheTranslationImpl &&
+            other is _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -11063,8 +11037,12 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
             ) &&
             (identical(other.projectCacheMap, projectCacheMap) ||
                 other.projectCacheMap == projectCacheMap) &&
-            (identical(other.translationPayloadInfo, translationPayloadInfo) ||
-                other.translationPayloadInfo == translationPayloadInfo));
+            (identical(
+                  other.cacheMapTranslationPayloadInfo,
+                  cacheMapTranslationPayloadInfo,
+                ) ||
+                other.cacheMapTranslationPayloadInfo ==
+                    cacheMapTranslationPayloadInfo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -11082,7 +11060,7 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
     downloadLink,
     const DeepCollectionEquality().hash(_referenceArbMap),
     projectCacheMap,
-    translationPayloadInfo,
+    cacheMapTranslationPayloadInfo,
   );
 
   /// Create a copy of GenerateFlowState
@@ -11090,12 +11068,12 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith<
-    _$GenerateFlowResolveProjectCacheTranslationImpl
+  _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<
+    _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   >
   get copyWith =>
-      __$$GenerateFlowResolveProjectCacheTranslationImplCopyWithImpl<
-        _$GenerateFlowResolveProjectCacheTranslationImpl
+      __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<
+        _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       >(this, _$identity);
 
   @override
@@ -11235,9 +11213,9 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     required TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -11252,11 +11230,11 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return resolveProjectCacheTranslation(
+    return ensuredTheresNoStaticErrorOnDartFiles(
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -11268,7 +11246,7 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       downloadLink,
       referenceArbMap,
       this.projectCacheMap,
-      translationPayloadInfo,
+      cacheMapTranslationPayloadInfo,
     );
   }
 
@@ -11409,9 +11387,9 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult? Function(
       String accountApiKey,
       String directoryPath,
@@ -11426,11 +11404,11 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return resolveProjectCacheTranslation?.call(
+    return ensuredTheresNoStaticErrorOnDartFiles?.call(
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -11442,7 +11420,7 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       downloadLink,
       referenceArbMap,
       this.projectCacheMap,
-      translationPayloadInfo,
+      cacheMapTranslationPayloadInfo,
     );
   }
 
@@ -11583,9 +11561,9 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    createdInitialTranslationPayloadInfo,
+    resolvedProjectCacheTranslation,
     TResult Function(
       String accountApiKey,
       String directoryPath,
@@ -11600,13 +11578,13 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
       String downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
-      TranslationPayloadInfo translationPayloadInfo,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
-    resolveProjectCacheTranslation,
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
-    if (resolveProjectCacheTranslation != null) {
-      return resolveProjectCacheTranslation(
+    if (ensuredTheresNoStaticErrorOnDartFiles != null) {
+      return ensuredTheresNoStaticErrorOnDartFiles(
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -11618,7 +11596,7 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
         downloadLink,
         referenceArbMap,
         this.projectCacheMap,
-        translationPayloadInfo,
+        cacheMapTranslationPayloadInfo,
       );
     }
     return orElse();
@@ -11645,14 +11623,12 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
     downloadReferenceArb,
     required TResult Function(GenerateFlowProjectCacheMap value)
     projectCacheMap,
-    required TResult Function(
-      GenerateFlowCreatedInitialTranslationPayloadInfo value,
-    )
-    createdInitialTranslationPayloadInfo,
-    required TResult Function(GenerateFlowResolveProjectCacheTranslation value)
-    resolveProjectCacheTranslation,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return resolveProjectCacheTranslation(this);
+    return ensuredTheresNoStaticErrorOnDartFiles(this);
   }
 
   @override
@@ -11671,12 +11647,12 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
     TResult? Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult? Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult? Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
   }) {
-    return resolveProjectCacheTranslation?.call(this);
+    return ensuredTheresNoStaticErrorOnDartFiles?.call(this);
   }
 
   @override
@@ -11695,27 +11671,27 @@ class _$GenerateFlowResolveProjectCacheTranslationImpl
     TResult Function(GenerateFlowDownloadReferenceArb value)?
     downloadReferenceArb,
     TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
-    TResult Function(GenerateFlowCreatedInitialTranslationPayloadInfo value)?
-    createdInitialTranslationPayloadInfo,
-    TResult Function(GenerateFlowResolveProjectCacheTranslation value)?
-    resolveProjectCacheTranslation,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
     required TResult orElse(),
   }) {
-    if (resolveProjectCacheTranslation != null) {
-      return resolveProjectCacheTranslation(this);
+    if (ensuredTheresNoStaticErrorOnDartFiles != null) {
+      return ensuredTheresNoStaticErrorOnDartFiles(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GenerateFlowResolveProjectCacheTranslationImplToJson(this);
+    return _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplToJson(this);
   }
 }
 
-abstract class GenerateFlowResolveProjectCacheTranslation
+abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
     extends GenerateFlowState {
-  factory GenerateFlowResolveProjectCacheTranslation({
+  factory GenerateFlowEnsuredNoStaticErrorOnDartFiles({
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -11729,13 +11705,13 @@ abstract class GenerateFlowResolveProjectCacheTranslation
     required final String downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
-    required final TranslationPayloadInfo translationPayloadInfo,
-  }) = _$GenerateFlowResolveProjectCacheTranslationImpl;
-  GenerateFlowResolveProjectCacheTranslation._() : super._();
+    required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+  }) = _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl;
+  GenerateFlowEnsuredNoStaticErrorOnDartFiles._() : super._();
 
-  factory GenerateFlowResolveProjectCacheTranslation.fromJson(
+  factory GenerateFlowEnsuredNoStaticErrorOnDartFiles.fromJson(
     Map<String, dynamic> json,
-  ) = _$GenerateFlowResolveProjectCacheTranslationImpl.fromJson;
+  ) = _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl.fromJson;
 
   @override
   String get accountApiKey;
@@ -11753,14 +11729,14 @@ abstract class GenerateFlowResolveProjectCacheTranslation
   String get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
-  TranslationPayloadInfo get translationPayloadInfo;
+  TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
 
   /// Create a copy of GenerateFlowState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GenerateFlowResolveProjectCacheTranslationImplCopyWith<
-    _$GenerateFlowResolveProjectCacheTranslationImpl
+  _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<
+    _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   >
   get copyWith => throw _privateConstructorUsedError;
 }

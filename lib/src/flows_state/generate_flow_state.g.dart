@@ -378,10 +378,10 @@ Map<String, dynamic> _$$GenerateFlowProjectCacheMapImplToJson(
   'runtimeType': instance.$type,
 };
 
-_$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
-_$$GenerateFlowCreatedInitialTranslationPayloadInfoImplFromJson(
+_$GenerateFlowResolvedProjectCacheTranslationImpl
+_$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(
   Map<String, dynamic> json,
-) => _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl(
+) => _$GenerateFlowResolvedProjectCacheTranslationImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
@@ -406,15 +406,14 @@ _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplFromJson(
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
   ),
-  translationPayloadInfo: TranslationPayloadInfo.fromJson(
-    json['translationPayloadInfo'] as Map<String, dynamic>,
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
   ),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic>
-_$$GenerateFlowCreatedInitialTranslationPayloadInfoImplToJson(
-  _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl instance,
+Map<String, dynamic> _$$GenerateFlowResolvedProjectCacheTranslationImplToJson(
+  _$GenerateFlowResolvedProjectCacheTranslationImpl instance,
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
@@ -432,14 +431,14 @@ _$$GenerateFlowCreatedInitialTranslationPayloadInfoImplToJson(
   'downloadLink': instance.downloadLink,
   'referenceArbMap': instance.referenceArbMap,
   'projectCacheMap': instance.projectCacheMap,
-  'translationPayloadInfo': instance.translationPayloadInfo,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
   'runtimeType': instance.$type,
 };
 
-_$GenerateFlowResolveProjectCacheTranslationImpl
-_$$GenerateFlowResolveProjectCacheTranslationImplFromJson(
+_$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
+_$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(
   Map<String, dynamic> json,
-) => _$GenerateFlowResolveProjectCacheTranslationImpl(
+) => _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
@@ -464,14 +463,14 @@ _$$GenerateFlowResolveProjectCacheTranslationImplFromJson(
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
   ),
-  translationPayloadInfo: TranslationPayloadInfo.fromJson(
-    json['translationPayloadInfo'] as Map<String, dynamic>,
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
   ),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$$GenerateFlowResolveProjectCacheTranslationImplToJson(
-  _$GenerateFlowResolveProjectCacheTranslationImpl instance,
+Map<String, dynamic> _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplToJson(
+  _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl instance,
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
@@ -489,6 +488,6 @@ Map<String, dynamic> _$$GenerateFlowResolveProjectCacheTranslationImplToJson(
   'downloadLink': instance.downloadLink,
   'referenceArbMap': instance.referenceArbMap,
   'projectCacheMap': instance.projectCacheMap,
-  'translationPayloadInfo': instance.translationPayloadInfo,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
   'runtimeType': instance.$type,
 };

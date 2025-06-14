@@ -149,7 +149,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   }) = GenerateFlowProjectCacheMap;
 
   /// Step 12
-  factory GenerateFlowState.createdInitialTranslationPayloadInfo({
+  factory GenerateFlowState.resolvedProjectCacheTranslation({
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -163,11 +163,11 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required String downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
-    required TranslationPayloadInfo translationPayloadInfo,
-  }) = GenerateFlowCreatedInitialTranslationPayloadInfo;
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+  }) = GenerateFlowResolvedProjectCacheTranslation;
 
-  /// Step 13
-  factory GenerateFlowState.resolveProjectCacheTranslation({
+  /// Step 12
+  factory GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles({
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -181,8 +181,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required String downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
-    required TranslationPayloadInfo translationPayloadInfo,
-  }) = GenerateFlowResolveProjectCacheTranslation;
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+  }) = GenerateFlowEnsuredNoStaticErrorOnDartFiles;
 
   Directory get directory {
     return Directory(directoryPath);
