@@ -15,6 +15,23 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
+FilesVerification _$FilesVerificationFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'fromZero':
+      return _FilesVerificationFromZero.fromJson(json);
+    case 'fromLastCommit':
+      return _FilesVerificationFromLastCommit.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(
+        json,
+        'runtimeType',
+        'FilesVerification',
+        'Invalid union type "${json['runtimeType']}"!',
+      );
+  }
+}
+
 /// @nodoc
 mixin _$FilesVerification {
   @optionalTypeArgs
@@ -50,6 +67,9 @@ mixin _$FilesVerification {
     TResult Function(_FilesVerificationFromLastCommit value)? fromLastCommit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
+
+  /// Serializes this FilesVerification to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -97,9 +117,16 @@ class __$$FilesVerificationFromZeroImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
-  _$FilesVerificationFromZeroImpl();
+  _$FilesVerificationFromZeroImpl({final String? $type})
+    : $type = $type ?? 'fromZero';
+
+  factory _$FilesVerificationFromZeroImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FilesVerificationFromZeroImplFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -113,6 +140,7 @@ class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
             other is _$FilesVerificationFromZeroImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -178,10 +206,18 @@ class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FilesVerificationFromZeroImplToJson(this);
+  }
 }
 
 abstract class _FilesVerificationFromZero implements FilesVerification {
   factory _FilesVerificationFromZero() = _$FilesVerificationFromZeroImpl;
+
+  factory _FilesVerificationFromZero.fromJson(Map<String, dynamic> json) =
+      _$FilesVerificationFromZeroImpl.fromJson;
 }
 
 /// @nodoc
@@ -225,12 +261,18 @@ class __$$FilesVerificationFromLastCommitImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$FilesVerificationFromLastCommitImpl
     implements _FilesVerificationFromLastCommit {
   _$FilesVerificationFromLastCommitImpl({
     required final List<String> changedFilesPath,
-  }) : _changedFilesPath = changedFilesPath;
+    final String? $type,
+  }) : _changedFilesPath = changedFilesPath,
+       $type = $type ?? 'fromLastCommit';
+
+  factory _$FilesVerificationFromLastCommitImpl.fromJson(
+    Map<String, dynamic> json,
+  ) => _$$FilesVerificationFromLastCommitImplFromJson(json);
 
   final List<String> _changedFilesPath;
   @override
@@ -240,6 +282,9 @@ class _$FilesVerificationFromLastCommitImpl
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_changedFilesPath);
   }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -257,6 +302,7 @@ class _$FilesVerificationFromLastCommitImpl
             ));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
@@ -337,12 +383,20 @@ class _$FilesVerificationFromLastCommitImpl
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FilesVerificationFromLastCommitImplToJson(this);
+  }
 }
 
 abstract class _FilesVerificationFromLastCommit implements FilesVerification {
   factory _FilesVerificationFromLastCommit({
     required final List<String> changedFilesPath,
   }) = _$FilesVerificationFromLastCommitImpl;
+
+  factory _FilesVerificationFromLastCommit.fromJson(Map<String, dynamic> json) =
+      _$FilesVerificationFromLastCommitImpl.fromJson;
 
   List<String> get changedFilesPath;
 

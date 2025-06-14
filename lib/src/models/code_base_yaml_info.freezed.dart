@@ -15,12 +15,19 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
+CodeBaseYamlInfo _$CodeBaseYamlInfoFromJson(Map<String, dynamic> json) {
+  return _CodeBaseYamlInfo.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CodeBaseYamlInfo {
   String get projectName => throw _privateConstructorUsedError;
   String? get projectDescription => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
   ProjectType get type => throw _privateConstructorUsedError;
+
+  /// Serializes this CodeBaseYamlInfo to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of CodeBaseYamlInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -156,7 +163,7 @@ class __$$CodeBaseYamlInfoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
   _$CodeBaseYamlInfoImpl({
     required this.projectName,
@@ -164,6 +171,9 @@ class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
     required this.version,
     required this.type,
   });
+
+  factory _$CodeBaseYamlInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CodeBaseYamlInfoImplFromJson(json);
 
   @override
   final String projectName;
@@ -192,6 +202,7 @@ class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
             (identical(other.type, type) || other.type == type));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, projectName, projectDescription, version, type);
@@ -206,6 +217,11 @@ class _$CodeBaseYamlInfoImpl implements _CodeBaseYamlInfo {
         this,
         _$identity,
       );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CodeBaseYamlInfoImplToJson(this);
+  }
 }
 
 abstract class _CodeBaseYamlInfo implements CodeBaseYamlInfo {
@@ -215,6 +231,9 @@ abstract class _CodeBaseYamlInfo implements CodeBaseYamlInfo {
     required final String version,
     required final ProjectType type,
   }) = _$CodeBaseYamlInfoImpl;
+
+  factory _CodeBaseYamlInfo.fromJson(Map<String, dynamic> json) =
+      _$CodeBaseYamlInfoImpl.fromJson;
 
   @override
   String get projectName;
