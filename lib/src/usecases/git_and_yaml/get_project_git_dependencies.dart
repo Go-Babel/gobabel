@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -88,6 +89,32 @@ AsyncResult<SyncFlowGotGitVariables> sync_getProjectGitDependencies(
 
   return gitVariablesResult.flatMap((gitVariables) {
     return SyncFlowGotGitVariables(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      yamlInfo: payload.yamlInfo,
+      client: payload.client,
+      gitVariables: gitVariables,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<GenerateFlowGotGitVariables> generate_getProjectGitDependencies(
+  GenerateFlowGotProjectOriginUrl payload,
+) async {
+  final dirrPath = payload.directoryPath;
+  final previousCommit = payload.previousCommit;
+  final user = payload.gitUser;
+  final originUrl = payload.projectOriginUrl;
+
+  final gitVariablesResult = await getProjectGitDependencies(
+    dirrPath: dirrPath,
+    previousCommit: previousCommit,
+    user: user,
+    originUrl: originUrl,
+  );
+
+  return gitVariablesResult.flatMap((gitVariables) {
+    return GenerateFlowGotGitVariables(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

@@ -110,9 +110,7 @@ abstract class CreateFlowState with _$CreateFlowState {
       _$CreateFlowStateFromJson(json);
 }
 
-typedef CreateFlowStateResult = Result<CreateFlowState>;
-
-AsyncResult<CreateFlowInitial> createFlowState({
+AsyncResult<CreateFlowInitial> create_initFlowState({
   required String accountApiKey,
   required String directoryPath,
 }) async {

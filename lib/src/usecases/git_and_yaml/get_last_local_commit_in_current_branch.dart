@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
@@ -73,6 +74,26 @@ AsyncResult<SyncFlowGotLastLocalCommit> sync_getLastLocalCommitInCurrentBranch(
 
   return lastCommitResult.flatMap((lastCommit) {
     return SyncFlowGotLastLocalCommit(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      yamlInfo: payload.yamlInfo,
+      client: payload.client,
+      gitUser: payload.gitUser,
+      previousCommit: lastCommit,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<GenerateFlowGotLastLocalCommit>
+generate_getLastLocalCommitInCurrentBranch(
+  GenerateFlowGotGitUser payload,
+) async {
+  final lastCommitResult = await getLastLocalCommitInCurrentBranch(
+    dirrPath: payload.directoryPath,
+  );
+
+  return lastCommitResult.flatMap((lastCommit) {
+    return GenerateFlowGotLastLocalCommit(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

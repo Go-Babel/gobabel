@@ -56,3 +56,6 @@ AsyncResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
     ).toSuccess();
   });
 }
+
+// Note: GenerateFlowState does not have an equivalent for ExtractedProjectCodebase or CreatedProjectInGobabelServer
+// Therefore, these functions will not be created for the generate flow.

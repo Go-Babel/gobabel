@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -56,6 +57,27 @@ AsyncResult<SyncFlowGotProjectOriginUrl> sync_getProjectOriginUrl(
 
   return originUrlResult.flatMap((originUrl) {
     return SyncFlowGotProjectOriginUrl(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitUser: payload.gitUser,
+      previousCommit: payload.previousCommit,
+      projectOriginUrl: originUrl,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
+  GenerateFlowGotLastLocalCommit payload,
+) async {
+  final originUrlResult = await getProjectOriginUrl(
+    accountApiKey: payload.accountApiKey,
+    directoryPath: payload.directoryPath,
+  );
+
+  return originUrlResult.flatMap((originUrl) {
+    return GenerateFlowGotProjectOriginUrl(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

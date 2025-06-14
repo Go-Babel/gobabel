@@ -5,65 +5,64 @@ import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
-import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-part 'sync_flow_state.freezed.dart';
-part 'sync_flow_state.g.dart';
+part 'generate_flow_state.freezed.dart';
+part 'generate_flow_state.g.dart';
 
 @freezed
-abstract class SyncFlowState with _$SyncFlowState {
-  const SyncFlowState._();
+abstract class GenerateFlowState with _$GenerateFlowState {
+  const GenerateFlowState._();
 
   /// Step 1
-  factory SyncFlowState.initial({
+  factory GenerateFlowState.initial({
     required String accountApiKey,
     required String directoryPath,
-  }) = SyncFlowInitial;
+  }) = GenerateFlowInitial;
 
   /// Step 2
-  factory SyncFlowState.createdClient({
+  factory GenerateFlowState.createdClient({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
-  }) = SyncFlowCreatedClient;
+  }) = GenerateFlowCreatedClient;
 
   /// Step 3
-  factory SyncFlowState.ensuredGit({
+  factory GenerateFlowState.ensuredGit({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
-  }) = SyncFlowEnsureGit;
+  }) = GenerateFlowEnsureGit;
 
   /// Step 4
-  factory SyncFlowState.gotCodeBaseYaml({
+  factory GenerateFlowState.gotCodeBaseYaml({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
-  }) = SyncFlowGotCodeBaseYaml;
+  }) = GenerateFlowGotCodeBaseYaml;
 
   /// Step 5
-  factory SyncFlowState.gotGitUser({
+  factory GenerateFlowState.gotGitUser({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
-  }) = SyncFlowGotGitUser;
+  }) = GenerateFlowGotGitUser;
 
   /// Step 6
-  factory SyncFlowState.gotLastLocalCommit({
+  factory GenerateFlowState.gotLastLocalCommit({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
     required GitCommit previousCommit,
-  }) = SyncFlowGotLastLocalCommit;
+  }) = GenerateFlowGotLastLocalCommit;
 
   /// Step 7
-  factory SyncFlowState.gotProjectOriginUrl({
+  factory GenerateFlowState.gotProjectOriginUrl({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -71,63 +70,43 @@ abstract class SyncFlowState with _$SyncFlowState {
     required GitUser gitUser,
     required GitCommit previousCommit,
     required String projectOriginUrl,
-  }) = SyncFlowGotProjectOriginUrl;
+  }) = GenerateFlowGotProjectOriginUrl;
 
   /// Step 8
-  factory SyncFlowState.gotGitVariables({
+  factory GenerateFlowState.gotGitVariables({
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
-  }) = SyncFlowGotGitVariables;
-
-  /// Step 9
-  factory SyncFlowState.extractedProjectCodebase({
-    required String accountApiKey,
-    required String directoryPath,
-    required ApiClientEntity client,
-    required CodeBaseYamlInfo yamlInfo,
-    required GitVariables gitVariables,
-    required Set<ContextPath> contextPaths,
-  }) = SyncFlowExtractedProjectCodebase;
-
-  /// Step 10
-  factory SyncFlowState.createdProjectInGobabelServer({
-    required String accountApiKey,
-    required String directoryPath,
-    required ApiClientEntity client,
-    required CodeBaseYamlInfo yamlInfo,
-    required GitVariables gitVariables,
-    required Set<ContextPath> contextPaths,
-  }) = SyncFlowCreatedProjectInGobabelServer;
+  }) = GenerateFlowGotGitVariables;
 
   Directory get directory {
     return Directory(directoryPath);
   }
 
-  factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
-      _$SyncFlowStateFromJson(json);
+  factory GenerateFlowState.fromJson(Map<String, dynamic> json) =>
+      _$GenerateFlowStateFromJson(json);
 }
 
-AsyncResult<SyncFlowInitial> sync_initFlowState({
+AsyncResult<GenerateFlowInitial> generate_initFlowState({
   required String accountApiKey,
   required String directoryPath,
 }) async {
-  final syncFlowInitial = SyncFlowInitial(
+  final createFlowInitial = GenerateFlowInitial(
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
   );
-  final existsDirectory = await syncFlowInitial.directory.exists();
+  final existsDirectory = await createFlowInitial.directory.exists();
   if (!existsDirectory) {
     return Failure(
       BabelException(
         title: 'Directory does not exist',
         description:
-            'The directory at ${syncFlowInitial.directoryPath} does not exist.',
+            'The directory at ${createFlowInitial.directoryPath} does not exist.',
       ),
     );
   }
 
-  return syncFlowInitial.toSuccess();
+  return createFlowInitial.toSuccess();
 }

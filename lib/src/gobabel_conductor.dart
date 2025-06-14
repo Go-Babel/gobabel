@@ -1,4 +1,5 @@
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
@@ -17,7 +18,7 @@ class GobabelConductor {
     required String accountApiKey,
     required String directoryPath,
   }) async {
-    return createFlowState(
+    return create_initFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
         )
@@ -36,7 +37,7 @@ class GobabelConductor {
     required String accountApiKey,
     required String directoryPath,
   }) async {
-    return syncFlowState(
+    return sync_initFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
         )
@@ -49,5 +50,24 @@ class GobabelConductor {
         .flatMap(sync_getProjectGitDependencies)
         .flatMap(sync_extractProjectCodeBase)
         .flatMap(sync_createProject);
+  }
+
+  AsyncResult<void> generate({
+    required String accountApiKey,
+    required String directoryPath,
+  }) async {
+    return generate_initFlowState(
+          accountApiKey: accountApiKey,
+          directoryPath: directoryPath,
+        )
+        .flatMap(generate_createClientEntity)
+        .flatMap(generate_ensureGitDirectoryIsConfigured)
+        .flatMap(generate_getCodeBaseYamlInfo)
+        .flatMap(generate_getGitUser)
+        .flatMap(generate_getLastLocalCommitInCurrentBranch)
+        .flatMap(generate_getProjectOriginUrl)
+        .flatMap(generate_getProjectGitDependencies);
+    // .flatMap(generate_extractProjectCodeBase) // Not applicable for generate flow
+    // .flatMap(generate_createProject); // Not applicable for generate flow
   }
 }

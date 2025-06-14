@@ -1,5 +1,6 @@
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -29,6 +30,18 @@ AsyncResult<SyncFlowCreatedClient> sync_createClientEntity(
 ) {
   return createClientEntity().flatMap((client) {
     return SyncFlowCreatedClient(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: client,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<GenerateFlowCreatedClient> generate_createClientEntity(
+  GenerateFlowInitial payload,
+) {
+  return createClientEntity().flatMap((client) {
+    return GenerateFlowCreatedClient(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: client,
