@@ -69,6 +69,7 @@ AsyncResult<GenerateFlowGotGitUser> generate_getGitUser(
 
   return gitUserResult.flatMap((gitUser) {
     return GenerateFlowGotGitUser(
+      inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

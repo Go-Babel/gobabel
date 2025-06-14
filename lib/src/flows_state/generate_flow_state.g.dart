@@ -11,6 +11,9 @@ _$GenerateFlowInitialImpl _$$GenerateFlowInitialImplFromJson(
 ) => _$GenerateFlowInitialImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   $type: json['runtimeType'] as String?,
 );
 
@@ -19,6 +22,9 @@ Map<String, dynamic> _$$GenerateFlowInitialImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'runtimeType': instance.$type,
 };
 
@@ -27,6 +33,9 @@ _$GenerateFlowCreatedClientImpl _$$GenerateFlowCreatedClientImplFromJson(
 ) => _$GenerateFlowCreatedClientImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
@@ -36,6 +45,9 @@ Map<String, dynamic> _$$GenerateFlowCreatedClientImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'runtimeType': instance.$type,
 };
@@ -45,6 +57,9 @@ _$GenerateFlowEnsureGitImpl _$$GenerateFlowEnsureGitImplFromJson(
 ) => _$GenerateFlowEnsureGitImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
@@ -54,6 +69,9 @@ Map<String, dynamic> _$$GenerateFlowEnsureGitImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'runtimeType': instance.$type,
 };
@@ -63,6 +81,9 @@ _$GenerateFlowGotCodeBaseYamlImpl _$$GenerateFlowGotCodeBaseYamlImplFromJson(
 ) => _$GenerateFlowGotCodeBaseYamlImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
@@ -73,6 +94,9 @@ Map<String, dynamic> _$$GenerateFlowGotCodeBaseYamlImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'runtimeType': instance.$type,
@@ -83,6 +107,9 @@ _$GenerateFlowGotGitUserImpl _$$GenerateFlowGotGitUserImplFromJson(
 ) => _$GenerateFlowGotGitUserImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitUser: GitUser.fromJson(json['gitUser'] as Map<String, dynamic>),
@@ -94,6 +121,9 @@ Map<String, dynamic> _$$GenerateFlowGotGitUserImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -105,6 +135,9 @@ _$$GenerateFlowGotLastLocalCommitImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowGotLastLocalCommitImpl(
       accountApiKey: json['accountApiKey'] as String,
       directoryPath: json['directoryPath'] as String,
+      inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+        json['inputedByUserLocale'] as Map<String, dynamic>,
+      ),
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -121,6 +154,9 @@ Map<String, dynamic> _$$GenerateFlowGotLastLocalCommitImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -133,6 +169,9 @@ _$$GenerateFlowGotProjectOriginUrlImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowGotProjectOriginUrlImpl(
       accountApiKey: json['accountApiKey'] as String,
       directoryPath: json['directoryPath'] as String,
+      inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+        json['inputedByUserLocale'] as Map<String, dynamic>,
+      ),
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -150,6 +189,9 @@ Map<String, dynamic> _$$GenerateFlowGotProjectOriginUrlImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -163,6 +205,9 @@ _$GenerateFlowGotGitVariablesImpl _$$GenerateFlowGotGitVariablesImplFromJson(
 ) => _$GenerateFlowGotGitVariablesImpl(
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -176,8 +221,274 @@ Map<String, dynamic> _$$GenerateFlowGotGitVariablesImplToJson(
 ) => <String, dynamic>{
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowGotAppLanguagesImpl _$$GenerateFlowGotAppLanguagesImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowGotAppLanguagesImpl(
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  downloadLink: json['downloadLink'] as String,
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$GenerateFlowGotAppLanguagesImplToJson(
+  _$GenerateFlowGotAppLanguagesImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowDownloadReferenceArbImpl
+_$$GenerateFlowDownloadReferenceArbImplFromJson(Map<String, dynamic> json) =>
+    _$GenerateFlowDownloadReferenceArbImpl(
+      accountApiKey: json['accountApiKey'] as String,
+      directoryPath: json['directoryPath'] as String,
+      inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+        json['inputedByUserLocale'] as Map<String, dynamic>,
+      ),
+      client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+      yamlInfo: CodeBaseYamlInfo.fromJson(
+        json['yamlInfo'] as Map<String, dynamic>,
+      ),
+      gitVariables: GitVariables.fromJson(
+        json['gitVariables'] as Map<String, dynamic>,
+      ),
+      maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+      languages:
+          (json['languages'] as List<dynamic>)
+              .map(
+                (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toSet(),
+      downloadLink: json['downloadLink'] as String,
+      referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$GenerateFlowDownloadReferenceArbImplToJson(
+  _$GenerateFlowDownloadReferenceArbImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'referenceArbMap': instance.referenceArbMap,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowProjectCacheMapImpl _$$GenerateFlowProjectCacheMapImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowProjectCacheMapImpl(
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  downloadLink: json['downloadLink'] as String,
+  referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$GenerateFlowProjectCacheMapImplToJson(
+  _$GenerateFlowProjectCacheMapImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'referenceArbMap': instance.referenceArbMap,
+  'projectCacheMap': instance.projectCacheMap,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowCreatedInitialTranslationPayloadInfoImpl
+_$$GenerateFlowCreatedInitialTranslationPayloadInfoImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl(
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  downloadLink: json['downloadLink'] as String,
+  referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  translationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['translationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowCreatedInitialTranslationPayloadInfoImplToJson(
+  _$GenerateFlowCreatedInitialTranslationPayloadInfoImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'referenceArbMap': instance.referenceArbMap,
+  'projectCacheMap': instance.projectCacheMap,
+  'translationPayloadInfo': instance.translationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowResolveProjectCacheTranslationImpl
+_$$GenerateFlowResolveProjectCacheTranslationImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowResolveProjectCacheTranslationImpl(
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  downloadLink: json['downloadLink'] as String,
+  referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  translationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['translationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$GenerateFlowResolveProjectCacheTranslationImplToJson(
+  _$GenerateFlowResolveProjectCacheTranslationImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'referenceArbMap': instance.referenceArbMap,
+  'projectCacheMap': instance.projectCacheMap,
+  'translationPayloadInfo': instance.translationPayloadInfo,
   'runtimeType': instance.$type,
 };

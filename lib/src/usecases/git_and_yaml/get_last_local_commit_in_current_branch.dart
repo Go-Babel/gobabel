@@ -94,6 +94,7 @@ generate_getLastLocalCommitInCurrentBranch(
 
   return lastCommitResult.flatMap((lastCommit) {
     return GenerateFlowGotLastLocalCommit(
+      inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

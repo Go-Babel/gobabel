@@ -92,6 +92,7 @@ AsyncResult<GenerateFlowEnsureGit> generate_ensureGitDirectoryIsConfigured(
 
   return ensureGitResult.flatMap((_) {
     return GenerateFlowEnsureGit(
+      inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

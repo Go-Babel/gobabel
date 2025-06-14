@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
+import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 part 'generate_flow_state.freezed.dart';
@@ -18,12 +21,16 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.initial({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
   }) = GenerateFlowInitial;
 
   /// Step 2
   factory GenerateFlowState.createdClient({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
   }) = GenerateFlowCreatedClient;
 
@@ -31,6 +38,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.ensuredGit({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
   }) = GenerateFlowEnsureGit;
 
@@ -38,6 +47,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.gotCodeBaseYaml({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
   }) = GenerateFlowGotCodeBaseYaml;
@@ -46,6 +57,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.gotGitUser({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -55,6 +68,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.gotLastLocalCommit({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -65,6 +80,8 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.gotProjectOriginUrl({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -76,10 +93,96 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   factory GenerateFlowState.gotGitVariables({
     required String accountApiKey,
     required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
   }) = GenerateFlowGotGitVariables;
+
+  /// Step 9
+  factory GenerateFlowState.gotAppLanguages({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+  }) = GenerateFlowGotAppLanguages;
+
+  /// Step 10
+  factory GenerateFlowState.downloadReferenceArb({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+  }) = GenerateFlowDownloadReferenceArb;
+
+  /// Step 11
+  factory GenerateFlowState.projectCacheMap({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+  }) = GenerateFlowProjectCacheMap;
+
+  /// Step 12
+  factory GenerateFlowState.createdInitialTranslationPayloadInfo({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo translationPayloadInfo,
+  }) = GenerateFlowCreatedInitialTranslationPayloadInfo;
+
+  /// Step 13
+  factory GenerateFlowState.resolveProjectCacheTranslation({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo translationPayloadInfo,
+  }) = GenerateFlowResolveProjectCacheTranslation;
 
   Directory get directory {
     return Directory(directoryPath);
@@ -92,10 +195,12 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 AsyncResult<GenerateFlowInitial> generate_initFlowState({
   required String accountApiKey,
   required String directoryPath,
+  required BabelSupportedLocales inputedByUserLocale,
 }) async {
   final createFlowInitial = GenerateFlowInitial(
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
+    inputedByUserLocale: inputedByUserLocale,
   );
   final existsDirectory = await createFlowInitial.directory.exists();
   if (!existsDirectory) {

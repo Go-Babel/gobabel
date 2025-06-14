@@ -11,6 +11,11 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_git_user.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_git_dependencies.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
+import 'package:gobabel/src/usecases/remote_project_related/download_reference_arb.dart';
+import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
+import 'package:gobabel/src/usecases/remote_project_related/get_project_cache_map.dart';
+import 'package:gobabel/src/usecases/translation_data_payload_info/create_translation_payload.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 class GobabelConductor {
@@ -55,10 +60,12 @@ class GobabelConductor {
   AsyncResult<void> generate({
     required String accountApiKey,
     required String directoryPath,
+    required BabelSupportedLocales inputedByUserLocale,
   }) async {
     return generate_initFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
+          inputedByUserLocale: inputedByUserLocale,
         )
         .flatMap(generate_createClientEntity)
         .flatMap(generate_ensureGitDirectoryIsConfigured)
@@ -66,8 +73,10 @@ class GobabelConductor {
         .flatMap(generate_getGitUser)
         .flatMap(generate_getLastLocalCommitInCurrentBranch)
         .flatMap(generate_getProjectOriginUrl)
-        .flatMap(generate_getProjectGitDependencies);
-    // .flatMap(generate_extractProjectCodeBase) // Not applicable for generate flow
-    // .flatMap(generate_createProject); // Not applicable for generate flow
+        .flatMap(generate_getProjectGitDependencies)
+        .flatMap(generate_getAppLanguages)
+        .flatMap(generate_downloadReferenceArb)
+        .flatMap(generate_getProjectCacheMap)
+        .flatMap(generate_createTranslationPayload);
   }
 }
