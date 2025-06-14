@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -100,6 +101,23 @@ AsyncResult<CreateFlowGotCodeBaseYaml> create_getCodeBaseYamlInfo(
 
   return ensureGitResult.flatMap((yamlInfo) {
     return CreateFlowGotCodeBaseYaml(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: payload.client,
+      yamlInfo: yamlInfo,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<SyncFlowGotCodeBaseYaml> sync_getCodeBaseYamlInfo(
+  SyncFlowEnsureGit payload,
+) async {
+  final ensureGitResult = await getCodeBaseYamlInfoUsecase(
+    currentDirectory: payload.directory,
+  );
+
+  return ensureGitResult.flatMap((yamlInfo) {
+    return SyncFlowGotCodeBaseYaml(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

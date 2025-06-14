@@ -6,6 +6,7 @@ import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
 part 'sync_flow_state.freezed.dart';
 part 'sync_flow_state.g.dart';
@@ -107,4 +108,26 @@ abstract class SyncFlowState with _$SyncFlowState {
 
   factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
       _$SyncFlowStateFromJson(json);
+}
+
+AsyncResult<SyncFlowInitial> syncFlowState({
+  required String accountApiKey,
+  required String directoryPath,
+}) async {
+  final syncFlowInitial = SyncFlowInitial(
+    accountApiKey: accountApiKey,
+    directoryPath: directoryPath,
+  );
+  final existsDirectory = await syncFlowInitial.directory.exists();
+  if (!existsDirectory) {
+    return Failure(
+      BabelException(
+        title: 'Directory does not exist',
+        description:
+            'The directory at ${syncFlowInitial.directoryPath} does not exist.',
+      ),
+    );
+  }
+
+  return syncFlowInitial.toSuccess();
 }

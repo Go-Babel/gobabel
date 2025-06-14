@@ -2,6 +2,7 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:git/git.dart';
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Unit> ensureGitDirectoryIsConfigured({
@@ -56,6 +57,23 @@ AsyncResult<CreateFlowEnsureGit> create_ensureGitDirectoryIsConfigured(
 
   return ensureGitResult.flatMap((_) {
     return CreateFlowEnsureGit(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: payload.client,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<SyncFlowEnsureGit> sync_ensureGitDirectoryIsConfigured(
+  SyncFlowCreatedClient payload,
+) async {
+  final dirrPath = payload.directoryPath;
+  final ensureGitResult = await ensureGitDirectoryIsConfigured(
+    dirrPath: dirrPath,
+  );
+
+  return ensureGitResult.flatMap((_) {
+    return SyncFlowEnsureGit(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

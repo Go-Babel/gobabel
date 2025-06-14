@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -28,6 +29,24 @@ AsyncResult<CreateFlowExtractedProjectCodebase> create_extractProjectCodeBase(
 
   return codeBaseResult.flatMap((codeBase) {
     return CreateFlowExtractedProjectCodebase(
+      yamlInfo: payload.yamlInfo,
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: payload.client,
+      gitVariables: payload.gitVariables,
+      contextPaths: codeBase,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
+  SyncFlowGotGitVariables payload,
+) async {
+  final dirrPath = payload.directoryPath;
+  final codeBaseResult = await extractProjectCodeBase(dirrPath: dirrPath);
+
+  return codeBaseResult.flatMap((codeBase) {
+    return SyncFlowExtractedProjectCodebase(
       yamlInfo: payload.yamlInfo,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

@@ -1,5 +1,6 @@
 import 'package:gobabel/src/core/utils/git_process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -33,6 +34,23 @@ AsyncResult<CreateFlowGotGitUser> create_getGitUser(
 
   return gitUserResult.flatMap((gitUser) {
     return CreateFlowGotGitUser(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      yamlInfo: payload.yamlInfo,
+      client: payload.client,
+      gitUser: gitUser,
+    ).toSuccess();
+  });
+}
+
+AsyncResult<SyncFlowGotGitUser> sync_getGitUser(
+  SyncFlowGotCodeBaseYaml payload,
+) async {
+  final dirrPath = payload.directoryPath;
+  final gitUserResult = await getGitUser(dirrPath: dirrPath);
+
+  return gitUserResult.flatMap((gitUser) {
+    return SyncFlowGotGitUser(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

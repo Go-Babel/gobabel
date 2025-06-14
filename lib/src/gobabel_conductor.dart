@@ -1,4 +1,5 @@
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/create_project.dart';
@@ -34,7 +35,7 @@ class GobabelConductor {
     required String accountApiKey,
     required String directoryPath,
   }) async {
-    return createFlowState(
+    return syncFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
         )
