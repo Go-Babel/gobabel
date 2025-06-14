@@ -43,6 +43,8 @@ GenerateFlowState _$GenerateFlowStateFromJson(Map<String, dynamic> json) {
       return GenerateFlowResolvedProjectCacheTranslation.fromJson(json);
     case 'ensuredTheresNoStaticErrorOnDartFiles':
       return GenerateFlowEnsuredNoStaticErrorOnDartFiles.fromJson(json);
+    case 'gotTargetFiles':
+      return GenerateFlowGotTargetFiles.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -217,6 +219,24 @@ mixin _$GenerateFlowState {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -374,6 +394,24 @@ mixin _$GenerateFlowState {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -531,6 +569,24 @@ mixin _$GenerateFlowState {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -557,6 +613,7 @@ mixin _$GenerateFlowState {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -577,6 +634,7 @@ mixin _$GenerateFlowState {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -597,6 +655,7 @@ mixin _$GenerateFlowState {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 
@@ -944,6 +1003,24 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return initial(accountApiKey, directoryPath, inputedByUserLocale);
   }
@@ -1105,6 +1182,24 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return initial?.call(accountApiKey, directoryPath, inputedByUserLocale);
   }
@@ -1266,6 +1361,24 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1299,6 +1412,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return initial(this);
   }
@@ -1323,6 +1437,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return initial?.call(this);
   }
@@ -1347,6 +1462,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1690,6 +1806,24 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return createdClient(
       accountApiKey,
@@ -1856,6 +1990,24 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return createdClient?.call(
       accountApiKey,
@@ -2022,6 +2174,24 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -2060,6 +2230,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return createdClient(this);
   }
@@ -2084,6 +2255,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return createdClient?.call(this);
   }
@@ -2108,6 +2280,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -2454,6 +2627,24 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return ensuredGit(
       accountApiKey,
@@ -2620,6 +2811,24 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return ensuredGit?.call(
       accountApiKey,
@@ -2786,6 +2995,24 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -2824,6 +3051,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return ensuredGit(this);
   }
@@ -2848,6 +3076,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return ensuredGit?.call(this);
   }
@@ -2872,6 +3101,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -3242,6 +3472,24 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotCodeBaseYaml(
       accountApiKey,
@@ -3409,6 +3657,24 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotCodeBaseYaml?.call(
       accountApiKey,
@@ -3576,6 +3842,24 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
@@ -3615,6 +3899,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotCodeBaseYaml(this);
   }
@@ -3639,6 +3924,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotCodeBaseYaml?.call(this);
   }
@@ -3663,6 +3949,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
@@ -4047,6 +4334,24 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotGitUser(
       accountApiKey,
@@ -4215,6 +4520,24 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotGitUser?.call(
       accountApiKey,
@@ -4383,6 +4706,24 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
@@ -4423,6 +4764,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotGitUser(this);
   }
@@ -4447,6 +4789,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotGitUser?.call(this);
   }
@@ -4471,6 +4814,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
@@ -4876,6 +5220,24 @@ class _$GenerateFlowGotLastLocalCommitImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotLastLocalCommit(
       accountApiKey,
@@ -5045,6 +5407,24 @@ class _$GenerateFlowGotLastLocalCommitImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotLastLocalCommit?.call(
       accountApiKey,
@@ -5214,6 +5594,24 @@ class _$GenerateFlowGotLastLocalCommitImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
@@ -5255,6 +5653,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotLastLocalCommit(this);
   }
@@ -5279,6 +5678,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotLastLocalCommit?.call(this);
   }
@@ -5303,6 +5703,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
@@ -5725,6 +6126,24 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotProjectOriginUrl(
       accountApiKey,
@@ -5895,6 +6314,24 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotProjectOriginUrl?.call(
       accountApiKey,
@@ -6065,6 +6502,24 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
@@ -6107,6 +6562,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotProjectOriginUrl(this);
   }
@@ -6131,6 +6587,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotProjectOriginUrl?.call(this);
   }
@@ -6155,6 +6612,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
@@ -6559,6 +7017,24 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotGitVariables(
       accountApiKey,
@@ -6727,6 +7203,24 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotGitVariables?.call(
       accountApiKey,
@@ -6895,6 +7389,24 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
@@ -6935,6 +7447,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotGitVariables(this);
   }
@@ -6959,6 +7472,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotGitVariables?.call(this);
   }
@@ -6983,6 +7497,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
@@ -7431,6 +7946,24 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return gotAppLanguages(
       accountApiKey,
@@ -7602,6 +8135,24 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return gotAppLanguages?.call(
       accountApiKey,
@@ -7773,6 +8324,24 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotAppLanguages != null) {
@@ -7816,6 +8385,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return gotAppLanguages(this);
   }
@@ -7840,6 +8410,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return gotAppLanguages?.call(this);
   }
@@ -7864,6 +8435,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (gotAppLanguages != null) {
@@ -8347,6 +8919,24 @@ class _$GenerateFlowDownloadReferenceArbImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return downloadReferenceArb(
       accountApiKey,
@@ -8519,6 +9109,24 @@ class _$GenerateFlowDownloadReferenceArbImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return downloadReferenceArb?.call(
       accountApiKey,
@@ -8691,6 +9299,24 @@ class _$GenerateFlowDownloadReferenceArbImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (downloadReferenceArb != null) {
@@ -8735,6 +9361,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return downloadReferenceArb(this);
   }
@@ -8759,6 +9386,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return downloadReferenceArb?.call(this);
   }
@@ -8783,6 +9411,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (downloadReferenceArb != null) {
@@ -9278,6 +9907,24 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return projectCacheMap(
       accountApiKey,
@@ -9451,6 +10098,24 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return projectCacheMap?.call(
       accountApiKey,
@@ -9624,6 +10289,24 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (projectCacheMap != null) {
@@ -9669,6 +10352,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return projectCacheMap(this);
   }
@@ -9693,6 +10377,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return projectCacheMap?.call(this);
   }
@@ -9717,6 +10402,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (projectCacheMap != null) {
@@ -10251,6 +10937,24 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return resolvedProjectCacheTranslation(
       accountApiKey,
@@ -10425,6 +11129,24 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return resolvedProjectCacheTranslation?.call(
       accountApiKey,
@@ -10599,6 +11321,24 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (resolvedProjectCacheTranslation != null) {
@@ -10645,6 +11385,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return resolvedProjectCacheTranslation(this);
   }
@@ -10669,6 +11410,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return resolvedProjectCacheTranslation?.call(this);
   }
@@ -10693,6 +11435,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (resolvedProjectCacheTranslation != null) {
@@ -11233,6 +11976,24 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles(
       accountApiKey,
@@ -11407,6 +12168,24 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles?.call(
       accountApiKey,
@@ -11581,6 +12360,24 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
     required TResult orElse(),
   }) {
     if (ensuredTheresNoStaticErrorOnDartFiles != null) {
@@ -11627,6 +12424,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     resolvedProjectCacheTranslation,
     required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
     ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles(this);
   }
@@ -11651,6 +12449,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     resolvedProjectCacheTranslation,
     TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles?.call(this);
   }
@@ -11675,6 +12474,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     resolvedProjectCacheTranslation,
     TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
     ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
     required TResult orElse(),
   }) {
     if (ensuredTheresNoStaticErrorOnDartFiles != null) {
@@ -11738,5 +12538,1063 @@ abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
   _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<
     _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   >
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GenerateFlowGotTargetFilesImplCopyWith<$Res>
+    implements $GenerateFlowStateCopyWith<$Res> {
+  factory _$$GenerateFlowGotTargetFilesImplCopyWith(
+    _$GenerateFlowGotTargetFilesImpl value,
+    $Res Function(_$GenerateFlowGotTargetFilesImpl) then,
+  ) = __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    String accountApiKey,
+    String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    BabelSupportedLocales inputedByUserLocale,
+    ApiClientEntity client,
+    CodeBaseYamlInfo yamlInfo,
+    GitVariables gitVariables,
+    int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
+    String downloadLink,
+    Map<String, String> referenceArbMap,
+    ProjectCacheMap projectCacheMap,
+    TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    FilesVerification filesVerificationState,
+  });
+
+  $ApiClientEntityCopyWith<$Res> get client;
+  $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
+  $GitVariablesCopyWith<$Res> get gitVariables;
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo;
+  $FilesVerificationCopyWith<$Res> get filesVerificationState;
+}
+
+/// @nodoc
+class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
+    extends
+        _$GenerateFlowStateCopyWithImpl<$Res, _$GenerateFlowGotTargetFilesImpl>
+    implements _$$GenerateFlowGotTargetFilesImplCopyWith<$Res> {
+  __$$GenerateFlowGotTargetFilesImplCopyWithImpl(
+    _$GenerateFlowGotTargetFilesImpl _value,
+    $Res Function(_$GenerateFlowGotTargetFilesImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? accountApiKey = null,
+    Object? directoryPath = null,
+    Object? inputedByUserLocale = null,
+    Object? client = null,
+    Object? yamlInfo = null,
+    Object? gitVariables = null,
+    Object? maxLanguageCount = null,
+    Object? languages = null,
+    Object? downloadLink = null,
+    Object? referenceArbMap = null,
+    Object? projectCacheMap = null,
+    Object? cacheMapTranslationPayloadInfo = null,
+    Object? filesVerificationState = null,
+  }) {
+    return _then(
+      _$GenerateFlowGotTargetFilesImpl(
+        accountApiKey:
+            null == accountApiKey
+                ? _value.accountApiKey
+                : accountApiKey // ignore: cast_nullable_to_non_nullable
+                    as String,
+        directoryPath:
+            null == directoryPath
+                ? _value.directoryPath
+                : directoryPath // ignore: cast_nullable_to_non_nullable
+                    as String,
+        inputedByUserLocale:
+            null == inputedByUserLocale
+                ? _value.inputedByUserLocale
+                : inputedByUserLocale // ignore: cast_nullable_to_non_nullable
+                    as BabelSupportedLocales,
+        client:
+            null == client
+                ? _value.client
+                : client // ignore: cast_nullable_to_non_nullable
+                    as ApiClientEntity,
+        yamlInfo:
+            null == yamlInfo
+                ? _value.yamlInfo
+                : yamlInfo // ignore: cast_nullable_to_non_nullable
+                    as CodeBaseYamlInfo,
+        gitVariables:
+            null == gitVariables
+                ? _value.gitVariables
+                : gitVariables // ignore: cast_nullable_to_non_nullable
+                    as GitVariables,
+        maxLanguageCount:
+            null == maxLanguageCount
+                ? _value.maxLanguageCount
+                : maxLanguageCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        languages:
+            null == languages
+                ? _value._languages
+                : languages // ignore: cast_nullable_to_non_nullable
+                    as Set<BabelSupportedLocales>,
+        downloadLink:
+            null == downloadLink
+                ? _value.downloadLink
+                : downloadLink // ignore: cast_nullable_to_non_nullable
+                    as String,
+        referenceArbMap:
+            null == referenceArbMap
+                ? _value._referenceArbMap
+                : referenceArbMap // ignore: cast_nullable_to_non_nullable
+                    as Map<String, String>,
+        projectCacheMap:
+            null == projectCacheMap
+                ? _value.projectCacheMap
+                : projectCacheMap // ignore: cast_nullable_to_non_nullable
+                    as ProjectCacheMap,
+        cacheMapTranslationPayloadInfo:
+            null == cacheMapTranslationPayloadInfo
+                ? _value.cacheMapTranslationPayloadInfo
+                : cacheMapTranslationPayloadInfo // ignore: cast_nullable_to_non_nullable
+                    as TranslationPayloadInfo,
+        filesVerificationState:
+            null == filesVerificationState
+                ? _value.filesVerificationState
+                : filesVerificationState // ignore: cast_nullable_to_non_nullable
+                    as FilesVerification,
+      ),
+    );
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ApiClientEntityCopyWith<$Res> get client {
+    return $ApiClientEntityCopyWith<$Res>(_value.client, (value) {
+      return _then(_value.copyWith(client: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo {
+    return $CodeBaseYamlInfoCopyWith<$Res>(_value.yamlInfo, (value) {
+      return _then(_value.copyWith(yamlInfo: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GitVariablesCopyWith<$Res> get gitVariables {
+    return $GitVariablesCopyWith<$Res>(_value.gitVariables, (value) {
+      return _then(_value.copyWith(gitVariables: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo {
+    return $TranslationPayloadInfoCopyWith<$Res>(
+      _value.cacheMapTranslationPayloadInfo,
+      (value) {
+        return _then(_value.copyWith(cacheMapTranslationPayloadInfo: value));
+      },
+    );
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FilesVerificationCopyWith<$Res> get filesVerificationState {
+    return $FilesVerificationCopyWith<$Res>(_value.filesVerificationState, (
+      value,
+    ) {
+      return _then(_value.copyWith(filesVerificationState: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
+  _$GenerateFlowGotTargetFilesImpl({
+    required this.accountApiKey,
+    required this.directoryPath,
+    @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
+    required this.client,
+    required this.yamlInfo,
+    required this.gitVariables,
+    required this.maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required final Set<BabelSupportedLocales> languages,
+    required this.downloadLink,
+    required final Map<String, String> referenceArbMap,
+    required this.projectCacheMap,
+    required this.cacheMapTranslationPayloadInfo,
+    required this.filesVerificationState,
+    final String? $type,
+  }) : _languages = languages,
+       _referenceArbMap = referenceArbMap,
+       $type = $type ?? 'gotTargetFiles',
+       super._();
+
+  factory _$GenerateFlowGotTargetFilesImpl.fromJson(
+    Map<String, dynamic> json,
+  ) => _$$GenerateFlowGotTargetFilesImplFromJson(json);
+
+  @override
+  final String accountApiKey;
+  @override
+  final String directoryPath;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  final BabelSupportedLocales inputedByUserLocale;
+  @override
+  final ApiClientEntity client;
+  @override
+  final CodeBaseYamlInfo yamlInfo;
+  @override
+  final GitVariables gitVariables;
+  @override
+  final int maxLanguageCount;
+  final Set<BabelSupportedLocales> _languages;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  Set<BabelSupportedLocales> get languages {
+    if (_languages is EqualUnmodifiableSetView) return _languages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_languages);
+  }
+
+  @override
+  final String downloadLink;
+  final Map<String, String> _referenceArbMap;
+  @override
+  Map<String, String> get referenceArbMap {
+    if (_referenceArbMap is EqualUnmodifiableMapView) return _referenceArbMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_referenceArbMap);
+  }
+
+  @override
+  final ProjectCacheMap projectCacheMap;
+  @override
+  final TranslationPayloadInfo cacheMapTranslationPayloadInfo;
+  @override
+  final FilesVerification filesVerificationState;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'GenerateFlowState.gotTargetFiles(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GenerateFlowGotTargetFilesImpl &&
+            (identical(other.accountApiKey, accountApiKey) ||
+                other.accountApiKey == accountApiKey) &&
+            (identical(other.directoryPath, directoryPath) ||
+                other.directoryPath == directoryPath) &&
+            (identical(other.inputedByUserLocale, inputedByUserLocale) ||
+                other.inputedByUserLocale == inputedByUserLocale) &&
+            (identical(other.client, client) || other.client == client) &&
+            (identical(other.yamlInfo, yamlInfo) ||
+                other.yamlInfo == yamlInfo) &&
+            (identical(other.gitVariables, gitVariables) ||
+                other.gitVariables == gitVariables) &&
+            (identical(other.maxLanguageCount, maxLanguageCount) ||
+                other.maxLanguageCount == maxLanguageCount) &&
+            const DeepCollectionEquality().equals(
+              other._languages,
+              _languages,
+            ) &&
+            (identical(other.downloadLink, downloadLink) ||
+                other.downloadLink == downloadLink) &&
+            const DeepCollectionEquality().equals(
+              other._referenceArbMap,
+              _referenceArbMap,
+            ) &&
+            (identical(other.projectCacheMap, projectCacheMap) ||
+                other.projectCacheMap == projectCacheMap) &&
+            (identical(
+                  other.cacheMapTranslationPayloadInfo,
+                  cacheMapTranslationPayloadInfo,
+                ) ||
+                other.cacheMapTranslationPayloadInfo ==
+                    cacheMapTranslationPayloadInfo) &&
+            (identical(other.filesVerificationState, filesVerificationState) ||
+                other.filesVerificationState == filesVerificationState));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    accountApiKey,
+    directoryPath,
+    inputedByUserLocale,
+    client,
+    yamlInfo,
+    gitVariables,
+    maxLanguageCount,
+    const DeepCollectionEquality().hash(_languages),
+    downloadLink,
+    const DeepCollectionEquality().hash(_referenceArbMap),
+    projectCacheMap,
+    cacheMapTranslationPayloadInfo,
+    filesVerificationState,
+  );
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GenerateFlowGotTargetFilesImplCopyWith<_$GenerateFlowGotTargetFilesImpl>
+  get copyWith => __$$GenerateFlowGotTargetFilesImplCopyWithImpl<
+    _$GenerateFlowGotTargetFilesImpl
+  >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )
+    initial,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )
+    createdClient,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )
+    ensuredGit,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )
+    gotCodeBaseYaml,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )
+    gotGitUser,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )
+    gotLastLocalCommit,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )
+    gotProjectOriginUrl,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )
+    gotGitVariables,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )
+    gotAppLanguages,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )
+    downloadReferenceArb,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )
+    projectCacheMap,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )
+    resolvedProjectCacheTranslation,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )
+    ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
+  }) {
+    return gotTargetFiles(
+      accountApiKey,
+      directoryPath,
+      inputedByUserLocale,
+      client,
+      yamlInfo,
+      gitVariables,
+      maxLanguageCount,
+      languages,
+      downloadLink,
+      referenceArbMap,
+      this.projectCacheMap,
+      cacheMapTranslationPayloadInfo,
+      filesVerificationState,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )?
+    initial,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    createdClient,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    ensuredGit,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )?
+    gotCodeBaseYaml,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )?
+    gotGitUser,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )?
+    gotLastLocalCommit,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )?
+    gotProjectOriginUrl,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )?
+    gotGitVariables,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )?
+    gotAppLanguages,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )?
+    downloadReferenceArb,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )?
+    projectCacheMap,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    resolvedProjectCacheTranslation,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
+  }) {
+    return gotTargetFiles?.call(
+      accountApiKey,
+      directoryPath,
+      inputedByUserLocale,
+      client,
+      yamlInfo,
+      gitVariables,
+      maxLanguageCount,
+      languages,
+      downloadLink,
+      referenceArbMap,
+      this.projectCacheMap,
+      cacheMapTranslationPayloadInfo,
+      filesVerificationState,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )?
+    initial,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    createdClient,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    ensuredGit,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )?
+    gotCodeBaseYaml,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )?
+    gotGitUser,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )?
+    gotLastLocalCommit,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )?
+    gotProjectOriginUrl,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )?
+    gotGitVariables,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )?
+    gotAppLanguages,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )?
+    downloadReferenceArb,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )?
+    projectCacheMap,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    resolvedProjectCacheTranslation,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      String accountApiKey,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
+    required TResult orElse(),
+  }) {
+    if (gotTargetFiles != null) {
+      return gotTargetFiles(
+        accountApiKey,
+        directoryPath,
+        inputedByUserLocale,
+        client,
+        yamlInfo,
+        gitVariables,
+        maxLanguageCount,
+        languages,
+        downloadLink,
+        referenceArbMap,
+        this.projectCacheMap,
+        cacheMapTranslationPayloadInfo,
+        filesVerificationState,
+      );
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GenerateFlowInitial value) initial,
+    required TResult Function(GenerateFlowCreatedClient value) createdClient,
+    required TResult Function(GenerateFlowEnsureGit value) ensuredGit,
+    required TResult Function(GenerateFlowGotCodeBaseYaml value)
+    gotCodeBaseYaml,
+    required TResult Function(GenerateFlowGotGitUser value) gotGitUser,
+    required TResult Function(GenerateFlowGotLastLocalCommit value)
+    gotLastLocalCommit,
+    required TResult Function(GenerateFlowGotProjectOriginUrl value)
+    gotProjectOriginUrl,
+    required TResult Function(GenerateFlowGotGitVariables value)
+    gotGitVariables,
+    required TResult Function(GenerateFlowGotAppLanguages value)
+    gotAppLanguages,
+    required TResult Function(GenerateFlowDownloadReferenceArb value)
+    downloadReferenceArb,
+    required TResult Function(GenerateFlowProjectCacheMap value)
+    projectCacheMap,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
+  }) {
+    return gotTargetFiles(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GenerateFlowInitial value)? initial,
+    TResult? Function(GenerateFlowCreatedClient value)? createdClient,
+    TResult? Function(GenerateFlowEnsureGit value)? ensuredGit,
+    TResult? Function(GenerateFlowGotCodeBaseYaml value)? gotCodeBaseYaml,
+    TResult? Function(GenerateFlowGotGitUser value)? gotGitUser,
+    TResult? Function(GenerateFlowGotLastLocalCommit value)? gotLastLocalCommit,
+    TResult? Function(GenerateFlowGotProjectOriginUrl value)?
+    gotProjectOriginUrl,
+    TResult? Function(GenerateFlowGotGitVariables value)? gotGitVariables,
+    TResult? Function(GenerateFlowGotAppLanguages value)? gotAppLanguages,
+    TResult? Function(GenerateFlowDownloadReferenceArb value)?
+    downloadReferenceArb,
+    TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
+  }) {
+    return gotTargetFiles?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GenerateFlowInitial value)? initial,
+    TResult Function(GenerateFlowCreatedClient value)? createdClient,
+    TResult Function(GenerateFlowEnsureGit value)? ensuredGit,
+    TResult Function(GenerateFlowGotCodeBaseYaml value)? gotCodeBaseYaml,
+    TResult Function(GenerateFlowGotGitUser value)? gotGitUser,
+    TResult Function(GenerateFlowGotLastLocalCommit value)? gotLastLocalCommit,
+    TResult Function(GenerateFlowGotProjectOriginUrl value)?
+    gotProjectOriginUrl,
+    TResult Function(GenerateFlowGotGitVariables value)? gotGitVariables,
+    TResult Function(GenerateFlowGotAppLanguages value)? gotAppLanguages,
+    TResult Function(GenerateFlowDownloadReferenceArb value)?
+    downloadReferenceArb,
+    TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
+    required TResult orElse(),
+  }) {
+    if (gotTargetFiles != null) {
+      return gotTargetFiles(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GenerateFlowGotTargetFilesImplToJson(this);
+  }
+}
+
+abstract class GenerateFlowGotTargetFiles extends GenerateFlowState {
+  factory GenerateFlowGotTargetFiles({
+    required final String accountApiKey,
+    required final String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required final BabelSupportedLocales inputedByUserLocale,
+    required final ApiClientEntity client,
+    required final CodeBaseYamlInfo yamlInfo,
+    required final GitVariables gitVariables,
+    required final int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required final Set<BabelSupportedLocales> languages,
+    required final String downloadLink,
+    required final Map<String, String> referenceArbMap,
+    required final ProjectCacheMap projectCacheMap,
+    required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required final FilesVerification filesVerificationState,
+  }) = _$GenerateFlowGotTargetFilesImpl;
+  GenerateFlowGotTargetFiles._() : super._();
+
+  factory GenerateFlowGotTargetFiles.fromJson(Map<String, dynamic> json) =
+      _$GenerateFlowGotTargetFilesImpl.fromJson;
+
+  @override
+  String get accountApiKey;
+  @override
+  String get directoryPath;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  BabelSupportedLocales get inputedByUserLocale;
+  ApiClientEntity get client;
+  CodeBaseYamlInfo get yamlInfo;
+  GitVariables get gitVariables;
+  int get maxLanguageCount;
+  @BabelSupportedLocalesJsonConverter()
+  Set<BabelSupportedLocales> get languages;
+  String get downloadLink;
+  Map<String, String> get referenceArbMap;
+  ProjectCacheMap get projectCacheMap;
+  TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
+  FilesVerification get filesVerificationState;
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateFlowGotTargetFilesImplCopyWith<_$GenerateFlowGotTargetFilesImpl>
   get copyWith => throw _privateConstructorUsedError;
 }

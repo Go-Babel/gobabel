@@ -5,6 +5,7 @@ import 'package:gobabel/src/core/converters/babel_supported_locales_json_convert
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -166,7 +167,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
   }) = GenerateFlowResolvedProjectCacheTranslation;
 
-  /// Step 12
+  /// Step 13
   factory GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles({
     required String accountApiKey,
     required String directoryPath,
@@ -183,6 +184,25 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
   }) = GenerateFlowEnsuredNoStaticErrorOnDartFiles;
+
+  /// Step 14
+  factory GenerateFlowState.gotTargetFiles({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+  }) = GenerateFlowGotTargetFiles;
 
   Directory get directory {
     return Directory(directoryPath);
