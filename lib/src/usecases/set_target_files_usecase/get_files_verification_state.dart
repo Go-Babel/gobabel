@@ -21,7 +21,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
       );
 
   if (projectVersionsShasResponse.isError()) {
-    return projectVersionsShasResponse.asError();
+    return projectVersionsShasResponse.asErrorAsync();
   }
 
   final List<ShaCommit> projectVersionsShas =
@@ -37,7 +37,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
     client: client,
   );
   if (allTreeCommitsResponse.isError()) {
-    return allTreeCommitsResponse.asError();
+    return allTreeCommitsResponse.asErrorAsync();
   }
 
   final List<ShaCommit> allTreeCommits = allTreeCommitsResponse.getOrThrow();
@@ -75,7 +75,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
       );
 
   if (changedFilesBetweenCommitsResponse.isError()) {
-    return changedFilesBetweenCommitsResponse.asError();
+    return changedFilesBetweenCommitsResponse.asErrorAsync();
   }
 
   final Set<String> changedFiles =
