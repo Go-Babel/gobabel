@@ -683,3 +683,74 @@ Map<String, dynamic> _$$GenerateFlowMappedProjectArbDataImplToJson(
   'projectArbData': instance.projectArbData,
   'runtimeType': instance.$type,
 };
+
+_$GenerateFlowResolvedProjectArbTranslationPayloadImpl
+_$$GenerateFlowResolvedProjectArbTranslationPayloadImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowResolvedProjectArbTranslationPayloadImpl(
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  downloadLink: json['downloadLink'] as String,
+  referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowResolvedProjectArbTranslationPayloadImplToJson(
+  _$GenerateFlowResolvedProjectArbTranslationPayloadImpl instance,
+) => <String, dynamic>{
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'downloadLink': instance.downloadLink,
+  'referenceArbMap': instance.referenceArbMap,
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};

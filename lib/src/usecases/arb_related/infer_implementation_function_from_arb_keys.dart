@@ -1,18 +1,12 @@
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-Result<Map<TranslationKey, BabelFunctionDeclaration>>
-inferImplementationFunctionFromArbKeys({
-  required Map<TranslationKey, Set<VariableName>> variablesPlaceholdersPerKey,
+Result<BabelFunctionDeclaration> inferImplementationFunctionFromArbKeys({
+  required TranslationKey l10nKey,
+  required Set<VariableName> variablesPlaceholders,
 }) {
-  final Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration = {};
+  BabelFunctionImplementation gobabelFunctionImplementationString =
+      '$kBabelClass.$l10nKey(${variablesPlaceholders.map((e) => e).join(', ')})';
 
-  variablesPlaceholdersPerKey.forEach((l10nKey, variables) {
-    BabelFunctionImplementation gobabelFunctionImplementationString =
-        '$kBabelClass.$l10nKey(${variables.map((e) => e).join(', ')})';
-
-    keyToDeclaration[l10nKey] = gobabelFunctionImplementationString;
-  });
-
-  return keyToDeclaration.toSuccess();
+  return gobabelFunctionImplementationString.toSuccess();
 }

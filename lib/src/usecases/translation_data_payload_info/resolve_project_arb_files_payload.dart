@@ -1,14 +1,14 @@
 import 'package:gobabel/src/entities/translation_payload_info.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
-import 'package:gobabel/src/usecases/arb_related/infer_implementation_function_from_arb_keys.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload(
-  ArbDataState arbDataState,
-  TranslationPayloadInfo currentPayloadInfo,
-) async {
+AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload({
+  required ArbDataState arbDataState,
+  required TranslationPayloadInfo currentPayloadInfo,
+}) async {
   try {
     final ArbDataStateWithData? arbDataStateWithData = arbDataState.mapOrNull(
       withData: (value) => value,
@@ -17,20 +17,26 @@ AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload(
       return currentPayloadInfo.toSuccess();
     }
 
-    final Map<HardCodedString, TranslationKey> hardcodedStringToKeyCache = {};
-    final Map<TranslationKey, ProcessedKeyIntegrity>
-    keyToProcessedKeyIntegrity = {};
-    final Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration = {};
+    final Map<HardCodedString, TranslationKey> hardcodedStringToKeyCache = {
+      ...currentPayloadInfo.hardcodedStringToKeyCache,
+    };
+    final Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration = {
+      ...currentPayloadInfo.keyToDeclaration,
+    };
     final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
-        {};
+        {...currentPayloadInfo.keyToImplementation};
 
-    final Map<TranslationKey, HardCodedString> keys =
-        arbDataStateWithData.mainPreMadeTranslationArb!.allKeyValues;
-
-    for (final entry in keys.entries) {
-      final TranslationKey key = entry.key;
+    for (final entry
+        in arbDataStateWithData
+            .mainPreMadeTranslationArb!
+            .allKeyValues
+            .entries) {
+      final TranslationKey rawKey = entry.key;
       final HardCodedString value = entry.value;
-      final integrityKeyResponse = garanteeKeyIntegrity(key: key, value: value);
+      final integrityKeyResponse = garanteeKeyIntegrity(
+        key: rawKey,
+        value: value,
+      );
       if (integrityKeyResponse.isError()) {
         return integrityKeyResponse.asError();
       }
@@ -38,23 +44,22 @@ AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload(
           integrityKeyResponse.getOrThrow();
 
       hardcodedStringToKeyCache[value] = processedKey;
-    }
 
-    for (final entry in keys.entries) {
-      final TranslationKey rawKey = entry.key;
-      final ProcessedKeyIntegrity processedKey =
-          keyToProcessedKeyIntegrity[rawKey]!;
+      final L10nKey l10nKey = processedKey;
+      final Set<VariableName> variablesNames =
+          arbDataStateWithData.variablesPlaceholdersPerKey[rawKey]!;
 
-      final declarationResult = inferImplementationFunctionFromArbKeys(
-        variablesPlaceholdersPerKey:
-            arbDataStateWithData.variablesPlaceholdersPerKey,
-      );
-      if (declarationResult.isError()) {
-        return declarationResult.asError();
-      }
+      BabelFunctionImplementation gobabelFunctionImplementationString =
+          '$kBabelClass.$l10nKey(${variablesNames.map((e) => e).join(', ')})';
 
-      final BabelFunctionDeclaration declaration =
-          declarationResult.getOrThrow();
+      BabelFunctionDeclaration gobabelFunctionDeclarationString =
+          '''${value.trimHardcodedString.formatToComment}
+  static String $l10nKey(${variablesNames.map((e) => 'Object? $e').join(', ')}) {
+    return i._getByKey('$variablesNames')${variablesNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
+  }''';
+
+      keyToImplementation[processedKey] = gobabelFunctionImplementationString;
+      keyToDeclaration[processedKey] = gobabelFunctionDeclarationString;
     }
 
     final payloadInfo = TranslationPayloadInfo(
@@ -69,4 +74,30 @@ AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload(
   }
 }
 
-TranslationPayloadInfo addToNew(TranslationPayloadInfo translation) {}
+AsyncResult<GenerateFlowResolvedProjectArbTranslationPayload>
+generate_resolveProjectArbFilesPayload(
+  GenerateFlowMappedProjectArbData payload,
+) {
+  return resolveProjectArbFilesPayload(
+    arbDataState: payload.projectArbData,
+    currentPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+  ).flatMap((payloadInfo) {
+    return GenerateFlowResolvedProjectArbTranslationPayload(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo: payloadInfo,
+    ).toSuccess();
+  });
+}

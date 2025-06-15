@@ -18,6 +18,7 @@ import 'package:gobabel/src/usecases/remote_project_related/download_reference_a
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_project_cache_map.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/get_files_verification_state.dart';
+import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_arb_files_payload.dart';
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_cache_translation_payload.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -85,6 +86,7 @@ class GobabelConductor {
         .flatMap(generate_ensureNoStaticErrorOnDartFilesDefault)
         .flatMap(generate_getFilesVerificationState)
         .flatMap(generate_getProjectYamlConfigUsecase)
-        .flatMap(generate_mapProjectArbDataUsecase);
+        .flatMap(generate_mapProjectArbDataUsecase)
+        .flatMap(generate_resolveProjectArbFilesPayload);
   }
 }
