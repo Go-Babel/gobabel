@@ -6,9 +6,9 @@ part of 'project_arb_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ArbDataStateImpl _$$ArbDataStateImplFromJson(
+_$ArbDataStateWithDataImpl _$$ArbDataStateWithDataImplFromJson(
   Map<String, dynamic> json,
-) => _$ArbDataStateImpl(
+) => _$ArbDataStateWithDataImpl(
   config: L10nProjectConfig.fromJson(json['config'] as Map<String, dynamic>),
   variablesPlaceholdersPerKey:
       (json['variablesPlaceholdersPerKey'] as Map<String, dynamic>).map(
@@ -25,18 +25,19 @@ _$ArbDataStateImpl _$$ArbDataStateImplFromJson(
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$$ArbDataStateImplToJson(_$ArbDataStateImpl instance) =>
-    <String, dynamic>{
-      'config': instance.config,
-      'variablesPlaceholdersPerKey': instance.variablesPlaceholdersPerKey.map(
-        (k, e) => MapEntry(k, e.toList()),
-      ),
-      'mainLocale': const BabelSupportedLocalesJsonConverter().toJson(
-        instance.mainLocale,
-      ),
-      'preMadeTranslationArb': instance.preMadeTranslationArb,
-      'runtimeType': instance.$type,
-    };
+Map<String, dynamic> _$$ArbDataStateWithDataImplToJson(
+  _$ArbDataStateWithDataImpl instance,
+) => <String, dynamic>{
+  'config': instance.config,
+  'variablesPlaceholdersPerKey': instance.variablesPlaceholdersPerKey.map(
+    (k, e) => MapEntry(k, e.toList()),
+  ),
+  'mainLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.mainLocale,
+  ),
+  'preMadeTranslationArb': instance.preMadeTranslationArb,
+  'runtimeType': instance.$type,
+};
 
 _$ArbDataStateNoneDataImpl _$$ArbDataStateNoneDataImplFromJson(
   Map<String, dynamic> json,

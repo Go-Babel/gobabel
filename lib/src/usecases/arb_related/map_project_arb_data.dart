@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:enchanted_collection/enchanted_collection.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/arb_related/extract_arb_data_from_file.dart';
@@ -129,11 +130,23 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
 
   preMadeTranslationArb.addAll(allArbs);
 
+  // Sum of all variablesPlaceholdersPerKey
+  final Map<TranslationKey, Set<VariableName>> variablesPlaceholdersPerKey = {};
+  for (final arb in allArbData) {
+    arb.variablesPlaceholdersPerKey.forEach((key, value) {
+      if (variablesPlaceholdersPerKey.containsKey(key)) {
+        variablesPlaceholdersPerKey[key]!.addAll(value);
+      } else {
+        variablesPlaceholdersPerKey[key] = Set.from(value);
+      }
+    });
+  }
+
   return ArbDataState.withData(
     config: config,
     preMadeTranslationArb: preMadeTranslationArb,
     mainLocale: main.locale,
-    variablesPlaceholdersPerKey: main.variablesPlaceholdersPerKey,
+    variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
   ).toSuccess();
 }
 
@@ -154,4 +167,31 @@ Set<String> retrivePendingKeys({
   }
 
   return pendingKeys;
+}
+
+AsyncResult<GenerateFlowMappedProjectArbData> generate_mapProjectArbDataUsecase(
+  GenerateFlowGotL10nProjectConfig payload,
+) async {
+  return mapProjectArbDataUsecase(
+    n10nProjectConfig: payload.l10nProjectConfig,
+    maxLanguageCount: payload.maxLanguageCount,
+    directory: payload.directory,
+  ).map((arbDataState) {
+    return GenerateFlowMappedProjectArbData(
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directory.path,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: arbDataState,
+    );
+  });
 }

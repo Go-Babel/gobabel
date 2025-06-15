@@ -4,8 +4,8 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 Result<ProcessedKeyIntegrity> garanteeKeyIntegrity({
-  required String key,
-  required String value,
+  required TranslationKey key,
+  required HardCodedString value,
 }) {
   final validKeyNameResponse = garanteeKeyIsValidFunctionName(key: key);
   if (validKeyNameResponse.isError()) {

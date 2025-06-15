@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 ArbDataState _$ArbDataStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'withData':
-      return _ArbDataState.fromJson(json);
+      return ArbDataStateWithData.fromJson(json);
     case 'noneData':
       return _ArbDataStateNoneData.fromJson(json);
 
@@ -70,17 +70,17 @@ mixin _$ArbDataState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ArbDataState value) withData,
+    required TResult Function(ArbDataStateWithData value) withData,
     required TResult Function(_ArbDataStateNoneData value) noneData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ArbDataState value)? withData,
+    TResult? Function(ArbDataStateWithData value)? withData,
     TResult? Function(_ArbDataStateNoneData value)? noneData,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ArbDataState value)? withData,
+    TResult Function(ArbDataStateWithData value)? withData,
     TResult Function(_ArbDataStateNoneData value)? noneData,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -112,11 +112,11 @@ class _$ArbDataStateCopyWithImpl<$Res, $Val extends ArbDataState>
 }
 
 /// @nodoc
-abstract class _$$ArbDataStateImplCopyWith<$Res> {
-  factory _$$ArbDataStateImplCopyWith(
-    _$ArbDataStateImpl value,
-    $Res Function(_$ArbDataStateImpl) then,
-  ) = __$$ArbDataStateImplCopyWithImpl<$Res>;
+abstract class _$$ArbDataStateWithDataImplCopyWith<$Res> {
+  factory _$$ArbDataStateWithDataImplCopyWith(
+    _$ArbDataStateWithDataImpl value,
+    $Res Function(_$ArbDataStateWithDataImpl) then,
+  ) = __$$ArbDataStateWithDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({
     L10nProjectConfig config,
@@ -129,12 +129,12 @@ abstract class _$$ArbDataStateImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ArbDataStateImplCopyWithImpl<$Res>
-    extends _$ArbDataStateCopyWithImpl<$Res, _$ArbDataStateImpl>
-    implements _$$ArbDataStateImplCopyWith<$Res> {
-  __$$ArbDataStateImplCopyWithImpl(
-    _$ArbDataStateImpl _value,
-    $Res Function(_$ArbDataStateImpl) _then,
+class __$$ArbDataStateWithDataImplCopyWithImpl<$Res>
+    extends _$ArbDataStateCopyWithImpl<$Res, _$ArbDataStateWithDataImpl>
+    implements _$$ArbDataStateWithDataImplCopyWith<$Res> {
+  __$$ArbDataStateWithDataImplCopyWithImpl(
+    _$ArbDataStateWithDataImpl _value,
+    $Res Function(_$ArbDataStateWithDataImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of ArbDataState
@@ -148,7 +148,7 @@ class __$$ArbDataStateImplCopyWithImpl<$Res>
     Object? preMadeTranslationArb = null,
   }) {
     return _then(
-      _$ArbDataStateImpl(
+      _$ArbDataStateWithDataImpl(
         config:
             null == config
                 ? _value.config
@@ -186,8 +186,8 @@ class __$$ArbDataStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ArbDataStateImpl implements _ArbDataState {
-  _$ArbDataStateImpl({
+class _$ArbDataStateWithDataImpl extends ArbDataStateWithData {
+  _$ArbDataStateWithDataImpl({
     required this.config,
     required final Map<String, Set<String>> variablesPlaceholdersPerKey,
     @BabelSupportedLocalesJsonConverter() required this.mainLocale,
@@ -195,10 +195,11 @@ class _$ArbDataStateImpl implements _ArbDataState {
     final String? $type,
   }) : _variablesPlaceholdersPerKey = variablesPlaceholdersPerKey,
        _preMadeTranslationArb = preMadeTranslationArb,
-       $type = $type ?? 'withData';
+       $type = $type ?? 'withData',
+       super._();
 
-  factory _$ArbDataStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ArbDataStateImplFromJson(json);
+  factory _$ArbDataStateWithDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ArbDataStateWithDataImplFromJson(json);
 
   @override
   final L10nProjectConfig config;
@@ -235,7 +236,7 @@ class _$ArbDataStateImpl implements _ArbDataState {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ArbDataStateImpl &&
+            other is _$ArbDataStateWithDataImpl &&
             (identical(other.config, config) || other.config == config) &&
             const DeepCollectionEquality().equals(
               other._variablesPlaceholdersPerKey,
@@ -264,8 +265,12 @@ class _$ArbDataStateImpl implements _ArbDataState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ArbDataStateImplCopyWith<_$ArbDataStateImpl> get copyWith =>
-      __$$ArbDataStateImplCopyWithImpl<_$ArbDataStateImpl>(this, _$identity);
+  _$$ArbDataStateWithDataImplCopyWith<_$ArbDataStateWithDataImpl>
+  get copyWith =>
+      __$$ArbDataStateWithDataImplCopyWithImpl<_$ArbDataStateWithDataImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -334,7 +339,7 @@ class _$ArbDataStateImpl implements _ArbDataState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ArbDataState value) withData,
+    required TResult Function(ArbDataStateWithData value) withData,
     required TResult Function(_ArbDataStateNoneData value) noneData,
   }) {
     return withData(this);
@@ -343,7 +348,7 @@ class _$ArbDataStateImpl implements _ArbDataState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ArbDataState value)? withData,
+    TResult? Function(ArbDataStateWithData value)? withData,
     TResult? Function(_ArbDataStateNoneData value)? noneData,
   }) {
     return withData?.call(this);
@@ -352,7 +357,7 @@ class _$ArbDataStateImpl implements _ArbDataState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ArbDataState value)? withData,
+    TResult Function(ArbDataStateWithData value)? withData,
     TResult Function(_ArbDataStateNoneData value)? noneData,
     required TResult orElse(),
   }) {
@@ -364,21 +369,22 @@ class _$ArbDataStateImpl implements _ArbDataState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ArbDataStateImplToJson(this);
+    return _$$ArbDataStateWithDataImplToJson(this);
   }
 }
 
-abstract class _ArbDataState implements ArbDataState {
-  factory _ArbDataState({
+abstract class ArbDataStateWithData extends ArbDataState {
+  factory ArbDataStateWithData({
     required final L10nProjectConfig config,
     required final Map<String, Set<String>> variablesPlaceholdersPerKey,
     @BabelSupportedLocalesJsonConverter()
     required final BabelSupportedLocales mainLocale,
     required final List<ArbFileData> preMadeTranslationArb,
-  }) = _$ArbDataStateImpl;
+  }) = _$ArbDataStateWithDataImpl;
+  ArbDataStateWithData._() : super._();
 
-  factory _ArbDataState.fromJson(Map<String, dynamic> json) =
-      _$ArbDataStateImpl.fromJson;
+  factory ArbDataStateWithData.fromJson(Map<String, dynamic> json) =
+      _$ArbDataStateWithDataImpl.fromJson;
 
   L10nProjectConfig get config;
   Map<String, Set<String>> get variablesPlaceholdersPerKey;
@@ -389,8 +395,8 @@ abstract class _ArbDataState implements ArbDataState {
   /// Create a copy of ArbDataState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ArbDataStateImplCopyWith<_$ArbDataStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ArbDataStateWithDataImplCopyWith<_$ArbDataStateWithDataImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -416,9 +422,10 @@ class __$$ArbDataStateNoneDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ArbDataStateNoneDataImpl implements _ArbDataStateNoneData {
+class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
   _$ArbDataStateNoneDataImpl({final String? $type})
-    : $type = $type ?? 'noneData';
+    : $type = $type ?? 'noneData',
+      super._();
 
   factory _$ArbDataStateNoneDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArbDataStateNoneDataImplFromJson(json);
@@ -494,7 +501,7 @@ class _$ArbDataStateNoneDataImpl implements _ArbDataStateNoneData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ArbDataState value) withData,
+    required TResult Function(ArbDataStateWithData value) withData,
     required TResult Function(_ArbDataStateNoneData value) noneData,
   }) {
     return noneData(this);
@@ -503,7 +510,7 @@ class _$ArbDataStateNoneDataImpl implements _ArbDataStateNoneData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ArbDataState value)? withData,
+    TResult? Function(ArbDataStateWithData value)? withData,
     TResult? Function(_ArbDataStateNoneData value)? noneData,
   }) {
     return noneData?.call(this);
@@ -512,7 +519,7 @@ class _$ArbDataStateNoneDataImpl implements _ArbDataStateNoneData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ArbDataState value)? withData,
+    TResult Function(ArbDataStateWithData value)? withData,
     TResult Function(_ArbDataStateNoneData value)? noneData,
     required TResult orElse(),
   }) {
@@ -528,8 +535,9 @@ class _$ArbDataStateNoneDataImpl implements _ArbDataStateNoneData {
   }
 }
 
-abstract class _ArbDataStateNoneData implements ArbDataState {
+abstract class _ArbDataStateNoneData extends ArbDataState {
   factory _ArbDataStateNoneData() = _$ArbDataStateNoneDataImpl;
+  _ArbDataStateNoneData._() : super._();
 
   factory _ArbDataStateNoneData.fromJson(Map<String, dynamic> json) =
       _$ArbDataStateNoneDataImpl.fromJson;
