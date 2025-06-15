@@ -9,6 +9,7 @@ import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
+import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -264,8 +265,31 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
     required FilesVerification filesVerificationState,
     required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
     required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
   }) = GenerateFlowResolvedProjectArbTranslationPayload;
+
+  /// Step 18
+  factory GenerateFlowState.replacedAllL10nKeyReferencesInCodebaseForBabelFunctions({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+  }) = GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions;
 
   Directory get directory {
     return Directory(directoryPath);

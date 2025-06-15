@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
@@ -5,7 +6,17 @@ import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload({
+class ResolveProjectArbFilesPayloadResponse {
+  final TranslationPayloadInfo payloadInfo;
+  final Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys;
+  const ResolveProjectArbFilesPayloadResponse({
+    required this.payloadInfo,
+    required this.remapedArbKeys,
+  });
+}
+
+AsyncResult<ResolveProjectArbFilesPayloadResponse>
+resolveProjectArbFilesPayload({
   required ArbDataState arbDataState,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
@@ -14,9 +25,13 @@ AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload({
       withData: (value) => value,
     );
     if (arbDataStateWithData == null) {
-      return currentPayloadInfo.toSuccess();
+      return ResolveProjectArbFilesPayloadResponse(
+        payloadInfo: currentPayloadInfo,
+        remapedArbKeys: <TranslationKey, ProcessedKeyIntegrity>{},
+      ).toSuccess();
     }
 
+    final Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys = {};
     final Map<HardCodedString, TranslationKey> hardcodedStringToKeyCache = {
       ...currentPayloadInfo.hardcodedStringToKeyCache,
     };
@@ -68,7 +83,11 @@ AsyncResult<TranslationPayloadInfo> resolveProjectArbFilesPayload({
       keyToImplementation: keyToImplementation,
       keyToContextsPaths: {},
     );
-    return payloadInfo.toSuccess();
+
+    return ResolveProjectArbFilesPayloadResponse(
+      payloadInfo: payloadInfo,
+      remapedArbKeys: remapedArbKeys,
+    ).toSuccess();
   } catch (e) {
     return Exception('Error creating translation payload: $e').toFailure();
   }
@@ -81,7 +100,7 @@ generate_resolveProjectArbFilesPayload(
   return resolveProjectArbFilesPayload(
     arbDataState: payload.projectArbData,
     currentPayloadInfo: payload.cacheMapTranslationPayloadInfo,
-  ).flatMap((payloadInfo) {
+  ).flatMap((response) {
     return GenerateFlowResolvedProjectArbTranslationPayload(
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
@@ -97,7 +116,8 @@ generate_resolveProjectArbFilesPayload(
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       filesVerificationState: payload.filesVerificationState,
       projectArbData: payload.projectArbData,
-      codebaseArbTranslationPayloadInfo: payloadInfo,
+      codebaseArbTranslationPayloadInfo: response.payloadInfo,
+      remapedArbKeys: response.remapedArbKeys,
     ).toSuccess();
   });
 }

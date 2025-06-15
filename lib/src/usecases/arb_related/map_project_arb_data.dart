@@ -6,6 +6,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/arb_related/extract_arb_data_from_file.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -13,6 +14,7 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
   required L10nProjectConfig n10nProjectConfig,
   required int maxLanguageCount,
   required Directory directory,
+  required BabelSupportedLocales inputedByUserLocale,
 }) async {
   final L10nProjectConfigWithData? config = n10nProjectConfig.mapOrNull(
     withData: (data) => data,
@@ -142,6 +144,19 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
     });
   }
 
+  final containsInputedByUserLocale = preMadeTranslationArb.any(
+    (arb) => arb.locale == inputedByUserLocale,
+  );
+
+  if (containsInputedByUserLocale == false) {
+    return BabelException(
+      title:
+          'No arb file found for the reference language $inputedByUserLocale',
+      description:
+          'The reference language used as parameter does not have a corresponding ARB file in the project. For that reason, it can not be the reference language for the project.',
+    ).toFailure();
+  }
+
   return ArbDataState.withData(
     config: config,
     preMadeTranslationArb: preMadeTranslationArb,
@@ -173,6 +188,7 @@ AsyncResult<GenerateFlowMappedProjectArbData> generate_mapProjectArbDataUsecase(
   GenerateFlowGotL10nProjectConfig payload,
 ) async {
   return mapProjectArbDataUsecase(
+    inputedByUserLocale: payload.inputedByUserLocale,
     n10nProjectConfig: payload.l10nProjectConfig,
     maxLanguageCount: payload.maxLanguageCount,
     directory: payload.directory,
