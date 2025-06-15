@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collection/collection.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -5,6 +7,12 @@ import 'package:result_dart/result_dart.dart';
 Result<BabelSupportedLocales> extractFromArbFileName({
   required String filename,
 }) {
+  // Maybe its a full path, so we extract the file name
+  filename =
+      filename.contains(Platform.pathSeparator)
+          ? filename.split(Platform.pathSeparator).last
+          : filename;
+
   final extractedResponse = _extract(filename);
   if (extractedResponse.isError()) {
     return extractedResponse.asError();
