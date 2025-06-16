@@ -23,6 +23,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 1
   factory GenerateFlowState.initial({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -31,6 +32,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 2
   factory GenerateFlowState.createdClient({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -40,6 +42,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 3
   factory GenerateFlowState.ensuredGit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -49,6 +52,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 4
   factory GenerateFlowState.gotCodeBaseYaml({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -59,6 +63,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 5
   factory GenerateFlowState.gotGitUser({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -70,6 +75,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 6
   factory GenerateFlowState.gotLastLocalCommit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -82,6 +88,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 7
   factory GenerateFlowState.gotProjectOriginUrl({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -95,6 +102,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 8
   factory GenerateFlowState.gotGitVariables({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -106,6 +114,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 9
   factory GenerateFlowState.gotAppLanguages({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -121,6 +130,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 10
   factory GenerateFlowState.downloadReferenceArb({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -137,6 +147,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 11
   factory GenerateFlowState.projectCacheMap({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -154,6 +165,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 12
   factory GenerateFlowState.resolvedProjectCacheTranslation({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -172,6 +184,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 13
   factory GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -190,6 +203,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 14
   factory GenerateFlowState.gotTargetFiles({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -209,6 +223,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 15
   factory GenerateFlowState.gotL10nProjectConfig({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -229,6 +244,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 16
   factory GenerateFlowState.mappedProjectArbData({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -249,6 +265,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 17
   factory GenerateFlowState.resolvedProjectArbTranslationPayload({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -271,6 +288,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 18
   factory GenerateFlowState.replacedAllL10nKeyReferencesInCodebaseForBabelFunctions({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -293,6 +311,7 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
   /// Step 19
   factory GenerateFlowState.codebaseNormalized({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -322,11 +341,13 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 }
 
 AsyncResult<GenerateFlowInitial> generate_initFlowState({
+  required bool willLog,
   required String accountApiKey,
   required String directoryPath,
   required BabelSupportedLocales inputedByUserLocale,
 }) async {
   final createFlowInitial = GenerateFlowInitial(
+    willLog: willLog,
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
     inputedByUserLocale: inputedByUserLocale,

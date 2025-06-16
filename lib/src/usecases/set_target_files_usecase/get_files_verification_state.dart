@@ -98,6 +98,7 @@ AsyncResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
 
   return filesVerificationState.flatMap((filesVerification) {
     return GenerateFlowGotTargetFiles(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,

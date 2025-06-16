@@ -78,6 +78,7 @@ AsyncResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
 
   return originUrlResult.flatMap((originUrl) {
     return GenerateFlowGotProjectOriginUrl(
+      willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

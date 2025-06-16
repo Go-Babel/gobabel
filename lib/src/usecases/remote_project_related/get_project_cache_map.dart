@@ -35,6 +35,7 @@ AsyncResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
 
   return cacheResult.flatMap((cache) {
     return GenerateFlowProjectCacheMap(
+      willLog: payload.willLog,
       referenceArbMap: payload.referenceArbMap,
       accountApiKey: projectApiToken,
       directoryPath: payload.directoryPath,

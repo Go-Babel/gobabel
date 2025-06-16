@@ -59,6 +59,7 @@ generate_ensureNoStaticErrorOnDartFilesDefault(
     directoryPath: payload.directoryPath,
   ).flatMap((_) {
     return GenerateFlowEnsuredNoStaticErrorOnDartFiles(
+      willLog: payload.willLog,
       referenceArbMap: payload.referenceArbMap,
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       accountApiKey: payload.accountApiKey,

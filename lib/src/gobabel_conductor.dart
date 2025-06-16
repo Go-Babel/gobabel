@@ -68,6 +68,7 @@ class GobabelConductor {
     required BabelSupportedLocales inputedByUserLocale,
   }) async {
     return generate_initFlowState(
+          willLog: true,
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
           inputedByUserLocale: inputedByUserLocale,

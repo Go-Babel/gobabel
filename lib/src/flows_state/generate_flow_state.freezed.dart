@@ -70,6 +70,7 @@ GenerateFlowState _$GenerateFlowStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenerateFlowState {
+  bool get willLog => throw _privateConstructorUsedError;
   String get accountApiKey => throw _privateConstructorUsedError;
   String get directoryPath => throw _privateConstructorUsedError;
   @BabelSupportedLocalesJsonConverter()
@@ -78,6 +79,7 @@ mixin _$GenerateFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -85,6 +87,7 @@ mixin _$GenerateFlowState {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -93,6 +96,7 @@ mixin _$GenerateFlowState {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -101,6 +105,7 @@ mixin _$GenerateFlowState {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -110,6 +115,7 @@ mixin _$GenerateFlowState {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -120,6 +126,7 @@ mixin _$GenerateFlowState {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -131,6 +138,7 @@ mixin _$GenerateFlowState {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -143,6 +151,7 @@ mixin _$GenerateFlowState {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -153,6 +162,7 @@ mixin _$GenerateFlowState {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -167,6 +177,7 @@ mixin _$GenerateFlowState {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -182,6 +193,7 @@ mixin _$GenerateFlowState {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -198,6 +210,7 @@ mixin _$GenerateFlowState {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -215,6 +228,7 @@ mixin _$GenerateFlowState {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -232,6 +246,7 @@ mixin _$GenerateFlowState {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -250,6 +265,7 @@ mixin _$GenerateFlowState {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -269,6 +285,7 @@ mixin _$GenerateFlowState {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -288,6 +305,7 @@ mixin _$GenerateFlowState {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -309,6 +327,7 @@ mixin _$GenerateFlowState {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -330,6 +349,7 @@ mixin _$GenerateFlowState {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -354,6 +374,7 @@ mixin _$GenerateFlowState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -361,6 +382,7 @@ mixin _$GenerateFlowState {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -369,6 +391,7 @@ mixin _$GenerateFlowState {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -377,6 +400,7 @@ mixin _$GenerateFlowState {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -386,6 +410,7 @@ mixin _$GenerateFlowState {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -396,6 +421,7 @@ mixin _$GenerateFlowState {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -407,6 +433,7 @@ mixin _$GenerateFlowState {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -419,6 +446,7 @@ mixin _$GenerateFlowState {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -429,6 +457,7 @@ mixin _$GenerateFlowState {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -443,6 +472,7 @@ mixin _$GenerateFlowState {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -458,6 +488,7 @@ mixin _$GenerateFlowState {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -474,6 +505,7 @@ mixin _$GenerateFlowState {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -491,6 +523,7 @@ mixin _$GenerateFlowState {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -508,6 +541,7 @@ mixin _$GenerateFlowState {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -526,6 +560,7 @@ mixin _$GenerateFlowState {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -545,6 +580,7 @@ mixin _$GenerateFlowState {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -564,6 +600,7 @@ mixin _$GenerateFlowState {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -585,6 +622,7 @@ mixin _$GenerateFlowState {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -606,6 +644,7 @@ mixin _$GenerateFlowState {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -630,6 +669,7 @@ mixin _$GenerateFlowState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -637,6 +677,7 @@ mixin _$GenerateFlowState {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -645,6 +686,7 @@ mixin _$GenerateFlowState {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -653,6 +695,7 @@ mixin _$GenerateFlowState {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -662,6 +705,7 @@ mixin _$GenerateFlowState {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -672,6 +716,7 @@ mixin _$GenerateFlowState {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -683,6 +728,7 @@ mixin _$GenerateFlowState {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -695,6 +741,7 @@ mixin _$GenerateFlowState {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -705,6 +752,7 @@ mixin _$GenerateFlowState {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -719,6 +767,7 @@ mixin _$GenerateFlowState {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -734,6 +783,7 @@ mixin _$GenerateFlowState {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -750,6 +800,7 @@ mixin _$GenerateFlowState {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -767,6 +818,7 @@ mixin _$GenerateFlowState {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -784,6 +836,7 @@ mixin _$GenerateFlowState {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -802,6 +855,7 @@ mixin _$GenerateFlowState {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -821,6 +875,7 @@ mixin _$GenerateFlowState {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -840,6 +895,7 @@ mixin _$GenerateFlowState {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -861,6 +917,7 @@ mixin _$GenerateFlowState {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -882,6 +939,7 @@ mixin _$GenerateFlowState {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1028,6 +1086,7 @@ abstract class $GenerateFlowStateCopyWith<$Res> {
   ) = _$GenerateFlowStateCopyWithImpl<$Res, GenerateFlowState>;
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -1050,12 +1109,18 @@ class _$GenerateFlowStateCopyWithImpl<$Res, $Val extends GenerateFlowState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
   }) {
     return _then(
       _value.copyWith(
+            willLog:
+                null == willLog
+                    ? _value.willLog
+                    : willLog // ignore: cast_nullable_to_non_nullable
+                        as bool,
             accountApiKey:
                 null == accountApiKey
                     ? _value.accountApiKey
@@ -1087,6 +1152,7 @@ abstract class _$$GenerateFlowInitialImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -1108,12 +1174,18 @@ class __$$GenerateFlowInitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
   }) {
     return _then(
       _$GenerateFlowInitialImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -1138,6 +1210,7 @@ class __$$GenerateFlowInitialImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
   _$GenerateFlowInitialImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -1148,6 +1221,8 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
   factory _$GenerateFlowInitialImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenerateFlowInitialImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -1161,7 +1236,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
 
   @override
   String toString() {
-    return 'GenerateFlowState.initial(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale)';
+    return 'GenerateFlowState.initial(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale)';
   }
 
   @override
@@ -1169,6 +1244,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowInitialImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -1181,6 +1257,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -1201,6 +1278,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1208,6 +1286,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1216,6 +1295,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1224,6 +1304,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1233,6 +1314,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1243,6 +1325,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1254,6 +1337,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1266,6 +1350,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1276,6 +1361,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1290,6 +1376,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1305,6 +1392,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1321,6 +1409,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1338,6 +1427,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1355,6 +1445,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1373,6 +1464,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1392,6 +1484,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1411,6 +1504,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1432,6 +1526,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1453,6 +1548,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1474,13 +1570,14 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )
     codebaseNormalized,
   }) {
-    return initial(accountApiKey, directoryPath, inputedByUserLocale);
+    return initial(willLog, accountApiKey, directoryPath, inputedByUserLocale);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1488,6 +1585,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1496,6 +1594,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1504,6 +1603,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1513,6 +1613,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1523,6 +1624,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1534,6 +1636,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1546,6 +1649,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1556,6 +1660,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1570,6 +1675,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1585,6 +1691,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1601,6 +1708,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1618,6 +1726,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1635,6 +1744,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1653,6 +1763,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1672,6 +1783,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1691,6 +1803,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1712,6 +1825,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1733,6 +1847,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1754,13 +1869,19 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     codebaseNormalized,
   }) {
-    return initial?.call(accountApiKey, directoryPath, inputedByUserLocale);
+    return initial?.call(
+      willLog,
+      accountApiKey,
+      directoryPath,
+      inputedByUserLocale,
+    );
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1768,6 +1889,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1776,6 +1898,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1784,6 +1907,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1793,6 +1917,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1803,6 +1928,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1814,6 +1940,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1826,6 +1953,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1836,6 +1964,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1850,6 +1979,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1865,6 +1995,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1881,6 +2012,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1898,6 +2030,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1915,6 +2048,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1933,6 +2067,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1952,6 +2087,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1971,6 +2107,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -1992,6 +2129,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2013,6 +2151,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2036,7 +2175,12 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(accountApiKey, directoryPath, inputedByUserLocale);
+      return initial(
+        willLog,
+        accountApiKey,
+        directoryPath,
+        inputedByUserLocale,
+      );
     }
     return orElse();
   }
@@ -2169,6 +2313,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
 
 abstract class GenerateFlowInitial extends GenerateFlowState {
   factory GenerateFlowInitial({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -2179,6 +2324,8 @@ abstract class GenerateFlowInitial extends GenerateFlowState {
   factory GenerateFlowInitial.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowInitialImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -2205,6 +2352,7 @@ abstract class _$$GenerateFlowCreatedClientImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -2230,6 +2378,7 @@ class __$$GenerateFlowCreatedClientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -2237,6 +2386,11 @@ class __$$GenerateFlowCreatedClientImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowCreatedClientImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -2276,6 +2430,7 @@ class __$$GenerateFlowCreatedClientImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   _$GenerateFlowCreatedClientImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -2287,6 +2442,8 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   factory _$GenerateFlowCreatedClientImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenerateFlowCreatedClientImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -2302,7 +2459,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
 
   @override
   String toString() {
-    return 'GenerateFlowState.createdClient(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client)';
+    return 'GenerateFlowState.createdClient(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client)';
   }
 
   @override
@@ -2310,6 +2467,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowCreatedClientImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -2323,6 +2481,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -2343,6 +2502,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2350,6 +2510,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2358,6 +2519,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2366,6 +2528,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2375,6 +2538,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2385,6 +2549,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2396,6 +2561,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2408,6 +2574,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2418,6 +2585,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2432,6 +2600,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2447,6 +2616,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2463,6 +2633,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2480,6 +2651,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2497,6 +2669,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2515,6 +2688,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2534,6 +2708,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2553,6 +2728,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2574,6 +2750,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2595,6 +2772,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2617,6 +2795,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     codebaseNormalized,
   }) {
     return createdClient(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -2628,6 +2807,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2635,6 +2815,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2643,6 +2824,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2651,6 +2833,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2660,6 +2843,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2670,6 +2854,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2681,6 +2866,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2693,6 +2879,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2703,6 +2890,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2717,6 +2905,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2732,6 +2921,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2748,6 +2938,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2765,6 +2956,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2782,6 +2974,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2800,6 +2993,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2819,6 +3013,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2838,6 +3033,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2859,6 +3055,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2880,6 +3077,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2902,6 +3100,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     codebaseNormalized,
   }) {
     return createdClient?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -2913,6 +3112,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2920,6 +3120,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2928,6 +3129,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2936,6 +3138,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2945,6 +3148,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2955,6 +3159,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2966,6 +3171,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2978,6 +3184,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -2988,6 +3195,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3002,6 +3210,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3017,6 +3226,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3033,6 +3243,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3050,6 +3261,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3067,6 +3279,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3085,6 +3298,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3104,6 +3318,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3123,6 +3338,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3144,6 +3360,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3165,6 +3382,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3189,6 +3407,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
   }) {
     if (createdClient != null) {
       return createdClient(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -3326,6 +3545,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
 
 abstract class GenerateFlowCreatedClient extends GenerateFlowState {
   factory GenerateFlowCreatedClient({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -3337,6 +3557,8 @@ abstract class GenerateFlowCreatedClient extends GenerateFlowState {
   factory GenerateFlowCreatedClient.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowCreatedClientImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -3364,6 +3586,7 @@ abstract class _$$GenerateFlowEnsureGitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -3388,6 +3611,7 @@ class __$$GenerateFlowEnsureGitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -3395,6 +3619,11 @@ class __$$GenerateFlowEnsureGitImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowEnsureGitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -3434,6 +3663,7 @@ class __$$GenerateFlowEnsureGitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   _$GenerateFlowEnsureGitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -3445,6 +3675,8 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   factory _$GenerateFlowEnsureGitImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenerateFlowEnsureGitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -3460,7 +3692,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
 
   @override
   String toString() {
-    return 'GenerateFlowState.ensuredGit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client)';
+    return 'GenerateFlowState.ensuredGit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client)';
   }
 
   @override
@@ -3468,6 +3700,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowEnsureGitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -3481,6 +3714,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -3503,6 +3737,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3510,6 +3745,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3518,6 +3754,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3526,6 +3763,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3535,6 +3773,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3545,6 +3784,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3556,6 +3796,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3568,6 +3809,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3578,6 +3820,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3592,6 +3835,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3607,6 +3851,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3623,6 +3868,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3640,6 +3886,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3657,6 +3904,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3675,6 +3923,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3694,6 +3943,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3713,6 +3963,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3734,6 +3985,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3755,6 +4007,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3777,6 +4030,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     codebaseNormalized,
   }) {
     return ensuredGit(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -3788,6 +4042,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3795,6 +4050,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3803,6 +4059,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3811,6 +4068,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3820,6 +4078,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3830,6 +4089,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3841,6 +4101,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3853,6 +4114,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3863,6 +4125,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3877,6 +4140,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3892,6 +4156,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3908,6 +4173,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3925,6 +4191,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3942,6 +4209,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3960,6 +4228,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3979,6 +4248,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -3998,6 +4268,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4019,6 +4290,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4040,6 +4312,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4062,6 +4335,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     codebaseNormalized,
   }) {
     return ensuredGit?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -4073,6 +4347,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4080,6 +4355,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4088,6 +4364,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4096,6 +4373,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4105,6 +4383,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4115,6 +4394,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4126,6 +4406,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4138,6 +4419,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4148,6 +4430,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4162,6 +4445,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4177,6 +4461,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4193,6 +4478,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4210,6 +4496,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4227,6 +4514,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4245,6 +4533,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4264,6 +4553,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4283,6 +4573,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4304,6 +4595,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4325,6 +4617,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4349,6 +4642,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
   }) {
     if (ensuredGit != null) {
       return ensuredGit(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -4486,6 +4780,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
 
 abstract class GenerateFlowEnsureGit extends GenerateFlowState {
   factory GenerateFlowEnsureGit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -4497,6 +4792,8 @@ abstract class GenerateFlowEnsureGit extends GenerateFlowState {
   factory GenerateFlowEnsureGit.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowEnsureGitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -4524,6 +4821,7 @@ abstract class _$$GenerateFlowGotCodeBaseYamlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -4551,6 +4849,7 @@ class __$$GenerateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -4559,6 +4858,11 @@ class __$$GenerateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotCodeBaseYamlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -4613,6 +4917,7 @@ class __$$GenerateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   _$GenerateFlowGotCodeBaseYamlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -4626,6 +4931,8 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotCodeBaseYamlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -4643,7 +4950,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotCodeBaseYaml(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo)';
+    return 'GenerateFlowState.gotCodeBaseYaml(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo)';
   }
 
   @override
@@ -4651,6 +4958,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotCodeBaseYamlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -4666,6 +4974,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -4687,6 +4996,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4694,6 +5004,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4702,6 +5013,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4710,6 +5022,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4719,6 +5032,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4729,6 +5043,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4740,6 +5055,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4752,6 +5068,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4762,6 +5079,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4776,6 +5094,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4791,6 +5110,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4807,6 +5127,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4824,6 +5145,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4841,6 +5163,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4859,6 +5182,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4878,6 +5202,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4897,6 +5222,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4918,6 +5244,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4939,6 +5266,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4961,6 +5289,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     codebaseNormalized,
   }) {
     return gotCodeBaseYaml(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -4973,6 +5302,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4980,6 +5310,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4988,6 +5319,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -4996,6 +5328,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5005,6 +5338,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5015,6 +5349,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5026,6 +5361,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5038,6 +5374,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5048,6 +5385,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5062,6 +5400,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5077,6 +5416,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5093,6 +5433,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5110,6 +5451,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5127,6 +5469,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5145,6 +5488,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5164,6 +5508,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5183,6 +5528,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5204,6 +5550,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5225,6 +5572,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5247,6 +5595,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     codebaseNormalized,
   }) {
     return gotCodeBaseYaml?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -5259,6 +5608,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5266,6 +5616,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5274,6 +5625,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5282,6 +5634,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5291,6 +5644,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5301,6 +5655,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5312,6 +5667,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5324,6 +5680,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5334,6 +5691,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5348,6 +5706,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5363,6 +5722,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5379,6 +5739,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5396,6 +5757,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5413,6 +5775,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5431,6 +5794,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5450,6 +5814,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5469,6 +5834,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5490,6 +5856,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5511,6 +5878,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5535,6 +5903,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
   }) {
     if (gotCodeBaseYaml != null) {
       return gotCodeBaseYaml(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -5673,6 +6042,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
 
 abstract class GenerateFlowGotCodeBaseYaml extends GenerateFlowState {
   factory GenerateFlowGotCodeBaseYaml({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -5685,6 +6055,8 @@ abstract class GenerateFlowGotCodeBaseYaml extends GenerateFlowState {
   factory GenerateFlowGotCodeBaseYaml.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotCodeBaseYamlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -5713,6 +6085,7 @@ abstract class _$$GenerateFlowGotGitUserImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -5740,6 +6113,7 @@ class __$$GenerateFlowGotGitUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -5749,6 +6123,11 @@ class __$$GenerateFlowGotGitUserImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotGitUserImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -5808,6 +6187,7 @@ class __$$GenerateFlowGotGitUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   _$GenerateFlowGotGitUserImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -5821,6 +6201,8 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   factory _$GenerateFlowGotGitUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenerateFlowGotGitUserImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -5840,7 +6222,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotGitUser(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
+    return 'GenerateFlowState.gotGitUser(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
   }
 
   @override
@@ -5848,6 +6230,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotGitUserImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -5864,6 +6247,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -5888,6 +6272,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5895,6 +6280,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5903,6 +6289,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5911,6 +6298,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5920,6 +6308,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5930,6 +6319,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5941,6 +6331,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5953,6 +6344,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5963,6 +6355,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5977,6 +6370,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -5992,6 +6386,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6008,6 +6403,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6025,6 +6421,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6042,6 +6439,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6060,6 +6458,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6079,6 +6478,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6098,6 +6498,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6119,6 +6520,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6140,6 +6542,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6162,6 +6565,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     codebaseNormalized,
   }) {
     return gotGitUser(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -6175,6 +6579,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6182,6 +6587,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6190,6 +6596,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6198,6 +6605,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6207,6 +6615,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6217,6 +6626,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6228,6 +6638,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6240,6 +6651,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6250,6 +6662,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6264,6 +6677,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6279,6 +6693,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6295,6 +6710,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6312,6 +6728,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6329,6 +6746,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6347,6 +6765,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6366,6 +6785,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6385,6 +6805,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6406,6 +6827,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6427,6 +6849,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6449,6 +6872,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     codebaseNormalized,
   }) {
     return gotGitUser?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -6462,6 +6886,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6469,6 +6894,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6477,6 +6903,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6485,6 +6912,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6494,6 +6922,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6504,6 +6933,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6515,6 +6945,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6527,6 +6958,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6537,6 +6969,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6551,6 +6984,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6566,6 +7000,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6582,6 +7017,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6599,6 +7035,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6616,6 +7053,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6634,6 +7072,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6653,6 +7092,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6672,6 +7112,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6693,6 +7134,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6714,6 +7156,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -6738,6 +7181,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
   }) {
     if (gotGitUser != null) {
       return gotGitUser(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -6877,6 +7321,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
 
 abstract class GenerateFlowGotGitUser extends GenerateFlowState {
   factory GenerateFlowGotGitUser({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -6890,6 +7335,8 @@ abstract class GenerateFlowGotGitUser extends GenerateFlowState {
   factory GenerateFlowGotGitUser.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotGitUserImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -6919,6 +7366,7 @@ abstract class _$$GenerateFlowGotLastLocalCommitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -6951,6 +7399,7 @@ class __$$GenerateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -6961,6 +7410,11 @@ class __$$GenerateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotLastLocalCommitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -7026,6 +7480,7 @@ class __$$GenerateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
 class _$GenerateFlowGotLastLocalCommitImpl
     extends GenerateFlowGotLastLocalCommit {
   _$GenerateFlowGotLastLocalCommitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -7041,6 +7496,8 @@ class _$GenerateFlowGotLastLocalCommitImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotLastLocalCommitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -7062,7 +7519,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotLastLocalCommit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
+    return 'GenerateFlowState.gotLastLocalCommit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
   }
 
   @override
@@ -7070,6 +7527,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotLastLocalCommitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -7088,6 +7546,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -7113,6 +7572,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7120,6 +7580,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7128,6 +7589,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7136,6 +7598,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7145,6 +7608,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7155,6 +7619,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7166,6 +7631,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7178,6 +7644,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7188,6 +7655,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7202,6 +7670,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7217,6 +7686,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7233,6 +7703,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7250,6 +7721,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7267,6 +7739,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7285,6 +7758,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7304,6 +7778,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7323,6 +7798,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7344,6 +7820,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7365,6 +7842,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7387,6 +7865,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     codebaseNormalized,
   }) {
     return gotLastLocalCommit(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -7401,6 +7880,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7408,6 +7888,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7416,6 +7897,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7424,6 +7906,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7433,6 +7916,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7443,6 +7927,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7454,6 +7939,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7466,6 +7952,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7476,6 +7963,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7490,6 +7978,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7505,6 +7994,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7521,6 +8011,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7538,6 +8029,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7555,6 +8047,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7573,6 +8066,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7592,6 +8086,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7611,6 +8106,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7632,6 +8128,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7653,6 +8150,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7675,6 +8173,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     codebaseNormalized,
   }) {
     return gotLastLocalCommit?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -7689,6 +8188,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7696,6 +8196,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7704,6 +8205,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7712,6 +8214,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7721,6 +8224,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7731,6 +8235,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7742,6 +8247,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7754,6 +8260,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7764,6 +8271,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7778,6 +8286,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7793,6 +8302,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7809,6 +8319,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7826,6 +8337,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7843,6 +8355,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7861,6 +8374,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7880,6 +8394,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7899,6 +8414,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7920,6 +8436,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7941,6 +8458,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -7965,6 +8483,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
   }) {
     if (gotLastLocalCommit != null) {
       return gotLastLocalCommit(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -8105,6 +8624,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
 
 abstract class GenerateFlowGotLastLocalCommit extends GenerateFlowState {
   factory GenerateFlowGotLastLocalCommit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -8119,6 +8639,8 @@ abstract class GenerateFlowGotLastLocalCommit extends GenerateFlowState {
   factory GenerateFlowGotLastLocalCommit.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotLastLocalCommitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -8151,6 +8673,7 @@ abstract class _$$GenerateFlowGotProjectOriginUrlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -8184,6 +8707,7 @@ class __$$GenerateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -8195,6 +8719,11 @@ class __$$GenerateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotProjectOriginUrlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -8265,6 +8794,7 @@ class __$$GenerateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
 class _$GenerateFlowGotProjectOriginUrlImpl
     extends GenerateFlowGotProjectOriginUrl {
   _$GenerateFlowGotProjectOriginUrlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -8281,6 +8811,8 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotProjectOriginUrlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -8304,7 +8836,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotProjectOriginUrl(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
+    return 'GenerateFlowState.gotProjectOriginUrl(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
   }
 
   @override
@@ -8312,6 +8844,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotProjectOriginUrlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -8332,6 +8865,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -8358,6 +8892,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8365,6 +8900,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8373,6 +8909,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8381,6 +8918,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8390,6 +8928,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8400,6 +8939,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8411,6 +8951,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8423,6 +8964,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8433,6 +8975,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8447,6 +8990,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8462,6 +9006,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8478,6 +9023,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8495,6 +9041,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8512,6 +9059,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8530,6 +9078,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8549,6 +9098,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8568,6 +9118,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8589,6 +9140,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8610,6 +9162,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8632,6 +9185,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     codebaseNormalized,
   }) {
     return gotProjectOriginUrl(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -8647,6 +9201,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8654,6 +9209,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8662,6 +9218,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8670,6 +9227,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8679,6 +9237,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8689,6 +9248,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8700,6 +9260,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8712,6 +9273,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8722,6 +9284,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8736,6 +9299,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8751,6 +9315,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8767,6 +9332,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8784,6 +9350,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8801,6 +9368,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8819,6 +9387,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8838,6 +9407,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8857,6 +9427,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8878,6 +9449,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8899,6 +9471,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8921,6 +9494,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     codebaseNormalized,
   }) {
     return gotProjectOriginUrl?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -8936,6 +9510,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8943,6 +9518,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8951,6 +9527,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8959,6 +9536,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8968,6 +9546,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8978,6 +9557,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -8989,6 +9569,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9001,6 +9582,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9011,6 +9593,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9025,6 +9608,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9040,6 +9624,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9056,6 +9641,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9073,6 +9659,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9090,6 +9677,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9108,6 +9696,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9127,6 +9716,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9146,6 +9736,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9167,6 +9758,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9188,6 +9780,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9212,6 +9805,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
   }) {
     if (gotProjectOriginUrl != null) {
       return gotProjectOriginUrl(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -9353,6 +9947,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
 
 abstract class GenerateFlowGotProjectOriginUrl extends GenerateFlowState {
   factory GenerateFlowGotProjectOriginUrl({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -9368,6 +9963,8 @@ abstract class GenerateFlowGotProjectOriginUrl extends GenerateFlowState {
   factory GenerateFlowGotProjectOriginUrl.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotProjectOriginUrlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -9401,6 +9998,7 @@ abstract class _$$GenerateFlowGotGitVariablesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -9430,6 +10028,7 @@ class __$$GenerateFlowGotGitVariablesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -9439,6 +10038,11 @@ class __$$GenerateFlowGotGitVariablesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotGitVariablesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -9508,6 +10112,7 @@ class __$$GenerateFlowGotGitVariablesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   _$GenerateFlowGotGitVariablesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -9522,6 +10127,8 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotGitVariablesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -9541,7 +10148,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotGitVariables(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
+    return 'GenerateFlowState.gotGitVariables(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
   }
 
   @override
@@ -9549,6 +10156,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotGitVariablesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -9566,6 +10174,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -9588,6 +10197,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9595,6 +10205,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9603,6 +10214,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9611,6 +10223,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9620,6 +10233,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9630,6 +10244,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9641,6 +10256,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9653,6 +10269,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9663,6 +10280,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9677,6 +10295,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9692,6 +10311,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9708,6 +10328,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9725,6 +10346,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9742,6 +10364,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9760,6 +10383,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9779,6 +10403,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9798,6 +10423,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9819,6 +10445,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9840,6 +10467,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9862,6 +10490,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     codebaseNormalized,
   }) {
     return gotGitVariables(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -9875,6 +10504,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9882,6 +10512,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9890,6 +10521,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9898,6 +10530,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9907,6 +10540,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9917,6 +10551,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9928,6 +10563,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9940,6 +10576,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9950,6 +10587,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9964,6 +10602,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9979,6 +10618,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -9995,6 +10635,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10012,6 +10653,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10029,6 +10671,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10047,6 +10690,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10066,6 +10710,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10085,6 +10730,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10106,6 +10752,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10127,6 +10774,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10149,6 +10797,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     codebaseNormalized,
   }) {
     return gotGitVariables?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -10162,6 +10811,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10169,6 +10819,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10177,6 +10828,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10185,6 +10837,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10194,6 +10847,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10204,6 +10858,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10215,6 +10870,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10227,6 +10883,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10237,6 +10894,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10251,6 +10909,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10266,6 +10925,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10282,6 +10942,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10299,6 +10960,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10316,6 +10978,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10334,6 +10997,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10353,6 +11017,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10372,6 +11037,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10393,6 +11059,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10414,6 +11081,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10438,6 +11106,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
   }) {
     if (gotGitVariables != null) {
       return gotGitVariables(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -10577,6 +11246,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
 
 abstract class GenerateFlowGotGitVariables extends GenerateFlowState {
   factory GenerateFlowGotGitVariables({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -10590,6 +11260,8 @@ abstract class GenerateFlowGotGitVariables extends GenerateFlowState {
   factory GenerateFlowGotGitVariables.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotGitVariablesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -10619,6 +11291,7 @@ abstract class _$$GenerateFlowGotAppLanguagesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -10651,6 +11324,7 @@ class __$$GenerateFlowGotAppLanguagesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -10663,6 +11337,11 @@ class __$$GenerateFlowGotAppLanguagesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotAppLanguagesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -10747,6 +11426,7 @@ class __$$GenerateFlowGotAppLanguagesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   _$GenerateFlowGotAppLanguagesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -10766,6 +11446,8 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotAppLanguagesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -10798,7 +11480,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotAppLanguages(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink)';
+    return 'GenerateFlowState.gotAppLanguages(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink)';
   }
 
   @override
@@ -10806,6 +11488,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotAppLanguagesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -10831,6 +11514,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -10856,6 +11540,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10863,6 +11548,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10871,6 +11557,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10879,6 +11566,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10888,6 +11576,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10898,6 +11587,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10909,6 +11599,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10921,6 +11612,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10931,6 +11623,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10945,6 +11638,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10960,6 +11654,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10976,6 +11671,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -10993,6 +11689,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11010,6 +11707,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11028,6 +11726,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11047,6 +11746,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11066,6 +11766,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11087,6 +11788,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11108,6 +11810,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11130,6 +11833,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     codebaseNormalized,
   }) {
     return gotAppLanguages(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -11146,6 +11850,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11153,6 +11858,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11161,6 +11867,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11169,6 +11876,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11178,6 +11886,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11188,6 +11897,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11199,6 +11909,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11211,6 +11922,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11221,6 +11933,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11235,6 +11948,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11250,6 +11964,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11266,6 +11981,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11283,6 +11999,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11300,6 +12017,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11318,6 +12036,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11337,6 +12056,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11356,6 +12076,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11377,6 +12098,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11398,6 +12120,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11420,6 +12143,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     codebaseNormalized,
   }) {
     return gotAppLanguages?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -11436,6 +12160,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11443,6 +12168,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11451,6 +12177,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11459,6 +12186,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11468,6 +12196,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11478,6 +12207,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11489,6 +12219,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11501,6 +12232,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11511,6 +12243,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11525,6 +12258,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11540,6 +12274,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11556,6 +12291,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11573,6 +12309,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11590,6 +12327,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11608,6 +12346,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11627,6 +12366,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11646,6 +12386,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11667,6 +12408,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11688,6 +12430,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -11712,6 +12455,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   }) {
     if (gotAppLanguages != null) {
       return gotAppLanguages(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -11854,6 +12598,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
 
 abstract class GenerateFlowGotAppLanguages extends GenerateFlowState {
   factory GenerateFlowGotAppLanguages({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -11871,6 +12616,8 @@ abstract class GenerateFlowGotAppLanguages extends GenerateFlowState {
   factory GenerateFlowGotAppLanguages.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotAppLanguagesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -11904,6 +12651,7 @@ abstract class _$$GenerateFlowDownloadReferenceArbImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -11940,6 +12688,7 @@ class __$$GenerateFlowDownloadReferenceArbImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -11953,6 +12702,11 @@ class __$$GenerateFlowDownloadReferenceArbImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowDownloadReferenceArbImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -12043,6 +12797,7 @@ class __$$GenerateFlowDownloadReferenceArbImplCopyWithImpl<$Res>
 class _$GenerateFlowDownloadReferenceArbImpl
     extends GenerateFlowDownloadReferenceArb {
   _$GenerateFlowDownloadReferenceArbImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -12064,6 +12819,8 @@ class _$GenerateFlowDownloadReferenceArbImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowDownloadReferenceArbImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -12103,7 +12860,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.downloadReferenceArb(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap)';
+    return 'GenerateFlowState.downloadReferenceArb(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap)';
   }
 
   @override
@@ -12111,6 +12868,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowDownloadReferenceArbImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -12140,6 +12898,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -12168,6 +12927,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12175,6 +12935,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12183,6 +12944,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12191,6 +12953,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12200,6 +12963,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12210,6 +12974,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12221,6 +12986,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12233,6 +12999,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12243,6 +13010,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12257,6 +13025,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12272,6 +13041,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12288,6 +13058,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12305,6 +13076,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12322,6 +13094,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12340,6 +13113,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12359,6 +13133,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12378,6 +13153,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12399,6 +13175,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12420,6 +13197,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12442,6 +13220,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     codebaseNormalized,
   }) {
     return downloadReferenceArb(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -12459,6 +13238,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12466,6 +13246,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12474,6 +13255,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12482,6 +13264,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12491,6 +13274,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12501,6 +13285,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12512,6 +13297,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12524,6 +13310,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12534,6 +13321,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12548,6 +13336,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12563,6 +13352,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12579,6 +13369,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12596,6 +13387,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12613,6 +13405,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12631,6 +13424,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12650,6 +13444,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12669,6 +13464,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12690,6 +13486,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12711,6 +13508,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12733,6 +13531,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     codebaseNormalized,
   }) {
     return downloadReferenceArb?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -12750,6 +13549,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12757,6 +13557,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12765,6 +13566,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12773,6 +13575,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12782,6 +13585,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12792,6 +13596,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12803,6 +13608,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12815,6 +13621,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12825,6 +13632,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12839,6 +13647,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12854,6 +13663,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12870,6 +13680,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12887,6 +13698,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12904,6 +13716,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12922,6 +13735,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12941,6 +13755,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12960,6 +13775,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -12981,6 +13797,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13002,6 +13819,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13026,6 +13844,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   }) {
     if (downloadReferenceArb != null) {
       return downloadReferenceArb(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -13169,6 +13988,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
 
 abstract class GenerateFlowDownloadReferenceArb extends GenerateFlowState {
   factory GenerateFlowDownloadReferenceArb({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -13187,6 +14007,8 @@ abstract class GenerateFlowDownloadReferenceArb extends GenerateFlowState {
   factory GenerateFlowDownloadReferenceArb.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowDownloadReferenceArbImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -13223,6 +14045,7 @@ abstract class _$$GenerateFlowProjectCacheMapImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -13257,6 +14080,7 @@ class __$$GenerateFlowProjectCacheMapImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -13271,6 +14095,11 @@ class __$$GenerateFlowProjectCacheMapImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowProjectCacheMapImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -13365,6 +14194,7 @@ class __$$GenerateFlowProjectCacheMapImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   _$GenerateFlowProjectCacheMapImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -13387,6 +14217,8 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     Map<String, dynamic> json,
   ) => _$$GenerateFlowProjectCacheMapImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -13429,7 +14261,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
 
   @override
   String toString() {
-    return 'GenerateFlowState.projectCacheMap(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap)';
+    return 'GenerateFlowState.projectCacheMap(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap)';
   }
 
   @override
@@ -13437,6 +14269,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowProjectCacheMapImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -13468,6 +14301,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -13495,6 +14329,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13502,6 +14337,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13510,6 +14346,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13518,6 +14355,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13527,6 +14365,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13537,6 +14376,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13548,6 +14388,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13560,6 +14401,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13570,6 +14412,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13584,6 +14427,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13599,6 +14443,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13615,6 +14460,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13632,6 +14478,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13649,6 +14496,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13667,6 +14515,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13686,6 +14535,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13705,6 +14555,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13726,6 +14577,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13747,6 +14599,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13769,6 +14622,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     codebaseNormalized,
   }) {
     return projectCacheMap(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -13787,6 +14641,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13794,6 +14649,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13802,6 +14658,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13810,6 +14667,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13819,6 +14677,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13829,6 +14688,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13840,6 +14700,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13852,6 +14713,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13862,6 +14724,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13876,6 +14739,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13891,6 +14755,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13907,6 +14772,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13924,6 +14790,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13941,6 +14808,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13959,6 +14827,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13978,6 +14847,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -13997,6 +14867,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14018,6 +14889,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14039,6 +14911,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14061,6 +14934,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     codebaseNormalized,
   }) {
     return projectCacheMap?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -14079,6 +14953,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14086,6 +14961,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14094,6 +14970,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14102,6 +14979,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14111,6 +14989,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14121,6 +15000,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14132,6 +15012,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14144,6 +15025,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14154,6 +15036,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14168,6 +15051,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14183,6 +15067,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14199,6 +15084,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14216,6 +15102,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14233,6 +15120,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14251,6 +15139,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14270,6 +15159,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14289,6 +15179,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14310,6 +15201,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14331,6 +15223,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14355,6 +15248,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   }) {
     if (projectCacheMap != null) {
       return projectCacheMap(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -14499,6 +15393,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
 
 abstract class GenerateFlowProjectCacheMap extends GenerateFlowState {
   factory GenerateFlowProjectCacheMap({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -14518,6 +15413,8 @@ abstract class GenerateFlowProjectCacheMap extends GenerateFlowState {
   factory GenerateFlowProjectCacheMap.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowProjectCacheMapImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -14553,6 +15450,7 @@ abstract class _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -14593,6 +15491,7 @@ class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -14608,6 +15507,11 @@ class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowResolvedProjectCacheTranslationImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -14721,6 +15625,7 @@ class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
 class _$GenerateFlowResolvedProjectCacheTranslationImpl
     extends GenerateFlowResolvedProjectCacheTranslation {
   _$GenerateFlowResolvedProjectCacheTranslationImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -14744,6 +15649,8 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -14788,7 +15695,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.resolvedProjectCacheTranslation(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
+    return 'GenerateFlowState.resolvedProjectCacheTranslation(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
   }
 
   @override
@@ -14796,6 +15703,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowResolvedProjectCacheTranslationImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -14833,6 +15741,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -14864,6 +15773,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14871,6 +15781,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14879,6 +15790,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14887,6 +15799,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14896,6 +15809,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14906,6 +15820,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14917,6 +15832,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14929,6 +15845,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14939,6 +15856,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14953,6 +15871,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14968,6 +15887,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -14984,6 +15904,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15001,6 +15922,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15018,6 +15940,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15036,6 +15959,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15055,6 +15979,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15074,6 +15999,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15095,6 +16021,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15116,6 +16043,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15138,6 +16066,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     codebaseNormalized,
   }) {
     return resolvedProjectCacheTranslation(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -15157,6 +16086,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15164,6 +16094,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15172,6 +16103,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15180,6 +16112,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15189,6 +16122,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15199,6 +16133,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15210,6 +16145,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15222,6 +16158,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15232,6 +16169,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15246,6 +16184,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15261,6 +16200,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15277,6 +16217,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15294,6 +16235,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15311,6 +16253,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15329,6 +16272,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15348,6 +16292,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15367,6 +16312,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15388,6 +16334,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15409,6 +16356,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15431,6 +16379,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     codebaseNormalized,
   }) {
     return resolvedProjectCacheTranslation?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -15450,6 +16399,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15457,6 +16407,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15465,6 +16416,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15473,6 +16425,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15482,6 +16435,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15492,6 +16446,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15503,6 +16458,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15515,6 +16471,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15525,6 +16482,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15539,6 +16497,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15554,6 +16513,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15570,6 +16530,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15587,6 +16548,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15604,6 +16566,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15622,6 +16585,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15641,6 +16605,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15660,6 +16625,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15681,6 +16647,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15702,6 +16669,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -15726,6 +16694,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   }) {
     if (resolvedProjectCacheTranslation != null) {
       return resolvedProjectCacheTranslation(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -15872,6 +16841,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
 abstract class GenerateFlowResolvedProjectCacheTranslation
     extends GenerateFlowState {
   factory GenerateFlowResolvedProjectCacheTranslation({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -15893,6 +16863,8 @@ abstract class GenerateFlowResolvedProjectCacheTranslation
     Map<String, dynamic> json,
   ) = _$GenerateFlowResolvedProjectCacheTranslationImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -15931,6 +16903,7 @@ abstract class _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -15971,6 +16944,7 @@ class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -15986,6 +16960,11 @@ class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -16099,6 +17078,7 @@ class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
 class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     extends GenerateFlowEnsuredNoStaticErrorOnDartFiles {
   _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -16122,6 +17102,8 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -16166,7 +17148,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
+    return 'GenerateFlowState.ensuredTheresNoStaticErrorOnDartFiles(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo)';
   }
 
   @override
@@ -16174,6 +17156,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -16211,6 +17194,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -16242,6 +17226,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16249,6 +17234,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16257,6 +17243,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16265,6 +17252,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16274,6 +17262,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16284,6 +17273,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16295,6 +17285,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16307,6 +17298,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16317,6 +17309,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16331,6 +17324,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16346,6 +17340,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16362,6 +17357,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16379,6 +17375,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16396,6 +17393,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16414,6 +17412,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16433,6 +17432,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16452,6 +17452,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16473,6 +17474,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16494,6 +17496,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16516,6 +17519,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     codebaseNormalized,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -16535,6 +17539,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16542,6 +17547,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16550,6 +17556,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16558,6 +17565,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16567,6 +17575,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16577,6 +17586,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16588,6 +17598,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16600,6 +17611,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16610,6 +17622,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16624,6 +17637,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16639,6 +17653,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16655,6 +17670,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16672,6 +17688,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16689,6 +17706,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16707,6 +17725,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16726,6 +17745,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16745,6 +17765,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16766,6 +17787,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16787,6 +17809,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16809,6 +17832,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     codebaseNormalized,
   }) {
     return ensuredTheresNoStaticErrorOnDartFiles?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -16828,6 +17852,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16835,6 +17860,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16843,6 +17869,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16851,6 +17878,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16860,6 +17888,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16870,6 +17899,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16881,6 +17911,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16893,6 +17924,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16903,6 +17935,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16917,6 +17950,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16932,6 +17966,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16948,6 +17983,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16965,6 +18001,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -16982,6 +18019,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17000,6 +18038,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17019,6 +18058,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17038,6 +18078,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17059,6 +18100,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17080,6 +18122,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17104,6 +18147,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   }) {
     if (ensuredTheresNoStaticErrorOnDartFiles != null) {
       return ensuredTheresNoStaticErrorOnDartFiles(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -17250,6 +18294,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
 abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
     extends GenerateFlowState {
   factory GenerateFlowEnsuredNoStaticErrorOnDartFiles({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -17271,6 +18316,8 @@ abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
     Map<String, dynamic> json,
   ) = _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -17309,6 +18356,7 @@ abstract class _$$GenerateFlowGotTargetFilesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -17347,6 +18395,7 @@ class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -17363,6 +18412,11 @@ class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotTargetFilesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -17492,6 +18546,7 @@ class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   _$GenerateFlowGotTargetFilesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -17516,6 +18571,8 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotTargetFilesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -17562,7 +18619,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotTargetFiles(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState)';
+    return 'GenerateFlowState.gotTargetFiles(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState)';
   }
 
   @override
@@ -17570,6 +18627,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotTargetFilesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -17609,6 +18667,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -17638,6 +18697,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17645,6 +18705,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17653,6 +18714,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17661,6 +18723,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17670,6 +18733,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17680,6 +18744,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17691,6 +18756,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17703,6 +18769,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17713,6 +18780,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17727,6 +18795,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17742,6 +18811,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17758,6 +18828,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17775,6 +18846,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17792,6 +18864,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17810,6 +18883,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17829,6 +18903,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17848,6 +18923,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17869,6 +18945,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17890,6 +18967,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17912,6 +18990,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     codebaseNormalized,
   }) {
     return gotTargetFiles(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -17932,6 +19011,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17939,6 +19019,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17947,6 +19028,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17955,6 +19037,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17964,6 +19047,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17974,6 +19058,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17985,6 +19070,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -17997,6 +19083,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18007,6 +19094,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18021,6 +19109,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18036,6 +19125,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18052,6 +19142,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18069,6 +19160,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18086,6 +19178,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18104,6 +19197,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18123,6 +19217,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18142,6 +19237,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18163,6 +19259,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18184,6 +19281,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18206,6 +19304,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     codebaseNormalized,
   }) {
     return gotTargetFiles?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -18226,6 +19325,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18233,6 +19333,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18241,6 +19342,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18249,6 +19351,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18258,6 +19361,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18268,6 +19372,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18279,6 +19384,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18291,6 +19397,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18301,6 +19408,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18315,6 +19423,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18330,6 +19439,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18346,6 +19456,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18363,6 +19474,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18380,6 +19492,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18398,6 +19511,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18417,6 +19531,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18436,6 +19551,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18457,6 +19573,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18478,6 +19595,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -18502,6 +19620,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   }) {
     if (gotTargetFiles != null) {
       return gotTargetFiles(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -18648,6 +19767,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
 
 abstract class GenerateFlowGotTargetFiles extends GenerateFlowState {
   factory GenerateFlowGotTargetFiles({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -18669,6 +19789,8 @@ abstract class GenerateFlowGotTargetFiles extends GenerateFlowState {
   factory GenerateFlowGotTargetFiles.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotTargetFilesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -18706,6 +19828,7 @@ abstract class _$$GenerateFlowGotL10nProjectConfigImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -18749,6 +19872,7 @@ class __$$GenerateFlowGotL10nProjectConfigImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -18766,6 +19890,11 @@ class __$$GenerateFlowGotL10nProjectConfigImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowGotL10nProjectConfigImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -18911,6 +20040,7 @@ class __$$GenerateFlowGotL10nProjectConfigImplCopyWithImpl<$Res>
 class _$GenerateFlowGotL10nProjectConfigImpl
     extends GenerateFlowGotL10nProjectConfig {
   _$GenerateFlowGotL10nProjectConfigImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -18936,6 +20066,8 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowGotL10nProjectConfigImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -18984,7 +20116,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.gotL10nProjectConfig(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, l10nProjectConfig: $l10nProjectConfig)';
+    return 'GenerateFlowState.gotL10nProjectConfig(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, l10nProjectConfig: $l10nProjectConfig)';
   }
 
   @override
@@ -18992,6 +20124,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowGotL10nProjectConfigImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -19033,6 +20166,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -19065,6 +20199,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19072,6 +20207,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19080,6 +20216,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19088,6 +20225,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19097,6 +20235,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19107,6 +20246,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19118,6 +20258,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19130,6 +20271,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19140,6 +20282,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19154,6 +20297,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19169,6 +20313,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19185,6 +20330,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19202,6 +20348,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19219,6 +20366,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19237,6 +20385,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19256,6 +20405,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19275,6 +20425,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19296,6 +20447,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19317,6 +20469,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19339,6 +20492,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     codebaseNormalized,
   }) {
     return gotL10nProjectConfig(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -19360,6 +20514,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19367,6 +20522,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19375,6 +20531,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19383,6 +20540,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19392,6 +20550,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19402,6 +20561,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19413,6 +20573,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19425,6 +20586,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19435,6 +20597,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19449,6 +20612,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19464,6 +20628,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19480,6 +20645,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19497,6 +20663,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19514,6 +20681,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19532,6 +20700,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19551,6 +20720,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19570,6 +20740,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19591,6 +20762,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19612,6 +20784,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19634,6 +20807,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     codebaseNormalized,
   }) {
     return gotL10nProjectConfig?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -19655,6 +20829,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19662,6 +20837,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19670,6 +20846,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19678,6 +20855,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19687,6 +20865,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19697,6 +20876,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19708,6 +20888,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19720,6 +20901,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19730,6 +20912,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19744,6 +20927,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19759,6 +20943,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19775,6 +20960,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19792,6 +20978,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19809,6 +20996,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19827,6 +21015,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19846,6 +21035,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19865,6 +21055,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19886,6 +21077,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19907,6 +21099,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -19931,6 +21124,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   }) {
     if (gotL10nProjectConfig != null) {
       return gotL10nProjectConfig(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -20078,6 +21272,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
 
 abstract class GenerateFlowGotL10nProjectConfig extends GenerateFlowState {
   factory GenerateFlowGotL10nProjectConfig({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -20100,6 +21295,8 @@ abstract class GenerateFlowGotL10nProjectConfig extends GenerateFlowState {
   factory GenerateFlowGotL10nProjectConfig.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowGotL10nProjectConfigImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -20140,6 +21337,7 @@ abstract class _$$GenerateFlowMappedProjectArbDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -20183,6 +21381,7 @@ class __$$GenerateFlowMappedProjectArbDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -20200,6 +21399,11 @@ class __$$GenerateFlowMappedProjectArbDataImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowMappedProjectArbDataImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -20345,6 +21549,7 @@ class __$$GenerateFlowMappedProjectArbDataImplCopyWithImpl<$Res>
 class _$GenerateFlowMappedProjectArbDataImpl
     extends GenerateFlowMappedProjectArbData {
   _$GenerateFlowMappedProjectArbDataImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -20370,6 +21575,8 @@ class _$GenerateFlowMappedProjectArbDataImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowMappedProjectArbDataImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -20418,7 +21625,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.mappedProjectArbData(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData)';
+    return 'GenerateFlowState.mappedProjectArbData(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData)';
   }
 
   @override
@@ -20426,6 +21633,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowMappedProjectArbDataImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -20467,6 +21675,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -20499,6 +21708,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20506,6 +21716,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20514,6 +21725,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20522,6 +21734,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20531,6 +21744,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20541,6 +21755,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20552,6 +21767,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20564,6 +21780,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20574,6 +21791,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20588,6 +21806,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20603,6 +21822,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20619,6 +21839,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20636,6 +21857,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20653,6 +21875,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20671,6 +21894,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20690,6 +21914,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20709,6 +21934,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20730,6 +21956,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20751,6 +21978,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20773,6 +22001,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     codebaseNormalized,
   }) {
     return mappedProjectArbData(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -20794,6 +22023,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20801,6 +22031,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20809,6 +22040,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20817,6 +22049,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20826,6 +22059,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20836,6 +22070,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20847,6 +22082,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20859,6 +22095,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20869,6 +22106,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20883,6 +22121,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20898,6 +22137,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20914,6 +22154,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20931,6 +22172,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20948,6 +22190,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20966,6 +22209,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -20985,6 +22229,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21004,6 +22249,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21025,6 +22271,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21046,6 +22293,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21068,6 +22316,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     codebaseNormalized,
   }) {
     return mappedProjectArbData?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -21089,6 +22338,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21096,6 +22346,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21104,6 +22355,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21112,6 +22364,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21121,6 +22374,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21131,6 +22385,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21142,6 +22397,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21154,6 +22410,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21164,6 +22421,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21178,6 +22436,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21193,6 +22452,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21209,6 +22469,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21226,6 +22487,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21243,6 +22505,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21261,6 +22524,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21280,6 +22544,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21299,6 +22564,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21320,6 +22586,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21341,6 +22608,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -21365,6 +22633,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   }) {
     if (mappedProjectArbData != null) {
       return mappedProjectArbData(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -21512,6 +22781,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
 
 abstract class GenerateFlowMappedProjectArbData extends GenerateFlowState {
   factory GenerateFlowMappedProjectArbData({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -21534,6 +22804,8 @@ abstract class GenerateFlowMappedProjectArbData extends GenerateFlowState {
   factory GenerateFlowMappedProjectArbData.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowMappedProjectArbDataImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -21579,6 +22851,7 @@ abstract class _$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWith<
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -21626,6 +22899,7 @@ class __$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -21645,6 +22919,11 @@ class __$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowResolvedProjectArbTranslationPayloadImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -21813,6 +23092,7 @@ class __$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWithImpl<$Res>
 class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     extends GenerateFlowResolvedProjectArbTranslationPayload {
   _$GenerateFlowResolvedProjectArbTranslationPayloadImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -21841,6 +23121,8 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowResolvedProjectArbTranslationPayloadImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -21899,7 +23181,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.resolvedProjectArbTranslationPayload(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
+    return 'GenerateFlowState.resolvedProjectArbTranslationPayload(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
   }
 
   @override
@@ -21907,6 +23189,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowResolvedProjectArbTranslationPayloadImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -21958,6 +23241,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -21993,6 +23277,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22000,6 +23285,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22008,6 +23294,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22016,6 +23303,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22025,6 +23313,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22035,6 +23324,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22046,6 +23336,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22058,6 +23349,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22068,6 +23360,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22082,6 +23375,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22097,6 +23391,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22113,6 +23408,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22130,6 +23426,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22147,6 +23444,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22165,6 +23463,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22184,6 +23483,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22203,6 +23503,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22224,6 +23525,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22245,6 +23547,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22267,6 +23570,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     codebaseNormalized,
   }) {
     return resolvedProjectArbTranslationPayload(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -22290,6 +23594,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22297,6 +23602,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22305,6 +23611,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22313,6 +23620,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22322,6 +23630,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22332,6 +23641,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22343,6 +23653,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22355,6 +23666,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22365,6 +23677,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22379,6 +23692,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22394,6 +23708,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22410,6 +23725,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22427,6 +23743,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22444,6 +23761,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22462,6 +23780,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22481,6 +23800,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22500,6 +23820,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22521,6 +23842,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22542,6 +23864,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22564,6 +23887,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     codebaseNormalized,
   }) {
     return resolvedProjectArbTranslationPayload?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -22587,6 +23911,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22594,6 +23919,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22602,6 +23928,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22610,6 +23937,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22619,6 +23947,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22629,6 +23958,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22640,6 +23970,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22652,6 +23983,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22662,6 +23994,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22676,6 +24009,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22691,6 +24025,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22707,6 +24042,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22724,6 +24060,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22741,6 +24078,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22759,6 +24097,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22778,6 +24117,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22797,6 +24137,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22818,6 +24159,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22839,6 +24181,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -22863,6 +24206,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   }) {
     if (resolvedProjectArbTranslationPayload != null) {
       return resolvedProjectArbTranslationPayload(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -23013,6 +24357,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
 abstract class GenerateFlowResolvedProjectArbTranslationPayload
     extends GenerateFlowState {
   factory GenerateFlowResolvedProjectArbTranslationPayload({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -23038,6 +24383,8 @@ abstract class GenerateFlowResolvedProjectArbTranslationPayload
     Map<String, dynamic> json,
   ) = _$GenerateFlowResolvedProjectArbTranslationPayloadImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -23089,6 +24436,7 @@ abstract class _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunc
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -23144,6 +24492,7 @@ class __$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImp
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -23163,6 +24512,11 @@ class __$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImp
   }) {
     return _then(
       _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -23332,6 +24686,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     extends
         GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions {
   _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -23364,6 +24719,8 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
         json,
       );
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -23422,7 +24779,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.replacedAllL10nKeyReferencesInCodebaseForBabelFunctions(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
+    return 'GenerateFlowState.replacedAllL10nKeyReferencesInCodebaseForBabelFunctions(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
   }
 
   @override
@@ -23431,6 +24788,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
         (other.runtimeType == runtimeType &&
             other
                 is _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -23482,6 +24840,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -23517,6 +24876,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23524,6 +24884,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23532,6 +24893,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23540,6 +24902,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23549,6 +24912,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23559,6 +24923,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23570,6 +24935,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23582,6 +24948,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23592,6 +24959,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23606,6 +24974,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23621,6 +24990,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23637,6 +25007,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23654,6 +25025,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23671,6 +25043,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23689,6 +25062,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23708,6 +25082,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23727,6 +25102,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23748,6 +25124,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23769,6 +25146,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23791,6 +25169,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     codebaseNormalized,
   }) {
     return replacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -23814,6 +25193,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23821,6 +25201,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23829,6 +25210,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23837,6 +25219,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23846,6 +25229,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23856,6 +25240,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23867,6 +25252,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23879,6 +25265,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23889,6 +25276,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23903,6 +25291,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23918,6 +25307,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23934,6 +25324,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23951,6 +25342,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23968,6 +25360,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -23986,6 +25379,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24005,6 +25399,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24024,6 +25419,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24045,6 +25441,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24066,6 +25463,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24088,6 +25486,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     codebaseNormalized,
   }) {
     return replacedAllL10nKeyReferencesInCodebaseForBabelFunctions?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -24111,6 +25510,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24118,6 +25518,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24126,6 +25527,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24134,6 +25536,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24143,6 +25546,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24153,6 +25557,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24164,6 +25569,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24176,6 +25582,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24186,6 +25593,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24200,6 +25608,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24215,6 +25624,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24231,6 +25641,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24248,6 +25659,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24265,6 +25677,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24283,6 +25696,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24302,6 +25716,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24321,6 +25736,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24342,6 +25758,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24363,6 +25780,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -24387,6 +25805,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   }) {
     if (replacedAllL10nKeyReferencesInCodebaseForBabelFunctions != null) {
       return replacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -24539,6 +25958,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
 abstract class GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions
     extends GenerateFlowState {
   factory GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -24567,6 +25987,8 @@ abstract class GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctio
   ) =
       _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -24609,6 +26031,7 @@ abstract class _$$GenerateFlowCodebaseNormalizedImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -24655,6 +26078,7 @@ class __$$GenerateFlowCodebaseNormalizedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? inputedByUserLocale = null,
@@ -24674,6 +26098,11 @@ class __$$GenerateFlowCodebaseNormalizedImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$GenerateFlowCodebaseNormalizedImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -24842,6 +26271,7 @@ class __$$GenerateFlowCodebaseNormalizedImplCopyWithImpl<$Res>
 class _$GenerateFlowCodebaseNormalizedImpl
     extends GenerateFlowCodebaseNormalized {
   _$GenerateFlowCodebaseNormalizedImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
@@ -24870,6 +26300,8 @@ class _$GenerateFlowCodebaseNormalizedImpl
     Map<String, dynamic> json,
   ) => _$$GenerateFlowCodebaseNormalizedImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -24928,7 +26360,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
 
   @override
   String toString() {
-    return 'GenerateFlowState.codebaseNormalized(accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
+    return 'GenerateFlowState.codebaseNormalized(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo)';
   }
 
   @override
@@ -24936,6 +26368,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GenerateFlowCodebaseNormalizedImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -24987,6 +26420,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     inputedByUserLocale,
@@ -25021,6 +26455,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25028,6 +26463,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25036,6 +26472,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25044,6 +26481,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25053,6 +26491,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25063,6 +26502,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25074,6 +26514,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25086,6 +26527,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25096,6 +26538,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25110,6 +26553,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotAppLanguages,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25125,6 +26569,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     downloadReferenceArb,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25141,6 +26586,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     projectCacheMap,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25158,6 +26604,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     resolvedProjectCacheTranslation,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25175,6 +26622,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     ensuredTheresNoStaticErrorOnDartFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25193,6 +26641,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotTargetFiles,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25212,6 +26661,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     gotL10nProjectConfig,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25231,6 +26681,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     mappedProjectArbData,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25252,6 +26703,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     resolvedProjectArbTranslationPayload,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25273,6 +26725,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25295,6 +26748,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     codebaseNormalized,
   }) {
     return codebaseNormalized(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -25318,6 +26772,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25325,6 +26780,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25333,6 +26789,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25341,6 +26798,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25350,6 +26808,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25360,6 +26819,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25371,6 +26831,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25383,6 +26844,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25393,6 +26855,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25407,6 +26870,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotAppLanguages,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25422,6 +26886,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     downloadReferenceArb,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25438,6 +26903,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     projectCacheMap,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25455,6 +26921,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     resolvedProjectCacheTranslation,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25472,6 +26939,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25490,6 +26958,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotTargetFiles,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25509,6 +26978,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotL10nProjectConfig,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25528,6 +26998,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     mappedProjectArbData,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25549,6 +27020,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25570,6 +27042,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25592,6 +27065,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     codebaseNormalized,
   }) {
     return codebaseNormalized?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       inputedByUserLocale,
@@ -25615,6 +27089,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25622,6 +27097,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25630,6 +27106,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25638,6 +27115,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25647,6 +27125,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25657,6 +27136,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25668,6 +27148,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25680,6 +27161,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25690,6 +27172,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25704,6 +27187,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotAppLanguages,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25719,6 +27203,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     downloadReferenceArb,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25735,6 +27220,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     projectCacheMap,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25752,6 +27238,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     resolvedProjectCacheTranslation,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25769,6 +27256,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     ensuredTheresNoStaticErrorOnDartFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25787,6 +27275,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotTargetFiles,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25806,6 +27295,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     gotL10nProjectConfig,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25825,6 +27315,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     mappedProjectArbData,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25846,6 +27337,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     resolvedProjectArbTranslationPayload,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25867,6 +27359,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
     )?
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       @BabelSupportedLocalesJsonConverter()
@@ -25891,6 +27384,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   }) {
     if (codebaseNormalized != null) {
       return codebaseNormalized(
+        willLog,
         accountApiKey,
         directoryPath,
         inputedByUserLocale,
@@ -26040,6 +27534,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
 
 abstract class GenerateFlowCodebaseNormalized extends GenerateFlowState {
   factory GenerateFlowCodebaseNormalized({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     @BabelSupportedLocalesJsonConverter()
@@ -26064,6 +27559,8 @@ abstract class GenerateFlowCodebaseNormalized extends GenerateFlowState {
   factory GenerateFlowCodebaseNormalized.fromJson(Map<String, dynamic> json) =
       _$GenerateFlowCodebaseNormalizedImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override

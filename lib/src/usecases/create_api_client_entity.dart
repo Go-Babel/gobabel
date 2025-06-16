@@ -42,6 +42,7 @@ AsyncResult<GenerateFlowCreatedClient> generate_createClientEntity(
 ) {
   return createClientEntity().flatMap((client) {
     return GenerateFlowCreatedClient(
+      willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

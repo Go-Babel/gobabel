@@ -115,6 +115,7 @@ AsyncResult<GenerateFlowGotGitVariables> generate_getProjectGitDependencies(
 
   return gitVariablesResult.flatMap((gitVariables) {
     return GenerateFlowGotGitVariables(
+      willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

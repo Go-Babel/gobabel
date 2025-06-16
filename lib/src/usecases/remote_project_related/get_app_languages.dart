@@ -90,6 +90,7 @@ AsyncResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
     gitVariables: gitVariables,
   ).flatMap((response) {
     return GenerateFlowGotAppLanguages(
+      willLog: payload.willLog,
       accountApiKey: accountApiKey,
       directoryPath: directoryPath,
       inputedByUserLocale: inputedByUserLocale,

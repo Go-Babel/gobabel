@@ -49,6 +49,7 @@ AsyncResult<GenerateFlowDownloadReferenceArb> generate_downloadReferenceArb(
 
   return arbResult.flatMap((arbMap) {
     return GenerateFlowDownloadReferenceArb(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,

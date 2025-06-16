@@ -136,6 +136,7 @@ AsyncResult<GenerateFlowGotCodeBaseYaml> generate_getCodeBaseYamlInfo(
 
   return ensureGitResult.flatMap((yamlInfo) {
     return GenerateFlowGotCodeBaseYaml(
+      willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

@@ -68,6 +68,7 @@ generate_resolveProjectCacheTranslationPayload(
   return resolveProjectCacheTranslationPayload(payload.projectCacheMap).flatMap(
     (payloadInfo) {
       return GenerateFlowResolvedProjectCacheTranslation(
+        willLog: payload.willLog,
         referenceArbMap: payload.referenceArbMap,
         accountApiKey: payload.accountApiKey,
         directoryPath: payload.directoryPath,
