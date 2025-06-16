@@ -41,9 +41,8 @@ class MyTestWidget extends StatelessWidget {
   }
 }''';
 
-    final result = removeConstOfConstructorsWithDefaultStringInParameter(
-      target,
-    );
+    final result =
+        singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(target);
     print(result);
     expect(result, expected);
   });

@@ -1,8 +1,29 @@
+import 'dart:io';
+
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:meta/meta.dart';
+import 'package:result_dart/result_dart.dart';
 
-String removeConstOfConstructorsWithDefaultStringInParameter(
+AsyncResult<Unit>
+multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
+  required List<File> targetFiles,
+}) async {
+  for (final file in targetFiles) {
+    final source = await file.readAsString();
+    final transformed =
+        singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(source);
+    if (transformed != source) {
+      await file.writeAsString(transformed);
+    }
+  }
+
+  return Success(unit);
+}
+
+@visibleForTesting
+String singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(
   String dartFileContent,
 ) {
   try {
@@ -19,7 +40,9 @@ String removeConstOfConstructorsWithDefaultStringInParameter(
     parseResult.unit.accept(stringCollector);
 
     // Step 3: Find const constructors and check for overlap with hardcoded strings
-    final constructorVisitor = _ConstConstructorVisitor(stringCollector.hardcodedStrings);
+    final constructorVisitor = _ConstConstructorVisitor(
+      stringCollector.hardcodedStrings,
+    );
     parseResult.unit.accept(constructorVisitor);
 
     if (constructorVisitor.constKeywordsToRemove.isEmpty) {
@@ -27,7 +50,10 @@ String removeConstOfConstructorsWithDefaultStringInParameter(
     }
 
     // Step 4: Apply edits from end to start to preserve indices
-    return _applyEdits(dartFileContent, constructorVisitor.constKeywordsToRemove);
+    return _applyEdits(
+      dartFileContent,
+      constructorVisitor.constKeywordsToRemove,
+    );
   } catch (e) {
     // If any error occurs, return the original content
     return dartFileContent;
@@ -41,12 +67,7 @@ class _HardcodedStringCollector extends RecursiveAstVisitor<void> {
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
     if (_isHardcodedString(node)) {
-      hardcodedStrings.add(
-        _PositionRange(
-          start: node.offset,
-          end: node.end,
-        ),
-      );
+      hardcodedStrings.add(_PositionRange(start: node.offset, end: node.end));
     }
     super.visitSimpleStringLiteral(node);
   }
@@ -102,23 +123,21 @@ class _ConstConstructorVisitor extends RecursiveAstVisitor<void> {
     // Check if it's a const constructor
     final constKeyword = node.constKeyword;
     final parameters = node.parameters;
-    
-    if (constKeyword != null && parameters != null) {
+
+    if (constKeyword != null) {
       // Get the parameter list range
       final paramStart = parameters.offset;
       final paramEnd = parameters.end;
 
       // Check if any hardcoded string falls within the parameter range
       final hasHardcodedStringInParams = hardcodedStrings.any(
-        (stringPos) => stringPos.start >= paramStart && stringPos.end <= paramEnd,
+        (stringPos) =>
+            stringPos.start >= paramStart && stringPos.end <= paramEnd,
       );
 
       if (hasHardcodedStringInParams) {
         constKeywordsToRemove.add(
-          _ConstKeywordInfo(
-            start: constKeyword.offset,
-            end: constKeyword.end,
-          ),
+          _ConstKeywordInfo(start: constKeyword.offset, end: constKeyword.end),
         );
       }
     }

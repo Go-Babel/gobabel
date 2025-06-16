@@ -1,8 +1,28 @@
+import 'dart:io';
+
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:result_dart/result_dart.dart';
 
-String removeConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+AsyncResult<Unit>
+multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
+  required List<File> targetFiles,
+}) async {
+  for (final file in targetFiles) {
+    final source = await file.readAsString();
+    final transformed =
+        singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+          source,
+        );
+    if (transformed != source) {
+      await file.writeAsString(transformed);
+    }
+  }
+  return Success(unit);
+}
+
+String singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
   String dartFileContent,
 ) {
   try {

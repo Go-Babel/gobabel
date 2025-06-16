@@ -6,12 +6,14 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<void> removeAdjacentStringLiteralConcatenationUsecase({
+AsyncResult<Unit> multiRemoveAdjacentStringLiteralConcatenationUsecase({
   required List<File> targetFiles,
 }) async {
   for (final file in targetFiles) {
     final source = await file.readAsString();
-    final transformed = runForSingleFileContent(source);
+    final transformed = singleRemoveAdjacentStringLiteralConcatenationUsecase(
+      source,
+    );
     if (transformed != source) {
       await file.writeAsString(transformed);
     }
@@ -30,7 +32,7 @@ AsyncResult<void> removeAdjacentStringLiteralConcatenationUsecase({
 /// ```dart
 /// Text('Hello world!')
 /// ```
-String runForSingleFileContent(String source) {
+String singleRemoveAdjacentStringLiteralConcatenationUsecase(String source) {
   final parseResult = parseString(
     content: source,
     featureSet: FeatureSet.latestLanguageVersion(),

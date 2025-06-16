@@ -34,7 +34,9 @@ class MyTestWidget extends StatelessWidget {
 }''';
 
     final result =
-        removeConstOfListsSetsAndMapThatContainHardcodedStringsInside(target);
+        singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+          target,
+        );
     expect(result, expected);
   });
 }

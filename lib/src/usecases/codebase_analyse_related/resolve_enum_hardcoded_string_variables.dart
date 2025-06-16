@@ -5,12 +5,12 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<void> resolveEnumHardcodedStringsUsecase({
+AsyncResult<Unit> multiResolveEnumHardcodedStringsUsecase({
   required List<File> targetFiles,
 }) async {
   for (final file in targetFiles) {
     final source = await file.readAsString();
-    final transformed = resolve(source);
+    final transformed = resolveEnumHardcodedStringsUsecase(source);
     if (transformed != source) {
       await file.writeAsString(transformed);
     }
@@ -21,7 +21,7 @@ AsyncResult<void> resolveEnumHardcodedStringsUsecase({
 
 /// This function will move hardcoded strings that are variables of an enum
 /// to a String getter in the enum body.
-String resolve(String dartFileContent) {
+String resolveEnumHardcodedStringsUsecase(String dartFileContent) {
   try {
     final parseResult = parseString(content: dartFileContent);
     if (parseResult.errors.isNotEmpty) {

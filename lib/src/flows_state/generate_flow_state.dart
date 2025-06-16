@@ -291,6 +291,28 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
   }) = GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions;
 
+  /// Step 19
+  factory GenerateFlowState.codebaseNormalized({
+    required String accountApiKey,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+  }) = GenerateFlowCodebaseNormalized;
+
   Directory get directory {
     return Directory(directoryPath);
   }
