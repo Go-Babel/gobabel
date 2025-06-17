@@ -94,7 +94,7 @@ AsyncResult<GenerateFlowEnsureGit> generate_ensureGitDirectoryIsConfigured(
     return GenerateFlowEnsureGit(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       client: payload.client,
     ).toSuccess();

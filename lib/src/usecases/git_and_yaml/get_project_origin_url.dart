@@ -5,7 +5,7 @@ import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<String> getProjectOriginUrl({
-  required String accountApiKey,
+  required String projectApiToken,
   required String directoryPath,
 }) async {
   try {
@@ -30,7 +30,7 @@ AsyncResult<CreateFlowGotProjectOriginUrl> create_getProjectOriginUrl(
   CreateFlowGotLastLocalCommit payload,
 ) async {
   final originUrlResult = await getProjectOriginUrl(
-    accountApiKey: payload.accountApiKey,
+    projectApiToken: payload.projectApiToken,
     directoryPath: payload.directoryPath,
   );
 
@@ -72,7 +72,7 @@ AsyncResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
   GenerateFlowGotLastLocalCommit payload,
 ) async {
   final originUrlResult = await getProjectOriginUrl(
-    accountApiKey: payload.accountApiKey,
+    accountApiKey: payload.projectApiToken,
     directoryPath: payload.directoryPath,
   );
 
@@ -80,7 +80,7 @@ AsyncResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
     return GenerateFlowGotProjectOriginUrl(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       client: payload.client,
       yamlInfo: payload.yamlInfo,

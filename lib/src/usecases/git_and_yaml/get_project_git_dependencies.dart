@@ -117,7 +117,7 @@ AsyncResult<GenerateFlowGotGitVariables> generate_getProjectGitDependencies(
     return GenerateFlowGotGitVariables(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,
       client: payload.client,

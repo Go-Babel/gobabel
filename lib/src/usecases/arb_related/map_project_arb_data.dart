@@ -195,7 +195,7 @@ AsyncResult<GenerateFlowMappedProjectArbData> generate_mapProjectArbDataUsecase(
   ).map((arbDataState) {
     return GenerateFlowMappedProjectArbData(
       willLog: payload.willLog,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directory.path,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

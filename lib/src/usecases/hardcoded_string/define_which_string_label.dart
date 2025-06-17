@@ -1,0 +1,101 @@
+import 'package:console_bars/console_bars.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/utils/cripto.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
+import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel_core/gobabel_core.dart';
+
+@visibleForTesting
+bool shouldAutomaticallyBeConsideredAValidString(String value) {
+  final RegExp namePattern = RegExp(r'^[A-Z][a-z]+$');
+  return namePattern.hasMatch(value);
+}
+
+@override
+Future<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
+  required List<HardcodedStringEntity> strings,
+  required Client client,
+  required String projectApiToken,
+  required BigInt projectShaIdentifier,
+}) async {
+  if (strings.isEmpty) return [];
+
+  // Separate strings that are automatically valid from those needing API validation
+  final List<HardcodedStringEntity> automaticallyValidStrings = [];
+  final List<HardcodedStringEntity> stringsNeedingValidation = [];
+
+  for (final string in strings) {
+    if (shouldAutomaticallyBeConsideredAValidString(
+      string.value.trimHardcodedString,
+    )) {
+      automaticallyValidStrings.add(string);
+    } else {
+      stringsNeedingValidation.add(string);
+    }
+  }
+
+  // If no strings need API validation, return the automatically valid ones
+  if (stringsNeedingValidation.isEmpty) {
+    return automaticallyValidStrings;
+  }
+
+  // Create a map of SHA1 keys to string values for API validation
+  final Map<L10nValue, Sha1> shaMap = {};
+  final Map<Sha1, L10nValue> extractedStrings = {};
+  for (final string in stringsNeedingValidation) {
+    final valueSha1 = generateSha1(string.value);
+    extractedStrings[valueSha1] = string.value.trimHardcodedString;
+    shaMap[string.value] = valueSha1;
+  }
+
+  // Process each group and combine results
+  final Map<String, bool> combinedResults = {};
+
+  final groups = splitIntoManageableGroupsForApi(extractedStrings);
+
+  final bool isSmallAmountOfStrings = groups.length <= 2;
+
+  final FillingBar? p =
+      isSmallAmountOfStrings
+          ? null
+          : FillingBar(
+            desc: 'Analysing strings...',
+            total: groups.length,
+            time: true,
+            percentage: true,
+          );
+
+  Future<void> function() async {
+    for (final group in groups) {
+      p?.increment();
+      final result = await client.publicArbHelpers
+          .analyseIfStringIsADisplayableLabel(
+            projectApiToken: projectApiToken,
+            projectShaIdentifier: projectShaIdentifier,
+            extractedStrings: group,
+          );
+      combinedResults.addAll(result);
+    }
+  }
+
+  if (isSmallAmountOfStrings) {
+    await runWithSpinner(
+      successMessage: 'Finished analyzing strings',
+      message:
+          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+      function,
+    );
+  } else {
+    await function();
+  }
+
+  // Filter the strings that needed validation based on the server responses
+  final List<HardcodedStringEntity> apiValidatedStrings =
+      stringsNeedingValidation.where((string) {
+        final sha1 = shaMap[string.value]!;
+        return combinedResults[sha1]!;
+      }).toList();
+
+  // Combine automatically valid strings with API-validated strings
+  return [...automaticallyValidStrings, ...apiValidatedStrings];
+}

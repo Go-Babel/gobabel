@@ -10,7 +10,7 @@ _$GenerateFlowInitialImpl _$$GenerateFlowInitialImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowInitialImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -22,7 +22,7 @@ Map<String, dynamic> _$$GenerateFlowInitialImplToJson(
   _$GenerateFlowInitialImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -34,7 +34,7 @@ _$GenerateFlowCreatedClientImpl _$$GenerateFlowCreatedClientImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowCreatedClientImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -47,7 +47,7 @@ Map<String, dynamic> _$$GenerateFlowCreatedClientImplToJson(
   _$GenerateFlowCreatedClientImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -60,7 +60,7 @@ _$GenerateFlowEnsureGitImpl _$$GenerateFlowEnsureGitImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowEnsureGitImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -73,7 +73,7 @@ Map<String, dynamic> _$$GenerateFlowEnsureGitImplToJson(
   _$GenerateFlowEnsureGitImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -86,7 +86,7 @@ _$GenerateFlowGotCodeBaseYamlImpl _$$GenerateFlowGotCodeBaseYamlImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowGotCodeBaseYamlImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -100,7 +100,7 @@ Map<String, dynamic> _$$GenerateFlowGotCodeBaseYamlImplToJson(
   _$GenerateFlowGotCodeBaseYamlImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -114,7 +114,7 @@ _$GenerateFlowGotGitUserImpl _$$GenerateFlowGotGitUserImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowGotGitUserImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -129,7 +129,7 @@ Map<String, dynamic> _$$GenerateFlowGotGitUserImplToJson(
   _$GenerateFlowGotGitUserImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -144,7 +144,7 @@ _$GenerateFlowGotLastLocalCommitImpl
 _$$GenerateFlowGotLastLocalCommitImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowGotLastLocalCommitImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -164,7 +164,7 @@ Map<String, dynamic> _$$GenerateFlowGotLastLocalCommitImplToJson(
   _$GenerateFlowGotLastLocalCommitImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -180,7 +180,7 @@ _$GenerateFlowGotProjectOriginUrlImpl
 _$$GenerateFlowGotProjectOriginUrlImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowGotProjectOriginUrlImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -201,7 +201,7 @@ Map<String, dynamic> _$$GenerateFlowGotProjectOriginUrlImplToJson(
   _$GenerateFlowGotProjectOriginUrlImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -218,7 +218,7 @@ _$GenerateFlowGotGitVariablesImpl _$$GenerateFlowGotGitVariablesImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowGotGitVariablesImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -235,7 +235,7 @@ Map<String, dynamic> _$$GenerateFlowGotGitVariablesImplToJson(
   _$GenerateFlowGotGitVariablesImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -250,7 +250,7 @@ _$GenerateFlowGotAppLanguagesImpl _$$GenerateFlowGotAppLanguagesImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowGotAppLanguagesImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -277,7 +277,7 @@ Map<String, dynamic> _$$GenerateFlowGotAppLanguagesImplToJson(
   _$GenerateFlowGotAppLanguagesImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -298,7 +298,7 @@ _$GenerateFlowDownloadReferenceArbImpl
 _$$GenerateFlowDownloadReferenceArbImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowDownloadReferenceArbImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -328,7 +328,7 @@ Map<String, dynamic> _$$GenerateFlowDownloadReferenceArbImplToJson(
   _$GenerateFlowDownloadReferenceArbImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -350,7 +350,7 @@ _$GenerateFlowProjectCacheMapImpl _$$GenerateFlowProjectCacheMapImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowProjectCacheMapImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -381,7 +381,7 @@ Map<String, dynamic> _$$GenerateFlowProjectCacheMapImplToJson(
   _$GenerateFlowProjectCacheMapImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -405,7 +405,7 @@ _$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowResolvedProjectCacheTranslationImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -439,7 +439,7 @@ Map<String, dynamic> _$$GenerateFlowResolvedProjectCacheTranslationImplToJson(
   _$GenerateFlowResolvedProjectCacheTranslationImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -464,7 +464,7 @@ _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -498,7 +498,7 @@ Map<String, dynamic> _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplToJson(
   _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -522,7 +522,7 @@ _$GenerateFlowGotTargetFilesImpl _$$GenerateFlowGotTargetFilesImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowGotTargetFilesImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -559,7 +559,7 @@ Map<String, dynamic> _$$GenerateFlowGotTargetFilesImplToJson(
   _$GenerateFlowGotTargetFilesImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -584,7 +584,7 @@ _$GenerateFlowGotL10nProjectConfigImpl
 _$$GenerateFlowGotL10nProjectConfigImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowGotL10nProjectConfigImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -626,7 +626,7 @@ Map<String, dynamic> _$$GenerateFlowGotL10nProjectConfigImplToJson(
   _$GenerateFlowGotL10nProjectConfigImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -652,7 +652,7 @@ _$GenerateFlowMappedProjectArbDataImpl
 _$$GenerateFlowMappedProjectArbDataImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowMappedProjectArbDataImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -694,7 +694,7 @@ Map<String, dynamic> _$$GenerateFlowMappedProjectArbDataImplToJson(
   _$GenerateFlowMappedProjectArbDataImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -721,7 +721,7 @@ _$$GenerateFlowResolvedProjectArbTranslationPayloadImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowResolvedProjectArbTranslationPayloadImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -766,7 +766,7 @@ _$$GenerateFlowResolvedProjectArbTranslationPayloadImplToJson(
   _$GenerateFlowResolvedProjectArbTranslationPayloadImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -796,7 +796,7 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplFromJs
   Map<String, dynamic> json,
 ) => _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -842,7 +842,7 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplToJson
   instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -871,7 +871,7 @@ _$GenerateFlowCodebaseNormalizedImpl
 _$$GenerateFlowCodebaseNormalizedImplFromJson(Map<String, dynamic> json) =>
     _$GenerateFlowCodebaseNormalizedImpl(
       willLog: json['willLog'] as bool,
-      accountApiKey: json['accountApiKey'] as String,
+      projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -917,7 +917,7 @@ Map<String, dynamic> _$$GenerateFlowCodebaseNormalizedImplToJson(
   _$GenerateFlowCodebaseNormalizedImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
@@ -947,7 +947,7 @@ _$$GenerateFlowResolvedHardcodedStringsImplFromJson(
   Map<String, dynamic> json,
 ) => _$GenerateFlowResolvedHardcodedStringsImpl(
   willLog: json['willLog'] as bool,
-  accountApiKey: json['accountApiKey'] as String,
+  projectApiToken: json['projectApiToken'] as String,
   directoryPath: json['directoryPath'] as String,
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
@@ -994,7 +994,7 @@ Map<String, dynamic> _$$GenerateFlowResolvedHardcodedStringsImplToJson(
   _$GenerateFlowResolvedHardcodedStringsImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
-  'accountApiKey': instance.accountApiKey,
+  'projectApiToken': instance.projectApiToken,
   'directoryPath': instance.directoryPath,
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,

@@ -3,8 +3,10 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/arb_related/get_l10n_project_config.dart';
 import 'package:gobabel/src/usecases/arb_related/map_project_arb_data.dart';
+import 'package:gobabel/src/usecases/arb_related/resolve_l10n_keys_ref_in_codebase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/ensure_no_static_error_on_dart_files.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/normalize_codebase.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/create_project.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/sync_project.dart';
@@ -88,6 +90,10 @@ class GobabelConductor {
         .flatMap(generate_getFilesVerificationState)
         .flatMap(generate_getProjectYamlConfigUsecase)
         .flatMap(generate_mapProjectArbDataUsecase)
-        .flatMap(generate_resolveProjectArbFilesPayload);
+        .flatMap(generate_resolveProjectArbFilesPayload)
+        .flatMap(
+          generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
+        )
+        .flatMap(generate_normalizeCodeBase);
   }
 }

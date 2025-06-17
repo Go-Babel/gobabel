@@ -125,7 +125,7 @@ generate_getProjectYamlConfigUsecase(GenerateFlowGotTargetFiles payload) async {
   return result.map(
     (config) => GenerateFlowGotL10nProjectConfig(
       willLog: payload.willLog,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

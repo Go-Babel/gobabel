@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_param_case.dart';
@@ -46,4 +47,36 @@ AsyncResult<Unit> normalizeCodeBase({
           targetFiles: targetFiles,
         ),
       );
+}
+
+AsyncResult<GenerateFlowCodebaseNormalized> generate_normalizeCodeBase(
+  GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
+) async {
+  final dirPath = payload.directoryPath;
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  return normalizeCodeBase(dirPath: dirPath, targetFiles: targetFiles).flatMap((
+    _,
+  ) {
+    return GenerateFlowCodebaseNormalized(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      remapedArbKeys: payload.remapedArbKeys,
+    ).toSuccess();
+  });
 }

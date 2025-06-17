@@ -138,7 +138,7 @@ AsyncResult<GenerateFlowGotCodeBaseYaml> generate_getCodeBaseYamlInfo(
     return GenerateFlowGotCodeBaseYaml(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       client: payload.client,
       yamlInfo: yamlInfo,

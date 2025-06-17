@@ -62,7 +62,7 @@ generate_ensureNoStaticErrorOnDartFilesDefault(
       willLog: payload.willLog,
       referenceArbMap: payload.referenceArbMap,
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

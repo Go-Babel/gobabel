@@ -3,14 +3,18 @@ import 'dart:io';
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:enchanted_regex/enchanted_regex.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
+import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
+import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<TranslationPayloadInfo>
 replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   required L10nProjectConfig projectConfig,
+  required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
   required List<File> targetFiles,
   required TranslationPayloadInfo currentPayloadInfo,
@@ -61,11 +65,74 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
       });
     }
     if (hasChanges) {
-      await file.writeAsString(fileContent);
+      final fileContentWithImport = addImportIfNeededUsecase(
+        codeBaseYamlInfo: codeBaseYamlInfo,
+        fileContent: fileContent,
+      );
+      await file.writeAsString(fileContentWithImport);
     }
   }
 
   return currentPayloadInfo
       .copyWith(keyToContextsPaths: keyToContextsPaths)
       .toSuccess();
+}
+
+AsyncResult<GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions>
+generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
+  GenerateFlowResolvedProjectArbTranslationPayload payload,
+) async {
+  final projectConfig = payload.projectArbData.mapOrNull(
+    withData: (value) => value.config,
+  );
+  if (projectConfig == null) {
+    return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      remapedArbKeys: payload.remapedArbKeys,
+    ).toSuccess();
+  }
+
+  return replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
+    projectConfig: projectConfig,
+    codeBaseYamlInfo: payload.yamlInfo,
+    remapedArbKeys: payload.remapedArbKeys,
+    targetFiles: await payload.filesToBeAnalysed,
+    currentPayloadInfo: payload.codebaseArbTranslationPayloadInfo,
+  ).flatMap((response) {
+    return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo: response,
+      remapedArbKeys: payload.remapedArbKeys,
+    ).toSuccess();
+  });
 }

@@ -1,4 +1,4 @@
-import 'package:gobabel_string_extractor/src/entities/hardcoded_string_dynamic_value_entity.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 
 class HardcodedStringEntity {
   final String value;
