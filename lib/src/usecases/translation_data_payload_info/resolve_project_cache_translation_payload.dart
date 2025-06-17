@@ -70,7 +70,7 @@ generate_resolveProjectCacheTranslationPayload(
       return GenerateFlowResolvedProjectCacheTranslation(
         willLog: payload.willLog,
         referenceArbMap: payload.referenceArbMap,
-        accountApiKey: payload.accountApiKey,
+        projectApiToken: payload.projectApiToken,
         directoryPath: payload.directoryPath,
         inputedByUserLocale: payload.inputedByUserLocale,
         client: payload.client,

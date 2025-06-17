@@ -23,7 +23,7 @@ AsyncResult<ProjectCacheMap> getProjectCacheMap({
 AsyncResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
   GenerateFlowDownloadReferenceArb payload,
 ) async {
-  final projectApiToken = payload.accountApiKey;
+  final projectApiToken = payload.projectApiToken;
   final gitVariables = payload.gitVariables;
   final client = payload.client.server;
 
@@ -37,7 +37,7 @@ AsyncResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
     return GenerateFlowProjectCacheMap(
       willLog: payload.willLog,
       referenceArbMap: payload.referenceArbMap,
-      accountApiKey: projectApiToken,
+      projectApiToken: projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

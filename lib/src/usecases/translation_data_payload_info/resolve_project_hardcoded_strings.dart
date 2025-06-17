@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 import 'dart:io';
 
@@ -15,7 +16,17 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Map<FilePath, List<BabelLabelEntityRootLabel>>>
+class ResolveProjectHardcodedStrings {
+  final TranslationPayloadInfo hardcodedStringsPayloadInfo;
+  final Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile;
+  const ResolveProjectHardcodedStrings({
+    required this.hardcodedStringsPayloadInfo,
+    required this.hardcodedStringsPerFile,
+  });
+}
+
+AsyncResult<ResolveProjectHardcodedStrings>
+// AsyncResult<Map<FilePath, List<BabelLabelEntityRootLabel>>>
 resolveCodebaseProject({
   required Client client,
   required bool generateLogs,
@@ -33,6 +44,9 @@ resolveCodebaseProject({
     };
     final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
         {...currentPayloadInfo.keyToImplementation};
+    final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
+      ...currentPayloadInfo.keyToContextsPaths,
+    };
 
     // 1. Extract all strings from the files
     final List<HardcodedStringEntity> allStrings = await runWithSpinner(
@@ -145,9 +159,25 @@ resolveCodebaseProject({
       keyToDeclaration[translationKey] = babelLabel.babelFunctionDeclaration;
       keyToImplementation[translationKey] =
           babelLabel.babelFunctionImplementation;
+
+      if (keyToContextsPaths.containsKey(translationKey)) {
+        keyToContextsPaths[translationKey]!.add(babelLabel.filePath);
+      } else {
+        keyToContextsPaths[translationKey] = {babelLabel.filePath};
+      }
     }
 
-    return Success(allHardcodedStrings);
+    return Success(
+      ResolveProjectHardcodedStrings(
+        hardcodedStringsPerFile: allHardcodedStrings,
+        hardcodedStringsPayloadInfo: TranslationPayloadInfo(
+          hardcodedStringToKeyCache: hardcodedStringToKeyCache,
+          keyToDeclaration: keyToDeclaration,
+          keyToImplementation: keyToImplementation,
+          keyToContextsPaths: keyToContextsPaths,
+        ),
+      ),
+    );
   } catch (e) {
     return Exception('Error resolving codebase project: $e').toFailure();
   }
@@ -168,35 +198,46 @@ Future<void> saveStringData(Map<String, dynamic> data, String fileName) async {
   await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }
 
-AsyncResult<GenerateFlowResolvedHardcodedStrings> generate_resolveCodebaseProject(
-  GenerateFlowCodebaseNormalized payload,
-) async {
+AsyncResult<GenerateFlowResolvedHardcodedStrings>
+generate_resolveCodebaseProject(GenerateFlowCodebaseNormalized payload) async {
   final client = payload.client.server;
   final generateLogs = payload.willLog;
-  final projectApiToken = payload.;
-  final projectShaIdentifier = payload.gitVariables.latestShaIdentifier;
+  final projectApiToken = payload.projectApiToken;
+  final projectShaIdentifier = payload.gitVariables.projectShaIdentifier;
   final targetFiles = await payload.filesToBeAnalysed;
   final currentPayloadInfo = payload.codebaseArbTranslationPayloadInfo;
 
-  final result = await resolveCodebaseProject(
+  return resolveCodebaseProject(
     client: client,
     generateLogs: generateLogs,
     projectApiToken: projectApiToken,
     projectShaIdentifier: projectShaIdentifier,
     targetFiles: targetFiles,
     currentPayloadInfo: currentPayloadInfo,
-  );
-
-  if (result.isError()) {
-    return result.asError();
-  }
-
-  final allHardcodedStrings = result.getOrThrow();
-
-  return GenerateFlowResolvedHardcodedStrings(
-    allHardcodedStrings: allHardcodedStrings,
-    keyToDeclaration: currentPayloadInfo.keyToDeclaration,
-    keyToImplementation: currentPayloadInfo.keyToImplementation,
-    hardcodedStringToKeyCache: currentPayloadInfo.hardcodedStringToKeyCache,
-  ).toSuccess();
+  ).flatMap((hardcodedStringsPayloadInfo) {
+    return GenerateFlowResolvedHardcodedStrings(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      remapedArbKeys: payload.remapedArbKeys,
+      hardcodedStringsPayloadInfo:
+          hardcodedStringsPayloadInfo.hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile:
+          hardcodedStringsPayloadInfo.hardcodedStringsPerFile,
+    ).toSuccess();
+  });
 }

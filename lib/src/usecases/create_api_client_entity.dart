@@ -56,7 +56,7 @@ AsyncResult<GenerateFlowCreatedClient> generate_createClientEntity(
     return GenerateFlowCreatedClient(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       client: client,
     ).toSuccess();

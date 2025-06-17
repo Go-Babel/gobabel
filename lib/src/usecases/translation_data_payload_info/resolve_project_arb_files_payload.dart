@@ -103,7 +103,7 @@ generate_resolveProjectArbFilesPayload(
   ).flatMap((response) {
     return GenerateFlowResolvedProjectArbTranslationPayload(
       willLog: payload.willLog,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

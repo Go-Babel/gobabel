@@ -4,10 +4,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<String> getProjectOriginUrl({
-  required String projectApiToken,
-  required String directoryPath,
-}) async {
+AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
   try {
     final result = await BabelProcessRunner.run(
       command: 'git remote get-url origin',
@@ -30,7 +27,6 @@ AsyncResult<CreateFlowGotProjectOriginUrl> create_getProjectOriginUrl(
   CreateFlowGotLastLocalCommit payload,
 ) async {
   final originUrlResult = await getProjectOriginUrl(
-    projectApiToken: payload.projectApiToken,
     directoryPath: payload.directoryPath,
   );
 
@@ -51,7 +47,6 @@ AsyncResult<SyncFlowGotProjectOriginUrl> sync_getProjectOriginUrl(
   SyncFlowGotLastLocalCommit payload,
 ) async {
   final originUrlResult = await getProjectOriginUrl(
-    accountApiKey: payload.accountApiKey,
     directoryPath: payload.directoryPath,
   );
 
@@ -72,7 +67,6 @@ AsyncResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
   GenerateFlowGotLastLocalCommit payload,
 ) async {
   final originUrlResult = await getProjectOriginUrl(
-    accountApiKey: payload.projectApiToken,
     directoryPath: payload.directoryPath,
   );
 

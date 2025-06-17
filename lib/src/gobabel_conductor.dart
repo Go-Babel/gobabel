@@ -65,13 +65,13 @@ class GobabelConductor {
   }
 
   AsyncResult<void> generate({
-    required String accountApiKey,
+    required String projectApiToken,
     required String directoryPath,
     required BabelSupportedLocales inputedByUserLocale,
   }) async {
     return generate_initFlowState(
           willLog: true,
-          accountApiKey: accountApiKey,
+          projectApiToken: projectApiToken,
           directoryPath: directoryPath,
           inputedByUserLocale: inputedByUserLocale,
         )

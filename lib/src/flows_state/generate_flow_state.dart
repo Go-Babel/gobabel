@@ -5,6 +5,7 @@ import 'package:gobabel/src/core/converters/babel_supported_locales_json_convert
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
@@ -355,7 +356,35 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
     required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
     required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
   }) = GenerateFlowResolvedHardcodedStrings;
+
+  /// Step 21
+  factory GenerateFlowState.replacedHardcodedStringsForBabelText({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowReplacedHardcodedStringsForBabelText;
 
   Directory get directory {
     return Directory(directoryPath);

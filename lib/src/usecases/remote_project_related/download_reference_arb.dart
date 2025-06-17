@@ -50,7 +50,7 @@ AsyncResult<GenerateFlowDownloadReferenceArb> generate_downloadReferenceArb(
   return arbResult.flatMap((arbMap) {
     return GenerateFlowDownloadReferenceArb(
       willLog: payload.willLog,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

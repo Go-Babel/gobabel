@@ -81,7 +81,7 @@ AsyncResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
   final gitVariables = payload.gitVariables;
   final inputedByUserLocale = payload.inputedByUserLocale;
   final client = payload.client.server;
-  final accountApiKey = payload.accountApiKey;
+  final accountApiKey = payload.projectApiToken;
   final directoryPath = payload.directoryPath;
   return getAppLanguages(
     token: accountApiKey,
@@ -91,7 +91,7 @@ AsyncResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
   ).flatMap((response) {
     return GenerateFlowGotAppLanguages(
       willLog: payload.willLog,
-      accountApiKey: accountApiKey,
+      projectApiToken: accountApiKey,
       directoryPath: directoryPath,
       inputedByUserLocale: inputedByUserLocale,
       client: payload.client,

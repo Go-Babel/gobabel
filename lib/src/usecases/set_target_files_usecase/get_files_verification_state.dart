@@ -90,7 +90,7 @@ AsyncResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
   GenerateFlowEnsuredNoStaticErrorOnDartFiles payload,
 ) async {
   final filesVerificationState = await getFilesVerificationState(
-    projectApiToken: payload.accountApiKey,
+    projectApiToken: payload.projectApiToken,
     client: payload.client.server,
     gitVariables: payload.gitVariables,
     directoryPath: payload.directoryPath,
@@ -99,7 +99,7 @@ AsyncResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
   return filesVerificationState.flatMap((filesVerification) {
     return GenerateFlowGotTargetFiles(
       willLog: payload.willLog,
-      accountApiKey: payload.accountApiKey,
+      projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
       client: payload.client,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
@@ -65,4 +66,46 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
   );
 }
 
-// addImportIfNeededUsecase
+AsyncResult<GenerateFlowReplacedHardcodedStringsForBabelText>
+generate_resolveHardcodedStringsInCodebase(
+  GenerateFlowResolvedHardcodedStrings payload,
+) async {
+  try {
+    final allHardcodedStrings = payload.hardcodedStringsPerFile;
+    final codeBaseYamlInfo = payload.yamlInfo;
+    final targetFiles = await payload.filesToBeAnalysed;
+
+    return resolveHardcodedStringsInCodebase(
+      targetFiles: targetFiles,
+      codeBaseYamlInfo: codeBaseYamlInfo,
+      allHardcodedStrings: allHardcodedStrings,
+    ).flatMap((_) {
+      return GenerateFlowReplacedHardcodedStringsForBabelText(
+        willLog: payload.willLog,
+        projectApiToken: payload.projectApiToken,
+        directoryPath: payload.directoryPath,
+        inputedByUserLocale: payload.inputedByUserLocale,
+        client: payload.client,
+        yamlInfo: payload.yamlInfo,
+        gitVariables: payload.gitVariables,
+        maxLanguageCount: payload.maxLanguageCount,
+        languages: payload.languages,
+        downloadLink: payload.downloadLink,
+        referenceArbMap: payload.referenceArbMap,
+        projectCacheMap: payload.projectCacheMap,
+        cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+        filesVerificationState: payload.filesVerificationState,
+        projectArbData: payload.projectArbData,
+        codebaseArbTranslationPayloadInfo:
+            payload.codebaseArbTranslationPayloadInfo,
+        remapedArbKeys: payload.remapedArbKeys,
+        hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
+        hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
+      ).toSuccess();
+    });
+  } catch (e) {
+    return Exception(
+      'Error resolving hardcoded strings in codebase: $e',
+    ).toFailure();
+  }
+}
