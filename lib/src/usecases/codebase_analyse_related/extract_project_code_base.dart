@@ -59,7 +59,7 @@ AsyncResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
 }
 
 AsyncResult<GenerateFlowExtractedCodeBase> generate_extractProjectCodeBase(
-  GenerateFlowAddedBabelClassInitializationInMain payload,
+  GenerateFlowAddedSharedPrefsInFlutterProjects payload,
 ) async {
   final dirrPath = payload.directoryPath;
   final codeBaseResult = await extractProjectCodeBase(dirrPath: dirrPath);

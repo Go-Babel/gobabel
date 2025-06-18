@@ -517,6 +517,38 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     required Set<ContextPath> contextPaths,
   }) = GenerateFlowExtractedCodeBase;
 
+  /// Step 26
+  factory GenerateFlowState.translatedNewStringsArb({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+    required Map<
+      LanguageCode,
+      Map<CountryCode, Map<TranslationKey, TranslationContent>>
+    >
+    madeTranslations,
+  }) = GenerateFlowTranslatedNewStringsArb;
+
   Directory get directory {
     return Directory(directoryPath);
   }
