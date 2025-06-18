@@ -1,34 +1,20 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:collection/collection.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
+import 'package:gobabel/src/usecases/git_and_yaml/get_project_yaml.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<CodeBaseYamlInfo> getCodeBaseYamlInfoUsecase({
   required Directory currentDirectory,
 }) async {
-  const String targetFile = 'pubspec.yaml';
-
-  final List<FileSystemEntity> items = currentDirectory.listSync(
-    recursive: false,
-    followLinks: false,
-  );
-
-  final yamlFile = items.firstWhereOrNull(
-    (element) => element.path.endsWith(targetFile),
-  );
-  if (yamlFile == null) {
-    return Exception(
-      '❌ No "pubspec.yaml" file found.\nPlease ensure you are in a flutter/dart project directory.'
-          .red,
-    ).toFailure();
-  }
-
-  final String yamlContent = await File(yamlFile.path).readAsString();
+  final yamlResponse = await getProjectYaml(currentDirectory: currentDirectory);
+  if (yamlResponse.isError()) return yamlResponse.asError();
+  final String yamlContent = yamlResponse.getOrThrow();
 
   final String? projectName = yamlContent.getYamlLineContent('name');
   final String? projectDescription = yamlContent.getYamlLineContent(

@@ -199,7 +199,9 @@ Future<void> saveStringData(Map<String, dynamic> data, String fileName) async {
 }
 
 AsyncResult<GenerateFlowResolvedHardcodedStrings>
-generate_resolveCodebaseProject(GenerateFlowCodebaseNormalized payload) async {
+generate_resolveCodebaseHardcodedStringsProject(
+  GenerateFlowCodebaseNormalized payload,
+) async {
   final client = payload.client.server;
   final generateLogs = payload.willLog;
   final projectApiToken = payload.projectApiToken;

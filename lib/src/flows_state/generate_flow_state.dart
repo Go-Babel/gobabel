@@ -386,6 +386,137 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     hardcodedStringsPerFile,
   }) = GenerateFlowReplacedHardcodedStringsForBabelText;
 
+  /// Step 22
+  factory GenerateFlowState.appliedCodebaseGeneralDartFixes({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowAppliedCodebaseGeneralDartFixes;
+
+  /// Step 23
+  factory GenerateFlowState.writtedBabelClassInDartFile({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowWrittedBabelClassInDartFile;
+
+  /// Step 24
+  factory GenerateFlowState.addedBabelClassInitializationInMain({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowAddedBabelClassInitializationInMain;
+
+  /// Step 25
+  factory GenerateFlowState.addedSharedPrefsInFlutterProjects({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowAddedSharedPrefsInFlutterProjects;
+
+  /// Step 26
+  factory GenerateFlowState.extractedCodeBase({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+  }) = GenerateFlowExtractedCodeBase;
+
   Directory get directory {
     return Directory(directoryPath);
   }

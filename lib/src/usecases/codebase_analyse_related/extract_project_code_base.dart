@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -57,5 +58,35 @@ AsyncResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
   });
 }
 
-// Note: GenerateFlowState does not have an equivalent for ExtractedProjectCodebase or CreatedProjectInGobabelServer
-// Therefore, these functions will not be created for the generate flow.
+AsyncResult<GenerateFlowExtractedCodeBase> generate_extractProjectCodeBase(
+  GenerateFlowAddedBabelClassInitializationInMain payload,
+) async {
+  final dirrPath = payload.directoryPath;
+  final codeBaseResult = await extractProjectCodeBase(dirrPath: dirrPath);
+
+  return codeBaseResult.flatMap((codeBase) {
+    return GenerateFlowExtractedCodeBase(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      remapedArbKeys: payload.remapedArbKeys,
+      hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
+      contextPaths: codeBase,
+    ).toSuccess();
+  });
+}
