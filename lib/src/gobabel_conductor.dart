@@ -29,7 +29,7 @@ import 'package:gobabel/src/usecases/set_target_files_usecase/get_files_verifica
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_arb_files_payload.dart';
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_cache_translation_payload.dart';
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_hardcoded_strings.dart';
-import 'package:gobabel/src/usecases/translation_related/translate_new_strings_arb_usecase.dart';
+import 'package:gobabel/src/usecases/translation_related/translate_new_strings_arb.dart';
 import 'package:gobabel/src/usecases/translation_related/upload_translation_commit_data.dart';
 import 'package:gobabel/src/usecases/translation_related/upload_translation_new_version.dart';
 import 'package:gobabel_core/gobabel_core.dart';
