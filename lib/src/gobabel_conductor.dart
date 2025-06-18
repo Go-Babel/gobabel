@@ -14,6 +14,7 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/normalize_codebase
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/create_project.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/sync_project.dart';
+import 'package:gobabel/src/usecases/git_and_yaml/commit_all_changes.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/ensure_git_directory_is_configured.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_git_user.dart';
@@ -28,6 +29,9 @@ import 'package:gobabel/src/usecases/set_target_files_usecase/get_files_verifica
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_arb_files_payload.dart';
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_cache_translation_payload.dart';
 import 'package:gobabel/src/usecases/translation_data_payload_info/resolve_project_hardcoded_strings.dart';
+import 'package:gobabel/src/usecases/translation_related/translate_new_strings_arb_usecase.dart';
+import 'package:gobabel/src/usecases/translation_related/upload_translation_commit_data.dart';
+import 'package:gobabel/src/usecases/translation_related/upload_translation_new_version.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -107,7 +111,12 @@ class GobabelConductor {
         .flatMap(generate_writeBabelTextFileIntoDirectory)
         .flatMap(generate_addBabelInitializationToMainUsecase)
         .flatMap(generate_ensureSharedPrefsIsInFlutterProject)
-        .flatMap(generate_extractProjectCodeBase);
+        .flatMap(generate_extractProjectCodeBase)
+        .flatMap(generate_translateNewStringsArb)
+        .flatMap(generate_uploadTranslationNewVersion)
+        .flatMap(generate_commitAllChangesUsecase)
+        .flatMap(generate_getBabelChangesCommit)
+        .flatMap(generate_uploadBabelTranslationsChangesCommitToServer);
     // .flatMap(generate_addBabelInitializationToMainUsecase);
   }
 }

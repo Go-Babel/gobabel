@@ -549,6 +549,140 @@ abstract class GenerateFlowState with _$GenerateFlowState {
     madeTranslations,
   }) = GenerateFlowTranslatedNewStringsArb;
 
+  /// Step 27
+  factory GenerateFlowState.uploadedNewTranslations({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+    required Map<
+      LanguageCode,
+      Map<CountryCode, Map<TranslationKey, TranslationContent>>
+    >
+    madeTranslations,
+    required GenerateHistory generatedHistoryItem,
+  }) = GenerateFlowUploadedNewTranslations;
+
+  /// Step 28
+  factory GenerateFlowState.commitedAllChangesOfCodebase({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+    required Map<
+      LanguageCode,
+      Map<CountryCode, Map<TranslationKey, TranslationContent>>
+    >
+    madeTranslations,
+    required GenerateHistory generatedHistoryItem,
+  }) = GenerateFlowCommitedAllChangesOfCodebase;
+
+  /// Step 29
+  factory GenerateFlowState.getBabelChangesCommit({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+    required Map<
+      LanguageCode,
+      Map<CountryCode, Map<TranslationKey, TranslationContent>>
+    >
+    madeTranslations,
+    required GenerateHistory generatedHistoryItem,
+    required GitCommit babelGitCommit,
+  }) = GenerateFlowGetBabelChangesCommit;
+
+  /// Step 30
+  factory GenerateFlowState.sincronizedBabelCommitWithApi({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+    required Map<L10nKey, L10nValue> referenceArbMap,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required Set<ContextPath> contextPaths,
+    required Map<
+      LanguageCode,
+      Map<CountryCode, Map<TranslationKey, TranslationContent>>
+    >
+    madeTranslations,
+    required GenerateHistory generatedHistoryItem,
+    required GitCommit babelGitCommit,
+  }) = GenerateFlowSincronizedBabelCommitWithApi;
+
   Directory get directory {
     return Directory(directoryPath);
   }

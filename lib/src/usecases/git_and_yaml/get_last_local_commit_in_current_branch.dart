@@ -105,3 +105,40 @@ generate_getLastLocalCommitInCurrentBranch(
     ).toSuccess();
   });
 }
+
+AsyncResult<GenerateFlowGetBabelChangesCommit> generate_getBabelChangesCommit(
+  GenerateFlowCommitedAllChangesOfCodebase payload,
+) async {
+  final lastCommitResult = await getLastLocalCommitInCurrentBranch(
+    dirrPath: payload.directoryPath,
+  );
+
+  return lastCommitResult.flatMap((lastCommit) {
+    return GenerateFlowGetBabelChangesCommit(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      downloadLink: payload.downloadLink,
+      referenceArbMap: payload.referenceArbMap,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
+      contextPaths: payload.contextPaths,
+      madeTranslations: payload.madeTranslations,
+      generatedHistoryItem: payload.generatedHistoryItem,
+      babelGitCommit: lastCommit,
+    ).toSuccess();
+  });
+}
