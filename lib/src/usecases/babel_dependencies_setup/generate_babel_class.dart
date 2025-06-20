@@ -1,9 +1,10 @@
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
-String generateBabelClassUsecase({
+AsyncResult<String> generateBabelClassUsecase({
   required BigInt projectShaIdentifier,
   required Set<BabelFunctionDeclaration> declarationFunctions,
-}) {
+}) async {
   final StringBuffer fileContent = StringBuffer(babelText);
   for (final BabelFunctionDeclaration d in declarationFunctions) {
     fileContent.write('$d\n');
@@ -20,5 +21,6 @@ String generateBabelClassUsecase({
       .replaceAll(
         r"const String _projectIdentifier = '';",
         "const String _projectIdentifier = '$projectShaIdentifier';",
-      );
+      )
+      .toSuccess();
 }

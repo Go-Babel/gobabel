@@ -110,7 +110,7 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
       final key = combinedResults[sha1]!;
 
       // Ensure the key is unique and follows the camelCase format
-      final garantedKeyIntegrityResponse = garanteeKeyIntegrity(
+      final garantedKeyIntegrityResponse = await garanteeKeyIntegrity(
         key: key.trim(),
         value: string.value.trimHardcodedString,
       );

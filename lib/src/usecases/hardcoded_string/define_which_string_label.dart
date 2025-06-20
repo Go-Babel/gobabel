@@ -4,6 +4,7 @@ import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
 @visibleForTesting
 bool shouldAutomaticallyBeConsideredAValidString(String value) {
@@ -12,13 +13,13 @@ bool shouldAutomaticallyBeConsideredAValidString(String value) {
 }
 
 @override
-Future<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
+AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   required List<HardcodedStringEntity> strings,
   required Client client,
   required String projectApiToken,
   required BigInt projectShaIdentifier,
 }) async {
-  if (strings.isEmpty) return [];
+  if (strings.isEmpty) return <HardcodedStringEntity>[].toSuccess();
 
   // Separate strings that are automatically valid from those needing API validation
   final List<HardcodedStringEntity> automaticallyValidStrings = [];
@@ -36,7 +37,7 @@ Future<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
 
   // If no strings need API validation, return the automatically valid ones
   if (stringsNeedingValidation.isEmpty) {
-    return automaticallyValidStrings;
+    return automaticallyValidStrings.toSuccess();
   }
 
   // Create a map of SHA1 keys to string values for API validation
@@ -68,25 +69,33 @@ Future<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   Future<void> function() async {
     for (final group in groups) {
       p?.increment();
-      final result = await client.publicArbHelpers
-          .analyseIfStringIsADisplayableLabel(
-            projectApiToken: projectApiToken,
-            projectShaIdentifier: projectShaIdentifier,
-            extractedStrings: group,
-          );
-      combinedResults.addAll(result);
+      try {
+        final result = await client.publicArbHelpers
+            .analyseIfStringIsADisplayableLabel(
+              projectApiToken: projectApiToken,
+              projectShaIdentifier: projectShaIdentifier,
+              extractedStrings: group,
+            );
+        combinedResults.addAll(result);
+      } catch (e) {
+        throw Exception('Failed to analyze strings: $e');
+      }
     }
   }
 
-  if (isSmallAmountOfStrings) {
-    await runWithSpinner(
-      successMessage: 'Finished analyzing strings',
-      message:
-          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-      function,
-    );
-  } else {
-    await function();
+  try {
+    if (isSmallAmountOfStrings) {
+      await runWithSpinner(
+        successMessage: 'Finished analyzing strings',
+        message:
+            'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+        function,
+      );
+    } else {
+      await function();
+    }
+  } catch (e) {
+    return Exception(e.toString()).toFailure();
   }
 
   // Filter the strings that needed validation based on the server responses
@@ -97,5 +106,5 @@ Future<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
       }).toList();
 
   // Combine automatically valid strings with API-validated strings
-  return [...automaticallyValidStrings, ...apiValidatedStrings];
+  return [...automaticallyValidStrings, ...apiValidatedStrings].toSuccess();
 }

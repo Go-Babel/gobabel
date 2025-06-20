@@ -2,12 +2,13 @@ import 'package:gobabel/src/core/extensions/string_extension.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
-List<BabelLabelEntityRootLabel> mapBabelLabels({
+AsyncResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
   required List<LabelsEntityRootLabel> strings,
   required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
   required Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration,
-}) {
+}) async {
   final List<BabelLabelEntityRootLabel> result = [];
 
   for (final rootLabel in strings) {
@@ -20,7 +21,7 @@ List<BabelLabelEntityRootLabel> mapBabelLabels({
     );
   }
 
-  return result;
+  return result.toSuccess();
 }
 
 BabelLabelEntity _processBabelLabel({

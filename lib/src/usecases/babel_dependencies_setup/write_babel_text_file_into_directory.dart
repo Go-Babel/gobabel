@@ -5,6 +5,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/file_utils.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/generate_babel_class.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Unit> writeBabelTextFileIntoDirectory({
@@ -12,18 +13,24 @@ AsyncResult<Unit> writeBabelTextFileIntoDirectory({
   required Directory directory,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
-  final String babelPath = await getBabelTextFile(curr: directory);
+  final babelPathResult = await getBabelTextFile(curr: directory);
+  if (babelPathResult.isError()) {
+    return babelPathResult.asError();
+  }
+  final String babelPath = babelPathResult.getOrThrow();
   try {
     final file = File(babelPath);
 
-    await file.writeAsString(
-      generateBabelClassUsecase(
-        projectShaIdentifier: projectShaIdentifier,
-        declarationFunctions:
-            currentPayloadInfo.keyToDeclaration.values.toSet(),
-      ),
-      mode: FileMode.write,
+    final babelClassResult = await generateBabelClassUsecase(
+      projectShaIdentifier: projectShaIdentifier,
+      declarationFunctions: currentPayloadInfo.keyToDeclaration.values.toSet(),
     );
+    if (babelClassResult.isError()) {
+      return babelClassResult.asError();
+    }
+    final String babelClass = babelClassResult.getOrThrow();
+
+    await file.writeAsString(babelClass, mode: FileMode.write);
 
     return Success(unit);
   } catch (e, s) {

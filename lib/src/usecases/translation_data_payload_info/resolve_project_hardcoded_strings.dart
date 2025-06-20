@@ -49,17 +49,18 @@ resolveCodebaseProject({
     };
 
     // 1. Extract all strings from the files
-    final List<HardcodedStringEntity> allStrings = await runWithSpinner(
+    final List<HardcodedStringEntity> allStrings;
+    final extractResult = await runWithSpinner(
       successMessage: 'Extracted strings from ${targetFiles.length} files',
       message: 'Extracting strings from ${targetFiles.length} files...',
       () async {
-        final allStrings = await extractAllStringsInDartUsecaseImpl(
-          files: targetFiles,
-        );
-
-        return allStrings;
+        return await extractAllStringsInDartUsecaseImpl(files: targetFiles);
       },
     );
+    if (extractResult.isError()) {
+      return extractResult.asError();
+    }
+    allStrings = extractResult.getOrThrow();
 
     if (generateLogs) {
       await saveStringListData(
@@ -69,12 +70,16 @@ resolveCodebaseProject({
     }
 
     // 2. Define which strings are labels
-    final labelStrings = await defineWhichStringLabelUsecase(
+    final labelStringsResult = await defineWhichStringLabelUsecase(
       client: client,
       strings: allStrings,
       projectApiToken: projectApiToken,
       projectShaIdentifier: projectShaIdentifier,
     );
+    if (labelStringsResult.isError()) {
+      return labelStringsResult.asError();
+    }
+    final labelStrings = labelStringsResult.getOrThrow();
 
     if (generateLogs) {
       await saveStringListData(
@@ -113,7 +118,13 @@ resolveCodebaseProject({
     }
 
     // 4. Map strings hierarchy
-    final labelEntities = mapStringsHierarchy(strings: keyedStrings);
+    final labelEntitiesResult = await mapStringsHierarchy(
+      strings: keyedStrings,
+    );
+    if (labelEntitiesResult.isError()) {
+      return labelEntitiesResult.asError();
+    }
+    final labelEntities = labelEntitiesResult.getOrThrow();
     if (generateLogs) {
       print('Created hierarchy with ${labelEntities.length} root labels');
       await saveStringListData(
@@ -123,11 +134,15 @@ resolveCodebaseProject({
     }
 
     // 5. Map to babel labels models
-    final babelLabels = mapBabelLabels(
+    final babelLabelsResult = await mapBabelLabels(
       strings: labelEntities,
       keyToDeclaration: keyToDeclaration,
       keyToImplementation: keyToImplementation,
     );
+    if (babelLabelsResult.isError()) {
+      return babelLabelsResult.asError();
+    }
+    final babelLabels = babelLabelsResult.getOrThrow();
 
     Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings =
         <FilePath, List<BabelLabelEntityRootLabel>>{};

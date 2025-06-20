@@ -7,9 +7,10 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dyna
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
 @override
-Future<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
+AsyncResult<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
   required List<File> files,
 }) async {
   final List<HardcodedStringEntity> allStrings = [];
@@ -17,7 +18,13 @@ Future<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
   for (final file in files) {
     if (!file.path.endsWith('.dart')) continue;
 
-    final content = await file.readAsString();
+    final String content;
+    try {
+      content = await file.readAsString();
+    } catch (e) {
+      return Exception('Failed to read file ${file.path}: $e').toFailure();
+    }
+
     final rawList = <_RawString>[];
 
     try {
@@ -66,7 +73,7 @@ Future<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
     }
   }
 
-  return allStrings;
+  return allStrings.toSuccess();
 }
 
 /// Temporary record for raw string nodes.

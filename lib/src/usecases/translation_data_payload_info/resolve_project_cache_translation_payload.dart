@@ -19,7 +19,10 @@ AsyncResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
     for (final entry in projectCacheMap.hardcodedStringToArbKeyMap.entries) {
       final TranslationKey key = entry.key;
       final HardCodedString value = entry.value;
-      final integrityKeyResponse = garanteeKeyIntegrity(key: key, value: value);
+      final integrityKeyResponse = await garanteeKeyIntegrity(
+        key: key,
+        value: value,
+      );
       if (integrityKeyResponse.isError()) {
         return integrityKeyResponse.asError();
       }

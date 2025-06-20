@@ -705,7 +705,15 @@ abstract class GenerateFlowState with _$GenerateFlowState {
 
         return changedFiles;
       },
-      fromZero: (value) async => await getEligibleFiles(directory),
+      fromZero: (value) async {
+        final result = await getEligibleFiles(directory);
+        if (result.isError()) {
+          // If there's an error getting eligible files, return empty list
+          // This maintains backward compatibility with the existing API
+          return <File>[];
+        }
+        return result.getOrThrow();
+      },
     );
   }
 

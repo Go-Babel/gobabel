@@ -8,8 +8,8 @@ import 'package:result_dart/result_dart.dart';
 
 AsyncResult<ExtractArbDataResponse> extractArbDataFromFile(File file) async {
   // Babel locale
-  final localeResponse = extractFromArbFileName(filename: file.path);
-  if (localeResponse.isError()) return localeResponse.asErrorAsync();
+  final localeResponse = await extractFromArbFileName(filename: file.path);
+  if (localeResponse.isError()) return localeResponse.asError();
   final BabelSupportedLocales locale = localeResponse.getOrThrow();
 
   // Read file content

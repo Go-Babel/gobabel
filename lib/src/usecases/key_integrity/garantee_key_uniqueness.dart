@@ -2,10 +2,10 @@ import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-Result<ProcessedKeyIntegrity> garanteeKeyUniqueness({
+AsyncResult<ProcessedKeyIntegrity> garanteeKeyUniqueness({
   required TranslationKey key,
   required TranslationContent value,
-}) {
+}) async {
   final TranslationKey? existingKey = _valueToValue[value];
   final isNewKey = existingKey == null;
   if (!isNewKey) {

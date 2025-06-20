@@ -48,7 +48,7 @@ resolveProjectArbFilesPayload({
             .entries) {
       final TranslationKey rawKey = entry.key;
       final HardCodedString value = entry.value;
-      final integrityKeyResponse = garanteeKeyIntegrity(
+      final integrityKeyResponse = await garanteeKeyIntegrity(
         key: rawKey,
         value: value,
       );

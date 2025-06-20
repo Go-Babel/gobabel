@@ -2,10 +2,11 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dyna
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
+import 'package:result_dart/result_dart.dart';
 
-List<LabelsEntityRootLabel> mapStringsHierarchy({
+AsyncResult<List<LabelsEntityRootLabel>> mapStringsHierarchy({
   required List<HumanFriendlyArbKeyResponse> strings,
-}) {
+}) async {
   // First, separate root strings (those without parent) from child strings
   final rootStrings =
       strings
@@ -48,7 +49,7 @@ List<LabelsEntityRootLabel> mapStringsHierarchy({
             as LabelsEntityRootLabel;
       }).toList();
 
-  return rootLabels;
+  return rootLabels.toSuccess();
 }
 
 // Build children for a parent string (either root or child)

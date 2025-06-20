@@ -3,18 +3,18 @@ import 'package:gobabel/src/usecases/key_integrity/garantee_key_uniqueness.dart'
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-Result<ProcessedKeyIntegrity> garanteeKeyIntegrity({
+AsyncResult<ProcessedKeyIntegrity> garanteeKeyIntegrity({
   required TranslationKey key,
   required HardCodedString value,
-}) {
+}) async {
   key = key.trimHardcodedString;
-  final validKeyNameResponse = garanteeKeyIsValidFunctionName(key: key);
+  final validKeyNameResponse = await garanteeKeyIsValidFunctionName(key: key);
   if (validKeyNameResponse.isError()) {
     return validKeyNameResponse;
   }
   final validKeyName = validKeyNameResponse.getOrThrow();
   final cleanValue = value.trimHardcodedString;
-  final uniqueKeyGaranteedResponse = garanteeKeyUniqueness(
+  final uniqueKeyGaranteedResponse = await garanteeKeyUniqueness(
     key: validKeyName,
     value: cleanValue,
   );

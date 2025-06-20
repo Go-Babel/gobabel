@@ -1,14 +1,17 @@
 import 'dart:io';
 
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 
-Future<String> getBabelTextFile({required Directory curr}) async {
-  final Directory libDir = await findLibDirectory(curr: curr);
+AsyncResult<String> getBabelTextFile({required Directory curr}) async {
+  final libDirResult = await findLibDirectory(curr: curr);
+  if (libDirResult.isError()) return libDirResult.asErrorAsync();
+  final Directory libDir = libDirResult.getOrThrow();
   final String path = '${libDir.path}/$kBabelFileName';
-  return path;
+  return path.toSuccess();
 }
 
-Future<Directory> findLibDirectory({required Directory curr}) async {
+AsyncResult<Directory> findLibDirectory({required Directory curr}) async {
   FileSystemEntity? libDirectory;
 
   await for (final FileSystemEntity fileEntity in curr.list()) {
@@ -19,9 +22,9 @@ Future<Directory> findLibDirectory({required Directory curr}) async {
   }
 
   if (libDirectory == null) {
-    throw Exception('No lib/ directory found');
+    return Exception('No lib/ directory found').toFailure();
   }
 
   final Directory libDir = libDirectory as Directory;
-  return libDir;
+  return libDir.toSuccess();
 }
