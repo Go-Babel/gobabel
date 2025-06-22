@@ -6,6 +6,7 @@ import 'package:gobabel/src/usecases/arb_related/map_project_arb_data.dart';
 import 'package:gobabel/src/usecases/arb_related/resolve_l10n_keys_ref_in_codebase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/add_babel_initialization_to_main_usecase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/ensure_shared_prefs_if_flutter_project.dart';
+import 'package:gobabel/src/usecases/babel_dependencies_setup/generate_babel_class.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/write_babel_text_file_into_directory.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/ensure_no_static_error_on_dart_files.dart';
@@ -108,6 +109,7 @@ class GobabelConductor {
         .flatMap(generate_resolveCodebaseHardcodedStringsProject)
         .flatMap(generate_resolveHardcodedStringsInCodebase)
         .flatMap(generate_multiDartFixFormatUsecase)
+        .flatMap(generate_generateBabelClassUsecase)
         .flatMap(generate_writeBabelTextFileIntoDirectory)
         .flatMap(generate_addBabelInitializationToMainUsecase)
         .flatMap(generate_ensureSharedPrefsIsInFlutterProject)
@@ -117,6 +119,5 @@ class GobabelConductor {
         .flatMap(generate_commitAllChangesUsecase)
         .flatMap(generate_getBabelChangesCommit)
         .flatMap(generate_uploadBabelTranslationsChangesCommitToServer);
-    // .flatMap(generate_addBabelInitializationToMainUsecase);
   }
 }

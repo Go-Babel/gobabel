@@ -71,6 +71,21 @@ Always run `dart run build_runner build` after:
 - Use `AsyncResult<T>` for all async operations that can fail
 - Chain operations with `flatMap` instead of traditional try-catch
 - Return specific error types through the Result pattern
+- When propagating errors from one `AsyncResult` to another with different type parameters, use `asError()` or `asErrorAsync()` extension methods from `gobabel_core` instead of `fold()`:
+  ```dart
+  // ✅ Good
+  if (result.isError()) {
+    return result.asError();
+  }
+  
+  // ❌ Avoid
+  if (result.isError()) {
+    return result.fold(
+      (_) => unit.toSuccess(),
+      (error) => error.toFailure(),
+    );
+  }
+  ```
 
 ### State Management
 - All state objects must be immutable using Freezed

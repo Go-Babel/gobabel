@@ -40,36 +40,42 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   final keysCluster = allKeys.splitIntoGroups(100);
 
   for (final file in targetFiles) {
-    String fileContent = await file.readAsString();
-    bool hasChanges = false;
-    for (final keys in keysCluster) {
-      final String fileName = file.path;
-      final regex = RegExp(
-        '$baseRegexIdentifier(${keys.join('|')})',
-        multiLine: true,
-      );
+    try {
+      String fileContent = await file.readAsString();
+      bool hasChanges = false;
+      for (final keys in keysCluster) {
+        final String fileName = file.path;
+        final regex = RegExp(
+          '$baseRegexIdentifier(${keys.join('|')})',
+          multiLine: true,
+        );
 
-      fileContent = fileContent.replaceAllMapped(regex, (Match match) {
-        hasChanges = true;
-        final String matchedKey = match.group(1)!;
-        final String keyName = match.group(2)!;
-        final ProcessedKeyIntegrity integrityKey = remapedArbKeys[keyName]!;
-        if (!keyToContextsPaths.containsKey(integrityKey)) {
-          keyToContextsPaths[integrityKey] = <ContextPath>{};
-        }
-        keyToContextsPaths[integrityKey]!.add(fileName);
-        return match //
-            .text
-            .replaceFirst(matchedKey, 'BabelText')
-            .replaceFirst(keyName, integrityKey);
-      });
-    }
-    if (hasChanges) {
-      final fileContentWithImport = addImportIfNeededUsecase(
-        codeBaseYamlInfo: codeBaseYamlInfo,
-        fileContent: fileContent,
-      );
-      await file.writeAsString(fileContentWithImport);
+        fileContent = fileContent.replaceAllMapped(regex, (Match match) {
+          hasChanges = true;
+          final String matchedKey = match.group(1)!;
+          final String keyName = match.group(2)!;
+          final ProcessedKeyIntegrity integrityKey = remapedArbKeys[keyName]!;
+          if (!keyToContextsPaths.containsKey(integrityKey)) {
+            keyToContextsPaths[integrityKey] = <ContextPath>{};
+          }
+          keyToContextsPaths[integrityKey]!.add(fileName);
+          return match //
+              .text
+              .replaceFirst(matchedKey, 'BabelText')
+              .replaceFirst(keyName, integrityKey);
+        });
+      }
+      if (hasChanges) {
+        final fileContentWithImport = addImportIfNeededUsecase(
+          codeBaseYamlInfo: codeBaseYamlInfo,
+          fileContent: fileContent,
+        );
+        await file.writeAsString(fileContentWithImport);
+      }
+    } catch (e) {
+      // Log error but continue processing other files
+      print('Error processing file ${file.path}: $e');
+      continue;
     }
   }
 

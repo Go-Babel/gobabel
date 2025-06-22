@@ -9,21 +9,36 @@ AsyncResult<String> getProjectYaml({
 }) async {
   const String targetFile = 'pubspec.yaml';
 
-  final List<FileSystemEntity> items = currentDirectory.listSync(
-    recursive: false,
-    followLinks: false,
-  );
+  try {
+    final List<FileSystemEntity> items = currentDirectory.listSync(
+      recursive: false,
+      followLinks: false,
+    );
 
-  final yamlFile = items.firstWhereOrNull(
-    (element) => element.path.endsWith(targetFile),
-  );
+    final yamlFile = items.firstWhereOrNull(
+      (element) => element.path.endsWith(targetFile),
+    );
 
-  if (yamlFile == null) {
+    if (yamlFile == null) {
+      return Exception(
+        '❌ No "pubspec.yaml" file found.\nPlease ensure you are in a flutter/dart project directory.'
+            .red,
+      ).toFailure();
+    }
+
+    try {
+      final content = await File(yamlFile.path).readAsString();
+      return content.toSuccess();
+    } catch (e, stackTrace) {
+      return Exception(
+        '❌ Failed to read pubspec.yaml file: $e\nStackTrace: $stackTrace'
+            .red,
+      ).toFailure();
+    }
+  } catch (e, stackTrace) {
     return Exception(
-      '❌ No "pubspec.yaml" file found.\nPlease ensure you are in a flutter/dart project directory.'
+      '❌ Failed to list directory contents: $e\nStackTrace: $stackTrace'
           .red,
     ).toFailure();
   }
-
-  return (await File(yamlFile.path).readAsString()).toSuccess();
 }

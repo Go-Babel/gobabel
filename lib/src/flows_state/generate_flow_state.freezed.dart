@@ -63,6 +63,8 @@ GenerateFlowState _$GenerateFlowStateFromJson(Map<String, dynamic> json) {
       return GenerateFlowReplacedHardcodedStringsForBabelText.fromJson(json);
     case 'appliedCodebaseGeneralDartFixes':
       return GenerateFlowAppliedCodebaseGeneralDartFixes.fromJson(json);
+    case 'generatedBabelClass':
+      return GenerateFlowGeneratedBabelClass.fromJson(json);
     case 'writtedBabelClassInDartFile':
       return GenerateFlowWrittedBabelClassInDartFile.fromJson(json);
     case 'addedBabelClassInitializationInMain':
@@ -466,6 +468,31 @@ mixin _$GenerateFlowState {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
     required TResult Function(
       bool willLog,
       String projectApiToken,
@@ -1088,6 +1115,31 @@ mixin _$GenerateFlowState {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult? Function(
@@ -1688,6 +1740,31 @@ mixin _$GenerateFlowState {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -1948,6 +2025,8 @@ mixin _$GenerateFlowState {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -2008,6 +2087,8 @@ mixin _$GenerateFlowState {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -2063,6 +2144,8 @@ mixin _$GenerateFlowState {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -2656,6 +2739,31 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
     required TResult Function(
       bool willLog,
       String projectApiToken,
@@ -3287,6 +3395,31 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult? Function(
@@ -3896,6 +4029,31 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -4168,6 +4326,8 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -4232,6 +4392,8 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -4291,6 +4453,8 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -4876,6 +5040,31 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
     required TResult Function(
       bool willLog,
       String projectApiToken,
@@ -5508,6 +5697,31 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult? Function(
@@ -6118,6 +6332,31 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -6391,6 +6630,8 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -6455,6 +6696,8 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -6514,6 +6757,8 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -7102,6 +7347,31 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
     required TResult Function(
       bool willLog,
       String projectApiToken,
@@ -7734,6 +8004,31 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult? Function(
@@ -8344,6 +8639,31 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -8617,6 +8937,8 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -8681,6 +9003,8 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -8740,6 +9064,8 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -9374,6 +9700,31 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -9963,6 +10314,31 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -10596,6 +10972,31 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -10870,6 +11271,8 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -10934,6 +11337,8 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -10993,6 +11398,8 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -11641,6 +12048,31 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -12231,6 +12663,31 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -12865,6 +13322,31 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -13140,6 +13622,8 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -13204,6 +13688,8 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -13263,6 +13749,8 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -13932,6 +14420,31 @@ class _$GenerateFlowGotLastLocalCommitImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -14523,6 +15036,31 @@ class _$GenerateFlowGotLastLocalCommitImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -15158,6 +15696,31 @@ class _$GenerateFlowGotLastLocalCommitImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -15434,6 +15997,8 @@ class _$GenerateFlowGotLastLocalCommitImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -15498,6 +16063,8 @@ class _$GenerateFlowGotLastLocalCommitImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -15557,6 +16124,8 @@ class _$GenerateFlowGotLastLocalCommitImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -16243,6 +16812,31 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -16835,6 +17429,31 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -17471,6 +18090,31 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -17748,6 +18392,8 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -17812,6 +18458,8 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -17871,6 +18519,8 @@ class _$GenerateFlowGotProjectOriginUrlImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -18539,6 +19189,31 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -19129,6 +19804,31 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -19763,6 +20463,31 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -20038,6 +20763,8 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -20102,6 +20829,8 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -20161,6 +20890,8 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -20873,6 +21604,31 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -21466,6 +22222,31 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -22103,6 +22884,31 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -22381,6 +23187,8 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -22445,6 +23253,8 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -22504,6 +23314,8 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -23251,6 +24063,31 @@ class _$GenerateFlowDownloadReferenceArbImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -23845,6 +24682,31 @@ class _$GenerateFlowDownloadReferenceArbImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -24483,6 +25345,31 @@ class _$GenerateFlowDownloadReferenceArbImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -24762,6 +25649,8 @@ class _$GenerateFlowDownloadReferenceArbImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -24826,6 +25715,8 @@ class _$GenerateFlowDownloadReferenceArbImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -24885,6 +25776,8 @@ class _$GenerateFlowDownloadReferenceArbImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -25644,6 +26537,31 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -26239,6 +27157,31 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -26878,6 +27821,31 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -27158,6 +28126,8 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -27222,6 +28192,8 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -27281,6 +28253,8 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -28079,6 +29053,31 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -28675,6 +29674,31 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -29315,6 +30339,31 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -29596,6 +30645,8 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -29660,6 +30711,8 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -29719,6 +30772,8 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -30523,6 +31578,31 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -31119,6 +32199,31 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -31759,6 +32864,31 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -32040,6 +33170,8 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -32104,6 +33236,8 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -32163,6 +33297,8 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -32985,6 +34121,31 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -33582,6 +34743,31 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -34223,6 +35409,31 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -34505,6 +35716,8 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -34569,6 +35782,8 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -34628,6 +35843,8 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -35478,6 +36695,31 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -36076,6 +37318,31 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -36718,6 +37985,31 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -37001,6 +38293,8 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -37065,6 +38359,8 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -37124,6 +38420,8 @@ class _$GenerateFlowGotL10nProjectConfigImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -37978,6 +39276,31 @@ class _$GenerateFlowMappedProjectArbDataImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -38576,6 +39899,31 @@ class _$GenerateFlowMappedProjectArbDataImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -39218,6 +40566,31 @@ class _$GenerateFlowMappedProjectArbDataImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -39501,6 +40874,8 @@ class _$GenerateFlowMappedProjectArbDataImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -39565,6 +40940,8 @@ class _$GenerateFlowMappedProjectArbDataImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -39624,6 +41001,8 @@ class _$GenerateFlowMappedProjectArbDataImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -40538,6 +41917,31 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -41138,6 +42542,31 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -41782,6 +43211,31 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -42067,6 +43521,8 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -42131,6 +43587,8 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -42190,6 +43648,8 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -43128,6 +44588,31 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -43728,6 +45213,31 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -44372,6 +45882,31 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -44657,6 +46192,8 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -44721,6 +46258,8 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -44780,6 +46319,8 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -45698,6 +47239,31 @@ class _$GenerateFlowCodebaseNormalizedImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -46298,6 +47864,31 @@ class _$GenerateFlowCodebaseNormalizedImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -46942,6 +48533,31 @@ class _$GenerateFlowCodebaseNormalizedImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -47227,6 +48843,8 @@ class _$GenerateFlowCodebaseNormalizedImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -47291,6 +48909,8 @@ class _$GenerateFlowCodebaseNormalizedImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -47350,6 +48970,8 @@ class _$GenerateFlowCodebaseNormalizedImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -48315,6 +49937,31 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -48917,6 +50564,31 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -49563,6 +51235,31 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -49850,6 +51547,8 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -49914,6 +51613,8 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -49973,6 +51674,8 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -50951,6 +52654,31 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -51553,6 +53281,31 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -52199,6 +53952,31 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -52486,6 +54264,8 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -52550,6 +54330,8 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -52609,6 +54391,8 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -53583,6 +55367,31 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -54185,6 +55994,31 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -54831,6 +56665,31 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -55118,6 +56977,8 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -55182,6 +57043,8 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -55241,6 +57104,8 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -55336,6 +57201,2734 @@ abstract class GenerateFlowAppliedCodebaseGeneralDartFixes
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplCopyWith<
     _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GenerateFlowGeneratedBabelClassImplCopyWith<$Res>
+    implements $GenerateFlowStateCopyWith<$Res> {
+  factory _$$GenerateFlowGeneratedBabelClassImplCopyWith(
+    _$GenerateFlowGeneratedBabelClassImpl value,
+    $Res Function(_$GenerateFlowGeneratedBabelClassImpl) then,
+  ) = __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    bool willLog,
+    String projectApiToken,
+    String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    BabelSupportedLocales inputedByUserLocale,
+    ApiClientEntity client,
+    CodeBaseYamlInfo yamlInfo,
+    GitVariables gitVariables,
+    int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
+    String downloadLink,
+    Map<String, String> referenceArbMap,
+    ProjectCacheMap projectCacheMap,
+    TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    FilesVerification filesVerificationState,
+    ArbDataState projectArbData,
+    Map<String, String> remapedArbKeys,
+    TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    String babelClass,
+  });
+
+  $ApiClientEntityCopyWith<$Res> get client;
+  $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
+  $GitVariablesCopyWith<$Res> get gitVariables;
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo;
+  $FilesVerificationCopyWith<$Res> get filesVerificationState;
+  $ArbDataStateCopyWith<$Res> get projectArbData;
+  $TranslationPayloadInfoCopyWith<$Res> get codebaseArbTranslationPayloadInfo;
+  $TranslationPayloadInfoCopyWith<$Res> get hardcodedStringsPayloadInfo;
+}
+
+/// @nodoc
+class __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl<$Res>
+    extends
+        _$GenerateFlowStateCopyWithImpl<
+          $Res,
+          _$GenerateFlowGeneratedBabelClassImpl
+        >
+    implements _$$GenerateFlowGeneratedBabelClassImplCopyWith<$Res> {
+  __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl(
+    _$GenerateFlowGeneratedBabelClassImpl _value,
+    $Res Function(_$GenerateFlowGeneratedBabelClassImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? willLog = null,
+    Object? projectApiToken = null,
+    Object? directoryPath = null,
+    Object? inputedByUserLocale = null,
+    Object? client = null,
+    Object? yamlInfo = null,
+    Object? gitVariables = null,
+    Object? maxLanguageCount = null,
+    Object? languages = null,
+    Object? downloadLink = null,
+    Object? referenceArbMap = null,
+    Object? projectCacheMap = null,
+    Object? cacheMapTranslationPayloadInfo = null,
+    Object? filesVerificationState = null,
+    Object? projectArbData = null,
+    Object? remapedArbKeys = null,
+    Object? codebaseArbTranslationPayloadInfo = null,
+    Object? hardcodedStringsPayloadInfo = null,
+    Object? hardcodedStringsPerFile = null,
+    Object? babelClass = null,
+  }) {
+    return _then(
+      _$GenerateFlowGeneratedBabelClassImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        projectApiToken:
+            null == projectApiToken
+                ? _value.projectApiToken
+                : projectApiToken // ignore: cast_nullable_to_non_nullable
+                    as String,
+        directoryPath:
+            null == directoryPath
+                ? _value.directoryPath
+                : directoryPath // ignore: cast_nullable_to_non_nullable
+                    as String,
+        inputedByUserLocale:
+            null == inputedByUserLocale
+                ? _value.inputedByUserLocale
+                : inputedByUserLocale // ignore: cast_nullable_to_non_nullable
+                    as BabelSupportedLocales,
+        client:
+            null == client
+                ? _value.client
+                : client // ignore: cast_nullable_to_non_nullable
+                    as ApiClientEntity,
+        yamlInfo:
+            null == yamlInfo
+                ? _value.yamlInfo
+                : yamlInfo // ignore: cast_nullable_to_non_nullable
+                    as CodeBaseYamlInfo,
+        gitVariables:
+            null == gitVariables
+                ? _value.gitVariables
+                : gitVariables // ignore: cast_nullable_to_non_nullable
+                    as GitVariables,
+        maxLanguageCount:
+            null == maxLanguageCount
+                ? _value.maxLanguageCount
+                : maxLanguageCount // ignore: cast_nullable_to_non_nullable
+                    as int,
+        languages:
+            null == languages
+                ? _value._languages
+                : languages // ignore: cast_nullable_to_non_nullable
+                    as Set<BabelSupportedLocales>,
+        downloadLink:
+            null == downloadLink
+                ? _value.downloadLink
+                : downloadLink // ignore: cast_nullable_to_non_nullable
+                    as String,
+        referenceArbMap:
+            null == referenceArbMap
+                ? _value._referenceArbMap
+                : referenceArbMap // ignore: cast_nullable_to_non_nullable
+                    as Map<String, String>,
+        projectCacheMap:
+            null == projectCacheMap
+                ? _value.projectCacheMap
+                : projectCacheMap // ignore: cast_nullable_to_non_nullable
+                    as ProjectCacheMap,
+        cacheMapTranslationPayloadInfo:
+            null == cacheMapTranslationPayloadInfo
+                ? _value.cacheMapTranslationPayloadInfo
+                : cacheMapTranslationPayloadInfo // ignore: cast_nullable_to_non_nullable
+                    as TranslationPayloadInfo,
+        filesVerificationState:
+            null == filesVerificationState
+                ? _value.filesVerificationState
+                : filesVerificationState // ignore: cast_nullable_to_non_nullable
+                    as FilesVerification,
+        projectArbData:
+            null == projectArbData
+                ? _value.projectArbData
+                : projectArbData // ignore: cast_nullable_to_non_nullable
+                    as ArbDataState,
+        remapedArbKeys:
+            null == remapedArbKeys
+                ? _value._remapedArbKeys
+                : remapedArbKeys // ignore: cast_nullable_to_non_nullable
+                    as Map<String, String>,
+        codebaseArbTranslationPayloadInfo:
+            null == codebaseArbTranslationPayloadInfo
+                ? _value.codebaseArbTranslationPayloadInfo
+                : codebaseArbTranslationPayloadInfo // ignore: cast_nullable_to_non_nullable
+                    as TranslationPayloadInfo,
+        hardcodedStringsPayloadInfo:
+            null == hardcodedStringsPayloadInfo
+                ? _value.hardcodedStringsPayloadInfo
+                : hardcodedStringsPayloadInfo // ignore: cast_nullable_to_non_nullable
+                    as TranslationPayloadInfo,
+        hardcodedStringsPerFile:
+            null == hardcodedStringsPerFile
+                ? _value._hardcodedStringsPerFile
+                : hardcodedStringsPerFile // ignore: cast_nullable_to_non_nullable
+                    as Map<FilePath, List<BabelLabelEntityRootLabel>>,
+        babelClass:
+            null == babelClass
+                ? _value.babelClass
+                : babelClass // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ApiClientEntityCopyWith<$Res> get client {
+    return $ApiClientEntityCopyWith<$Res>(_value.client, (value) {
+      return _then(_value.copyWith(client: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo {
+    return $CodeBaseYamlInfoCopyWith<$Res>(_value.yamlInfo, (value) {
+      return _then(_value.copyWith(yamlInfo: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GitVariablesCopyWith<$Res> get gitVariables {
+    return $GitVariablesCopyWith<$Res>(_value.gitVariables, (value) {
+      return _then(_value.copyWith(gitVariables: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TranslationPayloadInfoCopyWith<$Res> get cacheMapTranslationPayloadInfo {
+    return $TranslationPayloadInfoCopyWith<$Res>(
+      _value.cacheMapTranslationPayloadInfo,
+      (value) {
+        return _then(_value.copyWith(cacheMapTranslationPayloadInfo: value));
+      },
+    );
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $FilesVerificationCopyWith<$Res> get filesVerificationState {
+    return $FilesVerificationCopyWith<$Res>(_value.filesVerificationState, (
+      value,
+    ) {
+      return _then(_value.copyWith(filesVerificationState: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ArbDataStateCopyWith<$Res> get projectArbData {
+    return $ArbDataStateCopyWith<$Res>(_value.projectArbData, (value) {
+      return _then(_value.copyWith(projectArbData: value));
+    });
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TranslationPayloadInfoCopyWith<$Res> get codebaseArbTranslationPayloadInfo {
+    return $TranslationPayloadInfoCopyWith<$Res>(
+      _value.codebaseArbTranslationPayloadInfo,
+      (value) {
+        return _then(_value.copyWith(codebaseArbTranslationPayloadInfo: value));
+      },
+    );
+  }
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TranslationPayloadInfoCopyWith<$Res> get hardcodedStringsPayloadInfo {
+    return $TranslationPayloadInfoCopyWith<$Res>(
+      _value.hardcodedStringsPayloadInfo,
+      (value) {
+        return _then(_value.copyWith(hardcodedStringsPayloadInfo: value));
+      },
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$GenerateFlowGeneratedBabelClassImpl
+    extends GenerateFlowGeneratedBabelClass {
+  _$GenerateFlowGeneratedBabelClassImpl({
+    required this.willLog,
+    required this.projectApiToken,
+    required this.directoryPath,
+    @BabelSupportedLocalesJsonConverter() required this.inputedByUserLocale,
+    required this.client,
+    required this.yamlInfo,
+    required this.gitVariables,
+    required this.maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required final Set<BabelSupportedLocales> languages,
+    required this.downloadLink,
+    required final Map<String, String> referenceArbMap,
+    required this.projectCacheMap,
+    required this.cacheMapTranslationPayloadInfo,
+    required this.filesVerificationState,
+    required this.projectArbData,
+    required final Map<String, String> remapedArbKeys,
+    required this.codebaseArbTranslationPayloadInfo,
+    required this.hardcodedStringsPayloadInfo,
+    required final Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required this.babelClass,
+    final String? $type,
+  }) : _languages = languages,
+       _referenceArbMap = referenceArbMap,
+       _remapedArbKeys = remapedArbKeys,
+       _hardcodedStringsPerFile = hardcodedStringsPerFile,
+       $type = $type ?? 'generatedBabelClass',
+       super._();
+
+  factory _$GenerateFlowGeneratedBabelClassImpl.fromJson(
+    Map<String, dynamic> json,
+  ) => _$$GenerateFlowGeneratedBabelClassImplFromJson(json);
+
+  @override
+  final bool willLog;
+  @override
+  final String projectApiToken;
+  @override
+  final String directoryPath;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  final BabelSupportedLocales inputedByUserLocale;
+  @override
+  final ApiClientEntity client;
+  @override
+  final CodeBaseYamlInfo yamlInfo;
+  @override
+  final GitVariables gitVariables;
+  @override
+  final int maxLanguageCount;
+  final Set<BabelSupportedLocales> _languages;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  Set<BabelSupportedLocales> get languages {
+    if (_languages is EqualUnmodifiableSetView) return _languages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_languages);
+  }
+
+  @override
+  final String downloadLink;
+  final Map<String, String> _referenceArbMap;
+  @override
+  Map<String, String> get referenceArbMap {
+    if (_referenceArbMap is EqualUnmodifiableMapView) return _referenceArbMap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_referenceArbMap);
+  }
+
+  @override
+  final ProjectCacheMap projectCacheMap;
+  @override
+  final TranslationPayloadInfo cacheMapTranslationPayloadInfo;
+  @override
+  final FilesVerification filesVerificationState;
+  @override
+  final ArbDataState projectArbData;
+  final Map<String, String> _remapedArbKeys;
+  @override
+  Map<String, String> get remapedArbKeys {
+    if (_remapedArbKeys is EqualUnmodifiableMapView) return _remapedArbKeys;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_remapedArbKeys);
+  }
+
+  @override
+  final TranslationPayloadInfo codebaseArbTranslationPayloadInfo;
+  @override
+  final TranslationPayloadInfo hardcodedStringsPayloadInfo;
+  final Map<FilePath, List<BabelLabelEntityRootLabel>> _hardcodedStringsPerFile;
+  @override
+  Map<FilePath, List<BabelLabelEntityRootLabel>> get hardcodedStringsPerFile {
+    if (_hardcodedStringsPerFile is EqualUnmodifiableMapView)
+      return _hardcodedStringsPerFile;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_hardcodedStringsPerFile);
+  }
+
+  @override
+  final String babelClass;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'GenerateFlowState.generatedBabelClass(willLog: $willLog, projectApiToken: $projectApiToken, directoryPath: $directoryPath, inputedByUserLocale: $inputedByUserLocale, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, maxLanguageCount: $maxLanguageCount, languages: $languages, downloadLink: $downloadLink, referenceArbMap: $referenceArbMap, projectCacheMap: $projectCacheMap, cacheMapTranslationPayloadInfo: $cacheMapTranslationPayloadInfo, filesVerificationState: $filesVerificationState, projectArbData: $projectArbData, remapedArbKeys: $remapedArbKeys, codebaseArbTranslationPayloadInfo: $codebaseArbTranslationPayloadInfo, hardcodedStringsPayloadInfo: $hardcodedStringsPayloadInfo, hardcodedStringsPerFile: $hardcodedStringsPerFile, babelClass: $babelClass)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GenerateFlowGeneratedBabelClassImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
+            (identical(other.projectApiToken, projectApiToken) ||
+                other.projectApiToken == projectApiToken) &&
+            (identical(other.directoryPath, directoryPath) ||
+                other.directoryPath == directoryPath) &&
+            (identical(other.inputedByUserLocale, inputedByUserLocale) ||
+                other.inputedByUserLocale == inputedByUserLocale) &&
+            (identical(other.client, client) || other.client == client) &&
+            (identical(other.yamlInfo, yamlInfo) ||
+                other.yamlInfo == yamlInfo) &&
+            (identical(other.gitVariables, gitVariables) ||
+                other.gitVariables == gitVariables) &&
+            (identical(other.maxLanguageCount, maxLanguageCount) ||
+                other.maxLanguageCount == maxLanguageCount) &&
+            const DeepCollectionEquality().equals(
+              other._languages,
+              _languages,
+            ) &&
+            (identical(other.downloadLink, downloadLink) ||
+                other.downloadLink == downloadLink) &&
+            const DeepCollectionEquality().equals(
+              other._referenceArbMap,
+              _referenceArbMap,
+            ) &&
+            (identical(other.projectCacheMap, projectCacheMap) ||
+                other.projectCacheMap == projectCacheMap) &&
+            (identical(
+                  other.cacheMapTranslationPayloadInfo,
+                  cacheMapTranslationPayloadInfo,
+                ) ||
+                other.cacheMapTranslationPayloadInfo ==
+                    cacheMapTranslationPayloadInfo) &&
+            (identical(other.filesVerificationState, filesVerificationState) ||
+                other.filesVerificationState == filesVerificationState) &&
+            (identical(other.projectArbData, projectArbData) ||
+                other.projectArbData == projectArbData) &&
+            const DeepCollectionEquality().equals(
+              other._remapedArbKeys,
+              _remapedArbKeys,
+            ) &&
+            (identical(
+                  other.codebaseArbTranslationPayloadInfo,
+                  codebaseArbTranslationPayloadInfo,
+                ) ||
+                other.codebaseArbTranslationPayloadInfo ==
+                    codebaseArbTranslationPayloadInfo) &&
+            (identical(
+                  other.hardcodedStringsPayloadInfo,
+                  hardcodedStringsPayloadInfo,
+                ) ||
+                other.hardcodedStringsPayloadInfo ==
+                    hardcodedStringsPayloadInfo) &&
+            const DeepCollectionEquality().equals(
+              other._hardcodedStringsPerFile,
+              _hardcodedStringsPerFile,
+            ) &&
+            (identical(other.babelClass, babelClass) ||
+                other.babelClass == babelClass));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+    runtimeType,
+    willLog,
+    projectApiToken,
+    directoryPath,
+    inputedByUserLocale,
+    client,
+    yamlInfo,
+    gitVariables,
+    maxLanguageCount,
+    const DeepCollectionEquality().hash(_languages),
+    downloadLink,
+    const DeepCollectionEquality().hash(_referenceArbMap),
+    projectCacheMap,
+    cacheMapTranslationPayloadInfo,
+    filesVerificationState,
+    projectArbData,
+    const DeepCollectionEquality().hash(_remapedArbKeys),
+    codebaseArbTranslationPayloadInfo,
+    hardcodedStringsPayloadInfo,
+    const DeepCollectionEquality().hash(_hardcodedStringsPerFile),
+    babelClass,
+  ]);
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GenerateFlowGeneratedBabelClassImplCopyWith<
+    _$GenerateFlowGeneratedBabelClassImpl
+  >
+  get copyWith => __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl<
+    _$GenerateFlowGeneratedBabelClassImpl
+  >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )
+    initial,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )
+    createdClient,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )
+    ensuredGit,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )
+    gotCodeBaseYaml,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )
+    gotGitUser,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )
+    gotLastLocalCommit,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )
+    gotProjectOriginUrl,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )
+    gotGitVariables,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )
+    gotAppLanguages,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )
+    downloadReferenceArb,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )
+    projectCacheMap,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )
+    resolvedProjectCacheTranslation,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )
+    ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )
+    gotTargetFiles,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      L10nProjectConfig l10nProjectConfig,
+    )
+    gotL10nProjectConfig,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+    )
+    mappedProjectArbData,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )
+    resolvedProjectArbTranslationPayload,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )
+    codebaseNormalized,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    resolvedHardcodedStrings,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    replacedHardcodedStringsForBabelText,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    appliedCodebaseGeneralDartFixes,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    writtedBabelClassInDartFile,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    addedBabelClassInitializationInMain,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )
+    addedSharedPrefsInFlutterProjects,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+    )
+    extractedCodeBase,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+    )
+    translatedNewStringsArb,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )
+    uploadedNewTranslations,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )
+    commitedAllChangesOfCodebase,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )
+    getBabelChangesCommit,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )
+    sincronizedBabelCommitWithApi,
+  }) {
+    return generatedBabelClass(
+      willLog,
+      projectApiToken,
+      directoryPath,
+      inputedByUserLocale,
+      client,
+      yamlInfo,
+      gitVariables,
+      maxLanguageCount,
+      languages,
+      downloadLink,
+      referenceArbMap,
+      this.projectCacheMap,
+      cacheMapTranslationPayloadInfo,
+      filesVerificationState,
+      projectArbData,
+      remapedArbKeys,
+      codebaseArbTranslationPayloadInfo,
+      hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile,
+      babelClass,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )?
+    initial,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    createdClient,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    ensuredGit,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )?
+    gotCodeBaseYaml,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )?
+    gotGitUser,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )?
+    gotLastLocalCommit,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )?
+    gotProjectOriginUrl,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )?
+    gotGitVariables,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )?
+    gotAppLanguages,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )?
+    downloadReferenceArb,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )?
+    projectCacheMap,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    resolvedProjectCacheTranslation,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      L10nProjectConfig l10nProjectConfig,
+    )?
+    gotL10nProjectConfig,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+    )?
+    mappedProjectArbData,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    resolvedProjectArbTranslationPayload,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    codebaseNormalized,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    resolvedHardcodedStrings,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    replacedHardcodedStringsForBabelText,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    writtedBabelClassInDartFile,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    addedBabelClassInitializationInMain,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    addedSharedPrefsInFlutterProjects,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+    )?
+    extractedCodeBase,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+    )?
+    translatedNewStringsArb,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )?
+    uploadedNewTranslations,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )?
+    commitedAllChangesOfCodebase,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )?
+    getBabelChangesCommit,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )?
+    sincronizedBabelCommitWithApi,
+  }) {
+    return generatedBabelClass?.call(
+      willLog,
+      projectApiToken,
+      directoryPath,
+      inputedByUserLocale,
+      client,
+      yamlInfo,
+      gitVariables,
+      maxLanguageCount,
+      languages,
+      downloadLink,
+      referenceArbMap,
+      this.projectCacheMap,
+      cacheMapTranslationPayloadInfo,
+      filesVerificationState,
+      projectArbData,
+      remapedArbKeys,
+      codebaseArbTranslationPayloadInfo,
+      hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile,
+      babelClass,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+    )?
+    initial,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    createdClient,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+    )?
+    ensuredGit,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+    )?
+    gotCodeBaseYaml,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+    )?
+    gotGitUser,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+    )?
+    gotLastLocalCommit,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl,
+    )?
+    gotProjectOriginUrl,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+    )?
+    gotGitVariables,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+    )?
+    gotAppLanguages,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+    )?
+    downloadReferenceArb,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+    )?
+    projectCacheMap,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    resolvedProjectCacheTranslation,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    )?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+    )?
+    gotTargetFiles,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      L10nProjectConfig l10nProjectConfig,
+    )?
+    gotL10nProjectConfig,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+    )?
+    mappedProjectArbData,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    resolvedProjectArbTranslationPayload,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    )?
+    codebaseNormalized,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    resolvedHardcodedStrings,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    replacedHardcodedStringsForBabelText,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    appliedCodebaseGeneralDartFixes,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    writtedBabelClassInDartFile,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    addedBabelClassInitializationInMain,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+    )?
+    addedSharedPrefsInFlutterProjects,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+    )?
+    extractedCodeBase,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+    )?
+    translatedNewStringsArb,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )?
+    uploadedNewTranslations,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+    )?
+    commitedAllChangesOfCodebase,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )?
+    getBabelChangesCommit,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      Set<String> contextPaths,
+      Map<String, Map<String, Map<String, String>>> madeTranslations,
+      GenerateHistory generatedHistoryItem,
+      GitCommit babelGitCommit,
+    )?
+    sincronizedBabelCommitWithApi,
+    required TResult orElse(),
+  }) {
+    if (generatedBabelClass != null) {
+      return generatedBabelClass(
+        willLog,
+        projectApiToken,
+        directoryPath,
+        inputedByUserLocale,
+        client,
+        yamlInfo,
+        gitVariables,
+        maxLanguageCount,
+        languages,
+        downloadLink,
+        referenceArbMap,
+        this.projectCacheMap,
+        cacheMapTranslationPayloadInfo,
+        filesVerificationState,
+        projectArbData,
+        remapedArbKeys,
+        codebaseArbTranslationPayloadInfo,
+        hardcodedStringsPayloadInfo,
+        hardcodedStringsPerFile,
+        babelClass,
+      );
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GenerateFlowInitial value) initial,
+    required TResult Function(GenerateFlowCreatedClient value) createdClient,
+    required TResult Function(GenerateFlowEnsureGit value) ensuredGit,
+    required TResult Function(GenerateFlowGotCodeBaseYaml value)
+    gotCodeBaseYaml,
+    required TResult Function(GenerateFlowGotGitUser value) gotGitUser,
+    required TResult Function(GenerateFlowGotLastLocalCommit value)
+    gotLastLocalCommit,
+    required TResult Function(GenerateFlowGotProjectOriginUrl value)
+    gotProjectOriginUrl,
+    required TResult Function(GenerateFlowGotGitVariables value)
+    gotGitVariables,
+    required TResult Function(GenerateFlowGotAppLanguages value)
+    gotAppLanguages,
+    required TResult Function(GenerateFlowDownloadReferenceArb value)
+    downloadReferenceArb,
+    required TResult Function(GenerateFlowProjectCacheMap value)
+    projectCacheMap,
+    required TResult Function(GenerateFlowResolvedProjectCacheTranslation value)
+    resolvedProjectCacheTranslation,
+    required TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)
+    ensuredTheresNoStaticErrorOnDartFiles,
+    required TResult Function(GenerateFlowGotTargetFiles value) gotTargetFiles,
+    required TResult Function(GenerateFlowGotL10nProjectConfig value)
+    gotL10nProjectConfig,
+    required TResult Function(GenerateFlowMappedProjectArbData value)
+    mappedProjectArbData,
+    required TResult Function(
+      GenerateFlowResolvedProjectArbTranslationPayload value,
+    )
+    resolvedProjectArbTranslationPayload,
+    required TResult Function(
+      GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions value,
+    )
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    required TResult Function(GenerateFlowCodebaseNormalized value)
+    codebaseNormalized,
+    required TResult Function(GenerateFlowResolvedHardcodedStrings value)
+    resolvedHardcodedStrings,
+    required TResult Function(
+      GenerateFlowReplacedHardcodedStringsForBabelText value,
+    )
+    replacedHardcodedStringsForBabelText,
+    required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
+    appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
+    required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
+    writtedBabelClassInDartFile,
+    required TResult Function(
+      GenerateFlowAddedBabelClassInitializationInMain value,
+    )
+    addedBabelClassInitializationInMain,
+    required TResult Function(
+      GenerateFlowAddedSharedPrefsInFlutterProjects value,
+    )
+    addedSharedPrefsInFlutterProjects,
+    required TResult Function(GenerateFlowExtractedCodeBase value)
+    extractedCodeBase,
+    required TResult Function(GenerateFlowTranslatedNewStringsArb value)
+    translatedNewStringsArb,
+    required TResult Function(GenerateFlowUploadedNewTranslations value)
+    uploadedNewTranslations,
+    required TResult Function(GenerateFlowCommitedAllChangesOfCodebase value)
+    commitedAllChangesOfCodebase,
+    required TResult Function(GenerateFlowGetBabelChangesCommit value)
+    getBabelChangesCommit,
+    required TResult Function(GenerateFlowSincronizedBabelCommitWithApi value)
+    sincronizedBabelCommitWithApi,
+  }) {
+    return generatedBabelClass(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GenerateFlowInitial value)? initial,
+    TResult? Function(GenerateFlowCreatedClient value)? createdClient,
+    TResult? Function(GenerateFlowEnsureGit value)? ensuredGit,
+    TResult? Function(GenerateFlowGotCodeBaseYaml value)? gotCodeBaseYaml,
+    TResult? Function(GenerateFlowGotGitUser value)? gotGitUser,
+    TResult? Function(GenerateFlowGotLastLocalCommit value)? gotLastLocalCommit,
+    TResult? Function(GenerateFlowGotProjectOriginUrl value)?
+    gotProjectOriginUrl,
+    TResult? Function(GenerateFlowGotGitVariables value)? gotGitVariables,
+    TResult? Function(GenerateFlowGotAppLanguages value)? gotAppLanguages,
+    TResult? Function(GenerateFlowDownloadReferenceArb value)?
+    downloadReferenceArb,
+    TResult? Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
+    TResult? Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult? Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult? Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
+    TResult? Function(GenerateFlowGotL10nProjectConfig value)?
+    gotL10nProjectConfig,
+    TResult? Function(GenerateFlowMappedProjectArbData value)?
+    mappedProjectArbData,
+    TResult? Function(GenerateFlowResolvedProjectArbTranslationPayload value)?
+    resolvedProjectArbTranslationPayload,
+    TResult? Function(
+      GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions value,
+    )?
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    TResult? Function(GenerateFlowCodebaseNormalized value)? codebaseNormalized,
+    TResult? Function(GenerateFlowResolvedHardcodedStrings value)?
+    resolvedHardcodedStrings,
+    TResult? Function(GenerateFlowReplacedHardcodedStringsForBabelText value)?
+    replacedHardcodedStringsForBabelText,
+    TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
+    appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
+    TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
+    writtedBabelClassInDartFile,
+    TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
+    addedBabelClassInitializationInMain,
+    TResult? Function(GenerateFlowAddedSharedPrefsInFlutterProjects value)?
+    addedSharedPrefsInFlutterProjects,
+    TResult? Function(GenerateFlowExtractedCodeBase value)? extractedCodeBase,
+    TResult? Function(GenerateFlowTranslatedNewStringsArb value)?
+    translatedNewStringsArb,
+    TResult? Function(GenerateFlowUploadedNewTranslations value)?
+    uploadedNewTranslations,
+    TResult? Function(GenerateFlowCommitedAllChangesOfCodebase value)?
+    commitedAllChangesOfCodebase,
+    TResult? Function(GenerateFlowGetBabelChangesCommit value)?
+    getBabelChangesCommit,
+    TResult? Function(GenerateFlowSincronizedBabelCommitWithApi value)?
+    sincronizedBabelCommitWithApi,
+  }) {
+    return generatedBabelClass?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GenerateFlowInitial value)? initial,
+    TResult Function(GenerateFlowCreatedClient value)? createdClient,
+    TResult Function(GenerateFlowEnsureGit value)? ensuredGit,
+    TResult Function(GenerateFlowGotCodeBaseYaml value)? gotCodeBaseYaml,
+    TResult Function(GenerateFlowGotGitUser value)? gotGitUser,
+    TResult Function(GenerateFlowGotLastLocalCommit value)? gotLastLocalCommit,
+    TResult Function(GenerateFlowGotProjectOriginUrl value)?
+    gotProjectOriginUrl,
+    TResult Function(GenerateFlowGotGitVariables value)? gotGitVariables,
+    TResult Function(GenerateFlowGotAppLanguages value)? gotAppLanguages,
+    TResult Function(GenerateFlowDownloadReferenceArb value)?
+    downloadReferenceArb,
+    TResult Function(GenerateFlowProjectCacheMap value)? projectCacheMap,
+    TResult Function(GenerateFlowResolvedProjectCacheTranslation value)?
+    resolvedProjectCacheTranslation,
+    TResult Function(GenerateFlowEnsuredNoStaticErrorOnDartFiles value)?
+    ensuredTheresNoStaticErrorOnDartFiles,
+    TResult Function(GenerateFlowGotTargetFiles value)? gotTargetFiles,
+    TResult Function(GenerateFlowGotL10nProjectConfig value)?
+    gotL10nProjectConfig,
+    TResult Function(GenerateFlowMappedProjectArbData value)?
+    mappedProjectArbData,
+    TResult Function(GenerateFlowResolvedProjectArbTranslationPayload value)?
+    resolvedProjectArbTranslationPayload,
+    TResult Function(
+      GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions value,
+    )?
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions,
+    TResult Function(GenerateFlowCodebaseNormalized value)? codebaseNormalized,
+    TResult Function(GenerateFlowResolvedHardcodedStrings value)?
+    resolvedHardcodedStrings,
+    TResult Function(GenerateFlowReplacedHardcodedStringsForBabelText value)?
+    replacedHardcodedStringsForBabelText,
+    TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
+    appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
+    TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
+    writtedBabelClassInDartFile,
+    TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
+    addedBabelClassInitializationInMain,
+    TResult Function(GenerateFlowAddedSharedPrefsInFlutterProjects value)?
+    addedSharedPrefsInFlutterProjects,
+    TResult Function(GenerateFlowExtractedCodeBase value)? extractedCodeBase,
+    TResult Function(GenerateFlowTranslatedNewStringsArb value)?
+    translatedNewStringsArb,
+    TResult Function(GenerateFlowUploadedNewTranslations value)?
+    uploadedNewTranslations,
+    TResult Function(GenerateFlowCommitedAllChangesOfCodebase value)?
+    commitedAllChangesOfCodebase,
+    TResult Function(GenerateFlowGetBabelChangesCommit value)?
+    getBabelChangesCommit,
+    TResult Function(GenerateFlowSincronizedBabelCommitWithApi value)?
+    sincronizedBabelCommitWithApi,
+    required TResult orElse(),
+  }) {
+    if (generatedBabelClass != null) {
+      return generatedBabelClass(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GenerateFlowGeneratedBabelClassImplToJson(this);
+  }
+}
+
+abstract class GenerateFlowGeneratedBabelClass extends GenerateFlowState {
+  factory GenerateFlowGeneratedBabelClass({
+    required final bool willLog,
+    required final String projectApiToken,
+    required final String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required final BabelSupportedLocales inputedByUserLocale,
+    required final ApiClientEntity client,
+    required final CodeBaseYamlInfo yamlInfo,
+    required final GitVariables gitVariables,
+    required final int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required final Set<BabelSupportedLocales> languages,
+    required final String downloadLink,
+    required final Map<String, String> referenceArbMap,
+    required final ProjectCacheMap projectCacheMap,
+    required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required final FilesVerification filesVerificationState,
+    required final ArbDataState projectArbData,
+    required final Map<String, String> remapedArbKeys,
+    required final TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required final TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required final Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+    required final String babelClass,
+  }) = _$GenerateFlowGeneratedBabelClassImpl;
+  GenerateFlowGeneratedBabelClass._() : super._();
+
+  factory GenerateFlowGeneratedBabelClass.fromJson(Map<String, dynamic> json) =
+      _$GenerateFlowGeneratedBabelClassImpl.fromJson;
+
+  @override
+  bool get willLog;
+  @override
+  String get projectApiToken;
+  @override
+  String get directoryPath;
+  @override
+  @BabelSupportedLocalesJsonConverter()
+  BabelSupportedLocales get inputedByUserLocale;
+  ApiClientEntity get client;
+  CodeBaseYamlInfo get yamlInfo;
+  GitVariables get gitVariables;
+  int get maxLanguageCount;
+  @BabelSupportedLocalesJsonConverter()
+  Set<BabelSupportedLocales> get languages;
+  String get downloadLink;
+  Map<String, String> get referenceArbMap;
+  ProjectCacheMap get projectCacheMap;
+  TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
+  FilesVerification get filesVerificationState;
+  ArbDataState get projectArbData;
+  Map<String, String> get remapedArbKeys;
+  TranslationPayloadInfo get codebaseArbTranslationPayloadInfo;
+  TranslationPayloadInfo get hardcodedStringsPayloadInfo;
+  Map<FilePath, List<BabelLabelEntityRootLabel>> get hardcodedStringsPerFile;
+  String get babelClass;
+
+  /// Create a copy of GenerateFlowState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GenerateFlowGeneratedBabelClassImplCopyWith<
+    _$GenerateFlowGeneratedBabelClassImpl
   >
   get copyWith => throw _privateConstructorUsedError;
 }
@@ -56213,6 +60806,31 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -56815,6 +61433,31 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -57461,6 +62104,31 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -57748,6 +62416,8 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -57812,6 +62482,8 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -57871,6 +62543,8 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -58847,6 +63521,31 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -59449,6 +64148,31 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -60095,6 +64819,31 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -60382,6 +65131,8 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -60446,6 +65197,8 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -60505,6 +65258,8 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -61481,6 +66236,31 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -62083,6 +66863,31 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -62729,6 +67534,31 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -63016,6 +67846,8 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -63080,6 +67912,8 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -63139,6 +67973,8 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -64133,6 +68969,31 @@ class _$GenerateFlowExtractedCodeBaseImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -64736,6 +69597,31 @@ class _$GenerateFlowExtractedCodeBaseImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -65383,6 +70269,31 @@ class _$GenerateFlowExtractedCodeBaseImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -65671,6 +70582,8 @@ class _$GenerateFlowExtractedCodeBaseImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -65735,6 +70648,8 @@ class _$GenerateFlowExtractedCodeBaseImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -65794,6 +70709,8 @@ class _$GenerateFlowExtractedCodeBaseImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -66811,6 +71728,31 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -67415,6 +72357,31 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -68063,6 +73030,31 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -68352,6 +73344,8 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -68416,6 +73410,8 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -68475,6 +73471,8 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -69510,6 +74508,31 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -70115,6 +75138,31 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -70764,6 +75812,31 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -71054,6 +76127,8 @@ class _$GenerateFlowUploadedNewTranslationsImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -71118,6 +76193,8 @@ class _$GenerateFlowUploadedNewTranslationsImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -71177,6 +76254,8 @@ class _$GenerateFlowUploadedNewTranslationsImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -72214,6 +77293,31 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -72819,6 +77923,31 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -73468,6 +78597,31 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -73758,6 +78912,8 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -73822,6 +78978,8 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -73881,6 +79039,8 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -74932,6 +80092,31 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -75538,6 +80723,31 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -76188,6 +81398,31 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -76479,6 +81714,8 @@ class _$GenerateFlowGetBabelChangesCommitImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -76543,6 +81780,8 @@ class _$GenerateFlowGetBabelChangesCommitImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -76602,6 +81841,8 @@ class _$GenerateFlowGetBabelChangesCommitImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -77654,6 +82895,31 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )
+    generatedBabelClass,
+    required TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -78260,6 +83526,31 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
     TResult? Function(
       bool willLog,
       String projectApiToken,
@@ -78910,6 +84201,31 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
       TranslationPayloadInfo hardcodedStringsPayloadInfo,
       Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
+      String babelClass,
+    )?
+    generatedBabelClass,
+    TResult Function(
+      bool willLog,
+      String projectApiToken,
+      String directoryPath,
+      @BabelSupportedLocalesJsonConverter()
+      BabelSupportedLocales inputedByUserLocale,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      int maxLanguageCount,
+      @BabelSupportedLocalesJsonConverter()
+      Set<BabelSupportedLocales> languages,
+      String downloadLink,
+      Map<String, String> referenceArbMap,
+      ProjectCacheMap projectCacheMap,
+      TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+      FilesVerification filesVerificationState,
+      ArbDataState projectArbData,
+      Map<String, String> remapedArbKeys,
+      TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+      TranslationPayloadInfo hardcodedStringsPayloadInfo,
+      Map<FilePath, List<BabelLabelEntityRootLabel>> hardcodedStringsPerFile,
     )?
     writtedBabelClassInDartFile,
     TResult Function(
@@ -79201,6 +84517,8 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
     replacedHardcodedStringsForBabelText,
     required TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)
     appliedCodebaseGeneralDartFixes,
+    required TResult Function(GenerateFlowGeneratedBabelClass value)
+    generatedBabelClass,
     required TResult Function(GenerateFlowWrittedBabelClassInDartFile value)
     writtedBabelClassInDartFile,
     required TResult Function(
@@ -79265,6 +84583,8 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
     replacedHardcodedStringsForBabelText,
     TResult? Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult? Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult? Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult? Function(GenerateFlowAddedBabelClassInitializationInMain value)?
@@ -79324,6 +84644,8 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
     replacedHardcodedStringsForBabelText,
     TResult Function(GenerateFlowAppliedCodebaseGeneralDartFixes value)?
     appliedCodebaseGeneralDartFixes,
+    TResult Function(GenerateFlowGeneratedBabelClass value)?
+    generatedBabelClass,
     TResult Function(GenerateFlowWrittedBabelClassInDartFile value)?
     writtedBabelClassInDartFile,
     TResult Function(GenerateFlowAddedBabelClassInitializationInMain value)?

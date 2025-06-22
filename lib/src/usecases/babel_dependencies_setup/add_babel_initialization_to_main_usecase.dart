@@ -28,9 +28,16 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
     ).toFailure();
   }
 
-  String fileContent = await mainFile.readAsString();
+  String fileContent;
+  try {
+    fileContent = await mainFile.readAsString();
+  } catch (e, stackTrace) {
+    return Exception(
+      'Failed to read main file: ${e.toString()}\n$stackTrace',
+    ).toFailure();
+  }
 
-  fileContent = addImportIfNeededUsecase.call(
+  fileContent = addImportIfNeededUsecase(
     fileContent: fileContent,
     codeBaseYamlInfo: codeBaseYamlInfo,
   );
@@ -58,7 +65,13 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
     );
   }
 
-  await mainFile.writeAsString(fileContent);
+  try {
+    await mainFile.writeAsString(fileContent);
+  } catch (e, stackTrace) {
+    return Exception(
+      'Failed to write to main file: ${e.toString()}\n$stackTrace',
+    ).toFailure();
+  }
 
   return Success(unit);
 }

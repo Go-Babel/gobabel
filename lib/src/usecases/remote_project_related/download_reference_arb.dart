@@ -14,18 +14,31 @@ AsyncResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
     );
 
     if (response.data is Map<String, dynamic>) {
-      final Map<L10nKey, L10nValue> arbMap =
-          ((response.data as Map)['record'] as Map).cast<L10nKey, L10nValue>();
+      try {
+        final Map<L10nKey, L10nValue> arbMap =
+            ((response.data as Map)['record'] as Map).cast<L10nKey, L10nValue>();
 
-      return arbMap.toSuccess();
+        return arbMap.toSuccess();
+      } catch (e, stackTrace) {
+        return Exception(
+          '❌ Failed to parse ARB response data: $e\nStackTrace: $stackTrace',
+        ).toFailure();
+      }
     } else {
       return Exception(
-        '❌ Invalid response format: Expected a JSON object.',
+        '❌ Invalid response format: Expected a JSON object, got ${response.data.runtimeType}',
       ).toFailure();
     }
-  } catch (e, s) {
+  } on DioException catch (e, stackTrace) {
+    final errorMessage = e.response?.statusCode != null
+        ? 'HTTP ${e.response!.statusCode}: ${e.response!.statusMessage ?? e.message}'
+        : e.message ?? 'Network error';
     return Exception(
-      '⚠️ Error downloading reference ARB: $e\n\n$s',
+      '⚠️ Error downloading reference ARB from $downloadUrl: $errorMessage\nStackTrace: $stackTrace',
+    ).toFailure();
+  } catch (e, stackTrace) {
+    return Exception(
+      '⚠️ Unexpected error downloading reference ARB: $e\nStackTrace: $stackTrace',
     ).toFailure();
   }
 }

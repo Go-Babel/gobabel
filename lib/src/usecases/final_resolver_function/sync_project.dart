@@ -12,16 +12,22 @@ AsyncResult<Unit> syncProject({
   required Set<ContextPath> codeBase,
   required GitVariables gitVariables,
 }) async {
-  await client.publicSync(
-    name: yamlInfo.projectName,
-    description: yamlInfo.projectDescription ?? '',
-    projectCodeBaseFolders: codeBase,
-    originUrl: gitVariables.originUrl,
-    projectShaIdentifier: gitVariables.projectShaIdentifier,
-    projectApiToken:
-        accountApiKey, // Assuming accountApiKey is the projectApiToken for sync
-  );
-  return Success(unit);
+  try {
+    await client.publicSync(
+      name: yamlInfo.projectName,
+      description: yamlInfo.projectDescription ?? '',
+      projectCodeBaseFolders: codeBase,
+      originUrl: gitVariables.originUrl,
+      projectShaIdentifier: gitVariables.projectShaIdentifier,
+      projectApiToken:
+          accountApiKey, // Assuming accountApiKey is the projectApiToken for sync
+    );
+    return Success(unit);
+  } catch (e, stackTrace) {
+    return Exception(
+      'Failed to sync project: $e\nStackTrace: $stackTrace',
+    ).toFailure();
+  }
 }
 
 AsyncResult<SyncFlowCreatedProjectInGobabelServer> sync_createProject(

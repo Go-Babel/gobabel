@@ -64,7 +64,11 @@ _extract(String jsonContent) {
   }
 
   try {
-    final json = jsonDecode(jsonContent) as Map<String, dynamic>;
+    final decodedJson = jsonDecode(jsonContent);
+    if (decodedJson is! Map<String, dynamic>) {
+      return null;
+    }
+    final json = decodedJson;
 
     int placeHoldersCount = 0;
     final Map<L10nKey, L10nValue> keyValues = {};

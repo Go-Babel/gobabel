@@ -51,9 +51,13 @@ Result<({String languageCode, String? countryCode})> _extract(String filename) {
 
   if (filename.contains('_')) {
     final elements = filename.split('_');
-    elements.removeAt(0);
-    cleaned = elements.join('_');
-    cleaned = cleaned.replaceAll('.arb', '');
+    if (elements.isNotEmpty) {
+      elements.removeAt(0);
+      cleaned = elements.join('_');
+      cleaned = cleaned.replaceAll('.arb', '');
+    } else {
+      cleaned = filename.replaceAll('.arb', '');
+    }
   } else {
     cleaned = filename.replaceAll('.arb', '');
   }

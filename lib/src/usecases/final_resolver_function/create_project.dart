@@ -12,15 +12,21 @@ AsyncResult<Unit> createProject({
   required Set<ContextPath> codeBase,
   required GitVariables gitVariables,
 }) async {
-  await client.publicCreateProject(
-    name: yamlInfo.projectName,
-    description: yamlInfo.projectDescription ?? '',
-    projectCodeBaseFolders: codeBase,
-    originUrl: gitVariables.originUrl,
-    projectShaIdentifier: gitVariables.projectShaIdentifier,
-    accountApiKey: accountApiKey,
-  );
-  return Success(unit);
+  try {
+    await client.publicCreateProject(
+      name: yamlInfo.projectName,
+      description: yamlInfo.projectDescription ?? '',
+      projectCodeBaseFolders: codeBase,
+      originUrl: gitVariables.originUrl,
+      projectShaIdentifier: gitVariables.projectShaIdentifier,
+      accountApiKey: accountApiKey,
+    );
+    return Success(unit);
+  } catch (e, stackTrace) {
+    return Exception(
+      'Failed to create project on GoBabel server: ${e.toString()}\n$stackTrace',
+    ).toFailure();
+  }
 }
 
 AsyncResult<CreateFlowCreatedProjectInGobabelServer> create_createProject(

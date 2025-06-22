@@ -37,25 +37,31 @@ translateNewStringsArb({
   );
 
   for (final projectLanguage in pendingToTranslateArb) {
-    final result = await client.publicTranslateArb.translate(
-      projectApiToken: projectApiToken,
-      projectShaIdentifier: gitVariables.projectShaIdentifier,
-      toLanguageCode: projectLanguage.languageCode,
-      toCountryCode: projectLanguage.countryCode,
-      referenceLanguageCode: referenceLocale.languageCode,
-      referenceCountryCode: referenceLocale.countryCode,
-      referenceArb: newLabelsKeys,
-      pathsOfKeys: ArbKeysAppearancesPath(
-        pathAppearancesPerKey: pathAppearancesPerKey,
-      ),
-    );
+    try {
+      final result = await client.publicTranslateArb.translate(
+        projectApiToken: projectApiToken,
+        projectShaIdentifier: gitVariables.projectShaIdentifier,
+        toLanguageCode: projectLanguage.languageCode,
+        toCountryCode: projectLanguage.countryCode,
+        referenceLanguageCode: referenceLocale.languageCode,
+        referenceCountryCode: referenceLocale.countryCode,
+        referenceArb: newLabelsKeys,
+        pathsOfKeys: ArbKeysAppearancesPath(
+          pathAppearancesPerKey: pathAppearancesPerKey,
+        ),
+      );
 
-    if (madeTranslations[projectLanguage.languageCode] == null) {
-      madeTranslations[projectLanguage.languageCode] = {};
+      if (madeTranslations[projectLanguage.languageCode] == null) {
+        madeTranslations[projectLanguage.languageCode] = {};
+      }
+      madeTranslations[projectLanguage.languageCode]![projectLanguage
+              .countryCode] =
+          result;
+    } catch (e, stackTrace) {
+      return Exception(
+        'Failed to translate ARB for ${projectLanguage.languageCode}_${projectLanguage.countryCode}: $e\nStackTrace: $stackTrace',
+      ).toFailure();
     }
-    madeTranslations[projectLanguage.languageCode]![projectLanguage
-            .countryCode] =
-        result;
   }
 
   return Success(madeTranslations);

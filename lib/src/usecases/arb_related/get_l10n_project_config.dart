@@ -7,8 +7,9 @@ import 'package:result_dart/result_dart.dart';
 AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
   required Directory curr,
 }) async {
-  final List<FileSystemEntity> currList = await curr.list().toList();
-  final List<File> allFilesList = currList.whereType<File>().toList();
+  try {
+    final List<FileSystemEntity> currList = await curr.list().toList();
+    final List<File> allFilesList = currList.whereType<File>().toList();
 
   L10nProjectConfig? projectConfig;
 
@@ -85,12 +86,17 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
           .toList();
 
   for (final File file in preMappedFiles) {
-    final String yamlContent = await file.readAsString();
-    setProjectConfigIfItMatches(
-      yamlContent,
-      forceCorrectFile: true,
-      fileName: file.path,
-    );
+    try {
+      final String yamlContent = await file.readAsString();
+      setProjectConfigIfItMatches(
+        yamlContent,
+        forceCorrectFile: true,
+        fileName: file.path,
+      );
+    } catch (e) {
+      // Skip files that can't be read
+      continue;
+    }
   }
 
   final otherYamlFiles =
@@ -106,11 +112,21 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
 
   /// Loop until we find a l10n.yaml dirr
   for (final File file in otherYamlFiles) {
-    final String yamlContent = await file.readAsString();
-    setProjectConfigIfItMatches(yamlContent, fileName: file.path);
+    try {
+      final String yamlContent = await file.readAsString();
+      setProjectConfigIfItMatches(yamlContent, fileName: file.path);
+    } catch (e) {
+      // Skip files that can't be read
+      continue;
+    }
   }
 
   return projectConfig?.toSuccess() ?? L10nProjectConfig.noData().toSuccess();
+  } catch (e, stackTrace) {
+    return Exception(
+      'Error reading YAML configuration files: ${e.toString()}\n$stackTrace',
+    ).toFailure();
+  }
 }
 
 /// All values bellow are the default "flutter gen-l10n" configurations for l10n.yaml file
