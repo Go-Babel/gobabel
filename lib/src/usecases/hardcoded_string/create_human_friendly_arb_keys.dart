@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:console_bars/console_bars.dart';
+import 'package:gobabel/src/core/legacy_spinner_loading.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
@@ -95,7 +96,7 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
     if (willHaveProgressBar) {
       await function();
     } else {
-      await runWithSpinner(
+      await legacyRunWithSpinner(
         successMessage: 'Created human-friendly ARB keys',
         message: 'Creating human-friendly ARB keys...',
         function,

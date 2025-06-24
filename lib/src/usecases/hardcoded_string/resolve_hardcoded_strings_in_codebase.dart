@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/legacy_spinner_loading.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -13,7 +14,7 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
   required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings,
 }) async {
-  return await runWithSpinner(
+  return await legacyRunWithSpinner(
     successMessage: 'Replaced hardcoded strings in ${targetFiles.length} files',
     message:
         'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',

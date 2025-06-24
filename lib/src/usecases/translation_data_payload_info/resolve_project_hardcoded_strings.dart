@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:gobabel/src/core/legacy_spinner_loading.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -50,7 +51,7 @@ resolveCodebaseProject({
 
     // 1. Extract all strings from the files
     final List<HardcodedStringEntity> allStrings;
-    final extractResult = await runWithSpinner(
+    final extractResult = await legacyRunWithSpinner(
       successMessage: 'Extracted strings from ${targetFiles.length} files',
       message: 'Extracting strings from ${targetFiles.length} files...',
       () async {

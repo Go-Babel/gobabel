@@ -1,5 +1,6 @@
 import 'package:console_bars/console_bars.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/legacy_spinner_loading.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -85,7 +86,7 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
 
   try {
     if (isSmallAmountOfStrings) {
-      await runWithSpinner(
+      await legacyRunWithSpinner(
         successMessage: 'Finished analyzing strings',
         message:
             'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
