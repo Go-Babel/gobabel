@@ -26,9 +26,7 @@ class ResolveProjectHardcodedStrings {
   });
 }
 
-AsyncResult<ResolveProjectHardcodedStrings>
-// AsyncResult<Map<FilePath, List<BabelLabelEntityRootLabel>>>
-resolveCodebaseProject({
+AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
   required Client client,
   required bool generateLogs,
   required String projectApiToken,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -12,7 +13,7 @@ part 'sync_flow_state.freezed.dart';
 part 'sync_flow_state.g.dart';
 
 @freezed
-abstract class SyncFlowState with _$SyncFlowState {
+abstract class SyncFlowState with _$SyncFlowState implements Loadable {
   const SyncFlowState._();
 
   /// Step 1
@@ -105,6 +106,37 @@ abstract class SyncFlowState with _$SyncFlowState {
   Directory get directory {
     return Directory(directoryPath);
   }
+
+  @override
+  int get maxAmountOfSteps => 10;
+
+  @override
+  String get message => map(
+    initial: (_) => 'Creating client...',
+    createdClient: (_) => 'Ensuring git dependencies...',
+    ensuredGit: (_) => 'Reading codebase YAML...',
+    gotCodeBaseYaml: (_) => 'Getting git user...',
+    gotGitUser: (_) => 'Getting last local commit...',
+    gotLastLocalCommit: (_) => 'Getting project origin URL...',
+    gotProjectOriginUrl: (_) => 'Collecting git variables...',
+    gotGitVariables: (_) => 'Extracting project codebase...',
+    extractedProjectCodebase: (_) => 'Syncing project with Gobabel server...',
+    createdProjectInGobabelServer: (_) => 'Sync completed!',
+  );
+
+  @override
+  int get stepCount => map(
+    initial: (_) => 1,
+    createdClient: (_) => 2,
+    ensuredGit: (_) => 3,
+    gotCodeBaseYaml: (_) => 4,
+    gotGitUser: (_) => 5,
+    gotLastLocalCommit: (_) => 6,
+    gotProjectOriginUrl: (_) => 7,
+    gotGitVariables: (_) => 8,
+    extractedProjectCodebase: (_) => 9,
+    createdProjectInGobabelServer: (_) => 10,
+  );
 
   factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
       _$SyncFlowStateFromJson(json);

@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
@@ -45,15 +46,15 @@ class GobabelConductor {
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
         )
-        .flatMap(create_createClientEntity)
-        .flatMap(create_ensureGitDirectoryIsConfigured)
-        .flatMap(create_getCodeBaseYamlInfo)
-        .flatMap(create_getGitUser)
-        .flatMap(create_getLastLocalCommitInCurrentBranch)
-        .flatMap(create_getProjectOriginUrl)
-        .flatMap(create_getProjectGitDependencies)
-        .flatMap(create_extractProjectCodeBase)
-        .flatMap(create_createProject);
+        .toNextStep(create_createClientEntity)
+        .toNextStep(create_ensureGitDirectoryIsConfigured)
+        .toNextStep(create_getCodeBaseYamlInfo)
+        .toNextStep(create_getGitUser)
+        .toNextStep(create_getLastLocalCommitInCurrentBranch)
+        .toNextStep(create_getProjectOriginUrl)
+        .toNextStep(create_getProjectGitDependencies)
+        .toNextStep(create_extractProjectCodeBase)
+        .toNextStep(create_createProject);
   }
 
   AsyncResult<void> sync({
@@ -64,15 +65,15 @@ class GobabelConductor {
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
         )
-        .flatMap(sync_createClientEntity)
-        .flatMap(sync_ensureGitDirectoryIsConfigured)
-        .flatMap(sync_getCodeBaseYamlInfo)
-        .flatMap(sync_getGitUser)
-        .flatMap(sync_getLastLocalCommitInCurrentBranch)
-        .flatMap(sync_getProjectOriginUrl)
-        .flatMap(sync_getProjectGitDependencies)
-        .flatMap(sync_extractProjectCodeBase)
-        .flatMap(sync_createProject);
+        .toNextStep(sync_createClientEntity)
+        .toNextStep(sync_ensureGitDirectoryIsConfigured)
+        .toNextStep(sync_getCodeBaseYamlInfo)
+        .toNextStep(sync_getGitUser)
+        .toNextStep(sync_getLastLocalCommitInCurrentBranch)
+        .toNextStep(sync_getProjectOriginUrl)
+        .toNextStep(sync_getProjectGitDependencies)
+        .toNextStep(sync_extractProjectCodeBase)
+        .toNextStep(sync_createProject);
   }
 
   AsyncResult<void> generate({
@@ -86,38 +87,38 @@ class GobabelConductor {
           directoryPath: directoryPath,
           inputedByUserLocale: inputedByUserLocale,
         )
-        .flatMap(generate_createClientEntity)
-        .flatMap(generate_ensureGitDirectoryIsConfigured)
-        .flatMap(generate_getCodeBaseYamlInfo)
-        .flatMap(generate_getGitUser)
-        .flatMap(generate_getLastLocalCommitInCurrentBranch)
-        .flatMap(generate_getProjectOriginUrl)
-        .flatMap(generate_getProjectGitDependencies)
-        .flatMap(generate_getAppLanguages)
-        .flatMap(generate_downloadReferenceArb)
-        .flatMap(generate_getProjectCacheMap)
-        .flatMap(generate_resolveProjectCacheTranslationPayload)
-        .flatMap(generate_ensureNoStaticErrorOnDartFilesDefault)
-        .flatMap(generate_getFilesVerificationState)
-        .flatMap(generate_getProjectYamlConfigUsecase)
-        .flatMap(generate_mapProjectArbDataUsecase)
-        .flatMap(generate_resolveProjectArbFilesPayload)
-        .flatMap(
+        .toNextStep(generate_createClientEntity)
+        .toNextStep(generate_ensureGitDirectoryIsConfigured)
+        .toNextStep(generate_getCodeBaseYamlInfo)
+        .toNextStep(generate_getGitUser)
+        .toNextStep(generate_getLastLocalCommitInCurrentBranch)
+        .toNextStep(generate_getProjectOriginUrl)
+        .toNextStep(generate_getProjectGitDependencies)
+        .toNextStep(generate_getAppLanguages)
+        .toNextStep(generate_downloadReferenceArb)
+        .toNextStep(generate_getProjectCacheMap)
+        .toNextStep(generate_resolveProjectCacheTranslationPayload)
+        .toNextStep(generate_ensureNoStaticErrorOnDartFilesDefault)
+        .toNextStep(generate_getFilesVerificationState)
+        .toNextStep(generate_getProjectYamlConfigUsecase)
+        .toNextStep(generate_mapProjectArbDataUsecase)
+        .toNextStep(generate_resolveProjectArbFilesPayload)
+        .toNextStep(
           generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
         )
-        .flatMap(generate_normalizeCodeBase)
-        .flatMap(generate_resolveCodebaseHardcodedStringsProject)
-        .flatMap(generate_resolveHardcodedStringsInCodebase)
-        .flatMap(generate_multiDartFixFormatUsecase)
-        .flatMap(generate_generateBabelClassUsecase)
-        .flatMap(generate_writeBabelTextFileIntoDirectory)
-        .flatMap(generate_addBabelInitializationToMainUsecase)
-        .flatMap(generate_ensureSharedPrefsIsInFlutterProject)
-        .flatMap(generate_extractProjectCodeBase)
-        .flatMap(generate_translateNewStringsArb)
-        .flatMap(generate_uploadTranslationNewVersion)
-        .flatMap(generate_commitAllChangesUsecase)
-        .flatMap(generate_getBabelChangesCommit)
-        .flatMap(generate_uploadBabelTranslationsChangesCommitToServer);
+        .toNextStep(generate_normalizeCodeBase)
+        .toNextStep(generate_resolveCodebaseHardcodedStringsProject)
+        .toNextStep(generate_resolveHardcodedStringsInCodebase)
+        .toNextStep(generate_multiDartFixFormatUsecase)
+        .toNextStep(generate_generateBabelClassUsecase)
+        .toNextStep(generate_writeBabelTextFileIntoDirectory)
+        .toNextStep(generate_addBabelInitializationToMainUsecase)
+        .toNextStep(generate_ensureSharedPrefsIsInFlutterProject)
+        .toNextStep(generate_extractProjectCodeBase)
+        .toNextStep(generate_translateNewStringsArb)
+        .toNextStep(generate_uploadTranslationNewVersion)
+        .toNextStep(generate_commitAllChangesUsecase)
+        .toNextStep(generate_getBabelChangesCommit)
+        .toNextStep(generate_uploadBabelTranslationsChangesCommitToServer);
   }
 }

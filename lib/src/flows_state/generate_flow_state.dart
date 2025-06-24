@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -20,7 +21,7 @@ part 'generate_flow_state.freezed.dart';
 part 'generate_flow_state.g.dart';
 
 @freezed
-abstract class GenerateFlowState with _$GenerateFlowState {
+abstract class GenerateFlowState with _$GenerateFlowState implements Loadable {
   const GenerateFlowState._();
 
   /// Step 1
@@ -713,6 +714,89 @@ abstract class GenerateFlowState with _$GenerateFlowState {
   Directory get directory {
     return Directory(directoryPath);
   }
+
+  @override
+  int get maxAmountOfSteps => 32;
+
+  @override
+  String get message => map(
+    initial: (_) => 'Creating client connection...',
+    createdClient: (_) => 'Ensuring git dependencies...',
+    ensuredGit: (_) => 'Reading codebase YAML configuration...',
+    gotCodeBaseYaml: (_) => 'Getting git user information...',
+    gotGitUser: (_) => 'Getting last local commit...',
+    gotLastLocalCommit: (_) => 'Getting project origin URL...',
+    gotProjectOriginUrl: (_) => 'Collecting git variables...',
+    gotGitVariables: (_) => 'Getting app languages...',
+    gotAppLanguages: (_) => 'Downloading reference ARB files...',
+    downloadReferenceArb: (_) => 'Building project cache map...',
+    projectCacheMap: (_) => 'Resolving project cache translations...',
+    resolvedProjectCacheTranslation:
+        (_) => 'Ensuring no static errors in Dart files...',
+    ensuredTheresNoStaticErrorOnDartFiles:
+        (_) => 'Getting target files for analysis...',
+    gotTargetFiles: (_) => 'Getting L10n project configuration...',
+    gotL10nProjectConfig: (_) => 'Mapping project ARB data...',
+    mappedProjectArbData: (_) => 'Resolving project ARB translation payload...',
+    resolvedProjectArbTranslationPayload:
+        (_) => 'Replacing L10n key references with Babel functions...',
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions:
+        (_) => 'Normalizing codebase...',
+    codebaseNormalized: (_) => 'Resolving hardcoded strings...',
+    resolvedHardcodedStrings:
+        (_) => 'Replacing hardcoded strings with Babel text...',
+    replacedHardcodedStringsForBabelText:
+        (_) => 'Applying general Dart fixes...',
+    appliedCodebaseGeneralDartFixes: (_) => 'Generating Babel class...',
+    generatedBabelClass: (_) => 'Writing Babel class to Dart file...',
+    writtedBabelClassInDartFile:
+        (_) => 'Adding Babel class initialization in main...',
+    addedBabelClassInitializationInMain:
+        (_) => 'Adding shared preferences for Flutter projects...',
+    addedSharedPrefsInFlutterProjects: (_) => 'Extracting codebase...',
+    extractedCodeBase: (_) => 'Translating new strings in ARB files...',
+    translatedNewStringsArb: (_) => 'Uploading new translations...',
+    uploadedNewTranslations: (_) => 'Committing all codebase changes...',
+    commitedAllChangesOfCodebase: (_) => 'Getting Babel changes commit...',
+    getBabelChangesCommit: (_) => 'Synchronizing Babel commit with API...',
+    sincronizedBabelCommitWithApi: (_) => 'Generation completed!',
+  );
+
+  @override
+  int get stepCount => map(
+    initial: (_) => 1,
+    createdClient: (_) => 2,
+    ensuredGit: (_) => 3,
+    gotCodeBaseYaml: (_) => 4,
+    gotGitUser: (_) => 5,
+    gotLastLocalCommit: (_) => 6,
+    gotProjectOriginUrl: (_) => 7,
+    gotGitVariables: (_) => 8,
+    gotAppLanguages: (_) => 9,
+    downloadReferenceArb: (_) => 10,
+    projectCacheMap: (_) => 11,
+    resolvedProjectCacheTranslation: (_) => 12,
+    ensuredTheresNoStaticErrorOnDartFiles: (_) => 13,
+    gotTargetFiles: (_) => 14,
+    gotL10nProjectConfig: (_) => 15,
+    mappedProjectArbData: (_) => 16,
+    resolvedProjectArbTranslationPayload: (_) => 17,
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions: (_) => 18,
+    codebaseNormalized: (_) => 19,
+    resolvedHardcodedStrings: (_) => 20,
+    replacedHardcodedStringsForBabelText: (_) => 21,
+    appliedCodebaseGeneralDartFixes: (_) => 22,
+    generatedBabelClass: (_) => 23,
+    writtedBabelClassInDartFile: (_) => 24,
+    addedBabelClassInitializationInMain: (_) => 25,
+    addedSharedPrefsInFlutterProjects: (_) => 26,
+    extractedCodeBase: (_) => 27,
+    translatedNewStringsArb: (_) => 28,
+    uploadedNewTranslations: (_) => 29,
+    commitedAllChangesOfCodebase: (_) => 30,
+    getBabelChangesCommit: (_) => 31,
+    sincronizedBabelCommitWithApi: (_) => 32,
+  );
 
   Future<List<File>> get filesToBeAnalysed async {
     final filesVerificationState = mapOrNull(

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -12,7 +13,7 @@ part 'create_flow_state.freezed.dart';
 part 'create_flow_state.g.dart';
 
 @freezed
-abstract class CreateFlowState with _$CreateFlowState {
+abstract class CreateFlowState with _$CreateFlowState implements Loadable {
   const CreateFlowState._();
 
   /// Step 1
@@ -106,6 +107,37 @@ abstract class CreateFlowState with _$CreateFlowState {
     return Directory(directoryPath);
   }
 
+  @override
+  int get maxAmountOfSteps => 10;
+
+  @override
+  String get message => map(
+    initial: (_) => 'Creating client...',
+    createdClient: (_) => 'Ensuring git dependencies...',
+    ensuredGit: (_) => 'Reading codebase YAML...',
+    gotCodeBaseYaml: (_) => 'Getting git user...',
+    gotGitUser: (_) => 'Getting last local commit...',
+    gotLastLocalCommit: (_) => 'Getting project origin URL...',
+    gotProjectOriginUrl: (_) => 'Collecting git variables...',
+    gotGitVariables: (_) => 'Extracting project codebase...',
+    extractedProjectCodebase: (_) => 'Creating project in Gobabel server...',
+    createdProjectInGobabelServer: (_) => 'Flow completed!',
+  );
+
+  @override
+  int get stepCount => map(
+    initial: (_) => 1,
+    createdClient: (_) => 2,
+    ensuredGit: (_) => 3,
+    gotCodeBaseYaml: (_) => 4,
+    gotGitUser: (_) => 5,
+    gotLastLocalCommit: (_) => 6,
+    gotProjectOriginUrl: (_) => 7,
+    gotGitVariables: (_) => 8,
+    extractedProjectCodebase: (_) => 9,
+    createdProjectInGobabelServer: (_) => 10,
+  );
+
   factory CreateFlowState.fromJson(Map<String, dynamic> json) =>
       _$CreateFlowStateFromJson(json);
 }
@@ -130,4 +162,45 @@ AsyncResult<CreateFlowInitial> create_initFlowState({
   }
 
   return createFlowInitial.toSuccess();
+}
+
+// extension AsyncResultDartExtension<F extends Object> //
+//     on AsyncResultDart<CreateFlowState, F> {
+//   AsyncResultDart<W, F> toNextStep<W extends Object>(
+//     FutureOr<ResultDart<W, F>> Function(CreateFlowState success) fn,
+//   ) {
+//     return flatMap((success) {
+//       LoadingIndicator.instance.set(
+//         message: success.message,
+//         step: success.stepCount,
+//         totalCount: success.maxAmountOfSteps,
+//       );
+//       return fn(success);
+//     });
+//   }
+// }
+
+// extension AsyncResultDartExtension<S extends Object, F extends Object> //
+//     on AsyncResultDart<S, F> {
+//   AsyncResultDart<W, F> toNextStep<W extends Object>(
+//     FutureOr<ResultDart<W, F>> Function(S success) fn,
+//   ) {
+//     LoadingIndicator.instance.set();
+//     return flatMap(fn);
+//   }
+// }
+
+/// Shared contract (could also be a `mixin`)
+abstract class HasLabel {
+  String get label;
+}
+
+@freezed
+class Person with _$Person implements HasLabel {
+  const Person._();
+  factory Person.male({required String name}) = _PersonMale;
+  factory Person.female({required String name}) = _PersonFemale;
+
+  @override
+  String get label => name; // satisfies HasLabel
 }
