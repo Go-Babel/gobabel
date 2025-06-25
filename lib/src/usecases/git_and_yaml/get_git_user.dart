@@ -21,8 +21,13 @@ AsyncResult<GitUser> getGitUser({required String dirrPath}) async {
 
     return GitUser(authorName: name, authorEmail: email).toSuccess();
   } catch (e) {
-    return Exception(
-      'Failed to get git user information.\nPlease ensure you have Git installed and configured correctly.\nAlso, check if you are in the correct path: "$dirrPath"',
+    return BabelException(
+      title: 'Git user configuration not found',
+      description: 'Failed to get git user information. '
+          'Please ensure you have Git installed and configured correctly. '
+          'Run "git config user.name \'Your Name\'" and "git config user.email \'your@email.com\'" '
+          'to set up your Git identity. '
+          'Current path: "$dirrPath"',
     ).toFailure();
   }
 }

@@ -36,8 +36,9 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
             .where((file) => file.path.endsWith('.arb'))
             .toList();
   } catch (e) {
-    return Exception(
-      'Error while listing files in directory ${directory.path}:\n$e',
+    return BabelException(
+      title: 'Directory Listing Error',
+      description: 'Failed to list ARB files in directory "${directory.path}".\n\nError: ${e.toString()}\n\nThis could be due to:\n- Directory does not exist\n- Insufficient permissions to read the directory\n- Symbolic link issues\n\nPlease ensure the directory exists and is accessible.',
     ).toFailure();
   }
 
@@ -59,7 +60,10 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
           'The project subscription plan allows a maximum of $maxAmountOfLanguagesInProjectPlanTier languages.\n'
           'The project has ${allArbData.length} languages.\n'
           'Please ${"remove".hotPink} the extra languages from the project or ${"upgrade".greenYellow} the plan to a one that suports more languages.';
-      return Exception(message).toFailure();
+      return BabelException(
+        title: 'Language Limit Exceeded',
+        description: message,
+      ).toFailure();
     }
   }
 
@@ -109,9 +113,10 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
   );
 
   if (pendingKeys.isNotEmpty) {
-    throw Exception(
-      'The arb file ${main.fileName.hotPink}, that is used as reference arb file, does not have all the keys.\nPlease add the following keys to the arb file:\n${pendingKeys.map((e) => e).join('\n')}\n\n',
-    );
+    return BabelException(
+      title: 'Missing Keys in Reference ARB',
+      description: 'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => "- $e").join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+    ).toFailure();
   }
 
   final Map<NewL10nKey, NewL10nKey> uniqueness = main.allKeyValues;

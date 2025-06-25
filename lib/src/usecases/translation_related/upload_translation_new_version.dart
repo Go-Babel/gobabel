@@ -39,7 +39,10 @@ AsyncResult<GenerateHistory> uploadTranslationNewVersion({
 
     return generatedHistory.toSuccess();
   } catch (e) {
-    return Exception('Error uploading translation: $e').toFailure();
+    return BabelException(
+      title: 'Failed to upload translations',
+      description: 'Unable to upload the new translation version to the server. This may be due to network issues, invalid API key, or server problems. Please check your API key and internet connection. Error details: $e',
+    ).toFailure();
   }
 }
 

@@ -23,9 +23,11 @@ AsyncResult<Unit> syncProject({
           accountApiKey, // Assuming accountApiKey is the projectApiToken for sync
     );
     return Success(unit);
-  } catch (e, stackTrace) {
-    return Exception(
-      'Failed to sync project: $e\nStackTrace: $stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Project Sync Failed',
+      description:
+          'Failed to synchronize your project with the GoBabel server. This could be due to network issues, invalid API credentials, or server unavailability. Please check your internet connection and API key, then try again. Error details: ${e.toString()}',
     ).toFailure();
   }
 }

@@ -4,6 +4,7 @@ import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_yaml.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -31,8 +32,12 @@ AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
       dirrPath: directory.path,
     );
     if (result.exitCode != 0) {
-      return Exception(
-        'Failed to add shared_preferences dependency',
+      return BabelException(
+        title: 'Failed to add shared_preferences dependency',
+        description: 'Could not add shared_preferences to pubspec.yaml. '
+            'Please check your internet connection and ensure you have write permissions '
+            'to the pubspec.yaml file. Exit code: ${result.exitCode}\n'
+            'Error: ${result.stderr}',
       ).toFailure();
     }
   }

@@ -193,7 +193,10 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       ),
     );
   } catch (e) {
-    return Exception('Error resolving codebase project: $e').toFailure();
+    return BabelException(
+      title: 'Failed to resolve codebase project',
+      description: 'An error occurred while analyzing and extracting hardcoded strings from your codebase. Please check your project files and try again. Error details: $e',
+    ).toFailure();
   }
 }
 

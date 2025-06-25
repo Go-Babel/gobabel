@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
@@ -122,9 +123,10 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
     }
 
     return projectConfig?.toSuccess() ?? L10nProjectConfig.noData().toSuccess();
-  } catch (e, stackTrace) {
-    return Exception(
-      'Error reading YAML configuration files: ${e.toString()}\n$stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Failed to Read YAML Configuration',
+      description: 'An error occurred while reading YAML configuration files in directory "${curr.path}".\n\nError details: ${e.toString()}\n\nThis could be due to file permissions, corrupted files, or invalid YAML syntax. Please check that all YAML files in the directory are accessible and properly formatted.',
     ).toFailure();
   }
 }

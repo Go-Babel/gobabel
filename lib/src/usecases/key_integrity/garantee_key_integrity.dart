@@ -1,5 +1,6 @@
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_is_valid_function_name.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_uniqueness.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -24,8 +25,10 @@ AsyncResult<ProcessedKeyIntegrity> garanteeKeyIntegrity({
   final uniqueKey = uniqueKeyGaranteedResponse.getOrThrow();
   final processedKey = uniqueKey.toCamelCaseOrEmpty;
   if (processedKey.isEmpty) {
-    return Exception(
-      'Processed key is empty after ensuring uniqueness and validity.',
+    return BabelException(
+      title: 'Invalid Translation Key',
+      description:
+          'The processed key is empty after ensuring uniqueness and validity. This can happen when the original key contains only special characters or whitespace that get removed during processing.',
     ).toFailure();
   }
 

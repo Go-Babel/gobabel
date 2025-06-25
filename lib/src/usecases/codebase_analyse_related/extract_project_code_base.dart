@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -13,12 +14,35 @@ AsyncResult<Set<ContextPath>> extractProjectCodeBase({
     final libDir = Directory('$dirrPath/lib');
     final target = await buildFolderTree(libDir);
     if (target == null) {
-      throw Exception('Target directory not found');
+      return BabelException(
+        title: 'Target Directory Not Found',
+        description: 'Could not find the lib directory at path: $dirrPath/lib\n\n'
+            'Please ensure:\n'
+            '• You are running this command from the project root\n'
+            '• The project has a "lib" directory\n'
+            '• The directory path is correct\n\n'
+            'Expected directory structure:\n'
+            '$dirrPath/\n'
+            '└── lib/\n'
+            '    └── src/\n'
+            '        └── ...',
+      ).toFailure();
     }
 
     return target.listAllFolders().toSuccess();
   } catch (e, s) {
-    return Exception('Error extracting project code base: $e\n$s').toFailure();
+    return BabelException(
+      title: 'Code Base Extraction Failed',
+      description: 'Failed to extract project code base structure.\n\n'
+          'Error: $e\n\n'
+          'Stack trace: $s\n\n'
+          'This may occur when:\n'
+          '• The project structure is corrupted\n'
+          '• File system permissions are insufficient\n'
+          '• Symbolic links create circular references\n'
+          '• The lib directory contains invalid file names\n\n'
+          'Directory being analyzed: $dirrPath',
+    ).toFailure();
   }
 }
 

@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Unit> addBabelInitializationToMainUsecase({
@@ -23,17 +23,23 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
   }
 
   if (!await mainFile.exists()) {
-    return Exception(
-      '❌ Main file not found in the target project'.red,
+    return BabelException(
+      title: 'Main file not found',
+      description: 'Could not locate the main.dart file in the expected location. '
+          'For Flutter projects, it should be at lib/main.dart. '
+          'For Dart projects, it should be at bin/$projectName.dart or bin/main.dart.',
     ).toFailure();
   }
 
   String fileContent;
   try {
     fileContent = await mainFile.readAsString();
-  } catch (e, stackTrace) {
-    return Exception(
-      'Failed to read main file: ${e.toString()}\n$stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Failed to read main file',
+      description: 'Could not read the main.dart file. '
+          'Please check that the file exists and you have read permissions. '
+          'Error: ${e.toString()}',
     ).toFailure();
   }
 
@@ -47,7 +53,11 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
   );
   final match = mainRegex.firstMatch(fileContent);
   if (match == null) {
-    return Exception('❌ No main() function found.'.red).toFailure();
+    return BabelException(
+      title: 'No main() function found',
+      description: 'Could not find a main() function in the main.dart file. '
+          'Please ensure your main.dart file contains a valid main() function declaration.',
+    ).toFailure();
   }
 
   final bool hasAsync = match.group(2) != null;
@@ -67,9 +77,12 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
 
   try {
     await mainFile.writeAsString(fileContent);
-  } catch (e, stackTrace) {
-    return Exception(
-      'Failed to write to main file: ${e.toString()}\n$stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Failed to write to main file',
+      description: 'Could not write the Babel initialization to the main.dart file. '
+          'Please check that you have write permissions to the file. '
+          'Error: ${e.toString()}',
     ).toFailure();
   }
 

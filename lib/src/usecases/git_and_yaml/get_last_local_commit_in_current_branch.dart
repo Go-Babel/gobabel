@@ -25,7 +25,12 @@ AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
   );
 
   if (result.exitCode != 0) {
-    return Exception('Failed to get last commit: ${result.stderr}').toFailure();
+    return BabelException(
+      title: 'Failed to get last commit',
+      description: 'Could not retrieve the last commit information. '
+          'Please ensure you have at least one commit in your repository. '
+          'Error: ${result.stderr}',
+    ).toFailure();
   }
 
   final output = result.stdout.toString().trim();
@@ -35,7 +40,12 @@ AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
   // git log -1 --pretty=format:"%H$|||GIT_COMMIT_FIELD_DELIMITER|||%an$|||GIT_COMMIT_FIELD_DELIMITER|||%ae$|||GIT_COMMIT_FIELD_DELIMITER|||%aI$|||GIT_COMMIT_FIELD_DELIMITER|||%s"
 
   if (parts.length < 5) {
-    return Exception('⚠️ Unexpected git log output: $output').toFailure();
+    return BabelException(
+      title: 'Unexpected git log format',
+      description: 'The git log command returned unexpected output. '
+          'This might be due to an incompatible Git version or custom configuration. '
+          'Output received: $output',
+    ).toFailure();
   }
 
   return GitCommit(

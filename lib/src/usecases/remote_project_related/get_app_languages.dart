@@ -33,8 +33,12 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
       projectShaIdentifier: gitVariables.projectShaIdentifier,
     );
   } catch (_) {
-    return Exception(
-      'Could not get project languages. Check your internet connection and try again. But this could be a internal error.',
+    return BabelException(
+      title: 'Failed to fetch project languages',
+      description: 'Unable to retrieve the project languages from the server. '
+          'This could be due to network connectivity issues, invalid API credentials, '
+          'or server problems. Please check your internet connection and API key, '
+          'then try again.',
     ).toFailure();
   }
 
@@ -46,8 +50,12 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
       language.countryCode,
     );
     if (castedLanguage == null) {
-      return Exception(
-        'Invalid language/country code for $language',
+      return BabelException(
+        title: 'Invalid language code',
+        description: 'Received an invalid language or country code from the server: '
+            '${language.languageCode}_${language.countryCode}. '
+            'This might indicate a configuration issue with the project. '
+            'Please contact support if this error persists.',
       ).toFailure();
     }
     projectLanguages.add(castedLanguage);

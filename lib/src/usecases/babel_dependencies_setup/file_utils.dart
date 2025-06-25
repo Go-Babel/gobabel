@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -22,7 +23,12 @@ AsyncResult<Directory> findLibDirectory({required Directory curr}) async {
   }
 
   if (libDirectory == null) {
-    return Exception('No lib/ directory found').toFailure();
+    return BabelException(
+      title: 'No lib/ directory found',
+      description: 'Could not find a lib/ directory in the project. '
+          'Please ensure you are running this command from the root of a Dart/Flutter project '
+          'that contains a lib/ directory.',
+    ).toFailure();
   }
 
   final Directory libDir = libDirectory as Directory;

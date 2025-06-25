@@ -48,6 +48,8 @@ extension AsyncResultDartExtension<S extends Loadable, F extends Object> //
   AsyncResultDart<W, F> toNextStep<W extends Loadable>(
     FutureOr<ResultDart<W, F>> Function(S success) fn,
   ) {
+    // final GenerateFlowState generateFlow= GenerateFlowState();
+    // generateFlow.toJson();
     return flatMap((success) {
       LoadingIndicator.instance.set(
         message: success.message,

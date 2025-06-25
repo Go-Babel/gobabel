@@ -57,9 +57,10 @@ translateNewStringsArb({
       madeTranslations[projectLanguage.languageCode]![projectLanguage
               .countryCode] =
           result;
-    } catch (e, stackTrace) {
-      return Exception(
-        'Failed to translate ARB for ${projectLanguage.languageCode}_${projectLanguage.countryCode}: $e\nStackTrace: $stackTrace',
+    } catch (e) {
+      return BabelException(
+        title: 'Translation API request failed',
+        description: 'Failed to translate ARB strings for ${projectLanguage.languageCode}_${projectLanguage.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection. Error details: $e',
       ).toFailure();
     }
   }

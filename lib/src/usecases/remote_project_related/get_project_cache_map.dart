@@ -16,7 +16,13 @@ AsyncResult<ProjectCacheMap> getProjectCacheMap({
         );
     return cache.toSuccess();
   } catch (_) {
-    return Exception('Error getting project cache map').toFailure();
+    return BabelException(
+      title: 'Failed to retrieve project cache',
+      description: 'Unable to fetch the project cache map from the server. '
+          'This could be due to network issues, invalid API key, '
+          'or the project not being properly initialized. '
+          'Please verify your credentials and connection.',
+    ).toFailure();
   }
 }
 

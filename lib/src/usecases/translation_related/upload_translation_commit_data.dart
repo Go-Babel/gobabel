@@ -17,7 +17,10 @@ AsyncResult<Unit> uploadBabelTranslationsChangesCommitToServer({
     );
     return Success(unit);
   } catch (e) {
-    return Exception('Error uploading commit: $e').toFailure();
+    return BabelException(
+      title: 'Failed to upload commit data',
+      description: 'Unable to upload the translation commit data to the server. This may be due to API connection issues or invalid project credentials. Please verify your API key and try again. Error details: $e',
+    ).toFailure();
   }
 }
 

@@ -6,6 +6,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -57,8 +58,13 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
 
       // If didAtLeastOneFileChange is false, it means no files were modified and all files had error
       if (!didAtLeastOneFileChange) {
-        return Exception(
-          'No files were modified, all files had errors or no hardcoded strings found.',
+        return BabelException(
+          title: 'No files modified',
+          description: 'Failed to modify any files. This could be due to: '
+              '1) All target files had processing errors, '
+              '2) No hardcoded strings were found to replace, or '
+              '3) File permission issues. '
+              'Please check the console output for specific file errors.',
         ).toFailure();
       }
 
@@ -105,8 +111,11 @@ generate_resolveHardcodedStringsInCodebase(
       ).toSuccess();
     });
   } catch (e) {
-    return Exception(
-      'Error resolving hardcoded strings in codebase: $e',
+    return BabelException(
+      title: 'String replacement failed',
+      description: 'Failed to replace hardcoded strings in the codebase: $e '
+          'This might be due to file access issues or invalid replacement patterns. '
+          'Please ensure all files are writable and try again.',
     ).toFailure();
   }
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:gobabel/src/usecases/arb_related/extract_location_data_from_arb_file_name.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -18,8 +19,9 @@ AsyncResult<ExtractArbDataResponse> extractArbDataFromFile(File file) async {
     final arbData = _extract(jsonContent);
 
     if (arbData == null) {
-      return Exception(
-        'Failed to extract data from ARB file: ${file.path}',
+      return BabelException(
+        title: 'Invalid ARB File Content',
+        description: 'Failed to extract data from ARB file: "${file.path}".\n\nThe file exists but its content could not be parsed. This usually happens when:\n- The file is empty\n- The JSON structure is invalid\n- The file does not contain valid ARB data\n\nPlease verify the file contains valid JSON with ARB format.',
       ).toFailure();
     }
 
@@ -31,8 +33,9 @@ AsyncResult<ExtractArbDataResponse> extractArbDataFromFile(File file) async {
       variablesPlaceholdersPerKey: arbData.variablesPlaceholdersPerKey,
     ).toSuccess();
   } catch (e) {
-    return Exception(
-      'Error reading ARB file: ${file.path}. Error: $e',
+    return BabelException(
+      title: 'ARB File Read Error',
+      description: 'Unable to read ARB file: "${file.path}".\n\nError: ${e.toString()}\n\nThis could be due to:\n- File permissions issues\n- File being locked by another process\n- Corrupted file content\n- Invalid character encoding\n\nPlease ensure the file is accessible and contains valid UTF-8 encoded text.',
     ).toFailure();
   }
 }

@@ -6,6 +6,7 @@ import 'package:gobabel/src/gobabel_conductor.dart';
 import 'package:gobabel/src/utilities/terminal_textfield.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:result_dart/result_dart.dart';
 import 'package:yaml/yaml.dart';
 
 // Helper function to get required parameter interactively if not provided
@@ -143,12 +144,10 @@ Future<void> main(List<String> arguments) async {
 
     await runInTryCatch(
       errorMessage: 'Error during sync operation',
-      operation: () async {
-        await controller.sync(
-          accountApiKey: apiKey,
-          directoryPath: directory.path,
-        );
-      },
+      operation: controller.sync(
+        accountApiKey: apiKey,
+        directoryPath: directory.path,
+      ),
     );
   }
   // Handle the generate command
@@ -231,13 +230,11 @@ Future<void> main(List<String> arguments) async {
 
     await runInTryCatch(
       errorMessage: 'Error during generate operation',
-      operation: () async {
-        await controller.generate(
-          projectApiToken: apiKey,
-          inputedByUserLocale: babelSupportedLocale!,
-          directoryPath: directory.path,
-        );
-      },
+      operation: controller.generate(
+        projectApiToken: apiKey,
+        inputedByUserLocale: babelSupportedLocale,
+        directoryPath: directory.path,
+      ),
     );
   } else if (argResults['create'] as bool) {
     final accountApiKey = await getRequiredParameter(
@@ -249,35 +246,41 @@ Future<void> main(List<String> arguments) async {
 
     await runInTryCatch(
       errorMessage: 'Error during create operation',
-      operation: () async {
-        await controller.create(
-          directoryPath: directory.path,
-          accountApiKey: accountApiKey,
-        );
-      },
+      operation: controller.create(
+        directoryPath: directory.path,
+        accountApiKey: accountApiKey,
+      ),
     );
   }
 }
 
 Future<void> runInTryCatch({
   required String errorMessage,
-  required Future<void> Function() operation,
+  required AsyncResult<void> operation,
 }) async {
-  try {
-    await operation();
-    exit(0);
-  } on BabelException catch (e) {
-    stdout.writeln(
-      '\n❌ $errorMessage:\n'.red +
-          "[ ${e.title} ]".darkOrange +
-          '\n${e.description}'.red,
-    );
-    exit(1);
-  } catch (e, s) {
-    print('\n❌ $errorMessage:\n$e'.replaceAll('Exception: ', '').darkOrange);
-    print('Stack trace: $s'.red); // Todo(igor): remove this in production
-    exit(1);
-  }
+  final result = await operation;
+  result.fold(
+    // Success case
+    (_) {
+      exit(0);
+    },
+    // Failure case
+    (failure) {
+      // Check if the failure contains a BabelException
+      if (failure is BabelException) {
+        stdout.writeln(
+          '\n❌ $errorMessage:\n'.red +
+              "[ ${failure.title} ]".darkOrange +
+              '\n${failure.description}'.red,
+        );
+      } else {
+        // Handle other exceptions
+        final message = failure.toString().replaceAll('Exception: ', '');
+        print('\n❌ $errorMessage:\n$message'.darkOrange);
+      }
+      exit(1);
+    },
+  );
 }
 
 // Helper function to read the package version from pubspec.yaml

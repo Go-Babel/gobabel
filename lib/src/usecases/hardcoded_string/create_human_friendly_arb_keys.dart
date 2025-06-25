@@ -123,9 +123,12 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
 
       final camelCaseKey = garantedKeyIntegrity;
       if (camelCaseKey.isEmpty) {
-        throw Exception(
-          'Generated key for "${string.value}" is empty. Please check the string content.',
-        );
+        return BabelException(
+          title: 'Empty ARB key generated',
+          description: 'The AI generated an empty key for the string "${string.value}". '
+              'This might happen with strings that contain only special characters or numbers. '
+              'Please check the string content and try again.',
+        ).toFailure();
       }
       keyMap.add(HumanFriendlyArbKeyResponse(key: camelCaseKey, value: string));
       newHardcodedStringKeyCache[string.value] = camelCaseKey;

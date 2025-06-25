@@ -60,7 +60,10 @@ AsyncResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
     );
     return payloadInfo.toSuccess();
   } catch (e) {
-    return Exception('Error creating translation payload: $e').toFailure();
+    return BabelException(
+      title: 'Failed to create translation payload',
+      description: 'Unable to process the project cache and create translation payload. This may be due to corrupted cache data or missing translation keys. Error details: $e',
+    ).toFailure();
   }
 }
 

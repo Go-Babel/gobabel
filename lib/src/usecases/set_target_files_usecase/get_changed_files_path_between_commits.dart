@@ -1,4 +1,5 @@
 import 'package:gobabel/src/core/utils/process_runner.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -15,7 +16,10 @@ AsyncResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
 
     // Check if the command executed successfully
     if (result.exitCode != 0) {
-      return Exception('Git command failed: ${result.stderr}').toFailure();
+      return BabelException(
+        title: 'Git diff command failed',
+        description: 'Failed to get changed files between commits $commit1 and $commit2.\nGit error: ${result.stderr}\n\nPlease ensure both commits exist in the repository.',
+      ).toFailure();
     }
 
     // Convert the output to a string and split it into a list of file paths
@@ -41,6 +45,9 @@ AsyncResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
 
     return files.toSuccess();
   } catch (e) {
-    return Exception('Failed to get changed Dart files: $e').toFailure();
+    return BabelException(
+      title: 'Failed to get changed Dart files',
+      description: 'An error occurred while retrieving changed files between commits.\nError: $e\n\nPlease ensure you are in a valid Git repository and have the necessary permissions.',
+    ).toFailure();
   }
 }

@@ -2,6 +2,7 @@ import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
@@ -12,14 +13,23 @@ AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
     );
 
     if (result.exitCode != 0) {
-      return Exception(
-        '❌ Could not get remote URL: ${result.stderr}',
+      return BabelException(
+        title: 'Git remote URL not found',
+        description: 'Could not get remote URL for this repository. '
+            'Please ensure your Git repository has a remote origin configured. '
+            'Run "git remote add origin <repository-url>" to add a remote. '
+            'Error: ${result.stderr}',
       ).toFailure();
     }
 
     return result.stdout.toString().trim().toSuccess();
-  } catch (e, s) {
-    return Exception('⚠️ Error detecting Git host: $e\n\n$s').toFailure();
+  } catch (e) {
+    return BabelException(
+      title: 'Git host detection error',
+      description: 'Failed to detect Git host for the repository. '
+          'Please ensure Git is installed and the repository is properly initialized. '
+          'Error details: $e',
+    ).toFailure();
   }
 }
 

@@ -1,6 +1,7 @@
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 /// Performs static analysis on the specified directory (defaults to 'lib').
@@ -36,17 +37,32 @@ AsyncResult<Unit> ensureNoStaticErrorOnDartFiles({
     }
 
     if (exitCode != 0) {
-      return Exception(
-        'Static analysis failed for directory ${directoryPath.pink}.\n'
-        'Error in ${fullOutput.pink}.\n'
-        'Please check the output above for details.',
+      return BabelException(
+        title: 'Static Analysis Failed',
+        description: 'Static analysis failed for directory ${directoryPath.pink}.\n'
+            'Error in ${fullOutput.pink}.\n'
+            'Please check the output above for details.\n\n'
+            'Common causes:\n'
+            '• Syntax errors in Dart files\n'
+            '• Missing dependencies in pubspec.yaml\n'
+            '• Invalid import statements\n'
+            '• Type mismatches or undefined variables\n\n'
+            'Run "dart analyze" manually to see detailed errors.',
       ).toFailure();
     }
 
     return unit.toSuccess();
   } catch (e, s) {
-    return Exception(
-      'An error occurred while running static analysis: $e\n$s',
+    return BabelException(
+      title: 'Static Analysis Error',
+      description: 'An unexpected error occurred while running static analysis.\n\n'
+          'Error details: $e\n\n'
+          'Stack trace: $s\n\n'
+          'This may be due to:\n'
+          '• Dart SDK not properly installed\n'
+          '• File system permissions issues\n'
+          '• Corrupted project structure\n\n'
+          'Try running "dart analyze" manually to diagnose the issue.',
     ).toFailure();
   }
 }

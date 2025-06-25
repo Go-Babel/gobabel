@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -40,8 +41,9 @@ AsyncResult<BabelSupportedLocales> extractFromArbFileName({
   }
 
   // Throw exception if no valid format is found
-  return FormatException(
-    'Invalid locale filename format: $filename.\nCould not determine language.\nMust be in format: "<base_name>_<languageCode>_<countryCode>.arb"\nIf "base_name" is "app", for example, see bellow valid options:\n- "app_en.arb"\n- "app_en_US.arb"\n- "app_enUS.arb"',
+  return BabelException(
+    title: 'Invalid ARB Filename Format',
+    description: 'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
   ).toFailure();
 }
 
@@ -95,7 +97,8 @@ Result<({String languageCode, String? countryCode})> _extract(String filename) {
   }
 
   // Throw exception if no valid format is found
-  return FormatException(
-    'Invalid locale filename format: $filename.\nCould not determine language.\nMust be in format: "<base_name>_<languageCode>_<countryCode>.arb"\nIf "base_name" is "app", for example, see bellow valid options:\n- "app_en.arb"\n- "app_en_US.arb"\n- "app_enUS.arb"',
+  return BabelException(
+    title: 'Invalid ARB Filename Format',
+    description: 'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
   ).toFailure();
 }

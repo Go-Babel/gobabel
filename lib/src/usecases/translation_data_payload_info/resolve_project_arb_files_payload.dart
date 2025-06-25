@@ -3,6 +3,7 @@ import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -89,7 +90,10 @@ resolveProjectArbFilesPayload({
       remapedArbKeys: remapedArbKeys,
     ).toSuccess();
   } catch (e) {
-    return Exception('Error creating translation payload: $e').toFailure();
+    return BabelException(
+      title: 'Failed to process ARB files',
+      description: 'An error occurred while processing existing ARB translation files. Please ensure your ARB files are properly formatted and contain valid JSON. Error details: $e',
+    ).toFailure();
   }
 }
 

@@ -4,6 +4,7 @@ import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<ApiClientEntity> createClientEntity(Directory dir) async {
@@ -17,8 +18,10 @@ AsyncResult<ApiClientEntity> createClientEntity(Directory dir) async {
         '${Platform.pathSeparator}lib${Platform.pathSeparator}',
       ) ||
       dir.path.endsWith('${Platform.pathSeparator}lib'))) {
-    return Exception(
-      'Provided directory is not inside a lib folder.',
+    return BabelException(
+      title: 'Invalid Directory Location',
+      description:
+          'The provided directory must be inside a "lib" folder of your Dart/Flutter project. GoBabel needs to operate within the lib directory to properly analyze and manage your codebase. Please run the command from within your project\'s lib directory or provide a path to a directory inside lib.',
     ).toFailure();
   }
 

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
@@ -13,8 +14,16 @@ AsyncResult<List<File>> getEligibleFiles(Directory dir) async {
   }
 
   if (!await lib.exists()) {
-    return Exception(
-      'The directory does not contain a "lib" folder: ${lib.path}',
+    return BabelException(
+      title: 'Missing lib Directory',
+      description: 'The directory does not contain a "lib" folder: ${lib.path}\n\n'
+          'GoBabel requires a standard Dart project structure with a "lib" directory.\n\n'
+          'Expected structure:\n'
+          '${dir.path}/\n'
+          '└── lib/\n'
+          '    └── src/\n'
+          '        └── your_code.dart\n\n'
+          'Please ensure you are running GoBabel from the project root directory.',
     ).toFailure();
   }
 

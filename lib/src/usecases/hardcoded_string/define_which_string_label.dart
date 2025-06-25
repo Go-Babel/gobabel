@@ -67,7 +67,7 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
             percentage: true,
           );
 
-  Future<void> function() async {
+  Future<BabelException?> function() async {
     for (final group in groups) {
       p?.increment();
       try {
@@ -79,24 +79,30 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
             );
         combinedResults.addAll(result);
       } catch (e) {
-        throw Exception('Failed to analyze strings: $e');
+        return BabelException(
+          title: 'String analysis failed',
+          description: 'Failed to analyze strings with the AI service: $e '
+              'Please check your API key and network connection, then try again.',
+        );
       }
     }
+    return null;
   }
 
-  try {
-    if (isSmallAmountOfStrings) {
-      await legacyRunWithSpinner(
-        successMessage: 'Finished analyzing strings',
-        message:
-            'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-        function,
-      );
-    } else {
-      await function();
-    }
-  } catch (e) {
-    return Exception(e.toString()).toFailure();
+  final BabelException? error;
+  if (isSmallAmountOfStrings) {
+    error = await legacyRunWithSpinner(
+      successMessage: 'Finished analyzing strings',
+      message:
+          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+      function,
+    );
+  } else {
+    error = await function();
+  }
+  
+  if (error != null) {
+    return error.toFailure();
   }
 
   // Filter the strings that needed validation based on the server responses

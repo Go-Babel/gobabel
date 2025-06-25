@@ -62,8 +62,9 @@ AsyncResult<FilesVerification> getFilesVerificationState({
 
   final isCurrentLastTrackedCommit = lastTrackedCommit == curentSha;
   if (isCurrentLastTrackedCommit) {
-    return Exception(
-      'You already generated a translation for this state that your code base currently is.',
+    return BabelException(
+      title: 'Translation already up to date',
+      description: 'You already generated a translation for the current state of your codebase.\nNo changes have been detected since the last translation generation.\n\nIf you need to regenerate translations, make changes to your Dart files and commit them.',
     ).toFailure();
   }
 

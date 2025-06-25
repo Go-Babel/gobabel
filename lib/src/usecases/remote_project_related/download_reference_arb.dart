@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
@@ -20,27 +21,42 @@ AsyncResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
                 .cast<L10nKey, L10nValue>();
 
         return arbMap.toSuccess();
-      } catch (e, stackTrace) {
-        return Exception(
-          '❌ Failed to parse ARB response data: $e\nStackTrace: $stackTrace',
+      } catch (e) {
+        return BabelException(
+          title: 'Failed to parse ARB response',
+          description: 'Unable to parse the downloaded ARB file data. '
+              'The response format may be invalid or corrupted. '
+              'Please check your API key and try again. '
+              'Error: $e',
         ).toFailure();
       }
     } else {
-      return Exception(
-        '❌ Invalid response format: Expected a JSON object, got ${response.data.runtimeType}',
+      return BabelException(
+        title: 'Invalid ARB response format',
+        description: 'Expected a JSON object in the response, but received ${response.data.runtimeType}. '
+            'This might indicate an API change or network issue. '
+            'Please verify your API key and connection.',
       ).toFailure();
     }
-  } on DioException catch (e, stackTrace) {
+  } on DioException catch (e) {
     final errorMessage =
         e.response?.statusCode != null
             ? 'HTTP ${e.response!.statusCode}: ${e.response!.statusMessage ?? e.message}'
             : e.message ?? 'Network error';
-    return Exception(
-      '⚠️ Error downloading reference ARB from $downloadUrl: $errorMessage\nStackTrace: $stackTrace',
+    return BabelException(
+      title: 'Failed to download reference ARB',
+      description: 'Unable to download the ARB file from the server. '
+          '$errorMessage. '
+          'Please check your internet connection and API key permissions. '
+          'URL: $downloadUrl',
     ).toFailure();
-  } catch (e, stackTrace) {
-    return Exception(
-      '⚠️ Unexpected error downloading reference ARB: $e\nStackTrace: $stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Unexpected download error',
+      description: 'An unexpected error occurred while downloading the reference ARB file. '
+          'This might be due to network issues or server problems. '
+          'Please try again or contact support if the issue persists. '
+          'Error: $e',
     ).toFailure();
   }
 }
@@ -50,8 +66,11 @@ AsyncResult<GenerateFlowDownloadReferenceArb> generate_downloadReferenceArb(
 ) async {
   final downloadLink = payload.downloadLink;
   if (downloadLink.isEmpty) {
-    return Exception(
-      '❌ No download link provided for the reference ARB file.',
+    return BabelException(
+      title: 'Missing download link',
+      description: 'No download link was provided for the reference ARB file. '
+          'This might indicate that the project is not properly configured '
+          'or the language data is missing. Please check your project settings.',
     ).toFailure();
   }
 

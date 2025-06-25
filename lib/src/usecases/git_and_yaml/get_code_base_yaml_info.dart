@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_yaml.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -30,35 +30,33 @@ AsyncResult<CodeBaseYamlInfo> getCodeBaseYamlInfoUsecase({
   };
 
   if (projectName == null) {
-    return Exception(
-      '❌ No "name" field found in "pubspec.yaml".\n'
-              'Please ensure you are running the code in '
-              'a flutter/dart directory and you have the "name" '
-              'field in your "pubspec.yaml" file.\n'
-              'That project name is used as identifier of the '
-              'project in GoBabel Dashboard.'
-          .red,
+    return BabelException(
+      title: 'Missing name field in pubspec.yaml',
+      description: 'No "name" field found in pubspec.yaml. '
+          'Please add a "name" field to your pubspec.yaml file. '
+          'This project name is used as an identifier in the GoBabel Dashboard. '
+          'Example: name: my_flutter_app',
     ).toFailure();
   }
 
   if (projectVersion == null) {
-    return Exception(
-      '❌ No "version" field found in "pubspec.yaml".\n'
-              'Please ensure you are running the code in '
-              'a flutter/dart directory and you have the "version" '
-              'field in your "pubspec.yaml" file.\n'
-              'That project version is used as identifier of the '
-              'project in GoBabel Dashboard.'
-          .red,
+    return BabelException(
+      title: 'Missing version field in pubspec.yaml',
+      description: 'No "version" field found in pubspec.yaml. '
+          'Please add a "version" field to your pubspec.yaml file. '
+          'This version is used to track changes in the GoBabel Dashboard. '
+          'Example: version: 1.0.0+1',
     ).toFailure();
   }
   final isDartProject =
       projectType == ProjectType.dart; // Dart project is not supported yet
   if (isDartProject) {
-    return Exception(
-      '❌ Dart projects are not supported yet.\n'
-              'Please ensure you are running the code in a Flutter project directory.'
-          .red,
+    return BabelException(
+      title: 'Dart projects not supported',
+      description: 'Pure Dart projects are not supported yet. '
+          'GoBabel currently only supports Flutter projects. '
+          'Please ensure you are running this command in a Flutter project directory '
+          'with "sdk: flutter" in your pubspec.yaml dependencies.',
     ).toFailure();
   }
 

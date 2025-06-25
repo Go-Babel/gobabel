@@ -6,19 +6,37 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Unit> multiMoveHardCodedStringParamUseCase({
   required List<File> targetFiles,
 }) async {
-  for (final file in targetFiles) {
-    final source = await file.readAsString();
-    final transformed = singleMoveHardCodedStringParamUseCase(source);
-    if (transformed != source) {
-      await file.writeAsString(transformed);
+  try {
+    for (final file in targetFiles) {
+      final source = await file.readAsString();
+      final transformed = singleMoveHardCodedStringParamUseCase(source);
+      if (transformed != source) {
+        await file.writeAsString(transformed);
+      }
     }
+    return Success(unit);
+  } on BabelException catch (e) {
+    return e.toFailure();
+  } catch (e, s) {
+    return BabelException(
+      title: 'Parameter Transformation Failed',
+      description: 'Failed to transform hardcoded string parameters in constructor.\n\n'
+          'Error: $e\n\n'
+          'Stack trace: $s\n\n'
+          'This transformation moves default string values from constructor parameters '
+          'to the constructor body. This may fail if:\n'
+          '• The file has syntax errors\n'
+          '• The file uses unsupported Dart language features\n'
+          '• File permissions prevent reading or writing\n'
+          '• The AST structure is unexpected',
+    ).toFailure();
   }
-  return Success(unit);
 }
 
 @visibleForTesting
@@ -29,7 +47,17 @@ String singleMoveHardCodedStringParamUseCase(String source) {
   );
 
   if (parseResult.errors.isNotEmpty) {
-    throw Exception('Parse errors: ${parseResult.errors}');
+    throw BabelException(
+      title: 'Dart Parse Error',
+      description: 'Failed to parse Dart file due to syntax errors.\n\n'
+          'Parse errors: ${parseResult.errors.map((e) => '• ${e.message} at line ${e.offset}').join('\n')}\n\n'
+          'Common causes:\n'
+          '• Missing semicolons or brackets\n'
+          '• Invalid Dart syntax\n'
+          '• Incomplete code statements\n'
+          '• Unsupported language features\n\n'
+          'Please fix the syntax errors before running GoBabel.',
+    );
   }
 
   final visitor = _ConstructorTransformVisitor(source);

@@ -6,6 +6,7 @@ import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -22,7 +23,11 @@ AsyncResult<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
     try {
       content = await file.readAsString();
     } catch (e) {
-      return Exception('Failed to read file ${file.path}: $e').toFailure();
+      return BabelException(
+        title: 'File read error',
+        description: 'Failed to read file ${file.path}: $e '
+            'Please ensure the file exists and you have read permissions.',
+      ).toFailure();
     }
 
     final rawList = <_RawString>[];

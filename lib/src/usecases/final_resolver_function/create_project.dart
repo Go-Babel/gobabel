@@ -22,9 +22,11 @@ AsyncResult<Unit> createProject({
       accountApiKey: accountApiKey,
     );
     return Success(unit);
-  } catch (e, stackTrace) {
-    return Exception(
-      'Failed to create project on GoBabel server: ${e.toString()}\n$stackTrace',
+  } catch (e) {
+    return BabelException(
+      title: 'Project Creation Failed',
+      description:
+          'Failed to create a new project on the GoBabel server. This could be due to network connectivity issues, invalid account API key, or server-side problems. Please verify your account API key is correct and try again. Error details: ${e.toString()}',
     ).toFailure();
   }
 }
