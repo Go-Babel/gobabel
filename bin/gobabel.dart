@@ -8,6 +8,31 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
 
+// Helper function to get required parameter interactively if not provided
+Future<String> getRequiredParameter({
+  required String? providedValue,
+  required String parameterName,
+  required String description,
+  bool isSecret = false,
+}) async {
+  if (providedValue != null && providedValue.isNotEmpty) {
+    return providedValue;
+  }
+
+  print('ℹ️  $description'.wheat);
+
+  final result = await getTextFieldInput(
+    prompt: 'Please enter your $parameterName',
+  );
+
+  if (result.isEmpty) {
+    print('❌ Error: $parameterName is required.'.red);
+    exit(1);
+  }
+
+  return result;
+}
+
 Future<void> main(List<String> arguments) async {
   // Set up the argument parser
   final parser =
@@ -109,12 +134,12 @@ Future<void> main(List<String> arguments) async {
 
   // Handle the sync command
   if (argResults['sync'] as bool) {
-    if (argResults['api-key'] == null) {
-      print('❌ Error: --api-key is required for sync operation.'.red);
-      printUsage(parser);
-      return;
-    }
-    final apiKey = argResults['api-key'] as String;
+    final apiKey = await getRequiredParameter(
+      providedValue: argResults['api-key'] as String?,
+      parameterName: 'API key',
+      description:
+          'API key is required for sync operation. You can find it in your GoBabel dashboard.',
+    );
 
     await runInTryCatch(
       errorMessage: 'Error during sync operation',
@@ -128,13 +153,13 @@ Future<void> main(List<String> arguments) async {
   }
   // Handle the generate command
   else if (argResults['generate'] as bool) {
-    if (argResults['api-key'] == null) {
-      print('❌ Error: --api-key is required for generate operation.'.red);
-      printUsage(parser);
-      exit(1);
-    }
+    final apiKey = await getRequiredParameter(
+      providedValue: argResults['api-key'] as String?,
+      parameterName: 'API key',
+      description:
+          'API key is required for generate operation. You can find it in your GoBabel dashboard.',
+    );
 
-    final apiKey = argResults['api-key'] as String;
     String? language = argResults['language'] as String?;
 
     // Handle language selection
@@ -215,20 +240,16 @@ Future<void> main(List<String> arguments) async {
       },
     );
   } else if (argResults['create'] as bool) {
-    if (argResults['attach-to-user-with-id'] == null) {
-      print(
-        '❌ Error: --attach-to-user-with-id is required for create operation.\n'
-                'You can get account api-key in the account tab in go babel dashboard.'
-            .red,
-      );
-      printUsage(parser);
-      exit(0);
-    }
+    final accountApiKey = await getRequiredParameter(
+      providedValue: argResults['attach-to-user-with-id'] as String?,
+      parameterName: 'account API key',
+      description:
+          'Account API key is required for create operation. You can get it in the account tab in GoBabel dashboard.',
+    );
 
     await runInTryCatch(
       errorMessage: 'Error during create operation',
       operation: () async {
-        final accountApiKey = argResults['attach-to-user-with-id'] as String;
         await controller.create(
           directoryPath: directory.path,
           accountApiKey: accountApiKey,
