@@ -19,7 +19,14 @@ class LoadingIndicator {
     required String message,
     required int totalCount,
     required int step,
+    bool enabled = true,
   }) {
+    // Cancel any existing timer first
+    _timer?.cancel();
+    
+    // Skip if logging is disabled
+    if (!enabled) return;
+    
     // final String message = loadingMessage.message;
     // final int step = loadingMessage.step;
 
@@ -51,10 +58,23 @@ extension AsyncResultDartExtension<S extends Loadable, F extends Object> //
     // final GenerateFlowState generateFlow= GenerateFlowState();
     // generateFlow.toJson();
     return flatMap((success) {
+      // Check if this is a state with willLog property
+      bool shouldLog = true;
+      try {
+        // Use dynamic to check if willLog exists
+        final dynamic state = success;
+        if (state != null && state.willLog != null) {
+          shouldLog = state.willLog as bool;
+        }
+      } catch (_) {
+        // If willLog doesn't exist, default to true
+      }
+      
       LoadingIndicator.instance.set(
         message: success.message,
         step: success.stepCount,
         totalCount: success.maxAmountOfSteps,
+        enabled: shouldLog,
       );
       return fn(success);
     });

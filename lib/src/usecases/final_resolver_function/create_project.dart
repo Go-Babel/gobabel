@@ -48,6 +48,7 @@ AsyncResult<CreateFlowCreatedProjectInGobabelServer> create_createProject(
 
   return createProjectResult.flatMap((_) {
     return CreateFlowCreatedProjectInGobabelServer(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

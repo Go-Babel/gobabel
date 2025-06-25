@@ -50,25 +50,33 @@ CreateFlowState _$CreateFlowStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateFlowState {
+  bool get willLog => throw _privateConstructorUsedError;
   String get accountApiKey => throw _privateConstructorUsedError;
   String get directoryPath => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -76,6 +84,7 @@ mixin _$CreateFlowState {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -84,6 +93,7 @@ mixin _$CreateFlowState {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -93,6 +103,7 @@ mixin _$CreateFlowState {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -103,6 +114,7 @@ mixin _$CreateFlowState {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -111,6 +123,7 @@ mixin _$CreateFlowState {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -120,6 +133,7 @@ mixin _$CreateFlowState {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -131,20 +145,24 @@ mixin _$CreateFlowState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -152,6 +170,7 @@ mixin _$CreateFlowState {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -160,6 +179,7 @@ mixin _$CreateFlowState {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -169,6 +189,7 @@ mixin _$CreateFlowState {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -179,6 +200,7 @@ mixin _$CreateFlowState {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -187,6 +209,7 @@ mixin _$CreateFlowState {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -196,6 +219,7 @@ mixin _$CreateFlowState {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -207,20 +231,24 @@ mixin _$CreateFlowState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -228,6 +256,7 @@ mixin _$CreateFlowState {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -236,6 +265,7 @@ mixin _$CreateFlowState {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -245,6 +275,7 @@ mixin _$CreateFlowState {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -255,6 +286,7 @@ mixin _$CreateFlowState {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -263,6 +295,7 @@ mixin _$CreateFlowState {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -272,6 +305,7 @@ mixin _$CreateFlowState {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -348,7 +382,7 @@ abstract class $CreateFlowStateCopyWith<$Res> {
     $Res Function(CreateFlowState) then,
   ) = _$CreateFlowStateCopyWithImpl<$Res, CreateFlowState>;
   @useResult
-  $Res call({String accountApiKey, String directoryPath});
+  $Res call({bool willLog, String accountApiKey, String directoryPath});
 }
 
 /// @nodoc
@@ -365,9 +399,18 @@ class _$CreateFlowStateCopyWithImpl<$Res, $Val extends CreateFlowState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accountApiKey = null, Object? directoryPath = null}) {
+  $Res call({
+    Object? willLog = null,
+    Object? accountApiKey = null,
+    Object? directoryPath = null,
+  }) {
     return _then(
       _value.copyWith(
+            willLog:
+                null == willLog
+                    ? _value.willLog
+                    : willLog // ignore: cast_nullable_to_non_nullable
+                        as bool,
             accountApiKey:
                 null == accountApiKey
                     ? _value.accountApiKey
@@ -393,7 +436,7 @@ abstract class _$$CreateFlowInitialImplCopyWith<$Res>
   ) = __$$CreateFlowInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String accountApiKey, String directoryPath});
+  $Res call({bool willLog, String accountApiKey, String directoryPath});
 }
 
 /// @nodoc
@@ -409,9 +452,18 @@ class __$$CreateFlowInitialImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accountApiKey = null, Object? directoryPath = null}) {
+  $Res call({
+    Object? willLog = null,
+    Object? accountApiKey = null,
+    Object? directoryPath = null,
+  }) {
     return _then(
       _$CreateFlowInitialImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -431,6 +483,7 @@ class __$$CreateFlowInitialImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowInitialImpl extends CreateFlowInitial {
   _$CreateFlowInitialImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     final String? $type,
@@ -441,6 +494,8 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
       _$$CreateFlowInitialImplFromJson(json);
 
   @override
+  final bool willLog;
+  @override
   final String accountApiKey;
   @override
   final String directoryPath;
@@ -450,7 +505,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
 
   @override
   String toString() {
-    return 'CreateFlowState.initial(accountApiKey: $accountApiKey, directoryPath: $directoryPath)';
+    return 'CreateFlowState.initial(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath)';
   }
 
   @override
@@ -458,6 +513,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowInitialImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -466,7 +522,8 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, accountApiKey, directoryPath);
+  int get hashCode =>
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath);
 
   /// Create a copy of CreateFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -482,21 +539,28 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -504,6 +568,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -512,6 +577,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -521,6 +587,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -531,6 +598,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -539,6 +607,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -548,6 +617,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -557,26 +627,30 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )
     createdProjectInGobabelServer,
   }) {
-    return initial(accountApiKey, directoryPath);
+    return initial(willLog, accountApiKey, directoryPath);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -584,6 +658,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -592,6 +667,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -601,6 +677,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -611,6 +688,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -619,6 +697,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -628,6 +707,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -637,26 +717,30 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     createdProjectInGobabelServer,
   }) {
-    return initial?.call(accountApiKey, directoryPath);
+    return initial?.call(willLog, accountApiKey, directoryPath);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -664,6 +748,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -672,6 +757,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -681,6 +767,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -691,6 +778,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -699,6 +787,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -708,6 +797,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -719,7 +809,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(accountApiKey, directoryPath);
+      return initial(willLog, accountApiKey, directoryPath);
     }
     return orElse();
   }
@@ -795,6 +885,7 @@ class _$CreateFlowInitialImpl extends CreateFlowInitial {
 
 abstract class CreateFlowInitial extends CreateFlowState {
   factory CreateFlowInitial({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
   }) = _$CreateFlowInitialImpl;
@@ -803,6 +894,8 @@ abstract class CreateFlowInitial extends CreateFlowState {
   factory CreateFlowInitial.fromJson(Map<String, dynamic> json) =
       _$CreateFlowInitialImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -826,6 +919,7 @@ abstract class _$$CreateFlowCreatedClientImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -848,12 +942,18 @@ class __$$CreateFlowCreatedClientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
   }) {
     return _then(
       _$CreateFlowCreatedClientImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -888,6 +988,7 @@ class __$$CreateFlowCreatedClientImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
   _$CreateFlowCreatedClientImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -898,6 +999,8 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
   factory _$CreateFlowCreatedClientImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateFlowCreatedClientImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -910,7 +1013,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
 
   @override
   String toString() {
-    return 'CreateFlowState.createdClient(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
+    return 'CreateFlowState.createdClient(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
   }
 
   @override
@@ -918,6 +1021,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowCreatedClientImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -928,7 +1032,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client);
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath, client);
 
   /// Create a copy of CreateFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -943,21 +1047,28 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -965,6 +1076,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -973,6 +1085,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -982,6 +1095,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -992,6 +1106,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1000,6 +1115,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1009,6 +1125,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1018,26 +1135,30 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )
     createdProjectInGobabelServer,
   }) {
-    return createdClient(accountApiKey, directoryPath, client);
+    return createdClient(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1045,6 +1166,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1053,6 +1175,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1062,6 +1185,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1072,6 +1196,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1080,6 +1205,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1089,6 +1215,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1098,26 +1225,30 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     createdProjectInGobabelServer,
   }) {
-    return createdClient?.call(accountApiKey, directoryPath, client);
+    return createdClient?.call(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1125,6 +1256,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1133,6 +1265,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1142,6 +1275,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1152,6 +1286,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1160,6 +1295,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1169,6 +1305,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1180,7 +1317,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
     required TResult orElse(),
   }) {
     if (createdClient != null) {
-      return createdClient(accountApiKey, directoryPath, client);
+      return createdClient(willLog, accountApiKey, directoryPath, client);
     }
     return orElse();
   }
@@ -1256,6 +1393,7 @@ class _$CreateFlowCreatedClientImpl extends CreateFlowCreatedClient {
 
 abstract class CreateFlowCreatedClient extends CreateFlowState {
   factory CreateFlowCreatedClient({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -1265,6 +1403,8 @@ abstract class CreateFlowCreatedClient extends CreateFlowState {
   factory CreateFlowCreatedClient.fromJson(Map<String, dynamic> json) =
       _$CreateFlowCreatedClientImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -1289,6 +1429,7 @@ abstract class _$$CreateFlowEnsureGitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -1311,12 +1452,18 @@ class __$$CreateFlowEnsureGitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
   }) {
     return _then(
       _$CreateFlowEnsureGitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -1351,6 +1498,7 @@ class __$$CreateFlowEnsureGitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
   _$CreateFlowEnsureGitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -1361,6 +1509,8 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
   factory _$CreateFlowEnsureGitImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateFlowEnsureGitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -1373,7 +1523,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
 
   @override
   String toString() {
-    return 'CreateFlowState.ensuredGit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
+    return 'CreateFlowState.ensuredGit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
   }
 
   @override
@@ -1381,6 +1531,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowEnsureGitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -1391,7 +1542,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client);
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath, client);
 
   /// Create a copy of CreateFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1407,21 +1558,28 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1429,6 +1587,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1437,6 +1596,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1446,6 +1606,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1456,6 +1617,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1464,6 +1626,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1473,6 +1636,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1482,26 +1646,30 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )
     createdProjectInGobabelServer,
   }) {
-    return ensuredGit(accountApiKey, directoryPath, client);
+    return ensuredGit(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1509,6 +1677,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1517,6 +1686,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1526,6 +1696,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1536,6 +1707,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1544,6 +1716,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1553,6 +1726,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1562,26 +1736,30 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     createdProjectInGobabelServer,
   }) {
-    return ensuredGit?.call(accountApiKey, directoryPath, client);
+    return ensuredGit?.call(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1589,6 +1767,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1597,6 +1776,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1606,6 +1786,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1616,6 +1797,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1624,6 +1806,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1633,6 +1816,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1644,7 +1828,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
-      return ensuredGit(accountApiKey, directoryPath, client);
+      return ensuredGit(willLog, accountApiKey, directoryPath, client);
     }
     return orElse();
   }
@@ -1720,6 +1904,7 @@ class _$CreateFlowEnsureGitImpl extends CreateFlowEnsureGit {
 
 abstract class CreateFlowEnsureGit extends CreateFlowState {
   factory CreateFlowEnsureGit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -1729,6 +1914,8 @@ abstract class CreateFlowEnsureGit extends CreateFlowState {
   factory CreateFlowEnsureGit.fromJson(Map<String, dynamic> json) =
       _$CreateFlowEnsureGitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -1753,6 +1940,7 @@ abstract class _$$CreateFlowGotCodeBaseYamlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -1777,6 +1965,7 @@ class __$$CreateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -1784,6 +1973,11 @@ class __$$CreateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowGotCodeBaseYamlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -1833,6 +2027,7 @@ class __$$CreateFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
   _$CreateFlowGotCodeBaseYamlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -1844,6 +2039,8 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
   factory _$CreateFlowGotCodeBaseYamlImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateFlowGotCodeBaseYamlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -1858,7 +2055,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
 
   @override
   String toString() {
-    return 'CreateFlowState.gotCodeBaseYaml(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo)';
+    return 'CreateFlowState.gotCodeBaseYaml(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo)';
   }
 
   @override
@@ -1866,6 +2063,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowGotCodeBaseYamlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -1877,8 +2075,14 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client, yamlInfo);
+  int get hashCode => Object.hash(
+    runtimeType,
+    willLog,
+    accountApiKey,
+    directoryPath,
+    client,
+    yamlInfo,
+  );
 
   /// Create a copy of CreateFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1893,21 +2097,28 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1915,6 +2126,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1923,6 +2135,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1932,6 +2145,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1942,6 +2156,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1950,6 +2165,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1959,6 +2175,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1968,26 +2185,36 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )
     createdProjectInGobabelServer,
   }) {
-    return gotCodeBaseYaml(accountApiKey, directoryPath, client, yamlInfo);
+    return gotCodeBaseYaml(
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+    );
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1995,6 +2222,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2003,6 +2231,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2012,6 +2241,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2022,6 +2252,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2030,6 +2261,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2039,6 +2271,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2049,6 +2282,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -2059,20 +2293,24 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2080,6 +2318,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2088,6 +2327,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2097,6 +2337,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2107,6 +2348,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2115,6 +2357,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2124,6 +2367,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2135,7 +2379,13 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
-      return gotCodeBaseYaml(accountApiKey, directoryPath, client, yamlInfo);
+      return gotCodeBaseYaml(
+        willLog,
+        accountApiKey,
+        directoryPath,
+        client,
+        yamlInfo,
+      );
     }
     return orElse();
   }
@@ -2211,6 +2461,7 @@ class _$CreateFlowGotCodeBaseYamlImpl extends CreateFlowGotCodeBaseYaml {
 
 abstract class CreateFlowGotCodeBaseYaml extends CreateFlowState {
   factory CreateFlowGotCodeBaseYaml({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -2221,6 +2472,8 @@ abstract class CreateFlowGotCodeBaseYaml extends CreateFlowState {
   factory CreateFlowGotCodeBaseYaml.fromJson(Map<String, dynamic> json) =
       _$CreateFlowGotCodeBaseYamlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -2246,6 +2499,7 @@ abstract class _$$CreateFlowGotGitUserImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -2271,6 +2525,7 @@ class __$$CreateFlowGotGitUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -2279,6 +2534,11 @@ class __$$CreateFlowGotGitUserImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowGotGitUserImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -2333,6 +2593,7 @@ class __$$CreateFlowGotGitUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   _$CreateFlowGotGitUserImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -2345,6 +2606,8 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   factory _$CreateFlowGotGitUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateFlowGotGitUserImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -2361,7 +2624,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
 
   @override
   String toString() {
-    return 'CreateFlowState.gotGitUser(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
+    return 'CreateFlowState.gotGitUser(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
   }
 
   @override
@@ -2369,6 +2632,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowGotGitUserImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -2383,6 +2647,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -2405,21 +2670,28 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2427,6 +2699,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2435,6 +2708,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2444,6 +2718,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2454,6 +2729,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2462,6 +2738,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2471,6 +2748,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2480,26 +2758,37 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )
     createdProjectInGobabelServer,
   }) {
-    return gotGitUser(accountApiKey, directoryPath, client, yamlInfo, gitUser);
+    return gotGitUser(
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitUser,
+    );
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2507,6 +2796,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2515,6 +2805,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2524,6 +2815,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2534,6 +2826,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2542,6 +2835,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2551,6 +2845,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2561,6 +2856,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     createdProjectInGobabelServer,
   }) {
     return gotGitUser?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -2572,20 +2868,24 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2593,6 +2893,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2601,6 +2902,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2610,6 +2912,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2620,6 +2923,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2628,6 +2932,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2637,6 +2942,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2649,6 +2955,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
   }) {
     if (gotGitUser != null) {
       return gotGitUser(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -2730,6 +3037,7 @@ class _$CreateFlowGotGitUserImpl extends CreateFlowGotGitUser {
 
 abstract class CreateFlowGotGitUser extends CreateFlowState {
   factory CreateFlowGotGitUser({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -2741,6 +3049,8 @@ abstract class CreateFlowGotGitUser extends CreateFlowState {
   factory CreateFlowGotGitUser.fromJson(Map<String, dynamic> json) =
       _$CreateFlowGotGitUserImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -2767,6 +3077,7 @@ abstract class _$$CreateFlowGotLastLocalCommitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -2794,6 +3105,7 @@ class __$$CreateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -2803,6 +3115,11 @@ class __$$CreateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowGotLastLocalCommitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -2862,6 +3179,7 @@ class __$$CreateFlowGotLastLocalCommitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   _$CreateFlowGotLastLocalCommitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -2876,6 +3194,8 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     Map<String, dynamic> json,
   ) => _$$CreateFlowGotLastLocalCommitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -2894,7 +3214,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
 
   @override
   String toString() {
-    return 'CreateFlowState.gotLastLocalCommit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
+    return 'CreateFlowState.gotLastLocalCommit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
   }
 
   @override
@@ -2902,6 +3222,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowGotLastLocalCommitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -2918,6 +3239,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -2941,21 +3263,28 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2963,6 +3292,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2971,6 +3301,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2980,6 +3311,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2990,6 +3322,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2998,6 +3331,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3007,6 +3341,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3017,6 +3352,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3029,20 +3365,24 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3050,6 +3390,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3058,6 +3399,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3067,6 +3409,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3077,6 +3420,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3085,6 +3429,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3094,6 +3439,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3104,6 +3450,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3116,20 +3463,24 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3137,6 +3488,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3145,6 +3497,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3154,6 +3507,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3164,6 +3518,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3172,6 +3527,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3181,6 +3537,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3193,6 +3550,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
   }) {
     if (gotLastLocalCommit != null) {
       return gotLastLocalCommit(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -3275,6 +3633,7 @@ class _$CreateFlowGotLastLocalCommitImpl extends CreateFlowGotLastLocalCommit {
 
 abstract class CreateFlowGotLastLocalCommit extends CreateFlowState {
   factory CreateFlowGotLastLocalCommit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -3287,6 +3646,8 @@ abstract class CreateFlowGotLastLocalCommit extends CreateFlowState {
   factory CreateFlowGotLastLocalCommit.fromJson(Map<String, dynamic> json) =
       _$CreateFlowGotLastLocalCommitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -3316,6 +3677,7 @@ abstract class _$$CreateFlowGotProjectOriginUrlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -3344,6 +3706,7 @@ class __$$CreateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -3354,6 +3717,11 @@ class __$$CreateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowGotProjectOriginUrlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -3419,6 +3787,7 @@ class __$$CreateFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
 class _$CreateFlowGotProjectOriginUrlImpl
     extends CreateFlowGotProjectOriginUrl {
   _$CreateFlowGotProjectOriginUrlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -3434,6 +3803,8 @@ class _$CreateFlowGotProjectOriginUrlImpl
     Map<String, dynamic> json,
   ) => _$$CreateFlowGotProjectOriginUrlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -3454,7 +3825,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
 
   @override
   String toString() {
-    return 'CreateFlowState.gotProjectOriginUrl(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
+    return 'CreateFlowState.gotProjectOriginUrl(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
   }
 
   @override
@@ -3462,6 +3833,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowGotProjectOriginUrlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -3480,6 +3852,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -3504,21 +3877,28 @@ class _$CreateFlowGotProjectOriginUrlImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3526,6 +3906,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3534,6 +3915,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3543,6 +3925,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3553,6 +3936,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3561,6 +3945,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3570,6 +3955,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3580,6 +3966,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3593,20 +3980,24 @@ class _$CreateFlowGotProjectOriginUrlImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3614,6 +4005,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3622,6 +4014,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3631,6 +4024,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3641,6 +4035,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3649,6 +4044,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3658,6 +4054,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3668,6 +4065,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3681,20 +4079,24 @@ class _$CreateFlowGotProjectOriginUrlImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3702,6 +4104,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3710,6 +4113,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3719,6 +4123,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3729,6 +4134,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3737,6 +4143,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3746,6 +4153,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3758,6 +4166,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
   }) {
     if (gotProjectOriginUrl != null) {
       return gotProjectOriginUrl(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -3841,6 +4250,7 @@ class _$CreateFlowGotProjectOriginUrlImpl
 
 abstract class CreateFlowGotProjectOriginUrl extends CreateFlowState {
   factory CreateFlowGotProjectOriginUrl({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -3854,6 +4264,8 @@ abstract class CreateFlowGotProjectOriginUrl extends CreateFlowState {
   factory CreateFlowGotProjectOriginUrl.fromJson(Map<String, dynamic> json) =
       _$CreateFlowGotProjectOriginUrlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -3884,6 +4296,7 @@ abstract class _$$CreateFlowGotGitVariablesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -3910,6 +4323,7 @@ class __$$CreateFlowGotGitVariablesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -3918,6 +4332,11 @@ class __$$CreateFlowGotGitVariablesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowGotGitVariablesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -3982,6 +4401,7 @@ class __$$CreateFlowGotGitVariablesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   _$CreateFlowGotGitVariablesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -3994,6 +4414,8 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   factory _$CreateFlowGotGitVariablesImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateFlowGotGitVariablesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -4010,7 +4432,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
 
   @override
   String toString() {
-    return 'CreateFlowState.gotGitVariables(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
+    return 'CreateFlowState.gotGitVariables(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
   }
 
   @override
@@ -4018,6 +4440,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowGotGitVariablesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -4033,6 +4456,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -4053,21 +4477,28 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4075,6 +4506,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4083,6 +4515,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4092,6 +4525,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4102,6 +4536,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4110,6 +4545,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4119,6 +4555,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4129,6 +4566,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     createdProjectInGobabelServer,
   }) {
     return gotGitVariables(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4140,20 +4578,24 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4161,6 +4603,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4169,6 +4612,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4178,6 +4622,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4188,6 +4633,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4196,6 +4642,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4205,6 +4652,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4215,6 +4663,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     createdProjectInGobabelServer,
   }) {
     return gotGitVariables?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4226,20 +4675,24 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4247,6 +4700,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4255,6 +4709,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4264,6 +4719,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4274,6 +4730,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4282,6 +4739,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4291,6 +4749,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4303,6 +4762,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
   }) {
     if (gotGitVariables != null) {
       return gotGitVariables(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -4384,6 +4844,7 @@ class _$CreateFlowGotGitVariablesImpl extends CreateFlowGotGitVariables {
 
 abstract class CreateFlowGotGitVariables extends CreateFlowState {
   factory CreateFlowGotGitVariables({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -4395,6 +4856,8 @@ abstract class CreateFlowGotGitVariables extends CreateFlowState {
   factory CreateFlowGotGitVariables.fromJson(Map<String, dynamic> json) =
       _$CreateFlowGotGitVariablesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -4421,6 +4884,7 @@ abstract class _$$CreateFlowExtractedProjectCodebaseImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -4452,6 +4916,7 @@ class __$$CreateFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -4461,6 +4926,11 @@ class __$$CreateFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowExtractedProjectCodebaseImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -4531,6 +5001,7 @@ class __$$CreateFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
 class _$CreateFlowExtractedProjectCodebaseImpl
     extends CreateFlowExtractedProjectCodebase {
   _$CreateFlowExtractedProjectCodebaseImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -4546,6 +5017,8 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     Map<String, dynamic> json,
   ) => _$$CreateFlowExtractedProjectCodebaseImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -4569,7 +5042,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
 
   @override
   String toString() {
-    return 'CreateFlowState.extractedProjectCodebase(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
+    return 'CreateFlowState.extractedProjectCodebase(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
   }
 
   @override
@@ -4577,6 +5050,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowExtractedProjectCodebaseImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -4596,6 +5070,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -4619,21 +5094,28 @@ class _$CreateFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4641,6 +5123,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4649,6 +5132,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4658,6 +5142,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4668,6 +5153,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4676,6 +5162,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4685,6 +5172,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4695,6 +5183,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4707,20 +5196,24 @@ class _$CreateFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4728,6 +5221,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4736,6 +5230,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4745,6 +5240,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4755,6 +5251,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4763,6 +5260,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4772,6 +5270,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4782,6 +5281,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4794,20 +5294,24 @@ class _$CreateFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4815,6 +5319,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4823,6 +5328,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4832,6 +5338,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4842,6 +5349,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4850,6 +5358,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4859,6 +5368,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4871,6 +5381,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
   }) {
     if (extractedProjectCodebase != null) {
       return extractedProjectCodebase(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -4953,6 +5464,7 @@ class _$CreateFlowExtractedProjectCodebaseImpl
 
 abstract class CreateFlowExtractedProjectCodebase extends CreateFlowState {
   factory CreateFlowExtractedProjectCodebase({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -4966,6 +5478,8 @@ abstract class CreateFlowExtractedProjectCodebase extends CreateFlowState {
     Map<String, dynamic> json,
   ) = _$CreateFlowExtractedProjectCodebaseImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -4995,6 +5509,7 @@ abstract class _$$CreateFlowCreatedProjectInGobabelServerImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -5026,6 +5541,7 @@ class __$$CreateFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -5035,6 +5551,11 @@ class __$$CreateFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$CreateFlowCreatedProjectInGobabelServerImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -5105,6 +5626,7 @@ class __$$CreateFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
 class _$CreateFlowCreatedProjectInGobabelServerImpl
     extends CreateFlowCreatedProjectInGobabelServer {
   _$CreateFlowCreatedProjectInGobabelServerImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -5120,6 +5642,8 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     Map<String, dynamic> json,
   ) => _$$CreateFlowCreatedProjectInGobabelServerImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -5143,7 +5667,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
 
   @override
   String toString() {
-    return 'CreateFlowState.createdProjectInGobabelServer(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
+    return 'CreateFlowState.createdProjectInGobabelServer(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
   }
 
   @override
@@ -5151,6 +5675,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateFlowCreatedProjectInGobabelServerImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -5170,6 +5695,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -5193,21 +5719,28 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5215,6 +5748,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5223,6 +5757,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5232,6 +5767,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5242,6 +5778,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5250,6 +5787,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5259,6 +5797,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5269,6 +5808,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -5281,20 +5821,24 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5302,6 +5846,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5310,6 +5855,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5319,6 +5865,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5329,6 +5876,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5337,6 +5885,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5346,6 +5895,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5356,6 +5906,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -5368,20 +5919,24 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5389,6 +5944,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5397,6 +5953,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5406,6 +5963,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5416,6 +5974,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5424,6 +5983,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5433,6 +5993,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5445,6 +6006,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
   }) {
     if (createdProjectInGobabelServer != null) {
       return createdProjectInGobabelServer(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -5527,6 +6089,7 @@ class _$CreateFlowCreatedProjectInGobabelServerImpl
 
 abstract class CreateFlowCreatedProjectInGobabelServer extends CreateFlowState {
   factory CreateFlowCreatedProjectInGobabelServer({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -5540,6 +6103,8 @@ abstract class CreateFlowCreatedProjectInGobabelServer extends CreateFlowState {
     Map<String, dynamic> json,
   ) = _$CreateFlowCreatedProjectInGobabelServerImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override

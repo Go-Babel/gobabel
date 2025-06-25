@@ -65,6 +65,7 @@ create_getLastLocalCommitInCurrentBranch(CreateFlowGotGitUser payload) async {
 
   return lastCommitResult.flatMap((lastCommit) {
     return CreateFlowGotLastLocalCommit(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

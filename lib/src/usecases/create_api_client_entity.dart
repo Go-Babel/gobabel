@@ -33,6 +33,7 @@ AsyncResult<CreateFlowCreatedClient> create_createClientEntity(
 ) {
   return createClientEntity(payload.directory).flatMap((client) {
     return CreateFlowCreatedClient(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: client,
@@ -45,6 +46,7 @@ AsyncResult<SyncFlowCreatedClient> sync_createClientEntity(
 ) {
   return createClientEntity(payload.directory).flatMap((client) {
     return SyncFlowCreatedClient(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: client,

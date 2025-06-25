@@ -18,12 +18,14 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 1
   factory CreateFlowState.initial({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
   }) = CreateFlowInitial;
 
   /// Step 2
   factory CreateFlowState.createdClient({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -31,6 +33,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 3
   factory CreateFlowState.ensuredGit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -38,6 +41,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 4
   factory CreateFlowState.gotCodeBaseYaml({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -46,6 +50,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 5
   factory CreateFlowState.gotGitUser({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -55,6 +60,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 6
   factory CreateFlowState.gotLastLocalCommit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -65,6 +71,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 7
   factory CreateFlowState.gotProjectOriginUrl({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -76,6 +83,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 8
   factory CreateFlowState.gotGitVariables({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -85,6 +93,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 9
   factory CreateFlowState.extractedProjectCodebase({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -95,6 +104,7 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   /// Step 10
   factory CreateFlowState.createdProjectInGobabelServer({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -143,10 +153,12 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 }
 
 AsyncResult<CreateFlowInitial> create_initFlowState({
+  required bool willLog,
   required String accountApiKey,
   required String directoryPath,
 }) async {
   final createFlowInitial = CreateFlowInitial(
+    willLog: willLog,
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
   );

@@ -40,6 +40,7 @@ AsyncResult<CreateFlowGotGitUser> create_getGitUser(
 
   return gitUserResult.flatMap((gitUser) {
     return CreateFlowGotGitUser(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

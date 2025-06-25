@@ -41,10 +41,12 @@ class GobabelConductor {
   AsyncResult<void> create({
     required String accountApiKey,
     required String directoryPath,
+    bool willLog = false,
   }) async {
     return create_initFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
+          willLog: willLog,
         )
         .toNextStep(create_createClientEntity)
         .toNextStep(create_ensureGitDirectoryIsConfigured)
@@ -60,10 +62,12 @@ class GobabelConductor {
   AsyncResult<void> sync({
     required String accountApiKey,
     required String directoryPath,
+    bool willLog = false,
   }) async {
     return sync_initFlowState(
           accountApiKey: accountApiKey,
           directoryPath: directoryPath,
+          willLog: willLog,
         )
         .toNextStep(sync_createClientEntity)
         .toNextStep(sync_ensureGitDirectoryIsConfigured)
@@ -80,9 +84,10 @@ class GobabelConductor {
     required String projectApiToken,
     required String directoryPath,
     required BabelSupportedLocales inputedByUserLocale,
+    bool willLog = false,
   }) async {
     return generate_initFlowState(
-          willLog: true,
+          willLog: willLog,
           projectApiToken: projectApiToken,
           directoryPath: directoryPath,
           inputedByUserLocale: inputedByUserLocale,

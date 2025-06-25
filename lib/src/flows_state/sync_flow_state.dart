@@ -18,12 +18,14 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 1
   factory SyncFlowState.initial({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
   }) = SyncFlowInitial;
 
   /// Step 2
   factory SyncFlowState.createdClient({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -31,6 +33,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 3
   factory SyncFlowState.ensuredGit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -38,6 +41,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 4
   factory SyncFlowState.gotCodeBaseYaml({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -46,6 +50,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 5
   factory SyncFlowState.gotGitUser({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -55,6 +60,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 6
   factory SyncFlowState.gotLastLocalCommit({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -65,6 +71,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 7
   factory SyncFlowState.gotProjectOriginUrl({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -76,6 +83,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 8
   factory SyncFlowState.gotGitVariables({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -85,6 +93,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 9
   factory SyncFlowState.extractedProjectCodebase({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -95,6 +104,7 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   /// Step 10
   factory SyncFlowState.createdProjectInGobabelServer({
+    required bool willLog,
     required String accountApiKey,
     required String directoryPath,
     required ApiClientEntity client,
@@ -143,10 +153,12 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 }
 
 AsyncResult<SyncFlowInitial> sync_initFlowState({
+  required bool willLog,
   required String accountApiKey,
   required String directoryPath,
 }) async {
   final syncFlowInitial = SyncFlowInitial(
+    willLog: willLog,
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
   );

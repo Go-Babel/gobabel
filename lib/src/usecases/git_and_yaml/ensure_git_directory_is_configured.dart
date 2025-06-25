@@ -61,6 +61,7 @@ AsyncResult<CreateFlowEnsureGit> create_ensureGitDirectoryIsConfigured(
 
   return ensureGitResult.flatMap((_) {
     return CreateFlowEnsureGit(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

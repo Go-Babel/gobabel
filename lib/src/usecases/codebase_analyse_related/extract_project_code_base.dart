@@ -54,6 +54,7 @@ AsyncResult<CreateFlowExtractedProjectCodebase> create_extractProjectCodeBase(
 
   return codeBaseResult.flatMap((codeBase) {
     return CreateFlowExtractedProjectCodebase(
+      willLog: payload.willLog,
       yamlInfo: payload.yamlInfo,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

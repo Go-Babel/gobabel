@@ -9,6 +9,7 @@ part of 'sync_flow_state.dart';
 _$SyncFlowInitialImpl _$$SyncFlowInitialImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowInitialImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   $type: json['runtimeType'] as String?,
@@ -17,6 +18,7 @@ _$SyncFlowInitialImpl _$$SyncFlowInitialImplFromJson(
 Map<String, dynamic> _$$SyncFlowInitialImplToJson(
   _$SyncFlowInitialImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'runtimeType': instance.$type,
@@ -25,6 +27,7 @@ Map<String, dynamic> _$$SyncFlowInitialImplToJson(
 _$SyncFlowCreatedClientImpl _$$SyncFlowCreatedClientImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowCreatedClientImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -34,6 +37,7 @@ _$SyncFlowCreatedClientImpl _$$SyncFlowCreatedClientImplFromJson(
 Map<String, dynamic> _$$SyncFlowCreatedClientImplToJson(
   _$SyncFlowCreatedClientImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -43,6 +47,7 @@ Map<String, dynamic> _$$SyncFlowCreatedClientImplToJson(
 _$SyncFlowEnsureGitImpl _$$SyncFlowEnsureGitImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowEnsureGitImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -52,6 +57,7 @@ _$SyncFlowEnsureGitImpl _$$SyncFlowEnsureGitImplFromJson(
 Map<String, dynamic> _$$SyncFlowEnsureGitImplToJson(
   _$SyncFlowEnsureGitImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -61,6 +67,7 @@ Map<String, dynamic> _$$SyncFlowEnsureGitImplToJson(
 _$SyncFlowGotCodeBaseYamlImpl _$$SyncFlowGotCodeBaseYamlImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowGotCodeBaseYamlImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -71,6 +78,7 @@ _$SyncFlowGotCodeBaseYamlImpl _$$SyncFlowGotCodeBaseYamlImplFromJson(
 Map<String, dynamic> _$$SyncFlowGotCodeBaseYamlImplToJson(
   _$SyncFlowGotCodeBaseYamlImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -81,6 +89,7 @@ Map<String, dynamic> _$$SyncFlowGotCodeBaseYamlImplToJson(
 _$SyncFlowGotGitUserImpl _$$SyncFlowGotGitUserImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowGotGitUserImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -92,6 +101,7 @@ _$SyncFlowGotGitUserImpl _$$SyncFlowGotGitUserImplFromJson(
 Map<String, dynamic> _$$SyncFlowGotGitUserImplToJson(
   _$SyncFlowGotGitUserImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -103,6 +113,7 @@ Map<String, dynamic> _$$SyncFlowGotGitUserImplToJson(
 _$SyncFlowGotLastLocalCommitImpl _$$SyncFlowGotLastLocalCommitImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowGotLastLocalCommitImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -117,6 +128,7 @@ _$SyncFlowGotLastLocalCommitImpl _$$SyncFlowGotLastLocalCommitImplFromJson(
 Map<String, dynamic> _$$SyncFlowGotLastLocalCommitImplToJson(
   _$SyncFlowGotLastLocalCommitImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -129,6 +141,7 @@ Map<String, dynamic> _$$SyncFlowGotLastLocalCommitImplToJson(
 _$SyncFlowGotProjectOriginUrlImpl _$$SyncFlowGotProjectOriginUrlImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowGotProjectOriginUrlImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -144,6 +157,7 @@ _$SyncFlowGotProjectOriginUrlImpl _$$SyncFlowGotProjectOriginUrlImplFromJson(
 Map<String, dynamic> _$$SyncFlowGotProjectOriginUrlImplToJson(
   _$SyncFlowGotProjectOriginUrlImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -157,6 +171,7 @@ Map<String, dynamic> _$$SyncFlowGotProjectOriginUrlImplToJson(
 _$SyncFlowGotGitVariablesImpl _$$SyncFlowGotGitVariablesImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowGotGitVariablesImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -170,6 +185,7 @@ _$SyncFlowGotGitVariablesImpl _$$SyncFlowGotGitVariablesImplFromJson(
 Map<String, dynamic> _$$SyncFlowGotGitVariablesImplToJson(
   _$SyncFlowGotGitVariablesImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -182,6 +198,7 @@ _$SyncFlowExtractedProjectCodebaseImpl
 _$$SyncFlowExtractedProjectCodebaseImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowExtractedProjectCodebaseImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -197,6 +214,7 @@ _$$SyncFlowExtractedProjectCodebaseImplFromJson(
 Map<String, dynamic> _$$SyncFlowExtractedProjectCodebaseImplToJson(
   _$SyncFlowExtractedProjectCodebaseImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,
@@ -210,6 +228,7 @@ _$SyncFlowCreatedProjectInGobabelServerImpl
 _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(
   Map<String, dynamic> json,
 ) => _$SyncFlowCreatedProjectInGobabelServerImpl(
+  willLog: json['willLog'] as bool,
   accountApiKey: json['accountApiKey'] as String,
   directoryPath: json['directoryPath'] as String,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -225,6 +244,7 @@ _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(
 Map<String, dynamic> _$$SyncFlowCreatedProjectInGobabelServerImplToJson(
   _$SyncFlowCreatedProjectInGobabelServerImpl instance,
 ) => <String, dynamic>{
+  'willLog': instance.willLog,
   'accountApiKey': instance.accountApiKey,
   'directoryPath': instance.directoryPath,
   'client': instance.client,

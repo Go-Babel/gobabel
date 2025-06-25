@@ -54,6 +54,12 @@ Future<void> main(List<String> arguments) async {
         ..addOption('api-key', abbr: 'k', help: 'API key')
         ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
+          'will-log-user',
+          help: 'Enable detailed logging output',
+          defaultsTo: false,
+          negatable: true,
+        )
+        ..addFlag(
           'help',
           abbr: 'h',
           help: 'Show this help message',
@@ -132,6 +138,9 @@ Future<void> main(List<String> arguments) async {
   if (apiPath != null) {
     print('ℹ️  Running for dirrectory: $directory'.wheat);
   }
+  
+  // Get the will-log-user flag value
+  final willLog = argResults['will-log-user'] as bool;
 
   // Handle the sync command
   if (argResults['sync'] as bool) {
@@ -147,6 +156,7 @@ Future<void> main(List<String> arguments) async {
       operation: controller.sync(
         accountApiKey: apiKey,
         directoryPath: directory.path,
+        willLog: willLog,
       ),
     );
   }
@@ -234,6 +244,7 @@ Future<void> main(List<String> arguments) async {
         projectApiToken: apiKey,
         inputedByUserLocale: babelSupportedLocale,
         directoryPath: directory.path,
+        willLog: willLog,
       ),
     );
   } else if (argResults['create'] as bool) {
@@ -249,6 +260,7 @@ Future<void> main(List<String> arguments) async {
       operation: controller.create(
         directoryPath: directory.path,
         accountApiKey: accountApiKey,
+        willLog: willLog,
       ),
     );
   }

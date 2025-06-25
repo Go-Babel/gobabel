@@ -50,25 +50,33 @@ SyncFlowState _$SyncFlowStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SyncFlowState {
+  bool get willLog => throw _privateConstructorUsedError;
   String get accountApiKey => throw _privateConstructorUsedError;
   String get directoryPath => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -76,6 +84,7 @@ mixin _$SyncFlowState {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -84,6 +93,7 @@ mixin _$SyncFlowState {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -93,6 +103,7 @@ mixin _$SyncFlowState {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -103,6 +114,7 @@ mixin _$SyncFlowState {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -111,6 +123,7 @@ mixin _$SyncFlowState {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -120,6 +133,7 @@ mixin _$SyncFlowState {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -131,20 +145,24 @@ mixin _$SyncFlowState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -152,6 +170,7 @@ mixin _$SyncFlowState {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -160,6 +179,7 @@ mixin _$SyncFlowState {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -169,6 +189,7 @@ mixin _$SyncFlowState {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -179,6 +200,7 @@ mixin _$SyncFlowState {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -187,6 +209,7 @@ mixin _$SyncFlowState {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -196,6 +219,7 @@ mixin _$SyncFlowState {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -207,20 +231,24 @@ mixin _$SyncFlowState {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -228,6 +256,7 @@ mixin _$SyncFlowState {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -236,6 +265,7 @@ mixin _$SyncFlowState {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -245,6 +275,7 @@ mixin _$SyncFlowState {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -255,6 +286,7 @@ mixin _$SyncFlowState {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -263,6 +295,7 @@ mixin _$SyncFlowState {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -272,6 +305,7 @@ mixin _$SyncFlowState {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -348,7 +382,7 @@ abstract class $SyncFlowStateCopyWith<$Res> {
     $Res Function(SyncFlowState) then,
   ) = _$SyncFlowStateCopyWithImpl<$Res, SyncFlowState>;
   @useResult
-  $Res call({String accountApiKey, String directoryPath});
+  $Res call({bool willLog, String accountApiKey, String directoryPath});
 }
 
 /// @nodoc
@@ -365,9 +399,18 @@ class _$SyncFlowStateCopyWithImpl<$Res, $Val extends SyncFlowState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accountApiKey = null, Object? directoryPath = null}) {
+  $Res call({
+    Object? willLog = null,
+    Object? accountApiKey = null,
+    Object? directoryPath = null,
+  }) {
     return _then(
       _value.copyWith(
+            willLog:
+                null == willLog
+                    ? _value.willLog
+                    : willLog // ignore: cast_nullable_to_non_nullable
+                        as bool,
             accountApiKey:
                 null == accountApiKey
                     ? _value.accountApiKey
@@ -393,7 +436,7 @@ abstract class _$$SyncFlowInitialImplCopyWith<$Res>
   ) = __$$SyncFlowInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String accountApiKey, String directoryPath});
+  $Res call({bool willLog, String accountApiKey, String directoryPath});
 }
 
 /// @nodoc
@@ -409,9 +452,18 @@ class __$$SyncFlowInitialImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? accountApiKey = null, Object? directoryPath = null}) {
+  $Res call({
+    Object? willLog = null,
+    Object? accountApiKey = null,
+    Object? directoryPath = null,
+  }) {
     return _then(
       _$SyncFlowInitialImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -431,6 +483,7 @@ class __$$SyncFlowInitialImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowInitialImpl extends SyncFlowInitial {
   _$SyncFlowInitialImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     final String? $type,
@@ -441,6 +494,8 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
       _$$SyncFlowInitialImplFromJson(json);
 
   @override
+  final bool willLog;
+  @override
   final String accountApiKey;
   @override
   final String directoryPath;
@@ -450,7 +505,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
 
   @override
   String toString() {
-    return 'SyncFlowState.initial(accountApiKey: $accountApiKey, directoryPath: $directoryPath)';
+    return 'SyncFlowState.initial(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath)';
   }
 
   @override
@@ -458,6 +513,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowInitialImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -466,7 +522,8 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, accountApiKey, directoryPath);
+  int get hashCode =>
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -482,21 +539,28 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -504,6 +568,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -512,6 +577,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -521,6 +587,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -531,6 +598,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -539,6 +607,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -548,6 +617,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -557,26 +627,30 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )
     createdProjectInGobabelServer,
   }) {
-    return initial(accountApiKey, directoryPath);
+    return initial(willLog, accountApiKey, directoryPath);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -584,6 +658,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -592,6 +667,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -601,6 +677,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -611,6 +688,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -619,6 +697,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -628,6 +707,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -637,26 +717,30 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     createdProjectInGobabelServer,
   }) {
-    return initial?.call(accountApiKey, directoryPath);
+    return initial?.call(willLog, accountApiKey, directoryPath);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -664,6 +748,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -672,6 +757,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -681,6 +767,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -691,6 +778,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -699,6 +787,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -708,6 +797,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -719,7 +809,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(accountApiKey, directoryPath);
+      return initial(willLog, accountApiKey, directoryPath);
     }
     return orElse();
   }
@@ -795,6 +885,7 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
 
 abstract class SyncFlowInitial extends SyncFlowState {
   factory SyncFlowInitial({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
   }) = _$SyncFlowInitialImpl;
@@ -803,6 +894,8 @@ abstract class SyncFlowInitial extends SyncFlowState {
   factory SyncFlowInitial.fromJson(Map<String, dynamic> json) =
       _$SyncFlowInitialImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -826,6 +919,7 @@ abstract class _$$SyncFlowCreatedClientImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -848,12 +942,18 @@ class __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
   }) {
     return _then(
       _$SyncFlowCreatedClientImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -888,6 +988,7 @@ class __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   _$SyncFlowCreatedClientImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -898,6 +999,8 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   factory _$SyncFlowCreatedClientImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowCreatedClientImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -910,7 +1013,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
 
   @override
   String toString() {
-    return 'SyncFlowState.createdClient(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
+    return 'SyncFlowState.createdClient(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
   }
 
   @override
@@ -918,6 +1021,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowCreatedClientImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -928,7 +1032,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client);
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath, client);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -945,21 +1049,28 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -967,6 +1078,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -975,6 +1087,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -984,6 +1097,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -994,6 +1108,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1002,6 +1117,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1011,6 +1127,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1020,26 +1137,30 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )
     createdProjectInGobabelServer,
   }) {
-    return createdClient(accountApiKey, directoryPath, client);
+    return createdClient(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1047,6 +1168,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1055,6 +1177,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1064,6 +1187,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1074,6 +1198,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1082,6 +1207,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1091,6 +1217,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1100,26 +1227,30 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     createdProjectInGobabelServer,
   }) {
-    return createdClient?.call(accountApiKey, directoryPath, client);
+    return createdClient?.call(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1127,6 +1258,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1135,6 +1267,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1144,6 +1277,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1154,6 +1288,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1162,6 +1297,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1171,6 +1307,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1182,7 +1319,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     required TResult orElse(),
   }) {
     if (createdClient != null) {
-      return createdClient(accountApiKey, directoryPath, client);
+      return createdClient(willLog, accountApiKey, directoryPath, client);
     }
     return orElse();
   }
@@ -1258,6 +1395,7 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
 
 abstract class SyncFlowCreatedClient extends SyncFlowState {
   factory SyncFlowCreatedClient({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -1267,6 +1405,8 @@ abstract class SyncFlowCreatedClient extends SyncFlowState {
   factory SyncFlowCreatedClient.fromJson(Map<String, dynamic> json) =
       _$SyncFlowCreatedClientImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -1291,6 +1431,7 @@ abstract class _$$SyncFlowEnsureGitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -1313,12 +1454,18 @@ class __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
   }) {
     return _then(
       _$SyncFlowEnsureGitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -1353,6 +1500,7 @@ class __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   _$SyncFlowEnsureGitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -1363,6 +1511,8 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   factory _$SyncFlowEnsureGitImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowEnsureGitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -1375,7 +1525,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
 
   @override
   String toString() {
-    return 'SyncFlowState.ensuredGit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
+    return 'SyncFlowState.ensuredGit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client)';
   }
 
   @override
@@ -1383,6 +1533,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowEnsureGitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -1393,7 +1544,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client);
+      Object.hash(runtimeType, willLog, accountApiKey, directoryPath, client);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1409,21 +1560,28 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1431,6 +1589,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1439,6 +1598,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1448,6 +1608,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1458,6 +1619,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1466,6 +1628,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1475,6 +1638,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1484,26 +1648,30 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )
     createdProjectInGobabelServer,
   }) {
-    return ensuredGit(accountApiKey, directoryPath, client);
+    return ensuredGit(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1511,6 +1679,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1519,6 +1688,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1528,6 +1698,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1538,6 +1709,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1546,6 +1718,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1555,6 +1728,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1564,26 +1738,30 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     createdProjectInGobabelServer,
   }) {
-    return ensuredGit?.call(accountApiKey, directoryPath, client);
+    return ensuredGit?.call(willLog, accountApiKey, directoryPath, client);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1591,6 +1769,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1599,6 +1778,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1608,6 +1788,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1618,6 +1799,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1626,6 +1808,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1635,6 +1818,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1646,7 +1830,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
-      return ensuredGit(accountApiKey, directoryPath, client);
+      return ensuredGit(willLog, accountApiKey, directoryPath, client);
     }
     return orElse();
   }
@@ -1722,6 +1906,7 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
 
 abstract class SyncFlowEnsureGit extends SyncFlowState {
   factory SyncFlowEnsureGit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -1731,6 +1916,8 @@ abstract class SyncFlowEnsureGit extends SyncFlowState {
   factory SyncFlowEnsureGit.fromJson(Map<String, dynamic> json) =
       _$SyncFlowEnsureGitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -1755,6 +1942,7 @@ abstract class _$$SyncFlowGotCodeBaseYamlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -1779,6 +1967,7 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -1786,6 +1975,11 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowGotCodeBaseYamlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -1835,6 +2029,7 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   _$SyncFlowGotCodeBaseYamlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -1846,6 +2041,8 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   factory _$SyncFlowGotCodeBaseYamlImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotCodeBaseYamlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -1860,7 +2057,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
 
   @override
   String toString() {
-    return 'SyncFlowState.gotCodeBaseYaml(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo)';
+    return 'SyncFlowState.gotCodeBaseYaml(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo)';
   }
 
   @override
@@ -1868,6 +2065,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowGotCodeBaseYamlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -1879,8 +2077,14 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, accountApiKey, directoryPath, client, yamlInfo);
+  int get hashCode => Object.hash(
+    runtimeType,
+    willLog,
+    accountApiKey,
+    directoryPath,
+    client,
+    yamlInfo,
+  );
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1895,21 +2099,28 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1917,6 +2128,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1925,6 +2137,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1934,6 +2147,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1944,6 +2158,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1952,6 +2167,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1961,6 +2177,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1970,26 +2187,36 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )
     createdProjectInGobabelServer,
   }) {
-    return gotCodeBaseYaml(accountApiKey, directoryPath, client, yamlInfo);
+    return gotCodeBaseYaml(
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+    );
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -1997,6 +2224,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2005,6 +2233,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2014,6 +2243,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2024,6 +2254,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2032,6 +2263,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2041,6 +2273,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2051,6 +2284,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -2061,20 +2295,24 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2082,6 +2320,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2090,6 +2329,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2099,6 +2339,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2109,6 +2350,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2117,6 +2359,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2126,6 +2369,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2137,7 +2381,13 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
-      return gotCodeBaseYaml(accountApiKey, directoryPath, client, yamlInfo);
+      return gotCodeBaseYaml(
+        willLog,
+        accountApiKey,
+        directoryPath,
+        client,
+        yamlInfo,
+      );
     }
     return orElse();
   }
@@ -2213,6 +2463,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
 
 abstract class SyncFlowGotCodeBaseYaml extends SyncFlowState {
   factory SyncFlowGotCodeBaseYaml({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -2223,6 +2474,8 @@ abstract class SyncFlowGotCodeBaseYaml extends SyncFlowState {
   factory SyncFlowGotCodeBaseYaml.fromJson(Map<String, dynamic> json) =
       _$SyncFlowGotCodeBaseYamlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -2248,6 +2501,7 @@ abstract class _$$SyncFlowGotGitUserImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -2273,6 +2527,7 @@ class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -2281,6 +2536,11 @@ class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowGotGitUserImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -2335,6 +2595,7 @@ class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   _$SyncFlowGotGitUserImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -2347,6 +2608,8 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   factory _$SyncFlowGotGitUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotGitUserImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -2363,7 +2626,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
 
   @override
   String toString() {
-    return 'SyncFlowState.gotGitUser(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
+    return 'SyncFlowState.gotGitUser(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser)';
   }
 
   @override
@@ -2371,6 +2634,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowGotGitUserImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -2385,6 +2649,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -2406,21 +2671,28 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2428,6 +2700,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2436,6 +2709,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2445,6 +2719,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2455,6 +2730,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2463,6 +2739,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2472,6 +2749,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2481,26 +2759,37 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )
     createdProjectInGobabelServer,
   }) {
-    return gotGitUser(accountApiKey, directoryPath, client, yamlInfo, gitUser);
+    return gotGitUser(
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitUser,
+    );
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2508,6 +2797,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2516,6 +2806,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2525,6 +2816,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2535,6 +2827,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2543,6 +2836,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2552,6 +2846,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2562,6 +2857,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     createdProjectInGobabelServer,
   }) {
     return gotGitUser?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -2573,20 +2869,24 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2594,6 +2894,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2602,6 +2903,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2611,6 +2913,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2621,6 +2924,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2629,6 +2933,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2638,6 +2943,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2650,6 +2956,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   }) {
     if (gotGitUser != null) {
       return gotGitUser(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -2731,6 +3038,7 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
 
 abstract class SyncFlowGotGitUser extends SyncFlowState {
   factory SyncFlowGotGitUser({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -2742,6 +3050,8 @@ abstract class SyncFlowGotGitUser extends SyncFlowState {
   factory SyncFlowGotGitUser.fromJson(Map<String, dynamic> json) =
       _$SyncFlowGotGitUserImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -2768,6 +3078,7 @@ abstract class _$$SyncFlowGotLastLocalCommitImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -2794,6 +3105,7 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -2803,6 +3115,11 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowGotLastLocalCommitImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -2862,6 +3179,7 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   _$SyncFlowGotLastLocalCommitImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -2876,6 +3194,8 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     Map<String, dynamic> json,
   ) => _$$SyncFlowGotLastLocalCommitImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -2894,7 +3214,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
 
   @override
   String toString() {
-    return 'SyncFlowState.gotLastLocalCommit(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
+    return 'SyncFlowState.gotLastLocalCommit(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit)';
   }
 
   @override
@@ -2902,6 +3222,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowGotLastLocalCommitImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -2918,6 +3239,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -2939,21 +3261,28 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2961,6 +3290,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2969,6 +3299,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2978,6 +3309,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2988,6 +3320,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -2996,6 +3329,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3005,6 +3339,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3015,6 +3350,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3027,20 +3363,24 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3048,6 +3388,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3056,6 +3397,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3065,6 +3407,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3075,6 +3418,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3083,6 +3427,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3092,6 +3437,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3102,6 +3448,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3114,20 +3461,24 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3135,6 +3486,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3143,6 +3495,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3152,6 +3505,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3162,6 +3516,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3170,6 +3525,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3179,6 +3535,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3191,6 +3548,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   }) {
     if (gotLastLocalCommit != null) {
       return gotLastLocalCommit(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -3273,6 +3631,7 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
 
 abstract class SyncFlowGotLastLocalCommit extends SyncFlowState {
   factory SyncFlowGotLastLocalCommit({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -3285,6 +3644,8 @@ abstract class SyncFlowGotLastLocalCommit extends SyncFlowState {
   factory SyncFlowGotLastLocalCommit.fromJson(Map<String, dynamic> json) =
       _$SyncFlowGotLastLocalCommitImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -3312,6 +3673,7 @@ abstract class _$$SyncFlowGotProjectOriginUrlImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -3339,6 +3701,7 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -3349,6 +3712,11 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowGotProjectOriginUrlImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -3413,6 +3781,7 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   _$SyncFlowGotProjectOriginUrlImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -3428,6 +3797,8 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     Map<String, dynamic> json,
   ) => _$$SyncFlowGotProjectOriginUrlImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -3448,7 +3819,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
 
   @override
   String toString() {
-    return 'SyncFlowState.gotProjectOriginUrl(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
+    return 'SyncFlowState.gotProjectOriginUrl(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitUser: $gitUser, previousCommit: $previousCommit, projectOriginUrl: $projectOriginUrl)';
   }
 
   @override
@@ -3456,6 +3827,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowGotProjectOriginUrlImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -3474,6 +3846,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -3496,21 +3869,28 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3518,6 +3898,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3526,6 +3907,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3535,6 +3917,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3545,6 +3928,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3553,6 +3937,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3562,6 +3947,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3572,6 +3958,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3585,20 +3972,24 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3606,6 +3997,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3614,6 +4006,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3623,6 +4016,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3633,6 +4027,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3641,6 +4036,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3650,6 +4046,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3660,6 +4057,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -3673,20 +4071,24 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3694,6 +4096,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3702,6 +4105,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3711,6 +4115,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3721,6 +4126,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3729,6 +4135,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3738,6 +4145,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -3750,6 +4158,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   }) {
     if (gotProjectOriginUrl != null) {
       return gotProjectOriginUrl(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -3833,6 +4242,7 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
 
 abstract class SyncFlowGotProjectOriginUrl extends SyncFlowState {
   factory SyncFlowGotProjectOriginUrl({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -3846,6 +4256,8 @@ abstract class SyncFlowGotProjectOriginUrl extends SyncFlowState {
   factory SyncFlowGotProjectOriginUrl.fromJson(Map<String, dynamic> json) =
       _$SyncFlowGotProjectOriginUrlImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -3874,6 +4286,7 @@ abstract class _$$SyncFlowGotGitVariablesImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -3900,6 +4313,7 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -3908,6 +4322,11 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowGotGitVariablesImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -3972,6 +4391,7 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   _$SyncFlowGotGitVariablesImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -3984,6 +4404,8 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   factory _$SyncFlowGotGitVariablesImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotGitVariablesImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -4000,7 +4422,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
 
   @override
   String toString() {
-    return 'SyncFlowState.gotGitVariables(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
+    return 'SyncFlowState.gotGitVariables(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables)';
   }
 
   @override
@@ -4008,6 +4430,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowGotGitVariablesImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -4023,6 +4446,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -4043,21 +4467,28 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4065,6 +4496,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4073,6 +4505,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4082,6 +4515,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4092,6 +4526,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4100,6 +4535,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4109,6 +4545,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4119,6 +4556,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     createdProjectInGobabelServer,
   }) {
     return gotGitVariables(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4130,20 +4568,24 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4151,6 +4593,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4159,6 +4602,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4168,6 +4612,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4178,6 +4623,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4186,6 +4632,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4195,6 +4642,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4205,6 +4653,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     createdProjectInGobabelServer,
   }) {
     return gotGitVariables?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4216,20 +4665,24 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4237,6 +4690,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4245,6 +4699,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4254,6 +4709,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4264,6 +4720,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4272,6 +4729,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4281,6 +4739,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4293,6 +4752,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   }) {
     if (gotGitVariables != null) {
       return gotGitVariables(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -4374,6 +4834,7 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
 
 abstract class SyncFlowGotGitVariables extends SyncFlowState {
   factory SyncFlowGotGitVariables({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -4385,6 +4846,8 @@ abstract class SyncFlowGotGitVariables extends SyncFlowState {
   factory SyncFlowGotGitVariables.fromJson(Map<String, dynamic> json) =
       _$SyncFlowGotGitVariablesImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -4411,6 +4874,7 @@ abstract class _$$SyncFlowExtractedProjectCodebaseImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -4442,6 +4906,7 @@ class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -4451,6 +4916,11 @@ class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowExtractedProjectCodebaseImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -4521,6 +4991,7 @@ class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
 class _$SyncFlowExtractedProjectCodebaseImpl
     extends SyncFlowExtractedProjectCodebase {
   _$SyncFlowExtractedProjectCodebaseImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -4536,6 +5007,8 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     Map<String, dynamic> json,
   ) => _$$SyncFlowExtractedProjectCodebaseImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -4559,7 +5032,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
 
   @override
   String toString() {
-    return 'SyncFlowState.extractedProjectCodebase(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
+    return 'SyncFlowState.extractedProjectCodebase(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
   }
 
   @override
@@ -4567,6 +5040,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowExtractedProjectCodebaseImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -4586,6 +5060,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -4609,21 +5084,28 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4631,6 +5113,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4639,6 +5122,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4648,6 +5132,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4658,6 +5143,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4666,6 +5152,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4675,6 +5162,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4685,6 +5173,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4697,20 +5186,24 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4718,6 +5211,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4726,6 +5220,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4735,6 +5230,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4745,6 +5241,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4753,6 +5250,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4762,6 +5260,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4772,6 +5271,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -4784,20 +5284,24 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4805,6 +5309,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4813,6 +5318,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4822,6 +5328,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4832,6 +5339,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4840,6 +5348,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4849,6 +5358,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -4861,6 +5371,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   }) {
     if (extractedProjectCodebase != null) {
       return extractedProjectCodebase(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -4943,6 +5454,7 @@ class _$SyncFlowExtractedProjectCodebaseImpl
 
 abstract class SyncFlowExtractedProjectCodebase extends SyncFlowState {
   factory SyncFlowExtractedProjectCodebase({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -4955,6 +5467,8 @@ abstract class SyncFlowExtractedProjectCodebase extends SyncFlowState {
   factory SyncFlowExtractedProjectCodebase.fromJson(Map<String, dynamic> json) =
       _$SyncFlowExtractedProjectCodebaseImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override
@@ -4984,6 +5498,7 @@ abstract class _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
+    bool willLog,
     String accountApiKey,
     String directoryPath,
     ApiClientEntity client,
@@ -5015,6 +5530,7 @@ class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? willLog = null,
     Object? accountApiKey = null,
     Object? directoryPath = null,
     Object? client = null,
@@ -5024,6 +5540,11 @@ class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$SyncFlowCreatedProjectInGobabelServerImpl(
+        willLog:
+            null == willLog
+                ? _value.willLog
+                : willLog // ignore: cast_nullable_to_non_nullable
+                    as bool,
         accountApiKey:
             null == accountApiKey
                 ? _value.accountApiKey
@@ -5094,6 +5615,7 @@ class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
 class _$SyncFlowCreatedProjectInGobabelServerImpl
     extends SyncFlowCreatedProjectInGobabelServer {
   _$SyncFlowCreatedProjectInGobabelServerImpl({
+    required this.willLog,
     required this.accountApiKey,
     required this.directoryPath,
     required this.client,
@@ -5109,6 +5631,8 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     Map<String, dynamic> json,
   ) => _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(json);
 
+  @override
+  final bool willLog;
   @override
   final String accountApiKey;
   @override
@@ -5132,7 +5656,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
 
   @override
   String toString() {
-    return 'SyncFlowState.createdProjectInGobabelServer(accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
+    return 'SyncFlowState.createdProjectInGobabelServer(willLog: $willLog, accountApiKey: $accountApiKey, directoryPath: $directoryPath, client: $client, yamlInfo: $yamlInfo, gitVariables: $gitVariables, contextPaths: $contextPaths)';
   }
 
   @override
@@ -5140,6 +5664,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SyncFlowCreatedProjectInGobabelServerImpl &&
+            (identical(other.willLog, willLog) || other.willLog == willLog) &&
             (identical(other.accountApiKey, accountApiKey) ||
                 other.accountApiKey == accountApiKey) &&
             (identical(other.directoryPath, directoryPath) ||
@@ -5159,6 +5684,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   @override
   int get hashCode => Object.hash(
     runtimeType,
+    willLog,
     accountApiKey,
     directoryPath,
     client,
@@ -5182,21 +5708,28 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String accountApiKey, String directoryPath)
+    required TResult Function(
+      bool willLog,
+      String accountApiKey,
+      String directoryPath,
+    )
     initial,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     createdClient,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )
     ensuredGit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5204,6 +5737,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     gotCodeBaseYaml,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5212,6 +5746,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     gotGitUser,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5221,6 +5756,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     gotLastLocalCommit,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5231,6 +5767,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     gotProjectOriginUrl,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5239,6 +5776,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     gotGitVariables,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5248,6 +5786,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )
     extractedProjectCodebase,
     required TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5258,6 +5797,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -5270,20 +5810,24 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String accountApiKey, String directoryPath)? initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5291,6 +5835,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotCodeBaseYaml,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5299,6 +5844,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitUser,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5308,6 +5854,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotLastLocalCommit,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5318,6 +5865,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotProjectOriginUrl,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5326,6 +5874,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitVariables,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5335,6 +5884,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     extractedProjectCodebase,
     TResult? Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5345,6 +5895,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer?.call(
+      willLog,
       accountApiKey,
       directoryPath,
       client,
@@ -5357,20 +5908,24 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String accountApiKey, String directoryPath)? initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+    initial,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     createdClient,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
     )?
     ensuredGit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5378,6 +5933,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotCodeBaseYaml,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5386,6 +5942,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitUser,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5395,6 +5952,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotLastLocalCommit,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5405,6 +5963,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotProjectOriginUrl,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5413,6 +5972,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     gotGitVariables,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5422,6 +5982,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     )?
     extractedProjectCodebase,
     TResult Function(
+      bool willLog,
       String accountApiKey,
       String directoryPath,
       ApiClientEntity client,
@@ -5434,6 +5995,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   }) {
     if (createdProjectInGobabelServer != null) {
       return createdProjectInGobabelServer(
+        willLog,
         accountApiKey,
         directoryPath,
         client,
@@ -5516,6 +6078,7 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
 
 abstract class SyncFlowCreatedProjectInGobabelServer extends SyncFlowState {
   factory SyncFlowCreatedProjectInGobabelServer({
+    required final bool willLog,
     required final String accountApiKey,
     required final String directoryPath,
     required final ApiClientEntity client,
@@ -5529,6 +6092,8 @@ abstract class SyncFlowCreatedProjectInGobabelServer extends SyncFlowState {
     Map<String, dynamic> json,
   ) = _$SyncFlowCreatedProjectInGobabelServerImpl.fromJson;
 
+  @override
+  bool get willLog;
   @override
   String get accountApiKey;
   @override

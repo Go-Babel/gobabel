@@ -71,6 +71,7 @@ AsyncResult<CreateFlowGotGitVariables> create_getProjectGitDependencies(
 
   return gitVariablesResult.flatMap((gitVariables) {
     return CreateFlowGotGitVariables(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,
