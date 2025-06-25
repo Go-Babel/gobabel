@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:gobabel/src/core/utils/git_process_runner.dart';
+import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';

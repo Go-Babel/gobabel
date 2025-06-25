@@ -1,4 +1,4 @@
-import 'package:gobabel/src/core/utils/git_process_runner.dart';
+import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
