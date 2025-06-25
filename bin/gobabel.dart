@@ -137,65 +137,71 @@ Future<void> main(List<String> arguments) async {
     final apiKey = argResults['api-key'] as String;
     String? language = argResults['language'] as String?;
 
-    // If language is not provided, prompt the user
+    // Handle language selection
+    BabelSupportedLocales? babelSupportedLocale;
+
     if (language == null) {
+      // Interactive mode - prompt user
       print('ℹ️  Language is required for generate operation.'.wheat);
       print('Enter language in format language_country (e.g., en_US)'.wheat);
-      print('Type "list-all" to see all supported languages'.wheat);
-      
-      language = await getTextFieldInput(
-        prompt: 'Please type in the language code',
+      print('Use arrow keys to navigate options or type to filter'.wheat);
+
+      babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
+        prompt: 'Please select or type a language code (ex: en_US)',
+        errorMessage:
+            'Invalid language code. Please enter a valid format (e.g., en_US)',
+        userInputToOptionMapper: (input) {
+          // First try to normalize the input
+          final normalized = normalizeLanguageFormat(input);
+          if (normalized == null) return null;
+
+          // Split and try to get the locale
+          final parts = normalized.split('_');
+          if (parts.length == 2) {
+            return BabelSupportedLocales.fromLocale(parts[0], parts[1]);
+          }
+          return null;
+        },
+        inputOptions: InputFormOptions<BabelSupportedLocales>(
+          options: BabelSupportedLocales.values.toSet(),
+          optionToString:
+              (locale) =>
+                  '${locale.flagEmoji} ${locale.languageCode}_${locale.countryCode} - ${locale.displayName}',
+        ),
       );
 
-      // If user wants to see all languages
-      if (language == 'list-all') {
-        printSupportedLanguages();
-        language = await getTextFieldInput(
-          prompt: '\nNow enter a language code',
-        );
-      }
-
-      if (language.isEmpty) {
-        print('❌ Error: Language is required.'.red);
+      if (babelSupportedLocale == null) {
+        print('❌ Error: Language selection cancelled or invalid.'.red);
         exit(1);
       }
-    }
+    } else {
+      // Language provided via command line
+      // Normalize the language format
+      final normalizedLanguage = normalizeLanguageFormat(language);
+      if (normalizedLanguage == null) {
+        print(
+          '❌ Error: Invalid language format.\n'
+                  'Expected formats: en_US, enus, enUS, or ENUS.'
+              .red,
+        );
+        printSupportedLanguages();
+        exit(1);
+      }
 
-    // Split the language into languageCode and countryCode
-    final parts = language.split('_');
-    if (parts.length != 2) {
-      print(
-        '❌ Error: Invalid language format.\n'
-                'Expected language_country, in this exact format, e.g., en_US.'
-            .red,
+      // Split the normalized language into languageCode and countryCode
+      final normalizedParts = normalizedLanguage.split('_');
+      final languageCode = normalizedParts[0];
+      final countryCode = normalizedParts[1];
+
+      babelSupportedLocale = BabelSupportedLocales.fromLocale(
+        languageCode,
+        countryCode,
       );
-      printSupportedLanguages();
-      exit(1);
-    }
-
-    // Normalize the language format
-    final normalizedLanguage = normalizeLanguageFormat(language);
-    if (normalizedLanguage == null) {
-      print(
-        '❌ Error: Invalid language format.\n'
-                'Expected formats: en_US, enus, enUS, or ENUS.'
-            .red,
-      );
-      printSupportedLanguages();
-      exit(1);
-    }
-
-    // Split the normalized language into languageCode and countryCode
-    final normalizedParts = normalizedLanguage.split('_');
-    final languageCode = normalizedParts[0];
-    final countryCode = normalizedParts[1];
-
-    final BabelSupportedLocales? babelSupportedLocale =
-        BabelSupportedLocales.fromLocale(languageCode, countryCode);
-    if (babelSupportedLocale == null) {
-      print('❌ Error: Invalid language/country code for $language'.red);
-      printSupportedLanguages();
-      exit(1);
+      if (babelSupportedLocale == null) {
+        print('❌ Error: Invalid language/country code for $language'.red);
+        printSupportedLanguages();
+        exit(1);
+      }
     }
 
     await runInTryCatch(
@@ -203,7 +209,7 @@ Future<void> main(List<String> arguments) async {
       operation: () async {
         await controller.generate(
           projectApiToken: apiKey,
-          inputedByUserLocale: babelSupportedLocale,
+          inputedByUserLocale: babelSupportedLocale!,
           directoryPath: directory.path,
         );
       },

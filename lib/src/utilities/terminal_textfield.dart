@@ -1,35 +1,137 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-Future<String> getTextFieldInput({
+import 'package:chalkdart/chalkstrings.dart';
+
+enum _FocusMode { textfield, options }
+
+/// [prompt] will aprear in the start of the input form
+/// [userInputToOptionMapper] will map the user input to a desired map. If the input is not "castable", return null to indicate that the cast can't be done so the user can write other input
+/// [errorMessage] will be displayed in red text when the [userInputToOptionMapper] returns null. The user will then keep to continue typing
+/// [inputOptions] can be pass to display options choices to the user
+/// If the user press esc while focused in the textfield, should return null.
+Future<T?> getDataFromInput<T>({
   required String prompt,
+  String errorMessage = 'Invalid input, please try again.',
+  required T? Function(String item) userInputToOptionMapper,
+  InputFormOptions<T>? inputOptions,
   int minWidth = 20,
 }) async {
-  final completer = Completer<String>();
+  final completer = Completer<T?>();
   final buffer = StringBuffer();
-  
+  var focusMode = _FocusMode.textfield;
+  var selectedOptionIndex = 0;
+  String? lastError;
+
+  // Convert options to list for indexing
+  final optionsList = inputOptions?.options.toList() ?? [];
+  var filteredOptions = optionsList;
+
   // Save terminal settings
   final hasEchoMode = stdin.hasTerminal && stdin.echoMode;
   final hasLineMode = stdin.hasTerminal && stdin.lineMode;
-  
+
+  void updateFilteredOptions() {
+    final searchText = buffer.toString().toLowerCase();
+    if (searchText.isEmpty) {
+      filteredOptions = optionsList;
+    } else {
+      filteredOptions =
+          optionsList.where((option) {
+            final optionString = inputOptions!.optionToString(option);
+            return optionString.toLowerCase().contains(searchText);
+          }).toList();
+    }
+    // Reset selected index if it's out of bounds
+    if (selectedOptionIndex >= filteredOptions.length) {
+      selectedOptionIndex = 0;
+    }
+  }
+
+  void redrawUI() {
+    // Calculate how many lines to clear based on what's displayed
+    final hasOptions = optionsList.isNotEmpty;
+    final hasError = lastError != null;
+    final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
+    final totalLines =
+        3 + // textfield
+        (hasError ? 1 : 0) + // error message
+        (hasOptions ? optionsToShow + 1 : 0); // options
+
+    // Clear all lines
+    for (int i = 0; i < totalLines; i++) {
+      stdout.write('\x1B[2K'); // Clear entire line
+      if (i < totalLines - 1) {
+        stdout.write('\x1B[1B'); // Move down
+      }
+    }
+
+    // Move back to start
+    stdout.write('\x1B[${totalLines - 1}A\r');
+
+    // Draw text field
+    _drawTextField(buffer.toString(), focusMode == _FocusMode.textfield);
+
+    // Draw error message if any
+    if (hasError) {
+      stdout.write('\n');
+      stdout.write(' ❌ $lastError'.red);
+    }
+
+    // Draw options if available
+    if (hasOptions) {
+      stdout.write('\n');
+      _drawGenericOptions(
+        filteredOptions,
+        inputOptions!.optionToString,
+        selectedOptionIndex,
+        focusMode == _FocusMode.options,
+      );
+    }
+
+    // Position cursor
+    if (focusMode == _FocusMode.textfield) {
+      // Move cursor back to input position in textfield
+      final linesToMoveUp =
+          (hasError ? 1 : 0) + (hasOptions ? optionsToShow + 1 : 0);
+      if (linesToMoveUp > 0) {
+        stdout.write('\x1B[${linesToMoveUp}A'); // Move up
+      }
+      stdout.write('\x1B[1A'); // Move up to middle line of textfield
+
+      // Calculate display content length for cursor position
+      final width = _getTerminalWidth();
+      final boxWidth = max(width - 4, 20);
+      final availableWidth = boxWidth - 4;
+      final contentLength =
+          buffer.length > availableWidth
+              ? availableWidth -
+                  3 // If truncated with "..."
+              : buffer.length;
+
+      stdout.write('\x1B[${3 + contentLength}C'); // Move to cursor position
+    }
+  }
+
   try {
     if (stdin.hasTerminal) {
       // Disable echo and line mode for real-time input
       stdin.echoMode = false;
       stdin.lineMode = false;
     }
-    
+
     // Print initial prompt
     print(prompt);
-    
-    // Draw initial text field
-    _drawTextField(buffer.toString());
-    
+
+    // Draw initial UI
+    redrawUI();
+
     // Set up terminal resize handler
     ProcessSignal? resizeSignal;
     StreamSubscription<ProcessSignal>? resizeSubscription;
-    
+
     if (Platform.isWindows) {
       // Windows doesn't have SIGWINCH, we'll just redraw on each input
     } else {
@@ -37,33 +139,88 @@ Future<String> getTextFieldInput({
       try {
         resizeSignal = ProcessSignal.sigwinch;
         resizeSubscription = resizeSignal.watch().listen((_) {
-          // Clear current line and redraw
-          stdout.write('\r${' ' * _getTerminalWidth()}\r');
-          _drawTextField(buffer.toString());
+          redrawUI();
         });
       } catch (_) {
         // SIGWINCH not available on this platform
       }
     }
-    
+
     // Read input character by character
     await for (final key in stdin) {
-      final char = String.fromCharCodes(key);
-      
-      // Handle special keys
+      // Handle escape sequences (arrow keys, etc.)
+      if (key.length >= 3 && key[0] == 27 && key[1] == 91) {
+        // ESC [ sequence
+        final code = key[2];
+
+        if (code == 65) {
+          // Up arrow
+          if (focusMode == _FocusMode.options && selectedOptionIndex > 0) {
+            selectedOptionIndex--;
+            redrawUI();
+          }
+        } else if (code == 66) {
+          // Down arrow
+          if (focusMode == _FocusMode.textfield && optionsList.isNotEmpty) {
+            focusMode = _FocusMode.options;
+            selectedOptionIndex = 0;
+            redrawUI();
+          } else if (focusMode == _FocusMode.options &&
+              selectedOptionIndex < filteredOptions.length - 1) {
+            selectedOptionIndex++;
+            redrawUI();
+          }
+        }
+        continue;
+      }
+
+      // Handle single key presses
       if (key.length == 1) {
         final code = key[0];
-        
-        if (code == 13 || code == 10) {
-          // Enter key - finish input
-          break;
+
+        if (code == 27) {
+          // ESC key
+          if (focusMode == _FocusMode.options) {
+            // Go back to textfield
+            focusMode = _FocusMode.textfield;
+            redrawUI();
+          } else {
+            // Return null when ESC pressed in textfield
+            completer.complete(null);
+            break;
+          }
+        } else if (code == 13 || code == 10) {
+          // Enter key
+          if (focusMode == _FocusMode.options && filteredOptions.isNotEmpty) {
+            // Select the current option
+            completer.complete(filteredOptions[selectedOptionIndex]);
+            break;
+          } else {
+            // Try to map the input
+            final inputText = buffer.toString();
+            final mapped = userInputToOptionMapper(inputText);
+            if (mapped != null) {
+              completer.complete(mapped);
+              break;
+            } else {
+              // Show error
+              lastError = errorMessage;
+              redrawUI();
+            }
+          }
         } else if (code == 127 || code == 8) {
           // Backspace
-          if (buffer.isNotEmpty) {
+          if (focusMode == _FocusMode.textfield && buffer.isNotEmpty) {
             final currentText = buffer.toString();
             buffer.clear();
             buffer.write(currentText.substring(0, currentText.length - 1));
-            _drawTextField(buffer.toString());
+            lastError = null; // Clear error on input change
+            updateFilteredOptions();
+            redrawUI();
+          } else if (focusMode == _FocusMode.options) {
+            // Go back to textfield on backspace in options mode
+            focusMode = _FocusMode.textfield;
+            redrawUI();
           }
         } else if (code == 3) {
           // Ctrl+C
@@ -72,19 +229,34 @@ Future<String> getTextFieldInput({
           exit(0);
         } else if (code >= 32 && code <= 126) {
           // Printable character
-          buffer.write(char);
-          _drawTextField(buffer.toString());
+          if (focusMode == _FocusMode.options) {
+            // Switch back to textfield when typing
+            focusMode = _FocusMode.textfield;
+          }
+          buffer.write(String.fromCharCodes(key));
+          lastError = null; // Clear error on input change
+          updateFilteredOptions();
+          redrawUI();
         }
       }
     }
-    
+
     // Clean up
     await resizeSubscription?.cancel();
-    
-    // Move to next line after input
-    stdout.writeln();
-    
-    completer.complete(buffer.toString());
+
+    // Clear the UI and move to next line
+    final hasOptions = optionsList.isNotEmpty;
+    final hasError = lastError != null;
+    final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
+    final totalLines =
+        3 + (hasError ? 1 : 0) + (hasOptions ? optionsToShow + 1 : 0);
+
+    // Clear all lines
+    stdout.write('\r\x1B[2K'); // Clear current line
+    for (int i = 1; i < totalLines; i++) {
+      stdout.write('\x1B[1B\x1B[2K'); // Move down and clear
+    }
+    stdout.write('\n');
   } finally {
     // Restore terminal settings
     if (stdin.hasTerminal) {
@@ -92,47 +264,116 @@ Future<String> getTextFieldInput({
       stdin.lineMode = hasLineMode;
     }
   }
-  
+
   return completer.future;
 }
 
-void _drawTextField(String content) {
+class InputFormOptions<T> {
+  final Set<T> options;
+  final String Function(T item) optionToString;
+  const InputFormOptions({required this.options, required this.optionToString});
+}
+
+Future<String> getTextFieldInput({
+  required String prompt,
+  Set<String>? options,
+  int minWidth = 20,
+}) async {
+  // Use getDataFromInput with String as the generic type
+  final result = await getDataFromInput<String>(
+    prompt: prompt,
+    userInputToOptionMapper: (input) => input, // Direct string mapping
+    inputOptions:
+        options != null
+            ? InputFormOptions<String>(
+              options: options,
+              optionToString: (s) => s, // String to string is identity
+            )
+            : null,
+    minWidth: minWidth,
+  );
+
+  // Handle null result (ESC pressed) by returning empty string
+  return result ?? '';
+}
+
+void _drawTextField(String content, bool hasFocus) {
   final width = _getTerminalWidth();
   final boxWidth = max(width - 4, 20); // Leave some margin, minimum 20 chars
-  
-  // Clear current line
-  stdout.write('\r${' ' * width}\r');
-  
+
   // Calculate content display
   final availableWidth = boxWidth - 4; // Account for "> " prefix and borders
   String displayContent = content;
-  
+
   // Truncate with ellipsis if too long
   if (content.length > availableWidth) {
-    displayContent = '...${content.substring(content.length - availableWidth + 3)}';
+    displayContent =
+        '...${content.substring(content.length - availableWidth + 3)}';
   }
-  
-  // Create the text field box
-  final topBorder = '╭${'─' * (boxWidth - 2)}╮';
-  final bottomBorder = '╰${'─' * (boxWidth - 2)}╯';
-  
+
+  // Create the text field box with focus indication
+  final borderColor = hasFocus ? (String s) => s.cyan : (String s) => s.gray;
+  final topBorder = borderColor('╭${'─' * (boxWidth - 2)}╮');
+  final bottomBorder = borderColor('╰${'─' * (boxWidth - 2)}╯');
+
   // Create content line with padding
   final contentWithPrompt = '> $displayContent';
   final padding = boxWidth - 2 - contentWithPrompt.length;
-  final contentLine = '│$contentWithPrompt${' ' * padding}│';
-  
+  final contentLine =
+      borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
+
   // Draw the text field
   stdout.write('$topBorder\n$contentLine\n$bottomBorder');
-  
-  // Move cursor back to input position
-  stdout.write('\x1B[2A'); // Move up 2 lines
-  stdout.write('\x1B[${3 + displayContent.length}C'); // Move to cursor position
+}
+
+void _drawGenericOptions<T>(
+  List<T> options,
+  String Function(T) optionToString,
+  int selectedIndex,
+  bool hasFocus,
+) {
+  if (options.isEmpty) return;
+
+  final width = _getTerminalWidth();
+  final boxWidth = max(width - 4, 20);
+
+  // Show max 5 options
+  final maxVisible = 5;
+  final visibleOptions = options.take(maxVisible).toList();
+
+  for (int i = 0; i < visibleOptions.length; i++) {
+    final option = visibleOptions[i];
+    final optionString = optionToString(option);
+    final isSelected = i == selectedIndex && hasFocus;
+
+    // Truncate option if too long
+    final maxOptionLength =
+        boxWidth - 6; // Account for " > " prefix and spacing
+    String displayOption = optionString;
+    if (optionString.length > maxOptionLength) {
+      displayOption = '${optionString.substring(0, maxOptionLength - 3)}...';
+    }
+
+    // Format the option line
+    String line;
+    if (isSelected) {
+      line = ' ${'>'.cyan} ${displayOption.cyan}';
+    } else {
+      line = '   $displayOption';
+    }
+
+    stdout.writeln(line);
+  }
+
+  if (options.length > maxVisible) {
+    stdout.write('   ... and ${options.length - maxVisible} more'.gray);
+  }
 }
 
 int _getTerminalWidth() {
   // Default width
   int width = 80;
-  
+
   if (Platform.isWindows) {
     // Windows terminal width detection
     try {
@@ -168,6 +409,6 @@ int _getTerminalWidth() {
       }
     }
   }
-  
+
   return width;
 }

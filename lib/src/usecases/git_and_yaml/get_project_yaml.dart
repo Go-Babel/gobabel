@@ -31,14 +31,12 @@ AsyncResult<String> getProjectYaml({
       return content.toSuccess();
     } catch (e, stackTrace) {
       return Exception(
-        '❌ Failed to read pubspec.yaml file: $e\nStackTrace: $stackTrace'
-            .red,
+        '❌ Failed to read pubspec.yaml file: $e\nStackTrace: $stackTrace'.red,
       ).toFailure();
     }
   } catch (e, stackTrace) {
     return Exception(
-      '❌ Failed to list directory contents: $e\nStackTrace: $stackTrace'
-          .red,
+      '❌ Failed to list directory contents: $e\nStackTrace: $stackTrace'.red,
     ).toFailure();
   }
 }

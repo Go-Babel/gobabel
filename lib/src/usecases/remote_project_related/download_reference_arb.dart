@@ -16,7 +16,8 @@ AsyncResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
     if (response.data is Map<String, dynamic>) {
       try {
         final Map<L10nKey, L10nValue> arbMap =
-            ((response.data as Map)['record'] as Map).cast<L10nKey, L10nValue>();
+            ((response.data as Map)['record'] as Map)
+                .cast<L10nKey, L10nValue>();
 
         return arbMap.toSuccess();
       } catch (e, stackTrace) {
@@ -30,9 +31,10 @@ AsyncResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
       ).toFailure();
     }
   } on DioException catch (e, stackTrace) {
-    final errorMessage = e.response?.statusCode != null
-        ? 'HTTP ${e.response!.statusCode}: ${e.response!.statusMessage ?? e.message}'
-        : e.message ?? 'Network error';
+    final errorMessage =
+        e.response?.statusCode != null
+            ? 'HTTP ${e.response!.statusCode}: ${e.response!.statusMessage ?? e.message}'
+            : e.message ?? 'Network error';
     return Exception(
       '⚠️ Error downloading reference ARB from $downloadUrl: $errorMessage\nStackTrace: $stackTrace',
     ).toFailure();

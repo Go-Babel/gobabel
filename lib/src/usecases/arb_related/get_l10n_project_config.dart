@@ -11,117 +11,117 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
     final List<FileSystemEntity> currList = await curr.list().toList();
     final List<File> allFilesList = currList.whereType<File>().toList();
 
-  L10nProjectConfig? projectConfig;
+    L10nProjectConfig? projectConfig;
 
-  final allYamlFiles =
-      allFilesList
-          .where((element) => element.path.toLowerCase().endsWith('.yaml'))
-          .toList();
-  if (allYamlFiles.isEmpty) {
-    return L10nProjectConfig.noData().toSuccess();
-  }
+    final allYamlFiles =
+        allFilesList
+            .where((element) => element.path.toLowerCase().endsWith('.yaml'))
+            .toList();
+    if (allYamlFiles.isEmpty) {
+      return L10nProjectConfig.noData().toSuccess();
+    }
 
-  void setProjectConfigIfItMatches(
-    String yamlContent, {
-    required String fileName,
-    bool forceCorrectFile = false,
-  }) {
-    if (projectConfig == null) {
-      String? templateArbFile;
-      String? outputClass;
-      String? arbDir;
-      String? outputDir;
+    void setProjectConfigIfItMatches(
+      String yamlContent, {
+      required String fileName,
+      bool forceCorrectFile = false,
+    }) {
+      if (projectConfig == null) {
+        String? templateArbFile;
+        String? outputClass;
+        String? arbDir;
+        String? outputDir;
 
-      final lines = yamlContent.split('\n');
-      for (final line in lines) {
-        if (line.contains(':') == false) continue;
+        final lines = yamlContent.split('\n');
+        for (final line in lines) {
+          if (line.contains(':') == false) continue;
 
-        final items = line.split(':');
-        final key = items.first.trim();
-        final value = items.last.trim();
-        if (key == 'template-arb-file') {
-          templateArbFile = value;
-        } else if (key == 'output-class') {
-          outputClass = value;
-        } else if (key == 'arb-dir') {
-          arbDir = value;
-        } else if (key == 'output-dir') {
-          outputDir = value;
+          final items = line.split(':');
+          final key = items.first.trim();
+          final value = items.last.trim();
+          if (key == 'template-arb-file') {
+            templateArbFile = value;
+          } else if (key == 'output-class') {
+            outputClass = value;
+          } else if (key == 'arb-dir') {
+            arbDir = value;
+          } else if (key == 'output-dir') {
+            outputDir = value;
+          }
+        }
+
+        if (forceCorrectFile ||
+            templateArbFile != null ||
+            outputClass != null ||
+            arbDir != null ||
+            outputDir != null) {
+          final arbDir0 = arbDir ?? _defaultArbDir;
+          projectConfig = L10nProjectConfig.withData(
+            l10nFileName: fileName,
+            templateArbFile: templateArbFile ?? _templateArbFile,
+            arbDir: arbDir0,
+            // If outputClass is not provided, the default configuration
+            // of flutter gen-l10n is to use the arbDir
+            outputDir: outputDir ?? arbDir0,
+            outputClass: outputClass ?? 'AppLocalizations',
+          );
+          projectConfig = projectConfig;
         }
       }
+    }
 
-      if (forceCorrectFile ||
-          templateArbFile != null ||
-          outputClass != null ||
-          arbDir != null ||
-          outputDir != null) {
-        final arbDir0 = arbDir ?? _defaultArbDir;
-        projectConfig = L10nProjectConfig.withData(
-          l10nFileName: fileName,
-          templateArbFile: templateArbFile ?? _templateArbFile,
-          arbDir: arbDir0,
-          // If outputClass is not provided, the default configuration
-          // of flutter gen-l10n is to use the arbDir
-          outputDir: outputDir ?? arbDir0,
-          outputClass: outputClass ?? 'AppLocalizations',
+    final preMappedNamesOfLanguageConfigFiles = <String>{
+      'l10n.yaml',
+      'L10n.yaml',
+      'i10n.yaml',
+      'I10n.yaml',
+    };
+    final preMappedFiles =
+        allYamlFiles
+            .where(
+              (File element) => preMappedNamesOfLanguageConfigFiles.any(
+                (String element2) => element.path.endsWith(element2),
+              ),
+            )
+            .toList();
+
+    for (final File file in preMappedFiles) {
+      try {
+        final String yamlContent = await file.readAsString();
+        setProjectConfigIfItMatches(
+          yamlContent,
+          forceCorrectFile: true,
+          fileName: file.path,
         );
-        projectConfig = projectConfig;
+      } catch (e) {
+        // Skip files that can't be read
+        continue;
       }
     }
-  }
 
-  final preMappedNamesOfLanguageConfigFiles = <String>{
-    'l10n.yaml',
-    'L10n.yaml',
-    'i10n.yaml',
-    'I10n.yaml',
-  };
-  final preMappedFiles =
-      allYamlFiles
-          .where(
-            (File element) => preMappedNamesOfLanguageConfigFiles.any(
-              (String element2) => element.path.endsWith(element2),
-            ),
-          )
-          .toList();
+    final otherYamlFiles =
+        allYamlFiles
+            .where(
+              (File element) =>
+                  preMappedNamesOfLanguageConfigFiles.any(
+                    (String element2) => element.path.endsWith(element2),
+                  ) ==
+                  false,
+            )
+            .toList();
 
-  for (final File file in preMappedFiles) {
-    try {
-      final String yamlContent = await file.readAsString();
-      setProjectConfigIfItMatches(
-        yamlContent,
-        forceCorrectFile: true,
-        fileName: file.path,
-      );
-    } catch (e) {
-      // Skip files that can't be read
-      continue;
+    /// Loop until we find a l10n.yaml dirr
+    for (final File file in otherYamlFiles) {
+      try {
+        final String yamlContent = await file.readAsString();
+        setProjectConfigIfItMatches(yamlContent, fileName: file.path);
+      } catch (e) {
+        // Skip files that can't be read
+        continue;
+      }
     }
-  }
 
-  final otherYamlFiles =
-      allYamlFiles
-          .where(
-            (File element) =>
-                preMappedNamesOfLanguageConfigFiles.any(
-                  (String element2) => element.path.endsWith(element2),
-                ) ==
-                false,
-          )
-          .toList();
-
-  /// Loop until we find a l10n.yaml dirr
-  for (final File file in otherYamlFiles) {
-    try {
-      final String yamlContent = await file.readAsString();
-      setProjectConfigIfItMatches(yamlContent, fileName: file.path);
-    } catch (e) {
-      // Skip files that can't be read
-      continue;
-    }
-  }
-
-  return projectConfig?.toSuccess() ?? L10nProjectConfig.noData().toSuccess();
+    return projectConfig?.toSuccess() ?? L10nProjectConfig.noData().toSuccess();
   } catch (e, stackTrace) {
     return Exception(
       'Error reading YAML configuration files: ${e.toString()}\n$stackTrace',
