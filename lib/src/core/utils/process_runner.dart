@@ -18,11 +18,6 @@ class BabelProcessRunner {
     }
 
     // Run the command
-    return await Process.run(
-      shell,
-      shellArgs,
-      workingDirectory: dirrPath,
-      // runInShell: Platform.isWindows,
-    );
+    return await Process.run(shell, shellArgs, workingDirectory: dirrPath);
   }
 }
