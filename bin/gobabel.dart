@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/gobabel_conductor.dart';
+import 'package:gobabel/src/utilities/terminal_textfield.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
@@ -141,17 +142,20 @@ Future<void> main(List<String> arguments) async {
       print('ℹ️  Language is required for generate operation.'.wheat);
       print('Enter language in format language_country (e.g., en_US)'.wheat);
       print('Type "list-all" to see all supported languages'.wheat);
-      stdout.write('> ');
-      language = stdin.readLineSync()?.trim();
+      
+      language = await getTextFieldInput(
+        prompt: 'Please type in the language code',
+      );
 
       // If user wants to see all languages
       if (language == 'list-all') {
         printSupportedLanguages();
-        stdout.write('\nNow enter a language code: ');
-        language = stdin.readLineSync()?.trim();
+        language = await getTextFieldInput(
+          prompt: '\nNow enter a language code',
+        );
       }
 
-      if (language == null || language.isEmpty) {
+      if (language.isEmpty) {
         print('❌ Error: Language is required.'.red);
         exit(1);
       }
