@@ -15,7 +15,8 @@ AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
     if (result.exitCode != 0) {
       return BabelException(
         title: 'Git remote URL not found',
-        description: 'Could not get remote URL for this repository. '
+        description:
+            'Could not get remote URL for this repository. '
             'Please ensure your Git repository has a remote origin configured. '
             'Run "git remote add origin <repository-url>" to add a remote. '
             'Error: ${result.stderr}',
@@ -26,7 +27,8 @@ AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
   } catch (e) {
     return BabelException(
       title: 'Git host detection error',
-      description: 'Failed to detect Git host for the repository. '
+      description:
+          'Failed to detect Git host for the repository. '
           'Please ensure Git is installed and the repository is properly initialized. '
           'Error details: $e',
     ).toFailure();
@@ -63,6 +65,7 @@ AsyncResult<SyncFlowGotProjectOriginUrl> sync_getProjectOriginUrl(
 
   return originUrlResult.flatMap((originUrl) {
     return SyncFlowGotProjectOriginUrl(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

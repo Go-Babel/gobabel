@@ -27,7 +27,8 @@ AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
   if (result.exitCode != 0) {
     return BabelException(
       title: 'Failed to get last commit',
-      description: 'Could not retrieve the last commit information. '
+      description:
+          'Could not retrieve the last commit information. '
           'Please ensure you have at least one commit in your repository. '
           'Error: ${result.stderr}',
     ).toFailure();
@@ -42,7 +43,8 @@ AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
   if (parts.length < 5) {
     return BabelException(
       title: 'Unexpected git log format',
-      description: 'The git log command returned unexpected output. '
+      description:
+          'The git log command returned unexpected output. '
           'This might be due to an incompatible Git version or custom configuration. '
           'Output received: $output',
     ).toFailure();
@@ -85,6 +87,7 @@ AsyncResult<SyncFlowGotLastLocalCommit> sync_getLastLocalCommitInCurrentBranch(
 
   return lastCommitResult.flatMap((lastCommit) {
     return SyncFlowGotLastLocalCommit(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

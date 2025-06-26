@@ -32,7 +32,8 @@ AsyncResult<CodeBaseYamlInfo> getCodeBaseYamlInfoUsecase({
   if (projectName == null) {
     return BabelException(
       title: 'Missing name field in pubspec.yaml',
-      description: 'No "name" field found in pubspec.yaml. '
+      description:
+          'No "name" field found in pubspec.yaml. '
           'Please add a "name" field to your pubspec.yaml file. '
           'This project name is used as an identifier in the GoBabel Dashboard. '
           'Example: name: my_flutter_app',
@@ -42,7 +43,8 @@ AsyncResult<CodeBaseYamlInfo> getCodeBaseYamlInfoUsecase({
   if (projectVersion == null) {
     return BabelException(
       title: 'Missing version field in pubspec.yaml',
-      description: 'No "version" field found in pubspec.yaml. '
+      description:
+          'No "version" field found in pubspec.yaml. '
           'Please add a "version" field to your pubspec.yaml file. '
           'This version is used to track changes in the GoBabel Dashboard. '
           'Example: version: 1.0.0+1',
@@ -53,7 +55,8 @@ AsyncResult<CodeBaseYamlInfo> getCodeBaseYamlInfoUsecase({
   if (isDartProject) {
     return BabelException(
       title: 'Dart projects not supported',
-      description: 'Pure Dart projects are not supported yet. '
+      description:
+          'Pure Dart projects are not supported yet. '
           'GoBabel currently only supports Flutter projects. '
           'Please ensure you are running this command in a Flutter project directory '
           'with "sdk: flutter" in your pubspec.yaml dependencies.',
@@ -104,6 +107,7 @@ AsyncResult<SyncFlowGotCodeBaseYaml> sync_getCodeBaseYamlInfo(
 
   return ensureGitResult.flatMap((yamlInfo) {
     return SyncFlowGotCodeBaseYaml(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

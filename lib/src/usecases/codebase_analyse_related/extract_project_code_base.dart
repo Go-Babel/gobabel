@@ -16,7 +16,8 @@ AsyncResult<Set<ContextPath>> extractProjectCodeBase({
     if (target == null) {
       return BabelException(
         title: 'Target Directory Not Found',
-        description: 'Could not find the lib directory at path: $dirrPath/lib\n\n'
+        description:
+            'Could not find the lib directory at path: $dirrPath/lib\n\n'
             'Please ensure:\n'
             '• You are running this command from the project root\n'
             '• The project has a "lib" directory\n'
@@ -33,7 +34,8 @@ AsyncResult<Set<ContextPath>> extractProjectCodeBase({
   } catch (e, s) {
     return BabelException(
       title: 'Code Base Extraction Failed',
-      description: 'Failed to extract project code base structure.\n\n'
+      description:
+          'Failed to extract project code base structure.\n\n'
           'Error: $e\n\n'
           'Stack trace: $s\n\n'
           'This may occur when:\n'
@@ -73,6 +75,7 @@ AsyncResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
 
   return codeBaseResult.flatMap((codeBase) {
     return SyncFlowExtractedProjectCodebase(
+      willLog: payload.willLog,
       yamlInfo: payload.yamlInfo,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,

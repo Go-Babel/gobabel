@@ -24,7 +24,8 @@ AsyncResult<GitVariables> getProjectGitDependencies({
     if (shas.length < 2) {
       return BabelException(
         title: 'Insufficient Git history',
-        description: 'Your project should have at least 2 commits. '
+        description:
+            'Your project should have at least 2 commits. '
             'Commit SHAs are used as unique identifiers in the GoBabel system. '
             'Please make at least 2 commits before running this command. '
             'Current path: $dirrPath',
@@ -46,7 +47,8 @@ AsyncResult<GitVariables> getProjectGitDependencies({
   } catch (e) {
     return BabelException(
       title: 'Failed to get project dependencies',
-      description: 'Failed to retrieve Git project dependencies. '
+      description:
+          'Failed to retrieve Git project dependencies. '
           'If this is a new project, please run the create command first. '
           'Also verify that your API token is valid and correctly typed. '
           'Error details: ${e.toString().replaceAll('Exception: ', '')}',
@@ -98,6 +100,7 @@ AsyncResult<SyncFlowGotGitVariables> sync_getProjectGitDependencies(
 
   return gitVariablesResult.flatMap((gitVariables) {
     return SyncFlowGotGitVariables(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

@@ -14,7 +14,8 @@ AsyncResult<Unit> ensureGitDirectoryIsConfigured({
   if (!isCurrentDirectoryAGitDirectory) {
     return BabelException(
       title: 'Not a Git repository',
-      description: 'The current directory is not a Git repository. '
+      description:
+          'The current directory is not a Git repository. '
           'Please initialize a Git repository with "git init" '
           'to enable version control and allow reverting changes if needed.',
     ).toFailure();
@@ -26,7 +27,8 @@ AsyncResult<Unit> ensureGitDirectoryIsConfigured({
   if (haveAnyPendingCommit) {
     return BabelException(
       title: 'Uncommitted changes detected',
-      description: 'You have uncommitted changes in your Git repository. '
+      description:
+          'You have uncommitted changes in your Git repository. '
           'Please commit your changes with "git commit" or stash them with "git stash" '
           'before running this command to ensure a clean working state.',
     ).toFailure();
@@ -42,7 +44,8 @@ AsyncResult<Unit> ensureGitDirectoryIsConfigured({
   if (statusOutput.contains('Your branch is behind')) {
     return BabelException(
       title: 'Local branch is behind remote',
-      description: 'Your local branch is behind the remote branch. '
+      description:
+          'Your local branch is behind the remote branch. '
           'Please pull the latest changes with "git pull" '
           'before running this command to ensure you have the latest code.',
     ).toFailure();
@@ -79,6 +82,7 @@ AsyncResult<SyncFlowEnsureGit> sync_ensureGitDirectoryIsConfigured(
 
   return ensureGitResult.flatMap((_) {
     return SyncFlowEnsureGit(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       client: payload.client,

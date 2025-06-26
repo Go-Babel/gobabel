@@ -23,7 +23,8 @@ AsyncResult<GitUser> getGitUser({required String dirrPath}) async {
   } catch (e) {
     return BabelException(
       title: 'Git user configuration not found',
-      description: 'Failed to get git user information. '
+      description:
+          'Failed to get git user information. '
           'Please ensure you have Git installed and configured correctly. '
           'Run "git config user.name \'Your Name\'" and "git config user.email \'your@email.com\'" '
           'to set up your Git identity. '
@@ -58,6 +59,7 @@ AsyncResult<SyncFlowGotGitUser> sync_getGitUser(
 
   return gitUserResult.flatMap((gitUser) {
     return SyncFlowGotGitUser(
+      willLog: payload.willLog,
       accountApiKey: payload.accountApiKey,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,
