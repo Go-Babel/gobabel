@@ -68,6 +68,8 @@ Always run `dart run build_runner build` after:
 - Adding new `@freezed` classes
 
 ### Error Handling
+- **Always use `BabelException` instead of generic `Exception`** for error handling
+- **Always return `AsyncResult<T>` or `Result<T>` from functions** instead of throwing exceptions
 - Use `AsyncResult<T>` for all async operations that can fail
 - Chain operations with `flatMap` instead of traditional try-catch
 - Return specific error types through the Result pattern
@@ -84,6 +86,20 @@ Always run `dart run build_runner build` after:
       (_) => unit.toSuccess(),
       (error) => error.toFailure(),
     );
+  }
+  ```
+- Example of proper error handling:
+  ```dart
+  AsyncResult<ProcessResult> runProcess() async {
+    try {
+      final result = await Process.run('command', []);
+      return Success(result);
+    } catch (e) {
+      return BabelException(
+        title: 'Process failed',
+        description: 'Failed to run process: ${e.toString()}',
+      ).toFailure();
+    }
   }
   ```
 

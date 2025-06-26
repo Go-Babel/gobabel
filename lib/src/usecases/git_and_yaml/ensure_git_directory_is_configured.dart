@@ -35,23 +35,29 @@ AsyncResult<Unit> ensureGitDirectoryIsConfigured({
   }
 
   // 3. Check if local branch is behind remote
-  final syncStatus = await BabelProcessRunner.run(
+  final syncStatusResult = await runBabelProcess(
     command: 'git status -uno',
     dirrPath: dirrPath,
   );
-  final statusOutput = syncStatus.stdout.toString();
+  
+  return syncStatusResult.fold(
+    (syncStatus) {
+      final statusOutput = syncStatus.stdout.toString();
 
-  if (statusOutput.contains('Your branch is behind')) {
-    return BabelException(
-      title: 'Local branch is behind remote',
-      description:
-          'Your local branch is behind the remote branch. '
-          'Please pull the latest changes with "git pull" '
-          'before running this command to ensure you have the latest code.',
-    ).toFailure();
-  }
+      if (statusOutput.contains('Your branch is behind')) {
+        return BabelException(
+          title: 'Local branch is behind remote',
+          description:
+              'Your local branch is behind the remote branch. '
+              'Please pull the latest changes with "git pull" '
+              'before running this command to ensure you have the latest code.',
+        ).toFailure();
+      }
 
-  return Success(unit);
+      return Success(unit);
+    },
+    (failure) => Failure(failure),
+  );
 }
 
 AsyncResult<CreateFlowEnsureGit> create_ensureGitDirectoryIsConfigured(

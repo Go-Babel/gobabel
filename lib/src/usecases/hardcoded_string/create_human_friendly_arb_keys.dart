@@ -52,7 +52,11 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
     final Map<L10nValue, Sha1> shaMap = {};
     final Map<Sha1, L10nValue> extractedStrings = {};
     for (final HardcodedStringEntity string in stringsNeedingGeneration) {
-      final key = generateSha1(string.value);
+      final sha1Result = generateSha1(string.value);
+      if (sha1Result.isError()) {
+        return sha1Result.asError();
+      }
+      final key = sha1Result.getOrNull()!;
       extractedStrings[key] = string.value.trimHardcodedString;
       shaMap[string.value] = key;
     }

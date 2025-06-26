@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -14,46 +12,52 @@ AsyncResult<GitVariables> getProjectGitDependencies({
   required GitUser user,
   required String originUrl,
 }) async {
-  try {
-    // Run the command
-    final ProcessResult result = await BabelProcessRunner.run(
-      command: 'git rev-list --parents --reverse HEAD | head -2',
-      dirrPath: dirrPath,
-    );
-    final shas = '${result.stdout}'.trim().split('\n');
-    if (shas.length < 2) {
-      return BabelException(
-        title: 'Insufficient Git history',
-        description:
-            'Your project should have at least 2 commits. '
-            'Commit SHAs are used as unique identifiers in the GoBabel system. '
-            'Please make at least 2 commits before running this command. '
-            'Current path: $dirrPath',
-      ).toFailure();
-    }
-    final projectShaIdentifierText = shas[1].trim().replaceAll(' ', '');
-    final BigInt projectShaIdentifier = BigInt.parse(
-      projectShaIdentifierText,
-      radix: 16,
-    );
-    final latestShaIdentifier = shas[0].trim();
-    return GitVariables(
-      user: user,
-      previousCommit: previousCommit,
-      originUrl: originUrl,
-      latestShaIdentifier: latestShaIdentifier,
-      projectShaIdentifier: projectShaIdentifier,
-    ).toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to get project dependencies',
-      description:
-          'Failed to retrieve Git project dependencies. '
-          'If this is a new project, please run the create command first. '
-          'Also verify that your API token is valid and correctly typed. '
-          'Error details: ${e.toString().replaceAll('Exception: ', '')}',
-    ).toFailure();
-  }
+  // Run the command
+  final resultAsync = await runBabelProcess(
+    command: 'git rev-list --parents --reverse HEAD | head -2',
+    dirrPath: dirrPath,
+  );
+  
+  return resultAsync.fold(
+    (result) {
+      try {
+        final shas = '${result.stdout}'.trim().split('\n');
+        if (shas.length < 2) {
+          return BabelException(
+            title: 'Insufficient Git history',
+            description:
+                'Your project should have at least 2 commits. '
+                'Commit SHAs are used as unique identifiers in the GoBabel system. '
+                'Please make at least 2 commits before running this command. '
+                'Current path: $dirrPath',
+          ).toFailure();
+        }
+        final projectShaIdentifierText = shas[1].trim().replaceAll(' ', '');
+        final BigInt projectShaIdentifier = BigInt.parse(
+          projectShaIdentifierText,
+          radix: 16,
+        );
+        final latestShaIdentifier = shas[0].trim();
+        return GitVariables(
+          user: user,
+          previousCommit: previousCommit,
+          originUrl: originUrl,
+          latestShaIdentifier: latestShaIdentifier,
+          projectShaIdentifier: projectShaIdentifier,
+        ).toSuccess();
+      } catch (e) {
+        return BabelException(
+          title: 'Failed to get project dependencies',
+          description:
+              'Failed to retrieve Git project dependencies. '
+              'If this is a new project, please run the create command first. '
+              'Also verify that your API token is valid and correctly typed. '
+              'Error details: ${e.toString().replaceAll('Exception: ', '')}',
+        ).toFailure();
+      }
+    },
+    (failure) => Failure(failure),
+  );
 }
 
 AsyncResult<CreateFlowGotGitVariables> create_getProjectGitDependencies(

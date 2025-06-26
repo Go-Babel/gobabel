@@ -45,7 +45,11 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   final Map<L10nValue, Sha1> shaMap = {};
   final Map<Sha1, L10nValue> extractedStrings = {};
   for (final string in stringsNeedingValidation) {
-    final valueSha1 = generateSha1(string.value);
+    final sha1Result = generateSha1(string.value);
+    if (sha1Result.isError()) {
+      return sha1Result.asError();
+    }
+    final valueSha1 = sha1Result.getOrNull()!;
     extractedStrings[valueSha1] = string.value.trimHardcodedString;
     shaMap[string.value] = valueSha1;
   }

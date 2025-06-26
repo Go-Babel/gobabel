@@ -8,46 +8,44 @@ AsyncResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
   required String commit1,
   required String commit2,
 }) async {
-  try {
-    final result = await BabelProcessRunner.run(
-      command: 'git diff --name-only $commit1 $commit2',
-      dirrPath: dirrPath,
-    );
+  final resultAsync = await runBabelProcess(
+    command: 'git diff --name-only $commit1 $commit2',
+    dirrPath: dirrPath,
+  );
 
-    // Check if the command executed successfully
-    if (result.exitCode != 0) {
-      return BabelException(
-        title: 'Git diff command failed',
-        description: 'Failed to get changed files between commits $commit1 and $commit2.\nGit error: ${result.stderr}\n\nPlease ensure both commits exist in the repository.',
-      ).toFailure();
-    }
+  return resultAsync.fold(
+    (result) {
+      // Check if the command executed successfully
+      if (result.exitCode != 0) {
+        return BabelException(
+          title: 'Git diff command failed',
+          description: 'Failed to get changed files between commits $commit1 and $commit2.\nGit error: ${result.stderr}\n\nPlease ensure both commits exist in the repository.',
+        ).toFailure();
+      }
 
-    // Convert the output to a string and split it into a list of file paths
-    final output = result.stdout as String;
-    final files =
-        output
-            .split('\n') // Split by newline to get individual paths
-            .map((line) => line.trim()) // Trim whitespace from each path
-            .where(
-              (line) =>
-                  // Remove empty lines
-                  line.isNotEmpty &&
-                  // Filter for Dart files
-                  line.endsWith('.dart') &&
-                  !line.contains('test/') &&
-                  line.contains('lib/') &&
-                  !line.contains('.g.dart') &&
-                  !line.contains('.freezed.dart') &&
-                  !line.contains('.gen.dart'),
-            )
-            .toList()
-            .toSet();
+      // Convert the output to a string and split it into a list of file paths
+      final output = result.stdout as String;
+      final files =
+          output
+              .split('\n') // Split by newline to get individual paths
+              .map((line) => line.trim()) // Trim whitespace from each path
+              .where(
+                (line) =>
+                    // Remove empty lines
+                    line.isNotEmpty &&
+                    // Filter for Dart files
+                    line.endsWith('.dart') &&
+                    !line.contains('test/') &&
+                    line.contains('lib/') &&
+                    !line.contains('.g.dart') &&
+                    !line.contains('.freezed.dart') &&
+                    !line.contains('.gen.dart'),
+              )
+              .toList()
+              .toSet();
 
-    return files.toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to get changed Dart files',
-      description: 'An error occurred while retrieving changed files between commits.\nError: $e\n\nPlease ensure you are in a valid Git repository and have the necessary permissions.',
-    ).toFailure();
-  }
+      return files.toSuccess();
+    },
+    (failure) => Failure(failure),
+  );
 }

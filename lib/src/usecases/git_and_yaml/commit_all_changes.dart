@@ -12,10 +12,16 @@ AsyncResult<Unit> commitAllChangesUsecase({
   required Directory dirrPath,
 }) async {
   // 1. Stage all changes
-  final addResult = await BabelProcessRunner.run(
+  final addResultAsync = await runBabelProcess(
     command: 'git add .',
     dirrPath: dirrPath.path,
   );
+  
+  if (addResultAsync.isError()) {
+    return Failure(addResultAsync.exceptionOrNull()!);
+  }
+  
+  final addResult = addResultAsync.getOrNull()!;
   if (addResult.exitCode != 0) {
     final output = addResult.stdout as String;
     print(output.cadetBlue);
@@ -33,11 +39,16 @@ AsyncResult<Unit> commitAllChangesUsecase({
   final message =
       'Gobabel translation | $versionText\n\ngobabel static translation analysis number for version $versionText';
   final author = 'Gobabel Bot <admin@gobabel.io>';
-  final commitResult = await BabelProcessRunner.run(
+  final commitResultAsync = await runBabelProcess(
     command: 'git commit -m "$message" --author "$author"',
     dirrPath: dirrPath.path,
   );
-
+  
+  if (commitResultAsync.isError()) {
+    return Failure(commitResultAsync.exceptionOrNull()!);
+  }
+  
+  final commitResult = commitResultAsync.getOrNull()!;
   if (commitResult.exitCode != 0) {
     return BabelException(
       title: 'Failed to commit changes',
@@ -49,11 +60,16 @@ AsyncResult<Unit> commitAllChangesUsecase({
   }
 
   // 3. Push to the current branch
-  final pushResult = await BabelProcessRunner.run(
+  final pushResultAsync = await runBabelProcess(
     command: 'git push -u origin HEAD',
     dirrPath: dirrPath.path,
   );
-
+  
+  if (pushResultAsync.isError()) {
+    return Failure(pushResultAsync.exceptionOrNull()!);
+  }
+  
+  final pushResult = pushResultAsync.getOrNull()!;
   if (pushResult.exitCode != 0) {
     final output = pushResult.stderr as String;
     print(

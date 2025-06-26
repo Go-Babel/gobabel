@@ -6,31 +6,32 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<GitUser> getGitUser({required String dirrPath}) async {
-  try {
-    final nameResult = await BabelProcessRunner.run(
-      command: 'git config user.name',
-      dirrPath: dirrPath,
-    );
-    final emailResult = await BabelProcessRunner.run(
-      command: 'git config user.email',
-      dirrPath: dirrPath,
-    );
-
-    final name = nameResult.stdout.toString().trim();
-    final email = emailResult.stdout.toString().trim();
-
-    return GitUser(authorName: name, authorEmail: email).toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Git user configuration not found',
-      description:
-          'Failed to get git user information. '
-          'Please ensure you have Git installed and configured correctly. '
-          'Run "git config user.name \'Your Name\'" and "git config user.email \'your@email.com\'" '
-          'to set up your Git identity. '
-          'Current path: "$dirrPath"',
-    ).toFailure();
+  final nameResultAsync = await runBabelProcess(
+    command: 'git config user.name',
+    dirrPath: dirrPath,
+  );
+  
+  if (nameResultAsync.isError()) {
+    return Failure(nameResultAsync.exceptionOrNull()!);
   }
+  
+  final nameResult = nameResultAsync.getOrNull()!;
+  
+  final emailResultAsync = await runBabelProcess(
+    command: 'git config user.email',
+    dirrPath: dirrPath,
+  );
+  
+  if (emailResultAsync.isError()) {
+    return Failure(emailResultAsync.exceptionOrNull()!);
+  }
+  
+  final emailResult = emailResultAsync.getOrNull()!;
+  
+  final name = nameResult.stdout.toString().trim();
+  final email = emailResult.stdout.toString().trim();
+
+  return GitUser(authorName: name, authorEmail: email).toSuccess();
 }
 
 AsyncResult<CreateFlowGotGitUser> create_getGitUser(

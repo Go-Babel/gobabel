@@ -22,25 +22,30 @@ AsyncResult<List<ShaCommit>> getAllCommitsInCurrentGitTreeOrderedByTime({
     }
 
     // Run git log command to get commits from oldest to newest
-    final result = await BabelProcessRunner.run(
+    final resultAsync = await runBabelProcess(
       command: 'git log --reverse --pretty=format:"%H" --date=short',
       dirrPath: directoryPath,
     );
 
-    if (result.exitCode != 0) {
-      return Failure(
-        BabelException(
-          title: 'Git log command failed',
-          description:
-              'Error while trying to run git command "git log --reverse --pretty=format:%H --date=short".\\n${result.stderr}',
-        ),
-      );
-    }
+    return resultAsync.fold(
+      (result) {
+        if (result.exitCode != 0) {
+          return Failure(
+            BabelException(
+              title: 'Git log command failed',
+              description:
+                  'Error while trying to run git command "git log --reverse --pretty=format:%H --date=short".\\n${result.stderr}',
+            ),
+          );
+        }
 
-    // Print the list of commits
-    final output = result.stdout as String;
-    final allShas = output.split('\\n').where((s) => s.isNotEmpty).toList();
-    return Success(allShas);
+        // Print the list of commits
+        final output = result.stdout as String;
+        final allShas = output.split('\\n').where((s) => s.isNotEmpty).toList();
+        return Success(allShas);
+      },
+      (failure) => Failure(failure),
+    );
   } catch (e, s) {
     return Failure(
       BabelException(

@@ -6,33 +6,28 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<String> getProjectOriginUrl({required String directoryPath}) async {
-  try {
-    final result = await BabelProcessRunner.run(
-      command: 'git remote get-url origin',
-      dirrPath: directoryPath,
-    );
+  final resultAsync = await runBabelProcess(
+    command: 'git remote get-url origin',
+    dirrPath: directoryPath,
+  );
 
-    if (result.exitCode != 0) {
-      return BabelException(
-        title: 'Git remote URL not found',
-        description:
-            'Could not get remote URL for this repository. '
-            'Please ensure your Git repository has a remote origin configured. '
-            'Run "git remote add origin <repository-url>" to add a remote. '
-            'Error: ${result.stderr}',
-      ).toFailure();
-    }
+  return resultAsync.fold(
+    (result) {
+      if (result.exitCode != 0) {
+        return BabelException(
+          title: 'Git remote URL not found',
+          description:
+              'Could not get remote URL for this repository. '
+              'Please ensure your Git repository has a remote origin configured. '
+              'Run "git remote add origin <repository-url>" to add a remote. '
+              'Error: ${result.stderr}',
+        ).toFailure();
+      }
 
-    return result.stdout.toString().trim().toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Git host detection error',
-      description:
-          'Failed to detect Git host for the repository. '
-          'Please ensure Git is installed and the repository is properly initialized. '
-          'Error details: $e',
-    ).toFailure();
-  }
+      return result.stdout.toString().trim().toSuccess();
+    },
+    (failure) => Failure(failure),
+  );
 }
 
 AsyncResult<CreateFlowGotProjectOriginUrl> create_getProjectOriginUrl(

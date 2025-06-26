@@ -11,15 +11,16 @@ import 'package:result_dart/result_dart.dart';
 AsyncResult<Unit> ensureNoStaticErrorOnDartFiles({
   required String directoryPath,
 }) async {
-  try {
-    final processResult = await BabelProcessRunner.run(
-      command: 'dart analyze $directoryPath',
-      dirrPath: directoryPath,
-    );
-
-    final String stdout = processResult.stdout.toString();
-    final String stderr = processResult.stderr.toString();
-    final int exitCode = processResult.exitCode;
+  final resultAsync = await runBabelProcess(
+    command: 'dart analyze $directoryPath',
+    dirrPath: directoryPath,
+  );
+  
+  return resultAsync.fold(
+    (processResult) {
+      final String stdout = processResult.stdout.toString();
+      final String stderr = processResult.stderr.toString();
+      final int exitCode = processResult.exitCode;
 
     // Combine stdout and stderr for a complete output picture,
     // as 'dart analyze' can put informational messages in stdout and errors in either.
@@ -51,20 +52,10 @@ AsyncResult<Unit> ensureNoStaticErrorOnDartFiles({
       ).toFailure();
     }
 
-    return unit.toSuccess();
-  } catch (e, s) {
-    return BabelException(
-      title: 'Static Analysis Error',
-      description: 'An unexpected error occurred while running static analysis.\n\n'
-          'Error details: $e\n\n'
-          'Stack trace: $s\n\n'
-          'This may be due to:\n'
-          '• Dart SDK not properly installed\n'
-          '• File system permissions issues\n'
-          '• Corrupted project structure\n\n'
-          'Try running "dart analyze" manually to diagnose the issue.',
-    ).toFailure();
-  }
+      return unit.toSuccess();
+    },
+    (failure) => Failure(failure),
+  );
 }
 
 AsyncResult<GenerateFlowEnsuredNoStaticErrorOnDartFiles>

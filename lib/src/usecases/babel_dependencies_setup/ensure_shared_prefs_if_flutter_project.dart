@@ -27,10 +27,16 @@ AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
   ).hasMatch(yamlContent);
 
   if (!hasDependency) {
-    final result = await BabelProcessRunner.run(
+    final resultAsync = await runBabelProcess(
       command: 'dart pub add shared_preferences',
       dirrPath: directory.path,
     );
+    
+    if (resultAsync.isError()) {
+      return Failure(resultAsync.exceptionOrNull()!);
+    }
+    
+    final result = resultAsync.getOrNull()!;
     if (result.exitCode != 0) {
       return BabelException(
         title: 'Failed to add shared_preferences dependency',

@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
-import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncResult<Unit> multiDartFixFormatUsecase({
@@ -14,26 +13,30 @@ AsyncResult<Unit> multiDartFixFormatUsecase({
   }
 
   final Iterable<String> paths = targetFiles.map((e) => e.path);
-  try {
-    await BabelProcessRunner.run(
-      command: 'dart format $paths',
+  
+  // Format all files at once
+  final formatResultAsync = await runBabelProcess(
+    command: 'dart format ${paths.join(' ')}',
+    dirrPath: dirrPath,
+  );
+  
+  if (formatResultAsync.isError()) {
+    return Failure(formatResultAsync.exceptionOrNull()!);
+  }
+  
+  // Apply dart fix to each file
+  for (final String path in paths) {
+    final fixResultAsync = await runBabelProcess(
+      command: 'dart fix --apply $path',
       dirrPath: dirrPath,
     );
-    for (final String path in paths) {
-      await BabelProcessRunner.run(
-        command: 'dart fix --apply $path',
-        dirrPath: dirrPath,
-      );
+    
+    if (fixResultAsync.isError()) {
+      return Failure(fixResultAsync.exceptionOrNull()!);
     }
-    return Success(unit);
-  } catch (e, s) {
-    return Failure(
-      BabelException(
-        title: 'Dart Fix Format Error',
-        description: 'Failed to apply dart fix and format.\n\n$e\n\n$s',
-      ),
-    );
   }
+  
+  return Success(unit);
 }
 
 AsyncResult<GenerateFlowAppliedCodebaseGeneralDartFixes>

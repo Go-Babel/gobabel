@@ -1,10 +1,13 @@
 import 'dart:io';
 
-class BabelProcessRunner {
-  static Future<ProcessResult> run({
-    required String command,
-    required String dirrPath,
-  }) async {
+import 'package:gobabel_client/gobabel_client.dart';
+import 'package:result_dart/result_dart.dart';
+
+AsyncResult<ProcessResult> runBabelProcess({
+  required String command,
+  required String dirrPath,
+}) async {
+  try {
     // Use the appropriate shell based on the platform
     String shell = Platform.isWindows ? 'cmd' : 'sh';
     List<String> shellArgs;
@@ -18,6 +21,17 @@ class BabelProcessRunner {
     }
 
     // Run the command
-    return await Process.run(shell, shellArgs, workingDirectory: dirrPath);
+    final processResult = await Process.run(
+      shell,
+      shellArgs,
+      workingDirectory: dirrPath,
+    );
+    
+    return Success(processResult);
+  } catch (e) {
+    return BabelException(
+      title: 'Process execution failed',
+      description: 'Failed to execute command "$command" in directory "$dirrPath". Error: ${e.toString()}',
+    ).toFailure();
   }
 }
