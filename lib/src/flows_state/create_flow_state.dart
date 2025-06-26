@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
+import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -13,7 +13,9 @@ part 'create_flow_state.freezed.dart';
 part 'create_flow_state.g.dart';
 
 @freezed
-abstract class CreateFlowState with _$CreateFlowState implements Loadable {
+abstract class CreateFlowState
+    with _$CreateFlowState
+    implements FlowInterface<CreateFlowState> {
   const CreateFlowState._();
 
   /// Step 1
@@ -150,6 +152,13 @@ abstract class CreateFlowState with _$CreateFlowState implements Loadable {
 
   factory CreateFlowState.fromJson(Map<String, dynamic> json) =>
       _$CreateFlowStateFromJson(json);
+
+  @override
+  CreateFlowState fromJson(Map<String, dynamic> json) =>
+      CreateFlowState.fromJson(json);
+
+  @override
+  bool get shouldLog => willLog;
 }
 
 AsyncResult<CreateFlowInitial> create_initFlowState({
@@ -174,45 +183,4 @@ AsyncResult<CreateFlowInitial> create_initFlowState({
   }
 
   return createFlowInitial.toSuccess();
-}
-
-// extension AsyncResultDartExtension<F extends Object> //
-//     on AsyncResultDart<CreateFlowState, F> {
-//   AsyncResultDart<W, F> toNextStep<W extends Object>(
-//     FutureOr<ResultDart<W, F>> Function(CreateFlowState success) fn,
-//   ) {
-//     return flatMap((success) {
-//       LoadingIndicator.instance.set(
-//         message: success.message,
-//         step: success.stepCount,
-//         totalCount: success.maxAmountOfSteps,
-//       );
-//       return fn(success);
-//     });
-//   }
-// }
-
-// extension AsyncResultDartExtension<S extends Object, F extends Object> //
-//     on AsyncResultDart<S, F> {
-//   AsyncResultDart<W, F> toNextStep<W extends Object>(
-//     FutureOr<ResultDart<W, F>> Function(S success) fn,
-//   ) {
-//     LoadingIndicator.instance.set();
-//     return flatMap(fn);
-//   }
-// }
-
-/// Shared contract (could also be a `mixin`)
-abstract class HasLabel {
-  String get label;
-}
-
-@freezed
-class Person with _$Person implements HasLabel {
-  const Person._();
-  factory Person.male({required String name}) = _PersonMale;
-  factory Person.female({required String name}) = _PersonFemale;
-
-  @override
-  String get label => name; // satisfies HasLabel
 }

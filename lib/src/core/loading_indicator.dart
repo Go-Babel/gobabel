@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:result_dart/result_dart.dart';
 
 class LoadingIndicator {
@@ -23,10 +24,10 @@ class LoadingIndicator {
   }) {
     // Cancel any existing timer first
     _timer?.cancel();
-    
+
     // Skip if logging is disabled
     if (!enabled) return;
-    
+
     // final String message = loadingMessage.message;
     // final int step = loadingMessage.step;
 
@@ -50,39 +51,49 @@ class LoadingIndicator {
   }
 }
 
-extension AsyncResultDartExtension<S extends Loadable, F extends Object> //
+late FlowInterface lastCorrectState;
+
+extension AsyncResultDartExtension<
+  S extends FlowInterface<S>,
+  F extends Object
+> //
     on AsyncResultDart<S, F> {
-  AsyncResultDart<W, F> toNextStep<W extends Loadable>(
+  AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
+    FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
+    FutureOr<ResultDart<W, F>> Function(F error) errorFlatMap,
+  ) {
+    return then((result) => result.fold(successFlatMap, errorFlatMap));
+  }
+
+  AsyncResultDart<W, F> toNextStep<W extends FlowInterface<W>>(
     FutureOr<ResultDart<W, F>> Function(S success) fn,
   ) {
-    // final GenerateFlowState generateFlow= GenerateFlowState();
-    // generateFlow.toJson();
-    return flatMap((success) {
-      // Check if this is a state with willLog property
-      bool shouldLog = true;
-      try {
-        // Use dynamic to check if willLog exists
-        final dynamic state = success;
-        if (state != null && state.willLog != null) {
-          shouldLog = state.willLog as bool;
+    return successErrorFlatMap<W>(
+      (success) {
+        lastCorrectState = success;
+        // Check if this is a state with willLog property
+        bool shouldLog = true;
+        try {
+          // Use dynamic to check if willLog exists
+          final dynamic state = success;
+          if (state != null && state.willLog != null) {
+            shouldLog = state.willLog as bool;
+          }
+        } catch (_) {
+          // If willLog doesn't exist, default to true
         }
-      } catch (_) {
-        // If willLog doesn't exist, default to true
-      }
-      
-      LoadingIndicator.instance.set(
-        message: success.message,
-        step: success.stepCount,
-        totalCount: success.maxAmountOfSteps,
-        enabled: shouldLog,
-      );
-      return fn(success);
-    });
-  }
-}
 
-abstract class Loadable extends Object {
-  String get message;
-  int get maxAmountOfSteps;
-  int get stepCount;
+        LoadingIndicator.instance.set(
+          message: success.message,
+          step: success.stepCount,
+          totalCount: success.maxAmountOfSteps,
+          enabled: shouldLog,
+        );
+        return fn(success);
+      },
+      (error) {
+        return Failure(error);
+      },
+    );
+  }
 }

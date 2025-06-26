@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
+import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -13,7 +13,9 @@ part 'sync_flow_state.freezed.dart';
 part 'sync_flow_state.g.dart';
 
 @freezed
-abstract class SyncFlowState with _$SyncFlowState implements Loadable {
+abstract class SyncFlowState
+    with _$SyncFlowState
+    implements FlowInterface<SyncFlowState> {
   const SyncFlowState._();
 
   /// Step 1
@@ -150,6 +152,13 @@ abstract class SyncFlowState with _$SyncFlowState implements Loadable {
 
   factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
       _$SyncFlowStateFromJson(json);
+
+  @override
+  SyncFlowState fromJson(Map<String, dynamic> json) =>
+      SyncFlowState.fromJson(json);
+
+  @override
+  bool get shouldLog => willLog;
 }
 
 AsyncResult<SyncFlowInitial> sync_initFlowState({

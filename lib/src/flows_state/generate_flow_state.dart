@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
+import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/files_verification.dart';
@@ -21,7 +21,9 @@ part 'generate_flow_state.freezed.dart';
 part 'generate_flow_state.g.dart';
 
 @freezed
-abstract class GenerateFlowState with _$GenerateFlowState implements Loadable {
+abstract class GenerateFlowState
+    with _$GenerateFlowState
+    implements FlowInterface<GenerateFlowState> {
   const GenerateFlowState._();
 
   /// Step 1
@@ -830,6 +832,13 @@ abstract class GenerateFlowState with _$GenerateFlowState implements Loadable {
 
   factory GenerateFlowState.fromJson(Map<String, dynamic> json) =>
       _$GenerateFlowStateFromJson(json);
+
+  @override
+  GenerateFlowState fromJson(Map<String, dynamic> json) =>
+      GenerateFlowState.fromJson(json);
+
+  @override
+  bool get shouldLog => willLog;
 }
 
 AsyncResult<GenerateFlowInitial> generate_initFlowState({
