@@ -51,24 +51,22 @@ class LoadingIndicator {
   }
 }
 
-late FlowInterface lastCorrectState;
+late IFlowInterface lastCorrectState;
 
-extension AsyncResultDartExtension<
-  S extends FlowInterface<S>,
-  F extends Object
-> //
-    on AsyncResultDart<S, F> {
-  AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
-    FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
-    FutureOr<ResultDart<W, F>> Function(F error) errorFlatMap,
+extension AsyncResultDartExtension<F extends Object> //
+    on AsyncResultDart<IFlowInterface, F> {
+  AsyncResultDart<IFlowInterface, F> successErrorFlatMap(
+    FutureOr<ResultDart<IFlowInterface, F>> Function(IFlowInterface success)
+    successFlatMap,
+    FutureOr<ResultDart<IFlowInterface, F>> Function(F error) errorFlatMap,
   ) {
     return then((result) => result.fold(successFlatMap, errorFlatMap));
   }
 
-  AsyncResultDart<W, F> toNextStep<W extends FlowInterface<W>>(
-    FutureOr<ResultDart<W, F>> Function(S success) fn,
+  AsyncResultDart<IFlowInterface, F> toNextStep(
+    FutureOr<ResultDart<IFlowInterface, F>> Function(IFlowInterface success) fn,
   ) {
-    return successErrorFlatMap<W>(
+    return successErrorFlatMap(
       (success) {
         lastCorrectState = success;
         // Check if this is a state with willLog property

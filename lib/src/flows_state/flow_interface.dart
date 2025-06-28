@@ -1,10 +1,55 @@
-// import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
+import 'package:result_dart/result_dart.dart';
 
-// part 'flow_interface.freezed.dart';
-// part 'flow_interface.g.dart';
+part 'flow_interface.freezed.dart';
+part 'flow_interface.g.dart';
 
-abstract class FlowInterface<T> extends Object
-    implements Loadable, Loggable, SerializableFromJson<T> {}
+typedef BabelUsecaseResp = AsyncResult<IFlowInterface>;
+typedef SyncBabelUsecaseResp = Result<IFlowInterface>;
+
+@freezed
+abstract class IFlowInterface with _$IFlowInterface {
+  const IFlowInterface._();
+
+  const factory IFlowInterface.create({required CreateFlowState state}) =
+      IFlowInterfaceCreate;
+
+  const factory IFlowInterface.generate({required GenerateFlowState state}) =
+      IFlowInterfaceGenerate;
+
+  const factory IFlowInterface.sync({required SyncFlowState state}) =
+      IFlowInterfaceSync;
+
+  factory IFlowInterface.fromJson(Map<String, dynamic> json) =>
+      _$IFlowInterfaceFromJson(json);
+
+  String get message => map(
+    create: (data) => data.state.message,
+    generate: (data) => data.state.message,
+    sync: (data) => data.state.message,
+  );
+
+  int get maxAmountOfSteps => map(
+    create: (data) => data.state.maxAmountOfSteps,
+    generate: (data) => data.state.maxAmountOfSteps,
+    sync: (data) => data.state.maxAmountOfSteps,
+  );
+
+  int get stepCount => map(
+    create: (data) => data.state.stepCount,
+    generate: (data) => data.state.stepCount,
+    sync: (data) => data.state.stepCount,
+  );
+
+  bool get shouldLog => map(
+    create: (data) => data.state.shouldLog,
+    generate: (data) => data.state.shouldLog,
+    sync: (data) => data.state.shouldLog,
+  );
+}
 
 abstract class Loadable {
   String get message;
@@ -15,37 +60,3 @@ abstract class Loadable {
 abstract class Loggable {
   bool get shouldLog;
 }
-
-abstract class SerializableFromJson<T> {
-  SerializableFromJson();
-  Map<String, dynamic> toJson();
-  T fromJson(Map<String, dynamic> json);
-}
-
-/*
-Example models for test
-@freezed
-class User with _$User implements FlowInterface<User> {
-  const User._();
-
-  const factory User({required String name, required int age}) = _User;
-
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-
-  // enforce the interface by forwarding the instance method
-  @override
-  User fromJson(Map<String, dynamic> json) => User.fromJson(json);
-
-  @override
-  int get maxAmountOfSteps => throw UnimplementedError();
-
-  @override
-  String get message => throw UnimplementedError();
-
-  @override
-  int get stepCount => throw UnimplementedError();
-  
-  @override
-  bool get shouldLog => true;
-}
-*/

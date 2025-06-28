@@ -15,7 +15,7 @@ part 'sync_flow_state.g.dart';
 @freezed
 abstract class SyncFlowState
     with _$SyncFlowState
-    implements FlowInterface<SyncFlowState> {
+    implements Loadable, Loggable {
   const SyncFlowState._();
 
   /// Step 1
@@ -152,10 +152,6 @@ abstract class SyncFlowState
 
   factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
       _$SyncFlowStateFromJson(json);
-
-  @override
-  SyncFlowState fromJson(Map<String, dynamic> json) =>
-      SyncFlowState.fromJson(json);
 
   @override
   bool get shouldLog => willLog;
