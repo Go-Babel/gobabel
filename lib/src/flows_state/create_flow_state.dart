@@ -16,7 +16,7 @@ part 'create_flow_state.g.dart';
 abstract class CreateFlowState
     with _$CreateFlowState
     implements FlowInterface<CreateFlowState> {
-  const CreateFlowState._();
+  CreateFlowState._();
 
   /// Step 1
   factory CreateFlowState.initial({

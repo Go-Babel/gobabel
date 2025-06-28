@@ -53,10 +53,7 @@ class LoadingIndicator {
 
 late FlowInterface lastCorrectState;
 
-extension AsyncResultDartExtension<
-  S extends FlowInterface<S>,
-  F extends Object
-> //
+extension AsyncResultDartExtension<S extends FlowInterface<S>, F extends Object>
     on AsyncResultDart<S, F> {
   AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
     FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
@@ -97,3 +94,49 @@ extension AsyncResultDartExtension<
     );
   }
 }
+
+
+// extension AsyncResultDartExtension<
+//   S extends FlowInterface<S>,
+//   F extends Object
+// > //
+//     on AsyncResultDart<FlowInterface<S>, F> {
+//   AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
+//     FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
+//     FutureOr<ResultDart<W, F>> Function(F error) errorFlatMap,
+//   ) {
+//     return then((result) => result.fold(successFlatMap, errorFlatMap));
+//   }
+
+//   AsyncResultDart<FlowInterface<S>, F> toNextStep(
+//     FutureOr<ResultDart<S, F>> Function(S success) fn,
+//   ) {
+//     return successErrorFlatMap<S>(
+//       (success) {
+//         lastCorrectState = success;
+//         // Check if this is a state with willLog property
+//         bool shouldLog = true;
+//         try {
+//           // Use dynamic to check if willLog exists
+//           final dynamic state = success;
+//           if (state != null && state.willLog != null) {
+//             shouldLog = state.willLog as bool;
+//           }
+//         } catch (_) {
+//           // If willLog doesn't exist, default to true
+//         }
+
+//         LoadingIndicator.instance.set(
+//           message: success.message,
+//           step: success.stepCount,
+//           totalCount: success.maxAmountOfSteps,
+//           enabled: shouldLog,
+//         );
+//         return fn(success);
+//       },
+//       (error) {
+//         return Failure(error);
+//       },
+//     );
+//   }
+// }
