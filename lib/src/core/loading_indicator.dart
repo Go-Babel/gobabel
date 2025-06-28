@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:gobabel/src/flows_state/flow_interface.dart';
+import 'package:gobabel_client/gobabel_client.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 class LoadingIndicator {
@@ -51,92 +54,77 @@ class LoadingIndicator {
   }
 }
 
-late FlowInterface lastCorrectState;
-
-extension AsyncResultDartExtension<S extends FlowInterface<S>, F extends Object>
+// extension on AsyncResultDart<GenerateFlowState, Exception> {
+extension MakeExt<S extends FlowInterface<FlowInterface>, F extends Object>
     on AsyncResultDart<S, F> {
-  AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
-    FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
-    FutureOr<ResultDart<W, F>> Function(F error) errorFlatMap,
-  ) {
-    return then((result) => result.fold(successFlatMap, errorFlatMap));
-  }
-
-  AsyncResultDart<W, F> toNextStep<W extends FlowInterface<W>>(
+  AsyncResultDart<W, F> toNextStep<W extends FlowInterface<FlowInterface>>(
     FutureOr<ResultDart<W, F>> Function(S success) fn,
-  ) {
-    return successErrorFlatMap<W>(
-      (success) {
-        lastCorrectState = success;
-        // Check if this is a state with willLog property
-        bool shouldLog = true;
-        try {
-          // Use dynamic to check if willLog exists
-          final dynamic state = success;
-          if (state != null && state.willLog != null) {
-            shouldLog = state.willLog as bool;
-          }
-        } catch (_) {
-          // If willLog doesn't exist, default to true
-        }
-
-        LoadingIndicator.instance.set(
-          message: success.message,
-          step: success.stepCount,
-          totalCount: success.maxAmountOfSteps,
-          enabled: shouldLog,
-        );
-        return fn(success);
-      },
-      (error) {
-        return Failure(error);
-      },
+  ) async {
+    return then(
+      (result) => result.fold(
+        (success) {
+          resolve(success);
+          return fn(success);
+        },
+        (error) async {
+          await resolveError(error);
+          return Failure(error);
+        },
+      ),
     );
   }
 }
 
+late FlowInterface<FlowInterface> lastCorrectState;
 
-// extension AsyncResultDartExtension<
-//   S extends FlowInterface<S>,
-//   F extends Object
-// > //
-//     on AsyncResultDart<FlowInterface<S>, F> {
-//   AsyncResultDart<W, F> successErrorFlatMap<W extends FlowInterface<W>>(
-//     FutureOr<ResultDart<W, F>> Function(S success) successFlatMap,
-//     FutureOr<ResultDart<W, F>> Function(F error) errorFlatMap,
-//   ) {
-//     return then((result) => result.fold(successFlatMap, errorFlatMap));
-//   }
+void resolve(FlowInterface<FlowInterface> success) {
+  lastCorrectState = success;
+  LoadingIndicator.instance.set(
+    message: success.message,
+    step: success.stepCount,
+    totalCount: success.maxAmountOfSteps,
+    enabled: success.shouldLog,
+  );
+}
 
-//   AsyncResultDart<FlowInterface<S>, F> toNextStep(
-//     FutureOr<ResultDart<S, F>> Function(S success) fn,
-//   ) {
-//     return successErrorFlatMap<S>(
-//       (success) {
-//         lastCorrectState = success;
-//         // Check if this is a state with willLog property
-//         bool shouldLog = true;
-//         try {
-//           // Use dynamic to check if willLog exists
-//           final dynamic state = success;
-//           if (state != null && state.willLog != null) {
-//             shouldLog = state.willLog as bool;
-//           }
-//         } catch (_) {
-//           // If willLog doesn't exist, default to true
-//         }
+Future<void> resolveError(Object error) async {
+  LoadingIndicator.instance.dispose();
+  final Directory directory = lastCorrectState.directory;
+  final bool willLog = lastCorrectState.shouldLog;
+  if (willLog) {
+    final String errorTitle;
+    final String errorDescription;
 
-//         LoadingIndicator.instance.set(
-//           message: success.message,
-//           step: success.stepCount,
-//           totalCount: success.maxAmountOfSteps,
-//           enabled: shouldLog,
-//         );
-//         return fn(success);
-//       },
-//       (error) {
-//         return Failure(error);
-//       },
-//     );
-//   }
-// }
+    if (error is BabelException) {
+      errorTitle = error.title;
+      errorDescription = error.description;
+    } else {
+      errorTitle = 'An unexpected error occurred';
+      errorDescription = error.toString();
+    }
+    final lastSuccessStateInJson = lastCorrectState.toJson();
+    final logPayload = {
+      'errorTitle': errorTitle,
+      'errorDescription': errorDescription,
+      'error': error.toString(),
+      'targetDirectory': directory.path,
+      'lastSuccessState': lastSuccessStateInJson,
+    };
+
+    await _saveStringData(
+      dirr: directory,
+      data: logPayload,
+      fileName: 'error_log.json',
+    );
+  }
+}
+
+/// Saves data to a JSON file
+Future<void> _saveStringData({
+  required Directory dirr,
+  required Map<String, dynamic> data,
+  required String fileName,
+}) async {
+  final outFile = File(p.join(dirr.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
+}
