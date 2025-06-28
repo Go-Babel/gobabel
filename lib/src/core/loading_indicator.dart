@@ -102,6 +102,7 @@ Future<void> resolveError(Object error) async {
       errorTitle = 'An unexpected error occurred';
       errorDescription = error.toString();
     }
+
     final lastSuccessStateInJson = lastCorrectState.toJson();
     final logPayload = {
       'errorTitle': errorTitle,
@@ -114,7 +115,7 @@ Future<void> resolveError(Object error) async {
     await _saveStringData(
       dirr: directory,
       data: logPayload,
-      fileName: 'error_log.json',
+      fileName: 'gobabel_error_log.json',
     );
   }
 }

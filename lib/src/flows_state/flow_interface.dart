@@ -1,3 +1,11 @@
+import 'dart:io';
+
+import 'package:gobabel_client/gobabel_client.dart';
+import 'package:result_dart/result_dart.dart';
+
+typedef BabelResponse<T> = AsyncResultDart<FlowInterface<T>, BabelException>;
+typedef SyncBabelResponse<T> = ResultDart<FlowInterface<T>, BabelException>;
+
 abstract class FlowInterface<T> extends Object
     implements Loadable, Loggable, SerializableFromJson<T> {}
 
@@ -9,6 +17,7 @@ abstract class Loadable {
 
 abstract class Loggable {
   bool get shouldLog;
+  Directory get directory;
 }
 
 abstract class SerializableFromJson<T> {
