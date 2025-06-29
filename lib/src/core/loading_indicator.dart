@@ -24,7 +24,7 @@ class LoadingIndicator {
 
   void _cleanLine() => stdout.write('\r\x1B[2K');
 
-  void set({
+  void setLoadingState({
     required String message,
     required int totalCount,
     required int step,
@@ -83,7 +83,7 @@ late FlowInterface<FlowInterface> lastCorrectState;
 
 void resolve(FlowInterface<FlowInterface> success) {
   lastCorrectState = success;
-  LoadingIndicator.instance.set(
+  LoadingIndicator.instance.setLoadingState(
     message: success.message,
     step: success.stepCount,
     totalCount: success.maxAmountOfSteps,
