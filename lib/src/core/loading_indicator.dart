@@ -25,6 +25,12 @@ class LoadingIndicator {
   LoadingIndicator._();
   static LoadingIndicator get instance =>
       (_instance ??= LoadingIndicator._()).._stopwatch.start();
+  
+  // Test-only method to reset the singleton
+  static void resetForTesting() {
+    _instance?.dispose();
+    _instance = null;
+  }
 
   final Stopwatch _stopwatch = Stopwatch();
   static const List<String> _spinnerChars = ['|', '/', '-', '\\'];
