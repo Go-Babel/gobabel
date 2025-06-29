@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
@@ -19,20 +20,17 @@ class LoadingIndicator {
   int _idx = 0;
   Timer? _timer;
 
+  String? _lastMessage;
+
+  void _cleanLine() => stdout.write('\r\x1B[2K');
+
   void set({
     required String message,
     required int totalCount,
     required int step,
-    bool enabled = true,
   }) {
     // Cancel any existing timer first
     _timer?.cancel();
-
-    // Skip if logging is disabled
-    if (!enabled) return;
-
-    // final String message = loadingMessage.message;
-    // final int step = loadingMessage.step;
 
     // Start a periodic timer to update the spinner
     _timer = Timer.periodic(_interval, (_) {
@@ -40,12 +38,19 @@ class LoadingIndicator {
         1,
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
-      stdout
-        ..write(' ' * (message.length + 15))
-        ..write('\r[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message');
+      final displayMessage =
+          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
+      _lastMessage = displayMessage;
+      _cleanLine();
+      stdout.write(displayMessage);
 
       _idx++;
     });
+  }
+
+  void displayError() {
+    _cleanLine();
+    stdout.write(_lastMessage?.red ?? 'An error occurred'.red);
   }
 
   void dispose() {
@@ -54,8 +59,7 @@ class LoadingIndicator {
   }
 }
 
-// extension on AsyncResultDart<GenerateFlowState, Exception> {
-extension MakeExt<S extends FlowInterface<FlowInterface>, F extends Object>
+extension MakeExt<S extends FlowInterface<FlowInterface>, F extends Exception>
     on AsyncResultDart<S, F> {
   AsyncResultDart<W, F> toNextStep<W extends FlowInterface<FlowInterface>>(
     FutureOr<ResultDart<W, F>> Function(S success) fn,
@@ -83,14 +87,14 @@ void resolve(FlowInterface<FlowInterface> success) {
     message: success.message,
     step: success.stepCount,
     totalCount: success.maxAmountOfSteps,
-    enabled: success.shouldLog,
   );
 }
 
-Future<void> resolveError(Object error) async {
+Future<void> resolveError(Exception error) async {
   LoadingIndicator.instance.dispose();
   final Directory directory = lastCorrectState.directory;
   final bool willLog = lastCorrectState.shouldLog;
+
   if (willLog) {
     final String errorTitle;
     final String errorDescription;
@@ -118,6 +122,8 @@ Future<void> resolveError(Object error) async {
       fileName: 'gobabel_error_log.json',
     );
   }
+
+  LoadingIndicator.instance.displayError();
 }
 
 /// Saves data to a JSON file
