@@ -8,6 +8,18 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
+class BarProgressInfo {
+  final String message;
+  final int totalSteps;
+  final int currentStep;
+
+  const BarProgressInfo({
+    required this.message,
+    required this.totalSteps,
+    required this.currentStep,
+  });
+}
+
 class LoadingIndicator {
   static LoadingIndicator? _instance;
   LoadingIndicator._();
@@ -21,13 +33,46 @@ class LoadingIndicator {
   Timer? _timer;
 
   String? _lastMessage;
+  int _currentLineCount = 1;
 
-  void _cleanLine() => stdout.write('\r\x1B[2K');
+  void _cleanLine() {
+    // Move cursor to beginning of line and clear it
+    stdout.write('\r\x1B[2K');
+    // If we have multiple lines, move up and clear those too
+    for (int i = 1; i < _currentLineCount; i++) {
+      stdout.write('\x1B[1A\x1B[2K');
+    }
+  }
+
+  String _generateProgressBar(int current, int total, int width) {
+    if (total <= 0) return '';
+    
+    // Calculate progress percentage
+    final progress = (current / total).clamp(0.0, 1.0);
+    final filledLength = (progress * width).round();
+    final emptyLength = width - filledLength;
+    
+    // Create the bar
+    final bar = '█' * filledLength + '░' * emptyLength;
+    final percentage = (progress * 100).toStringAsFixed(1);
+    
+    return '[$bar] $percentage%';
+  }
+
+  int _getTerminalWidth() {
+    try {
+      if (stdout.hasTerminal) {
+        return stdout.terminalColumns;
+      }
+    } catch (_) {}
+    return 80; // Default terminal width
+  }
 
   void setLoadingState({
     required String message,
     required int totalCount,
     required int step,
+    BarProgressInfo? barProgressInfo,
   }) {
     // Cancel any existing timer first
     _timer?.cancel();
@@ -38,11 +83,37 @@ class LoadingIndicator {
         1,
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
-      final displayMessage =
+      final mainMessage =
           '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
-      _lastMessage = displayMessage;
+      
       _cleanLine();
-      stdout.write(displayMessage);
+      
+      if (barProgressInfo != null) {
+        // Multi-line output with progress bar
+        _currentLineCount = 3;
+        
+        // Get terminal width and calculate bar width (leave some space for text)
+        final termWidth = _getTerminalWidth();
+        final barWidth = (termWidth - 20).clamp(40, 100); // Min 40, max 100
+        
+        final progressBar = _generateProgressBar(
+          barProgressInfo.currentStep,
+          barProgressInfo.totalSteps,
+          barWidth,
+        );
+        
+        // Display all three lines
+        stdout.write(mainMessage);
+        stdout.write('\n${barProgressInfo.message}');
+        stdout.write('\n$progressBar');
+        
+        _lastMessage = mainMessage;
+      } else {
+        // Single line output
+        _currentLineCount = 1;
+        stdout.write(mainMessage);
+        _lastMessage = mainMessage;
+      }
 
       _idx++;
     });
@@ -87,6 +158,7 @@ void resolve(FlowInterface<FlowInterface> success) {
     message: success.message,
     step: success.stepCount,
     totalCount: success.maxAmountOfSteps,
+    barProgressInfo: null,
   );
 }
 

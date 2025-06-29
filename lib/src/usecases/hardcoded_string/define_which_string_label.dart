@@ -1,6 +1,5 @@
-import 'package:console_bars/console_bars.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gobabel/src/core/legacy_spinner_loading.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -61,19 +60,23 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
 
   final bool isSmallAmountOfStrings = groups.length <= 2;
 
-  final FillingBar? p =
-      isSmallAmountOfStrings
-          ? null
-          : FillingBar(
-            desc: 'Analysing strings...',
-            total: groups.length,
-            time: true,
-            percentage: true,
-          );
+  // Will use progress bar for larger datasets
 
   Future<BabelException?> function() async {
-    for (final group in groups) {
-      p?.increment();
+    for (int i = 0; i < groups.length; i++) {
+      final group = groups[i];
+      if (!isSmallAmountOfStrings) {
+        LoadingIndicator.instance.setLoadingState(
+          message: 'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+          totalCount: groups.length,
+          step: i + 1,
+          barProgressInfo: BarProgressInfo(
+            message: 'Analysing strings...',
+            totalSteps: groups.length,
+            currentStep: i + 1,
+          ),
+        );
+      }
       try {
         final result = await client.publicArbHelpers
             .analyseIfStringIsADisplayableLabel(
@@ -95,14 +98,17 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
 
   final BabelException? error;
   if (isSmallAmountOfStrings) {
-    error = await legacyRunWithSpinner(
-      successMessage: 'Finished analyzing strings',
-      message:
-          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-      function,
+    LoadingIndicator.instance.setLoadingState(
+      message: 'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+      totalCount: 1,
+      step: 1,
+      barProgressInfo: null,
     );
+    error = await function();
+    LoadingIndicator.instance.dispose();
   } else {
     error = await function();
+    LoadingIndicator.instance.dispose();
   }
   
   if (error != null) {

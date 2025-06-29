@@ -2,8 +2,7 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:console_bars/console_bars.dart';
-import 'package:gobabel/src/core/legacy_spinner_loading.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
@@ -69,19 +68,23 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
     final bool isSmallAmountOfStrings = groups.length <= 2;
     final bool willHaveProgressBar = !isSmallAmountOfStrings;
 
-    final FillingBar? p =
-        willHaveProgressBar
-            ? FillingBar(
-              desc: 'Replacing hardcoded strings...',
-              total: groups.length,
-              time: true,
-              percentage: true,
-            )
-            : null;
+    // Progress bar will be shown for larger datasets
 
     Future<void> function() async {
-      for (final group in groups) {
-        p?.increment();
+      for (int i = 0; i < groups.length; i++) {
+        final group = groups[i];
+        if (willHaveProgressBar) {
+          LoadingIndicator.instance.setLoadingState(
+            message: 'Creating human-friendly ARB keys...',
+            totalCount: groups.length,
+            step: i + 1,
+            barProgressInfo: BarProgressInfo(
+              message: 'Replacing hardcoded strings...',
+              totalSteps: groups.length,
+              currentStep: i + 1,
+            ),
+          );
+        }
         // Call the server endpoint to generate ARB keys
         final Map<Sha1, TranslationKey> result = await client.publicArbHelpers
             .createArbKeyNames(
@@ -99,12 +102,16 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
 
     if (willHaveProgressBar) {
       await function();
+      LoadingIndicator.instance.dispose();
     } else {
-      await legacyRunWithSpinner(
-        successMessage: 'Created human-friendly ARB keys',
+      LoadingIndicator.instance.setLoadingState(
         message: 'Creating human-friendly ARB keys...',
-        function,
+        totalCount: 1,
+        step: 1,
+        barProgressInfo: null,
       );
+      await function();
+      LoadingIndicator.instance.dispose();
     }
 
     // await saveStringData(combinedResults, 'combinedresults.json');

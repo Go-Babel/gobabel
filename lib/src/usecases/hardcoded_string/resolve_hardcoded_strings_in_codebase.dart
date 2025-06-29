@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/core/legacy_spinner_loading.dart';
+import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -15,11 +15,15 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
   required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings,
 }) async {
-  return await legacyRunWithSpinner(
-    successMessage: 'Replaced hardcoded strings in ${targetFiles.length} files',
-    message:
-        'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',
-    () async {
+  LoadingIndicator.instance.setLoadingState(
+    message: 'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',
+    totalCount: 1,
+    step: 1,
+    barProgressInfo: null,
+  );
+  
+  try {
+    final Future<Result<Unit>> Function() processFunction = () async {
       if (allHardcodedStrings.isEmpty) {
         return Success(unit);
       }
@@ -69,8 +73,21 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
       }
 
       return Success(unit);
-    },
-  );
+    };
+    
+    final result = await processFunction();
+    LoadingIndicator.instance.dispose();
+    return result;
+  } catch (e) {
+    LoadingIndicator.instance.dispose();
+    if (e is BabelException) {
+      return e.toFailure();
+    }
+    return BabelException(
+      title: 'Unexpected error',
+      description: 'An unexpected error occurred: $e',
+    ).toFailure();
+  }
 }
 
 AsyncResult<GenerateFlowReplacedHardcodedStringsForBabelText>
