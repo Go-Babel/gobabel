@@ -713,6 +713,7 @@ abstract class GenerateFlowState
     required GitCommit babelGitCommit,
   }) = GenerateFlowSincronizedBabelCommitWithApi;
 
+  @override
   Directory get directory {
     return Directory(directoryPath);
   }
@@ -839,6 +840,9 @@ abstract class GenerateFlowState
 
   @override
   bool get shouldLog => willLog;
+
+  @override
+  bool get shouldReset => stepCount > 29;
 }
 
 AsyncResult<GenerateFlowInitial> generate_initFlowState({

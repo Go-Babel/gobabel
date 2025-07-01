@@ -115,6 +115,7 @@ abstract class CreateFlowState
     required Set<ContextPath> contextPaths,
   }) = CreateFlowCreatedProjectInGobabelServer;
 
+  @override
   Directory get directory {
     return Directory(directoryPath);
   }
@@ -159,6 +160,9 @@ abstract class CreateFlowState
 
   @override
   bool get shouldLog => willLog;
+
+  @override
+  bool get shouldReset => stepCount > 29;
 }
 
 AsyncResult<CreateFlowInitial> create_initFlowState({

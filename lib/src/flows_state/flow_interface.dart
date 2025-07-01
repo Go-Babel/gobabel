@@ -7,7 +7,7 @@ typedef BabelResponse<T> = AsyncResultDart<FlowInterface<T>, BabelException>;
 typedef SyncBabelResponse<T> = ResultDart<FlowInterface<T>, BabelException>;
 
 abstract class FlowInterface<T> extends Object
-    implements Loadable, Loggable, SerializableFromJson<T> {}
+    implements Loadable, Loggable, Resetable, SerializableFromJson<T> {}
 
 abstract class Loadable {
   String get message;
@@ -18,6 +18,10 @@ abstract class Loadable {
 abstract class Loggable {
   bool get shouldLog;
   Directory get directory;
+}
+
+abstract class Resetable {
+  bool get shouldReset;
 }
 
 abstract class SerializableFromJson<T> {

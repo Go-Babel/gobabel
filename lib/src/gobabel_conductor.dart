@@ -23,6 +23,7 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_git_user.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_last_local_commit_in_current_branch.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_git_dependencies.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
+import 'package:gobabel/src/usecases/git_and_yaml/reset_all_changes_in_codebase_if_needed.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/resolve_hardcoded_strings_in_codebase.dart';
 import 'package:gobabel/src/usecases/remote_project_related/download_reference_arb.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
@@ -124,6 +125,7 @@ class GobabelConductor {
         .toNextStep(generate_uploadTranslationNewVersion)
         .toNextStep(generate_commitAllChangesUsecase)
         .toNextStep(generate_getBabelChangesCommit)
-        .toNextStep(generate_uploadBabelTranslationsChangesCommitToServer);
+        .toNextStep(generate_uploadBabelTranslationsChangesCommitToServer)
+        .generate_resetIfError;
   }
 }

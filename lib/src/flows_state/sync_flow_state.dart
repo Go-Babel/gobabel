@@ -115,6 +115,7 @@ abstract class SyncFlowState
     required Set<ContextPath> contextPaths,
   }) = SyncFlowCreatedProjectInGobabelServer;
 
+  @override
   Directory get directory {
     return Directory(directoryPath);
   }
@@ -159,6 +160,9 @@ abstract class SyncFlowState
 
   @override
   bool get shouldLog => willLog;
+
+  @override
+  bool get shouldReset => stepCount > 29;
 }
 
 AsyncResult<SyncFlowInitial> sync_initFlowState({
