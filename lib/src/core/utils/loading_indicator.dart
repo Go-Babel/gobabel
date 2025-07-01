@@ -25,7 +25,7 @@ class LoadingIndicator {
   LoadingIndicator._();
   static LoadingIndicator get instance =>
       (_instance ??= LoadingIndicator._()).._stopwatch.start();
-  
+
   // Test-only method to reset the singleton
   static void resetForTesting() {
     _instance?.dispose();
@@ -52,16 +52,16 @@ class LoadingIndicator {
 
   String _generateProgressBar(int current, int total, int width) {
     if (total <= 0) return '';
-    
+
     // Calculate progress percentage
     final progress = (current / total).clamp(0.0, 1.0);
     final filledLength = (progress * width).round();
     final emptyLength = width - filledLength;
-    
+
     // Create the bar
     final bar = '█' * filledLength + '░' * emptyLength;
     final percentage = (progress * 100).toStringAsFixed(1);
-    
+
     return '[$bar] $percentage%';
   }
 
@@ -91,28 +91,28 @@ class LoadingIndicator {
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
           '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
-      
+
       _cleanLine();
-      
+
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
         _currentLineCount = 3;
-        
+
         // Get terminal width and calculate bar width (leave some space for text)
         final termWidth = _getTerminalWidth();
         final barWidth = (termWidth - 20).clamp(40, 100); // Min 40, max 100
-        
+
         final progressBar = _generateProgressBar(
           barProgressInfo.currentStep,
           barProgressInfo.totalSteps,
           barWidth,
         );
-        
+
         // Display all three lines
         stdout.write(mainMessage);
         stdout.write('\n${barProgressInfo.message}');
         stdout.write('\n$progressBar');
-        
+
         _lastMessage = mainMessage;
       } else {
         // Single line output
@@ -168,7 +168,10 @@ void resolve(FlowInterface<FlowInterface> success) {
   );
 }
 
+bool didAlreadyLogError = false;
 Future<void> resolveError(Exception error) async {
+  if (didAlreadyLogError) return;
+  didAlreadyLogError = true;
   LoadingIndicator.instance.dispose();
   final Directory directory = lastCorrectState.directory;
   final bool willLog = lastCorrectState.shouldLog;
