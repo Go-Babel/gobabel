@@ -137,26 +137,6 @@ class LoadingIndicator {
   }
 }
 
-extension MakeExt<S extends FlowInterface<FlowInterface>, F extends Exception>
-    on AsyncResultDart<S, F> {
-  AsyncResultDart<W, F> toNextStep<W extends FlowInterface<FlowInterface>>(
-    FutureOr<ResultDart<W, F>> Function(S success) fn,
-  ) async {
-    return then(
-      (result) => result.fold(
-        (success) {
-          resolve(success);
-          return fn(success);
-        },
-        (error) async {
-          await resolveError(error);
-          return Failure(error);
-        },
-      ),
-    );
-  }
-}
-
 extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
     on AsyncBabelResult<S> {
   AsyncBabelResult<W> toNextStep<W extends FlowInterface<FlowInterface>>(
@@ -166,12 +146,10 @@ extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
       (result) => result.fold(
         (success) {
           resolve(success);
-          // The returned type 'AsyncBabelResult<W>' isn't returnable from a 'FutureOr<ResultDart<AsyncBabelResult<S>, BabelFailureResponse>>' function, as required by the closure's context
-          // The returned type 'AsyncResultDart<AsyncBabelResult<W>, BabelFailureResponse>' isn't returnable from a 'FutureOr<ResultDart<AsyncBabelResult<S>, BabelFailureResponse>>' function, as required by the closure's context.
           return fn(success);
         },
         (error) async {
-          await resolveError(error.exception);
+          await resolveError(error);
           return Failure(error);
         },
       ),
@@ -192,30 +170,35 @@ void resolve(FlowInterface<FlowInterface> success) {
 }
 
 bool didAlreadyLogError = false;
-Future<void> resolveError(Exception error) async {
+Future<void> resolveError(BabelFailureResponse babelFailure) async {
   if (didAlreadyLogError) return;
   didAlreadyLogError = true;
   LoadingIndicator.instance.dispose();
   final Directory directory = lastCorrectState.directory;
   final bool willLog = lastCorrectState.shouldLog;
 
+  final BabelException babelException = babelFailure.exception;
+
   if (willLog) {
     final String errorTitle;
     final String errorDescription;
 
-    if (error is BabelException) {
-      errorTitle = error.title;
-      errorDescription = error.description;
-    } else {
-      errorTitle = 'An unexpected error occurred';
-      errorDescription = error.toString();
-    }
+    errorTitle = babelException.title;
+    errorDescription = babelException.description;
+
+    final Object? error = babelFailure.mapOrNull(
+      withErrorAndStackTrace: (value) => value.error,
+    );
+    final StackTrace? stackTrace = babelFailure.mapOrNull(
+      withErrorAndStackTrace: (value) => value.stackTrace,
+    );
 
     final lastSuccessStateInJson = lastCorrectState.toJson();
     final logPayload = {
       'errorTitle': errorTitle,
       'errorDescription': errorDescription,
       'error': error.toString(),
+      'stackTrace': stackTrace.toString(),
       'targetDirectory': directory.path,
       'lastSuccessState': lastSuccessStateInJson,
     };

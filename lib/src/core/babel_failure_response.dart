@@ -9,10 +9,6 @@ typedef AsyncBabelResult<T extends Object> =
     AsyncResultDart<T, BabelFailureResponse>;
 typedef SyncBabelResult<T extends Object> =
     ResultDart<Object, BabelFailureResponse>;
-// typedef AsyncBabelResult<T extends FlowInterface<FlowInterface>> =
-//     AsyncResultDart<T, BabelFailureResponse>;
-// typedef SyncBabelResult<T extends FlowInterface<FlowInterface>> =
-//     ResultDart<FlowInterface<FlowInterface>, BabelFailureResponse>;
 
 @freezed
 abstract class BabelFailureResponse with _$BabelFailureResponse {
