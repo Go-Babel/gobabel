@@ -76,10 +76,8 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
       for (int i = 0; i < groups.length; i++) {
         final group = groups[i];
         if (willHaveProgressBar) {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.setLoadingProgressBar(
             message: 'Creating human-friendly ARB keys...',
-            totalCount: groups.length,
-            step: i + 1,
             barProgressInfo: BarProgressInfo(
               message: 'Replacing hardcoded strings...',
               totalSteps: groups.length,
@@ -104,16 +102,6 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
 
     if (willHaveProgressBar) {
       await function();
-      LoadingIndicator.instance.dispose();
-    } else {
-      LoadingIndicator.instance.setLoadingState(
-        message: 'Creating human-friendly ARB keys...',
-        totalCount: 1,
-        step: 1,
-        barProgressInfo: null,
-      );
-      await function();
-      LoadingIndicator.instance.dispose();
     }
 
     // await saveStringData(combinedResults, 'combinedresults.json');

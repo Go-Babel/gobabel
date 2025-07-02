@@ -26,6 +26,7 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_project_git_dependencies.d
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/reset_all_changes_in_codebase_if_needed.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/resolve_hardcoded_strings_in_codebase.dart';
+import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/remote_project_related/download_reference_arb.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_project_cache_map.dart';
@@ -57,7 +58,8 @@ class GobabelConductor {
         .toNextStep(create_getProjectOriginUrl)
         .toNextStep(create_getProjectGitDependencies)
         .toNextStep(create_extractProjectCodeBase)
-        .toNextStep(create_createProject);
+        .toNextStep(create_createProject)
+        .log_if_needed;
   }
 
   AsyncBabelResult<void> sync({
@@ -78,7 +80,8 @@ class GobabelConductor {
         .toNextStep(sync_getProjectOriginUrl)
         .toNextStep(sync_getProjectGitDependencies)
         .toNextStep(sync_extractProjectCodeBase)
-        .toNextStep(sync_createProject);
+        .toNextStep(sync_createProject)
+        .log_if_needed;
   }
 
   AsyncBabelResult<void> generate({
@@ -126,6 +129,7 @@ class GobabelConductor {
         .toNextStep(generate_commitAllChangesUsecase)
         .toNextStep(generate_getBabelChangesCommit)
         .toNextStep(generate_uploadBabelTranslationsChangesCommitToServer)
-        .generate_resetIfError;
+        .generate_resetIfError
+        .log_if_needed;
   }
 }

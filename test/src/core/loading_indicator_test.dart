@@ -52,7 +52,7 @@ void main() {
     group('setLoadingState', () {
       test('should handle basic loading state', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Loading data',
             totalCount: 10,
             step: 3,
@@ -63,7 +63,7 @@ void main() {
 
       test('should handle loading state with progress bar', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Main task',
             totalCount: 5,
             step: 2,
@@ -79,7 +79,7 @@ void main() {
       test('should handle multiple calls in sequence', () {
         expect(() {
           for (int i = 1; i <= 5; i++) {
-            LoadingIndicator.instance.setLoadingState(
+            LoadingIndicator.instance.manageLoading(
               message: 'Step $i',
               totalCount: 5,
               step: i,
@@ -93,7 +93,7 @@ void main() {
     group('progress bar edge cases', () {
       test('should handle zero progress', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -108,7 +108,7 @@ void main() {
 
       test('should handle 100% progress', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -123,7 +123,7 @@ void main() {
 
       test('should handle current > total', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -138,7 +138,7 @@ void main() {
 
       test('should handle zero total steps', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -153,7 +153,7 @@ void main() {
 
       test('should handle negative values', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -171,7 +171,7 @@ void main() {
       test('should switch from single line to multi-line', () {
         expect(() {
           // Start with no progress bar
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Single line',
             totalCount: 1,
             step: 1,
@@ -179,7 +179,7 @@ void main() {
           );
 
           // Switch to progress bar
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Multi line',
             totalCount: 1,
             step: 1,
@@ -195,7 +195,7 @@ void main() {
       test('should switch from multi-line to single line', () {
         expect(() {
           // Start with progress bar
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Multi line',
             totalCount: 1,
             step: 1,
@@ -207,7 +207,7 @@ void main() {
           );
 
           // Switch to no progress bar
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Single line',
             totalCount: 1,
             step: 1,
@@ -220,7 +220,7 @@ void main() {
     group('displayError', () {
       test('should handle error display after loading', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Processing',
             totalCount: 1,
             step: 1,
@@ -241,7 +241,7 @@ void main() {
     group('dispose', () {
       test('should handle dispose after loading', () {
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1,
             step: 1,
@@ -270,7 +270,7 @@ void main() {
       test('should handle rapid state changes', () async {
         expect(() async {
           for (int i = 0; i < 10; i++) {
-            LoadingIndicator.instance.setLoadingState(
+            LoadingIndicator.instance.manageLoading(
               message: 'Rapid change $i',
               totalCount: 10,
               step: i + 1,
@@ -292,7 +292,7 @@ void main() {
         final longMessage = 'A' * 200;
 
         expect(() {
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: longMessage,
             totalCount: 1,
             step: 1,
@@ -308,7 +308,7 @@ void main() {
       test('should handle extreme progress values', () {
         expect(() {
           // Very large values
-          LoadingIndicator.instance.setLoadingState(
+          LoadingIndicator.instance.manageLoading(
             message: 'Test',
             totalCount: 1000000,
             step: 500000,
@@ -333,7 +333,7 @@ void main() {
           ];
 
           for (int i = 0; i < steps.length; i++) {
-            LoadingIndicator.instance.setLoadingState(
+            LoadingIndicator.instance.manageLoading(
               message: steps[i],
               totalCount: steps.length,
               step: i + 1,
@@ -360,7 +360,7 @@ void main() {
           // Test multiple switches to ensure clean function works correctly
           for (int i = 0; i < 5; i++) {
             // Multi-line with progress bar
-            LoadingIndicator.instance.setLoadingState(
+            LoadingIndicator.instance.manageLoading(
               message: 'With bar $i',
               totalCount: 5,
               step: i + 1,
@@ -372,7 +372,7 @@ void main() {
             );
 
             // Single line without progress bar
-            LoadingIndicator.instance.setLoadingState(
+            LoadingIndicator.instance.manageLoading(
               message: 'Without bar $i',
               totalCount: 5,
               step: i + 1,

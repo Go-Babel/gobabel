@@ -6,6 +6,7 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel_client/gobabel_client.dart';
+import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
@@ -75,7 +76,38 @@ class LoadingIndicator {
     return 80; // Default terminal width
   }
 
+  late int _totalCount;
+  late int _step;
+
+  void setLoadingProgressBar({
+    required String message,
+    required BarProgressInfo barProgressInfo,
+  }) {
+    manageLoading(
+      message: message,
+      totalCount: _totalCount,
+      step: _step,
+      barProgressInfo: barProgressInfo,
+    );
+  }
+
   void setLoadingState({
+    required String message,
+    required int totalCount,
+    required int step,
+  }) {
+    _totalCount = totalCount;
+    _step = step;
+    manageLoading(
+      message: message,
+      totalCount: totalCount,
+      step: step,
+      barProgressInfo: null,
+    );
+  }
+
+  @visibleForTesting
+  void manageLoading({
     required String message,
     required int totalCount,
     required int step,
@@ -165,7 +197,6 @@ void resolve(FlowInterface<FlowInterface> success) {
     message: success.message,
     step: success.stepCount,
     totalCount: success.maxAmountOfSteps,
-    barProgressInfo: null,
   );
 }
 
@@ -203,7 +234,7 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
       'lastSuccessState': lastSuccessStateInJson,
     };
 
-    await _saveStringData(
+    await saveStringData(
       dirr: directory,
       data: logPayload,
       fileName: 'gobabel_error_log.json',
@@ -214,7 +245,7 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
 }
 
 /// Saves data to a JSON file
-Future<void> _saveStringData({
+Future<void> saveStringData({
   required Directory dirr,
   required Map<String, dynamic> data,
   required String fileName,

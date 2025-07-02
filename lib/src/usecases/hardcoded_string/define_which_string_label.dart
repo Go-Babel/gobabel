@@ -68,11 +68,9 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
     for (int i = 0; i < groups.length; i++) {
       final group = groups[i];
       if (!isSmallAmountOfStrings) {
-        LoadingIndicator.instance.setLoadingState(
+        LoadingIndicator.instance.setLoadingProgressBar(
           message:
               'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-          totalCount: groups.length,
-          step: i + 1,
           barProgressInfo: BarProgressInfo(
             message: 'Analysing strings...',
             totalSteps: groups.length,
@@ -101,20 +99,7 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   }
 
   final BabelException? error;
-  if (isSmallAmountOfStrings) {
-    LoadingIndicator.instance.setLoadingState(
-      message:
-          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-      totalCount: 1,
-      step: 1,
-      barProgressInfo: null,
-    );
-    error = await function();
-    LoadingIndicator.instance.dispose();
-  } else {
-    error = await function();
-    LoadingIndicator.instance.dispose();
-  }
+  error = await function();
 
   if (error != null) {
     return BabelFailureResponse.onlyBabelException(

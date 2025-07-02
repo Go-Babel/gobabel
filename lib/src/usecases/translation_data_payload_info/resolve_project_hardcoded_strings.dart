@@ -51,12 +51,6 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
 
     // 1. Extract all strings from the files
     final List<HardcodedStringEntity> allStrings;
-    LoadingIndicator.instance.setLoadingState(
-      message: 'Extracting strings from ${targetFiles.length} files...',
-      totalCount: 1,
-      step: 1,
-      barProgressInfo: null,
-    );
     final extractResult = await extractAllStringsInDartUsecaseImpl(
       files: targetFiles,
     );

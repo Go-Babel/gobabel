@@ -16,14 +16,6 @@ AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
   required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings,
 }) async {
-  LoadingIndicator.instance.setLoadingState(
-    message:
-        'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',
-    totalCount: 1,
-    step: 1,
-    barProgressInfo: null,
-  );
-
   try {
     // ignore: prefer_function_declarations_over_variables
     final AsyncBabelResult<Unit> Function() processFunction = () async {
