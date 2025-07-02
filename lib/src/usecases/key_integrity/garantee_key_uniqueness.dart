@@ -1,8 +1,9 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<ProcessedKeyIntegrity> garanteeKeyUniqueness({
+AsyncBabelResult<ProcessedKeyIntegrity> garanteeKeyUniqueness({
   required TranslationKey key,
   required TranslationContent value,
 }) async {

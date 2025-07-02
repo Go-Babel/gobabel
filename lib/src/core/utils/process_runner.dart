@@ -1,9 +1,10 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<ProcessResult> runBabelProcess({
+AsyncBabelResult<ProcessResult> runBabelProcess({
   required String command,
   required String dirrPath,
 }) async {
@@ -26,12 +27,17 @@ AsyncResult<ProcessResult> runBabelProcess({
       shellArgs,
       workingDirectory: dirrPath,
     );
-    
+
     return Success(processResult);
-  } catch (e) {
-    return BabelException(
-      title: 'Process execution failed',
-      description: 'Failed to execute command "$command" in directory "$dirrPath". Error: ${e.toString()}',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Process execution failed',
+        description:
+            'Failed to execute command "$command" in directory "$dirrPath"',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }

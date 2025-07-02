@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -5,7 +6,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> createProject({
+AsyncBabelResult<Unit> createProject({
   required String accountApiKey,
   required Client client,
   required CodeBaseYamlInfo yamlInfo,
@@ -22,16 +23,20 @@ AsyncResult<Unit> createProject({
       accountApiKey: accountApiKey,
     );
     return Success(unit);
-  } catch (e) {
-    return BabelException(
-      title: 'Project Creation Failed',
-      description:
-          'Failed to create a new project on the GoBabel server. This could be due to network connectivity issues, invalid account API key, or server-side problems. Please verify your account API key is correct and try again. Error details: ${e.toString()}',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Project Creation Failed',
+        description:
+            'Failed to create a new project on the GoBabel server. This could be due to network connectivity issues, invalid account API key, or server-side problems. Please verify your account API key is correct and try again',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<CreateFlowCreatedProjectInGobabelServer> create_createProject(
+AsyncBabelResult<CreateFlowCreatedProjectInGobabelServer> create_createProject(
   CreateFlowExtractedProjectCodebase payload,
 ) async {
   final yamlInfo = payload.yamlInfo;

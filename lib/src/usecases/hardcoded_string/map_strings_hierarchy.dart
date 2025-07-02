@@ -1,10 +1,11 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<List<LabelsEntityRootLabel>> mapStringsHierarchy({
+AsyncBabelResult<List<LabelsEntityRootLabel>> mapStringsHierarchy({
   required List<HumanFriendlyArbKeyResponse> strings,
 }) async {
   // First, separate root strings (those without parent) from child strings

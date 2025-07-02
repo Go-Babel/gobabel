@@ -1,15 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 part 'babel_failure_response.freezed.dart';
 part 'babel_failure_response.g.dart';
 
-typedef BabelResult =
-    AsyncResultDart<FlowInterface<FlowInterface>, BabelFailureResponse>;
-typedef SyncBabelResult =
-    ResultDart<FlowInterface<FlowInterface>, BabelFailureResponse>;
+typedef AsyncBabelResult<T extends Object> =
+    AsyncResultDart<T, BabelFailureResponse>;
+typedef SyncBabelResult<T extends Object> =
+    ResultDart<Object, BabelFailureResponse>;
+// typedef AsyncBabelResult<T extends FlowInterface<FlowInterface>> =
+//     AsyncResultDart<T, BabelFailureResponse>;
+// typedef SyncBabelResult<T extends FlowInterface<FlowInterface>> =
+//     ResultDart<FlowInterface<FlowInterface>, BabelFailureResponse>;
 
 @freezed
 abstract class BabelFailureResponse with _$BabelFailureResponse {

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
@@ -11,9 +12,8 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 @override
-AsyncResult<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
-  required List<File> files,
-}) async {
+AsyncBabelResult<List<HardcodedStringEntity>>
+extractAllStringsInDartUsecaseImpl({required List<File> files}) async {
   final List<HardcodedStringEntity> allStrings = [];
 
   for (final file in files) {
@@ -22,11 +22,16 @@ AsyncResult<List<HardcodedStringEntity>> extractAllStringsInDartUsecaseImpl({
     final String content;
     try {
       content = await file.readAsString();
-    } catch (e) {
-      return BabelException(
-        title: 'File read error',
-        description: 'Failed to read file ${file.path}: $e '
-            'Please ensure the file exists and you have read permissions.',
+    } catch (error, stackTrace) {
+      return BabelFailureResponse.withErrorAndStackTrace(
+        exception: BabelException(
+          title: 'File read error',
+          description:
+              'Failed to read file ${file.path}\n'
+              'Please ensure the file exists and you have read permissions.',
+        ),
+        error: error,
+        stackTrace: stackTrace,
       ).toFailure();
     }
 

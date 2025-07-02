@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
@@ -149,6 +150,28 @@ extension MakeExt<S extends FlowInterface<FlowInterface>, F extends Exception>
         },
         (error) async {
           await resolveError(error);
+          return Failure(error);
+        },
+      ),
+    );
+  }
+}
+
+extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
+    on AsyncBabelResult<S> {
+  AsyncBabelResult<W> toNextStep<W extends FlowInterface<FlowInterface>>(
+    AsyncBabelResult<W> Function(S success) fn,
+  ) async {
+    return then(
+      (result) => result.fold(
+        (success) {
+          resolve(success);
+          // The returned type 'AsyncBabelResult<W>' isn't returnable from a 'FutureOr<ResultDart<AsyncBabelResult<S>, BabelFailureResponse>>' function, as required by the closure's context
+          // The returned type 'AsyncResultDart<AsyncBabelResult<W>, BabelFailureResponse>' isn't returnable from a 'FutureOr<ResultDart<AsyncBabelResult<S>, BabelFailureResponse>>' function, as required by the closure's context.
+          return fn(success);
+        },
+        (error) async {
+          await resolveError(error.exception);
           return Failure(error);
         },
       ),

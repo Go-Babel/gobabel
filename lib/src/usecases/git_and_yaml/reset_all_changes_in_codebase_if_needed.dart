@@ -1,12 +1,14 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
 // Run commands to reset all changes including untracked files
-AsyncResult<Unit> resetAllChangesInCodebaseIfNeeded({
+AsyncBabelResult<Unit> resetAllChangesInCodebaseIfNeeded({
   required Directory directory,
 }) async {
   final resetResultAsync = await runBabelProcess(
@@ -30,8 +32,8 @@ AsyncResult<Unit> resetAllChangesInCodebaseIfNeeded({
   return Success(unit);
 }
 
-extension MakeExt<F extends Object> on AsyncResult<GenerateFlowState> {
-  AsyncResult<GenerateFlowState> get generate_resetIfError async {
+extension MakeExt<F extends Object> on AsyncBabelResult<GenerateFlowState> {
+  AsyncBabelResult<GenerateFlowState> get generate_resetIfError async {
     if (await isError()) {
       final bool shouldReset = lastCorrectState.shouldReset;
       if (!shouldReset) return this;
@@ -41,8 +43,7 @@ extension MakeExt<F extends Object> on AsyncResult<GenerateFlowState> {
       );
 
       if (resetResponse.isError()) {
-        final exception = resetResponse.exceptionOrNull()!;
-        return Failure(exception);
+        return resetResponse.asBabelResultErrorAsync();
       }
     }
 

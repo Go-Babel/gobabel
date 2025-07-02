@@ -1,33 +1,38 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/file_utils.dart';
 import 'package:gobabel_client/gobabel_client.dart';
-import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> writeBabelTextFileIntoDirectory({
+AsyncBabelResult<Unit> writeBabelTextFileIntoDirectory({
   required String babelClass,
   required Directory directory,
 }) async {
   final babelPathResult = await getBabelTextFile(curr: directory);
   if (babelPathResult.isError()) {
-    return babelPathResult.asError();
+    return babelPathResult.asBabelResultErrorAsync();
   }
   final String babelPath = babelPathResult.getOrThrow();
   try {
     final file = File(babelPath);
     await file.writeAsString(babelClass, mode: FileMode.write);
     return Success(unit);
-  } catch (e, s) {
-    return BabelException(
-      title: 'Failed to write Babel text file',
-      description: 'Error writing Babel text file at $babelPath.\n\n$e\n\n$s',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to write Babel text file',
+        description: 'Error writing Babel text file at $babelPath',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowWrittedBabelClassInDartFile>
+AsyncBabelResult<GenerateFlowWrittedBabelClassInDartFile>
 generate_writeBabelTextFileIntoDirectory(
   GenerateFlowGeneratedBabelClass payload,
 ) async {

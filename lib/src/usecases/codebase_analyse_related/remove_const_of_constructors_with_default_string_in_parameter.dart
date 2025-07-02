@@ -3,10 +3,11 @@ import 'dart:io';
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit>
+AsyncBabelResult<Unit>
 multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
   required List<File> targetFiles,
 }) async {

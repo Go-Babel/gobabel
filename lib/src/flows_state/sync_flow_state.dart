@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -165,7 +166,7 @@ abstract class SyncFlowState
   bool get shouldReset => stepCount > 29;
 }
 
-AsyncResult<SyncFlowInitial> sync_initFlowState({
+AsyncBabelResult<SyncFlowInitial> sync_initFlowState({
   required bool willLog,
   required String accountApiKey,
   required String directoryPath,
@@ -177,13 +178,13 @@ AsyncResult<SyncFlowInitial> sync_initFlowState({
   );
   final existsDirectory = await syncFlowInitial.directory.exists();
   if (!existsDirectory) {
-    return Failure(
-      BabelException(
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
         title: 'Directory does not exist',
         description:
             'The directory at ${syncFlowInitial.directoryPath} does not exist.',
       ),
-    );
+    ).toFailure();
   }
 
   return syncFlowInitial.toSuccess();

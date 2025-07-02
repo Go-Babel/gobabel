@@ -2,6 +2,8 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
@@ -11,7 +13,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 @override
-AsyncResult<HumanFriendlyResponse>
+AsyncBabelResult<HumanFriendlyResponse>
 createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
   required Client client,
   required List<HardcodedStringEntity> strings,
@@ -51,9 +53,9 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
     final Map<L10nValue, Sha1> shaMap = {};
     final Map<Sha1, L10nValue> extractedStrings = {};
     for (final HardcodedStringEntity string in stringsNeedingGeneration) {
-      final sha1Result = generateSha1(string.value);
+      final sha1Result = await generateSha1(string.value);
       if (sha1Result.isError()) {
-        return sha1Result.asError();
+        return sha1Result.asBabelResultErrorAsync();
       }
       final key = sha1Result.getOrNull()!;
       extractedStrings[key] = string.value.trimHardcodedString;
@@ -127,19 +129,21 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
         value: string.value.trimHardcodedString,
       );
       if (garantedKeyIntegrityResponse.isError()) {
-        return garantedKeyIntegrityResponse.asError();
+        return garantedKeyIntegrityResponse.asBabelResultErrorAsync();
       }
       final ProcessedKeyIntegrity garantedKeyIntegrity =
           garantedKeyIntegrityResponse.getOrThrow();
 
       final camelCaseKey = garantedKeyIntegrity;
       if (camelCaseKey.isEmpty) {
-        return BabelException(
-          title: 'Empty ARB key generated',
-          description:
-              'The AI generated an empty key for the string "${string.value}". '
-              'This might happen with strings that contain only special characters or numbers. '
-              'Please check the string content and try again.',
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'Empty ARB key generated',
+            description:
+                'The AI generated an empty key for the string "${string.value}". '
+                'This might happen with strings that contain only special characters or numbers. '
+                'Please check the string content and try again.',
+          ),
         ).toFailure();
       }
       keyMap.add(HumanFriendlyArbKeyResponse(key: camelCaseKey, value: string));

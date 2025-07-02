@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> multiDartFixFormatUsecase({
+AsyncBabelResult<Unit> multiDartFixFormatUsecase({
   required String dirrPath,
   required List<File> targetFiles,
 }) async {
@@ -13,33 +15,33 @@ AsyncResult<Unit> multiDartFixFormatUsecase({
   }
 
   final Iterable<String> paths = targetFiles.map((e) => e.path);
-  
+
   // Format all files at once
   final formatResultAsync = await runBabelProcess(
     command: 'dart format ${paths.join(' ')}',
     dirrPath: dirrPath,
   );
-  
+
   if (formatResultAsync.isError()) {
-    return Failure(formatResultAsync.exceptionOrNull()!);
+    return formatResultAsync.asBabelResultErrorAsync();
   }
-  
+
   // Apply dart fix to each file
   for (final String path in paths) {
     final fixResultAsync = await runBabelProcess(
       command: 'dart fix --apply $path',
       dirrPath: dirrPath,
     );
-    
+
     if (fixResultAsync.isError()) {
       return Failure(fixResultAsync.exceptionOrNull()!);
     }
   }
-  
+
   return Success(unit);
 }
 
-AsyncResult<GenerateFlowAppliedCodebaseGeneralDartFixes>
+AsyncBabelResult<GenerateFlowAppliedCodebaseGeneralDartFixes>
 generate_multiDartFixFormatUsecase(
   GenerateFlowReplacedHardcodedStringsForBabelText payload,
 ) async {

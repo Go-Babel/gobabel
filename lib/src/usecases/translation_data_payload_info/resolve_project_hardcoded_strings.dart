@@ -2,6 +2,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -26,7 +28,7 @@ class ResolveProjectHardcodedStrings {
   });
 }
 
-AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
+AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
   required Client client,
   required bool generateLogs,
   required String projectApiToken,
@@ -60,7 +62,7 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     );
     LoadingIndicator.instance.dispose();
     if (extractResult.isError()) {
-      return extractResult.asError();
+      return extractResult.asBabelResultErrorAsync();
     }
     allStrings = extractResult.getOrThrow();
 
@@ -79,7 +81,7 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       projectShaIdentifier: projectShaIdentifier,
     );
     if (labelStringsResult.isError()) {
-      return labelStringsResult.asError();
+      return labelStringsResult.asBabelResultErrorAsync();
     }
     final labelStrings = labelStringsResult.getOrThrow();
 
@@ -100,7 +102,7 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
           projectHardcodedStringKeyCache: hardcodedStringToKeyCache,
         );
     if (humanFriendlyResult.isError()) {
-      return humanFriendlyResult.asError();
+      return humanFriendlyResult.asBabelResultErrorAsync();
     }
     final humanFriendlyResponse = humanFriendlyResult.getOrThrow();
 
@@ -124,7 +126,7 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       strings: keyedStrings,
     );
     if (labelEntitiesResult.isError()) {
-      return labelEntitiesResult.asError();
+      return labelEntitiesResult.asBabelResultErrorAsync();
     }
     final labelEntities = labelEntitiesResult.getOrThrow();
     if (generateLogs) {
@@ -142,7 +144,7 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       keyToImplementation: keyToImplementation,
     );
     if (babelLabelsResult.isError()) {
-      return babelLabelsResult.asError();
+      return babelLabelsResult.asBabelResultErrorAsync();
     }
     final babelLabels = babelLabelsResult.getOrThrow();
 
@@ -195,11 +197,15 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
         ),
       ),
     );
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to resolve codebase project',
-      description:
-          'An error occurred while analyzing and extracting hardcoded strings from your codebase. Please check your project files and try again. Error details: $e',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to resolve codebase project',
+        description:
+            'An error occurred while analyzing and extracting hardcoded strings from your codebase. Please check your project files and try again',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
@@ -219,7 +225,7 @@ Future<void> saveStringData(Map<String, dynamic> data, String fileName) async {
   await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }
 
-AsyncResult<GenerateFlowResolvedHardcodedStrings>
+AsyncBabelResult<GenerateFlowResolvedHardcodedStrings>
 generate_resolveCodebaseHardcodedStringsProject(
   GenerateFlowCodebaseNormalized payload,
 ) async {

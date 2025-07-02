@@ -1,3 +1,5 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
@@ -5,7 +7,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
+AsyncBabelResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
   ProjectCacheMap projectCacheMap,
 ) async {
   try {
@@ -19,12 +21,10 @@ AsyncResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
     for (final entry in projectCacheMap.hardcodedStringToArbKeyMap.entries) {
       final TranslationKey key = entry.key;
       final HardCodedString value = entry.value;
-      final integrityKeyResponse = await garanteeKeyIntegrity(
-        key: key,
-        value: value,
-      );
+      final ResultDart<String, BabelFailureResponse> integrityKeyResponse =
+          await garanteeKeyIntegrity(key: key, value: value);
       if (integrityKeyResponse.isError()) {
-        return integrityKeyResponse.asError();
+        return integrityKeyResponse.asBabelResultErrorAsync();
       }
       final ProcessedKeyIntegrity processedKey =
           integrityKeyResponse.getOrThrow();
@@ -59,15 +59,20 @@ AsyncResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
       keyToContextsPaths: {},
     );
     return payloadInfo.toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to create translation payload',
-      description: 'Unable to process the project cache and create translation payload. This may be due to corrupted cache data or missing translation keys. Error details: $e',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to create translation payload',
+        description:
+            'Unable to process the project cache and create translation payload. This may be due to corrupted cache data or missing translation keys.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowResolvedProjectCacheTranslation>
+AsyncBabelResult<GenerateFlowResolvedProjectCacheTranslation>
 generate_resolveProjectCacheTranslationPayload(
   GenerateFlowProjectCacheMap payload,
 ) {

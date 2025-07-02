@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
+AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
   required Directory curr,
 }) async {
   try {
@@ -123,10 +124,15 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
     }
 
     return projectConfig?.toSuccess() ?? L10nProjectConfig.noData().toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to Read YAML Configuration',
-      description: 'An error occurred while reading YAML configuration files in directory "${curr.path}".\n\nError details: ${e.toString()}\n\nThis could be due to file permissions, corrupted files, or invalid YAML syntax. Please check that all YAML files in the directory are accessible and properly formatted.',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to Read YAML Configuration',
+        description:
+            'An error occurred while reading YAML configuration files in directory "${curr.path}"',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
@@ -135,7 +141,7 @@ AsyncResult<L10nProjectConfig> getProjectYamlConfigUsecase({
 const String _defaultArbDir = 'lib/l10n';
 const String _templateArbFile = 'app_en.arb';
 
-AsyncResult<GenerateFlowGotL10nProjectConfig>
+AsyncBabelResult<GenerateFlowGotL10nProjectConfig>
 generate_getProjectYamlConfigUsecase(GenerateFlowGotTargetFiles payload) async {
   final directory = payload.directory;
   final result = await getProjectYamlConfigUsecase(curr: directory);

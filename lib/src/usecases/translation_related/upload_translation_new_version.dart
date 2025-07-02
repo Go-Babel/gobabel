@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -5,7 +6,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<GenerateHistory> uploadTranslationNewVersion({
+AsyncBabelResult<GenerateHistory> uploadTranslationNewVersion({
   required Client client,
   required GitVariables gitVariables,
   required String projectApiToken,
@@ -38,10 +39,15 @@ AsyncResult<GenerateHistory> uploadTranslationNewVersion({
     );
 
     return generatedHistory.toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to upload translations',
-      description: 'Unable to upload the new translation version to the server. This may be due to network issues, invalid API key, or server problems. Please check your API key and internet connection. Error details: $e',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to upload translations',
+        description:
+            'Unable to upload the new translation version to the server. This may be due to network issues, invalid API key, or server problems. Please check your API key and internet connection',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
@@ -78,7 +84,7 @@ _createTranslationStream(
   }
 }
 
-AsyncResult<GenerateFlowUploadedNewTranslations>
+AsyncBabelResult<GenerateFlowUploadedNewTranslations>
 generate_uploadTranslationNewVersion(
   GenerateFlowTranslatedNewStringsArb payload,
 ) {

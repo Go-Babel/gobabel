@@ -6,10 +6,11 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> multiMoveHardCodedStringParamUseCase({
+AsyncBabelResult<Unit> multiMoveHardCodedStringParamUseCase({
   required List<File> targetFiles,
 }) async {
   try {
@@ -21,20 +22,27 @@ AsyncResult<Unit> multiMoveHardCodedStringParamUseCase({
       }
     }
     return Success(unit);
-  } on BabelException catch (e) {
-    return e.toFailure();
-  } catch (e, s) {
-    return BabelException(
-      title: 'Parameter Transformation Failed',
-      description: 'Failed to transform hardcoded string parameters in constructor.\n\n'
-          'Error: $e\n\n'
-          'Stack trace: $s\n\n'
-          'This transformation moves default string values from constructor parameters '
-          'to the constructor body. This may fail if:\n'
-          '• The file has syntax errors\n'
-          '• The file uses unsupported Dart language features\n'
-          '• File permissions prevent reading or writing\n'
-          '• The AST structure is unexpected',
+  } on BabelException catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: error,
+      error: 'Parameter transformation failed',
+      stackTrace: stackTrace,
+    ).toFailure();
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Parameter Transformation Failed',
+        description:
+            'Failed to transform hardcoded string parameters in constructor.\n\n'
+            'This transformation moves default string values from constructor parameters '
+            'to the constructor body. This may fail if:\n'
+            '• The file has syntax errors\n'
+            '• The file uses unsupported Dart language features\n'
+            '• File permissions prevent reading or writing\n'
+            '• The AST structure is unexpected',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
@@ -49,7 +57,8 @@ String singleMoveHardCodedStringParamUseCase(String source) {
   if (parseResult.errors.isNotEmpty) {
     throw BabelException(
       title: 'Dart Parse Error',
-      description: 'Failed to parse Dart file due to syntax errors.\n\n'
+      description:
+          'Failed to parse Dart file due to syntax errors.\n\n'
           'Parse errors: ${parseResult.errors.map((e) => '• ${e.message} at line ${e.offset}').join('\n')}\n\n'
           'Common causes:\n'
           '• Missing semicolons or brackets\n'

@@ -2,11 +2,10 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/gobabel_conductor.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/terminal_textfield.dart';
-import 'package:gobabel_client/gobabel_client.dart';
+import 'package:gobabel/src/gobabel_conductor.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:result_dart/result_dart.dart';
 import 'package:yaml/yaml.dart';
 
 // Helper function to get required parameter interactively if not provided
@@ -268,7 +267,7 @@ Future<void> main(List<String> arguments) async {
 
 Future<void> runInTryCatch({
   required String errorMessage,
-  required AsyncResult<void> operation,
+  required AsyncBabelResult<void> operation,
 }) async {
   final result = await operation;
   result.fold(
@@ -278,18 +277,22 @@ Future<void> runInTryCatch({
     },
     // Failure case
     (failure) {
-      // Check if the failure contains a BabelException
-      if (failure is BabelException) {
-        stdout.writeln(
+      String suffixMessage = '';
+      failure.whenOrNull(
+        withErrorAndStackTrace: (_, error, stackTrace) {
+          suffixMessage =
+              '\n\n${'Error: "$error"'.darkOrange}\n${"Stack Trace:".darkOrange}\n$stackTrace';
+        },
+      );
+
+      final mainMessage =
           '\n❌ $errorMessage:\n'.red +
-              "[ ${failure.title} ]".darkOrange +
-              '\n${failure.description}'.red,
-        );
-      } else {
-        // Handle other exceptions
-        final message = failure.toString().replaceAll('Exception: ', '');
-        print('\n❌ $errorMessage:\n$message'.darkOrange);
-      }
+          "[ ${failure.exception.title} ]\n".darkOrange +
+          failure.exception.description.red +
+          suffixMessage;
+
+      stdout.writeln(mainMessage);
+
       exit(1);
     },
   );

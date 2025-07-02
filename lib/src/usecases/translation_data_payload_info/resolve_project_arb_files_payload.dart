@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
@@ -16,7 +18,7 @@ class ResolveProjectArbFilesPayloadResponse {
   });
 }
 
-AsyncResult<ResolveProjectArbFilesPayloadResponse>
+AsyncBabelResult<ResolveProjectArbFilesPayloadResponse>
 resolveProjectArbFilesPayload({
   required ArbDataState arbDataState,
   required TranslationPayloadInfo currentPayloadInfo,
@@ -54,7 +56,7 @@ resolveProjectArbFilesPayload({
         value: value,
       );
       if (integrityKeyResponse.isError()) {
-        return integrityKeyResponse.asError();
+        return integrityKeyResponse.asBabelResultErrorAsync();
       }
       final ProcessedKeyIntegrity processedKey =
           integrityKeyResponse.getOrThrow();
@@ -89,15 +91,20 @@ resolveProjectArbFilesPayload({
       payloadInfo: payloadInfo,
       remapedArbKeys: remapedArbKeys,
     ).toSuccess();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to process ARB files',
-      description: 'An error occurred while processing existing ARB translation files. Please ensure your ARB files are properly formatted and contain valid JSON. Error details: $e',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to process ARB files',
+        description:
+            'An error occurred while processing existing ARB translation files. Please ensure your ARB files are properly formatted and contain valid JSON.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowResolvedProjectArbTranslationPayload>
+AsyncBabelResult<GenerateFlowResolvedProjectArbTranslationPayload>
 generate_resolveProjectArbFilesPayload(
   GenerateFlowMappedProjectArbData payload,
 ) {

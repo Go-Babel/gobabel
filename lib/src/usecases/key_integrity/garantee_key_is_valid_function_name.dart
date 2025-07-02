@@ -1,8 +1,9 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<ProcessedKeyIntegrity> garanteeKeyIsValidFunctionName({
+AsyncBabelResult<ProcessedKeyIntegrity> garanteeKeyIsValidFunctionName({
   required TranslationKey key,
 }) async {
   // Thease parts will throw the error "expected_identifier_but_got_keyword" if used as a function name

@@ -1,9 +1,10 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
+AsyncBabelResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
   required String dirrPath,
   required String commit1,
   required String commit2,
@@ -13,39 +14,39 @@ AsyncResult<Set<FilePath>> getChangedFilesPathBetweenCommits({
     dirrPath: dirrPath,
   );
 
-  return resultAsync.fold(
-    (result) {
-      // Check if the command executed successfully
-      if (result.exitCode != 0) {
-        return BabelException(
+  return resultAsync.fold((result) {
+    // Check if the command executed successfully
+    if (result.exitCode != 0) {
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
           title: 'Git diff command failed',
-          description: 'Failed to get changed files between commits $commit1 and $commit2.\nGit error: ${result.stderr}\n\nPlease ensure both commits exist in the repository.',
-        ).toFailure();
-      }
+          description:
+              'Failed to get changed files between commits $commit1 and $commit2.\nGit error: ${result.stderr}\n\nPlease ensure both commits exist in the repository.',
+        ),
+      ).toFailure();
+    }
 
-      // Convert the output to a string and split it into a list of file paths
-      final output = result.stdout as String;
-      final files =
-          output
-              .split('\n') // Split by newline to get individual paths
-              .map((line) => line.trim()) // Trim whitespace from each path
-              .where(
-                (line) =>
-                    // Remove empty lines
-                    line.isNotEmpty &&
-                    // Filter for Dart files
-                    line.endsWith('.dart') &&
-                    !line.contains('test/') &&
-                    line.contains('lib/') &&
-                    !line.contains('.g.dart') &&
-                    !line.contains('.freezed.dart') &&
-                    !line.contains('.gen.dart'),
-              )
-              .toList()
-              .toSet();
+    // Convert the output to a string and split it into a list of file paths
+    final output = result.stdout as String;
+    final files =
+        output
+            .split('\n') // Split by newline to get individual paths
+            .map((line) => line.trim()) // Trim whitespace from each path
+            .where(
+              (line) =>
+                  // Remove empty lines
+                  line.isNotEmpty &&
+                  // Filter for Dart files
+                  line.endsWith('.dart') &&
+                  !line.contains('test/') &&
+                  line.contains('lib/') &&
+                  !line.contains('.g.dart') &&
+                  !line.contains('.freezed.dart') &&
+                  !line.contains('.gen.dart'),
+            )
+            .toList()
+            .toSet();
 
-      return files.toSuccess();
-    },
-    (failure) => Failure(failure),
-  );
+    return files.toSuccess();
+  }, (failure) => failure.toFailure());
 }

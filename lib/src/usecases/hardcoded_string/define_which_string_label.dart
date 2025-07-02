@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
@@ -13,7 +15,7 @@ bool shouldAutomaticallyBeConsideredAValidString(String value) {
 }
 
 @override
-AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
+AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   required List<HardcodedStringEntity> strings,
   required Client client,
   required String projectApiToken,
@@ -44,9 +46,9 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   final Map<L10nValue, Sha1> shaMap = {};
   final Map<Sha1, L10nValue> extractedStrings = {};
   for (final string in stringsNeedingValidation) {
-    final sha1Result = generateSha1(string.value);
+    final sha1Result = await generateSha1(string.value);
     if (sha1Result.isError()) {
-      return sha1Result.asError();
+      return sha1Result.asBabelResultErrorAsync();
     }
     final valueSha1 = sha1Result.getOrNull()!;
     extractedStrings[valueSha1] = string.value.trimHardcodedString;
@@ -115,7 +117,9 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   }
 
   if (error != null) {
-    return error.toFailure();
+    return BabelFailureResponse.onlyBabelException(
+      exception: error,
+    ).toFailure();
   }
 
   // Filter the strings that needed validation based on the server responses

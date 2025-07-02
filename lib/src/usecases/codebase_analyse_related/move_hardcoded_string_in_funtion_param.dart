@@ -5,10 +5,11 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/token.dart'; // Added import for Token
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> multiMoveHardcodedStringInFuntionParamUsecase({
+AsyncBabelResult<Unit> multiMoveHardcodedStringInFuntionParamUsecase({
   required List<File> targetFiles,
 }) async {
   for (final file in targetFiles) {

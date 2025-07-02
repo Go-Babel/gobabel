@@ -1,12 +1,13 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> addBabelInitializationToMainUsecase({
+AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
   required Directory directory,
   required CodeBaseYamlInfo codeBaseYamlInfo,
 }) async {
@@ -23,23 +24,30 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
   }
 
   if (!await mainFile.exists()) {
-    return BabelException(
-      title: 'Main file not found',
-      description: 'Could not locate the main.dart file in the expected location. '
-          'For Flutter projects, it should be at lib/main.dart. '
-          'For Dart projects, it should be at bin/$projectName.dart or bin/main.dart.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Main file not found',
+        description:
+            'Could not locate the main.dart file in the expected location. '
+            'For Flutter projects, it should be at lib/main.dart. '
+            'For Dart projects, it should be at bin/$projectName.dart or bin/main.dart.',
+      ),
     ).toFailure();
   }
 
   String fileContent;
   try {
     fileContent = await mainFile.readAsString();
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to read main file',
-      description: 'Could not read the main.dart file. '
-          'Please check that the file exists and you have read permissions. '
-          'Error: ${e.toString()}',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to read main file',
+        description:
+            'Could not read the main.dart file. '
+            'Please check that the file exists and you have read permissions',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 
@@ -53,10 +61,13 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
   );
   final match = mainRegex.firstMatch(fileContent);
   if (match == null) {
-    return BabelException(
-      title: 'No main() function found',
-      description: 'Could not find a main() function in the main.dart file. '
-          'Please ensure your main.dart file contains a valid main() function declaration.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'No main() function found',
+        description:
+            'Could not find a main() function in the main.dart file. '
+            'Please ensure your main.dart file contains a valid main() function declaration.',
+      ),
     ).toFailure();
   }
 
@@ -77,19 +88,23 @@ AsyncResult<Unit> addBabelInitializationToMainUsecase({
 
   try {
     await mainFile.writeAsString(fileContent);
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to write to main file',
-      description: 'Could not write the Babel initialization to the main.dart file. '
-          'Please check that you have write permissions to the file. '
-          'Error: ${e.toString()}',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to write to main file',
+        description:
+            'Could not write the Babel initialization to the main.dart file. '
+            'Please check that you have write permissions to the file.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 
   return Success(unit);
 }
 
-AsyncResult<GenerateFlowAddedBabelClassInitializationInMain>
+AsyncBabelResult<GenerateFlowAddedBabelClassInitializationInMain>
 generate_addBabelInitializationToMainUsecase(
   GenerateFlowWrittedBabelClassInDartFile payload,
 ) {

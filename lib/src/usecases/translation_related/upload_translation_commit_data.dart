@@ -1,9 +1,10 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> uploadBabelTranslationsChangesCommitToServer({
+AsyncBabelResult<Unit> uploadBabelTranslationsChangesCommitToServer({
   required Client client,
   required GitVariables gitVariables,
   required GitCommit babelGitCommit,
@@ -16,15 +17,20 @@ AsyncResult<Unit> uploadBabelTranslationsChangesCommitToServer({
       generateHistoryId: historyItem.id!,
     );
     return Success(unit);
-  } catch (e) {
-    return BabelException(
-      title: 'Failed to upload commit data',
-      description: 'Unable to upload the translation commit data to the server. This may be due to API connection issues or invalid project credentials. Please verify your API key and try again. Error details: $e',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to upload commit data',
+        description:
+            'Unable to upload the translation commit data to the server. This may be due to API connection issues or invalid project credentials. Please verify your API key and try again',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowSincronizedBabelCommitWithApi>
+AsyncBabelResult<GenerateFlowSincronizedBabelCommitWithApi>
 generate_uploadBabelTranslationsChangesCommitToServer(
   GenerateFlowGetBabelChangesCommit payload,
 ) {

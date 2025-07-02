@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -6,7 +7,7 @@ import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<GitVariables> getProjectGitDependencies({
+AsyncBabelResult<GitVariables> getProjectGitDependencies({
   required String dirrPath,
   required GitCommit previousCommit,
   required GitUser user,
@@ -17,50 +18,52 @@ AsyncResult<GitVariables> getProjectGitDependencies({
     command: 'git rev-list --parents --reverse HEAD | head -2',
     dirrPath: dirrPath,
   );
-  
-  return resultAsync.fold(
-    (result) {
-      try {
-        final shas = '${result.stdout}'.trim().split('\n');
-        if (shas.length < 2) {
-          return BabelException(
+
+  return resultAsync.fold((result) {
+    try {
+      final shas = '${result.stdout}'.trim().split('\n');
+      if (shas.length < 2) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
             title: 'Insufficient Git history',
             description:
                 'Your project should have at least 2 commits. '
                 'Commit SHAs are used as unique identifiers in the GoBabel system. '
                 'Please make at least 2 commits before running this command. '
                 'Current path: $dirrPath',
-          ).toFailure();
-        }
-        final projectShaIdentifierText = shas[1].trim().replaceAll(' ', '');
-        final BigInt projectShaIdentifier = BigInt.parse(
-          projectShaIdentifierText,
-          radix: 16,
-        );
-        final latestShaIdentifier = shas[0].trim();
-        return GitVariables(
-          user: user,
-          previousCommit: previousCommit,
-          originUrl: originUrl,
-          latestShaIdentifier: latestShaIdentifier,
-          projectShaIdentifier: projectShaIdentifier,
-        ).toSuccess();
-      } catch (e) {
-        return BabelException(
+          ),
+        ).toFailure();
+      }
+      final projectShaIdentifierText = shas[1].trim().replaceAll(' ', '');
+      final BigInt projectShaIdentifier = BigInt.parse(
+        projectShaIdentifierText,
+        radix: 16,
+      );
+      final latestShaIdentifier = shas[0].trim();
+      return GitVariables(
+        user: user,
+        previousCommit: previousCommit,
+        originUrl: originUrl,
+        latestShaIdentifier: latestShaIdentifier,
+        projectShaIdentifier: projectShaIdentifier,
+      ).toSuccess();
+    } catch (error, stackTrace) {
+      return BabelFailureResponse.withErrorAndStackTrace(
+        exception: BabelException(
           title: 'Failed to get project dependencies',
           description:
               'Failed to retrieve Git project dependencies. '
               'If this is a new project, please run the create command first. '
-              'Also verify that your API token is valid and correctly typed. '
-              'Error details: ${e.toString().replaceAll('Exception: ', '')}',
-        ).toFailure();
-      }
-    },
-    (failure) => Failure(failure),
-  );
+              'Also verify that your API token is valid and correctly typed.',
+        ),
+        error: error,
+        stackTrace: stackTrace,
+      ).toFailure();
+    }
+  }, (failure) => Failure(failure));
 }
 
-AsyncResult<CreateFlowGotGitVariables> create_getProjectGitDependencies(
+AsyncBabelResult<CreateFlowGotGitVariables> create_getProjectGitDependencies(
   CreateFlowGotProjectOriginUrl payload,
 ) async {
   final dirrPath = payload.directoryPath;
@@ -87,7 +90,7 @@ AsyncResult<CreateFlowGotGitVariables> create_getProjectGitDependencies(
   });
 }
 
-AsyncResult<SyncFlowGotGitVariables> sync_getProjectGitDependencies(
+AsyncBabelResult<SyncFlowGotGitVariables> sync_getProjectGitDependencies(
   SyncFlowGotProjectOriginUrl payload,
 ) async {
   final dirrPath = payload.directoryPath;
@@ -114,7 +117,8 @@ AsyncResult<SyncFlowGotGitVariables> sync_getProjectGitDependencies(
   });
 }
 
-AsyncResult<GenerateFlowGotGitVariables> generate_getProjectGitDependencies(
+AsyncBabelResult<GenerateFlowGotGitVariables>
+generate_getProjectGitDependencies(
   GenerateFlowGotProjectOriginUrl payload,
 ) async {
   final dirrPath = payload.directoryPath;

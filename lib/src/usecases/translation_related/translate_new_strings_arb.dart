@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -6,7 +7,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 /// Translates new ARB strings for all project languages except the reference.
-AsyncResult<
+AsyncBabelResult<
   Map<LanguageCode, Map<CountryCode, Map<TranslationKey, TranslationContent>>>
 >
 translateNewStringsArb({
@@ -57,10 +58,15 @@ translateNewStringsArb({
       madeTranslations[projectLanguage.languageCode]![projectLanguage
               .countryCode] =
           result;
-    } catch (e) {
-      return BabelException(
-        title: 'Translation API request failed',
-        description: 'Failed to translate ARB strings for ${projectLanguage.languageCode}_${projectLanguage.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection. Error details: $e',
+    } catch (error, stackTrace) {
+      return BabelFailureResponse.withErrorAndStackTrace(
+        exception: BabelException(
+          title: 'Translation API request failed',
+          description:
+              'Failed to translate ARB strings for ${projectLanguage.languageCode}_${projectLanguage.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection',
+        ),
+        error: error,
+        stackTrace: stackTrace,
       ).toFailure();
     }
   }
@@ -69,7 +75,7 @@ translateNewStringsArb({
 }
 
 /// Builder for the generate flow state
-AsyncResult<GenerateFlowTranslatedNewStringsArb>
+AsyncBabelResult<GenerateFlowTranslatedNewStringsArb>
 generate_translateNewStringsArb(GenerateFlowExtractedCodeBase payload) async {
   return translateNewStringsArb(
     projectApiToken: payload.projectApiToken,

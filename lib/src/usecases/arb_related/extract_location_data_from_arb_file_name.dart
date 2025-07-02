@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<BabelSupportedLocales> extractFromArbFileName({
+AsyncBabelResult<BabelSupportedLocales> extractFromArbFileName({
   required String filename,
 }) async {
   // Maybe its a full path, so we extract the file name
@@ -14,9 +16,9 @@ AsyncResult<BabelSupportedLocales> extractFromArbFileName({
           ? filename.split(Platform.pathSeparator).last
           : filename;
 
-  final extractedResponse = _extract(filename);
+  final extractedResponse = await _extract(filename);
   if (extractedResponse.isError()) {
-    return extractedResponse.asErrorAsync();
+    return extractedResponse.asBabelResultErrorAsync();
   }
 
   final extracted = extractedResponse.getOrThrow();
@@ -41,13 +43,19 @@ AsyncResult<BabelSupportedLocales> extractFromArbFileName({
   }
 
   // Throw exception if no valid format is found
-  return BabelException(
-    title: 'Invalid ARB Filename Format',
-    description: 'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
+  return BabelFailureResponse.onlyBabelException(
+    exception: BabelException(
+      title: 'Invalid ARB Filename Format',
+      description:
+          'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
+    ),
   ).toFailure();
 }
 
-Result<({String languageCode, String? countryCode})> _extract(String filename) {
+AsyncBabelResult<({String languageCode, String? countryCode})> _extract(
+  String filename,
+) async {
+  // ResultDart<({String languageCode, String? countryCode}), BabelFailureResponse> _extract(String filename) {
   // Remove 'app_' prefix and '.arb' suffix if present
   String cleaned;
 
@@ -97,8 +105,11 @@ Result<({String languageCode, String? countryCode})> _extract(String filename) {
   }
 
   // Throw exception if no valid format is found
-  return BabelException(
-    title: 'Invalid ARB Filename Format',
-    description: 'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
+  return BabelFailureResponse.onlyBabelException(
+    exception: BabelException(
+      title: 'Invalid ARB Filename Format',
+      description:
+          'The filename "$filename" does not follow the expected ARB naming convention.\n\nExpected format: "<base_name>_<languageCode>_<countryCode>.arb"\n\nValid examples (assuming base name is "app"):\n- app_en.arb (English)\n- app_en_US.arb (English - United States)\n- app_pt_BR.arb (Portuguese - Brazil)\n\nThe language code must be 2 characters and the country code (if provided) must also be 2 characters.',
+    ),
   ).toFailure();
 }

@@ -1,9 +1,10 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<ProjectCacheMap> getProjectCacheMap({
+AsyncBabelResult<ProjectCacheMap> getProjectCacheMap({
   required String projectApiToken,
   required GitVariables gitVariables,
   required Client client,
@@ -15,18 +16,23 @@ AsyncResult<ProjectCacheMap> getProjectCacheMap({
           projectShaIdentifier: gitVariables.projectShaIdentifier,
         );
     return cache.toSuccess();
-  } catch (_) {
-    return BabelException(
-      title: 'Failed to retrieve project cache',
-      description: 'Unable to fetch the project cache map from the server. '
-          'This could be due to network issues, invalid API key, '
-          'or the project not being properly initialized. '
-          'Please verify your credentials and connection.',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to retrieve project cache',
+        description:
+            'Unable to fetch the project cache map from the server. '
+            'This could be due to network issues, invalid API key, '
+            'or the project not being properly initialized. '
+            'Please verify your credentials and connection.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
+AsyncBabelResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
   GenerateFlowDownloadReferenceArb payload,
 ) async {
   final projectApiToken = payload.projectApiToken;

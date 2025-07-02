@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
@@ -845,7 +846,7 @@ abstract class GenerateFlowState
   bool get shouldReset => stepCount > 29;
 }
 
-AsyncResult<GenerateFlowInitial> generate_initFlowState({
+AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
   required bool willLog,
   required String projectApiToken,
   required String directoryPath,
@@ -859,13 +860,13 @@ AsyncResult<GenerateFlowInitial> generate_initFlowState({
   );
   final existsDirectory = await createFlowInitial.directory.exists();
   if (!existsDirectory) {
-    return Failure(
-      BabelException(
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
         title: 'Directory does not exist',
         description:
             'The directory at ${createFlowInitial.directoryPath} does not exist.',
       ),
-    );
+    ).toFailure();
   }
 
   return createFlowInitial.toSuccess();

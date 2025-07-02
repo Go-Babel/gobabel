@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:enchanted_collection/enchanted_collection.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
@@ -10,7 +12,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<ArbDataState> mapProjectArbDataUsecase({
+AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
   required L10nProjectConfig n10nProjectConfig,
   required int maxLanguageCount,
   required Directory directory,
@@ -35,10 +37,15 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
             .whereType<File>()
             .where((file) => file.path.endsWith('.arb'))
             .toList();
-  } catch (e) {
-    return BabelException(
-      title: 'Directory Listing Error',
-      description: 'Failed to list ARB files in directory "${directory.path}".\n\nError: ${e.toString()}\n\nThis could be due to:\n- Directory does not exist\n- Insufficient permissions to read the directory\n- Symbolic link issues\n\nPlease ensure the directory exists and is accessible.',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Directory Listing Error',
+        description:
+            'Failed to list ARB files in directory "${directory.path}"\n\nPlease ensure the directory exists and is accessible.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 
@@ -46,7 +53,7 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
     allFiles,
   );
   if (extractedFileDataResponse.isError()) {
-    return extractedFileDataResponse.asErrorAsync();
+    return extractedFileDataResponse.asBabelResultErrorAsync();
   }
 
   final List<ExtractArbDataResponse> allArbData = [
@@ -60,9 +67,11 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
           'The project subscription plan allows a maximum of $maxAmountOfLanguagesInProjectPlanTier languages.\n'
           'The project has ${allArbData.length} languages.\n'
           'Please ${"remove".hotPink} the extra languages from the project or ${"upgrade".greenYellow} the plan to a one that suports more languages.';
-      return BabelException(
-        title: 'Language Limit Exceeded',
-        description: message,
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
+          title: 'Language Limit Exceeded',
+          description: message,
+        ),
       ).toFailure();
     }
   }
@@ -113,9 +122,12 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
   );
 
   if (pendingKeys.isNotEmpty) {
-    return BabelException(
-      title: 'Missing Keys in Reference ARB',
-      description: 'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => "- $e").join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Missing Keys in Reference ARB',
+        description:
+            'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => "- $e").join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+      ),
     ).toFailure();
   }
 
@@ -154,11 +166,13 @@ AsyncResult<ArbDataState> mapProjectArbDataUsecase({
   );
 
   if (containsInputedByUserLocale == false) {
-    return BabelException(
-      title:
-          'No arb file found for the reference language $inputedByUserLocale',
-      description:
-          'The reference language used as parameter does not have a corresponding ARB file in the project. For that reason, it can not be the reference language for the project.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title:
+            'No arb file found for the reference language $inputedByUserLocale',
+        description:
+            'The reference language used as parameter does not have a corresponding ARB file in the project. For that reason, it can not be the reference language for the project.',
+      ),
     ).toFailure();
   }
 
@@ -189,7 +203,8 @@ Set<String> retrivePendingKeys({
   return pendingKeys;
 }
 
-AsyncResult<GenerateFlowMappedProjectArbData> generate_mapProjectArbDataUsecase(
+AsyncBabelResult<GenerateFlowMappedProjectArbData>
+generate_mapProjectArbDataUsecase(
   GenerateFlowGotL10nProjectConfig payload,
 ) async {
   return mapProjectArbDataUsecase(

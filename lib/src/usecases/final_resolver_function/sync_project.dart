@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -5,7 +6,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> syncProject({
+AsyncBabelResult<Unit> syncProject({
   required String accountApiKey,
   required Client client,
   required CodeBaseYamlInfo yamlInfo,
@@ -23,16 +24,20 @@ AsyncResult<Unit> syncProject({
           accountApiKey, // Assuming accountApiKey is the projectApiToken for sync
     );
     return Success(unit);
-  } catch (e) {
-    return BabelException(
-      title: 'Project Sync Failed',
-      description:
-          'Failed to synchronize your project with the GoBabel server. This could be due to network issues, invalid API credentials, or server unavailability. Please check your internet connection and API key, then try again. Error details: ${e.toString()}',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Project Sync Failed',
+        description:
+            'Failed to synchronize your project with the GoBabel server. This could be due to network issues, invalid API credentials, or server unavailability. Please check your internet connection and API key, then try again.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<SyncFlowCreatedProjectInGobabelServer> sync_createProject(
+AsyncBabelResult<SyncFlowCreatedProjectInGobabelServer> sync_createProject(
   SyncFlowExtractedProjectCodebase payload,
 ) async {
   final yamlInfo = payload.yamlInfo;

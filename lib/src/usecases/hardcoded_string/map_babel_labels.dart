@@ -1,10 +1,11 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/string_extension.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
+AsyncBabelResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
   required List<LabelsEntityRootLabel> strings,
   required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
   required Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration,

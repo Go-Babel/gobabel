@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -5,7 +6,7 @@ import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
+AsyncBabelResult<GitCommit> getLastLocalCommitInCurrentBranch({
   required String dirrPath,
 }) async {
   const String delimiter = '|||GIT_COMMIT_FIELD_DELIMITER|||';
@@ -24,47 +25,48 @@ AsyncResult<GitCommit> getLastLocalCommitInCurrentBranch({
     dirrPath: dirrPath,
   );
 
-  return resultAsync.fold(
-    (result) {
-      if (result.exitCode != 0) {
-        return BabelException(
+  return resultAsync.fold((result) {
+    if (result.exitCode != 0) {
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
           title: 'Failed to get last commit',
           description:
               'Could not retrieve the last commit information. '
               'Please ensure you have at least one commit in your repository. '
               'Error: ${result.stderr}',
-        ).toFailure();
-      }
+        ),
+      ).toFailure();
+    }
 
-      final output = result.stdout.toString().trim();
-      final parts = output.split(delimiter);
+    final output = result.stdout.toString().trim();
+    final parts = output.split(delimiter);
 
-      // git log -1 --pretty=format:%H|%an|%ae|%ad|%s
-      // git log -1 --pretty=format:"%H$|||GIT_COMMIT_FIELD_DELIMITER|||%an$|||GIT_COMMIT_FIELD_DELIMITER|||%ae$|||GIT_COMMIT_FIELD_DELIMITER|||%aI$|||GIT_COMMIT_FIELD_DELIMITER|||%s"
+    // git log -1 --pretty=format:%H|%an|%ae|%ad|%s
+    // git log -1 --pretty=format:"%H$|||GIT_COMMIT_FIELD_DELIMITER|||%an$|||GIT_COMMIT_FIELD_DELIMITER|||%ae$|||GIT_COMMIT_FIELD_DELIMITER|||%aI$|||GIT_COMMIT_FIELD_DELIMITER|||%s"
 
-      if (parts.length < 5) {
-        return BabelException(
+    if (parts.length < 5) {
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
           title: 'Unexpected git log format',
           description:
               'The git log command returned unexpected output. '
               'This might be due to an incompatible Git version or custom configuration. '
               'Output received: $output',
-        ).toFailure();
-      }
+        ),
+      ).toFailure();
+    }
 
-      return GitCommit(
-        shaHash: parts[0],
-        authorName: parts[1],
-        authorEmail: parts[2],
-        date: DateTime.parse(parts[3]),
-        message: parts.sublist(4).join('|'), // in case the message has '|'
-      ).toSuccess();
-    },
-    (failure) => Failure(failure),
-  );
+    return GitCommit(
+      shaHash: parts[0],
+      authorName: parts[1],
+      authorEmail: parts[2],
+      date: DateTime.parse(parts[3]),
+      message: parts.sublist(4).join('|'), // in case the message has '|'
+    ).toSuccess();
+  }, (failure) => Failure(failure));
 }
 
-AsyncResult<CreateFlowGotLastLocalCommit>
+AsyncBabelResult<CreateFlowGotLastLocalCommit>
 create_getLastLocalCommitInCurrentBranch(CreateFlowGotGitUser payload) async {
   final lastCommitResult = await getLastLocalCommitInCurrentBranch(
     dirrPath: payload.directoryPath,
@@ -83,9 +85,8 @@ create_getLastLocalCommitInCurrentBranch(CreateFlowGotGitUser payload) async {
   });
 }
 
-AsyncResult<SyncFlowGotLastLocalCommit> sync_getLastLocalCommitInCurrentBranch(
-  SyncFlowGotGitUser payload,
-) async {
+AsyncBabelResult<SyncFlowGotLastLocalCommit>
+sync_getLastLocalCommitInCurrentBranch(SyncFlowGotGitUser payload) async {
   final lastCommitResult = await getLastLocalCommitInCurrentBranch(
     dirrPath: payload.directoryPath,
   );
@@ -103,7 +104,7 @@ AsyncResult<SyncFlowGotLastLocalCommit> sync_getLastLocalCommitInCurrentBranch(
   });
 }
 
-AsyncResult<GenerateFlowGotLastLocalCommit>
+AsyncBabelResult<GenerateFlowGotLastLocalCommit>
 generate_getLastLocalCommitInCurrentBranch(
   GenerateFlowGotGitUser payload,
 ) async {
@@ -125,7 +126,8 @@ generate_getLastLocalCommitInCurrentBranch(
   });
 }
 
-AsyncResult<GenerateFlowGetBabelChangesCommit> generate_getBabelChangesCommit(
+AsyncBabelResult<GenerateFlowGetBabelChangesCommit>
+generate_getBabelChangesCommit(
   GenerateFlowCommitedAllChangesOfCodebase payload,
 ) async {
   final lastCommitResult = await getLastLocalCommitInCurrentBranch(

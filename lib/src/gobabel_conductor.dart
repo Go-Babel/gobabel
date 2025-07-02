@@ -1,3 +1,4 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -36,10 +37,9 @@ import 'package:gobabel/src/usecases/translation_related/translate_new_strings_a
 import 'package:gobabel/src/usecases/translation_related/upload_translation_commit_data.dart';
 import 'package:gobabel/src/usecases/translation_related/upload_translation_new_version.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:result_dart/result_dart.dart';
 
 class GobabelConductor {
-  AsyncResult<void> create({
+  AsyncBabelResult<void> create({
     required String accountApiKey,
     required String directoryPath,
     bool willLog = false,
@@ -60,7 +60,7 @@ class GobabelConductor {
         .toNextStep(create_createProject);
   }
 
-  AsyncResult<void> sync({
+  AsyncBabelResult<void> sync({
     required String accountApiKey,
     required String directoryPath,
     bool willLog = false,
@@ -81,7 +81,7 @@ class GobabelConductor {
         .toNextStep(sync_createProject);
   }
 
-  AsyncResult<void> generate({
+  AsyncBabelResult<void> generate({
     required String projectApiToken,
     required String directoryPath,
     required BabelSupportedLocales inputedByUserLocale,

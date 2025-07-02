@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
@@ -10,11 +11,10 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_li
 import 'package:gobabel/src/usecases/codebase_analyse_related/resolve_enum_hardcoded_string_variables.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> normalizeCodeBase({
+AsyncBabelResult<Unit> normalizeCodeBase({
   required String dirPath,
   required List<File> targetFiles,
 }) async {
-  //
   return multiRemoveAdjacentStringLiteralConcatenationUsecase(
         targetFiles: targetFiles,
       )
@@ -49,7 +49,7 @@ AsyncResult<Unit> normalizeCodeBase({
       );
 }
 
-AsyncResult<GenerateFlowCodebaseNormalized> generate_normalizeCodeBase(
+AsyncBabelResult<GenerateFlowCodebaseNormalized> generate_normalizeCodeBase(
   GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
 ) async {
   final dirPath = payload.directoryPath;

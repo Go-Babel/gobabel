@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -10,7 +11,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> resolveHardcodedStringsInCodebase({
+AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
   required List<File> targetFiles,
   required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings,
@@ -25,7 +26,7 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
 
   try {
     // ignore: prefer_function_declarations_over_variables
-    final Future<Result<Unit>> Function() processFunction = () async {
+    final AsyncBabelResult<Unit> Function() processFunction = () async {
       if (allHardcodedStrings.isEmpty) {
         return Success(unit);
       }
@@ -64,14 +65,16 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
 
       // If didAtLeastOneFileChange is false, it means no files were modified and all files had error
       if (!didAtLeastOneFileChange) {
-        return BabelException(
-          title: 'No files modified',
-          description:
-              'Failed to modify any files. This could be due to: '
-              '1) All target files had processing errors, '
-              '2) No hardcoded strings were found to replace, or '
-              '3) File permission issues. '
-              'Please check the console output for specific file errors.',
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'No files modified',
+            description:
+                'Failed to modify any files. This could be due to: '
+                '1) All target files had processing errors, '
+                '2) No hardcoded strings were found to replace, or '
+                '3) File permission issues. '
+                'Please check the console output for specific file errors.',
+          ),
         ).toFailure();
       }
 
@@ -81,19 +84,28 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
     final result = await processFunction();
     LoadingIndicator.instance.dispose();
     return result;
-  } catch (e) {
+  } catch (error, stackTrace) {
     LoadingIndicator.instance.dispose();
-    if (e is BabelException) {
-      return e.toFailure();
+    if (error is BabelException) {
+      return BabelFailureResponse.withErrorAndStackTrace(
+        exception: error,
+        error:
+            'An error occurred while resolving hardcoded strings in the codebase.',
+        stackTrace: stackTrace,
+      ).toFailure();
     }
-    return BabelException(
-      title: 'Unexpected error',
-      description: 'An unexpected error occurred: $e',
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Unexpected error',
+        description: 'An unexpected error occurred.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }
 
-AsyncResult<GenerateFlowReplacedHardcodedStringsForBabelText>
+AsyncBabelResult<GenerateFlowReplacedHardcodedStringsForBabelText>
 generate_resolveHardcodedStringsInCodebase(
   GenerateFlowResolvedHardcodedStrings payload,
 ) async {
@@ -130,13 +142,17 @@ generate_resolveHardcodedStringsInCodebase(
         hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
       ).toSuccess();
     });
-  } catch (e) {
-    return BabelException(
-      title: 'String replacement failed',
-      description:
-          'Failed to replace hardcoded strings in the codebase: $e '
-          'This might be due to file access issues or invalid replacement patterns. '
-          'Please ensure all files are writable and try again.',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'String replacement failed',
+        description:
+            'Failed to replace hardcoded strings in the codebase:\n'
+            'This might be due to file access issues or invalid replacement patterns.\n'
+            'Please ensure all files are writable and try again.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 }

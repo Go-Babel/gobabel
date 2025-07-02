@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -16,7 +17,7 @@ class GetAppLanguagesResponse {
   });
 }
 
-AsyncResult<GetAppLanguagesResponse> getAppLanguages({
+AsyncBabelResult<GetAppLanguagesResponse> getAppLanguages({
   required String token,
   required BabelSupportedLocales inputedByUserLocale,
   required Client client,
@@ -32,13 +33,18 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
     languagesResponse = await client.publicProject.getProjectLanguages(
       projectShaIdentifier: gitVariables.projectShaIdentifier,
     );
-  } catch (_) {
-    return BabelException(
-      title: 'Failed to fetch project languages',
-      description: 'Unable to retrieve the project languages from the server. '
-          'This could be due to network connectivity issues, invalid API credentials, '
-          'or server problems. Please check your internet connection and API key, '
-          'then try again.',
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to fetch project languages',
+        description:
+            'Unable to retrieve the project languages from the server. '
+            'This could be due to network connectivity issues, invalid API credentials, '
+            'or server problems. Please check your internet connection and API key, '
+            'then try again.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
     ).toFailure();
   }
 
@@ -50,12 +56,15 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
       language.countryCode,
     );
     if (castedLanguage == null) {
-      return BabelException(
-        title: 'Invalid language code',
-        description: 'Received an invalid language or country code from the server: '
-            '${language.languageCode}_${language.countryCode}. '
-            'This might indicate a configuration issue with the project. '
-            'Please contact support if this error persists.',
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
+          title: 'Invalid language code',
+          description:
+              'Received an invalid language or country code from the server: '
+              '${language.languageCode}_${language.countryCode}. '
+              'This might indicate a configuration issue with the project. '
+              'Please contact support if this error persists.',
+        ),
       ).toFailure();
     }
     projectLanguages.add(castedLanguage);
@@ -69,10 +78,13 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
           )
           ?.downloadLink;
   if (downloadLink == null) {
-    return BabelException(
-      title:
-          'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
-      description: 'Please make sure the language is supported and try again.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title:
+            'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
+        description:
+            'Please make sure the language is supported and try again.',
+      ),
     ).toFailure();
   }
 
@@ -83,7 +95,7 @@ AsyncResult<GetAppLanguagesResponse> getAppLanguages({
   ).toSuccess();
 }
 
-AsyncResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
+AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
   GenerateFlowGotGitVariables payload,
 ) {
   final gitVariables = payload.gitVariables;

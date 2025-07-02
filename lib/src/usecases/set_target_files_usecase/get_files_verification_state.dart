@@ -1,3 +1,5 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -8,7 +10,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<FilesVerification> getFilesVerificationState({
+AsyncBabelResult<FilesVerification> getFilesVerificationState({
   required String projectApiToken,
   required GitVariables gitVariables,
   required Client client,
@@ -21,7 +23,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
       );
 
   if (projectVersionsShasResponse.isError()) {
-    return projectVersionsShasResponse.asErrorAsync();
+    return projectVersionsShasResponse.asBabelResultErrorAsync();
   }
 
   final List<ShaCommit> projectVersionsShas =
@@ -37,7 +39,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
     client: client,
   );
   if (allTreeCommitsResponse.isError()) {
-    return allTreeCommitsResponse.asErrorAsync();
+    return allTreeCommitsResponse.asBabelResultErrorAsync();
   }
 
   final List<ShaCommit> allTreeCommits = allTreeCommitsResponse.getOrThrow();
@@ -62,9 +64,12 @@ AsyncResult<FilesVerification> getFilesVerificationState({
 
   final isCurrentLastTrackedCommit = lastTrackedCommit == curentSha;
   if (isCurrentLastTrackedCommit) {
-    return BabelException(
-      title: 'Translation already up to date',
-      description: 'You already generated a translation for the current state of your codebase.\nNo changes have been detected since the last translation generation.\n\nIf you need to regenerate translations, make changes to your Dart files and commit them.',
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Translation already up to date',
+        description:
+            'You already generated a translation for the current state of your codebase.\nNo changes have been detected since the last translation generation.\n\nIf you need to regenerate translations, make changes to your Dart files and commit them.',
+      ),
     ).toFailure();
   }
 
@@ -76,7 +81,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
       );
 
   if (changedFilesBetweenCommitsResponse.isError()) {
-    return changedFilesBetweenCommitsResponse.asErrorAsync();
+    return changedFilesBetweenCommitsResponse.asBabelResultErrorAsync();
   }
 
   final Set<String> changedFiles =
@@ -87,7 +92,7 @@ AsyncResult<FilesVerification> getFilesVerificationState({
   ).toSuccess();
 }
 
-AsyncResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
+AsyncBabelResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
   GenerateFlowEnsuredNoStaticErrorOnDartFiles payload,
 ) async {
   final filesVerificationState = await getFilesVerificationState(

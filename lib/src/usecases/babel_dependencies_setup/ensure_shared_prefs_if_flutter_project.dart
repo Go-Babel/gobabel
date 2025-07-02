@@ -1,14 +1,15 @@
 import 'dart:io';
 
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_yaml.dart';
 import 'package:gobabel_client/gobabel_client.dart';
-import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
+AsyncBabelResult<Unit> ensureSharedPrefsIsInFlutterProject({
   required Directory directory,
   required CodeBaseYamlInfo codeBaseYamlInfo,
 }) async {
@@ -18,7 +19,7 @@ AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
   }
 
   final yamlResponse = await getProjectYaml(currentDirectory: directory);
-  if (yamlResponse.isError()) return yamlResponse.asError();
+  if (yamlResponse.isError()) return yamlResponse.asBabelResultErrorAsync();
   final String yamlContent = yamlResponse.getOrThrow();
 
   final hasDependency = RegExp(
@@ -31,19 +32,22 @@ AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
       command: 'dart pub add shared_preferences',
       dirrPath: directory.path,
     );
-    
+
     if (resultAsync.isError()) {
       return Failure(resultAsync.exceptionOrNull()!);
     }
-    
+
     final result = resultAsync.getOrNull()!;
     if (result.exitCode != 0) {
-      return BabelException(
-        title: 'Failed to add shared_preferences dependency',
-        description: 'Could not add shared_preferences to pubspec.yaml. '
-            'Please check your internet connection and ensure you have write permissions '
-            'to the pubspec.yaml file. Exit code: ${result.exitCode}\n'
-            'Error: ${result.stderr}',
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
+          title: 'Failed to add shared_preferences dependency',
+          description:
+              'Could not add shared_preferences to pubspec.yaml. '
+              'Please check your internet connection and ensure you have write permissions '
+              'to the pubspec.yaml file. Exit code: ${result.exitCode}\n'
+              'Error: ${result.stderr}',
+        ),
       ).toFailure();
     }
   }
@@ -51,7 +55,7 @@ AsyncResult<Unit> ensureSharedPrefsIsInFlutterProject({
   return Success(unit);
 }
 
-AsyncResult<GenerateFlowAddedSharedPrefsInFlutterProjects>
+AsyncBabelResult<GenerateFlowAddedSharedPrefsInFlutterProjects>
 generate_ensureSharedPrefsIsInFlutterProject(
   GenerateFlowAddedBabelClassInitializationInMain payload,
 ) {

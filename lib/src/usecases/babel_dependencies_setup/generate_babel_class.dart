@@ -1,8 +1,10 @@
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 
-AsyncResult<String> generateBabelClassUsecase({
+AsyncBabelResult<String> generateBabelClassUsecase({
   required BigInt projectShaIdentifier,
   required Set<BabelFunctionDeclaration> declarationFunctions,
 }) async {
@@ -26,7 +28,8 @@ AsyncResult<String> generateBabelClassUsecase({
       .toSuccess();
 }
 
-AsyncResult<GenerateFlowGeneratedBabelClass> generate_generateBabelClassUsecase(
+AsyncBabelResult<GenerateFlowGeneratedBabelClass>
+generate_generateBabelClassUsecase(
   GenerateFlowAppliedCodebaseGeneralDartFixes payload,
 ) async {
   final babelClassResult = await generateBabelClassUsecase(
@@ -36,7 +39,7 @@ AsyncResult<GenerateFlowGeneratedBabelClass> generate_generateBabelClassUsecase(
   );
 
   if (babelClassResult.isError()) {
-    return babelClassResult.asError();
+    return babelClassResult.asBabelResultErrorAsync();
   }
 
   final String babelClass = babelClassResult.getOrThrow();

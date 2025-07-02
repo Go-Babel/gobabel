@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:enchanted_regex/enchanted_regex.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -11,7 +12,7 @@ import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_need
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncResult<TranslationPayloadInfo>
+AsyncBabelResult<TranslationPayloadInfo>
 replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   required L10nProjectConfig projectConfig,
   required CodeBaseYamlInfo codeBaseYamlInfo,
@@ -84,7 +85,9 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
       .toSuccess();
 }
 
-AsyncResult<GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions>
+AsyncBabelResult<
+  GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions
+>
 generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
   GenerateFlowResolvedProjectArbTranslationPayload payload,
 ) async {
