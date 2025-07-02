@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:gobabel/src/core/loading_indicator.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -55,7 +55,9 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       step: 1,
       barProgressInfo: null,
     );
-    final extractResult = await extractAllStringsInDartUsecaseImpl(files: targetFiles);
+    final extractResult = await extractAllStringsInDartUsecaseImpl(
+      files: targetFiles,
+    );
     LoadingIndicator.instance.dispose();
     if (extractResult.isError()) {
       return extractResult.asError();
@@ -196,7 +198,8 @@ AsyncResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
   } catch (e) {
     return BabelException(
       title: 'Failed to resolve codebase project',
-      description: 'An error occurred while analyzing and extracting hardcoded strings from your codebase. Please check your project files and try again. Error details: $e',
+      description:
+          'An error occurred while analyzing and extracting hardcoded strings from your codebase. Please check your project files and try again. Error details: $e',
     ).toFailure();
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
+
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:test/test.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 
 void main() {
   group('LoadingIndicator', () {
@@ -8,13 +9,13 @@ void main() {
       // Ensure clean state for each test
       LoadingIndicator.resetForTesting();
     });
-    
+
     tearDown(() {
       // Clean up after each test
       LoadingIndicator.instance.dispose();
       LoadingIndicator.resetForTesting();
     });
-    
+
     group('BarProgressInfo', () {
       test('should create with all required fields', () {
         final barInfo = BarProgressInfo(
@@ -22,32 +23,32 @@ void main() {
           totalSteps: 100,
           currentStep: 50,
         );
-        
+
         expect(barInfo.message, equals('Processing...'));
         expect(barInfo.totalSteps, equals(100));
         expect(barInfo.currentStep, equals(50));
       });
     });
-    
+
     group('singleton behavior', () {
       test('should return same instance', () {
         final instance1 = LoadingIndicator.instance;
         final instance2 = LoadingIndicator.instance;
-        
+
         expect(identical(instance1, instance2), isTrue);
       });
-      
+
       test('should create new instance after reset', () {
         final instance1 = LoadingIndicator.instance;
-        
+
         LoadingIndicator.resetForTesting();
-        
+
         final instance2 = LoadingIndicator.instance;
-        
+
         expect(identical(instance1, instance2), isFalse);
       });
     });
-    
+
     group('setLoadingState', () {
       test('should handle basic loading state', () {
         expect(() {
@@ -59,7 +60,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle loading state with progress bar', () {
         expect(() {
           LoadingIndicator.instance.setLoadingState(
@@ -74,7 +75,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle multiple calls in sequence', () {
         expect(() {
           for (int i = 1; i <= 5; i++) {
@@ -88,7 +89,7 @@ void main() {
         }, returnsNormally);
       });
     });
-    
+
     group('progress bar edge cases', () {
       test('should handle zero progress', () {
         expect(() {
@@ -104,7 +105,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle 100% progress', () {
         expect(() {
           LoadingIndicator.instance.setLoadingState(
@@ -119,7 +120,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle current > total', () {
         expect(() {
           LoadingIndicator.instance.setLoadingState(
@@ -134,7 +135,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle zero total steps', () {
         expect(() {
           LoadingIndicator.instance.setLoadingState(
@@ -149,7 +150,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle negative values', () {
         expect(() {
           LoadingIndicator.instance.setLoadingState(
@@ -165,7 +166,7 @@ void main() {
         }, returnsNormally);
       });
     });
-    
+
     group('switching between modes', () {
       test('should switch from single line to multi-line', () {
         expect(() {
@@ -176,7 +177,7 @@ void main() {
             step: 1,
             barProgressInfo: null,
           );
-          
+
           // Switch to progress bar
           LoadingIndicator.instance.setLoadingState(
             message: 'Multi line',
@@ -190,7 +191,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should switch from multi-line to single line', () {
         expect(() {
           // Start with progress bar
@@ -204,7 +205,7 @@ void main() {
               currentStep: 50,
             ),
           );
-          
+
           // Switch to no progress bar
           LoadingIndicator.instance.setLoadingState(
             message: 'Single line',
@@ -215,7 +216,7 @@ void main() {
         }, returnsNormally);
       });
     });
-    
+
     group('displayError', () {
       test('should handle error display after loading', () {
         expect(() {
@@ -225,18 +226,18 @@ void main() {
             step: 1,
             barProgressInfo: null,
           );
-          
+
           LoadingIndicator.instance.displayError();
         }, returnsNormally);
       });
-      
+
       test('should handle error display without prior loading', () {
         expect(() {
           LoadingIndicator.instance.displayError();
         }, returnsNormally);
       });
     });
-    
+
     group('dispose', () {
       test('should handle dispose after loading', () {
         expect(() {
@@ -246,17 +247,17 @@ void main() {
             step: 1,
             barProgressInfo: null,
           );
-          
+
           LoadingIndicator.instance.dispose();
         }, returnsNormally);
       });
-      
+
       test('should handle dispose without loading', () {
         expect(() {
           LoadingIndicator.instance.dispose();
         }, returnsNormally);
       });
-      
+
       test('should handle multiple dispose calls', () {
         expect(() {
           LoadingIndicator.instance.dispose();
@@ -264,7 +265,7 @@ void main() {
         }, returnsNormally);
       });
     });
-    
+
     group('integration scenarios', () {
       test('should handle rapid state changes', () async {
         expect(() async {
@@ -273,22 +274,23 @@ void main() {
               message: 'Rapid change $i',
               totalCount: 10,
               step: i + 1,
-              barProgressInfo: i % 2 == 0 
-                ? BarProgressInfo(
-                    message: 'Even progress',
-                    totalSteps: 10,
-                    currentStep: i + 1,
-                  )
-                : null,
+              barProgressInfo:
+                  i % 2 == 0
+                      ? BarProgressInfo(
+                        message: 'Even progress',
+                        totalSteps: 10,
+                        currentStep: i + 1,
+                      )
+                      : null,
             );
             await Future.delayed(Duration(milliseconds: 10));
           }
         }, returnsNormally);
       });
-      
+
       test('should handle very long messages', () {
         final longMessage = 'A' * 200;
-        
+
         expect(() {
           LoadingIndicator.instance.setLoadingState(
             message: longMessage,
@@ -302,7 +304,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle extreme progress values', () {
         expect(() {
           // Very large values
@@ -318,7 +320,7 @@ void main() {
           );
         }, returnsNormally);
       });
-      
+
       test('should handle complete workflow', () async {
         expect(() async {
           // Simulate a complete workflow
@@ -327,30 +329,31 @@ void main() {
             'Loading data...',
             'Processing...',
             'Finalizing...',
-            'Complete!'
+            'Complete!',
           ];
-          
+
           for (int i = 0; i < steps.length; i++) {
             LoadingIndicator.instance.setLoadingState(
               message: steps[i],
               totalCount: steps.length,
               step: i + 1,
-              barProgressInfo: i > 1 && i < 4
-                ? BarProgressInfo(
-                    message: 'Processing batch ${i - 1}',
-                    totalSteps: 100,
-                    currentStep: (i - 1) * 33,
-                  )
-                : null,
+              barProgressInfo:
+                  i > 1 && i < 4
+                      ? BarProgressInfo(
+                        message: 'Processing batch ${i - 1}',
+                        totalSteps: 100,
+                        currentStep: (i - 1) * 33,
+                      )
+                      : null,
             );
             await Future.delayed(Duration(milliseconds: 50));
           }
-          
+
           LoadingIndicator.instance.dispose();
         }, returnsNormally);
       });
     });
-    
+
     group('clean function behavior', () {
       test('should handle cleaning when switching line counts', () {
         expect(() {
@@ -367,7 +370,7 @@ void main() {
                 currentStep: i * 20,
               ),
             );
-            
+
             // Single line without progress bar
             LoadingIndicator.instance.setLoadingState(
               message: 'Without bar $i',

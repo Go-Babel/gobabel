@@ -2,8 +2,8 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -136,7 +136,8 @@ createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
       if (camelCaseKey.isEmpty) {
         return BabelException(
           title: 'Empty ARB key generated',
-          description: 'The AI generated an empty key for the string "${string.value}". '
+          description:
+              'The AI generated an empty key for the string "${string.value}". '
               'This might happen with strings that contain only special characters or numbers. '
               'Please check the string content and try again.',
         ).toFailure();

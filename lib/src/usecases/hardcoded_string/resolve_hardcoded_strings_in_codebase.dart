@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -16,13 +16,15 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
   required Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings,
 }) async {
   LoadingIndicator.instance.setLoadingState(
-    message: 'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',
+    message:
+        'Replacing hardcoded strings for "Babel function" in ${targetFiles.length} files...',
     totalCount: 1,
     step: 1,
     barProgressInfo: null,
   );
-  
+
   try {
+    // ignore: prefer_function_declarations_over_variables
     final Future<Result<Unit>> Function() processFunction = () async {
       if (allHardcodedStrings.isEmpty) {
         return Success(unit);
@@ -64,7 +66,8 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
       if (!didAtLeastOneFileChange) {
         return BabelException(
           title: 'No files modified',
-          description: 'Failed to modify any files. This could be due to: '
+          description:
+              'Failed to modify any files. This could be due to: '
               '1) All target files had processing errors, '
               '2) No hardcoded strings were found to replace, or '
               '3) File permission issues. '
@@ -74,7 +77,7 @@ AsyncResult<Unit> resolveHardcodedStringsInCodebase({
 
       return Success(unit);
     };
-    
+
     final result = await processFunction();
     LoadingIndicator.instance.dispose();
     return result;
@@ -130,7 +133,8 @@ generate_resolveHardcodedStringsInCodebase(
   } catch (e) {
     return BabelException(
       title: 'String replacement failed',
-      description: 'Failed to replace hardcoded strings in the codebase: $e '
+      description:
+          'Failed to replace hardcoded strings in the codebase: $e '
           'This might be due to file access issues or invalid replacement patterns. '
           'Please ensure all files are writable and try again.',
     ).toFailure();

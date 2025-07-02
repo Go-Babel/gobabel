@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/gobabel_conductor.dart';
-import 'package:gobabel/src/utilities/terminal_textfield.dart';
+import 'package:gobabel/src/core/utils/terminal_textfield.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -138,7 +138,7 @@ Future<void> main(List<String> arguments) async {
   if (apiPath != null) {
     print('ℹ️  Running for dirrectory: $directory'.wheat);
   }
-  
+
   // Get the will-log-user flag value
   final willLog = argResults['will-log-user'] as bool;
 

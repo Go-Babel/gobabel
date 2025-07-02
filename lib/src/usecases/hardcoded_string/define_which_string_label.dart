@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:gobabel/src/core/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -67,7 +67,8 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
       final group = groups[i];
       if (!isSmallAmountOfStrings) {
         LoadingIndicator.instance.setLoadingState(
-          message: 'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+          message:
+              'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
           totalCount: groups.length,
           step: i + 1,
           barProgressInfo: BarProgressInfo(
@@ -88,7 +89,8 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
       } catch (e) {
         return BabelException(
           title: 'String analysis failed',
-          description: 'Failed to analyze strings with the AI service: $e '
+          description:
+              'Failed to analyze strings with the AI service: $e '
               'Please check your API key and network connection, then try again.',
         );
       }
@@ -99,7 +101,8 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
   final BabelException? error;
   if (isSmallAmountOfStrings) {
     LoadingIndicator.instance.setLoadingState(
-      message: 'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+      message:
+          'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
       totalCount: 1,
       step: 1,
       barProgressInfo: null,
@@ -110,7 +113,7 @@ AsyncResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
     error = await function();
     LoadingIndicator.instance.dispose();
   }
-  
+
   if (error != null) {
     return error.toFailure();
   }

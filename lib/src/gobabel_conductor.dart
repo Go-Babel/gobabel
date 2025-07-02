@@ -1,4 +1,4 @@
-import 'package:gobabel/src/core/loading_indicator.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
