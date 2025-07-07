@@ -15,10 +15,8 @@ AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
   );
 
   // Todo(igor): This should be a separate state for all 3 flows. Like a "checkedIsValidDirectory"
-  if (!(dir.path.contains(
-        '${Platform.pathSeparator}lib${Platform.pathSeparator}',
-      ) ||
-      dir.path.endsWith('${Platform.pathSeparator}lib'))) {
+  final containsLib = await Directory('${dir.path}lib').exists();
+  if (containsLib == false) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Invalid Directory Location',

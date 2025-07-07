@@ -53,7 +53,7 @@ Future<void> main(List<String> arguments) async {
         ..addOption('api-key', abbr: 'k', help: 'API key')
         ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
-          'will-log-user',
+          'will-create-log-file',
           help: 'Enable detailed logging output',
           defaultsTo: false,
           negatable: true,
@@ -138,8 +138,8 @@ Future<void> main(List<String> arguments) async {
     print('ℹ️  Running for dirrectory: $directory'.wheat);
   }
 
-  // Get the will-log-user flag value
-  final willLog = argResults['will-log-user'] as bool;
+  // Get the will-create-log-file flag value
+  final willLog = argResults['will-create-log-file'] as bool;
 
   // Handle the sync command
   if (argResults['sync'] as bool) {

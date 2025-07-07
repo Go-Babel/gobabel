@@ -228,14 +228,14 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
     final logPayload = {
       'errorTitle': errorTitle,
       'errorDescription': errorDescription,
-      'error': error.toString(),
-      'stackTrace': stackTrace.toString(),
       'targetDirectory': directory.path,
+      'errorObject': error.toString(),
+      'stackTrace': stackTrace.toString(),
       'lastSuccessState': lastSuccessStateInJson,
     };
 
     await saveStringData(
-      dirr: directory,
+      dirr: Directory.current,
       data: logPayload,
       fileName: 'gobabel_error_log.json',
     );
