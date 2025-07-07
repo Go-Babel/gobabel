@@ -9,8 +9,9 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
+  const url = 'http://localhost:8080/'; // Prod: https://api.gobabel/.com
   final client = ApiClientEntity(
-    host: 'https://api.gobabel.com',
+    host: url,
     connectionTimeout: const Duration(seconds: 30),
   );
 
