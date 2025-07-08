@@ -24,6 +24,7 @@ Future<T?> getDataFromInput<T>({
   var focusMode = _FocusMode.textfield;
   var selectedOptionIndex = 0;
   String? lastError;
+  bool firstDraw = true;
 
   // Convert options to list for indexing
   final optionsList = inputOptions?.options.toList() ?? [];
@@ -55,27 +56,22 @@ Future<T?> getDataFromInput<T>({
     final hasOptions = optionsList.isNotEmpty;
     final hasError = lastError != null;
     final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
-    final totalLines =
-        3 + // textfield
-        (hasError ? 1 : 0) + // error message
-        (hasOptions ? optionsToShow + 1 : 0); // options
 
-    // First, move cursor to the top of our UI area
-    // The strategy is to move up from wherever we are to ensure we start from the top
-    stdout.write('\r'); // Move to start of line
+    // Hide cursor during redraw to reduce flicker
+    stdout.write('\x1B[?25l');
     
-    // Always clear extra lines to handle any UI duplication bugs
-    final linesToClear = totalLines + 10; // Extra buffer for safety
-    
-    // Move up and clear all lines
-    for (int i = 0; i < linesToClear; i++) {
-      stdout.write('\x1B[1A'); // Move up one line
-      stdout.write('\r\x1B[2K'); // Move to start and clear line
+    // Bulletproof redraw strategy:
+    // 1. Save cursor position after prompt on first draw
+    // 2. Always restore to that position and clear everything below
+    // This avoids complex position tracking that causes duplication
+    if (!firstDraw) {
+      stdout.write('\x1B[u'); // Restore to saved position (after prompt)
+      stdout.write('\x1B[J');  // Clear everything from cursor to end of screen
+    } else {
+      // First draw - save current position as our reference point
+      stdout.write('\x1B[s'); // Save cursor position
+      firstDraw = false;
     }
-    
-    // Now move down to where we want to start drawing
-    // We moved up 'linesToClear' lines, so move down to leave some space
-    stdout.write('\x1B[${linesToClear - totalLines - 3}B');
 
     // Draw text field
     _drawTextField(buffer.toString(), focusMode == _FocusMode.textfield);
@@ -119,6 +115,9 @@ Future<T?> getDataFromInput<T>({
 
       stdout.write('\x1B[${3 + contentLength}C'); // Move to cursor position
     }
+    
+    // Show cursor again
+    stdout.write('\x1B[?25h');
   }
 
   try {
@@ -251,17 +250,8 @@ Future<T?> getDataFromInput<T>({
     await resizeSubscription?.cancel();
 
     // Clear the UI and move to next line
-    final hasOptions = optionsList.isNotEmpty;
-    final hasError = lastError != null;
-    final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
-    final totalLines =
-        3 + (hasError ? 1 : 0) + (hasOptions ? optionsToShow + 1 : 0);
-
-    // Clear all lines
-    stdout.write('\r\x1B[2K'); // Clear current line
-    for (int i = 1; i < totalLines; i++) {
-      stdout.write('\x1B[1B\x1B[2K'); // Move down and clear
-    }
+    stdout.write('\x1B[u'); // Restore to saved position
+    stdout.write('\x1B[J');  // Clear everything below
     stdout.write('\n');
   } finally {
     // Restore terminal settings

@@ -72,18 +72,20 @@ AsyncBabelResult<GetAppLanguagesResponse> getAppLanguages({
   final String? downloadLink =
       languagesResponse.languages
           .firstWhereOrNull(
-            (element) =>
+            (LanguageDataPayload element) =>
                 element.languageCode == inputedByUserLocale.languageCode &&
                 element.countryCode == inputedByUserLocale.countryCode,
           )
           ?.downloadLink;
+
   if (downloadLink == null) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title:
             'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
         description:
-            'Please make sure the language is supported and try again.',
+            'Please make sure the language is supported and try again.\n'
+            'The supported languages are:\n• ${languagesResponse.languages.map((e) => BabelSupportedLocales.fromLocale(e.languageCode, e.countryCode)).join('\n• ')}',
       ),
     ).toFailure();
   }
