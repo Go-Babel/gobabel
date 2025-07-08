@@ -60,16 +60,22 @@ Future<T?> getDataFromInput<T>({
         (hasError ? 1 : 0) + // error message
         (hasOptions ? optionsToShow + 1 : 0); // options
 
-    // Clear all lines
-    for (int i = 0; i < totalLines; i++) {
-      stdout.write('\x1B[2K'); // Clear entire line
-      if (i < totalLines - 1) {
-        stdout.write('\x1B[1B'); // Move down
-      }
+    // First, move cursor to the top of our UI area
+    // The strategy is to move up from wherever we are to ensure we start from the top
+    stdout.write('\r'); // Move to start of line
+    
+    // Always clear extra lines to handle any UI duplication bugs
+    final linesToClear = totalLines + 10; // Extra buffer for safety
+    
+    // Move up and clear all lines
+    for (int i = 0; i < linesToClear; i++) {
+      stdout.write('\x1B[1A'); // Move up one line
+      stdout.write('\r\x1B[2K'); // Move to start and clear line
     }
-
-    // Move back to start
-    stdout.write('\x1B[${totalLines - 1}A\r');
+    
+    // Now move down to where we want to start drawing
+    // We moved up 'linesToClear' lines, so move down to leave some space
+    stdout.write('\x1B[${linesToClear - totalLines - 3}B');
 
     // Draw text field
     _drawTextField(buffer.toString(), focusMode == _FocusMode.textfield);

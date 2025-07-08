@@ -118,14 +118,13 @@ class LoadingIndicator {
 
     // Start a periodic timer to update the spinner
     _timer = Timer.periodic(_interval, (_) {
+      _cleanLine();
       final seconds = (_stopwatch.elapsedMilliseconds / 1000).toStringAsFixed(
         1,
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
           '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
-
-      _cleanLine();
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
@@ -174,6 +173,7 @@ extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
   AsyncBabelResult<W> toNextStep<W extends FlowInterface<FlowInterface>>(
     AsyncBabelResult<W> Function(S success) fn,
   ) async {
+    await Future.delayed(const Duration(milliseconds: 200));
     return then(
       (result) => result.fold(
         (success) {
