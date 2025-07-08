@@ -144,12 +144,14 @@ class LoadingIndicator {
         stdout.write(mainMessage);
         stdout.write('\n${barProgressInfo.message}');
         stdout.write('\n$progressBar');
+        stdout.flush();
 
         _lastMessage = mainMessage;
       } else {
         // Single line output
         _currentLineCount = 1;
         stdout.write(mainMessage);
+        stdout.flush();
         _lastMessage = mainMessage;
       }
 
@@ -160,6 +162,7 @@ class LoadingIndicator {
   void displayError() {
     _cleanLine();
     stdout.write(_lastMessage?.red ?? 'An error occurred'.red);
+    stdout.flush();
   }
 
   void dispose() {

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
@@ -858,6 +859,10 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
     directoryPath: directoryPath,
     inputedByUserLocale: inputedByUserLocale,
   );
+  
+  // Start the loading indicator with the initial state
+  resolve(createFlowInitial);
+  
   final existsDirectory = await createFlowInitial.directory.exists();
   if (!existsDirectory) {
     return BabelFailureResponse.onlyBabelException(
