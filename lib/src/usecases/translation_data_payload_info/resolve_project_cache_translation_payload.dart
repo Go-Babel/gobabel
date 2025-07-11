@@ -82,7 +82,6 @@ generate_resolveProjectCacheTranslationPayload(
     (payloadInfo) {
       return GenerateFlowResolvedProjectCacheTranslation(
         willLog: payload.willLog,
-        referenceArbMap: payload.referenceArbMap,
         projectApiToken: payload.projectApiToken,
         directoryPath: payload.directoryPath,
         inputedByUserLocale: payload.inputedByUserLocale,
@@ -91,7 +90,6 @@ generate_resolveProjectCacheTranslationPayload(
         gitVariables: payload.gitVariables,
         maxLanguageCount: payload.maxLanguageCount,
         languages: payload.languages,
-        downloadLink: payload.downloadLink,
         projectCacheMap: payload.projectCacheMap,
         cacheMapTranslationPayloadInfo: payloadInfo,
       ).toSuccess();

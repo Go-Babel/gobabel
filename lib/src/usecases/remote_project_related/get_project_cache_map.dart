@@ -33,7 +33,7 @@ AsyncBabelResult<ProjectCacheMap> getProjectCacheMap({
 }
 
 AsyncBabelResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
-  GenerateFlowDownloadReferenceArb payload,
+  GenerateFlowGotAppLanguages payload,
 ) async {
   final projectApiToken = payload.projectApiToken;
   final gitVariables = payload.gitVariables;
@@ -48,7 +48,6 @@ AsyncBabelResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
   return cacheResult.flatMap((cache) {
     return GenerateFlowProjectCacheMap(
       willLog: payload.willLog,
-      referenceArbMap: payload.referenceArbMap,
       projectApiToken: projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
@@ -57,7 +56,6 @@ AsyncBabelResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
       gitVariables: gitVariables,
       maxLanguageCount: payload.maxLanguageCount,
       languages: payload.languages,
-      downloadLink: payload.downloadLink,
       projectCacheMap: cache,
     ).toSuccess();
   });

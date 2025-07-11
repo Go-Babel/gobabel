@@ -223,8 +223,6 @@ generate_mapProjectArbDataUsecase(
       gitVariables: payload.gitVariables,
       maxLanguageCount: payload.maxLanguageCount,
       languages: payload.languages,
-      downloadLink: payload.downloadLink,
-      referenceArbMap: payload.referenceArbMap,
       projectCacheMap: payload.projectCacheMap,
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       filesVerificationState: payload.filesVerificationState,

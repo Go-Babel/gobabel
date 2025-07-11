@@ -68,7 +68,6 @@ generate_ensureNoStaticErrorOnDartFilesDefault(
   ).flatMap((_) {
     return GenerateFlowEnsuredNoStaticErrorOnDartFiles(
       willLog: payload.willLog,
-      referenceArbMap: payload.referenceArbMap,
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
@@ -78,7 +77,6 @@ generate_ensureNoStaticErrorOnDartFilesDefault(
       gitVariables: payload.gitVariables,
       maxLanguageCount: payload.maxLanguageCount,
       languages: payload.languages,
-      downloadLink: payload.downloadLink,
       projectCacheMap: payload.projectCacheMap,
     ).toSuccess();
   });

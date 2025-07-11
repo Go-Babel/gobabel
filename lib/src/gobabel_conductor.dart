@@ -27,7 +27,6 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/reset_all_changes_in_codebase_if_needed.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/resolve_hardcoded_strings_in_codebase.dart';
 import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
-import 'package:gobabel/src/usecases/remote_project_related/download_reference_arb.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_project_cache_map.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/get_files_verification_state.dart';
@@ -104,7 +103,7 @@ class GobabelConductor {
         .toNextStep(generate_getProjectOriginUrl)
         .toNextStep(generate_getProjectGitDependencies)
         .toNextStep(generate_getAppLanguages)
-        .toNextStep(generate_downloadReferenceArb)
+        // .toNextStep(generate_downloadReferenceArb)
         .toNextStep(generate_getProjectCacheMap)
         .toNextStep(generate_resolveProjectCacheTranslationPayload)
         .toNextStep(generate_ensureNoStaticErrorOnDartFilesDefault)
