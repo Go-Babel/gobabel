@@ -50,10 +50,10 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
       ...currentPayloadInfo.keyToContextsPaths,
     };
-
-    final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {
-      ...currentPayloadInfo.referenceMap,
-    };
+    final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
+    for (final Translatables element in currentPayloadInfo.referenceMap) {
+      referenceMap[element.locale] = element.referenceMap;
+    }
 
     // 1. Extract all strings from the files
     final List<HardcodedStringEntity> allStrings;
@@ -205,7 +205,9 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
           keyToDeclaration: keyToDeclaration,
           keyToImplementation: keyToImplementation,
           keyToContextsPaths: keyToContextsPaths,
-          referenceMap: referenceMap,
+
+          referenceMap:
+              referenceMap.entries.map(Translatables.fromEntries).toList(),
         ),
       ),
     );

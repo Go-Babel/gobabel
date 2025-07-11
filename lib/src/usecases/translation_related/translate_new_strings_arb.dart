@@ -15,7 +15,6 @@ translateNewStringsArb({
   required GitVariables gitVariables,
   required BabelSupportedLocales referenceLocale,
   required Client client,
-  required Map<L10nKey, L10nValue> newLabelsKeys,
   required Set<BabelSupportedLocales> projectLanguages,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
@@ -27,35 +26,42 @@ translateNewStringsArb({
   >
   madeTranslations = {};
 
-  madeTranslations[referenceLocale.languageCode] = {
-    referenceLocale.countryCode: newLabelsKeys,
-  };
+  final Map<L10nKey, L10nValue> referenceTranslation = {};
 
-  final pendingToTranslateArb = projectLanguages.where(
-    (locale) =>
-        locale.languageCode != referenceLocale.languageCode ||
-        locale.countryCode != referenceLocale.countryCode,
-  );
+  final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
+  for (final Translatables element in currentPayloadInfo.referenceMap) {
+    if (element.locale == referenceLocale) {
+      referenceTranslation.addAll(element.referenceMap);
+    }
+    referenceMap[element.locale] = element.referenceMap;
+  }
 
-  for (final projectLanguage in pendingToTranslateArb) {
+  for (final locale in projectLanguages) {
+    if (referenceMap.containsKey(locale) == false) {
+      referenceMap[locale] = {};
+    }
+  }
+
+  for (final projectLanguage in currentPayloadInfo.referenceMap) {
     try {
       final result = await client.publicTranslateArb.translate(
         projectApiToken: projectApiToken,
         projectShaIdentifier: gitVariables.projectShaIdentifier,
-        toLanguageCode: projectLanguage.languageCode,
-        toCountryCode: projectLanguage.countryCode,
+        toLanguageCode: projectLanguage.locale.languageCode,
+        toCountryCode: projectLanguage.locale.countryCode,
         referenceLanguageCode: referenceLocale.languageCode,
         referenceCountryCode: referenceLocale.countryCode,
-        referenceArb: newLabelsKeys,
+        referenceArb: referenceTranslation,
         pathsOfKeys: ArbKeysAppearancesPath(
           pathAppearancesPerKey: pathAppearancesPerKey,
         ),
       );
 
-      if (madeTranslations[projectLanguage.languageCode] == null) {
-        madeTranslations[projectLanguage.languageCode] = {};
+      if (madeTranslations[projectLanguage.locale.languageCode] == null) {
+        madeTranslations[projectLanguage.locale.languageCode] = {};
       }
-      madeTranslations[projectLanguage.languageCode]![projectLanguage
+      madeTranslations[projectLanguage.locale.languageCode]![projectLanguage
+              .locale
               .countryCode] =
           result;
     } catch (error, stackTrace) {
@@ -63,7 +69,7 @@ translateNewStringsArb({
         exception: BabelException(
           title: 'Translation API request failed',
           description:
-              'Failed to translate ARB strings for ${projectLanguage.languageCode}_${projectLanguage.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection',
+              'Failed to translate ARB strings for ${projectLanguage.locale.languageCode}_${projectLanguage.locale.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection',
         ),
         error: error,
         stackTrace: stackTrace,
@@ -82,7 +88,6 @@ generate_translateNewStringsArb(GenerateFlowExtractedCodeBase payload) async {
     gitVariables: payload.gitVariables,
     referenceLocale: payload.inputedByUserLocale,
     client: payload.client.server,
-    newLabelsKeys: payload.referenceArbMap,
     projectLanguages: payload.languages,
     currentPayloadInfo: payload.hardcodedStringsPayloadInfo,
   ).map((translations) {

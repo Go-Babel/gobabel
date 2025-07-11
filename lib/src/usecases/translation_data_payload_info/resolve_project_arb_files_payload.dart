@@ -42,7 +42,6 @@ resolveProjectArbFilesPayload({
     };
     final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
         {...currentPayloadInfo.keyToImplementation};
-    // final List<Translatables> referenceMap = [...currentPayloadInfo.referenceMap];
     final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
     for (final Translatables element in currentPayloadInfo.referenceMap) {
       referenceMap[element.locale] = element.referenceMap;
