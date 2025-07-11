@@ -199,7 +199,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -214,7 +214,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -230,7 +230,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -247,7 +247,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -265,7 +265,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -283,7 +283,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -302,7 +302,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -322,7 +322,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -342,7 +342,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -364,7 +364,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -386,7 +386,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -408,7 +408,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -432,7 +432,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -456,7 +456,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -480,7 +480,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -505,7 +505,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -529,7 +529,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -553,7 +553,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -577,7 +577,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -602,7 +602,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -628,7 +628,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -655,7 +655,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -682,7 +682,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -710,7 +710,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -824,7 +824,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -839,7 +839,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -855,7 +855,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -872,7 +872,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -890,7 +890,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -908,7 +908,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -927,7 +927,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -947,7 +947,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -967,7 +967,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -989,7 +989,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1011,7 +1011,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1033,7 +1033,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1057,7 +1057,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1081,7 +1081,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1105,7 +1105,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1130,7 +1130,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1154,7 +1154,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1178,7 +1178,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1202,7 +1202,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1227,7 +1227,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1253,7 +1253,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1280,7 +1280,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1307,7 +1307,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1335,7 +1335,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1449,7 +1449,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -1464,7 +1464,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -1480,7 +1480,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -1497,7 +1497,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1515,7 +1515,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1533,7 +1533,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1552,7 +1552,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1572,7 +1572,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1592,7 +1592,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1614,7 +1614,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1636,7 +1636,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1658,7 +1658,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1682,7 +1682,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1706,7 +1706,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1730,7 +1730,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1755,7 +1755,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1779,7 +1779,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1803,7 +1803,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1827,7 +1827,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1852,7 +1852,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1878,7 +1878,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1905,7 +1905,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1932,7 +1932,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -1960,7 +1960,7 @@ mixin _$GenerateFlowState {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2470,7 +2470,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -2485,7 +2485,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -2501,7 +2501,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -2518,7 +2518,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2536,7 +2536,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2554,7 +2554,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2573,7 +2573,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2593,7 +2593,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2613,7 +2613,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2635,7 +2635,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2657,7 +2657,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2679,7 +2679,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2703,7 +2703,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2727,7 +2727,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2751,7 +2751,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2776,7 +2776,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2800,7 +2800,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2824,7 +2824,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2848,7 +2848,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2873,7 +2873,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2899,7 +2899,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2926,7 +2926,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2953,7 +2953,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -2981,7 +2981,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3104,7 +3104,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -3119,7 +3119,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -3135,7 +3135,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -3152,7 +3152,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3170,7 +3170,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3188,7 +3188,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3207,7 +3207,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3227,7 +3227,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3247,7 +3247,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3269,7 +3269,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3291,7 +3291,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3313,7 +3313,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3337,7 +3337,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3361,7 +3361,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3385,7 +3385,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3410,7 +3410,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3434,7 +3434,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3458,7 +3458,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3482,7 +3482,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3507,7 +3507,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3533,7 +3533,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3560,7 +3560,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3587,7 +3587,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3615,7 +3615,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3738,7 +3738,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -3753,7 +3753,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -3769,7 +3769,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -3786,7 +3786,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3804,7 +3804,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3822,7 +3822,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3841,7 +3841,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3861,7 +3861,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3881,7 +3881,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3903,7 +3903,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3925,7 +3925,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3947,7 +3947,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3971,7 +3971,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -3995,7 +3995,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4019,7 +4019,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4044,7 +4044,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4068,7 +4068,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4092,7 +4092,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4116,7 +4116,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4141,7 +4141,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4167,7 +4167,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4194,7 +4194,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4221,7 +4221,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4249,7 +4249,7 @@ class _$GenerateFlowInitialImpl extends GenerateFlowInitial {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4771,7 +4771,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -4786,7 +4786,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -4802,7 +4802,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -4819,7 +4819,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4837,7 +4837,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4855,7 +4855,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4874,7 +4874,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4894,7 +4894,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4914,7 +4914,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4936,7 +4936,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4958,7 +4958,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -4980,7 +4980,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5004,7 +5004,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5028,7 +5028,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5052,7 +5052,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5077,7 +5077,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5101,7 +5101,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5125,7 +5125,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5149,7 +5149,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5174,7 +5174,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5200,7 +5200,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5227,7 +5227,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5254,7 +5254,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5282,7 +5282,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5406,7 +5406,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -5421,7 +5421,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -5437,7 +5437,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -5454,7 +5454,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5472,7 +5472,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5490,7 +5490,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5509,7 +5509,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5529,7 +5529,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5549,7 +5549,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5571,7 +5571,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5593,7 +5593,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5615,7 +5615,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5639,7 +5639,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5663,7 +5663,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5687,7 +5687,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5712,7 +5712,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5736,7 +5736,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5760,7 +5760,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5784,7 +5784,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5809,7 +5809,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5835,7 +5835,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5862,7 +5862,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5889,7 +5889,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -5917,7 +5917,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6041,7 +6041,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -6056,7 +6056,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -6072,7 +6072,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -6089,7 +6089,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6107,7 +6107,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6125,7 +6125,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6144,7 +6144,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6164,7 +6164,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6184,7 +6184,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6206,7 +6206,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6228,7 +6228,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6250,7 +6250,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6274,7 +6274,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6298,7 +6298,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6322,7 +6322,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6347,7 +6347,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6371,7 +6371,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6395,7 +6395,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6419,7 +6419,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6444,7 +6444,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6470,7 +6470,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6497,7 +6497,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6524,7 +6524,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -6552,7 +6552,7 @@ class _$GenerateFlowCreatedClientImpl extends GenerateFlowCreatedClient {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7078,7 +7078,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -7093,7 +7093,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -7109,7 +7109,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -7126,7 +7126,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7144,7 +7144,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7162,7 +7162,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7181,7 +7181,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7201,7 +7201,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7221,7 +7221,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7243,7 +7243,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7265,7 +7265,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7287,7 +7287,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7311,7 +7311,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7335,7 +7335,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7359,7 +7359,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7384,7 +7384,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7408,7 +7408,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7432,7 +7432,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7456,7 +7456,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7481,7 +7481,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7507,7 +7507,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7534,7 +7534,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7561,7 +7561,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7589,7 +7589,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7713,7 +7713,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -7728,7 +7728,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -7744,7 +7744,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -7761,7 +7761,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7779,7 +7779,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7797,7 +7797,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7816,7 +7816,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7836,7 +7836,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7856,7 +7856,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7878,7 +7878,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7900,7 +7900,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7922,7 +7922,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7946,7 +7946,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7970,7 +7970,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -7994,7 +7994,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8019,7 +8019,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8043,7 +8043,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8067,7 +8067,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8091,7 +8091,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8116,7 +8116,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8142,7 +8142,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8169,7 +8169,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8196,7 +8196,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8224,7 +8224,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8348,7 +8348,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -8363,7 +8363,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -8379,7 +8379,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -8396,7 +8396,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8414,7 +8414,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8432,7 +8432,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8451,7 +8451,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8471,7 +8471,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8491,7 +8491,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8513,7 +8513,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8535,7 +8535,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8557,7 +8557,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8581,7 +8581,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8605,7 +8605,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8629,7 +8629,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8654,7 +8654,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8678,7 +8678,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8702,7 +8702,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8726,7 +8726,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8751,7 +8751,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8777,7 +8777,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8804,7 +8804,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8831,7 +8831,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -8859,7 +8859,7 @@ class _$GenerateFlowEnsureGitImpl extends GenerateFlowEnsureGit {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9409,7 +9409,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -9424,7 +9424,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -9440,7 +9440,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -9457,7 +9457,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9475,7 +9475,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9493,7 +9493,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9512,7 +9512,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9532,7 +9532,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9552,7 +9552,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9574,7 +9574,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9596,7 +9596,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9618,7 +9618,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9642,7 +9642,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9666,7 +9666,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9690,7 +9690,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9715,7 +9715,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9739,7 +9739,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9763,7 +9763,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9787,7 +9787,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9812,7 +9812,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9838,7 +9838,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9865,7 +9865,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9892,7 +9892,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -9920,7 +9920,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10045,7 +10045,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -10060,7 +10060,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -10076,7 +10076,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -10093,7 +10093,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10111,7 +10111,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10129,7 +10129,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10148,7 +10148,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10168,7 +10168,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10188,7 +10188,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10210,7 +10210,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10232,7 +10232,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10254,7 +10254,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10278,7 +10278,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10302,7 +10302,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10326,7 +10326,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10351,7 +10351,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10375,7 +10375,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10399,7 +10399,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10423,7 +10423,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10448,7 +10448,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10474,7 +10474,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10501,7 +10501,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10528,7 +10528,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10556,7 +10556,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10681,7 +10681,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -10696,7 +10696,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -10712,7 +10712,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -10729,7 +10729,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10747,7 +10747,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10765,7 +10765,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10784,7 +10784,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10804,7 +10804,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10824,7 +10824,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10846,7 +10846,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10868,7 +10868,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10890,7 +10890,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10914,7 +10914,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10938,7 +10938,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10962,7 +10962,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -10987,7 +10987,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11011,7 +11011,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11035,7 +11035,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11059,7 +11059,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11084,7 +11084,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11110,7 +11110,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11137,7 +11137,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11164,7 +11164,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11192,7 +11192,7 @@ class _$GenerateFlowGotCodeBaseYamlImpl extends GenerateFlowGotCodeBaseYaml {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11757,7 +11757,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -11772,7 +11772,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -11788,7 +11788,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -11805,7 +11805,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11823,7 +11823,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11841,7 +11841,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11860,7 +11860,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11880,7 +11880,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11900,7 +11900,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11922,7 +11922,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11944,7 +11944,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11966,7 +11966,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -11990,7 +11990,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12014,7 +12014,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12038,7 +12038,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12063,7 +12063,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12087,7 +12087,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12111,7 +12111,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12135,7 +12135,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12160,7 +12160,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12186,7 +12186,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12213,7 +12213,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12240,7 +12240,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12268,7 +12268,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12394,7 +12394,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -12409,7 +12409,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -12425,7 +12425,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -12442,7 +12442,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12460,7 +12460,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12478,7 +12478,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12497,7 +12497,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12517,7 +12517,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12537,7 +12537,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12559,7 +12559,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12581,7 +12581,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12603,7 +12603,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12627,7 +12627,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12651,7 +12651,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12675,7 +12675,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12700,7 +12700,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12724,7 +12724,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12748,7 +12748,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12772,7 +12772,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12797,7 +12797,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12823,7 +12823,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12850,7 +12850,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12877,7 +12877,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -12905,7 +12905,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13031,7 +13031,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -13046,7 +13046,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -13062,7 +13062,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -13079,7 +13079,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13097,7 +13097,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13115,7 +13115,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13134,7 +13134,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13154,7 +13154,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13174,7 +13174,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13196,7 +13196,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13218,7 +13218,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13240,7 +13240,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13264,7 +13264,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13288,7 +13288,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13312,7 +13312,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13337,7 +13337,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13361,7 +13361,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13385,7 +13385,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13409,7 +13409,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13434,7 +13434,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13460,7 +13460,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13487,7 +13487,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13514,7 +13514,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -13542,7 +13542,7 @@ class _$GenerateFlowGotGitUserImpl extends GenerateFlowGotGitUser {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14129,7 +14129,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -14144,7 +14144,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -14160,7 +14160,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -14177,7 +14177,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14195,7 +14195,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14213,7 +14213,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14232,7 +14232,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14252,7 +14252,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14272,7 +14272,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14294,7 +14294,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14316,7 +14316,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14338,7 +14338,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14362,7 +14362,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14386,7 +14386,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14410,7 +14410,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14435,7 +14435,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14459,7 +14459,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14483,7 +14483,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14507,7 +14507,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14532,7 +14532,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14558,7 +14558,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14585,7 +14585,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14612,7 +14612,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14640,7 +14640,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14767,7 +14767,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -14782,7 +14782,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -14798,7 +14798,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -14815,7 +14815,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14833,7 +14833,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14851,7 +14851,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14870,7 +14870,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14890,7 +14890,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14910,7 +14910,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14932,7 +14932,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14954,7 +14954,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -14976,7 +14976,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15000,7 +15000,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15024,7 +15024,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15048,7 +15048,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15073,7 +15073,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15097,7 +15097,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15121,7 +15121,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15145,7 +15145,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15170,7 +15170,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15196,7 +15196,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15223,7 +15223,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15250,7 +15250,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15278,7 +15278,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15405,7 +15405,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -15420,7 +15420,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -15436,7 +15436,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -15453,7 +15453,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15471,7 +15471,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15489,7 +15489,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15508,7 +15508,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15528,7 +15528,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15548,7 +15548,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15570,7 +15570,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15592,7 +15592,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15614,7 +15614,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15638,7 +15638,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15662,7 +15662,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15686,7 +15686,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15711,7 +15711,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15735,7 +15735,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15759,7 +15759,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15783,7 +15783,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15808,7 +15808,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15834,7 +15834,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15861,7 +15861,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15888,7 +15888,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -15916,7 +15916,7 @@ class _$GenerateFlowGotLastLocalCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16521,7 +16521,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -16536,7 +16536,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -16552,7 +16552,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -16569,7 +16569,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16587,7 +16587,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16605,7 +16605,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16624,7 +16624,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16644,7 +16644,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16664,7 +16664,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16686,7 +16686,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16708,7 +16708,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16730,7 +16730,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16754,7 +16754,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16778,7 +16778,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16802,7 +16802,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16827,7 +16827,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16851,7 +16851,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16875,7 +16875,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16899,7 +16899,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16924,7 +16924,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16950,7 +16950,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -16977,7 +16977,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17004,7 +17004,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17032,7 +17032,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17160,7 +17160,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -17175,7 +17175,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -17191,7 +17191,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -17208,7 +17208,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17226,7 +17226,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17244,7 +17244,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17263,7 +17263,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17283,7 +17283,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17303,7 +17303,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17325,7 +17325,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17347,7 +17347,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17369,7 +17369,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17393,7 +17393,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17417,7 +17417,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17441,7 +17441,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17466,7 +17466,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17490,7 +17490,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17514,7 +17514,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17538,7 +17538,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17563,7 +17563,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17589,7 +17589,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17616,7 +17616,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17643,7 +17643,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17671,7 +17671,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17799,7 +17799,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -17814,7 +17814,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -17830,7 +17830,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -17847,7 +17847,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17865,7 +17865,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17883,7 +17883,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17902,7 +17902,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17922,7 +17922,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17942,7 +17942,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17964,7 +17964,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -17986,7 +17986,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18008,7 +18008,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18032,7 +18032,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18056,7 +18056,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18080,7 +18080,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18105,7 +18105,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18129,7 +18129,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18153,7 +18153,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18177,7 +18177,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18202,7 +18202,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18228,7 +18228,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18255,7 +18255,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18282,7 +18282,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18310,7 +18310,7 @@ class _$GenerateFlowGotProjectOriginUrlImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18898,7 +18898,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -18913,7 +18913,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -18929,7 +18929,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -18946,7 +18946,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18964,7 +18964,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -18982,7 +18982,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19001,7 +19001,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19021,7 +19021,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19041,7 +19041,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19063,7 +19063,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19085,7 +19085,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19107,7 +19107,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19131,7 +19131,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19155,7 +19155,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19179,7 +19179,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19204,7 +19204,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19228,7 +19228,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19252,7 +19252,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19276,7 +19276,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19301,7 +19301,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19327,7 +19327,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19354,7 +19354,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19381,7 +19381,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19409,7 +19409,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19535,7 +19535,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -19550,7 +19550,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -19566,7 +19566,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -19583,7 +19583,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19601,7 +19601,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19619,7 +19619,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19638,7 +19638,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19658,7 +19658,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19678,7 +19678,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19700,7 +19700,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19722,7 +19722,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19744,7 +19744,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19768,7 +19768,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19792,7 +19792,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19816,7 +19816,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19841,7 +19841,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19865,7 +19865,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19889,7 +19889,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19913,7 +19913,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19938,7 +19938,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19964,7 +19964,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -19991,7 +19991,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20018,7 +20018,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20046,7 +20046,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20172,7 +20172,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -20187,7 +20187,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -20203,7 +20203,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -20220,7 +20220,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20238,7 +20238,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20256,7 +20256,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20275,7 +20275,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20295,7 +20295,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20315,7 +20315,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20337,7 +20337,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20359,7 +20359,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20381,7 +20381,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20405,7 +20405,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20429,7 +20429,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20453,7 +20453,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20478,7 +20478,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20502,7 +20502,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20526,7 +20526,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20550,7 +20550,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20575,7 +20575,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20601,7 +20601,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20628,7 +20628,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20655,7 +20655,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20683,7 +20683,7 @@ class _$GenerateFlowGotGitVariablesImpl extends GenerateFlowGotGitVariables {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -20980,7 +20980,7 @@ abstract class _$$GenerateFlowGotAppLanguagesImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
   });
 
   $ApiClientEntityCopyWith<$Res> get client;
@@ -21012,7 +21012,7 @@ class __$$GenerateFlowGotAppLanguagesImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
   }) {
     return _then(
       _$GenerateFlowGotAppLanguagesImpl(
@@ -21062,10 +21062,10 @@ class __$$GenerateFlowGotAppLanguagesImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
       ),
     );
   }
@@ -21152,7 +21152,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -21313,7 +21313,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -21328,7 +21328,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -21344,7 +21344,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -21361,7 +21361,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21379,7 +21379,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21397,7 +21397,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21416,7 +21416,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21436,7 +21436,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21456,7 +21456,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21478,7 +21478,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21500,7 +21500,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21522,7 +21522,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21546,7 +21546,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21570,7 +21570,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21594,7 +21594,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21619,7 +21619,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21643,7 +21643,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21667,7 +21667,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21691,7 +21691,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21716,7 +21716,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21742,7 +21742,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21769,7 +21769,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21796,7 +21796,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21824,7 +21824,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -21953,7 +21953,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -21968,7 +21968,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -21984,7 +21984,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -22001,7 +22001,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22019,7 +22019,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22037,7 +22037,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22056,7 +22056,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22076,7 +22076,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22096,7 +22096,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22118,7 +22118,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22140,7 +22140,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22162,7 +22162,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22186,7 +22186,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22210,7 +22210,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22234,7 +22234,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22259,7 +22259,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22283,7 +22283,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22307,7 +22307,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22331,7 +22331,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22356,7 +22356,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22382,7 +22382,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22409,7 +22409,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22436,7 +22436,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22464,7 +22464,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22593,7 +22593,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -22608,7 +22608,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -22624,7 +22624,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -22641,7 +22641,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22659,7 +22659,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22677,7 +22677,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22696,7 +22696,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22716,7 +22716,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22736,7 +22736,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22758,7 +22758,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22780,7 +22780,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22802,7 +22802,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22826,7 +22826,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22850,7 +22850,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22874,7 +22874,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22899,7 +22899,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22923,7 +22923,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22947,7 +22947,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22971,7 +22971,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -22996,7 +22996,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23022,7 +23022,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23049,7 +23049,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23076,7 +23076,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23104,7 +23104,7 @@ class _$GenerateFlowGotAppLanguagesImpl extends GenerateFlowGotAppLanguages {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23360,7 +23360,7 @@ abstract class GenerateFlowGotAppLanguages extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
   }) = _$GenerateFlowGotAppLanguagesImpl;
   GenerateFlowGotAppLanguages._() : super._();
 
@@ -23382,7 +23382,7 @@ abstract class GenerateFlowGotAppLanguages extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
 
   /// Create a copy of GenerateFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -23412,7 +23412,7 @@ abstract class _$$GenerateFlowDownloadReferenceArbImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
   });
 
@@ -23448,7 +23448,7 @@ class __$$GenerateFlowDownloadReferenceArbImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
   }) {
     return _then(
@@ -23499,10 +23499,10 @@ class __$$GenerateFlowDownloadReferenceArbImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -23597,7 +23597,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -23772,7 +23772,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -23787,7 +23787,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -23803,7 +23803,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -23820,7 +23820,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23838,7 +23838,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23856,7 +23856,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23875,7 +23875,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23895,7 +23895,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23915,7 +23915,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23937,7 +23937,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23959,7 +23959,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -23981,7 +23981,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24005,7 +24005,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24029,7 +24029,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24053,7 +24053,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24078,7 +24078,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24102,7 +24102,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24126,7 +24126,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24150,7 +24150,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24175,7 +24175,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24201,7 +24201,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24228,7 +24228,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24255,7 +24255,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24283,7 +24283,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24413,7 +24413,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -24428,7 +24428,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -24444,7 +24444,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -24461,7 +24461,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24479,7 +24479,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24497,7 +24497,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24516,7 +24516,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24536,7 +24536,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24556,7 +24556,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24578,7 +24578,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24600,7 +24600,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24622,7 +24622,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24646,7 +24646,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24670,7 +24670,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24694,7 +24694,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24719,7 +24719,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24743,7 +24743,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24767,7 +24767,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24791,7 +24791,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24816,7 +24816,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24842,7 +24842,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24869,7 +24869,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24896,7 +24896,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -24924,7 +24924,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25054,7 +25054,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -25069,7 +25069,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -25085,7 +25085,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -25102,7 +25102,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25120,7 +25120,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25138,7 +25138,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25157,7 +25157,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25177,7 +25177,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25197,7 +25197,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25219,7 +25219,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25241,7 +25241,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25263,7 +25263,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25287,7 +25287,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25311,7 +25311,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25335,7 +25335,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25360,7 +25360,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25384,7 +25384,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25408,7 +25408,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25432,7 +25432,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25457,7 +25457,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25483,7 +25483,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25510,7 +25510,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25537,7 +25537,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25565,7 +25565,7 @@ class _$GenerateFlowDownloadReferenceArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -25822,7 +25822,7 @@ abstract class GenerateFlowDownloadReferenceArb extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
   }) = _$GenerateFlowDownloadReferenceArbImpl;
   GenerateFlowDownloadReferenceArb._() : super._();
@@ -25845,7 +25845,7 @@ abstract class GenerateFlowDownloadReferenceArb extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
 
   /// Create a copy of GenerateFlowState
@@ -25878,7 +25878,7 @@ abstract class _$$GenerateFlowProjectCacheMapImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
   });
@@ -25912,7 +25912,7 @@ class __$$GenerateFlowProjectCacheMapImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
   }) {
@@ -25964,10 +25964,10 @@ class __$$GenerateFlowProjectCacheMapImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -26067,7 +26067,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -26246,7 +26246,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -26261,7 +26261,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -26277,7 +26277,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -26294,7 +26294,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26312,7 +26312,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26330,7 +26330,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26349,7 +26349,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26369,7 +26369,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26389,7 +26389,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26411,7 +26411,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26433,7 +26433,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26455,7 +26455,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26479,7 +26479,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26503,7 +26503,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26527,7 +26527,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26552,7 +26552,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26576,7 +26576,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26600,7 +26600,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26624,7 +26624,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26649,7 +26649,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26675,7 +26675,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26702,7 +26702,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26729,7 +26729,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26757,7 +26757,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26888,7 +26888,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -26903,7 +26903,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -26919,7 +26919,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -26936,7 +26936,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26954,7 +26954,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26972,7 +26972,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -26991,7 +26991,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27011,7 +27011,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27031,7 +27031,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27053,7 +27053,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27075,7 +27075,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27097,7 +27097,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27121,7 +27121,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27145,7 +27145,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27169,7 +27169,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27194,7 +27194,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27218,7 +27218,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27242,7 +27242,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27266,7 +27266,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27291,7 +27291,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27317,7 +27317,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27344,7 +27344,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27371,7 +27371,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27399,7 +27399,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27530,7 +27530,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -27545,7 +27545,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -27561,7 +27561,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -27578,7 +27578,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27596,7 +27596,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27614,7 +27614,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27633,7 +27633,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27653,7 +27653,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27673,7 +27673,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27695,7 +27695,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27717,7 +27717,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27739,7 +27739,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27763,7 +27763,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27787,7 +27787,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27811,7 +27811,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27836,7 +27836,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27860,7 +27860,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27884,7 +27884,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27908,7 +27908,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27933,7 +27933,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27959,7 +27959,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -27986,7 +27986,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28013,7 +28013,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28041,7 +28041,7 @@ class _$GenerateFlowProjectCacheMapImpl extends GenerateFlowProjectCacheMap {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28299,7 +28299,7 @@ abstract class GenerateFlowProjectCacheMap extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
   }) = _$GenerateFlowProjectCacheMapImpl;
@@ -28323,7 +28323,7 @@ abstract class GenerateFlowProjectCacheMap extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
 
@@ -28355,7 +28355,7 @@ abstract class _$$GenerateFlowResolvedProjectCacheTranslationImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28395,7 +28395,7 @@ class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -28448,10 +28448,10 @@ class __$$GenerateFlowResolvedProjectCacheTranslationImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -28571,7 +28571,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -28762,7 +28762,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -28777,7 +28777,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -28793,7 +28793,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -28810,7 +28810,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28828,7 +28828,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28846,7 +28846,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28865,7 +28865,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28885,7 +28885,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28905,7 +28905,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28927,7 +28927,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28949,7 +28949,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28971,7 +28971,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -28995,7 +28995,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29019,7 +29019,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29043,7 +29043,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29068,7 +29068,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29092,7 +29092,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29116,7 +29116,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29140,7 +29140,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29165,7 +29165,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29191,7 +29191,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29218,7 +29218,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29245,7 +29245,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29273,7 +29273,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29405,7 +29405,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -29420,7 +29420,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -29436,7 +29436,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -29453,7 +29453,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29471,7 +29471,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29489,7 +29489,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29508,7 +29508,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29528,7 +29528,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29548,7 +29548,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29570,7 +29570,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29592,7 +29592,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29614,7 +29614,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29638,7 +29638,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29662,7 +29662,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29686,7 +29686,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29711,7 +29711,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29735,7 +29735,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29759,7 +29759,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29783,7 +29783,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29808,7 +29808,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29834,7 +29834,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29861,7 +29861,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29888,7 +29888,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -29916,7 +29916,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30048,7 +30048,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -30063,7 +30063,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -30079,7 +30079,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -30096,7 +30096,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30114,7 +30114,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30132,7 +30132,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30151,7 +30151,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30171,7 +30171,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30191,7 +30191,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30213,7 +30213,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30235,7 +30235,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30257,7 +30257,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30281,7 +30281,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30305,7 +30305,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30329,7 +30329,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30354,7 +30354,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30378,7 +30378,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30402,7 +30402,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30426,7 +30426,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30451,7 +30451,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30477,7 +30477,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30504,7 +30504,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30531,7 +30531,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30559,7 +30559,7 @@ class _$GenerateFlowResolvedProjectCacheTranslationImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30819,7 +30819,7 @@ abstract class GenerateFlowResolvedProjectCacheTranslation
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30845,7 +30845,7 @@ abstract class GenerateFlowResolvedProjectCacheTranslation
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -30880,7 +30880,7 @@ abstract class _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -30920,7 +30920,7 @@ class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -30973,10 +30973,10 @@ class __$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -31096,7 +31096,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -31287,7 +31287,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -31302,7 +31302,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -31318,7 +31318,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -31335,7 +31335,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31353,7 +31353,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31371,7 +31371,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31390,7 +31390,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31410,7 +31410,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31430,7 +31430,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31452,7 +31452,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31474,7 +31474,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31496,7 +31496,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31520,7 +31520,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31544,7 +31544,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31568,7 +31568,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31593,7 +31593,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31617,7 +31617,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31641,7 +31641,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31665,7 +31665,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31690,7 +31690,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31716,7 +31716,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31743,7 +31743,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31770,7 +31770,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31798,7 +31798,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31930,7 +31930,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -31945,7 +31945,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -31961,7 +31961,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -31978,7 +31978,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -31996,7 +31996,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32014,7 +32014,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32033,7 +32033,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32053,7 +32053,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32073,7 +32073,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32095,7 +32095,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32117,7 +32117,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32139,7 +32139,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32163,7 +32163,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32187,7 +32187,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32211,7 +32211,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32236,7 +32236,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32260,7 +32260,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32284,7 +32284,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32308,7 +32308,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32333,7 +32333,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32359,7 +32359,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32386,7 +32386,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32413,7 +32413,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32441,7 +32441,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32573,7 +32573,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -32588,7 +32588,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -32604,7 +32604,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -32621,7 +32621,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32639,7 +32639,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32657,7 +32657,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32676,7 +32676,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32696,7 +32696,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32716,7 +32716,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32738,7 +32738,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32760,7 +32760,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32782,7 +32782,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32806,7 +32806,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32830,7 +32830,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32854,7 +32854,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32879,7 +32879,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32903,7 +32903,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32927,7 +32927,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32951,7 +32951,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -32976,7 +32976,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33002,7 +33002,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33029,7 +33029,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33056,7 +33056,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33084,7 +33084,7 @@ class _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33344,7 +33344,7 @@ abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33370,7 +33370,7 @@ abstract class GenerateFlowEnsuredNoStaticErrorOnDartFiles
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -33405,7 +33405,7 @@ abstract class _$$GenerateFlowGotTargetFilesImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33443,7 +33443,7 @@ class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -33497,10 +33497,10 @@ class __$$GenerateFlowGotTargetFilesImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -33637,7 +33637,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -33830,7 +33830,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -33845,7 +33845,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -33861,7 +33861,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -33878,7 +33878,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33896,7 +33896,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33914,7 +33914,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33933,7 +33933,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33953,7 +33953,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33973,7 +33973,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -33995,7 +33995,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34017,7 +34017,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34039,7 +34039,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34063,7 +34063,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34087,7 +34087,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34111,7 +34111,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34136,7 +34136,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34160,7 +34160,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34184,7 +34184,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34208,7 +34208,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34233,7 +34233,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34259,7 +34259,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34286,7 +34286,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34313,7 +34313,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34341,7 +34341,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34474,7 +34474,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -34489,7 +34489,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -34505,7 +34505,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -34522,7 +34522,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34540,7 +34540,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34558,7 +34558,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34577,7 +34577,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34597,7 +34597,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34617,7 +34617,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34639,7 +34639,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34661,7 +34661,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34683,7 +34683,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34707,7 +34707,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34731,7 +34731,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34755,7 +34755,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34780,7 +34780,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34804,7 +34804,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34828,7 +34828,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34852,7 +34852,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34877,7 +34877,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34903,7 +34903,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34930,7 +34930,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34957,7 +34957,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -34985,7 +34985,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35118,7 +35118,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -35133,7 +35133,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -35149,7 +35149,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -35166,7 +35166,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35184,7 +35184,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35202,7 +35202,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35221,7 +35221,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35241,7 +35241,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35261,7 +35261,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35283,7 +35283,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35305,7 +35305,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35327,7 +35327,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35351,7 +35351,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35375,7 +35375,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35399,7 +35399,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35424,7 +35424,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35448,7 +35448,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35472,7 +35472,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35496,7 +35496,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35521,7 +35521,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35547,7 +35547,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35574,7 +35574,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35601,7 +35601,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35629,7 +35629,7 @@ class _$GenerateFlowGotTargetFilesImpl extends GenerateFlowGotTargetFiles {
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35889,7 +35889,7 @@ abstract class GenerateFlowGotTargetFiles extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35915,7 +35915,7 @@ abstract class GenerateFlowGotTargetFiles extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -35949,7 +35949,7 @@ abstract class _$$GenerateFlowGotL10nProjectConfigImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -35992,7 +35992,7 @@ class __$$GenerateFlowGotL10nProjectConfigImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -36047,10 +36047,10 @@ class __$$GenerateFlowGotL10nProjectConfigImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -36204,7 +36204,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -36404,7 +36404,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -36419,7 +36419,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -36435,7 +36435,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -36452,7 +36452,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36470,7 +36470,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36488,7 +36488,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36507,7 +36507,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36527,7 +36527,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36547,7 +36547,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36569,7 +36569,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36591,7 +36591,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36613,7 +36613,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36637,7 +36637,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36661,7 +36661,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36685,7 +36685,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36710,7 +36710,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36734,7 +36734,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36758,7 +36758,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36782,7 +36782,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36807,7 +36807,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36833,7 +36833,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36860,7 +36860,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36887,7 +36887,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -36915,7 +36915,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37049,7 +37049,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -37064,7 +37064,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -37080,7 +37080,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -37097,7 +37097,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37115,7 +37115,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37133,7 +37133,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37152,7 +37152,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37172,7 +37172,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37192,7 +37192,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37214,7 +37214,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37236,7 +37236,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37258,7 +37258,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37282,7 +37282,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37306,7 +37306,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37330,7 +37330,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37355,7 +37355,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37379,7 +37379,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37403,7 +37403,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37427,7 +37427,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37452,7 +37452,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37478,7 +37478,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37505,7 +37505,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37532,7 +37532,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37560,7 +37560,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37694,7 +37694,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -37709,7 +37709,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -37725,7 +37725,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -37742,7 +37742,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37760,7 +37760,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37778,7 +37778,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37797,7 +37797,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37817,7 +37817,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37837,7 +37837,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37859,7 +37859,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37881,7 +37881,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37903,7 +37903,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37927,7 +37927,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37951,7 +37951,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -37975,7 +37975,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38000,7 +38000,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38024,7 +38024,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38048,7 +38048,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38072,7 +38072,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38097,7 +38097,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38123,7 +38123,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38150,7 +38150,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38177,7 +38177,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38205,7 +38205,7 @@ class _$GenerateFlowGotL10nProjectConfigImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38466,7 +38466,7 @@ abstract class GenerateFlowGotL10nProjectConfig extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38493,7 +38493,7 @@ abstract class GenerateFlowGotL10nProjectConfig extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -38530,7 +38530,7 @@ abstract class _$$GenerateFlowMappedProjectArbDataImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -38573,7 +38573,7 @@ class __$$GenerateFlowMappedProjectArbDataImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -38628,10 +38628,10 @@ class __$$GenerateFlowMappedProjectArbDataImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -38785,7 +38785,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -38985,7 +38985,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -39000,7 +39000,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -39016,7 +39016,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -39033,7 +39033,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39051,7 +39051,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39069,7 +39069,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39088,7 +39088,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39108,7 +39108,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39128,7 +39128,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39150,7 +39150,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39172,7 +39172,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39194,7 +39194,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39218,7 +39218,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39242,7 +39242,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39266,7 +39266,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39291,7 +39291,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39315,7 +39315,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39339,7 +39339,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39363,7 +39363,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39388,7 +39388,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39414,7 +39414,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39441,7 +39441,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39468,7 +39468,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39496,7 +39496,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39630,7 +39630,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -39645,7 +39645,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -39661,7 +39661,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -39678,7 +39678,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39696,7 +39696,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39714,7 +39714,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39733,7 +39733,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39753,7 +39753,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39773,7 +39773,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39795,7 +39795,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39817,7 +39817,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39839,7 +39839,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39863,7 +39863,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39887,7 +39887,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39911,7 +39911,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39936,7 +39936,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39960,7 +39960,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -39984,7 +39984,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40008,7 +40008,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40033,7 +40033,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40059,7 +40059,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40086,7 +40086,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40113,7 +40113,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40141,7 +40141,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40275,7 +40275,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -40290,7 +40290,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -40306,7 +40306,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -40323,7 +40323,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40341,7 +40341,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40359,7 +40359,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40378,7 +40378,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40398,7 +40398,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40418,7 +40418,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40440,7 +40440,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40462,7 +40462,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40484,7 +40484,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40508,7 +40508,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40532,7 +40532,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40556,7 +40556,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40581,7 +40581,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40605,7 +40605,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40629,7 +40629,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40653,7 +40653,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40678,7 +40678,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40704,7 +40704,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40731,7 +40731,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40758,7 +40758,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -40786,7 +40786,7 @@ class _$GenerateFlowMappedProjectArbDataImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41047,7 +41047,7 @@ abstract class GenerateFlowMappedProjectArbData extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41074,7 +41074,7 @@ abstract class GenerateFlowMappedProjectArbData extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -41116,7 +41116,7 @@ abstract class _$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWith<
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41163,7 +41163,7 @@ class __$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -41220,10 +41220,10 @@ class __$$GenerateFlowResolvedProjectArbTranslationPayloadImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -41403,7 +41403,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -41626,7 +41626,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -41641,7 +41641,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -41657,7 +41657,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -41674,7 +41674,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41692,7 +41692,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41710,7 +41710,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41729,7 +41729,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41749,7 +41749,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41769,7 +41769,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41791,7 +41791,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41813,7 +41813,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41835,7 +41835,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41859,7 +41859,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41883,7 +41883,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41907,7 +41907,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41932,7 +41932,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41956,7 +41956,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -41980,7 +41980,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42004,7 +42004,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42029,7 +42029,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42055,7 +42055,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42082,7 +42082,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42109,7 +42109,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42137,7 +42137,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42273,7 +42273,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -42288,7 +42288,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -42304,7 +42304,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -42321,7 +42321,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42339,7 +42339,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42357,7 +42357,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42376,7 +42376,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42396,7 +42396,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42416,7 +42416,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42438,7 +42438,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42460,7 +42460,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42482,7 +42482,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42506,7 +42506,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42530,7 +42530,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42554,7 +42554,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42579,7 +42579,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42603,7 +42603,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42627,7 +42627,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42651,7 +42651,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42676,7 +42676,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42702,7 +42702,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42729,7 +42729,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42756,7 +42756,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42784,7 +42784,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42920,7 +42920,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -42935,7 +42935,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -42951,7 +42951,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -42968,7 +42968,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -42986,7 +42986,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43004,7 +43004,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43023,7 +43023,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43043,7 +43043,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43063,7 +43063,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43085,7 +43085,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43107,7 +43107,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43129,7 +43129,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43153,7 +43153,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43177,7 +43177,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43201,7 +43201,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43226,7 +43226,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43250,7 +43250,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43274,7 +43274,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43298,7 +43298,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43323,7 +43323,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43349,7 +43349,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43376,7 +43376,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43403,7 +43403,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43431,7 +43431,7 @@ class _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43695,7 +43695,7 @@ abstract class GenerateFlowResolvedProjectArbTranslationPayload
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43725,7 +43725,7 @@ abstract class GenerateFlowResolvedProjectArbTranslationPayload
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -43773,7 +43773,7 @@ abstract class _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunc
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -43828,7 +43828,7 @@ class __$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImp
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -43885,10 +43885,10 @@ class __$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImp
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -44073,7 +44073,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -44297,7 +44297,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -44312,7 +44312,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -44328,7 +44328,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -44345,7 +44345,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44363,7 +44363,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44381,7 +44381,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44400,7 +44400,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44420,7 +44420,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44440,7 +44440,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44462,7 +44462,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44484,7 +44484,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44506,7 +44506,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44530,7 +44530,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44554,7 +44554,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44578,7 +44578,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44603,7 +44603,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44627,7 +44627,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44651,7 +44651,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44675,7 +44675,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44700,7 +44700,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44726,7 +44726,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44753,7 +44753,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44780,7 +44780,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44808,7 +44808,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -44944,7 +44944,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -44959,7 +44959,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -44975,7 +44975,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -44992,7 +44992,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45010,7 +45010,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45028,7 +45028,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45047,7 +45047,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45067,7 +45067,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45087,7 +45087,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45109,7 +45109,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45131,7 +45131,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45153,7 +45153,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45177,7 +45177,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45201,7 +45201,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45225,7 +45225,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45250,7 +45250,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45274,7 +45274,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45298,7 +45298,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45322,7 +45322,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45347,7 +45347,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45373,7 +45373,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45400,7 +45400,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45427,7 +45427,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45455,7 +45455,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45591,7 +45591,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -45606,7 +45606,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -45622,7 +45622,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -45639,7 +45639,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45657,7 +45657,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45675,7 +45675,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45694,7 +45694,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45714,7 +45714,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45734,7 +45734,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45756,7 +45756,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45778,7 +45778,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45800,7 +45800,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45824,7 +45824,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45848,7 +45848,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45872,7 +45872,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45897,7 +45897,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45921,7 +45921,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45945,7 +45945,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45969,7 +45969,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -45994,7 +45994,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46020,7 +46020,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46047,7 +46047,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46074,7 +46074,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46102,7 +46102,7 @@ class _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46368,7 +46368,7 @@ abstract class GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctio
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46401,7 +46401,7 @@ abstract class GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctio
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -46440,7 +46440,7 @@ abstract class _$$GenerateFlowCodebaseNormalizedImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -46486,7 +46486,7 @@ class __$$GenerateFlowCodebaseNormalizedImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -46543,10 +46543,10 @@ class __$$GenerateFlowCodebaseNormalizedImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -46726,7 +46726,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -46948,7 +46948,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -46963,7 +46963,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -46979,7 +46979,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -46996,7 +46996,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47014,7 +47014,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47032,7 +47032,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47051,7 +47051,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47071,7 +47071,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47091,7 +47091,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47113,7 +47113,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47135,7 +47135,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47157,7 +47157,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47181,7 +47181,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47205,7 +47205,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47229,7 +47229,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47254,7 +47254,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47278,7 +47278,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47302,7 +47302,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47326,7 +47326,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47351,7 +47351,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47377,7 +47377,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47404,7 +47404,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47431,7 +47431,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47459,7 +47459,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47595,7 +47595,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -47610,7 +47610,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -47626,7 +47626,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -47643,7 +47643,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47661,7 +47661,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47679,7 +47679,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47698,7 +47698,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47718,7 +47718,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47738,7 +47738,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47760,7 +47760,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47782,7 +47782,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47804,7 +47804,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47828,7 +47828,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47852,7 +47852,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47876,7 +47876,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47901,7 +47901,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47925,7 +47925,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47949,7 +47949,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47973,7 +47973,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -47998,7 +47998,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48024,7 +48024,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48051,7 +48051,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48078,7 +48078,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48106,7 +48106,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48242,7 +48242,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -48257,7 +48257,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -48273,7 +48273,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -48290,7 +48290,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48308,7 +48308,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48326,7 +48326,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48345,7 +48345,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48365,7 +48365,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48385,7 +48385,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48407,7 +48407,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48429,7 +48429,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48451,7 +48451,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48475,7 +48475,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48499,7 +48499,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48523,7 +48523,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48548,7 +48548,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48572,7 +48572,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48596,7 +48596,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48620,7 +48620,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48645,7 +48645,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48671,7 +48671,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48698,7 +48698,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48725,7 +48725,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -48753,7 +48753,7 @@ class _$GenerateFlowCodebaseNormalizedImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49016,7 +49016,7 @@ abstract class GenerateFlowCodebaseNormalized extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49045,7 +49045,7 @@ abstract class GenerateFlowCodebaseNormalized extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -49084,7 +49084,7 @@ abstract class _$$GenerateFlowResolvedHardcodedStringsImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49133,7 +49133,7 @@ class __$$GenerateFlowResolvedHardcodedStringsImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -49192,10 +49192,10 @@ class __$$GenerateFlowResolvedHardcodedStringsImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -49402,7 +49402,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -49646,7 +49646,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -49661,7 +49661,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -49677,7 +49677,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -49694,7 +49694,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49712,7 +49712,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49730,7 +49730,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49749,7 +49749,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49769,7 +49769,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49789,7 +49789,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49811,7 +49811,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49833,7 +49833,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49855,7 +49855,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49879,7 +49879,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49903,7 +49903,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49927,7 +49927,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49952,7 +49952,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -49976,7 +49976,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50000,7 +50000,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50024,7 +50024,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50049,7 +50049,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50075,7 +50075,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50102,7 +50102,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50129,7 +50129,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50157,7 +50157,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50295,7 +50295,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -50310,7 +50310,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -50326,7 +50326,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -50343,7 +50343,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50361,7 +50361,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50379,7 +50379,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50398,7 +50398,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50418,7 +50418,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50438,7 +50438,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50460,7 +50460,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50482,7 +50482,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50504,7 +50504,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50528,7 +50528,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50552,7 +50552,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50576,7 +50576,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50601,7 +50601,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50625,7 +50625,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50649,7 +50649,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50673,7 +50673,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50698,7 +50698,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50724,7 +50724,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50751,7 +50751,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50778,7 +50778,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50806,7 +50806,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -50944,7 +50944,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -50959,7 +50959,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -50975,7 +50975,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -50992,7 +50992,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51010,7 +51010,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51028,7 +51028,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51047,7 +51047,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51067,7 +51067,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51087,7 +51087,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51109,7 +51109,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51131,7 +51131,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51153,7 +51153,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51177,7 +51177,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51201,7 +51201,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51225,7 +51225,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51250,7 +51250,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51274,7 +51274,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51298,7 +51298,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51322,7 +51322,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51347,7 +51347,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51373,7 +51373,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51400,7 +51400,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51427,7 +51427,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51455,7 +51455,7 @@ class _$GenerateFlowResolvedHardcodedStringsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51720,7 +51720,7 @@ abstract class GenerateFlowResolvedHardcodedStrings extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51753,7 +51753,7 @@ abstract class GenerateFlowResolvedHardcodedStrings extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -51799,7 +51799,7 @@ abstract class _$$GenerateFlowReplacedHardcodedStringsForBabelTextImplCopyWith<
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -51849,7 +51849,7 @@ class __$$GenerateFlowReplacedHardcodedStringsForBabelTextImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -51908,10 +51908,10 @@ class __$$GenerateFlowReplacedHardcodedStringsForBabelTextImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -52118,7 +52118,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -52363,7 +52363,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -52378,7 +52378,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -52394,7 +52394,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -52411,7 +52411,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52429,7 +52429,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52447,7 +52447,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52466,7 +52466,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52486,7 +52486,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52506,7 +52506,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52528,7 +52528,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52550,7 +52550,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52572,7 +52572,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52596,7 +52596,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52620,7 +52620,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52644,7 +52644,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52669,7 +52669,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52693,7 +52693,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52717,7 +52717,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52741,7 +52741,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52766,7 +52766,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52792,7 +52792,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52819,7 +52819,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52846,7 +52846,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -52874,7 +52874,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53012,7 +53012,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -53027,7 +53027,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -53043,7 +53043,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -53060,7 +53060,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53078,7 +53078,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53096,7 +53096,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53115,7 +53115,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53135,7 +53135,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53155,7 +53155,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53177,7 +53177,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53199,7 +53199,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53221,7 +53221,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53245,7 +53245,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53269,7 +53269,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53293,7 +53293,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53318,7 +53318,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53342,7 +53342,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53366,7 +53366,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53390,7 +53390,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53415,7 +53415,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53441,7 +53441,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53468,7 +53468,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53495,7 +53495,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53523,7 +53523,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53661,7 +53661,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -53676,7 +53676,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -53692,7 +53692,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -53709,7 +53709,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53727,7 +53727,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53745,7 +53745,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53764,7 +53764,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53784,7 +53784,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53804,7 +53804,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53826,7 +53826,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53848,7 +53848,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53870,7 +53870,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53894,7 +53894,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53918,7 +53918,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53942,7 +53942,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53967,7 +53967,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -53991,7 +53991,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54015,7 +54015,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54039,7 +54039,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54064,7 +54064,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54090,7 +54090,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54117,7 +54117,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54144,7 +54144,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54172,7 +54172,7 @@ class _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54438,7 +54438,7 @@ abstract class GenerateFlowReplacedHardcodedStringsForBabelText
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54471,7 +54471,7 @@ abstract class GenerateFlowReplacedHardcodedStringsForBabelText
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -54512,7 +54512,7 @@ abstract class _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -54562,7 +54562,7 @@ class __$$GenerateFlowAppliedCodebaseGeneralDartFixesImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -54621,10 +54621,10 @@ class __$$GenerateFlowAppliedCodebaseGeneralDartFixesImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -54831,7 +54831,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -55076,7 +55076,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -55091,7 +55091,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -55107,7 +55107,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -55124,7 +55124,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55142,7 +55142,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55160,7 +55160,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55179,7 +55179,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55199,7 +55199,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55219,7 +55219,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55241,7 +55241,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55263,7 +55263,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55285,7 +55285,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55309,7 +55309,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55333,7 +55333,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55357,7 +55357,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55382,7 +55382,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55406,7 +55406,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55430,7 +55430,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55454,7 +55454,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55479,7 +55479,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55505,7 +55505,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55532,7 +55532,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55559,7 +55559,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55587,7 +55587,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55725,7 +55725,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -55740,7 +55740,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -55756,7 +55756,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -55773,7 +55773,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55791,7 +55791,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55809,7 +55809,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55828,7 +55828,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55848,7 +55848,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55868,7 +55868,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55890,7 +55890,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55912,7 +55912,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55934,7 +55934,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55958,7 +55958,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -55982,7 +55982,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56006,7 +56006,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56031,7 +56031,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56055,7 +56055,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56079,7 +56079,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56103,7 +56103,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56128,7 +56128,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56154,7 +56154,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56181,7 +56181,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56208,7 +56208,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56236,7 +56236,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56374,7 +56374,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -56389,7 +56389,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -56405,7 +56405,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -56422,7 +56422,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56440,7 +56440,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56458,7 +56458,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56477,7 +56477,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56497,7 +56497,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56517,7 +56517,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56539,7 +56539,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56561,7 +56561,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56583,7 +56583,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56607,7 +56607,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56631,7 +56631,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56655,7 +56655,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56680,7 +56680,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56704,7 +56704,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56728,7 +56728,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56752,7 +56752,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56777,7 +56777,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56803,7 +56803,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56830,7 +56830,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56857,7 +56857,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -56885,7 +56885,7 @@ class _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57151,7 +57151,7 @@ abstract class GenerateFlowAppliedCodebaseGeneralDartFixes
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57184,7 +57184,7 @@ abstract class GenerateFlowAppliedCodebaseGeneralDartFixes
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -57225,7 +57225,7 @@ abstract class _$$GenerateFlowGeneratedBabelClassImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57275,7 +57275,7 @@ class __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -57335,10 +57335,10 @@ class __$$GenerateFlowGeneratedBabelClassImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -57551,7 +57551,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -57801,7 +57801,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -57816,7 +57816,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -57832,7 +57832,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -57849,7 +57849,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57867,7 +57867,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57885,7 +57885,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57904,7 +57904,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57924,7 +57924,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57944,7 +57944,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57966,7 +57966,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -57988,7 +57988,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58010,7 +58010,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58034,7 +58034,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58058,7 +58058,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58082,7 +58082,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58107,7 +58107,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58131,7 +58131,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58155,7 +58155,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58179,7 +58179,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58204,7 +58204,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58230,7 +58230,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58257,7 +58257,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58284,7 +58284,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58312,7 +58312,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58451,7 +58451,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -58466,7 +58466,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -58482,7 +58482,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -58499,7 +58499,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58517,7 +58517,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58535,7 +58535,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58554,7 +58554,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58574,7 +58574,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58594,7 +58594,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58616,7 +58616,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58638,7 +58638,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58660,7 +58660,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58684,7 +58684,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58708,7 +58708,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58732,7 +58732,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58757,7 +58757,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58781,7 +58781,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58805,7 +58805,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58829,7 +58829,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58854,7 +58854,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58880,7 +58880,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58907,7 +58907,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58934,7 +58934,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -58962,7 +58962,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59101,7 +59101,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -59116,7 +59116,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -59132,7 +59132,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -59149,7 +59149,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59167,7 +59167,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59185,7 +59185,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59204,7 +59204,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59224,7 +59224,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59244,7 +59244,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59266,7 +59266,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59288,7 +59288,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59310,7 +59310,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59334,7 +59334,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59358,7 +59358,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59382,7 +59382,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59407,7 +59407,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59431,7 +59431,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59455,7 +59455,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59479,7 +59479,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59504,7 +59504,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59530,7 +59530,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59557,7 +59557,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59584,7 +59584,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59612,7 +59612,7 @@ class _$GenerateFlowGeneratedBabelClassImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59878,7 +59878,7 @@ abstract class GenerateFlowGeneratedBabelClass extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -59911,7 +59911,7 @@ abstract class GenerateFlowGeneratedBabelClass extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -59953,7 +59953,7 @@ abstract class _$$GenerateFlowWrittedBabelClassInDartFileImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60002,7 +60002,7 @@ class __$$GenerateFlowWrittedBabelClassInDartFileImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -60061,10 +60061,10 @@ class __$$GenerateFlowWrittedBabelClassInDartFileImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -60271,7 +60271,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -60515,7 +60515,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -60530,7 +60530,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -60546,7 +60546,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -60563,7 +60563,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60581,7 +60581,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60599,7 +60599,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60618,7 +60618,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60638,7 +60638,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60658,7 +60658,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60680,7 +60680,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60702,7 +60702,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60724,7 +60724,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60748,7 +60748,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60772,7 +60772,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60796,7 +60796,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60821,7 +60821,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60845,7 +60845,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60869,7 +60869,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60893,7 +60893,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60918,7 +60918,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60944,7 +60944,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60971,7 +60971,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -60998,7 +60998,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61026,7 +61026,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61164,7 +61164,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -61179,7 +61179,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -61195,7 +61195,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -61212,7 +61212,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61230,7 +61230,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61248,7 +61248,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61267,7 +61267,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61287,7 +61287,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61307,7 +61307,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61329,7 +61329,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61351,7 +61351,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61373,7 +61373,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61397,7 +61397,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61421,7 +61421,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61445,7 +61445,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61470,7 +61470,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61494,7 +61494,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61518,7 +61518,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61542,7 +61542,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61567,7 +61567,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61593,7 +61593,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61620,7 +61620,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61647,7 +61647,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61675,7 +61675,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61813,7 +61813,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -61828,7 +61828,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -61844,7 +61844,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -61861,7 +61861,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61879,7 +61879,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61897,7 +61897,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61916,7 +61916,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61936,7 +61936,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61956,7 +61956,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -61978,7 +61978,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62000,7 +62000,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62022,7 +62022,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62046,7 +62046,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62070,7 +62070,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62094,7 +62094,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62119,7 +62119,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62143,7 +62143,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62167,7 +62167,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62191,7 +62191,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62216,7 +62216,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62242,7 +62242,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62269,7 +62269,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62296,7 +62296,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62324,7 +62324,7 @@ class _$GenerateFlowWrittedBabelClassInDartFileImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62590,7 +62590,7 @@ abstract class GenerateFlowWrittedBabelClassInDartFile
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62623,7 +62623,7 @@ abstract class GenerateFlowWrittedBabelClassInDartFile
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -62666,7 +62666,7 @@ abstract class _$$GenerateFlowAddedBabelClassInitializationInMainImplCopyWith<
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -62716,7 +62716,7 @@ class __$$GenerateFlowAddedBabelClassInitializationInMainImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -62775,10 +62775,10 @@ class __$$GenerateFlowAddedBabelClassInitializationInMainImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -62985,7 +62985,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -63230,7 +63230,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -63245,7 +63245,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -63261,7 +63261,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -63278,7 +63278,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63296,7 +63296,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63314,7 +63314,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63333,7 +63333,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63353,7 +63353,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63373,7 +63373,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63395,7 +63395,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63417,7 +63417,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63439,7 +63439,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63463,7 +63463,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63487,7 +63487,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63511,7 +63511,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63536,7 +63536,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63560,7 +63560,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63584,7 +63584,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63608,7 +63608,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63633,7 +63633,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63659,7 +63659,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63686,7 +63686,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63713,7 +63713,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63741,7 +63741,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63879,7 +63879,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -63894,7 +63894,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -63910,7 +63910,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -63927,7 +63927,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63945,7 +63945,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63963,7 +63963,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -63982,7 +63982,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64002,7 +64002,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64022,7 +64022,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64044,7 +64044,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64066,7 +64066,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64088,7 +64088,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64112,7 +64112,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64136,7 +64136,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64160,7 +64160,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64185,7 +64185,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64209,7 +64209,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64233,7 +64233,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64257,7 +64257,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64282,7 +64282,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64308,7 +64308,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64335,7 +64335,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64362,7 +64362,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64390,7 +64390,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64528,7 +64528,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -64543,7 +64543,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -64559,7 +64559,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -64576,7 +64576,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64594,7 +64594,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64612,7 +64612,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64631,7 +64631,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64651,7 +64651,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64671,7 +64671,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64693,7 +64693,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64715,7 +64715,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64737,7 +64737,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64761,7 +64761,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64785,7 +64785,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64809,7 +64809,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64834,7 +64834,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64858,7 +64858,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64882,7 +64882,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64906,7 +64906,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64931,7 +64931,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64957,7 +64957,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -64984,7 +64984,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -65011,7 +65011,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -65039,7 +65039,7 @@ class _$GenerateFlowAddedBabelClassInitializationInMainImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -65305,7 +65305,7 @@ abstract class GenerateFlowAddedBabelClassInitializationInMain
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -65338,7 +65338,7 @@ abstract class GenerateFlowAddedBabelClassInitializationInMain
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -65381,7 +65381,7 @@ abstract class _$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplCopyWith<
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -65431,7 +65431,7 @@ class __$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -65490,10 +65490,10 @@ class __$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -65700,7 +65700,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -65945,7 +65945,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -65960,7 +65960,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -65976,7 +65976,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -65993,7 +65993,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66011,7 +66011,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66029,7 +66029,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66048,7 +66048,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66068,7 +66068,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66088,7 +66088,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66110,7 +66110,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66132,7 +66132,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66154,7 +66154,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66178,7 +66178,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66202,7 +66202,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66226,7 +66226,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66251,7 +66251,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66275,7 +66275,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66299,7 +66299,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66323,7 +66323,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66348,7 +66348,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66374,7 +66374,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66401,7 +66401,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66428,7 +66428,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66456,7 +66456,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66594,7 +66594,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -66609,7 +66609,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -66625,7 +66625,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -66642,7 +66642,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66660,7 +66660,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66678,7 +66678,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66697,7 +66697,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66717,7 +66717,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66737,7 +66737,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66759,7 +66759,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66781,7 +66781,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66803,7 +66803,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66827,7 +66827,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66851,7 +66851,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66875,7 +66875,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66900,7 +66900,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66924,7 +66924,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66948,7 +66948,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66972,7 +66972,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -66997,7 +66997,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67023,7 +67023,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67050,7 +67050,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67077,7 +67077,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67105,7 +67105,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67243,7 +67243,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -67258,7 +67258,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -67274,7 +67274,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -67291,7 +67291,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67309,7 +67309,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67327,7 +67327,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67346,7 +67346,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67366,7 +67366,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67386,7 +67386,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67408,7 +67408,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67430,7 +67430,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67452,7 +67452,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67476,7 +67476,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67500,7 +67500,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67524,7 +67524,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67549,7 +67549,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67573,7 +67573,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67597,7 +67597,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67621,7 +67621,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67646,7 +67646,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67672,7 +67672,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67699,7 +67699,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67726,7 +67726,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -67754,7 +67754,7 @@ class _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68020,7 +68020,7 @@ abstract class GenerateFlowAddedSharedPrefsInFlutterProjects
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68053,7 +68053,7 @@ abstract class GenerateFlowAddedSharedPrefsInFlutterProjects
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -68094,7 +68094,7 @@ abstract class _$$GenerateFlowExtractedCodeBaseImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68144,7 +68144,7 @@ class __$$GenerateFlowExtractedCodeBaseImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -68204,10 +68204,10 @@ class __$$GenerateFlowExtractedCodeBaseImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -68421,7 +68421,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -68678,7 +68678,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -68693,7 +68693,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -68709,7 +68709,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -68726,7 +68726,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68744,7 +68744,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68762,7 +68762,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68781,7 +68781,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68801,7 +68801,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68821,7 +68821,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68843,7 +68843,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68865,7 +68865,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68887,7 +68887,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68911,7 +68911,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68935,7 +68935,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68959,7 +68959,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -68984,7 +68984,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69008,7 +69008,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69032,7 +69032,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69056,7 +69056,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69081,7 +69081,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69107,7 +69107,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69134,7 +69134,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69161,7 +69161,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69189,7 +69189,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69328,7 +69328,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -69343,7 +69343,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -69359,7 +69359,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -69376,7 +69376,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69394,7 +69394,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69412,7 +69412,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69431,7 +69431,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69451,7 +69451,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69471,7 +69471,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69493,7 +69493,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69515,7 +69515,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69537,7 +69537,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69561,7 +69561,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69585,7 +69585,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69609,7 +69609,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69634,7 +69634,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69658,7 +69658,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69682,7 +69682,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69706,7 +69706,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69731,7 +69731,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69757,7 +69757,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69784,7 +69784,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69811,7 +69811,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69839,7 +69839,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -69978,7 +69978,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -69993,7 +69993,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -70009,7 +70009,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -70026,7 +70026,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70044,7 +70044,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70062,7 +70062,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70081,7 +70081,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70101,7 +70101,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70121,7 +70121,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70143,7 +70143,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70165,7 +70165,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70187,7 +70187,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70211,7 +70211,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70235,7 +70235,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70259,7 +70259,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70284,7 +70284,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70308,7 +70308,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70332,7 +70332,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70356,7 +70356,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70381,7 +70381,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70407,7 +70407,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70434,7 +70434,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70461,7 +70461,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70489,7 +70489,7 @@ class _$GenerateFlowExtractedCodeBaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70755,7 +70755,7 @@ abstract class GenerateFlowExtractedCodeBase extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70788,7 +70788,7 @@ abstract class GenerateFlowExtractedCodeBase extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -70830,7 +70830,7 @@ abstract class _$$GenerateFlowTranslatedNewStringsArbImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -70881,7 +70881,7 @@ class __$$GenerateFlowTranslatedNewStringsArbImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -70942,10 +70942,10 @@ class __$$GenerateFlowTranslatedNewStringsArbImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -71167,7 +71167,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -71437,7 +71437,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -71452,7 +71452,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -71468,7 +71468,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -71485,7 +71485,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71503,7 +71503,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71521,7 +71521,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71540,7 +71540,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71560,7 +71560,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71580,7 +71580,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71602,7 +71602,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71624,7 +71624,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71646,7 +71646,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71670,7 +71670,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71694,7 +71694,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71718,7 +71718,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71743,7 +71743,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71767,7 +71767,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71791,7 +71791,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71815,7 +71815,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71840,7 +71840,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71866,7 +71866,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71893,7 +71893,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71920,7 +71920,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -71948,7 +71948,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72088,7 +72088,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -72103,7 +72103,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -72119,7 +72119,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -72136,7 +72136,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72154,7 +72154,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72172,7 +72172,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72191,7 +72191,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72211,7 +72211,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72231,7 +72231,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72253,7 +72253,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72275,7 +72275,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72297,7 +72297,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72321,7 +72321,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72345,7 +72345,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72369,7 +72369,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72394,7 +72394,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72418,7 +72418,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72442,7 +72442,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72466,7 +72466,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72491,7 +72491,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72517,7 +72517,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72544,7 +72544,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72571,7 +72571,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72599,7 +72599,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72739,7 +72739,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -72754,7 +72754,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -72770,7 +72770,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -72787,7 +72787,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72805,7 +72805,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72823,7 +72823,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72842,7 +72842,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72862,7 +72862,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72882,7 +72882,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72904,7 +72904,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72926,7 +72926,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72948,7 +72948,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72972,7 +72972,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -72996,7 +72996,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73020,7 +73020,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73045,7 +73045,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73069,7 +73069,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73093,7 +73093,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73117,7 +73117,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73142,7 +73142,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73168,7 +73168,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73195,7 +73195,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73222,7 +73222,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73250,7 +73250,7 @@ class _$GenerateFlowTranslatedNewStringsArbImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73517,7 +73517,7 @@ abstract class GenerateFlowTranslatedNewStringsArb extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73553,7 +73553,7 @@ abstract class GenerateFlowTranslatedNewStringsArb extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -73596,7 +73596,7 @@ abstract class _$$GenerateFlowUploadedNewTranslationsImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -73648,7 +73648,7 @@ class __$$GenerateFlowUploadedNewTranslationsImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -73710,10 +73710,10 @@ class __$$GenerateFlowUploadedNewTranslationsImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -73941,7 +73941,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -74217,7 +74217,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -74232,7 +74232,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -74248,7 +74248,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -74265,7 +74265,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74283,7 +74283,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74301,7 +74301,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74320,7 +74320,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74340,7 +74340,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74360,7 +74360,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74382,7 +74382,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74404,7 +74404,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74426,7 +74426,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74450,7 +74450,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74474,7 +74474,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74498,7 +74498,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74523,7 +74523,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74547,7 +74547,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74571,7 +74571,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74595,7 +74595,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74620,7 +74620,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74646,7 +74646,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74673,7 +74673,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74700,7 +74700,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74728,7 +74728,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74869,7 +74869,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -74884,7 +74884,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -74900,7 +74900,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -74917,7 +74917,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74935,7 +74935,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74953,7 +74953,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74972,7 +74972,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -74992,7 +74992,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75012,7 +75012,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75034,7 +75034,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75056,7 +75056,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75078,7 +75078,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75102,7 +75102,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75126,7 +75126,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75150,7 +75150,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75175,7 +75175,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75199,7 +75199,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75223,7 +75223,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75247,7 +75247,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75272,7 +75272,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75298,7 +75298,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75325,7 +75325,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75352,7 +75352,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75380,7 +75380,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75521,7 +75521,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -75536,7 +75536,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -75552,7 +75552,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -75569,7 +75569,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75587,7 +75587,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75605,7 +75605,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75624,7 +75624,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75644,7 +75644,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75664,7 +75664,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75686,7 +75686,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75708,7 +75708,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75730,7 +75730,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75754,7 +75754,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75778,7 +75778,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75802,7 +75802,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75827,7 +75827,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75851,7 +75851,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75875,7 +75875,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75899,7 +75899,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75924,7 +75924,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75950,7 +75950,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -75977,7 +75977,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -76004,7 +76004,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -76032,7 +76032,7 @@ class _$GenerateFlowUploadedNewTranslationsImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -76300,7 +76300,7 @@ abstract class GenerateFlowUploadedNewTranslations extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -76337,7 +76337,7 @@ abstract class GenerateFlowUploadedNewTranslations extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -76381,7 +76381,7 @@ abstract class _$$GenerateFlowCommitedAllChangesOfCodebaseImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -76433,7 +76433,7 @@ class __$$GenerateFlowCommitedAllChangesOfCodebaseImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -76495,10 +76495,10 @@ class __$$GenerateFlowCommitedAllChangesOfCodebaseImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -76726,7 +76726,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -77002,7 +77002,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -77017,7 +77017,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -77033,7 +77033,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -77050,7 +77050,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77068,7 +77068,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77086,7 +77086,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77105,7 +77105,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77125,7 +77125,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77145,7 +77145,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77167,7 +77167,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77189,7 +77189,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77211,7 +77211,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77235,7 +77235,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77259,7 +77259,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77283,7 +77283,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77308,7 +77308,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77332,7 +77332,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77356,7 +77356,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77380,7 +77380,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77405,7 +77405,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77431,7 +77431,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77458,7 +77458,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77485,7 +77485,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77513,7 +77513,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77654,7 +77654,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -77669,7 +77669,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -77685,7 +77685,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -77702,7 +77702,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77720,7 +77720,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77738,7 +77738,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77757,7 +77757,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77777,7 +77777,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77797,7 +77797,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77819,7 +77819,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77841,7 +77841,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77863,7 +77863,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77887,7 +77887,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77911,7 +77911,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77935,7 +77935,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77960,7 +77960,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -77984,7 +77984,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78008,7 +78008,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78032,7 +78032,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78057,7 +78057,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78083,7 +78083,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78110,7 +78110,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78137,7 +78137,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78165,7 +78165,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78306,7 +78306,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -78321,7 +78321,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -78337,7 +78337,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -78354,7 +78354,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78372,7 +78372,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78390,7 +78390,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78409,7 +78409,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78429,7 +78429,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78449,7 +78449,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78471,7 +78471,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78493,7 +78493,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78515,7 +78515,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78539,7 +78539,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78563,7 +78563,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78587,7 +78587,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78612,7 +78612,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78636,7 +78636,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78660,7 +78660,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78684,7 +78684,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78709,7 +78709,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78735,7 +78735,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78762,7 +78762,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78789,7 +78789,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -78817,7 +78817,7 @@ class _$GenerateFlowCommitedAllChangesOfCodebaseImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79086,7 +79086,7 @@ abstract class GenerateFlowCommitedAllChangesOfCodebase
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79123,7 +79123,7 @@ abstract class GenerateFlowCommitedAllChangesOfCodebase
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -79167,7 +79167,7 @@ abstract class _$$GenerateFlowGetBabelChangesCommitImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79220,7 +79220,7 @@ class __$$GenerateFlowGetBabelChangesCommitImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -79283,10 +79283,10 @@ class __$$GenerateFlowGetBabelChangesCommitImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -79520,7 +79520,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -79801,7 +79801,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -79816,7 +79816,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -79832,7 +79832,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -79849,7 +79849,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79867,7 +79867,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79885,7 +79885,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79904,7 +79904,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79924,7 +79924,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79944,7 +79944,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79966,7 +79966,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -79988,7 +79988,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80010,7 +80010,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80034,7 +80034,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80058,7 +80058,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80082,7 +80082,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80107,7 +80107,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80131,7 +80131,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80155,7 +80155,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80179,7 +80179,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80204,7 +80204,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80230,7 +80230,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80257,7 +80257,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80284,7 +80284,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80312,7 +80312,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80454,7 +80454,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -80469,7 +80469,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -80485,7 +80485,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -80502,7 +80502,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80520,7 +80520,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80538,7 +80538,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80557,7 +80557,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80577,7 +80577,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80597,7 +80597,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80619,7 +80619,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80641,7 +80641,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80663,7 +80663,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80687,7 +80687,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80711,7 +80711,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80735,7 +80735,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80760,7 +80760,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80784,7 +80784,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80808,7 +80808,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80832,7 +80832,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80857,7 +80857,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80883,7 +80883,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80910,7 +80910,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80937,7 +80937,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -80965,7 +80965,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81107,7 +81107,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -81122,7 +81122,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -81138,7 +81138,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -81155,7 +81155,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81173,7 +81173,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81191,7 +81191,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81210,7 +81210,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81230,7 +81230,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81250,7 +81250,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81272,7 +81272,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81294,7 +81294,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81316,7 +81316,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81340,7 +81340,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81364,7 +81364,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81388,7 +81388,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81413,7 +81413,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81437,7 +81437,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81461,7 +81461,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81485,7 +81485,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81510,7 +81510,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81536,7 +81536,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81563,7 +81563,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81590,7 +81590,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81618,7 +81618,7 @@ class _$GenerateFlowGetBabelChangesCommitImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81887,7 +81887,7 @@ abstract class GenerateFlowGetBabelChangesCommit extends GenerateFlowState {
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -81925,7 +81925,7 @@ abstract class GenerateFlowGetBabelChangesCommit extends GenerateFlowState {
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;
@@ -81970,7 +81970,7 @@ abstract class _$$GenerateFlowSincronizedBabelCommitWithApiImplCopyWith<$Res>
     GitVariables gitVariables,
     int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter() Set<BabelSupportedLocales> languages,
-    String downloadLink,
+    String? downloadLink,
     Map<String, String> referenceArbMap,
     ProjectCacheMap projectCacheMap,
     TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82023,7 +82023,7 @@ class __$$GenerateFlowSincronizedBabelCommitWithApiImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? maxLanguageCount = null,
     Object? languages = null,
-    Object? downloadLink = null,
+    Object? downloadLink = freezed,
     Object? referenceArbMap = null,
     Object? projectCacheMap = null,
     Object? cacheMapTranslationPayloadInfo = null,
@@ -82086,10 +82086,10 @@ class __$$GenerateFlowSincronizedBabelCommitWithApiImplCopyWithImpl<$Res>
                 : languages // ignore: cast_nullable_to_non_nullable
                     as Set<BabelSupportedLocales>,
         downloadLink:
-            null == downloadLink
+            freezed == downloadLink
                 ? _value.downloadLink
                 : downloadLink // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         referenceArbMap:
             null == referenceArbMap
                 ? _value._referenceArbMap
@@ -82323,7 +82323,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
   }
 
   @override
-  final String downloadLink;
+  final String? downloadLink;
   final Map<String, String> _referenceArbMap;
   @override
   Map<String, String> get referenceArbMap {
@@ -82604,7 +82604,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )
     gotAppLanguages,
     required TResult Function(
@@ -82619,7 +82619,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )
     downloadReferenceArb,
@@ -82635,7 +82635,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )
@@ -82652,7 +82652,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82670,7 +82670,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82688,7 +82688,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82707,7 +82707,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82727,7 +82727,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82747,7 +82747,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82769,7 +82769,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82791,7 +82791,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82813,7 +82813,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82837,7 +82837,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82861,7 +82861,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82885,7 +82885,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82910,7 +82910,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82934,7 +82934,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82958,7 +82958,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -82982,7 +82982,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83007,7 +83007,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83033,7 +83033,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83060,7 +83060,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83087,7 +83087,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83115,7 +83115,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83257,7 +83257,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult? Function(
@@ -83272,7 +83272,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -83288,7 +83288,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -83305,7 +83305,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83323,7 +83323,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83341,7 +83341,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83360,7 +83360,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83380,7 +83380,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83400,7 +83400,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83422,7 +83422,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83444,7 +83444,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83466,7 +83466,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83490,7 +83490,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83514,7 +83514,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83538,7 +83538,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83563,7 +83563,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83587,7 +83587,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83611,7 +83611,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83635,7 +83635,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83660,7 +83660,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83686,7 +83686,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83713,7 +83713,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83740,7 +83740,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83768,7 +83768,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83910,7 +83910,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
     )?
     gotAppLanguages,
     TResult Function(
@@ -83925,7 +83925,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
     )?
     downloadReferenceArb,
@@ -83941,7 +83941,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
     )?
@@ -83958,7 +83958,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83976,7 +83976,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -83994,7 +83994,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84013,7 +84013,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84033,7 +84033,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84053,7 +84053,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84075,7 +84075,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84097,7 +84097,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84119,7 +84119,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84143,7 +84143,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84167,7 +84167,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84191,7 +84191,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84216,7 +84216,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84240,7 +84240,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84264,7 +84264,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84288,7 +84288,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84313,7 +84313,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84339,7 +84339,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84366,7 +84366,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84393,7 +84393,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84421,7 +84421,7 @@ class _$GenerateFlowSincronizedBabelCommitWithApiImpl
       int maxLanguageCount,
       @BabelSupportedLocalesJsonConverter()
       Set<BabelSupportedLocales> languages,
-      String downloadLink,
+      String? downloadLink,
       Map<String, String> referenceArbMap,
       ProjectCacheMap projectCacheMap,
       TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84691,7 +84691,7 @@ abstract class GenerateFlowSincronizedBabelCommitWithApi
     required final int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required final Set<BabelSupportedLocales> languages,
-    required final String downloadLink,
+    required final String? downloadLink,
     required final Map<String, String> referenceArbMap,
     required final ProjectCacheMap projectCacheMap,
     required final TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -84729,7 +84729,7 @@ abstract class GenerateFlowSincronizedBabelCommitWithApi
   int get maxLanguageCount;
   @BabelSupportedLocalesJsonConverter()
   Set<BabelSupportedLocales> get languages;
-  String get downloadLink;
+  String? get downloadLink;
   Map<String, String> get referenceArbMap;
   ProjectCacheMap get projectCacheMap;
   TranslationPayloadInfo get cacheMapTranslationPayloadInfo;

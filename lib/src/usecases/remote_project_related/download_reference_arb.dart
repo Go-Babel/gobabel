@@ -6,10 +6,13 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
-  required String downloadUrl,
+  required String? downloadUrl,
   required Dio dio,
 }) async {
   try {
+    if (downloadUrl == null) {
+      return <L10nKey, L10nValue>{}.toSuccess();
+    }
     final response = await dio.get(
       downloadUrl,
       options: Options(responseType: ResponseType.json),
@@ -81,7 +84,7 @@ AsyncBabelResult<Map<L10nKey, L10nValue>> downloadReferenceArb({
 AsyncBabelResult<GenerateFlowDownloadReferenceArb>
 generate_downloadReferenceArb(GenerateFlowGotAppLanguages payload) async {
   final downloadLink = payload.downloadLink;
-  if (downloadLink.isEmpty) {
+  if (downloadLink != null && downloadLink.isEmpty) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Missing download link',

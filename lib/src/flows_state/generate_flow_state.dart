@@ -132,7 +132,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
   }) = GenerateFlowGotAppLanguages;
 
   /// Step 10
@@ -148,7 +148,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
   }) = GenerateFlowDownloadReferenceArb;
 
@@ -165,7 +165,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
   }) = GenerateFlowProjectCacheMap;
@@ -183,7 +183,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -202,7 +202,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -221,7 +221,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -241,7 +241,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -262,7 +262,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -283,7 +283,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -306,7 +306,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -329,7 +329,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -352,7 +352,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -378,7 +378,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -404,7 +404,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -430,7 +430,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -457,7 +457,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -483,7 +483,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -509,7 +509,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -535,7 +535,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -562,7 +562,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -594,7 +594,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -627,7 +627,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -660,7 +660,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -694,7 +694,7 @@ abstract class GenerateFlowState
     required int maxLanguageCount,
     @BabelSupportedLocalesJsonConverter()
     required Set<BabelSupportedLocales> languages,
-    required String downloadLink,
+    required String? downloadLink,
     required Map<L10nKey, L10nValue> referenceArbMap,
     required ProjectCacheMap projectCacheMap,
     required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
@@ -859,10 +859,10 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
     directoryPath: directoryPath,
     inputedByUserLocale: inputedByUserLocale,
   );
-  
+
   // Start the loading indicator with the initial state
   resolve(createFlowInitial);
-  
+
   final existsDirectory = await createFlowInitial.directory.exists();
   if (!existsDirectory) {
     return BabelFailureResponse.onlyBabelException(

@@ -17,6 +17,7 @@ AsyncBabelResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
     final Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration = {};
     final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
         {};
+    final List<Translatables> referenceMap = [];
 
     for (final entry in projectCacheMap.hardcodedStringToArbKeyMap.entries) {
       final TranslationKey key = entry.key;
@@ -57,6 +58,7 @@ AsyncBabelResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
       keyToDeclaration: keyToDeclaration,
       keyToImplementation: keyToImplementation,
       keyToContextsPaths: {},
+      referenceMap: referenceMap,
     );
     return payloadInfo.toSuccess();
   } catch (error, stackTrace) {

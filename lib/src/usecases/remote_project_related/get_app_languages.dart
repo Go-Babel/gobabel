@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/git_variables.dart';
@@ -6,15 +7,19 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-class GetAppLanguagesResponse {
-  final int maxLanguageCount;
-  final Set<BabelSupportedLocales> languages;
-  final String downloadLink;
-  const GetAppLanguagesResponse({
-    required this.maxLanguageCount,
-    required this.languages,
-    required this.downloadLink,
-  });
+part 'get_app_languages.freezed.dart';
+
+@freezed
+abstract class GetAppLanguagesResponse with _$GetAppLanguagesResponse {
+  factory GetAppLanguagesResponse.withDownloadableData({
+    required int maxLanguageCount,
+    required Set<BabelSupportedLocales> languages,
+    required String downloadLink,
+  }) = _GetAppLanguagesResponseWithDownloadableData;
+  factory GetAppLanguagesResponse.withoutDownloadableData({
+    required int maxLanguageCount,
+    required Set<BabelSupportedLocales> languages,
+  }) = _GetAppLanguagesResponseWithoutDownloadableData;
 }
 
 AsyncBabelResult<GetAppLanguagesResponse> getAppLanguages({
@@ -50,51 +55,61 @@ AsyncBabelResult<GetAppLanguagesResponse> getAppLanguages({
 
   final int maxLanguageCount = languagesResponse.maxLanguageCount;
   final Set<BabelSupportedLocales> projectLanguages = {};
-  for (final language in languagesResponse.languages) {
-    final castedLanguage = BabelSupportedLocales.fromLocale(
-      language.languageCode,
-      language.countryCode,
-    );
-    if (castedLanguage == null) {
+
+  if (languagesResponse.languages.isEmpty) {
+    projectLanguages.add(inputedByUserLocale);
+
+    return GetAppLanguagesResponse.withoutDownloadableData(
+      maxLanguageCount: maxLanguageCount,
+      languages: projectLanguages,
+    ).toSuccess();
+  } else {
+    for (final language in languagesResponse.languages) {
+      final castedLanguage = BabelSupportedLocales.fromLocale(
+        language.languageCode,
+        language.countryCode,
+      );
+      if (castedLanguage == null) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'Invalid language code',
+            description:
+                'Received an invalid language or country code from the server: '
+                '${language.languageCode}_${language.countryCode}. '
+                'This might indicate a configuration issue with the project. '
+                'Please contact support if this error persists.',
+          ),
+        ).toFailure();
+      }
+      projectLanguages.add(castedLanguage);
+    }
+    final String? downloadLink =
+        languagesResponse.languages
+            .firstWhereOrNull(
+              (LanguageDataPayload element) =>
+                  element.languageCode == inputedByUserLocale.languageCode &&
+                  element.countryCode == inputedByUserLocale.countryCode,
+            )
+            ?.downloadLink;
+
+    if (downloadLink == null) {
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
-          title: 'Invalid language code',
+          title:
+              'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
           description:
-              'Received an invalid language or country code from the server: '
-              '${language.languageCode}_${language.countryCode}. '
-              'This might indicate a configuration issue with the project. '
-              'Please contact support if this error persists.',
+              'Please make sure the language is supported and try again.\n'
+              'The supported languages are:\n• ${languagesResponse.languages.map((e) => BabelSupportedLocales.fromLocale(e.languageCode, e.countryCode)).join('\n• ')}',
         ),
       ).toFailure();
     }
-    projectLanguages.add(castedLanguage);
-  }
-  final String? downloadLink =
-      languagesResponse.languages
-          .firstWhereOrNull(
-            (LanguageDataPayload element) =>
-                element.languageCode == inputedByUserLocale.languageCode &&
-                element.countryCode == inputedByUserLocale.countryCode,
-          )
-          ?.downloadLink;
 
-  if (downloadLink == null) {
-    return BabelFailureResponse.onlyBabelException(
-      exception: BabelException(
-        title:
-            'No ".arb" translation download link found for the reference language "$inputedByUserLocale".',
-        description:
-            'Please make sure the language is supported and try again.\n'
-            'The supported languages are:\n• ${languagesResponse.languages.map((e) => BabelSupportedLocales.fromLocale(e.languageCode, e.countryCode)).join('\n• ')}',
-      ),
-    ).toFailure();
+    return GetAppLanguagesResponse.withDownloadableData(
+      maxLanguageCount: maxLanguageCount,
+      languages: projectLanguages,
+      downloadLink: downloadLink,
+    ).toSuccess();
   }
-
-  return GetAppLanguagesResponse(
-    maxLanguageCount: maxLanguageCount,
-    languages: projectLanguages,
-    downloadLink: downloadLink,
-  ).toSuccess();
 }
 
 AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
@@ -111,6 +126,9 @@ AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
     client: client,
     gitVariables: gitVariables,
   ).flatMap((response) {
+    final String? downloadLink = response.mapOrNull(
+      withDownloadableData: (value) => value.downloadLink,
+    );
     return GenerateFlowGotAppLanguages(
       willLog: payload.willLog,
       projectApiToken: accountApiKey,
@@ -121,7 +139,7 @@ AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
       gitVariables: gitVariables,
       maxLanguageCount: response.maxLanguageCount,
       languages: response.languages,
-      downloadLink: response.downloadLink,
+      downloadLink: downloadLink,
     ).toSuccess();
   });
 }

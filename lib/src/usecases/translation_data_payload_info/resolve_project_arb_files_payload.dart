@@ -33,7 +33,6 @@ resolveProjectArbFilesPayload({
         remapedArbKeys: <TranslationKey, ProcessedKeyIntegrity>{},
       ).toSuccess();
     }
-
     final Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys = {};
     final Map<HardCodedString, TranslationKey> hardcodedStringToKeyCache = {
       ...currentPayloadInfo.hardcodedStringToKeyCache,
@@ -43,6 +42,14 @@ resolveProjectArbFilesPayload({
     };
     final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
         {...currentPayloadInfo.keyToImplementation};
+    // final List<Translatables> referenceMap = [...currentPayloadInfo.referenceMap];
+    final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
+    for (final Translatables element in currentPayloadInfo.referenceMap) {
+      referenceMap[element.locale] = element.referenceMap;
+    }
+    final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
+      ...currentPayloadInfo.keyToContextsPaths,
+    };
 
     for (final entry
         in arbDataStateWithData
@@ -62,6 +69,7 @@ resolveProjectArbFilesPayload({
           integrityKeyResponse.getOrThrow();
 
       hardcodedStringToKeyCache[value] = processedKey;
+      remapedArbKeys[rawKey] = processedKey;
 
       final L10nKey l10nKey = processedKey;
       final Set<VariableName> variablesNames =
@@ -80,11 +88,26 @@ resolveProjectArbFilesPayload({
       keyToDeclaration[processedKey] = gobabelFunctionDeclarationString;
     }
 
+    for (final val in arbDataStateWithData.preMadeTranslationArb) {
+      final BabelSupportedLocales locale = val.locale;
+      if (referenceMap[locale] == null) {
+        referenceMap[locale] = {};
+      }
+      for (final entry in val.allKeyValues.entries) {
+        final TranslationKey rawKey = entry.key;
+        final HardCodedString value = entry.value;
+        final ProcessedKeyIntegrity integrityKey = remapedArbKeys[rawKey]!;
+        referenceMap[locale]![integrityKey] = value;
+      }
+    }
+
     final payloadInfo = TranslationPayloadInfo(
       hardcodedStringToKeyCache: hardcodedStringToKeyCache,
       keyToDeclaration: keyToDeclaration,
       keyToImplementation: keyToImplementation,
-      keyToContextsPaths: {},
+      keyToContextsPaths: keyToContextsPaths,
+      referenceMap:
+          referenceMap.entries.map(Translatables.fromEntries).toList(),
     );
 
     return ResolveProjectArbFilesPayloadResponse(

@@ -19,6 +19,10 @@ _$TranslationPayloadInfoImpl _$$TranslationPayloadInfoImplFromJson(
   keyToContextsPaths: (json['keyToContextsPaths'] as Map<String, dynamic>).map(
     (k, e) => MapEntry(k, (e as List<dynamic>).map((e) => e as String).toSet()),
   ),
+  referenceMap:
+      (json['referenceMap'] as List<dynamic>)
+          .map((e) => Translatables.fromJson(e as Map<String, dynamic>))
+          .toList(),
 );
 
 Map<String, dynamic> _$$TranslationPayloadInfoImplToJson(
@@ -30,4 +34,20 @@ Map<String, dynamic> _$$TranslationPayloadInfoImplToJson(
   'keyToContextsPaths': instance.keyToContextsPaths.map(
     (k, e) => MapEntry(k, e.toList()),
   ),
+  'referenceMap': instance.referenceMap,
+};
+
+_$TranslatablesImpl _$$TranslatablesImplFromJson(Map<String, dynamic> json) =>
+    _$TranslatablesImpl(
+      locale: const BabelSupportedLocalesJsonConverter().fromJson(
+        json['locale'] as Map<String, dynamic>,
+      ),
+      referenceMap: Map<String, String>.from(json['referenceMap'] as Map),
+    );
+
+Map<String, dynamic> _$$TranslatablesImplToJson(
+  _$TranslatablesImpl instance,
+) => <String, dynamic>{
+  'locale': const BabelSupportedLocalesJsonConverter().toJson(instance.locale),
+  'referenceMap': instance.referenceMap,
 };

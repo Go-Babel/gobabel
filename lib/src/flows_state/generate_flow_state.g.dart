@@ -269,7 +269,7 @@ _$GenerateFlowGotAppLanguagesImpl _$$GenerateFlowGotAppLanguagesImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   $type: json['runtimeType'] as String?,
 );
 
@@ -319,7 +319,7 @@ _$$GenerateFlowDownloadReferenceArbImplFromJson(Map<String, dynamic> json) =>
                 ),
               )
               .toSet(),
-      downloadLink: json['downloadLink'] as String,
+      downloadLink: json['downloadLink'] as String?,
       referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
       $type: json['runtimeType'] as String?,
     );
@@ -369,7 +369,7 @@ _$GenerateFlowProjectCacheMapImpl _$$GenerateFlowProjectCacheMapImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -424,7 +424,7 @@ _$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -483,7 +483,7 @@ _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -541,7 +541,7 @@ _$GenerateFlowGotTargetFilesImpl _$$GenerateFlowGotTargetFilesImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -605,7 +605,7 @@ _$$GenerateFlowGotL10nProjectConfigImplFromJson(Map<String, dynamic> json) =>
                 ),
               )
               .toSet(),
-      downloadLink: json['downloadLink'] as String,
+      downloadLink: json['downloadLink'] as String?,
       referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
       projectCacheMap: ProjectCacheMap.fromJson(
         json['projectCacheMap'] as Map<String, dynamic>,
@@ -673,7 +673,7 @@ _$$GenerateFlowMappedProjectArbDataImplFromJson(Map<String, dynamic> json) =>
                 ),
               )
               .toSet(),
-      downloadLink: json['downloadLink'] as String,
+      downloadLink: json['downloadLink'] as String?,
       referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
       projectCacheMap: ProjectCacheMap.fromJson(
         json['projectCacheMap'] as Map<String, dynamic>,
@@ -740,7 +740,7 @@ _$$GenerateFlowResolvedProjectArbTranslationPayloadImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -815,7 +815,7 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplFromJs
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -892,7 +892,7 @@ _$$GenerateFlowCodebaseNormalizedImplFromJson(Map<String, dynamic> json) =>
                 ),
               )
               .toSet(),
-      downloadLink: json['downloadLink'] as String,
+      downloadLink: json['downloadLink'] as String?,
       referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
       projectCacheMap: ProjectCacheMap.fromJson(
         json['projectCacheMap'] as Map<String, dynamic>,
@@ -966,7 +966,7 @@ _$$GenerateFlowResolvedHardcodedStringsImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1058,7 +1058,7 @@ _$$GenerateFlowReplacedHardcodedStringsForBabelTextImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1151,7 +1151,7 @@ _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1243,7 +1243,7 @@ _$$GenerateFlowGeneratedBabelClassImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1337,7 +1337,7 @@ _$$GenerateFlowWrittedBabelClassInDartFileImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1429,7 +1429,7 @@ _$$GenerateFlowAddedBabelClassInitializationInMainImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1522,7 +1522,7 @@ _$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1614,7 +1614,7 @@ _$$GenerateFlowExtractedCodeBaseImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1709,7 +1709,7 @@ _$$GenerateFlowTranslatedNewStringsArbImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1813,7 +1813,7 @@ _$$GenerateFlowUploadedNewTranslationsImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -1921,7 +1921,7 @@ _$$GenerateFlowCommitedAllChangesOfCodebaseImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -2029,7 +2029,7 @@ _$$GenerateFlowGetBabelChangesCommitImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,
@@ -2141,7 +2141,7 @@ _$$GenerateFlowSincronizedBabelCommitWithApiImplFromJson(
             ),
           )
           .toSet(),
-  downloadLink: json['downloadLink'] as String,
+  downloadLink: json['downloadLink'] as String?,
   referenceArbMap: Map<String, String>.from(json['referenceArbMap'] as Map),
   projectCacheMap: ProjectCacheMap.fromJson(
     json['projectCacheMap'] as Map<String, dynamic>,

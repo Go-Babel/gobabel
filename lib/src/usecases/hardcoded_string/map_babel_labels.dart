@@ -51,7 +51,6 @@ BabelLabelEntity _processBabelLabel({
 
 BabelLabelEntityRootLabel _handleRootLabel({
   required LabelsEntityRootLabel entity,
-
   required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
   required Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration,
 }) {

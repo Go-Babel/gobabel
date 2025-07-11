@@ -9,6 +9,7 @@ import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/define_which_string_label.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/extract_all_hardcoded_strings.dart';
@@ -33,6 +34,7 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
   required bool generateLogs,
   required String projectApiToken,
   required BigInt projectShaIdentifier,
+  required BabelSupportedLocales inputedByUserLocale,
   required List<File> targetFiles,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
@@ -47,6 +49,10 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
         {...currentPayloadInfo.keyToImplementation};
     final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
       ...currentPayloadInfo.keyToContextsPaths,
+    };
+
+    final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {
+      ...currentPayloadInfo.referenceMap,
     };
 
     // 1. Extract all strings from the files
@@ -122,7 +128,8 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     if (labelEntitiesResult.isError()) {
       return labelEntitiesResult.asBabelResultErrorAsync();
     }
-    final labelEntities = labelEntitiesResult.getOrThrow();
+    final List<LabelsEntityRootLabel> labelEntities =
+        labelEntitiesResult.getOrThrow();
     if (generateLogs) {
       print('Created hierarchy with ${labelEntities.length} root labels');
       await saveStringListData(
@@ -140,7 +147,8 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     if (babelLabelsResult.isError()) {
       return babelLabelsResult.asBabelResultErrorAsync();
     }
-    final babelLabels = babelLabelsResult.getOrThrow();
+    final List<BabelLabelEntityRootLabel> babelLabels =
+        babelLabelsResult.getOrThrow();
 
     Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings =
         <FilePath, List<BabelLabelEntityRootLabel>>{};
@@ -166,9 +174,14 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       );
     }
 
+    if (referenceMap[inputedByUserLocale] == null) {
+      referenceMap[inputedByUserLocale] = {};
+    }
+
     // 6. Add all declarations and implementations to the payload info
     for (final babelLabel in babelLabels) {
       final translationKey = babelLabel.l10nKey;
+      final translationValue = babelLabel.l10nValue;
       keyToDeclaration[translationKey] = babelLabel.babelFunctionDeclaration;
       keyToImplementation[translationKey] =
           babelLabel.babelFunctionImplementation;
@@ -178,6 +191,10 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
       } else {
         keyToContextsPaths[translationKey] = {babelLabel.filePath};
       }
+
+      referenceMap[inputedByUserLocale]!.addAll({
+        translationKey: translationValue,
+      });
     }
 
     return Success(
@@ -188,6 +205,7 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
           keyToDeclaration: keyToDeclaration,
           keyToImplementation: keyToImplementation,
           keyToContextsPaths: keyToContextsPaths,
+          referenceMap: referenceMap,
         ),
       ),
     );
@@ -235,6 +253,7 @@ generate_resolveCodebaseHardcodedStringsProject(
     generateLogs: generateLogs,
     projectApiToken: projectApiToken,
     projectShaIdentifier: projectShaIdentifier,
+    inputedByUserLocale: payload.inputedByUserLocale,
     targetFiles: targetFiles,
     currentPayloadInfo: currentPayloadInfo,
   ).flatMap((hardcodedStringsPayloadInfo) {
