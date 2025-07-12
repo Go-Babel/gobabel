@@ -59,14 +59,14 @@ Future<T?> getDataFromInput<T>({
 
     // Hide cursor during redraw to reduce flicker
     stdout.write('\x1B[?25l');
-    
+
     // Bulletproof redraw strategy:
     // 1. Save cursor position after prompt on first draw
     // 2. Always restore to that position and clear everything below
     // This avoids complex position tracking that causes duplication
     if (!firstDraw) {
       stdout.write('\x1B[u'); // Restore to saved position (after prompt)
-      stdout.write('\x1B[J');  // Clear everything from cursor to end of screen
+      stdout.write('\x1B[J'); // Clear everything from cursor to end of screen
     } else {
       // First draw - save current position as our reference point
       stdout.write('\x1B[s'); // Save cursor position
@@ -104,23 +104,24 @@ Future<T?> getDataFromInput<T>({
       if (hasError) {
         linesToMoveUp += 1; // Error line
       }
-      linesToMoveUp += 2; // Bottom border + one more to get to content line
-      
+      linesToMoveUp += 1; // Bottom border line to get to content line
+
       // Move up to the content line of the textfield
       stdout.write('\x1B[${linesToMoveUp}A');
-      
+
       // Move to the correct horizontal position
       // Start at beginning of line, then move past the prompt and existing text
-      stdout.write('\r'); // Move to start of line
-      
+      stdout.write('\r'); // Move to column 0 (start of line)
+
       // Calculate display content length for cursor position
-      final width = _getTerminalWidth();
+      final width = getTerminalWidth();
       final boxWidth = max(width - 4, 20);
       final availableWidth = boxWidth - 4;
-      
-      // Account for the "> " prefix (2 chars) and the border (1 char)
-      int horizontalPosition = 3; // "│> "
-      
+
+      // Account for the "│ > " prefix: border (1) + space (1) + > (1) + space (1) = 4
+      // The cursor needs to be positioned AFTER the typed text
+      int horizontalPosition = 4; // "│ > "
+
       // Add the length of the buffer content
       if (buffer.length > availableWidth) {
         // Content is truncated with "..."
@@ -128,13 +129,13 @@ Future<T?> getDataFromInput<T>({
       } else {
         horizontalPosition += buffer.length;
       }
-      
+
       stdout.write('\x1B[${horizontalPosition}C'); // Move to cursor position
     } else {
       // In options mode, cursor should stay where it is (on the selected option)
       // No need to move it
     }
-    
+
     // Show cursor again
     stdout.write('\x1B[?25h');
   }
@@ -270,7 +271,7 @@ Future<T?> getDataFromInput<T>({
 
     // Clear the UI and move to next line
     stdout.write('\x1B[u'); // Restore to saved position
-    stdout.write('\x1B[J');  // Clear everything below
+    stdout.write('\x1B[J'); // Clear everything below
     stdout.write('\n');
   } finally {
     // Restore terminal settings
@@ -313,7 +314,7 @@ Future<String> getTextFieldInput({
 }
 
 void _drawTextField(String content, bool hasFocus) {
-  final width = _getTerminalWidth();
+  final width = getTerminalWidth();
   final boxWidth = max(width - 4, 20); // Leave some margin, minimum 20 chars
 
   // Calculate content display
@@ -332,7 +333,7 @@ void _drawTextField(String content, bool hasFocus) {
   final bottomBorder = borderColor('╰${'─' * (boxWidth - 2)}╯');
 
   // Create content line with padding
-  final contentWithPrompt = '> $displayContent';
+  final contentWithPrompt = ' > $displayContent';
   final padding = boxWidth - 2 - contentWithPrompt.length;
   final contentLine =
       borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
@@ -349,7 +350,7 @@ void _drawGenericOptions<T>(
 ) {
   if (options.isEmpty) return;
 
-  final width = _getTerminalWidth();
+  final width = getTerminalWidth();
   final boxWidth = max(width - 4, 20);
 
   // Show max 5 options
@@ -385,7 +386,8 @@ void _drawGenericOptions<T>(
   }
 }
 
-int _getTerminalWidth() {
+// Made visible for testing
+int getTerminalWidth() {
   // Default width
   int width = 80;
 
