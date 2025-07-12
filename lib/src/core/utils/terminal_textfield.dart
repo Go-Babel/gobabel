@@ -186,7 +186,9 @@ Future<T?> getDataFromInput<T>({
           }
         } else if (code == 66) {
           // Down arrow
-          if (focusMode == _FocusMode.textfield && optionsList.isNotEmpty) {
+          if (focusMode == _FocusMode.textfield && 
+              optionsList.isNotEmpty && 
+              filteredOptions.isNotEmpty) {
             focusMode = _FocusMode.options;
             selectedOptionIndex = 0;
             redrawUI();
