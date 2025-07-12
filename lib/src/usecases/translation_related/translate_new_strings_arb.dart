@@ -26,50 +26,82 @@ translateNewStringsArb({
   >
   madeTranslations = {};
 
-  final Map<L10nKey, L10nValue> referenceTranslation = {};
+  final Map<L10nKey, L10nValue> referenceTranslation =
+      currentPayloadInfo.referenceMap
+          .firstWhere((element) => element.locale == referenceLocale)
+          .referenceMap;
 
-  final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
-  for (final Translatables element in currentPayloadInfo.referenceMap) {
-    if (element.locale == referenceLocale) {
-      referenceTranslation.addAll(element.referenceMap);
-    }
-    referenceMap[element.locale] = element.referenceMap;
+  // First, let's ensure that the reference translation has ALL the keys so it is a good reference.
+  if (referenceTranslation.isEmpty) {
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Reference ARB is empty',
+        description:
+            'The reference ARB file does not contain any translations. '
+            'Please ensure that the reference ARB file is correctly set up.',
+      ),
+    ).toFailure();
   }
-
-  for (final locale in projectLanguages) {
-    if (referenceMap.containsKey(locale) == false) {
-      referenceMap[locale] = {};
-    }
-  }
-
-  for (final projectLanguage in currentPayloadInfo.referenceMap) {
-    try {
-      final result = await client.publicTranslateArb.translate(
-        projectApiToken: projectApiToken,
-        projectShaIdentifier: gitVariables.projectShaIdentifier,
-        toLanguageCode: projectLanguage.locale.languageCode,
-        toCountryCode: projectLanguage.locale.countryCode,
-        referenceLanguageCode: referenceLocale.languageCode,
-        referenceCountryCode: referenceLocale.countryCode,
-        referenceArb: referenceTranslation,
-        pathsOfKeys: ArbKeysAppearancesPath(
-          pathAppearancesPerKey: pathAppearancesPerKey,
-        ),
-      );
-
-      if (madeTranslations[projectLanguage.locale.languageCode] == null) {
-        madeTranslations[projectLanguage.locale.languageCode] = {};
+  for (final Translatables translatable in currentPayloadInfo.referenceMap) {
+    for (final L10nKey value in translatable.referenceMap.keys) {
+      if (!referenceTranslation.containsKey(value)) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'Missing key in reference ARB',
+            description:
+                'The reference ARB file is missing the key "$value". '
+                'Please ensure that the reference ARB (in language "$referenceLocale") file contains all necessary keys.',
+          ),
+        ).toFailure();
       }
-      madeTranslations[projectLanguage.locale.languageCode]![projectLanguage
-              .locale
-              .countryCode] =
-          result;
+    }
+  }
+
+  for (final Translatables translatable in currentPayloadInfo.referenceMap) {
+    final BabelSupportedLocales locale = translatable.locale;
+    try {
+      // Not all fields need to be translated because some of them are already translated and should not be overwritten.
+      final Map<L10nKey, L10nValue> pendingTranslations = {};
+      final Map<L10nKey, L10nValue> alreadyTranslated = {};
+
+      referenceTranslation.forEach((key, value) {
+        final bool hasCache = translatable.referenceMap.containsKey(key);
+
+        if (hasCache) {
+          alreadyTranslated[key] = value;
+        } else {
+          pendingTranslations[key] = value;
+        }
+      });
+
+      final Map<L10nKey, L10nValue> pendingTranslated = await client
+          .publicTranslateArb
+          .translate(
+            projectApiToken: projectApiToken,
+            projectShaIdentifier: gitVariables.projectShaIdentifier,
+            toLanguageCode: locale.languageCode,
+            toCountryCode: locale.countryCode,
+            referenceLanguageCode: referenceLocale.languageCode,
+            referenceCountryCode: referenceLocale.countryCode,
+            referenceArb: pendingTranslations,
+            pathsOfKeys: ArbKeysAppearancesPath(
+              pathAppearancesPerKey: pathAppearancesPerKey,
+            ),
+          );
+
+      if (madeTranslations[locale.languageCode] == null) {
+        madeTranslations[locale.languageCode] = {};
+      }
+      madeTranslations[locale.languageCode]![locale.countryCode] =
+          pendingTranslated;
+      madeTranslations[locale.languageCode]![locale.countryCode] =
+          alreadyTranslated;
     } catch (error, stackTrace) {
       return BabelFailureResponse.withErrorAndStackTrace(
         exception: BabelException(
           title: 'Translation API request failed',
           description:
-              'Failed to translate ARB strings for ${projectLanguage.locale.languageCode}_${projectLanguage.locale.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection',
+              'Failed to translate ARB strings for ${locale.languageCode}_${locale.countryCode}. This may be due to API key issues, network connectivity problems, or the translation service being temporarily unavailable. Please check your API key and internet connection',
         ),
         error: error,
         stackTrace: stackTrace,

@@ -32,7 +32,6 @@ AsyncBabelResult<GenerateHistory> uploadTranslationNewVersion({
       pathsOfKeys: ArbKeysAppearancesPath(
         pathAppearancesPerKey: currentPayloadInfo.keyToContextsPaths,
       ),
-      // hardcodedStringMap: Dependencies.newAddedHardcodedStringKeyCache,
       hardcodedStringToKeyCache: currentPayloadInfo.hardcodedStringToKeyCache,
       keyToDeclaration: currentPayloadInfo.keyToDeclaration,
       keyToImplementation: currentPayloadInfo.keyToImplementation,
@@ -77,8 +76,8 @@ _createTranslationStream(
           languageCode: {countryCode: chunk},
         };
 
-        // Wait 100ms between each chunk to avoid overwhelming the server
-        await Future.delayed(Duration(milliseconds: 100));
+        // Wait 150ms between each chunk to avoid overwhelming the server
+        await Future.delayed(Duration(milliseconds: 150));
       }
     }
   }

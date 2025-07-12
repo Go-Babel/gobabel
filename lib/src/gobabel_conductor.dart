@@ -103,7 +103,6 @@ class GobabelConductor {
         .toNextStep(generate_getProjectOriginUrl)
         .toNextStep(generate_getProjectGitDependencies)
         .toNextStep(generate_getAppLanguages)
-        // .toNextStep(generate_downloadReferenceArb)
         .toNextStep(generate_getProjectCacheMap)
         .toNextStep(generate_resolveProjectCacheTranslationPayload)
         .toNextStep(generate_ensureNoStaticErrorOnDartFilesDefault)
