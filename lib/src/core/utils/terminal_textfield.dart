@@ -12,12 +12,16 @@ enum _FocusMode { textfield, options }
 /// [errorMessage] will be displayed in red text when the [userInputToOptionMapper] returns null. The user will then keep to continue typing
 /// [inputOptions] can be pass to display options choices to the user
 /// If the user press esc while focused in the textfield, should return null.
+/// 
+/// Note: For VS Code integrated terminal users:
+/// - Terminal width detection may not update dynamically
+/// - To improve experience, set "dart.cliConsole": "terminal" in VS Code settings
+/// - Or add "console": "terminal" to your launch.json configuration
 Future<T?> getDataFromInput<T>({
   required String prompt,
   String errorMessage = 'Invalid input, please try again.',
   required T? Function(String item) userInputToOptionMapper,
   InputFormOptions<T>? inputOptions,
-  int minWidth = 20,
 }) async {
   final completer = Completer<T?>();
   final buffer = StringBuffer();
@@ -116,18 +120,22 @@ Future<T?> getDataFromInput<T>({
 
       // Calculate display content length for cursor position
       final width = getTerminalWidth();
-      final boxWidth = max(width - 4, 20);
-      final availableWidth = boxWidth - 4;
+      final boxWidth = max(width, 20); // Use full width
+      final availableWidth = max(10, boxWidth - 4); // Ensure minimum space
 
       // Account for the "│ > " prefix: border (1) + space (1) + > (1) + space (1) = 4
       // The cursor needs to be positioned AFTER the typed text
       int horizontalPosition = 4; // "│ > "
 
       // Add the length of the buffer content
-      if (buffer.length > availableWidth) {
+      if (buffer.length > availableWidth && availableWidth > 3) {
         // Content is truncated with "..."
-        horizontalPosition += availableWidth - 3;
+        horizontalPosition += availableWidth;
+      } else if (buffer.length > availableWidth) {
+        // Very narrow, no ellipsis
+        horizontalPosition += availableWidth;
       } else {
+        // Content fits
         horizontalPosition += buffer.length;
       }
 
@@ -158,19 +166,22 @@ Future<T?> getDataFromInput<T>({
     ProcessSignal? resizeSignal;
     StreamSubscription<ProcessSignal>? resizeSubscription;
 
-    if (Platform.isWindows) {
-      // Windows doesn't have SIGWINCH, we'll just redraw on each input
-    } else {
-      // Unix-like systems support SIGWINCH
+    // Try to set up SIGWINCH handler for resize events
+    // This may not work in all environments (e.g., VS Code integrated terminal)
+    if (!Platform.isWindows) {
       try {
         resizeSignal = ProcessSignal.sigwinch;
         resizeSubscription = resizeSignal.watch().listen((_) {
+          // Force a redraw on resize signal
           redrawUI();
         });
       } catch (_) {
-        // SIGWINCH not available on this platform
+        // SIGWINCH not available - width will still update on each redraw
       }
     }
+    
+    // For environments where SIGWINCH doesn't work (VS Code, Windows),
+    // the terminal width is checked on every redraw operation
 
     // Read input character by character
     await for (final key in stdin) {
@@ -296,7 +307,6 @@ class InputFormOptions<T> {
 Future<String> getTextFieldInput({
   required String prompt,
   Set<String>? options,
-  int minWidth = 20,
 }) async {
   // Use getDataFromInput with String as the generic type
   final result = await getDataFromInput<String>(
@@ -309,7 +319,6 @@ Future<String> getTextFieldInput({
               optionToString: (s) => s, // String to string is identity
             )
             : null,
-    minWidth: minWidth,
   );
 
   // Handle null result (ESC pressed) by returning empty string
@@ -318,26 +327,31 @@ Future<String> getTextFieldInput({
 
 void _drawTextField(String content, bool hasFocus) {
   final width = getTerminalWidth();
-  final boxWidth = max(width - 4, 20); // Leave some margin, minimum 20 chars
+  final boxWidth = max(width, 20); // Use full width, minimum 20 chars
 
   // Calculate content display
-  final availableWidth = boxWidth - 4; // Account for "> " prefix and borders
+  final availableWidth = max(boxWidth - 4, 10); // Account for "> " prefix and borders, min 10 chars
   String displayContent = content;
 
   // Truncate with ellipsis if too long
-  if (content.length > availableWidth) {
+  if (content.length > availableWidth && availableWidth > 3) {
+    // Only add ellipsis if we have space for it
     displayContent =
-        '...${content.substring(content.length - availableWidth + 3)}';
+        '...${content.substring(content.length - (availableWidth - 3))}';
+  } else if (content.length > availableWidth) {
+    // If very narrow, just truncate without ellipsis
+    displayContent = content.substring(content.length - availableWidth);
   }
 
   // Create the text field box with focus indication
   final borderColor = hasFocus ? (String s) => s.cyan : (String s) => s.gray;
-  final topBorder = borderColor('╭${'─' * (boxWidth - 2)}╮');
-  final bottomBorder = borderColor('╰${'─' * (boxWidth - 2)}╯');
+  final borderChars = max(0, boxWidth - 2); // Ensure non-negative border length
+  final topBorder = borderColor('╭${'─' * borderChars}╮');
+  final bottomBorder = borderColor('╰${'─' * borderChars}╯');
 
   // Create content line with padding
   final contentWithPrompt = ' > $displayContent';
-  final padding = boxWidth - 2 - contentWithPrompt.length;
+  final padding = max(0, boxWidth - 2 - contentWithPrompt.length); // Ensure non-negative padding
   final contentLine =
       borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
 
@@ -354,7 +368,7 @@ void _drawGenericOptions<T>(
   if (options.isEmpty) return;
 
   final width = getTerminalWidth();
-  final boxWidth = max(width - 4, 20);
+  final boxWidth = max(width, 20); // Use full width
 
   // Show max 5 options with viewport scrolling
   final maxVisible = 5;
@@ -391,10 +405,13 @@ void _drawGenericOptions<T>(
 
     // Truncate option if too long
     final maxOptionLength =
-        boxWidth - 6; // Account for " > " prefix and spacing
+        max(10, boxWidth - 6); // Account for " > " prefix and spacing, min 10 chars
     String displayOption = optionString;
-    if (optionString.length > maxOptionLength) {
+    if (optionString.length > maxOptionLength && maxOptionLength > 3) {
       displayOption = '${optionString.substring(0, maxOptionLength - 3)}...';
+    } else if (optionString.length > maxOptionLength) {
+      // If very narrow, just truncate without ellipsis
+      displayOption = optionString.substring(0, maxOptionLength);
     }
 
     // Format the option line
@@ -425,9 +442,29 @@ void _drawGenericOptions<T>(
 
 // Made visible for testing
 int getTerminalWidth() {
-  // Default width
-  int width = 80;
+  // Try Dart's native terminal width detection first
+  try {
+    if (stdout.hasTerminal) {
+      final columns = stdout.terminalColumns;
+      // VS Code sometimes returns 0, so validate the result
+      if (columns > 0) {
+        return columns;
+      }
+    }
+  } catch (_) {
+    // StdoutException or other errors - continue to fallbacks
+  }
 
+  // Check if running in VS Code
+  final isVSCode = Platform.environment.containsKey('VSCODE_PID') ||
+      (Platform.environment['TERM_PROGRAM'] == 'vscode');
+  
+  if (isVSCode) {
+    // VS Code typically has wider terminals, use 100 as default
+    return 100;
+  }
+
+  // Platform-specific fallbacks for when stdout.terminalColumns fails
   if (Platform.isWindows) {
     // Windows terminal width detection
     try {
@@ -436,17 +473,23 @@ int getTerminalWidth() {
         '\$Host.UI.RawUI.WindowSize.Width',
       ]);
       if (result.exitCode == 0) {
-        width = int.tryParse(result.stdout.toString().trim()) ?? 80;
+        final width = int.tryParse(result.stdout.toString().trim());
+        if (width != null && width > 0) {
+          return width;
+        }
       }
     } catch (_) {
-      // Fallback to default
+      // Continue to next fallback
     }
   } else {
     // Unix-like systems
     try {
       final result = Process.runSync('tput', ['cols']);
       if (result.exitCode == 0) {
-        width = int.tryParse(result.stdout.toString().trim()) ?? 80;
+        final width = int.tryParse(result.stdout.toString().trim());
+        if (width != null && width > 0) {
+          return width;
+        }
       }
     } catch (_) {
       // Try stty as fallback
@@ -455,14 +498,18 @@ int getTerminalWidth() {
         if (result.exitCode == 0) {
           final parts = result.stdout.toString().trim().split(' ');
           if (parts.length >= 2) {
-            width = int.tryParse(parts[1]) ?? 80;
+            final width = int.tryParse(parts[1]);
+            if (width != null && width > 0) {
+              return width;
+            }
           }
         }
       } catch (_) {
-        // Fallback to default
+        // Continue to default
       }
     }
   }
 
-  return width;
+  // Default width - use 80 for standard terminals
+  return 80;
 }
