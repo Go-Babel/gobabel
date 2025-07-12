@@ -99,14 +99,11 @@ Future<T?> getDataFromInput<T>({
       // After drawing, cursor is at the end of the last drawn element
       int linesToMoveUp = 0;
       if (hasOptions) {
-        linesToMoveUp += optionsToShow + 1; // All option lines plus spacing
-        // Add extra line for scroll indicators if there are more options than visible
-        if (filteredOptions.length > 5) {
-          linesToMoveUp += 1;
-        }
+        // Options + newline before them
+        linesToMoveUp += optionsToShow + 1;
       }
       if (hasError) {
-        linesToMoveUp += 1; // Error line
+        linesToMoveUp += 2; // Error line + newline before error
       }
       linesToMoveUp += 1; // Bottom border line to get to content line
 
