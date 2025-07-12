@@ -53,7 +53,7 @@ Future<T?> getDataFromInput<T>({
 
   void redrawUI() {
     // Calculate how many lines to clear based on what's displayed
-    final hasOptions = optionsList.isNotEmpty;
+    final hasOptions = optionsList.isNotEmpty && filteredOptions.isNotEmpty;
     final hasError = lastError != null;
     final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
 
@@ -83,7 +83,7 @@ Future<T?> getDataFromInput<T>({
     }
 
     // Draw options if available
-    if (hasOptions) {
+    if (hasOptions && filteredOptions.isNotEmpty) {
       stdout.write('\n');
       _drawGenericOptions(
         filteredOptions,
@@ -100,6 +100,10 @@ Future<T?> getDataFromInput<T>({
       int linesToMoveUp = 0;
       if (hasOptions) {
         linesToMoveUp += optionsToShow + 1; // All option lines plus spacing
+        // Add extra line for scroll indicators if there are more options than visible
+        if (filteredOptions.length > 5) {
+          linesToMoveUp += 1;
+        }
       }
       if (hasError) {
         linesToMoveUp += 1; // Error line
@@ -355,14 +359,38 @@ void _drawGenericOptions<T>(
   final width = getTerminalWidth();
   final boxWidth = max(width - 4, 20);
 
-  // Show max 5 options
+  // Show max 5 options with viewport scrolling
   final maxVisible = 5;
-  final visibleOptions = options.take(maxVisible).toList();
+  
+  // Calculate viewport start index to keep selected item in middle when possible
+  int viewportStart;
+  if (options.length <= maxVisible) {
+    // If we have 5 or fewer options, show them all
+    viewportStart = 0;
+  } else {
+    // Calculate viewport to keep selected item in middle (position 2)
+    if (selectedIndex < 2) {
+      // Near the start, can't center
+      viewportStart = 0;
+    } else if (selectedIndex >= options.length - 3) {
+      // Near the end, can't center
+      viewportStart = options.length - maxVisible;
+    } else {
+      // Middle section, center the selected item
+      viewportStart = selectedIndex - 2;
+    }
+  }
 
+  // Get the visible slice of options
+  final viewportEnd = min(viewportStart + maxVisible, options.length);
+  final visibleOptions = options.sublist(viewportStart, viewportEnd);
+
+  // Draw each visible option
   for (int i = 0; i < visibleOptions.length; i++) {
     final option = visibleOptions[i];
     final optionString = optionToString(option);
-    final isSelected = i == selectedIndex && hasFocus;
+    final actualIndex = viewportStart + i;
+    final isSelected = actualIndex == selectedIndex && hasFocus;
 
     // Truncate option if too long
     final maxOptionLength =
@@ -383,8 +411,18 @@ void _drawGenericOptions<T>(
     stdout.writeln(line);
   }
 
+  // Show scroll indicators
   if (options.length > maxVisible) {
-    stdout.write('   ... and ${options.length - maxVisible} more'.gray);
+    final above = viewportStart;
+    final below = options.length - viewportEnd;
+    
+    if (above > 0 && below > 0) {
+      stdout.write('   ↑ $above more above, ↓ $below more below'.gray);
+    } else if (above > 0) {
+      stdout.write('   ↑ $above more above'.gray);
+    } else if (below > 0) {
+      stdout.write('   ↓ $below more below'.gray);
+    }
   }
 }
 
