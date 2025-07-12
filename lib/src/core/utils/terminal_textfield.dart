@@ -93,27 +93,46 @@ Future<T?> getDataFromInput<T>({
       );
     }
 
-    // Position cursor
+    // Position cursor based on focus mode
     if (focusMode == _FocusMode.textfield) {
-      // Move cursor back to input position in textfield
-      final linesToMoveUp =
-          (hasError ? 1 : 0) + (hasOptions ? optionsToShow + 1 : 0);
-      if (linesToMoveUp > 0) {
-        stdout.write('\x1B[${linesToMoveUp}A'); // Move up
+      // Calculate how many lines we need to move up from current position
+      // After drawing, cursor is at the end of the last drawn element
+      int linesToMoveUp = 0;
+      if (hasOptions) {
+        linesToMoveUp += optionsToShow + 1; // All option lines plus spacing
       }
-      stdout.write('\x1B[1A'); // Move up to middle line of textfield
-
+      if (hasError) {
+        linesToMoveUp += 1; // Error line
+      }
+      linesToMoveUp += 2; // Bottom border + one more to get to content line
+      
+      // Move up to the content line of the textfield
+      stdout.write('\x1B[${linesToMoveUp}A');
+      
+      // Move to the correct horizontal position
+      // Start at beginning of line, then move past the prompt and existing text
+      stdout.write('\r'); // Move to start of line
+      
       // Calculate display content length for cursor position
       final width = _getTerminalWidth();
       final boxWidth = max(width - 4, 20);
       final availableWidth = boxWidth - 4;
-      final contentLength =
-          buffer.length > availableWidth
-              ? availableWidth -
-                  3 // If truncated with "..."
-              : buffer.length;
-
-      stdout.write('\x1B[${3 + contentLength}C'); // Move to cursor position
+      
+      // Account for the "> " prefix (2 chars) and the border (1 char)
+      int horizontalPosition = 3; // "│> "
+      
+      // Add the length of the buffer content
+      if (buffer.length > availableWidth) {
+        // Content is truncated with "..."
+        horizontalPosition += availableWidth - 3;
+      } else {
+        horizontalPosition += buffer.length;
+      }
+      
+      stdout.write('\x1B[${horizontalPosition}C'); // Move to cursor position
+    } else {
+      // In options mode, cursor should stay where it is (on the selected option)
+      // No need to move it
     }
     
     // Show cursor again
