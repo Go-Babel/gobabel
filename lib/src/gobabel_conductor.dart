@@ -1,6 +1,6 @@
 import 'package:gobabel/src/core/babel_failure_response.dart';
-import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/create_flow_state.dart';
+import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/arb_related/get_l10n_project_config.dart';

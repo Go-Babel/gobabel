@@ -1,14 +1,8 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:gobabel/src/core/babel_failure_response.dart';
-import 'package:gobabel/src/flows_state/flow_interface.dart';
-import 'package:gobabel_client/gobabel_client.dart';
 import 'package:meta/meta.dart';
-import 'package:path/path.dart' as p;
-import 'package:result_dart/result_dart.dart';
 
 class BarProgressInfo {
   final String message;
@@ -169,90 +163,4 @@ class LoadingIndicator {
     _timer?.cancel();
     _stopwatch.stop();
   }
-}
-
-extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
-    on AsyncBabelResult<S> {
-  AsyncBabelResult<W> toNextStep<W extends FlowInterface<FlowInterface>>(
-    AsyncBabelResult<W> Function(S success) fn,
-  ) async {
-    await Future.delayed(const Duration(milliseconds: 200));
-    return then(
-      (result) => result.fold(
-        (success) {
-          resolve(success);
-          return fn(success);
-        },
-        (error) async {
-          await resolveError(error);
-          return Failure(error);
-        },
-      ),
-    );
-  }
-}
-
-late FlowInterface<FlowInterface> lastCorrectState;
-
-void resolve(FlowInterface<FlowInterface> success) {
-  lastCorrectState = success;
-  LoadingIndicator.instance.setLoadingState(
-    message: success.message,
-    step: success.stepCount,
-    totalCount: success.maxAmountOfSteps,
-  );
-}
-
-bool didAlreadyLogError = false;
-Future<void> resolveError(BabelFailureResponse babelFailure) async {
-  if (didAlreadyLogError) return;
-  didAlreadyLogError = true;
-  LoadingIndicator.instance.dispose();
-  final Directory directory = lastCorrectState.directory;
-  final bool willLog = lastCorrectState.shouldLog;
-
-  final BabelException babelException = babelFailure.exception;
-
-  if (willLog) {
-    final String errorTitle;
-    final String errorDescription;
-
-    errorTitle = babelException.title;
-    errorDescription = babelException.description;
-
-    final Object? error = babelFailure.mapOrNull(
-      withErrorAndStackTrace: (value) => value.error,
-    );
-    final StackTrace? stackTrace = babelFailure.mapOrNull(
-      withErrorAndStackTrace: (value) => value.stackTrace,
-    );
-
-    final lastSuccessStateInJson = lastCorrectState.toJson();
-    final logPayload = {
-      'errorTitle': errorTitle,
-      'errorDescription': errorDescription,
-      'targetDirectory': directory.path,
-      'errorObject': error.toString(),
-      'stackTrace': stackTrace.toString(),
-      'lastSuccessState': lastSuccessStateInJson,
-    };
-
-    await saveStringData(
-      dirr: Directory.current,
-      data: logPayload,
-      fileName: 'gobabel_error_log.json',
-    );
-  }
-
-  LoadingIndicator.instance.displayError();
-}
-
-/// Saves data to a JSON file
-Future<void> saveStringData({
-  required Directory dirr,
-  required Map<String, dynamic> data,
-  required String fileName,
-}) async {
-  final outFile = File(p.join(dirr.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }
