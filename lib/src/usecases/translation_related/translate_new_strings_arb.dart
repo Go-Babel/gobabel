@@ -35,10 +35,10 @@ translateNewStringsArb({
   if (referenceTranslation.isEmpty) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
-        title: 'Reference ARB is empty',
+        title: 'Reference translation is empty',
         description:
-            'The reference ARB file does not contain any translations. '
-            'Please ensure that the reference ARB file is correctly set up.',
+            'The language "$referenceLocale" translation does not contain any translations. '
+            'Please ensure that the reference translation is correctly set up.',
       ),
     ).toFailure();
   }

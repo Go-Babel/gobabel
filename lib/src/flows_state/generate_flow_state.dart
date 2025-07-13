@@ -779,7 +779,7 @@ abstract class GenerateFlowState
   bool get shouldLog => willLog;
 
   @override
-  bool get shouldReset => stepCount > 28;
+  bool get shouldReset => stepCount < 28;
 }
 
 AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({

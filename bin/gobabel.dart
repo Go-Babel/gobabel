@@ -175,9 +175,11 @@ Future<void> main(List<String> arguments) async {
 
     if (language == null) {
       // Interactive mode - prompt user
-      print('ℹ️  Language is required for generate operation.'.wheat);
-      print('Enter language in format language_country (e.g., en_US)'.wheat);
-      print('Use arrow keys to navigate options or type to filter'.wheat);
+      print('⚠️ Language is required for generate operation.'.yellowBright);
+      print(
+        'Enter language in format language_country (e.g., en_US)'.yellowBright,
+      );
+      print('> Use arrow keys to navigate options or type to filter'.wheat);
 
       babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
         prompt: 'Please select or type a language code (ex: en_US)',

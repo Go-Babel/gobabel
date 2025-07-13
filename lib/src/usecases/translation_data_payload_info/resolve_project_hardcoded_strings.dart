@@ -131,7 +131,6 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     final List<LabelsEntityRootLabel> labelEntities =
         labelEntitiesResult.getOrThrow();
     if (generateLogs) {
-      print('Created hierarchy with ${labelEntities.length} root labels');
       await saveStringListData(
         labelEntities.map((e) => e.toJson()).toList(),
         'step_4.json',
