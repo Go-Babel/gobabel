@@ -745,10 +745,6 @@ abstract class GenerateFlowState
   );
 
   Future<List<File>> get filesToBeAnalysed async {
-    final FilesVerification? filesVerificationState = mapOrNull(
-      gotTargetFiles: (value) => value.filesVerificationState,
-    );
-    if (filesVerificationState == null) return <File>[];
     return await filesVerificationState.map(
       fromLastCommit: (value) async {
         final List<File> changedFiles = [];
