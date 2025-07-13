@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/converters/babel_supported_locales_json_converter.dart';
-import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
@@ -522,6 +521,7 @@ abstract class GenerateFlowState
     required Set<ContextPath> contextPaths,
     required Map<
       LanguageCode,
+
       Map<CountryCode, Map<TranslationKey, TranslationContent>>
     >
     madeTranslations,
@@ -550,8 +550,10 @@ abstract class GenerateFlowState
     required Map<FilePath, List<BabelLabelEntityRootLabel>>
     hardcodedStringsPerFile,
     required Set<ContextPath> contextPaths,
+
     required Map<
       LanguageCode,
+
       Map<CountryCode, Map<TranslationKey, TranslationContent>>
     >
     madeTranslations,
@@ -583,6 +585,7 @@ abstract class GenerateFlowState
     required Set<ContextPath> contextPaths,
     required Map<
       LanguageCode,
+
       Map<CountryCode, Map<TranslationKey, TranslationContent>>
     >
     madeTranslations,
@@ -614,6 +617,7 @@ abstract class GenerateFlowState
     required Set<ContextPath> contextPaths,
     required Map<
       LanguageCode,
+
       Map<CountryCode, Map<TranslationKey, TranslationContent>>
     >
     madeTranslations,
@@ -646,6 +650,7 @@ abstract class GenerateFlowState
     required Set<ContextPath> contextPaths,
     required Map<
       LanguageCode,
+
       Map<CountryCode, Map<TranslationKey, TranslationContent>>
     >
     madeTranslations,
@@ -740,7 +745,7 @@ abstract class GenerateFlowState
   );
 
   Future<List<File>> get filesToBeAnalysed async {
-    final filesVerificationState = mapOrNull(
+    final FilesVerification? filesVerificationState = mapOrNull(
       gotTargetFiles: (value) => value.filesVerificationState,
     );
     if (filesVerificationState == null) return <File>[];
@@ -753,20 +758,56 @@ abstract class GenerateFlowState
             changedFiles.add(file);
           }
         }
-
         return changedFiles;
       },
       fromZero: (value) async {
         final result = await getEligibleFiles(directory);
         if (result.isError()) {
-          // If there's an error getting eligible files, return empty list
-          // This maintains backward compatibility with the existing API
           return <File>[];
         }
         return result.getOrThrow();
       },
     );
   }
+
+  // Updated getter without using orElse
+  FilesVerification get filesVerificationState => map(
+    initial: (_) => FilesVerification.fromZero(),
+    createdClient: (_) => FilesVerification.fromZero(),
+    ensuredGit: (_) => FilesVerification.fromZero(),
+    gotCodeBaseYaml: (_) => FilesVerification.fromZero(),
+    gotGitUser: (_) => FilesVerification.fromZero(),
+    gotLastLocalCommit: (_) => FilesVerification.fromZero(),
+    gotProjectOriginUrl: (_) => FilesVerification.fromZero(),
+    gotGitVariables: (_) => FilesVerification.fromZero(),
+    gotAppLanguages: (_) => FilesVerification.fromZero(),
+    projectCacheMap: (_) => FilesVerification.fromZero(),
+    resolvedProjectCacheTranslation: (_) => FilesVerification.fromZero(),
+    ensuredTheresNoStaticErrorOnDartFiles: (_) => FilesVerification.fromZero(),
+    gotTargetFiles: (state) => state.filesVerificationState,
+    gotL10nProjectConfig: (state) => state.filesVerificationState,
+    mappedProjectArbData: (state) => state.filesVerificationState,
+    resolvedProjectArbTranslationPayload:
+        (state) => state.filesVerificationState,
+    replacedAllL10nKeyReferencesInCodebaseForBabelFunctions:
+        (state) => state.filesVerificationState,
+    codebaseNormalized: (state) => state.filesVerificationState,
+    resolvedHardcodedStrings: (state) => state.filesVerificationState,
+    replacedHardcodedStringsForBabelText:
+        (state) => state.filesVerificationState,
+    appliedCodebaseGeneralDartFixes: (state) => state.filesVerificationState,
+    generatedBabelClass: (state) => state.filesVerificationState,
+    writtedBabelClassInDartFile: (state) => state.filesVerificationState,
+    addedBabelClassInitializationInMain:
+        (state) => state.filesVerificationState,
+    addedSharedPrefsInFlutterProjects: (state) => state.filesVerificationState,
+    extractedCodeBase: (state) => state.filesVerificationState,
+    translatedNewStringsArb: (state) => state.filesVerificationState,
+    uploadedNewTranslations: (state) => state.filesVerificationState,
+    commitedAllChangesOfCodebase: (state) => state.filesVerificationState,
+    getBabelChangesCommit: (state) => state.filesVerificationState,
+    sincronizedBabelCommitWithApi: (state) => state.filesVerificationState,
+  );
 
   factory GenerateFlowState.fromJson(Map<String, dynamic> json) =>
       _$GenerateFlowStateFromJson(json);

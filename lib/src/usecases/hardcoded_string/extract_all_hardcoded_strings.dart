@@ -12,8 +12,9 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 @override
-AsyncBabelResult<List<HardcodedStringEntity>>
-extractAllStringsInDartUsecaseImpl({required List<File> files}) async {
+AsyncBabelResult<List<HardcodedStringEntity>> extractAllStringsInDart({
+  required List<File> files,
+}) async {
   final List<HardcodedStringEntity> allStrings = [];
 
   for (final file in files) {

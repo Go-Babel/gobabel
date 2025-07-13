@@ -56,15 +56,42 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     }
 
     // 1. Extract all strings from the files
-    final List<HardcodedStringEntity> allStrings;
-    final extractResult = await extractAllStringsInDartUsecaseImpl(
-      files: targetFiles,
-    );
+    final extractResult = await extractAllStringsInDart(files: targetFiles);
     LoadingIndicator.instance.dispose();
     if (extractResult.isError()) {
       return extractResult.asBabelResultErrorAsync();
     }
-    allStrings = extractResult.getOrThrow();
+    final List<HardcodedStringEntity> allStrings = extractResult.getOrThrow();
+    final bool noneOrResolverResolvedAnyString =
+        allStrings.isEmpty && hardcodedStringToKeyCache.isEmpty;
+
+    // Everything is empty, there is no point in running the cli since there is nothing to resolve.
+    // No string to work on, not from arb or from hardcoded strings.
+    if (noneOrResolverResolvedAnyString) {
+      return BabelFailureResponse.onlyBabelException(
+        exception: BabelException(
+          title: 'No hardcoded strings found',
+          description:
+              'No hardcoded strings were found in the provided files. Please check your codebase and try again.',
+        ),
+      ).toFailure();
+    }
+
+    if (allStrings.isEmpty) {
+      return Success(
+        ResolveProjectHardcodedStrings(
+          hardcodedStringsPerFile: {},
+          hardcodedStringsPayloadInfo: TranslationPayloadInfo(
+            hardcodedStringToKeyCache: hardcodedStringToKeyCache,
+            keyToDeclaration: keyToDeclaration,
+            keyToImplementation: keyToImplementation,
+            keyToContextsPaths: keyToContextsPaths,
+            referenceMap:
+                referenceMap.entries.map(Translatables.fromEntries).toList(),
+          ),
+        ),
+      );
+    }
 
     if (generateLogs) {
       await saveStringListData(
@@ -74,7 +101,7 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     }
 
     // 2. Define which strings are labels
-    final labelStringsResult = await defineWhichStringLabelUsecase(
+    final labelStringsResult = await defineWhichStringLabel(
       client: client,
       strings: allStrings,
       projectApiToken: projectApiToken,
@@ -93,14 +120,13 @@ AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
     }
 
     // 3. Create human-friendly ARB keys
-    final humanFriendlyResult =
-        await createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl(
-          client: client,
-          strings: labelStrings,
-          projectApiToken: projectApiToken,
-          projectShaIdentifier: projectShaIdentifier,
-          projectHardcodedStringKeyCache: hardcodedStringToKeyCache,
-        );
+    final humanFriendlyResult = await createHumanFriendlyArbKeysWithAiOnServer(
+      client: client,
+      strings: labelStrings,
+      projectApiToken: projectApiToken,
+      projectShaIdentifier: projectShaIdentifier,
+      projectHardcodedStringKeyCache: hardcodedStringToKeyCache,
+    );
     if (humanFriendlyResult.isError()) {
       return humanFriendlyResult.asBabelResultErrorAsync();
     }

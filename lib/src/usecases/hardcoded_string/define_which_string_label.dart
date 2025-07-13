@@ -15,7 +15,7 @@ bool shouldAutomaticallyBeConsideredAValidString(String value) {
 }
 
 @override
-AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabelUsecase({
+AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
   required List<HardcodedStringEntity> strings,
   required Client client,
   required String projectApiToken,

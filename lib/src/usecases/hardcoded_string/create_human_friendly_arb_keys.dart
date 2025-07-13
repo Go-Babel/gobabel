@@ -14,7 +14,7 @@ import 'package:result_dart/result_dart.dart';
 
 @override
 AsyncBabelResult<HumanFriendlyResponse>
-createHumanFriendlyArbKeysWithAiOnServerUsecaseImpl({
+createHumanFriendlyArbKeysWithAiOnServer({
   required Client client,
   required List<HardcodedStringEntity> strings,
   required String projectApiToken,

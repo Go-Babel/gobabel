@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
-import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/entities/api_client_entity.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -177,10 +176,10 @@ AsyncBabelResult<SyncFlowInitial> sync_initFlowState({
     accountApiKey: accountApiKey,
     directoryPath: directoryPath,
   );
-  
+
   // Start the loading indicator with the initial state
   resolve(syncFlowInitial);
-  
+
   final existsDirectory = await syncFlowInitial.directory.exists();
   if (!existsDirectory) {
     return BabelFailureResponse.onlyBabelException(
