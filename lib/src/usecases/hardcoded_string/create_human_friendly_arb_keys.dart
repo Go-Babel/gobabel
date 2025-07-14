@@ -107,8 +107,6 @@ createHumanFriendlyArbKeysWithAiOnServer({
       await function();
     }
 
-    // await saveStringData(combinedResults, 'combinedresults.json');
-
     // Process the generated keys
     for (final string in stringsNeedingGeneration) {
       final sha1 = shaMap[string.value]!;

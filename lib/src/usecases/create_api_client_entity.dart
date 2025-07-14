@@ -12,7 +12,7 @@ AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
   const url = 'http://localhost:8080/'; // Prod: https://api.gobabel/.com
   final client = ApiClientEntity(
     host: url,
-    connectionTimeout: const Duration(seconds: 30),
+    connectionTimeout: const Duration(seconds: 150),
   );
 
   // Todo(igor): This should be a separate state for all 3 flows. Like a "checkedIsValidDirectory"

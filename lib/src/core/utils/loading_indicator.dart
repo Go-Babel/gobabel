@@ -19,8 +19,26 @@ class BarProgressInfo {
 class LoadingIndicator {
   static LoadingIndicator? _instance;
   LoadingIndicator._();
-  static LoadingIndicator get instance =>
-      (_instance ??= LoadingIndicator._()).._stopwatch.start();
+  static LoadingIndicator get instance {
+    if (_instance != null) {
+      // If instance already exists, return it
+      return _instance!;
+    }
+
+    final instance = (_instance ??= LoadingIndicator._()).._stopwatch.start();
+
+    final bool useUnicode =
+        stdout.hasTerminal &&
+        (!Platform.isWindows || Platform.environment.containsKey('WT_SESSION'));
+
+    if (useUnicode) {
+      instance._spinnerChars = ['⢎⡰', '⢎⡡', '⢎⡑', '⢎⠱', '⠎⡱', '⢊⡱', '⢌⡱', '⢆⡱'];
+    } else {
+      instance._spinnerChars = ['|', '/', '-', '\\'];
+    }
+
+    return instance;
+  }
 
   // Test-only method to reset the singleton
   static void resetForTesting() {
@@ -29,7 +47,7 @@ class LoadingIndicator {
   }
 
   final Stopwatch _stopwatch = Stopwatch();
-  static const List<String> _spinnerChars = ['|', '/', '-', '\\'];
+  List<String> _spinnerChars = [];
   static const Duration _interval = Duration(milliseconds: 120);
   int _idx = 0;
   Timer? _timer;
