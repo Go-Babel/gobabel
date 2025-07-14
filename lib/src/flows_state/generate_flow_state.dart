@@ -8,11 +8,14 @@ import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/flow_interface.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
+import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel/src/models/files_verification.dart';
 import 'package:gobabel/src/models/git_variables.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/get_eligible_files.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
@@ -303,6 +306,126 @@ abstract class GenerateFlowState
   }) = GenerateFlowCodebaseNormalized;
 
   /// Step 19
+  factory GenerateFlowState.extractedAllStrings({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required List<HardcodedStringEntity> allExtractedStrings,
+  }) = GenerateFlowExtractedAllStrings;
+
+  /// Step 20
+  factory GenerateFlowState.definedStringLabels({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required List<HardcodedStringEntity> allExtractedStrings,
+    required List<HardcodedStringEntity> labelStrings,
+  }) = GenerateFlowDefinedStringLabels;
+
+  /// Step 21
+  factory GenerateFlowState.createdHumanFriendlyArbKeys({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required List<HardcodedStringEntity> allExtractedStrings,
+    required List<HardcodedStringEntity> labelStrings,
+    required HumanFriendlyResponse humanFriendlyResponse,
+  }) = GenerateFlowCreatedHumanFriendlyArbKeys;
+
+  /// Step 22
+  factory GenerateFlowState.mappedStringsHierarchy({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required List<HardcodedStringEntity> allExtractedStrings,
+    required List<HardcodedStringEntity> labelStrings,
+    required HumanFriendlyResponse humanFriendlyResponse,
+    required List<LabelsEntityRootLabel> labelEntities,
+  }) = GenerateFlowMappedStringsHierarchy;
+
+  /// Step 23
+  factory GenerateFlowState.mappedBabelLabels({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required List<HardcodedStringEntity> allExtractedStrings,
+    required List<HardcodedStringEntity> labelStrings,
+    required HumanFriendlyResponse humanFriendlyResponse,
+    required List<LabelsEntityRootLabel> labelEntities,
+    required List<BabelLabelEntityRootLabel> babelLabels,
+  }) = GenerateFlowMappedBabelLabels;
+
+  /// Step 24
   factory GenerateFlowState.resolvedHardcodedStrings({
     required bool willLog,
     required String projectApiToken,
@@ -326,7 +449,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowResolvedHardcodedStrings;
 
-  /// Step 20
+  /// Step 25
   factory GenerateFlowState.replacedHardcodedStringsForBabelText({
     required bool willLog,
     required String projectApiToken,
@@ -350,7 +473,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowReplacedHardcodedStringsForBabelText;
 
-  /// Step 21
+  /// Step 26
   factory GenerateFlowState.appliedCodebaseGeneralDartFixes({
     required bool willLog,
     required String projectApiToken,
@@ -374,7 +497,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowAppliedCodebaseGeneralDartFixes;
 
-  /// Step 22
+  /// Step 27
   factory GenerateFlowState.generatedBabelClass({
     required bool willLog,
     required String projectApiToken,
@@ -399,7 +522,7 @@ abstract class GenerateFlowState
     required String babelClass,
   }) = GenerateFlowGeneratedBabelClass;
 
-  /// Step 23
+  /// Step 28
   factory GenerateFlowState.writtedBabelClassInDartFile({
     required bool willLog,
     required String projectApiToken,
@@ -423,7 +546,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowWrittedBabelClassInDartFile;
 
-  /// Step 24
+  /// Step 29
   factory GenerateFlowState.addedBabelClassInitializationInMain({
     required bool willLog,
     required String projectApiToken,
@@ -447,7 +570,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowAddedBabelClassInitializationInMain;
 
-  /// Step 25
+  /// Step 30
   factory GenerateFlowState.addedSharedPrefsInFlutterProjects({
     required bool willLog,
     required String projectApiToken,
@@ -471,7 +594,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowAddedSharedPrefsInFlutterProjects;
 
-  /// Step 26
+  /// Step 31
   factory GenerateFlowState.extractedCodeBase({
     required bool willLog,
     required String projectApiToken,
@@ -496,7 +619,7 @@ abstract class GenerateFlowState
     required Set<ContextPath> contextPaths,
   }) = GenerateFlowExtractedCodeBase;
 
-  /// Step 27
+  /// Step 32
   factory GenerateFlowState.translatedNewStringsArb({
     required bool willLog,
     required String projectApiToken,
@@ -527,7 +650,7 @@ abstract class GenerateFlowState
     madeTranslations,
   }) = GenerateFlowTranslatedNewStringsArb;
 
-  /// Step 28
+  /// Step 33
   factory GenerateFlowState.uploadedNewTranslations({
     required bool willLog,
     required String projectApiToken,
@@ -560,7 +683,7 @@ abstract class GenerateFlowState
     required GenerateHistory generatedHistoryItem,
   }) = GenerateFlowUploadedNewTranslations;
 
-  /// Step 29
+  /// Step 34
   factory GenerateFlowState.commitedAllChangesOfCodebase({
     required bool willLog,
     required String projectApiToken,
@@ -592,7 +715,7 @@ abstract class GenerateFlowState
     required GenerateHistory generatedHistoryItem,
   }) = GenerateFlowCommitedAllChangesOfCodebase;
 
-  /// Step 30
+  /// Step 35
   factory GenerateFlowState.getBabelChangesCommit({
     required bool willLog,
     required String projectApiToken,
@@ -625,7 +748,7 @@ abstract class GenerateFlowState
     required GitCommit babelGitCommit,
   }) = GenerateFlowGetBabelChangesCommit;
 
-  /// Step 31
+  /// Step 36
   factory GenerateFlowState.sincronizedBabelCommitWithApi({
     required bool willLog,
     required String projectApiToken,
@@ -664,7 +787,7 @@ abstract class GenerateFlowState
   }
 
   @override
-  int get maxAmountOfSteps => 31;
+  int get maxAmountOfSteps => 36;
 
   @override
   String get message => map(
@@ -689,7 +812,12 @@ abstract class GenerateFlowState
         (_) => 'Replacing L10n key references with Babel functions...',
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions:
         (_) => 'Normalizing codebase...',
-    codebaseNormalized: (_) => 'Resolving hardcoded strings...',
+    codebaseNormalized: (_) => 'Extracting all strings from Dart files...',
+    extractedAllStrings: (_) => 'Identifying user-facing labels...',
+    definedStringLabels: (_) => 'Creating human-friendly ARB keys...',
+    createdHumanFriendlyArbKeys: (_) => 'Mapping strings hierarchy...',
+    mappedStringsHierarchy: (_) => 'Mapping babel label entities...',
+    mappedBabelLabels: (_) => 'Resolving hardcoded strings...',
     resolvedHardcodedStrings:
         (_) => 'Replacing hardcoded strings with Babel text...',
     replacedHardcodedStringsForBabelText:
@@ -729,19 +857,24 @@ abstract class GenerateFlowState
     resolvedProjectArbTranslationPayload: (_) => 16,
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions: (_) => 17,
     codebaseNormalized: (_) => 18,
-    resolvedHardcodedStrings: (_) => 19,
-    replacedHardcodedStringsForBabelText: (_) => 20,
-    appliedCodebaseGeneralDartFixes: (_) => 21,
-    generatedBabelClass: (_) => 22,
-    writtedBabelClassInDartFile: (_) => 23,
-    addedBabelClassInitializationInMain: (_) => 24,
-    addedSharedPrefsInFlutterProjects: (_) => 25,
-    extractedCodeBase: (_) => 26,
-    translatedNewStringsArb: (_) => 27,
-    uploadedNewTranslations: (_) => 28,
-    commitedAllChangesOfCodebase: (_) => 29,
-    getBabelChangesCommit: (_) => 30,
-    sincronizedBabelCommitWithApi: (_) => 31,
+    extractedAllStrings: (_) => 19,
+    definedStringLabels: (_) => 20,
+    createdHumanFriendlyArbKeys: (_) => 21,
+    mappedStringsHierarchy: (_) => 22,
+    mappedBabelLabels: (_) => 23,
+    resolvedHardcodedStrings: (_) => 24,
+    replacedHardcodedStringsForBabelText: (_) => 25,
+    appliedCodebaseGeneralDartFixes: (_) => 26,
+    generatedBabelClass: (_) => 27,
+    writtedBabelClassInDartFile: (_) => 28,
+    addedBabelClassInitializationInMain: (_) => 29,
+    addedSharedPrefsInFlutterProjects: (_) => 30,
+    extractedCodeBase: (_) => 31,
+    translatedNewStringsArb: (_) => 32,
+    uploadedNewTranslations: (_) => 33,
+    commitedAllChangesOfCodebase: (_) => 34,
+    getBabelChangesCommit: (_) => 35,
+    sincronizedBabelCommitWithApi: (_) => 36,
   );
 
   Future<List<File>> get filesToBeAnalysed async {
@@ -788,6 +921,11 @@ abstract class GenerateFlowState
     replacedAllL10nKeyReferencesInCodebaseForBabelFunctions:
         (state) => state.filesVerificationState,
     codebaseNormalized: (state) => state.filesVerificationState,
+    extractedAllStrings: (state) => state.filesVerificationState,
+    definedStringLabels: (state) => state.filesVerificationState,
+    createdHumanFriendlyArbKeys: (state) => state.filesVerificationState,
+    mappedStringsHierarchy: (state) => state.filesVerificationState,
+    mappedBabelLabels: (state) => state.filesVerificationState,
     resolvedHardcodedStrings: (state) => state.filesVerificationState,
     replacedHardcodedStringsForBabelText:
         (state) => state.filesVerificationState,
@@ -816,7 +954,7 @@ abstract class GenerateFlowState
   bool get shouldLog => willLog;
 
   @override
-  bool get shouldReset => stepCount < 28;
+  bool get shouldReset => stepCount < 33;
 }
 
 AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({

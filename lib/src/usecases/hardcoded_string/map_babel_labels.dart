@@ -1,8 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/extensions/string_extension.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
@@ -296,4 +302,66 @@ int _getEndIndex(BabelLabelEntity entity) {
     childLabel: (value) => value.parentEndIndex,
     labelDynamicValue: (value) => value.parentEndIndex,
   );
+}
+
+AsyncBabelResult<GenerateFlowMappedBabelLabels> generate_mapBabelLabels(
+  GenerateFlowMappedStringsHierarchy payload,
+) async {
+  final keyToDeclaration =
+      payload.codebaseArbTranslationPayloadInfo.keyToDeclaration;
+  final keyToImplementation =
+      payload.codebaseArbTranslationPayloadInfo.keyToImplementation;
+
+  final babelLabelsResult = await mapBabelLabels(
+    strings: payload.labelEntities,
+    keyToDeclaration: keyToDeclaration,
+    keyToImplementation: keyToImplementation,
+  );
+
+  if (babelLabelsResult.isError()) {
+    return babelLabelsResult.asBabelResultErrorAsync();
+  }
+
+  final babelLabels = babelLabelsResult.getOrThrow();
+
+  // Save logs if requested
+  if (payload.willLog) {
+    await _saveStringListData(
+      babelLabels.map((label) => label.toJson()).toList(),
+      'step_5.json',
+    );
+  }
+
+  return GenerateFlowMappedBabelLabels(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+    allExtractedStrings: payload.allExtractedStrings,
+    labelStrings: payload.labelStrings,
+    humanFriendlyResponse: payload.humanFriendlyResponse,
+    labelEntities: payload.labelEntities,
+    babelLabels: babelLabels,
+  ).toSuccess();
+}
+
+/// Saves data to a JSON file
+Future<void> _saveStringListData(
+  List<Map<String, dynamic>> data,
+  String fileName,
+) async {
+  final outFile = File(p.join(Directory.current.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

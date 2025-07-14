@@ -12,7 +12,7 @@ enum _FocusMode { textfield, options }
 /// [errorMessage] will be displayed in red text when the [userInputToOptionMapper] returns null. The user will then keep to continue typing
 /// [inputOptions] can be pass to display options choices to the user
 /// If the user press esc while focused in the textfield, should return null.
-/// 
+///
 /// Note: For VS Code integrated terminal users:
 /// - Terminal width detection may not update dynamically
 /// - To improve experience, set "dart.cliConsole": "terminal" in VS Code settings
@@ -179,7 +179,7 @@ Future<T?> getDataFromInput<T>({
         // SIGWINCH not available - width will still update on each redraw
       }
     }
-    
+
     // For environments where SIGWINCH doesn't work (VS Code, Windows),
     // the terminal width is checked on every redraw operation
 
@@ -198,8 +198,8 @@ Future<T?> getDataFromInput<T>({
           }
         } else if (code == 66) {
           // Down arrow
-          if (focusMode == _FocusMode.textfield && 
-              optionsList.isNotEmpty && 
+          if (focusMode == _FocusMode.textfield &&
+              optionsList.isNotEmpty &&
               filteredOptions.isNotEmpty) {
             focusMode = _FocusMode.options;
             selectedOptionIndex = 0;
@@ -330,7 +330,10 @@ void _drawTextField(String content, bool hasFocus) {
   final boxWidth = max(width, 20); // Use full width, minimum 20 chars
 
   // Calculate content display
-  final availableWidth = max(boxWidth - 4, 10); // Account for "> " prefix and borders, min 10 chars
+  final availableWidth = max(
+    boxWidth - 4,
+    10,
+  ); // Account for "> " prefix and borders, min 10 chars
   String displayContent = content;
 
   // Truncate with ellipsis if too long
@@ -351,7 +354,10 @@ void _drawTextField(String content, bool hasFocus) {
 
   // Create content line with padding
   final contentWithPrompt = ' > $displayContent';
-  final padding = max(0, boxWidth - 2 - contentWithPrompt.length); // Ensure non-negative padding
+  final padding = max(
+    0,
+    boxWidth - 2 - contentWithPrompt.length,
+  ); // Ensure non-negative padding
   final contentLine =
       borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
 
@@ -372,7 +378,7 @@ void _drawGenericOptions<T>(
 
   // Show max 5 options with viewport scrolling
   final maxVisible = 5;
-  
+
   // Calculate viewport start index to keep selected item in middle when possible
   int viewportStart;
   if (options.length <= maxVisible) {
@@ -404,8 +410,10 @@ void _drawGenericOptions<T>(
     final isSelected = actualIndex == selectedIndex && hasFocus;
 
     // Truncate option if too long
-    final maxOptionLength =
-        max(10, boxWidth - 6); // Account for " > " prefix and spacing, min 10 chars
+    final maxOptionLength = max(
+      10,
+      boxWidth - 6,
+    ); // Account for " > " prefix and spacing, min 10 chars
     String displayOption = optionString;
     if (optionString.length > maxOptionLength && maxOptionLength > 3) {
       displayOption = '${optionString.substring(0, maxOptionLength - 3)}...';
@@ -429,7 +437,7 @@ void _drawGenericOptions<T>(
   if (options.length > maxVisible) {
     final above = viewportStart;
     final below = options.length - viewportEnd;
-    
+
     if (above > 0 && below > 0) {
       stdout.write('   ↑ $above more above, ↓ $below more below'.gray);
     } else if (above > 0) {
@@ -456,9 +464,10 @@ int getTerminalWidth() {
   }
 
   // Check if running in VS Code
-  final isVSCode = Platform.environment.containsKey('VSCODE_PID') ||
+  final isVSCode =
+      Platform.environment.containsKey('VSCODE_PID') ||
       (Platform.environment['TERM_PROGRAM'] == 'vscode');
-  
+
   if (isVSCode) {
     // VS Code typically has wider terminals, use 100 as default
     return 100;

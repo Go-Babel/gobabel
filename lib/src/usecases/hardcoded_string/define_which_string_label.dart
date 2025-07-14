@@ -1,11 +1,16 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @visibleForTesting
@@ -64,7 +69,7 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
 
   // Will use progress bar for larger datasets
 
-  Future<BabelException?> function() async {
+  Future<BabelFailureResponse?> function() async {
     for (int i = 0; i < groups.length; i++) {
       final group = groups[i];
       if (!isSmallAmountOfStrings) {
@@ -86,25 +91,27 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
               extractedStrings: group,
             );
         combinedResults.addAll(result);
-      } catch (e) {
-        return BabelException(
+      } catch (error, stackTrace) {
+        final BabelException babelException = BabelException(
           title: 'String analysis failed',
           description:
-              'Failed to analyze strings with the AI service: $e '
-              'Please check your API key and network connection, then try again.',
+              'Failed to analyze strings with the AI service: "$error"\n'
+              'Please check your API key and network connection, then try again. If the issue persists, contact support.',
+        );
+        return BabelFailureResponse.withErrorAndStackTrace(
+          exception: babelException,
+          error: error,
+          stackTrace: stackTrace,
         );
       }
     }
     return null;
   }
 
-  final BabelException? error;
-  error = await function();
+  final BabelFailureResponse? error = await function();
 
   if (error != null) {
-    return BabelFailureResponse.onlyBabelException(
-      exception: error,
-    ).toFailure();
+    return error.toFailure();
   }
 
   // Filter the strings that needed validation based on the server responses
@@ -116,4 +123,82 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
 
   // Combine automatically valid strings with API-validated strings
   return [...automaticallyValidStrings, ...apiValidatedStrings].toSuccess();
+}
+
+AsyncBabelResult<GenerateFlowDefinedStringLabels>
+generate_defineWhichStringLabel(GenerateFlowExtractedAllStrings payload) async {
+  // Skip processing if there are no extracted strings
+  if (payload.allExtractedStrings.isEmpty) {
+    return GenerateFlowDefinedStringLabels(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      allExtractedStrings: payload.allExtractedStrings,
+      labelStrings: <HardcodedStringEntity>[],
+    ).toSuccess();
+  }
+
+  final labelStringsResult = await defineWhichStringLabel(
+    client: payload.client.server,
+    strings: payload.allExtractedStrings,
+    projectApiToken: payload.projectApiToken,
+    projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
+  );
+
+  if (labelStringsResult.isError()) {
+    return labelStringsResult.asBabelResultErrorAsync();
+  }
+
+  final labelStrings = labelStringsResult.getOrThrow();
+
+  // Save logs if requested
+  if (payload.willLog) {
+    await _saveStringListData(
+      labelStrings.map((s) => s.toMap()).toList(),
+      'step_2.json',
+    );
+  }
+
+  return GenerateFlowDefinedStringLabels(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+    allExtractedStrings: payload.allExtractedStrings,
+    labelStrings: labelStrings,
+  ).toSuccess();
+}
+
+/// Saves data to a JSON file
+Future<void> _saveStringListData(
+  List<Map<String, dynamic>> data,
+  String fileName,
+) async {
+  final outFile = File(p.join(Directory.current.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

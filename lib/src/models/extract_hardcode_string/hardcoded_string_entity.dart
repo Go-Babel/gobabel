@@ -28,4 +28,28 @@ class HardcodedStringEntity {
     'fileEndIndex': fileEndIndex,
     'dynamicFields': dynamicFields.map((d) => d.toMap()).toList(),
   };
+
+  factory HardcodedStringEntity.fromMap(Map<String, dynamic> map) {
+    return HardcodedStringEntity(
+      value: map['value'] as String,
+      filePath: map['filePath'] as String,
+      parentStartIndex: map['parentStartIndex'] as int?,
+      parentEndIndex: map['parentEndIndex'] as int?,
+      fileStartIndex: map['fileStartIndex'] as int,
+      fileEndIndex: map['fileEndIndex'] as int,
+      dynamicFields:
+          (map['dynamicFields'] as List<dynamic>)
+              .map(
+                (e) => HardcodedStringDynamicValue.fromMap(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() => toMap();
+
+  factory HardcodedStringEntity.fromJson(Map<String, dynamic> json) =>
+      HardcodedStringEntity.fromMap(json);
 }

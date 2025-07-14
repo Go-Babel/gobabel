@@ -25,6 +25,11 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_last_local_commit_in_curre
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_git_dependencies.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/reset_all_changes_in_codebase_if_needed.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/define_which_string_label.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/extract_all_hardcoded_strings.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/map_babel_labels.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/map_strings_hierarchy.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/resolve_hardcoded_strings_in_codebase.dart';
 import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/remote_project_related/get_app_languages.dart';
@@ -114,6 +119,11 @@ class GobabelConductor {
           generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
         )
         .toNextStep(generate_normalizeCodeBase)
+        .toNextStep(generate_extractAllStringsInDart)
+        .toNextStep(generate_defineWhichStringLabel)
+        .toNextStep(generate_createHumanFriendlyArbKeysWithAiOnServer)
+        .toNextStep(generate_mapStringsHierarchy)
+        .toNextStep(generate_mapBabelLabels)
         .toNextStep(generate_resolveCodebaseHardcodedStringsProject)
         .toNextStep(generate_resolveHardcodedStringsInCodebase)
         .toNextStep(generate_multiDartFixFormatUsecase)

@@ -16,7 +16,8 @@ AsyncResult<List<File>> getEligibleFiles(Directory dir) async {
   if (!await lib.exists()) {
     return BabelException(
       title: 'Missing lib Directory',
-      description: 'The directory does not contain a "lib" folder: ${lib.path}\n\n'
+      description:
+          'The directory does not contain a "lib" folder: ${lib.path}\n\n'
           'GoBabel requires a standard Dart project structure with a "lib" directory.\n\n'
           'Expected structure:\n'
           '${dir.path}/\n'

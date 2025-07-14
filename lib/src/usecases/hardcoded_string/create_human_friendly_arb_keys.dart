@@ -1,15 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @override
@@ -155,7 +158,19 @@ class HumanFriendlyArbKeyResponse {
     return <String, dynamic>{'key': key, 'value': value.toMap()};
   }
 
+  factory HumanFriendlyArbKeyResponse.fromMap(Map<String, dynamic> map) {
+    return HumanFriendlyArbKeyResponse(
+      key: map['key'] as String,
+      value: HardcodedStringEntity.fromMap(
+        map['value'] as Map<String, dynamic>,
+      ),
+    );
+  }
+
   String toJson() => json.encode(toMap());
+
+  factory HumanFriendlyArbKeyResponse.fromJson(Map<String, dynamic> json) =>
+      HumanFriendlyArbKeyResponse.fromMap(json);
 }
 
 class HumanFriendlyResponse {
@@ -181,4 +196,94 @@ class HumanFriendlyResponse {
   @override
   int get hashCode =>
       newHardcodedStringKeyCache.hashCode ^ humanFriendlyArbKeys.hashCode;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'newHardcodedStringKeyCache': newHardcodedStringKeyCache,
+      'humanFriendlyArbKeys':
+          humanFriendlyArbKeys.map((e) => e.toMap()).toList(),
+    };
+  }
+
+  factory HumanFriendlyResponse.fromMap(Map<String, dynamic> map) {
+    return HumanFriendlyResponse(
+      newHardcodedStringKeyCache: Map<String, String>.from(
+        map['newHardcodedStringKeyCache'] as Map<dynamic, dynamic>,
+      ),
+      humanFriendlyArbKeys:
+          (map['humanFriendlyArbKeys'] as List<dynamic>)
+              .map(
+                (e) => HumanFriendlyArbKeyResponse.fromMap(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+    );
+  }
+
+  Map<String, dynamic> toJson() => toMap();
+
+  factory HumanFriendlyResponse.fromJson(Map<String, dynamic> json) =>
+      HumanFriendlyResponse.fromMap(json);
+}
+
+AsyncBabelResult<GenerateFlowCreatedHumanFriendlyArbKeys>
+generate_createHumanFriendlyArbKeysWithAiOnServer(
+  GenerateFlowDefinedStringLabels payload,
+) async {
+  final hardcodedStringKeyCache =
+      payload.codebaseArbTranslationPayloadInfo.hardcodedStringToKeyCache;
+
+  final humanFriendlyResult = await createHumanFriendlyArbKeysWithAiOnServer(
+    client: payload.client.server,
+    strings: payload.labelStrings,
+    projectApiToken: payload.projectApiToken,
+    projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
+    projectHardcodedStringKeyCache: hardcodedStringKeyCache,
+  );
+
+  if (humanFriendlyResult.isError()) {
+    return humanFriendlyResult.asBabelResultErrorAsync();
+  }
+
+  final humanFriendlyResponse = humanFriendlyResult.getOrThrow();
+
+  // Save logs if requested
+  if (payload.willLog) {
+    await _saveStringListData(
+      humanFriendlyResponse.humanFriendlyArbKeys.map((k) => k.toMap()).toList(),
+      'step_3.json',
+    );
+  }
+
+  return GenerateFlowCreatedHumanFriendlyArbKeys(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+    allExtractedStrings: payload.allExtractedStrings,
+    labelStrings: payload.labelStrings,
+    humanFriendlyResponse: humanFriendlyResponse,
+  ).toSuccess();
+}
+
+/// Saves data to a JSON file
+Future<void> _saveStringListData(
+  List<Map<String, dynamic>> data,
+  String fileName,
+) async {
+  final outFile = File(p.join(Directory.current.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

@@ -1,14 +1,19 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @override
@@ -161,4 +166,71 @@ class _RawStringScanner extends RecursiveAstVisitor<void> {
       ),
     );
   }
+}
+
+AsyncBabelResult<GenerateFlowExtractedAllStrings>
+generate_extractAllStringsInDart(GenerateFlowCodebaseNormalized payload) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final extractResult = await extractAllStringsInDart(files: targetFiles);
+  LoadingIndicator.instance.dispose();
+
+  if (extractResult.isError()) {
+    return extractResult.asBabelResultErrorAsync();
+  }
+
+  final allExtractedStrings = extractResult.getOrThrow();
+
+  // Check if there are no strings to process
+  final hardcodedStringToKeyCache =
+      payload.codebaseArbTranslationPayloadInfo.hardcodedStringToKeyCache;
+  final noneOrResolverResolvedAnyString =
+      allExtractedStrings.isEmpty && hardcodedStringToKeyCache.isEmpty;
+
+  if (noneOrResolverResolvedAnyString) {
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'No hardcoded strings found',
+        description:
+            'No hardcoded strings were found in the provided files. Please check your codebase and try again.',
+      ),
+    ).toFailure();
+  }
+
+  // Save logs if requested
+  if (payload.willLog) {
+    await _saveStringListData(
+      allExtractedStrings.map((s) => s.toMap()).toList(),
+      'step_1.json',
+    );
+  }
+
+  return GenerateFlowExtractedAllStrings(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+    allExtractedStrings: allExtractedStrings,
+  ).toSuccess();
+}
+
+/// Saves data to a JSON file
+Future<void> _saveStringListData(
+  List<Map<String, dynamic>> data,
+  String fileName,
+) async {
+  final outFile = File(p.join(Directory.current.path, fileName));
+  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

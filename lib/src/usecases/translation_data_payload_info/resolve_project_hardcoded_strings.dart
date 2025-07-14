@@ -29,6 +29,9 @@ class ResolveProjectHardcodedStrings {
   });
 }
 
+@Deprecated(
+  'Use individual step functions instead: generate_extractAllStringsInDart, generate_defineWhichStringLabel, etc.',
+)
 AsyncBabelResult<ResolveProjectHardcodedStrings> resolveCodebaseProject({
   required Client client,
   required bool generateLogs,
@@ -266,24 +269,75 @@ Future<void> saveStringData(Map<String, dynamic> data, String fileName) async {
 
 AsyncBabelResult<GenerateFlowResolvedHardcodedStrings>
 generate_resolveCodebaseHardcodedStringsProject(
-  GenerateFlowCodebaseNormalized payload,
+  GenerateFlowMappedBabelLabels payload,
 ) async {
-  final client = payload.client.server;
-  final generateLogs = payload.willLog;
-  final projectApiToken = payload.projectApiToken;
-  final projectShaIdentifier = payload.gitVariables.projectShaIdentifier;
-  final targetFiles = await payload.filesToBeAnalysed;
-  final currentPayloadInfo = payload.codebaseArbTranslationPayloadInfo;
+  try {
+    // Step 6: Final aggregation of all processed data
+    final Map<HardCodedString, TranslationKey> hardcodedStringToKeyCache = {
+      ...payload.codebaseArbTranslationPayloadInfo.hardcodedStringToKeyCache,
+    };
+    final Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration = {
+      ...payload.codebaseArbTranslationPayloadInfo.keyToDeclaration,
+    };
+    final Map<TranslationKey, BabelFunctionImplementation> keyToImplementation =
+        {...payload.codebaseArbTranslationPayloadInfo.keyToImplementation};
+    final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
+      ...payload.codebaseArbTranslationPayloadInfo.keyToContextsPaths,
+    };
+    final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
+    for (final Translatables element
+        in payload.codebaseArbTranslationPayloadInfo.referenceMap) {
+      referenceMap[element.locale] = element.referenceMap;
+    }
 
-  return resolveCodebaseProject(
-    client: client,
-    generateLogs: generateLogs,
-    projectApiToken: projectApiToken,
-    projectShaIdentifier: projectShaIdentifier,
-    inputedByUserLocale: payload.inputedByUserLocale,
-    targetFiles: targetFiles,
-    currentPayloadInfo: currentPayloadInfo,
-  ).flatMap((hardcodedStringsPayloadInfo) {
+    // Add the new hardcoded string key cache from human friendly response
+    for (final entry
+        in payload.humanFriendlyResponse.newHardcodedStringKeyCache.entries) {
+      hardcodedStringToKeyCache[entry.key] = entry.value;
+    }
+
+    // Initialize reference map for input locale if not exists
+    if (referenceMap[payload.inputedByUserLocale] == null) {
+      referenceMap[payload.inputedByUserLocale] = {};
+    }
+
+    // Map the babel labels to file paths
+    Map<FilePath, List<BabelLabelEntityRootLabel>> allHardcodedStrings =
+        <FilePath, List<BabelLabelEntityRootLabel>>{};
+
+    for (final babelLabel in payload.babelLabels) {
+      final filePath = babelLabel.filePath;
+      if (allHardcodedStrings[filePath] == null) {
+        allHardcodedStrings[filePath] = [];
+      }
+      allHardcodedStrings[filePath]!.add(babelLabel);
+    }
+
+    // Sort the entries by startIndex. The first should be the biggest index,
+    // the last should be the smallest index
+    allHardcodedStrings.forEach((key, value) {
+      value.sort((a, b) => b.fileStartIndex.compareTo(a.fileStartIndex));
+    });
+
+    // Add all declarations and implementations to the payload info
+    for (final babelLabel in payload.babelLabels) {
+      final translationKey = babelLabel.l10nKey;
+      final translationValue = babelLabel.l10nValue;
+      keyToDeclaration[translationKey] = babelLabel.babelFunctionDeclaration;
+      keyToImplementation[translationKey] =
+          babelLabel.babelFunctionImplementation;
+
+      if (keyToContextsPaths.containsKey(translationKey)) {
+        keyToContextsPaths[translationKey]!.add(babelLabel.filePath);
+      } else {
+        keyToContextsPaths[translationKey] = {babelLabel.filePath};
+      }
+
+      referenceMap[payload.inputedByUserLocale]!.addAll({
+        translationKey: translationValue,
+      });
+    }
+
     return GenerateFlowResolvedHardcodedStrings(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -298,13 +352,28 @@ generate_resolveCodebaseHardcodedStringsProject(
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       filesVerificationState: payload.filesVerificationState,
       projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
       codebaseArbTranslationPayloadInfo:
           payload.codebaseArbTranslationPayloadInfo,
-      remapedArbKeys: payload.remapedArbKeys,
-      hardcodedStringsPayloadInfo:
-          hardcodedStringsPayloadInfo.hardcodedStringsPayloadInfo,
-      hardcodedStringsPerFile:
-          hardcodedStringsPayloadInfo.hardcodedStringsPerFile,
+      hardcodedStringsPayloadInfo: TranslationPayloadInfo(
+        hardcodedStringToKeyCache: hardcodedStringToKeyCache,
+        keyToDeclaration: keyToDeclaration,
+        keyToImplementation: keyToImplementation,
+        keyToContextsPaths: keyToContextsPaths,
+        referenceMap:
+            referenceMap.entries.map(Translatables.fromEntries).toList(),
+      ),
+      hardcodedStringsPerFile: allHardcodedStrings,
     ).toSuccess();
-  });
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Failed to resolve codebase project',
+        description:
+            'An error occurred while aggregating hardcoded strings data. Please check your project files and try again',
+      ),
+      error: error,
+      stackTrace: stackTrace,
+    ).toFailure();
+  }
 }
