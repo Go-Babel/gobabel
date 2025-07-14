@@ -781,9 +781,150 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplToJson
   'runtimeType': instance.$type,
 };
 
-_$GenerateFlowCodebaseNormalizedImpl
-_$$GenerateFlowCodebaseNormalizedImplFromJson(Map<String, dynamic> json) =>
-    _$GenerateFlowCodebaseNormalizedImpl(
+_$GenerateFlowRemovedAdjacentStringConcatenationImpl
+_$$GenerateFlowRemovedAdjacentStringConcatenationImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowRemovedAdjacentStringConcatenationImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowRemovedAdjacentStringConcatenationImplToJson(
+  _$GenerateFlowRemovedAdjacentStringConcatenationImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowResolvedEnumHardcodedStringsImpl
+_$$GenerateFlowResolvedEnumHardcodedStringsImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowResolvedEnumHardcodedStringsImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$GenerateFlowResolvedEnumHardcodedStringsImplToJson(
+  _$GenerateFlowResolvedEnumHardcodedStringsImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowAppliedInitialDartFixesImpl
+_$$GenerateFlowAppliedInitialDartFixesImplFromJson(Map<String, dynamic> json) =>
+    _$GenerateFlowAppliedInitialDartFixesImpl(
       willLog: json['willLog'] as bool,
       projectApiToken: json['projectApiToken'] as String,
       directoryPath: json['directoryPath'] as String,
@@ -825,8 +966,291 @@ _$$GenerateFlowCodebaseNormalizedImplFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$GenerateFlowCodebaseNormalizedImplToJson(
-  _$GenerateFlowCodebaseNormalizedImpl instance,
+Map<String, dynamic> _$$GenerateFlowAppliedInitialDartFixesImplToJson(
+  _$GenerateFlowAppliedInitialDartFixesImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowMovedHardcodedStringsInFunctionParamsImpl
+_$$GenerateFlowMovedHardcodedStringsInFunctionParamsImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowMovedHardcodedStringsInFunctionParamsImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowMovedHardcodedStringsInFunctionParamsImplToJson(
+  _$GenerateFlowMovedHardcodedStringsInFunctionParamsImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowMovedHardcodedStringParamsImpl
+_$$GenerateFlowMovedHardcodedStringParamsImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowMovedHardcodedStringParamsImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$GenerateFlowMovedHardcodedStringParamsImplToJson(
+  _$GenerateFlowMovedHardcodedStringParamsImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowRemovedConstFromCollectionsWithStringsImpl
+_$$GenerateFlowRemovedConstFromCollectionsWithStringsImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowRemovedConstFromCollectionsWithStringsImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowRemovedConstFromCollectionsWithStringsImplToJson(
+  _$GenerateFlowRemovedConstFromCollectionsWithStringsImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'runtimeType': instance.$type,
+};
+
+_$GenerateFlowRemovedConstFromConstructorsWithStringParamsImpl
+_$$GenerateFlowRemovedConstFromConstructorsWithStringParamsImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowRemovedConstFromConstructorsWithStringParamsImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowRemovedConstFromConstructorsWithStringParamsImplToJson(
+  _$GenerateFlowRemovedConstFromConstructorsWithStringParamsImpl instance,
 ) => <String, dynamic>{
   'willLog': instance.willLog,
   'projectApiToken': instance.projectApiToken,

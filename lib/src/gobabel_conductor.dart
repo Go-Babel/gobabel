@@ -13,7 +13,12 @@ import 'package:gobabel/src/usecases/babel_dependencies_setup/write_babel_text_f
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/ensure_no_static_error_on_dart_files.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
-import 'package:gobabel/src/usecases/codebase_analyse_related/normalize_codebase.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_param_case.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/remove_adjacent_string_concatenation.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_constructors_with_default_string_in_parameter.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_lists_that_contain_hardcoded_strings.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/resolve_enum_hardcoded_string_variables.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/create_project.dart';
 import 'package:gobabel/src/usecases/final_resolver_function/sync_project.dart';
@@ -118,7 +123,19 @@ class GobabelConductor {
         .toNextStep(
           generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
         )
-        .toNextStep(generate_normalizeCodeBase)
+        .toNextStep(
+          generate_multiRemoveAdjacentStringLiteralConcatenationUsecase,
+        )
+        .toNextStep(generate_multiResolveEnumHardcodedStringsUsecase)
+        .toNextStep(generate_multiDartFixFormatUsecaseForNormalize)
+        .toNextStep(generate_multiMoveHardcodedStringInFuntionParamUsecase)
+        .toNextStep(generate_multiMoveHardCodedStringParamUseCase)
+        .toNextStep(
+          generate_multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside,
+        )
+        .toNextStep(
+          generate_multiFileRemoveConstOfConstructorsWithDefaultStringInParameter,
+        )
         .toNextStep(generate_extractAllStringsInDart)
         .toNextStep(generate_defineWhichStringLabel)
         .toNextStep(generate_createHumanFriendlyArbKeysWithAiOnServer)

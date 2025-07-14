@@ -5,6 +5,8 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<Unit> multiRemoveAdjacentStringLiteralConcatenationUsecase({
@@ -191,4 +193,38 @@ class _StringConcatenationReplacement {
     required this.end,
     required this.replacement,
   });
+}
+
+AsyncBabelResult<GenerateFlowRemovedAdjacentStringConcatenation>
+generate_multiRemoveAdjacentStringLiteralConcatenationUsecase(
+  GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
+) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final result = await multiRemoveAdjacentStringLiteralConcatenationUsecase(
+    targetFiles: targetFiles,
+  );
+
+  if (result.isError()) {
+    return result.asBabelResultErrorAsync();
+  }
+
+  return GenerateFlowRemovedAdjacentStringConcatenation(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+  ).toSuccess();
 }

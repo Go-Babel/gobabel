@@ -39,7 +39,7 @@ extension MakeExtBabelResult<S extends FlowInterface<FlowInterface>>
   AsyncBabelResult<W> toNextStep<W extends FlowInterface<FlowInterface>>(
     AsyncBabelResult<W> Function(S success) fn,
   ) async {
-    await Future.delayed(const Duration(milliseconds: 200));
+    await Future.delayed(const Duration(milliseconds: 220));
     return then(
       (result) => result.fold(
         (success) {

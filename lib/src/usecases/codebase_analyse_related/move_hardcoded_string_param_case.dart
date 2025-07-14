@@ -7,6 +7,8 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -225,4 +227,38 @@ class _ParameterTransformation {
     required this.parameterName,
     required this.defaultValue,
   });
+}
+
+AsyncBabelResult<GenerateFlowMovedHardcodedStringParams>
+generate_multiMoveHardCodedStringParamUseCase(
+  GenerateFlowMovedHardcodedStringsInFunctionParams payload,
+) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final result = await multiMoveHardCodedStringParamUseCase(
+    targetFiles: targetFiles,
+  );
+
+  if (result.isError()) {
+    return result.asBabelResultErrorAsync();
+  }
+
+  return GenerateFlowMovedHardcodedStringParams(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+  ).toSuccess();
 }

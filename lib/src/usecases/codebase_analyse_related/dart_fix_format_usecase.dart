@@ -72,3 +72,38 @@ generate_multiDartFixFormatUsecase(
     ).toSuccess();
   });
 }
+
+AsyncBabelResult<GenerateFlowAppliedInitialDartFixes>
+generate_multiDartFixFormatUsecaseForNormalize(
+  GenerateFlowResolvedEnumHardcodedStrings payload,
+) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final result = await multiDartFixFormatUsecase(
+    dirrPath: payload.directoryPath,
+    targetFiles: targetFiles,
+  );
+
+  if (result.isError()) {
+    return result.asBabelResultErrorAsync();
+  }
+
+  return GenerateFlowAppliedInitialDartFixes(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+  ).toSuccess();
+}

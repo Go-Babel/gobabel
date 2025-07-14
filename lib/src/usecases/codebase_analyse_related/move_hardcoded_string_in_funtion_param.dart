@@ -6,6 +6,8 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/token.dart'; // Added import for Token
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -210,4 +212,38 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
       }
     }
   }
+}
+
+AsyncBabelResult<GenerateFlowMovedHardcodedStringsInFunctionParams>
+generate_multiMoveHardcodedStringInFuntionParamUsecase(
+  GenerateFlowAppliedInitialDartFixes payload,
+) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final result = await multiMoveHardcodedStringInFuntionParamUsecase(
+    targetFiles: targetFiles,
+  );
+
+  if (result.isError()) {
+    return result.asBabelResultErrorAsync();
+  }
+
+  return GenerateFlowMovedHardcodedStringsInFunctionParams(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
+  ).toSuccess();
 }

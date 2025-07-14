@@ -118,7 +118,11 @@ class LoadingIndicator {
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
-          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
+          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message'
+              .replaceAll(
+                '[ Normalizing codebase ]',
+                '[ Normalizing codebase ]'.aquamarine,
+              );
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
