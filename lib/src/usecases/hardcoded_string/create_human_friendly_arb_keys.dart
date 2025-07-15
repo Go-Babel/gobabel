@@ -75,7 +75,8 @@ createHumanFriendlyArbKeysWithAiOnServer({
 
     // Progress bar will be shown for larger datasets
 
-    Future<void> function() async {
+    // Process API calls with proper error handling
+    try {
       for (int i = 0; i < groups.length; i++) {
         final group = groups[i];
         if (willHaveProgressBar) {
@@ -101,16 +102,44 @@ createHumanFriendlyArbKeysWithAiOnServer({
           for (final entry in result.entries) entry.key: entry.value,
         });
       }
-    }
-
-    if (willHaveProgressBar) {
-      await function();
+    } catch (error, stackTrace) {
+      return BabelFailureResponse.withErrorAndStackTrace(
+        exception: BabelException(
+          title: 'Failed to create ARB keys',
+          description:
+              'Error while generating human-friendly ARB keys: ${error.toString()}\n'
+              'This may be due to network issues or server problems. Please try again.',
+        ),
+        error: error,
+        stackTrace: stackTrace,
+      ).toFailure();
     }
 
     // Process the generated keys
     for (final string in stringsNeedingGeneration) {
-      final sha1 = shaMap[string.value]!;
-      final key = combinedResults[sha1]!;
+      final sha1 = shaMap[string.value];
+      if (sha1 == null) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'SHA1 mapping error',
+            description:
+                'Failed to find SHA1 mapping for string: "${string.value}". '
+                'This is an internal error. Please try again or report this issue.',
+          ),
+        ).toFailure();
+      }
+
+      final key = combinedResults[sha1];
+      if (key == null) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: BabelException(
+            title: 'ARB key generation failed',
+            description:
+                'Failed to generate ARB key for string: "${string.value}". '
+                'The server did not return a key for this string. Please try again.',
+          ),
+        ).toFailure();
+      }
 
       // Ensure the key is unique and follows the camelCase format
       final garantedKeyIntegrityResponse = await garanteeKeyIntegrity(
@@ -229,52 +258,67 @@ AsyncBabelResult<GenerateFlowCreatedHumanFriendlyArbKeys>
 generate_createHumanFriendlyArbKeysWithAiOnServer(
   GenerateFlowDefinedStringLabels payload,
 ) async {
-  final hardcodedStringKeyCache =
-      payload.codebaseArbTranslationPayloadInfo.hardcodedStringToKeyCache;
+  try {
+    final hardcodedStringKeyCache =
+        payload.codebaseArbTranslationPayloadInfo.hardcodedStringToKeyCache;
 
-  final humanFriendlyResult = await createHumanFriendlyArbKeysWithAiOnServer(
-    client: payload.client.server,
-    strings: payload.labelStrings,
-    projectApiToken: payload.projectApiToken,
-    projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
-    projectHardcodedStringKeyCache: hardcodedStringKeyCache,
-  );
-
-  if (humanFriendlyResult.isError()) {
-    return humanFriendlyResult.asBabelResultErrorAsync();
-  }
-
-  final humanFriendlyResponse = humanFriendlyResult.getOrThrow();
-
-  // Save logs if requested
-  if (payload.willLog) {
-    await _saveStringListData(
-      humanFriendlyResponse.humanFriendlyArbKeys.map((k) => k.toMap()).toList(),
-      'step_3.json',
+    final humanFriendlyResult = await createHumanFriendlyArbKeysWithAiOnServer(
+      client: payload.client.server,
+      strings: payload.labelStrings,
+      projectApiToken: payload.projectApiToken,
+      projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
+      projectHardcodedStringKeyCache: hardcodedStringKeyCache,
     );
-  }
 
-  return GenerateFlowCreatedHumanFriendlyArbKeys(
-    willLog: payload.willLog,
-    projectApiToken: payload.projectApiToken,
-    directoryPath: payload.directoryPath,
-    inputedByUserLocale: payload.inputedByUserLocale,
-    client: payload.client,
-    yamlInfo: payload.yamlInfo,
-    gitVariables: payload.gitVariables,
-    maxLanguageCount: payload.maxLanguageCount,
-    languages: payload.languages,
-    projectCacheMap: payload.projectCacheMap,
-    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
-    filesVerificationState: payload.filesVerificationState,
-    projectArbData: payload.projectArbData,
-    remapedArbKeys: payload.remapedArbKeys,
-    codebaseArbTranslationPayloadInfo:
-        payload.codebaseArbTranslationPayloadInfo,
-    allExtractedStrings: payload.allExtractedStrings,
-    labelStrings: payload.labelStrings,
-    humanFriendlyResponse: humanFriendlyResponse,
-  ).toSuccess();
+    if (humanFriendlyResult.isError()) {
+      return humanFriendlyResult.asBabelResultErrorAsync();
+    }
+
+    final humanFriendlyResponse = humanFriendlyResult.getOrThrow();
+
+    // Save logs if requested
+    if (payload.willLog) {
+      await _saveStringListData(
+        humanFriendlyResponse.humanFriendlyArbKeys
+            .map((k) => k.toMap())
+            .toList(),
+        'step_3.json',
+      );
+    }
+
+    return GenerateFlowCreatedHumanFriendlyArbKeys(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      allExtractedStrings: payload.allExtractedStrings,
+      labelStrings: payload.labelStrings,
+      humanFriendlyResponse: humanFriendlyResponse,
+    ).toSuccess();
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'Unexpected error creating ARB keys',
+        description:
+            'An unexpected error occurred while creating human-friendly ARB keys: ${error.toString()}\n'
+            'Please check your network connection and try again.',
+      ),
+      error: error,
+      stackTrace: stackTrace,
+    ).toFailure();
+  }
 }
 
 /// Saves data to a JSON file

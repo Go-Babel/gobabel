@@ -101,7 +101,7 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
     };
 
     await saveStringData(
-      dirr: Directory.current,
+      dirr: directory,
       data: logPayload,
       fileName: 'gobabel_error_log.json',
     );

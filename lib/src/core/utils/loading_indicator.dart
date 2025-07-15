@@ -177,7 +177,10 @@ class LoadingIndicator {
 
   void displayError() {
     _cleanLine();
-    stdout.write(_lastMessage?.red ?? 'An error occurred'.red);
+    stdout.write(
+      (_lastMessage?.replaceAll(RegExp(_spinnerChars.join('|')), ''))?.red ??
+          'An error occurred'.red,
+    );
     stdout.flush();
   }
 

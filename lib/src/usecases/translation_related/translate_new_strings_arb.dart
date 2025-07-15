@@ -59,6 +59,17 @@ translateNewStringsArb({
 
   for (final Translatables translatable in currentPayloadInfo.referenceMap) {
     final BabelSupportedLocales locale = translatable.locale;
+    if (madeTranslations[locale.languageCode] == null) {
+      madeTranslations[locale.languageCode] = {};
+    }
+
+    final bool isReferenceLocale = locale == referenceLocale;
+    if (isReferenceLocale) {
+      // We can add directly, no translation needed.
+      madeTranslations[locale.languageCode]![locale.countryCode] =
+          translatable.referenceMap;
+      continue;
+    }
     try {
       // Not all fields need to be translated because some of them are already translated and should not be overwritten.
       final Map<L10nKey, L10nValue> pendingTranslations = {};
@@ -89,9 +100,6 @@ translateNewStringsArb({
             ),
           );
 
-      if (madeTranslations[locale.languageCode] == null) {
-        madeTranslations[locale.languageCode] = {};
-      }
       madeTranslations[locale.languageCode]![locale.countryCode] =
           pendingTranslated;
       madeTranslations[locale.languageCode]![locale.countryCode] =
