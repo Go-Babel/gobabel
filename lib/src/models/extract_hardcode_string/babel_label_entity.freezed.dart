@@ -982,12 +982,12 @@ abstract class BabelLabelEntityChildLabel implements BabelLabelEntity {
   factory BabelLabelEntityChildLabel.fromJson(Map<String, dynamic> json) =
       _$BabelLabelEntityChildLabelImpl.fromJson;
 
-  String get l10nKey; // ✅ CHECK
+  String get l10nKey;
   String get l10nValue;
   String get babelFunctionDeclaration;
   String get babelFunctionImplementation;
-  int get parentStartIndex; // ✅ CHECK
-  int get parentEndIndex; // ✅ CHECK
+  int get parentStartIndex;
+  int get parentEndIndex;
   @override
   List<BabelLabelEntity> get children;
 

@@ -123,8 +123,8 @@ BabelLabelEntityRootLabel _handleRootLabel({
   BabelFunctionDeclaration gobabelFunctionDeclarationString =
       keyToDeclaration[l10nKey] ??
       '''${l10nValue.trimHardcodedString.formatToComment}
-  static String $l10nKey(${implementationParameters.map((e) => 'Object? $e').join(', ')}) {
-    return i._getByKey('$l10nKey')${implementationParameters.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
+  static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) {
+    return i._getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
   }''';
 
   BabelFunctionImplementation gobabelFunctionImplementationString =
@@ -205,7 +205,7 @@ BabelLabelEntityChildLabel _handleChildLabel({
   BabelFunctionDeclaration gobabelFunctionDeclarationString =
       '''${hardcodedString.trimHardcodedString.formatToComment}
   static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) {
-    return _getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
+    return i._getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
   }''';
 
   BabelFunctionImplementation gobabelFunctionImplementationString =
