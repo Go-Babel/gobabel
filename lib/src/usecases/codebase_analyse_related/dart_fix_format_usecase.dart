@@ -43,7 +43,7 @@ AsyncBabelResult<Unit> multiDartFixFormatUsecase({
 
 AsyncBabelResult<GenerateFlowAppliedCodebaseGeneralDartFixes>
 generate_multiDartFixFormatUsecase(
-  GenerateFlowReplacedHardcodedStringsForBabelText payload,
+  GenerateFlowAddedSharedPrefsInFlutterProjects payload,
 ) async {
   final List<File> targetFiles = await payload.filesToBeAnalysed;
   return multiDartFixFormatUsecase(

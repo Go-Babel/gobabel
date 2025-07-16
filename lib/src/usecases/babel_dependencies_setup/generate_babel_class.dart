@@ -30,7 +30,7 @@ AsyncBabelResult<String> generateBabelClassUsecase({
 
 AsyncBabelResult<GenerateFlowGeneratedBabelClass>
 generate_generateBabelClassUsecase(
-  GenerateFlowAppliedCodebaseGeneralDartFixes payload,
+  GenerateFlowReplacedHardcodedStringsForBabelText payload,
 ) async {
   final babelClassResult = await generateBabelClassUsecase(
     projectShaIdentifier: payload.gitVariables.projectShaIdentifier,

@@ -600,30 +600,6 @@ abstract class GenerateFlowState
   }) = GenerateFlowReplacedHardcodedStringsForBabelText;
 
   /// Step 32
-  factory GenerateFlowState.appliedCodebaseGeneralDartFixes({
-    required bool willLog,
-    required String projectApiToken,
-    required String directoryPath,
-    @BabelSupportedLocalesJsonConverter()
-    required BabelSupportedLocales inputedByUserLocale,
-    required ApiClientEntity client,
-    required CodeBaseYamlInfo yamlInfo,
-    required GitVariables gitVariables,
-    required int maxLanguageCount,
-    @BabelSupportedLocalesJsonConverter()
-    required Set<BabelSupportedLocales> languages,
-    required ProjectCacheMap projectCacheMap,
-    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
-    required FilesVerification filesVerificationState,
-    required ArbDataState projectArbData,
-    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
-    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
-    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
-    required Map<FilePath, List<BabelLabelEntityRootLabel>>
-    hardcodedStringsPerFile,
-  }) = GenerateFlowAppliedCodebaseGeneralDartFixes;
-
-  /// Step 33
   factory GenerateFlowState.generatedBabelClass({
     required bool willLog,
     required String projectApiToken,
@@ -648,7 +624,7 @@ abstract class GenerateFlowState
     required String babelClass,
   }) = GenerateFlowGeneratedBabelClass;
 
-  /// Step 34
+  /// Step 33
   factory GenerateFlowState.writtedBabelClassInDartFile({
     required bool willLog,
     required String projectApiToken,
@@ -672,7 +648,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowWrittedBabelClassInDartFile;
 
-  /// Step 35
+  /// Step 34
   factory GenerateFlowState.addedBabelClassInitializationInMain({
     required bool willLog,
     required String projectApiToken,
@@ -696,7 +672,7 @@ abstract class GenerateFlowState
     hardcodedStringsPerFile,
   }) = GenerateFlowAddedBabelClassInitializationInMain;
 
-  /// Step 36
+  /// Step 35
   factory GenerateFlowState.addedSharedPrefsInFlutterProjects({
     required bool willLog,
     required String projectApiToken,
@@ -719,6 +695,30 @@ abstract class GenerateFlowState
     required Map<FilePath, List<BabelLabelEntityRootLabel>>
     hardcodedStringsPerFile,
   }) = GenerateFlowAddedSharedPrefsInFlutterProjects;
+
+  /// Step 36
+  factory GenerateFlowState.appliedCodebaseGeneralDartFixes({
+    required bool willLog,
+    required String projectApiToken,
+    required String directoryPath,
+    @BabelSupportedLocalesJsonConverter()
+    required BabelSupportedLocales inputedByUserLocale,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required int maxLanguageCount,
+    @BabelSupportedLocalesJsonConverter()
+    required Set<BabelSupportedLocales> languages,
+    required ProjectCacheMap projectCacheMap,
+    required TranslationPayloadInfo cacheMapTranslationPayloadInfo,
+    required FilesVerification filesVerificationState,
+    required ArbDataState projectArbData,
+    required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
+    required TranslationPayloadInfo codebaseArbTranslationPayloadInfo,
+    required TranslationPayloadInfo hardcodedStringsPayloadInfo,
+    required Map<FilePath, List<BabelLabelEntityRootLabel>>
+    hardcodedStringsPerFile,
+  }) = GenerateFlowAppliedCodebaseGeneralDartFixes;
 
   /// Step 37
   factory GenerateFlowState.extractedCodeBase({
@@ -963,14 +963,15 @@ abstract class GenerateFlowState
     resolvedHardcodedStrings:
         (_) => 'Replacing hardcoded strings with Babel text...',
     replacedHardcodedStringsForBabelText:
-        (_) => 'Applying general Dart fixes...',
-    appliedCodebaseGeneralDartFixes: (_) => 'Generating Babel class...',
-    generatedBabelClass: (_) => 'Writing Babel class to Dart file...',
+        (_) => 'Replacing hardcoded strings with Babel text...',
+    generatedBabelClass: (_) => 'Generating Babel class...',
     writtedBabelClassInDartFile:
-        (_) => 'Adding Babel class initialization in main...',
+        (_) => 'Writing Babel class to Dart file...',
     addedBabelClassInitializationInMain:
+        (_) => 'Adding Babel class initialization in main...',
+    addedSharedPrefsInFlutterProjects:
         (_) => 'Adding shared preferences for Flutter projects...',
-    addedSharedPrefsInFlutterProjects: (_) => 'Extracting codebase...',
+    appliedCodebaseGeneralDartFixes: (_) => 'Applying general Dart fixes...',
     extractedCodeBase: (_) => 'Translating new strings in ARB files...',
     translatedNewStringsArb: (_) => 'Uploading new translations...',
     uploadedNewTranslations: (_) => 'Committing all codebase changes...',
@@ -1012,11 +1013,11 @@ abstract class GenerateFlowState
     mappedBabelLabels: (_) => 29,
     resolvedHardcodedStrings: (_) => 30,
     replacedHardcodedStringsForBabelText: (_) => 31,
-    appliedCodebaseGeneralDartFixes: (_) => 32,
-    generatedBabelClass: (_) => 33,
-    writtedBabelClassInDartFile: (_) => 34,
-    addedBabelClassInitializationInMain: (_) => 35,
-    addedSharedPrefsInFlutterProjects: (_) => 36,
+    generatedBabelClass: (_) => 32,
+    writtedBabelClassInDartFile: (_) => 33,
+    addedBabelClassInitializationInMain: (_) => 34,
+    addedSharedPrefsInFlutterProjects: (_) => 35,
+    appliedCodebaseGeneralDartFixes: (_) => 36,
     extractedCodeBase: (_) => 37,
     translatedNewStringsArb: (_) => 38,
     uploadedNewTranslations: (_) => 39,
