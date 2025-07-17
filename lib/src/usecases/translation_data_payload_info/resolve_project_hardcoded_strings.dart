@@ -6,6 +6,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 class ResolveProjectHardcodedStrings {
@@ -77,10 +78,13 @@ generate_resolveCodebaseHardcodedStringsProject(
       keyToImplementation[translationKey] =
           babelLabel.babelFunctionImplementation;
 
+      // Convert absolute path to relative path from project root
+      final relativePath = p.relative(babelLabel.filePath, from: payload.directoryPath);
+      
       if (keyToContextsPaths.containsKey(translationKey)) {
-        keyToContextsPaths[translationKey]!.add(babelLabel.filePath);
+        keyToContextsPaths[translationKey]!.add(relativePath);
       } else {
-        keyToContextsPaths[translationKey] = {babelLabel.filePath};
+        keyToContextsPaths[translationKey] = {relativePath};
       }
 
       referenceMap[payload.inputedByUserLocale]!.addAll({

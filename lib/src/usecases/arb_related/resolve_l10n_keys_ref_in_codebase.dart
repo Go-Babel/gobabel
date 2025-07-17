@@ -10,6 +10,7 @@ import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<TranslationPayloadInfo>
@@ -19,6 +20,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   required Map<TranslationKey, ProcessedKeyIntegrity> remapedArbKeys,
   required List<File> targetFiles,
   required TranslationPayloadInfo currentPayloadInfo,
+  required String directoryPath,
 }) async {
   final L10nProjectConfigWithData? projectConfigWithData = projectConfig
       .mapOrNull(withData: (value) => value);
@@ -59,7 +61,9 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
           if (!keyToContextsPaths.containsKey(integrityKey)) {
             keyToContextsPaths[integrityKey] = <ContextPath>{};
           }
-          keyToContextsPaths[integrityKey]!.add(fileName);
+          // Convert absolute path to relative path from project root
+          final relativePath = p.relative(fileName, from: directoryPath);
+          keyToContextsPaths[integrityKey]!.add(relativePath);
           return match //
               .text
               .replaceFirst(matchedKey, 'BabelText')
@@ -121,6 +125,7 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
     remapedArbKeys: payload.remapedArbKeys,
     targetFiles: await payload.filesToBeAnalysed,
     currentPayloadInfo: payload.codebaseArbTranslationPayloadInfo,
+    directoryPath: payload.directoryPath,
   ).flatMap((response) {
     return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
       willLog: payload.willLog,
