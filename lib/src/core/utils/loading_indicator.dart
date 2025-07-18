@@ -136,11 +136,7 @@ class LoadingIndicator {
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
-          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message'
-              .replaceAll(
-                '[ Normalizing codebase ]',
-                '[ Normalizing codebase ]'.aquamarine,
-              );
+          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
@@ -158,7 +154,12 @@ class LoadingIndicator {
 
         // Display all three lines
         stdout.write(mainMessage);
-        stdout.write('\n${barProgressInfo.message}');
+        stdout.write(
+          '\n${barProgressInfo.message}'.replaceAll(
+            '[ Normalizing codebase ]',
+            '[ Normalizing codebase ]'.aquamarine,
+          ),
+        );
         stdout.write('\n$progressBar');
         stdout.flush();
 
@@ -182,6 +183,30 @@ class LoadingIndicator {
           'An error occurred'.red,
     );
     stdout.flush();
+  }
+
+  void displaySuccess(String message) {
+    _timer?.cancel();
+    _cleanLine();
+
+    // Clear the entire terminal screen
+    stdout.write('\x1B[2J\x1B[H');
+
+    // Calculate total elapsed time
+    final totalSeconds = _stopwatch.elapsedMilliseconds / 1000;
+    final minutes = (totalSeconds / 60).floor();
+    final seconds = (totalSeconds % 60).toStringAsFixed(1);
+    
+    final timeString = minutes > 0 
+        ? '${minutes}m ${seconds}s' 
+        : '${seconds}s';
+    
+    // Display only the success message with time
+    stdout.writeln(message);
+    stdout.writeln('\nCompleted in $timeString'.dim);
+    stdout.flush();
+
+    dispose();
   }
 
   void dispose() {
