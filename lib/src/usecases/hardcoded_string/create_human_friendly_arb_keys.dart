@@ -66,7 +66,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
     }
 
     // Split the strings into manageable groups for API requests
-    final groups = splitIntoManageableGroupsForApi(extractedStrings);
+    final groups = splitIntoManageableGroupsForApi(extractedStrings, 1);
 
     // Process each group and combine results
     final Map<Sha1, TranslationKey> combinedResults = {};
