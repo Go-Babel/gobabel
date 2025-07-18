@@ -6,7 +6,6 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
-import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
@@ -175,7 +174,6 @@ generate_extractAllStringsInDart(
   final targetFiles = await payload.filesToBeAnalysed;
 
   final extractResult = await extractAllStringsInDart(files: targetFiles);
-  LoadingIndicator.instance.dispose();
 
   if (extractResult.isError()) {
     return extractResult.asBabelResultErrorAsync();

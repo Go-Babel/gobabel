@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
-import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -74,10 +73,8 @@ AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
     };
 
     final result = await processFunction();
-    LoadingIndicator.instance.dispose();
     return result;
   } catch (error, stackTrace) {
-    LoadingIndicator.instance.dispose();
     if (error is BabelException) {
       return BabelFailureResponse.withErrorAndStackTrace(
         exception: error,

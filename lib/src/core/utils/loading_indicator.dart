@@ -136,7 +136,7 @@ class LoadingIndicator {
       );
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
-          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar $message';
+          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar ${message.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
@@ -154,12 +154,7 @@ class LoadingIndicator {
 
         // Display all three lines
         stdout.write(mainMessage);
-        stdout.write(
-          '\n${barProgressInfo.message}'.replaceAll(
-            '[ Normalizing codebase ]',
-            '[ Normalizing codebase ]'.aquamarine,
-          ),
-        );
+        stdout.write('\n${barProgressInfo.message}');
         stdout.write('\n$progressBar');
         stdout.flush();
 
@@ -196,11 +191,9 @@ class LoadingIndicator {
     final totalSeconds = _stopwatch.elapsedMilliseconds / 1000;
     final minutes = (totalSeconds / 60).floor();
     final seconds = (totalSeconds % 60).toStringAsFixed(1);
-    
-    final timeString = minutes > 0 
-        ? '${minutes}m ${seconds}s' 
-        : '${seconds}s';
-    
+
+    final timeString = minutes > 0 ? '${minutes}m ${seconds}s' : '${seconds}s';
+
     // Display only the success message with time
     stdout.writeln(message);
     stdout.writeln('\nCompleted in $timeString'.dim);
