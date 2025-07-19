@@ -169,7 +169,7 @@ class _RawStringScanner extends RecursiveAstVisitor<void> {
 
 AsyncBabelResult<GenerateFlowExtractedAllStrings>
 generate_extractAllStringsInDart(
-  GenerateFlowRemovedConstFromConstructorsWithStringParams payload,
+  GenerateFlowRemovedConstFromStructuresWithStrings payload,
 ) async {
   final targetFiles = await payload.filesToBeAnalysed;
 

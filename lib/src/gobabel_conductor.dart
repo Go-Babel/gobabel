@@ -17,6 +17,7 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_str
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_adjacent_string_concatenation.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_constructors_with_default_string_in_parameter.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_keyword_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_lists_that_contain_hardcoded_strings.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/resolve_enum_hardcoded_string_variables.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
@@ -135,6 +136,9 @@ class GobabelConductor {
         )
         .toNextStep(
           generate_multiFileRemoveConstOfConstructorsWithDefaultStringInParameter,
+        )
+        .toNextStep(
+          generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy,
         )
         .toNextStep(generate_extractAllStringsInDart)
         .toNextStep(generate_defineWhichStringLabel)

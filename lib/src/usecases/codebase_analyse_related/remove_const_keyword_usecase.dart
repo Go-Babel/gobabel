@@ -1,9 +1,33 @@
+import 'dart:io';
+
 import 'package:analyzer/dart/analysis/features.dart';
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/token.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:meta/meta.dart';
+import 'package:result_dart/result_dart.dart';
+
+AsyncBabelResult<Unit>
+multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy({
+  required List<File> targetFiles,
+}) async {
+  for (final file in targetFiles) {
+    final source = await file.readAsString();
+    final transformed =
+        singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+          source,
+        );
+    if (transformed != source) {
+      await file.writeAsString(transformed);
+    }
+  }
+
+  return Success(unit);
+}
 
 /// Will seek for all hardcoded strings and when It finds a hardcoded string it will check
 /// the hierarchy of the classes above it that contain this hardcoded string and remove any `const` keyword.
@@ -77,18 +101,21 @@ class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
 
   void _findAndMarkConstKeywordsInHierarchy(AstNode node) {
     AstNode? current = node.parent;
-    
+
     while (current != null) {
       // Check if this node has a const keyword
-      if (current is InstanceCreationExpression && current.keyword?.lexeme == 'const') {
+      if (current is InstanceCreationExpression &&
+          current.keyword?.lexeme == 'const') {
         _constTokensToRemove.add(current.keyword!);
-      } else if (current is VariableDeclarationList && current.keyword?.lexeme == 'const') {
+      } else if (current is VariableDeclarationList &&
+          current.keyword?.lexeme == 'const') {
         _constTokensToRemove.add(current.keyword!);
-      } else if (current is ConstructorDeclaration && current.constKeyword != null) {
+      } else if (current is ConstructorDeclaration &&
+          current.constKeyword != null) {
         // Don't remove const from constructor declarations
         // Based on tests, we should keep const constructors
       }
-      
+
       current = current.parent;
     }
   }
@@ -99,23 +126,57 @@ class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
     }
 
     // Sort tokens by offset in descending order
-    final sortedTokens = _constTokensToRemove.toList()
-      ..sort((a, b) => b.offset.compareTo(a.offset));
+    final sortedTokens =
+        _constTokensToRemove.toList()
+          ..sort((a, b) => b.offset.compareTo(a.offset));
 
     String result = _source;
     for (final token in sortedTokens) {
       // Remove the const keyword and any trailing space
       final start = token.offset;
       var end = token.end;
-      
+
       // Check if there's a space after const
       if (end < result.length && result[end] == ' ') {
         end++;
       }
-      
+
       result = result.replaceRange(start, end, '');
     }
 
     return result;
   }
+}
+
+AsyncBabelResult<GenerateFlowRemovedConstFromStructuresWithStrings>
+generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+  GenerateFlowRemovedConstFromConstructorsWithStringParams payload,
+) async {
+  final targetFiles = await payload.filesToBeAnalysed;
+
+  final result = await multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+    targetFiles: targetFiles,
+  );
+
+  if (result.isError()) {
+    return result.asBabelResultErrorAsync();
+  }
+
+  return GenerateFlowRemovedConstFromStructuresWithStrings(
+    willLog: payload.willLog,
+    projectApiToken: payload.projectApiToken,
+    directoryPath: payload.directoryPath,
+    inputedByUserLocale: payload.inputedByUserLocale,
+    client: payload.client,
+    yamlInfo: payload.yamlInfo,
+    gitVariables: payload.gitVariables,
+    maxLanguageCount: payload.maxLanguageCount,
+    languages: payload.languages,
+    projectCacheMap: payload.projectCacheMap,
+    cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+    filesVerificationState: payload.filesVerificationState,
+    projectArbData: payload.projectArbData,
+    remapedArbKeys: payload.remapedArbKeys,
+    codebaseArbTranslationPayloadInfo: payload.codebaseArbTranslationPayloadInfo,
+  ).toSuccess();
 }
