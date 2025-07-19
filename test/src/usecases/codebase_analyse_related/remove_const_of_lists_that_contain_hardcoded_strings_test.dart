@@ -2,7 +2,7 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_li
 import 'package:test/test.dart';
 
 void main() {
-  test('Should return expected value', () async {
+  test('Should remove const of lists with unique value', () async {
     final target = '''import 'package:flutter/material.dart';
 
 class MyTestWidget extends StatelessWidget {
@@ -33,6 +33,65 @@ class MyTestWidget extends StatelessWidget {
   }
 }''';
 
+    final result =
+        singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+          target,
+        );
+    expect(result, expected);
+  });
+
+  test('Should remove const of lists with multiple value', () async {
+    final target = '''import 'package:flutter/material.dart';
+
+class MyTestWidget extends StatelessWidget {
+  const MyTestWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBar(
+      tabs: const [
+        Tab(
+          text: 'Login',
+          icon: Icon(Icons.login),
+        ),
+        Tab(
+          text: 'Sign In',
+          icon: Icon(Icons.person_add),
+        ),
+        Tab(
+          text: 'Password Reset',
+          icon: Icon(Icons.vpn_key),
+        ),
+      ],
+    );
+  }
+}''';
+
+    final expected = '''import 'package:flutter/material.dart';
+
+class MyTestWidget extends StatelessWidget {
+  const MyTestWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBar(
+      tabs: [
+        Tab(
+          text: 'Login',
+          icon: Icon(Icons.login),
+        ),
+        Tab(
+          text: 'Sign In',
+          icon: Icon(Icons.person_add),
+        ),
+        Tab(
+          text: 'Password Reset',
+          icon: Icon(Icons.vpn_key),
+        ),
+      ],
+    );
+  }
+}''';
     final result =
         singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
           target,

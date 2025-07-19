@@ -138,7 +138,19 @@ class _ConstConstructorVisitor extends RecursiveAstVisitor<void> {
             stringPos.start >= paramStart && stringPos.end <= paramEnd,
       );
 
-      if (hasHardcodedStringInParams) {
+      // Also check initializer list if it exists
+      bool hasHardcodedStringInInitializers = false;
+      if (node.initializers.isNotEmpty) {
+        final initStart = node.initializers.first.offset;
+        final initEnd = node.initializers.last.end;
+        
+        hasHardcodedStringInInitializers = hardcodedStrings.any(
+          (stringPos) =>
+              stringPos.start >= initStart && stringPos.end <= initEnd,
+        );
+      }
+
+      if (hasHardcodedStringInParams || hasHardcodedStringInInitializers) {
         constKeywordsToRemove.add(
           _ConstKeywordInfo(start: constKeyword.offset, end: constKeyword.end),
         );
