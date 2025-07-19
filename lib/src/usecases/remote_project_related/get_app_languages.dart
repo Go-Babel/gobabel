@@ -22,12 +22,7 @@ AsyncBabelResult<GetAppLanguagesResponse> getAppLanguages({
   required Client client,
   required GitVariables gitVariables,
 }) async {
-  final ({
-    List<LanguageDataPayload> languages,
-    int maxLanguageCount,
-    DateTime updatedAt,
-  })
-  languagesResponse;
+  final ProjectLanguageDataResponse languagesResponse;
   try {
     languagesResponse = await client.publicProject.getProjectLanguages(
       projectShaIdentifier: gitVariables.projectShaIdentifier,

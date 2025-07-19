@@ -8,10 +8,17 @@ import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
+// Global variable for debug mode - set by CLI
+bool _runLocally = false;
+
+void setRunLocally(bool value) {
+  _runLocally = value;
+}
+
 AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
-  const url =
-      'https://gobabel.api.serverpod.space/'; // Prod: https://api.gobabel/.com
-  // const url = 'http://localhost:8080/'; // Prod: https://api.gobabel/.com
+  const localUrl = 'http://localhost:8080/';
+  const prodUrl = 'https://gobabel.api.serverpod.space/';
+  final url = _runLocally ? localUrl : prodUrl;
   final client = ApiClientEntity(
     host: url,
     connectionTimeout: const Duration(minutes: 6),

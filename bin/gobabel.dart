@@ -5,6 +5,7 @@ import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/terminal_textfield.dart';
 import 'package:gobabel/src/gobabel_conductor.dart';
+import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
 
@@ -74,6 +75,10 @@ Future<void> main(List<String> arguments) async {
           'list-languages',
           help: 'Show all supported languages',
           negatable: false,
+        )
+        ..addFlag(
+          'run-locally',
+          hide: true,
         );
 
   final GobabelConductor controller = GobabelConductor();
@@ -140,6 +145,14 @@ Future<void> main(List<String> arguments) async {
 
   // Get the will-create-log-file flag value
   final willLog = argResults['will-create-log-file'] as bool;
+  
+  // Get the run-locally flag value (hidden flag for debug)
+  final runLocally = argResults['run-locally'] as bool;
+  
+  // Set the global run locally flag if needed
+  if (runLocally) {
+    setRunLocally(true);
+  }
 
   // Handle the sync command
   if (argResults['sync'] as bool) {

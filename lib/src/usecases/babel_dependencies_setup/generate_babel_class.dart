@@ -19,7 +19,7 @@ AsyncBabelResult<String> generateBabelClassUsecase({
       .toString()
       .replaceAll(
         r"const String _gobabelRoute = 'http://localhost:8080';",
-        "const String _gobabelRoute = 'http://gobabel.dev';",
+        "const String _gobabelRoute = 'https://gobabel.dev';",
       )
       .replaceAll(
         r"const String _projectIdentifier = '';",
