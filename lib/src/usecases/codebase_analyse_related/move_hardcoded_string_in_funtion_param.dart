@@ -27,6 +27,7 @@ AsyncBabelResult<Unit> multiMoveHardcodedStringInFuntionParamUsecase({
 
 @visibleForTesting
 String singleMoveHardcodedStringInFuntionParamUsecase(String fileContent) {
+  // First pass: Move hardcoded strings to nullable parameters with ??= assignments
   final parseResult = parseString(
     content: fileContent,
     featureSet: FeatureSet.latestLanguageVersion(),
@@ -36,7 +37,8 @@ String singleMoveHardcodedStringInFuntionParamUsecase(String fileContent) {
   final compilationUnit = parseResult.unit;
 
   final List<_Modification> modifications = [];
-  final visitor = _HardcodedStringVisitor(modifications, fileContent);
+  final Set<String> nullCoalescingVariables = {};
+  final visitor = _HardcodedStringVisitor(modifications, fileContent, nullCoalescingVariables);
   compilationUnit.accept(visitor);
 
   // Apply modifications from bottom to top (highest offset first)
@@ -50,6 +52,12 @@ String singleMoveHardcodedStringInFuntionParamUsecase(String fileContent) {
         mod.replacementText +
         newContent.substring(mod.offset + mod.length);
   }
+  
+  // Second pass: Add null assertions where needed
+  if (nullCoalescingVariables.isNotEmpty) {
+    newContent = _addNullAssertions(newContent, nullCoalescingVariables);
+  }
+  
   return newContent;
 }
 
@@ -68,8 +76,9 @@ class _Modification {
 class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
   final List<_Modification> modifications;
   final String sourceCode;
+  final Set<String> nullCoalescingVariables;
 
-  _HardcodedStringVisitor(this.modifications, this.sourceCode);
+  _HardcodedStringVisitor(this.modifications, this.sourceCode, this.nullCoalescingVariables);
 
   @override
   void visitMethodDeclaration(MethodDeclaration node) {
@@ -128,12 +137,22 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
 
               final equalSign = param.separator;
               if (equalSign != null) {
-                // 1. Remove " = 'defaultValue'"
+                // 1. Remove " = 'defaultValue'" 
+                // Check if there's already a space before the equals sign
+                var startOffset = equalSign.offset;
+                var replacement = "";
+                
+                // If there's a space before the equals sign, preserve it
+                if (startOffset > 0 && sourceCode[startOffset - 1] == ' ') {
+                  startOffset--; // Include the space in removal
+                  replacement = " "; // Replace with single space
+                }
+                
                 parameterModifications.add(
                   _Modification(
-                    equalSign.offset,
-                    defaultValueNode.end - equalSign.offset,
-                    "",
+                    startOffset,
+                    defaultValueNode.end - startOffset,
+                    replacement,
                   ),
                 );
 
@@ -156,6 +175,7 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
                 }
 
                 assignmentsToAdd.add("  $paramName ??= $defaultValueText;");
+                nullCoalescingVariables.add(paramName);
               }
             }
           }
@@ -211,6 +231,131 @@ class _HardcodedStringVisitor extends GeneralizingAstVisitor<void> {
         );
       }
     }
+  }
+}
+
+String _addNullAssertions(String fileContent, Set<String> nullCoalescingVariables) {
+  final parseResult = parseString(
+    content: fileContent,
+    featureSet: FeatureSet.latestLanguageVersion(),
+    throwIfDiagnostics: false,
+  );
+  
+  final compilationUnit = parseResult.unit;
+  final List<_Modification> modifications = [];
+  final visitor = _NullAssertionVisitor(
+    modifications, 
+    fileContent, 
+    nullCoalescingVariables,
+  );
+  compilationUnit.accept(visitor);
+  
+  // Apply modifications from bottom to top
+  modifications.sort((a, b) => b.offset.compareTo(a.offset));
+  
+  String newContent = fileContent;
+  for (final mod in modifications) {
+    newContent =
+        newContent.substring(0, mod.offset) +
+        mod.replacementText +
+        newContent.substring(mod.offset + mod.length);
+  }
+  
+  return newContent;
+}
+
+class _NullAssertionVisitor extends RecursiveAstVisitor<void> {
+  final List<_Modification> modifications;
+  final String sourceCode;
+  final Set<String> nullCoalescingVariables;
+  final Map<String, AstNode> functionScopes = {};
+  
+  _NullAssertionVisitor(
+    this.modifications, 
+    this.sourceCode, 
+    this.nullCoalescingVariables,
+  );
+  
+  @override
+  void visitMethodDeclaration(MethodDeclaration node) {
+    _enterFunctionScope(node.name.lexeme, node);
+    super.visitMethodDeclaration(node);
+    _exitFunctionScope(node.name.lexeme);
+  }
+  
+  @override
+  void visitFunctionDeclaration(FunctionDeclaration node) {
+    _enterFunctionScope(node.name.lexeme, node);
+    super.visitFunctionDeclaration(node);
+    _exitFunctionScope(node.name.lexeme);
+  }
+  
+  @override
+  void visitArgumentList(ArgumentList node) {
+    for (final arg in node.arguments) {
+      if (arg is NamedExpression) {
+        _checkExpression(arg.expression);
+      } else {
+        _checkExpression(arg);
+      }
+    }
+    super.visitArgumentList(node);
+  }
+  
+  void _checkExpression(Expression expr) {
+    if (expr is SimpleIdentifier) {
+      final varName = expr.name;
+      
+      // Check if this is one of our null coalescing variables
+      if (nullCoalescingVariables.contains(varName)) {
+        // Check if we're inside a closure/function expression
+        AstNode? current = expr;
+        bool insideClosure = false;
+        bool hasNullCoalescingAssignment = false;
+        
+        while (current != null) {
+          // Check if we've found a function expression (closure)
+          if (current is FunctionExpression && current.parent is! FunctionDeclaration) {
+            insideClosure = true;
+          }
+          
+          // Check if we've found the function that has the ??= assignment
+          if (current is FunctionBody) {
+            // Look for the ??= assignment in this function body
+            final bodySource = sourceCode.substring(current.offset, current.end);
+            if (bodySource.contains('$varName ??=')) {
+              hasNullCoalescingAssignment = true;
+              break;
+            }
+          }
+          
+          current = current.parent;
+        }
+        
+        // Only add ! if we're inside a closure and the containing function has ??= assignment
+        if (insideClosure && hasNullCoalescingAssignment) {
+          // Check if ! is not already present
+          final afterIdentifier = expr.end;
+          if (afterIdentifier < sourceCode.length && sourceCode[afterIdentifier] != '!') {
+            modifications.add(
+              _Modification(
+                expr.end,
+                0,
+                '!',
+              ),
+            );
+          }
+        }
+      }
+    }
+  }
+  
+  void _enterFunctionScope(String name, AstNode node) {
+    functionScopes[name] = node;
+  }
+  
+  void _exitFunctionScope(String name) {
+    functionScopes.remove(name);
   }
 }
 

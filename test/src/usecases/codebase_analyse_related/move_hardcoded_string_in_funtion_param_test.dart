@@ -296,4 +296,162 @@ void processData(int id, {String category = 'General', bool isActive = true}) {
       },
     );
   });
+
+  group('Move hardcoded string with null assertions', () {
+    test('Should add null assertion to nullable parameter used in closure', () {
+      const input = '''
+import 'package:flutter/material.dart'; 
+
+Future<void> showConfirmationDialog({
+  required BuildContext context,
+  required String title,
+  String? message,
+  required void Function()? onConfirm,
+  String confirmButtonText = 'Hello',
+}) async {
+  await showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return AlertDialog(
+        title: Text(title),
+        content: message != null ? Text(message) : null,
+        actions: [
+          TextButton(
+            onPressed: () {
+              onConfirm?.call();
+              Navigator.of(context).pop();
+            },
+            child: Text(confirmButtonText),
+          ),
+        ],
+      );
+    },
+  );
+}''';
+
+      const expected = '''
+import 'package:flutter/material.dart'; 
+
+Future<void> showConfirmationDialog({
+  required BuildContext context,
+  required String title,
+  String? message,
+  required void Function()? onConfirm,
+  String? confirmButtonText ,
+}) async {
+  confirmButtonText ??= 'Hello';
+
+  await showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return AlertDialog(
+        title: Text(title),
+        content: message != null ? Text(message) : null,
+        actions: [
+          TextButton(
+            onPressed: () {
+              onConfirm?.call();
+              Navigator.of(context).pop();
+            },
+            child: Text(confirmButtonText!),
+          ),
+        ],
+      );
+    },
+  );
+}''';
+
+      final result = singleMoveHardcodedStringInFuntionParamUsecase(input);
+      expect(result.trim(), equals(expected.trim()));
+    });
+
+    test('Should not add null assertion outside of closures', () {
+      const input = '''
+void testFunction({
+  String message = 'Hello',
+}) {
+  print(message);
+  final text = message.toUpperCase();
+  print(text);
+}''';
+
+      const expected = '''
+void testFunction({
+  String? message ,
+}) {
+  message ??= 'Hello';
+
+  print(message);
+  final text = message.toUpperCase();
+  print(text);
+}''';
+
+      final result = singleMoveHardcodedStringInFuntionParamUsecase(input);
+      expect(result, equals(expected));
+    });
+
+    test('Should handle multiple parameters with null assertions', () {
+      const input = '''
+Future<void> showCustomDialog({
+  required BuildContext context,
+  String title = 'Default Title',
+  String message = 'Default Message',
+}) async {
+  await showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text(title),
+        content: Column(
+          children: [
+            Text(message),
+            TextButton(
+              onPressed: () {
+                print(title);
+              },
+              child: Text(message),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}''';
+
+      const expected = '''
+Future<void> showCustomDialog({
+  required BuildContext context,
+  String? title ,
+  String? message ,
+}) async {
+  title ??= 'Default Title';
+  message ??= 'Default Message';
+
+  await showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text(title!),
+        content: Column(
+          children: [
+            Text(message!),
+            TextButton(
+              onPressed: () {
+                print(title!);
+              },
+              child: Text(message!),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}''';
+
+      final result = singleMoveHardcodedStringInFuntionParamUsecase(input);
+      expect(result.trim(), equals(expected.trim()));
+    });
+  });
 }
