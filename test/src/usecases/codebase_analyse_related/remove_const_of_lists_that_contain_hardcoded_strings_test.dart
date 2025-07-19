@@ -40,6 +40,23 @@ class MyTestWidget extends StatelessWidget {
     expect(result, expected);
   });
 
+  test('should handle const with generics in constructor calls', () {
+    const input = '''
+const Map<String, int> scores = const <String, int>{'a': 1, 'b': 2};
+const List<Widget> widgets = const <Widget>[const Text('test')];
+''';
+    const expected =
+        '''Map<String, int> scores =  <String, int>{'a': 1, 'b': 2};
+List<Widget> widgets = <Widget>[ Text('test')];
+''';
+
+    final result =
+        singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+          input,
+        );
+    expect(result, equals(expected));
+  });
+
   test('Should remove const of lists with multiple value', () async {
     final target = '''import 'package:flutter/material.dart';
 

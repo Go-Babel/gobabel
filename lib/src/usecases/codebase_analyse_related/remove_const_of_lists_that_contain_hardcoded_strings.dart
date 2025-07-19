@@ -166,8 +166,17 @@ class _ConstCollectionVisitor extends RecursiveAstVisitor<void> {
     if (arguments == null) return false;
 
     for (final arg in arguments.arguments) {
+      // Check positional arguments
       if (arg is StringLiteral && _isHardcodedString(arg)) {
         return true;
+      }
+      
+      // Check named arguments
+      if (arg is NamedExpression) {
+        final expression = arg.expression;
+        if (expression is StringLiteral && _isHardcodedString(expression)) {
+          return true;
+        }
       }
     }
 
