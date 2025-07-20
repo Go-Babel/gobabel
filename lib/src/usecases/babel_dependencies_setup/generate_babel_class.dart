@@ -1,6 +1,7 @@
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -8,24 +9,19 @@ AsyncBabelResult<String> generateBabelClassUsecase({
   required BigInt projectShaIdentifier,
   required Set<BabelFunctionDeclaration> declarationFunctions,
 }) async {
-  final StringBuffer fileContent = StringBuffer(babelText);
-  for (final BabelFunctionDeclaration d in declarationFunctions) {
-    fileContent.write('$d\n');
+  try {
+    return generateBabelClass(
+      projectShaIdentifier: projectShaIdentifier,
+      declarationFunctions: declarationFunctions,
+    ).toSuccess();
+  } catch (e) {
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Failed to generate Babel class',
+        description: e.toString(),
+      ),
+    ).toFailure();
   }
-
-  fileContent.write('}');
-
-  return fileContent
-      .toString()
-      .replaceAll(
-        r"const String _gobabelRoute = 'http://localhost:8080';",
-        "const String _gobabelRoute = 'https://gobabel.dev';",
-      )
-      .replaceAll(
-        r"const String _projectIdentifier = '';",
-        "const String _projectIdentifier = '$projectShaIdentifier';",
-      )
-      .toSuccess();
 }
 
 AsyncBabelResult<GenerateFlowGeneratedBabelClass>

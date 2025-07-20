@@ -7,6 +7,28 @@ import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_need
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
+String _addFlutterImport(String fileContent) {
+  const flutterImport = "import 'package:flutter/widgets.dart';";
+  
+  // Try to find existing imports to insert after
+  final importGroup = RegExp(
+    r'''^import ['"].*['"];$''',
+    multiLine: true,
+  ).allMatches(fileContent).lastOrNull;
+  
+  if (importGroup != null) {
+    final int end = importGroup.end;
+    return fileContent.replaceRange(
+      end,
+      end,
+      '\n$flutterImport',
+    );
+  }
+  
+  // No imports found, add at the beginning
+  return '$flutterImport\n\n$fileContent';
+}
+
 AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
   required Directory directory,
   required CodeBaseYamlInfo codeBaseYamlInfo,
@@ -55,6 +77,17 @@ AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
     fileContent: fileContent,
     codeBaseYamlInfo: codeBaseYamlInfo,
   );
+  
+  // Add Flutter import if needed for Flutter projects
+  if (type == ProjectType.flutter && 
+      !fileContent.contains('WidgetsFlutterBinding') && 
+      !fileContent.contains("import 'package:flutter/widgets.dart'") &&
+      !fileContent.contains('import "package:flutter/widgets.dart"') &&
+      !fileContent.contains("import 'package:flutter/material.dart'") &&
+      !fileContent.contains('import "package:flutter/material.dart"')) {
+    // Add the Flutter widgets import
+    fileContent = _addFlutterImport(fileContent);
+  }
 
   final mainRegex = RegExp(
     r'(Future<void>|void)\s+main\s*\([^)]*\)\s*(async\s*)?{',
@@ -77,13 +110,36 @@ AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
     fileContent = fileContent.replaceRange(braceIndex, braceIndex, ' async');
   }
 
-  final insertionIndex = fileContent.indexOf('{', match.start) + 1;
+  // Check if WidgetsFlutterBinding.ensureInitialized() exists
+  final bindingRegex = RegExp(r'WidgetsFlutterBinding\.ensureInitialized\(\s*\)\s*;');
+  final bindingMatch = bindingRegex.firstMatch(fileContent);
+  
   if (!fileContent.contains('Babel.instance.initialize(')) {
-    fileContent = fileContent.replaceRange(
-      insertionIndex,
-      insertionIndex,
-      '\n  await Babel.instance.initialize();',
-    );
+    if (bindingMatch != null) {
+      // Insert Babel initialization after WidgetsFlutterBinding.ensureInitialized()
+      final insertionIndex = bindingMatch.end;
+      fileContent = fileContent.replaceRange(
+        insertionIndex,
+        insertionIndex,
+        '\n  await Babel.instance.initialize();',
+      );
+    } else if (type == ProjectType.flutter) {
+      // For Flutter projects, add WidgetsFlutterBinding.ensureInitialized() first
+      final insertionIndex = fileContent.indexOf('{', match.start) + 1;
+      fileContent = fileContent.replaceRange(
+        insertionIndex,
+        insertionIndex,
+        '\n  WidgetsFlutterBinding.ensureInitialized();\n  await Babel.instance.initialize();',
+      );
+    } else {
+      // For Dart projects, just add Babel initialization
+      final insertionIndex = fileContent.indexOf('{', match.start) + 1;
+      fileContent = fileContent.replaceRange(
+        insertionIndex,
+        insertionIndex,
+        '\n  await Babel.instance.initialize();',
+      );
+    }
   }
 
   try {
