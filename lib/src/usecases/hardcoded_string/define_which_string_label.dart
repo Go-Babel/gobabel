@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
@@ -10,7 +7,6 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @visibleForTesting
@@ -164,14 +160,6 @@ generate_defineWhichStringLabel(GenerateFlowExtractedAllStrings payload) async {
 
   final labelStrings = labelStringsResult.getOrThrow();
 
-  // Save logs if requested
-  if (payload.willLog) {
-    await _saveStringListData(
-      labelStrings.map((s) => s.toMap()).toList(),
-      'step_2.json',
-    );
-  }
-
   return GenerateFlowDefinedStringLabels(
     willLog: payload.willLog,
     projectApiToken: payload.projectApiToken,
@@ -192,13 +180,4 @@ generate_defineWhichStringLabel(GenerateFlowExtractedAllStrings payload) async {
     allExtractedStrings: payload.allExtractedStrings,
     labelStrings: labelStrings,
   ).toSuccess();
-}
-
-/// Saves data to a JSON file
-Future<void> _saveStringListData(
-  List<Map<String, dynamic>> data,
-  String fileName,
-) async {
-  final outFile = File(p.join(Directory.current.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

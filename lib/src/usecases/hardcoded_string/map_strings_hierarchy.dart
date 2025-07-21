@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -8,7 +5,6 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dyna
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<List<LabelsEntityRootLabel>> mapStringsHierarchy({
@@ -218,14 +214,6 @@ generate_mapStringsHierarchy(
 
   final labelEntities = labelEntitiesResult.getOrThrow();
 
-  // Save logs if requested
-  if (payload.willLog) {
-    await _saveStringListData(
-      labelEntities.map((e) => e.toJson()).toList(),
-      'step_4.json',
-    );
-  }
-
   return GenerateFlowMappedStringsHierarchy(
     willLog: payload.willLog,
     projectApiToken: payload.projectApiToken,
@@ -248,13 +236,4 @@ generate_mapStringsHierarchy(
     humanFriendlyResponse: payload.humanFriendlyResponse,
     labelEntities: labelEntities,
   ).toSuccess();
-}
-
-/// Saves data to a JSON file
-Future<void> _saveStringListData(
-  List<Map<String, dynamic>> data,
-  String fileName,
-) async {
-  final outFile = File(p.join(Directory.current.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

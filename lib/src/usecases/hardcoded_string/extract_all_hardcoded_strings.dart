@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
@@ -12,7 +11,6 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_enti
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @override
@@ -197,14 +195,6 @@ generate_extractAllStringsInDart(
     ).toFailure();
   }
 
-  // Save logs if requested
-  if (payload.willLog) {
-    await _saveStringListData(
-      allExtractedStrings.map((s) => s.toMap()).toList(),
-      'step_1.json',
-    );
-  }
-
   return GenerateFlowExtractedAllStrings(
     willLog: payload.willLog,
     projectApiToken: payload.projectApiToken,
@@ -224,13 +214,4 @@ generate_extractAllStringsInDart(
         payload.codebaseArbTranslationPayloadInfo,
     allExtractedStrings: allExtractedStrings,
   ).toSuccess();
-}
-
-/// Saves data to a JSON file
-Future<void> _saveStringListData(
-  List<Map<String, dynamic>> data,
-  String fileName,
-) async {
-  final outFile = File(p.join(Directory.current.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

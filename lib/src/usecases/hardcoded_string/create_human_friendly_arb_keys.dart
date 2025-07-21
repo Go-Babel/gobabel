@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
@@ -12,7 +11,6 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_enti
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @override
@@ -277,16 +275,6 @@ generate_createHumanFriendlyArbKeysWithAiOnServer(
 
     final humanFriendlyResponse = humanFriendlyResult.getOrThrow();
 
-    // Save logs if requested
-    if (payload.willLog) {
-      await _saveStringListData(
-        humanFriendlyResponse.humanFriendlyArbKeys
-            .map((k) => k.toMap())
-            .toList(),
-        'step_3.json',
-      );
-    }
-
     return GenerateFlowCreatedHumanFriendlyArbKeys(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -320,13 +308,4 @@ generate_createHumanFriendlyArbKeysWithAiOnServer(
       stackTrace: stackTrace,
     ).toFailure();
   }
-}
-
-/// Saves data to a JSON file
-Future<void> _saveStringListData(
-  List<Map<String, dynamic>> data,
-  String fileName,
-) async {
-  final outFile = File(p.join(Directory.current.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }

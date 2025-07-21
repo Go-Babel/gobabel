@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/extensions/string_extension.dart';
@@ -8,7 +5,6 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
@@ -324,14 +320,6 @@ AsyncBabelResult<GenerateFlowMappedBabelLabels> generate_mapBabelLabels(
 
   final babelLabels = babelLabelsResult.getOrThrow();
 
-  // Save logs if requested
-  if (payload.willLog) {
-    await _saveStringListData(
-      babelLabels.map((label) => label.toJson()).toList(),
-      'step_5.json',
-    );
-  }
-
   return GenerateFlowMappedBabelLabels(
     willLog: payload.willLog,
     projectApiToken: payload.projectApiToken,
@@ -355,13 +343,4 @@ AsyncBabelResult<GenerateFlowMappedBabelLabels> generate_mapBabelLabels(
     labelEntities: payload.labelEntities,
     babelLabels: babelLabels,
   ).toSuccess();
-}
-
-/// Saves data to a JSON file
-Future<void> _saveStringListData(
-  List<Map<String, dynamic>> data,
-  String fileName,
-) async {
-  final outFile = File(p.join(Directory.current.path, fileName));
-  await outFile.writeAsString(JsonEncoder.withIndent('  ').convert(data));
 }
