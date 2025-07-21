@@ -165,7 +165,8 @@ createHumanFriendlyArbKeysWithAiOnServer({
         ).toFailure();
       }
       keyMap.add(HumanFriendlyArbKeyResponse(key: camelCaseKey, value: string));
-      newHardcodedStringKeyCache[string.value] = camelCaseKey;
+      newHardcodedStringKeyCache[camelCaseKey] =
+          string.value.trimHardcodedString;
     }
   }
 

@@ -67,7 +67,7 @@ resolveProjectArbFilesPayload({
       final ProcessedKeyIntegrity processedKey =
           integrityKeyResponse.getOrThrow();
 
-      hardcodedStringToKeyCache[value] = processedKey;
+      hardcodedStringToKeyCache[processedKey] = value.trimHardcodedString;
       remapedArbKeys[rawKey] = processedKey;
 
       final L10nKey l10nKey = processedKey;

@@ -30,7 +30,7 @@ AsyncBabelResult<TranslationPayloadInfo> resolveProjectCacheTranslationPayload(
       final ProcessedKeyIntegrity processedKey =
           integrityKeyResponse.getOrThrow();
 
-      hardcodedStringToKeyCache[value] = processedKey;
+      hardcodedStringToKeyCache[processedKey] = value.trimHardcodedString;
     }
 
     for (final entry
