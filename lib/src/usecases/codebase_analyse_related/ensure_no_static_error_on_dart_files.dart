@@ -5,10 +5,10 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
-/// Performs static analysis on the specified directory (defaults to 'lib').
+/// Performs static analysis on the specified directory.
 ///
-/// Throws a [StaticAnalysisFailedException] if any errors are found.
-/// Prints analysis output to the console.
+/// Throws a [BabelException] if any static errors are found.
+/// Warnings and info messages are allowed and will not cause failure.
 AsyncBabelResult<Unit> ensureNoStaticErrorOnDartFiles({
   required String directoryPath,
 }) async {
@@ -20,41 +20,55 @@ AsyncBabelResult<Unit> ensureNoStaticErrorOnDartFiles({
   return resultAsync.fold((processResult) {
     final String stdout = processResult.stdout.toString();
     final String stderr = processResult.stderr.toString();
-    final int exitCode = processResult.exitCode;
 
-    // Combine stdout and stderr for a complete output picture,
-    // as 'dart analyze' can put informational messages in stdout and errors in either.
+    // Combine stdout and stderr for complete output
     String fullOutput = "";
     if (stdout.trim().isNotEmpty) {
-      fullOutput += "--- STDOUT ---\n$stdout\n";
+      fullOutput += stdout;
     }
     if (stderr.trim().isNotEmpty) {
-      // 'dart analyze' often puts actual errors here, even with exit code 0 for info/warnings
-      // but for critical errors, exit code will be non-zero.
-      fullOutput += "--- STDERR ---\n$stderr\n";
-    }
-    if (fullOutput.trim().isEmpty) {
-      fullOutput = "No output from analyzer.";
+      if (fullOutput.isNotEmpty) fullOutput += "\n";
+      fullOutput += stderr;
     }
 
-    if (exitCode != 0) {
+    // Check if there are actual errors (not just warnings or info)
+    // Dart analyze output format typically shows:
+    // - "error •" for errors
+    // - "warning •" for warnings
+    // - "info •" for info messages
+    final bool hasErrors = fullOutput.contains(RegExp(r'error\s+•'));
+
+    if (hasErrors) {
+      // Extract only error lines for cleaner output
+      final errorLines =
+          fullOutput
+              .split('\n')
+              .where(
+                (line) =>
+                    line.contains(RegExp(r'error\s+•')) ||
+                    line.contains('.dart:') &&
+                        !line.contains(RegExp(r'(warning|info)\s+•')),
+              )
+              .toList();
+
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
           title: 'Static Analysis Failed',
           description:
-              'Static analysis failed for directory ${directoryPath.pink}.\n'
-              'Error in ${fullOutput.pink}.\n'
-              'Please check the output above for details.\n\n'
+              'Static analysis found errors in directory ${directoryPath.pink}.\n'
+              'Errors found:\n${errorLines.take(20).join('\n').pink}\n\n'
+              'Please fix these errors before proceeding.\n\n'
               'Common causes:\n'
               '• Syntax errors in Dart files\n'
               '• Missing dependencies in pubspec.yaml\n'
               '• Invalid import statements\n'
               '• Type mismatches or undefined variables\n\n'
-              'Run "dart analyze" manually to see detailed errors.',
+              'Run "dart analyze" manually to see all issues including warnings.',
         ),
       ).toFailure();
     }
 
+    // No errors found (warnings and info messages are allowed)
     return unit.toSuccess();
   }, (failure) => Failure(failure));
 }

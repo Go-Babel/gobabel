@@ -72,15 +72,20 @@ resolveProjectArbFilesPayload({
 
       final L10nKey l10nKey = processedKey;
       final Set<VariableName> variablesNames =
-          arbDataStateWithData.variablesPlaceholdersPerKey[rawKey]!;
+          arbDataStateWithData.variablesPlaceholdersPerKey[rawKey] ?? <VariableName>{};
 
       BabelFunctionImplementation gobabelFunctionImplementationString =
-          '$kBabelClass.$l10nKey(${variablesNames.map((e) => e).join(', ')})';
+          variablesNames.isEmpty
+              ? '$kBabelClass.$l10nKey()'
+              : '$kBabelClass.$l10nKey(${variablesNames.map((e) => e).join(', ')})';
 
       BabelFunctionDeclaration gobabelFunctionDeclarationString =
-          '''${value.trimHardcodedString.formatToComment}
+          variablesNames.isEmpty
+              ? '''${value.trimHardcodedString.formatToComment}
+  static String get $l10nKey => i._getByKey('$l10nKey');'''
+              : '''${value.trimHardcodedString.formatToComment}
   static String $l10nKey(${variablesNames.map((e) => 'Object? $e').join(', ')}) {
-    return i._getByKey('$variablesNames')${variablesNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
+    return i._getByKey('$l10nKey')${variablesNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
   }''';
 
       keyToImplementation[processedKey] = gobabelFunctionImplementationString;

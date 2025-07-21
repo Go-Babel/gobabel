@@ -76,10 +76,7 @@ Future<void> main(List<String> arguments) async {
           help: 'Show all supported languages',
           negatable: false,
         )
-        ..addFlag(
-          'run-locally',
-          hide: true,
-        );
+        ..addFlag('run-locally', hide: true);
 
   final GobabelConductor controller = GobabelConductor();
 
@@ -145,10 +142,10 @@ Future<void> main(List<String> arguments) async {
 
   // Get the will-create-log-file flag value
   final willLog = argResults['will-create-log-file'] as bool;
-  
+
   // Get the run-locally flag value (hidden flag for debug)
   final runLocally = argResults['run-locally'] as bool;
-  
+
   // Set the global run locally flag if needed
   if (runLocally) {
     setRunLocally(true);

@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -131,19 +130,13 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
     ).toFailure();
   }
 
-  final Map<NewL10nKey, NewL10nKey> uniqueness = main.allKeyValues;
-
+  // The original code was incorrectly using allKeyValues as a key mapping
+  // Simply use the ARB data as-is since key transformation happens later
   final allArbs =
       allArbData.map((arbData) {
         return ArbFileData(
           locale: arbData.locale,
-          allKeyValues: Map.fromEntries(
-            arbData.allKeyValues.entries.map((entry) {
-              final newKey = uniqueness[entry.key];
-              if (newKey == null) return null;
-              return MapEntry(newKey, entry.value);
-            }).removeNull,
-          ),
+          allKeyValues: Map.from(arbData.allKeyValues),
         );
       }).toList();
 
@@ -171,7 +164,8 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
         title:
             'No arb file found for the reference language $inputedByUserLocale',
         description:
-            'The reference language used as parameter does not have a corresponding ARB file in the project. For that reason, it can not be the reference language for the project.',
+            'The reference language used as parameter does not have a corresponding ARB file in the project. For that reason, it can not be the reference language for the project.\n'
+            'The languages found in the project are:\n${preMadeTranslationArb.map((arb) => arb.locale).join(', ')}',
       ),
     ).toFailure();
   }
