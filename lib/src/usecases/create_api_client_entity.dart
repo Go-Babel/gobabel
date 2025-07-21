@@ -21,10 +21,9 @@ AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
   final url = _runLocally ? localUrl : prodUrl;
   final client = ApiClientEntity(
     host: url,
-    connectionTimeout: const Duration(minutes: 6),
+    connectionTimeout: const Duration(minutes: 7),
   );
 
-  // Todo(igor): This should be a separate state for all 3 flows. Like a "checkedIsValidDirectory"
   final containsLib = await Directory('${dir.path}lib').exists();
   if (containsLib == false) {
     return BabelFailureResponse.onlyBabelException(

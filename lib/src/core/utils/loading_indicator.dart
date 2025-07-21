@@ -131,12 +131,10 @@ class LoadingIndicator {
     // Start a periodic timer to update the spinner
     _timer = Timer.periodic(_interval, (_) {
       _cleanLine();
-      final seconds = (_stopwatch.elapsedMilliseconds / 1000).toStringAsFixed(
-        1,
-      );
+      final timeFormatted = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
       final mainMessage =
-          '[ ($step/$totalCount) ${seconds}s ] $spinnerChar ${message.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
+          '[ ($step/$totalCount) $timeFormatted ] $spinnerChar ${message.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
@@ -188,11 +186,7 @@ class LoadingIndicator {
     stdout.write('\x1B[2J\x1B[H');
 
     // Calculate total elapsed time
-    final totalSeconds = _stopwatch.elapsedMilliseconds / 1000;
-    final minutes = (totalSeconds / 60).floor();
-    final seconds = (totalSeconds % 60).toStringAsFixed(1);
-
-    final timeString = minutes > 0 ? '${minutes}m ${seconds}s' : '${seconds}s';
+    final timeString = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
 
     // Display only the success message with time
     stdout.writeln(message);
@@ -205,5 +199,20 @@ class LoadingIndicator {
   void dispose() {
     _timer?.cancel();
     _stopwatch.stop();
+  }
+
+  /// Formats elapsed time in milliseconds to a human-readable string
+  /// Format: "h:mm:ss" when hours > 0, "m:ss" when hours = 0
+  String _formatElapsedTime(int milliseconds) {
+    final totalSeconds = milliseconds ~/ 1000;
+    final hours = totalSeconds ~/ 3600;
+    final minutes = (totalSeconds % 3600) ~/ 60;
+    final seconds = totalSeconds % 60;
+
+    if (hours > 0) {
+      return '$hours:${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+    } else {
+      return '$minutes:${seconds.toString().padLeft(2, '0')}';
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
@@ -26,8 +27,23 @@ AsyncBabelResult<Unit> multiDartFixFormatUsecase({
     return formatResultAsync.asBabelResultErrorAsync();
   }
 
-  // Apply dart fix to each file
+  // Apply dart fix to each file with progress
+  int currentStep = 0;
+  final totalSteps = paths.length;
+  
   for (final String path in paths) {
+    currentStep++;
+    
+    // Update progress bar
+    LoadingIndicator.instance.setLoadingProgressBar(
+      message: 'Applying initial Dart fixes...',
+      barProgressInfo: BarProgressInfo(
+        message: 'Processing file $currentStep of $totalSteps',
+        totalSteps: totalSteps,
+        currentStep: currentStep,
+      ),
+    );
+    
     final fixResultAsync = await runBabelProcess(
       command: 'dart fix --apply $path',
       dirrPath: dirrPath,

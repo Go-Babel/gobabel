@@ -18,6 +18,10 @@ AsyncBabelResult<GenerateHistory> uploadTranslationNewVersion({
   madeTranslations,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
+  return BabelFailureResponse.onlyBabelException(
+    exception: BabelException(title: 'Test functoin', description: 'Blabla'),
+  ).toFailure();
+
   try {
     final GenerateHistory generatedHistory = await client.publicGenerate(
       gitCommit: gitVariables.previousCommit,
