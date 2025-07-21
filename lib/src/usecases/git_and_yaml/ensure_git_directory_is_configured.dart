@@ -32,7 +32,7 @@ AsyncBabelResult<Unit> ensureGitDirectoryIsConfigured({
       exception: BabelException(
         title: 'Uncommitted changes detected',
         description:
-            'You have uncommitted changes in your Git repository. '
+            'You have uncommitted changes in your Git repository "$dirrPath". '
             'Please commit your changes with "git commit" or stash them with "git stash" '
             'before running this command to ensure a clean working state.',
       ),
