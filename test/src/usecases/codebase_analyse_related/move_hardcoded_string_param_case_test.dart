@@ -121,6 +121,122 @@ void main() {
       expect(result, expected);
     });
   });
+
+  group('should handle super constructor calls', () {
+    test('handles simple super call with parameter default', () {
+      final target = '''class Race {
+  final String name;
+  Race(this.name);
+}
+class Person extends Race {
+  Person([String name = 'Unknown']) : super(name);
+}''';
+      final expected = '''class Race {
+  final String name;
+  Race(this.name);
+}
+class Person extends Race {
+  Person([String? name]) : super(name ?? 'Unknown');
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles super call with multiple parameters', () {
+      final target = '''class Animal {
+  final String species;
+  final String sound;
+  Animal(this.species, this.sound);
+}
+class Dog extends Animal {
+  Dog([String breed = 'Mixed', String bark = 'Woof']) : super(breed, bark);
+}''';
+      final expected = '''class Animal {
+  final String species;
+  final String sound;
+  Animal(this.species, this.sound);
+}
+class Dog extends Animal {
+  Dog([String? breed, String? bark]) : super(breed ?? 'Mixed', bark ?? 'Woof');
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles super call with named parameters', () {
+      final target = '''class Vehicle {
+  final String type;
+  Vehicle({required this.type});
+}
+class Car extends Vehicle {
+  Car({String model = 'Sedan'}) : super(type: model);
+}''';
+      final expected = '''class Vehicle {
+  final String type;
+  Vehicle({required this.type});
+}
+class Car extends Vehicle {
+  Car({String? model}) : super(type: model ?? 'Sedan');
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles super call with mixed field initializers', () {
+      final target = '''class Base {
+  final String id;
+  Base(this.id);
+}
+class Derived extends Base {
+  final String name;
+  Derived([this.name = 'Default', String code = 'ABC']) : super(code);
+}''';
+      final expected = '''class Base {
+  final String id;
+  Base(this.id);
+}
+class Derived extends Base {
+  final String name;
+  Derived([String? name, String? code]) : name = name ?? 'Default', super(code ?? 'ABC');
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles super call with existing null-aware operator', () {
+      final target = '''class Parent {
+  final String value;
+  Parent(this.value);
+}
+class Child extends Parent {
+  Child({String data = 'Data'}) : super(data);
+  Child.other({String? info}) : super(info ?? 'Info');
+}''';
+      final expected = '''class Parent {
+  final String value;
+  Parent(this.value);
+}
+class Child extends Parent {
+  Child({String? data}) : super(data ?? 'Data');
+  Child.other({String? info}) : super(info ?? 'Info');
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('preserves super call when no string defaults', () {
+      final target = '''class Base {
+  final int count;
+  Base(this.count);
+}
+class Extended extends Base {
+  Extended(int value) : super(value);
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, target); // Should not transform
+    });
+  });
+
   group('singleMoveHardCodedStringParamUseCase', () {
     group('Basic single parameter transformations', () {
       test('transforms simple constructor with default string parameter', () {

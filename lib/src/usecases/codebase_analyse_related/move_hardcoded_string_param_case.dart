@@ -188,7 +188,6 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
 
     // Build new parameter list
     final newParams = <String>[];
-    final newInitializerEntries = <String>[];
 
     for (final param in constructor.parameters.parameters) {
       final transformParam = parametersToTransform
@@ -211,12 +210,6 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         }
 
         newParams.add(newParamString);
-
-        // Add initializer entry
-        // Use the raw string representation to preserve escape sequences
-        newInitializerEntries.add(
-          '$paramName = $paramName ?? ${transformParam.rawDefaultValue}',
-        );
       } else {
         // Keep original parameter
         newParams.add(param.toString());
@@ -228,6 +221,9 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     final existingInitializers = <String>[];
     final transformedParamNames =
         parametersToTransform.map((t) => t.parameterName).toSet();
+    
+    // Track which parameters are used in super calls
+    final paramsUsedInSuper = <String>{};
 
     if (constructor.initializers.isNotEmpty) {
       for (final initializer in constructor.initializers) {
@@ -237,7 +233,47 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
           // Skip this initializer as we're replacing it
           continue;
         }
-        existingInitializers.add(initializer.toString());
+        
+        // Check if this is a super constructor invocation
+        if (initializer is SuperConstructorInvocation) {
+          // Track which parameters are used in the super call
+          final superSource = _source.substring(initializer.offset, initializer.end);
+          for (final paramName in transformedParamNames) {
+            if (superSource.contains(paramName)) {
+              paramsUsedInSuper.add(paramName);
+            }
+          }
+          
+          // Transform the super call to add null-aware operators
+          String transformedSuper = superSource;
+          for (final transform in parametersToTransform) {
+            if (paramsUsedInSuper.contains(transform.parameterName)) {
+              // Replace parameter references with null-aware expression
+              final paramName = transform.parameterName;
+              final defaultValue = transform.rawDefaultValue;
+              
+              // Simple replacement - this handles basic cases
+              // For more complex cases, we'd need full AST analysis
+              transformedSuper = transformedSuper.replaceAll(
+                RegExp('\\b$paramName\\b'),
+                '$paramName ?? $defaultValue',
+              );
+            }
+          }
+          existingInitializers.add(transformedSuper);
+        } else {
+          existingInitializers.add(initializer.toString());
+        }
+      }
+    }
+    
+    // Only add field initializers for parameters NOT used in super calls
+    final fieldInitializers = <String>[];
+    for (final transform in parametersToTransform) {
+      if (!paramsUsedInSuper.contains(transform.parameterName)) {
+        fieldInitializers.add(
+          '${transform.parameterName} = ${transform.parameterName} ?? ${transform.rawDefaultValue}',
+        );
       }
     }
 
@@ -246,8 +282,8 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     final className = (constructor.parent as ClassDeclaration).name.toString();
     final isConst = constructor.constKeyword != null ? 'const ' : '';
 
-    // Combine new initializers with existing ones
-    final allInitializers = [...newInitializerEntries, ...existingInitializers];
+    // Combine field initializers with existing ones (like super calls)
+    final allInitializers = [...fieldInitializers, ...existingInitializers];
     final initializerList =
         allInitializers.isNotEmpty ? ' : ${allInitializers.join(', ')}' : '';
 
