@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
@@ -18,40 +19,39 @@ AsyncBabelResult<Unit> multiDartFixFormatUsecase({
   final Iterable<String> paths = targetFiles.map((e) => e.path);
 
   // Format all files at once
-  final formatResultAsync = await runBabelProcess(
-    command: 'dart format ${paths.join(' ')}',
-    dirrPath: dirrPath,
-  );
+  final pathsCluster = paths.splitIntoGroups(50);
 
-  if (formatResultAsync.isError()) {
-    return formatResultAsync.asBabelResultErrorAsync();
-  }
-
-  // Apply dart fix to each file with progress
   int currentStep = 0;
-  final totalSteps = paths.length;
-  
-  for (final String path in paths) {
+  final int totalSteps = pathsCluster.length;
+  for (final paths in pathsCluster) {
     currentStep++;
-    
-    // Update progress bar
+
+    // Update the progress
     LoadingIndicator.instance.setLoadingProgressBar(
-      message: 'Applying initial Dart fixes...',
+      message: 'Applying dart fixes...',
       barProgressInfo: BarProgressInfo(
-        message: 'Processing file $currentStep of $totalSteps',
-        totalSteps: totalSteps,
+        message: 'Formatting files...',
         currentStep: currentStep,
+        totalSteps: totalSteps,
       ),
     );
-    
-    final fixResultAsync = await runBabelProcess(
-      command: 'dart fix --apply $path',
+    final formatResultAsync = await runBabelProcess(
+      command: 'dart format ${paths.join(' ')}',
       dirrPath: dirrPath,
     );
 
-    if (fixResultAsync.isError()) {
-      return Failure(fixResultAsync.exceptionOrNull()!);
+    if (formatResultAsync.isError()) {
+      return formatResultAsync.asBabelResultErrorAsync();
     }
+  }
+
+  final fixResultAsync = await runBabelProcess(
+    command: 'dart fix --apply .',
+    dirrPath: dirrPath,
+  );
+
+  if (fixResultAsync.isError()) {
+    return Failure(fixResultAsync.exceptionOrNull()!);
   }
 
   return Success(unit);

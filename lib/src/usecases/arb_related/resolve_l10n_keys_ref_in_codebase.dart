@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:enchanted_collection/enchanted_collection.dart';
-import 'package:enchanted_regex/enchanted_regex.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -10,7 +8,6 @@ import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
-import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<TranslationPayloadInfo>
@@ -27,49 +24,34 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   if (projectConfigWithData == null) {
     return currentPayloadInfo.toSuccess();
   }
-
   final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
     ...currentPayloadInfo.keyToContextsPaths,
   };
   final String outputClass = projectConfigWithData.outputClass;
-  final String baseRegexIdentifier =
-      '($outputClass)'
-      // S\s*\.(?:[a-zA-Z0.9()!]|\s)+\.\s*duels
-      r'\s*\.(?:[a-zA-Z0.9()!]|\s)+\.\s*';
-
-  final List<TranslationKey> allKeys = remapedArbKeys.keys.toList();
-
-  // The keys are split into groups of 100 to not overwhelm the regex engine
-  final keysCluster = allKeys.splitIntoGroups(100);
+  final String defaultPattern =
+      '$outputClass'
+      r'\s*\.of\(\s*(?:[a-zA-Z]|\r|\n|\t|\f|\v)+\s*,?\s*\)';
+  // Based on "final localizations = Localizations.of<S>(context, S);"
+  final String directDelegate =
+      '$outputClass'
+      r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)';
 
   for (final file in targetFiles) {
     try {
       String fileContent = await file.readAsString();
-      bool hasChanges = false;
-      for (final keys in keysCluster) {
-        final String fileName = file.path;
-        final regex = RegExp(
-          '$baseRegexIdentifier(${keys.join('|')})',
-          multiLine: true,
-        );
 
-        fileContent = fileContent.replaceAllMapped(regex, (Match match) {
-          hasChanges = true;
-          final String matchedKey = match.group(1)!;
-          final String keyName = match.group(2)!;
-          final ProcessedKeyIntegrity integrityKey = remapedArbKeys[keyName]!;
-          if (!keyToContextsPaths.containsKey(integrityKey)) {
-            keyToContextsPaths[integrityKey] = <ContextPath>{};
-          }
-          // Convert absolute path to relative path from project root
-          final relativePath = p.relative(fileName, from: directoryPath);
-          keyToContextsPaths[integrityKey]!.add(relativePath);
-          return match //
-              .text
-              .replaceFirst(matchedKey, 'BabelText')
-              .replaceFirst(keyName, integrityKey);
-        });
-      }
+      final regex = RegExp(
+        '($defaultPattern|$directDelegate)',
+        caseSensitive: false,
+        multiLine: true,
+      );
+      bool hasChanges = false;
+
+      fileContent.replaceAllMapped(regex, (match) {
+        hasChanges = true;
+        return outputClass;
+      });
+
       if (hasChanges) {
         final fileContentWithImport = addImportIfNeededUsecase(
           codeBaseYamlInfo: codeBaseYamlInfo,

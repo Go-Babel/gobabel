@@ -15,8 +15,10 @@ import 'package:result_dart/result_dart.dart';
 AsyncBabelResult<Unit> multiMoveHardCodedStringParamUseCase({
   required List<File> targetFiles,
 }) async {
+  File? currentFile;
   try {
     for (final file in targetFiles) {
+      currentFile = file;
       final source = await file.readAsString();
       final transformed = singleMoveHardCodedStringParamUseCase(source);
       if (transformed != source) {
@@ -37,7 +39,9 @@ AsyncBabelResult<Unit> multiMoveHardCodedStringParamUseCase({
         description:
             'Failed to transform hardcoded string parameters in constructor.\n\n'
             'This transformation moves default string values from constructor parameters '
-            'to the constructor body. This may fail if:\n'
+            'to the constructor body.\n'
+            'The error happened in file "${currentFile?.path ?? 'unknown'}".\n\n'
+            'This may fail if:\n'
             '• The file has syntax errors\n'
             '• The file uses unsupported Dart language features\n'
             '• File permissions prevent reading or writing\n'
