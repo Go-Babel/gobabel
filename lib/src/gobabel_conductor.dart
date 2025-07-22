@@ -9,6 +9,7 @@ import 'package:gobabel/src/usecases/arb_related/remove_unnecessary_arb_config_f
 import 'package:gobabel/src/usecases/arb_related/resolve_l10n_keys_ref_in_codebase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/add_babel_initialization_to_main_usecase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/ensure_shared_prefs_if_flutter_project.dart';
+import 'package:gobabel/src/usecases/babel_dependencies_setup/extract_babel_function_declarations.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/generate_babel_class.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/write_babel_text_file_into_directory.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
@@ -91,8 +92,12 @@ class GobabelConductor {
         .toNextStep(sync_getProjectOriginUrl)
         .toNextStep(sync_getProjectGitDependencies)
         .toNextStep(sync_extractProjectCodeBase)
+        .toNextStep(sync_extractBabelFunctionDeclarations)
+        .toNextStep(sync_generateBabelClassUsecase)
+        .toNextStep(sync_writeBabelTextFileIntoDirectory)
         .toNextStep(sync_syncProject)
-        .log_if_needed;
+        .log_if_needed
+        .sync_resetIfError;
   }
 
   AsyncBabelResult<void> generate({

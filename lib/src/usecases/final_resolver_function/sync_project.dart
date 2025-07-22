@@ -38,7 +38,7 @@ AsyncBabelResult<Unit> syncProject({
 }
 
 AsyncBabelResult<SyncFlowCreatedProjectInGobabelServer> sync_syncProject(
-  SyncFlowExtractedProjectCodebase payload,
+  SyncFlowWrittedBabelTextFileIntoDirectory payload,
 ) async {
   final yamlInfo = payload.yamlInfo;
   final codeBase = payload.contextPaths;

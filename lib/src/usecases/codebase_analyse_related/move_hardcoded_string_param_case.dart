@@ -178,8 +178,6 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
 
     return result;
   }
-  
-
 
   String _applyTransformation(
     String source,
@@ -201,7 +199,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         // Transform parameter to nullable without default
         final paramDecl = transformParam.parameter.parameter;
         final paramName = transformParam.parameterName;
-        
+
         String newParamString;
         if (paramDecl is SimpleFormalParameter) {
           final typeAnnotation = paramDecl.type?.toString() ?? 'String';
@@ -211,7 +209,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         } else {
           newParamString = param.toString();
         }
-        
+
         newParams.add(newParamString);
 
         // Add initializer entry
@@ -228,10 +226,9 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     // Get existing initializers (like super calls)
     // but exclude simple field assignments for parameters we're transforming
     final existingInitializers = <String>[];
-    final transformedParamNames = parametersToTransform
-        .map((t) => t.parameterName)
-        .toSet();
-    
+    final transformedParamNames =
+        parametersToTransform.map((t) => t.parameterName).toSet();
+
     if (constructor.initializers.isNotEmpty) {
       for (final initializer in constructor.initializers) {
         // Check if this is a simple field assignment for a transformed parameter
@@ -249,20 +246,18 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     final className = (constructor.parent as ClassDeclaration).name.toString();
     final isConst = constructor.constKeyword != null ? 'const ' : '';
 
-    
     // Combine new initializers with existing ones
     final allInitializers = [...newInitializerEntries, ...existingInitializers];
     final initializerList =
-        allInitializers.isNotEmpty
-            ? ' : ${allInitializers.join(', ')}'
-            : '';
+        allInitializers.isNotEmpty ? ' : ${allInitializers.join(', ')}' : '';
 
     // Build constructor with same formatting style as original
-    final constructorSignature = 
+    final constructorSignature =
         '$isConst$className${constructorName.isNotEmpty ? '.$constructorName' : ''}';
-    
+
     // Check if constructor body exists
     final body = constructor.body;
+    // ignore: unnecessary_null_comparison
     final hasBody = body != null;
     final bodySuffix = hasBody ? '' : ';';
 
@@ -272,28 +267,32 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
       constructor.parameters.rightParenthesis.offset,
     );
     final isMultiLine = originalParams.contains('\n');
-    
+
     // Check if the last parameter has a trailing comma
-    final hasTrailingComma = constructor.parameters.parameters.isNotEmpty &&
-        _source.substring(
-          constructor.parameters.parameters.last.end,
-          constructor.parameters.rightParenthesis.offset,
-        ).trim().startsWith(',');
-    
+    final hasTrailingComma =
+        constructor.parameters.parameters.isNotEmpty &&
+        _source
+            .substring(
+              constructor.parameters.parameters.last.end,
+              constructor.parameters.rightParenthesis.offset,
+            )
+            .trim()
+            .startsWith(',');
+
     // Determine the parameter delimiters (none for required positional, {} for named, [] for optional positional)
     final leftDelimiter = constructor.parameters.leftDelimiter?.lexeme ?? '';
     final rightDelimiter = constructor.parameters.rightDelimiter?.lexeme ?? '';
-    
+
     // Build the parameter list with proper formatting
     String formattedParameterList;
-    
+
     // Separate parameters based on whether they're in the optional section or not
     final beforeDelimiter = <String>[];
     final insideDelimiter = <String>[];
-    
+
     // Check if we have delimiters (for optional parameters)
     final hasDelimiters = leftDelimiter.isNotEmpty;
-    
+
     if (hasDelimiters) {
       // For named parameters ({}), all parameters are inside the delimiters
       // For positional optional ([]), we need to separate required and optional
@@ -301,16 +300,16 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         // All parameters go inside the delimiters for named parameters
         // UNLESS there are required positional parameters before the named ones
         bool foundNamedParam = false;
-        
+
         for (int i = 0; i < constructor.parameters.parameters.length; i++) {
           final originalParam = constructor.parameters.parameters[i];
           final newParam = newParams[i];
-          
+
           // Check if this is a named parameter (it's inside the delimiter section)
           if (!foundNamedParam && originalParam.isNamed) {
             foundNamedParam = true;
           }
-          
+
           if (foundNamedParam || originalParam.isNamed) {
             insideDelimiter.add(newParam);
           } else {
@@ -321,16 +320,16 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
       } else {
         // For positional optional parameters ([])
         bool insideOptionalSection = false;
-        
+
         for (int i = 0; i < constructor.parameters.parameters.length; i++) {
           final originalParam = constructor.parameters.parameters[i];
           final newParam = newParams[i];
-          
+
           // Check if this parameter starts the optional section
           if (!insideOptionalSection && originalParam.isOptional) {
             insideOptionalSection = true;
           }
-          
+
           if (insideOptionalSection) {
             insideDelimiter.add(newParam);
           } else {
@@ -338,45 +337,53 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
           }
         }
       }
-      
+
       // Build the formatted parameter list
       if (isMultiLine) {
         // For multi-line with named parameters ({}), wrap all parameters
         if (leftDelimiter == '{') {
           // Named parameters - all parameters go inside the delimiters
           final formattedParams = newParams
-              .map((p) => '    $p${hasTrailingComma || newParams.indexOf(p) < newParams.length - 1 ? ',' : ''}')
+              .map(
+                (p) =>
+                    '    $p${hasTrailingComma || newParams.indexOf(p) < newParams.length - 1 ? ',' : ''}',
+              )
               .join('\n');
-          formattedParameterList = '($leftDelimiter\n$formattedParams\n  $rightDelimiter)';
+          formattedParameterList =
+              '($leftDelimiter\n$formattedParams\n  $rightDelimiter)';
         } else {
           // Positional optional parameters ([]) - need to separate required and optional
           final parts = <String>[];
-          
+
           // Add required parameters
           for (final param in beforeDelimiter) {
             parts.add('    $param,');
           }
-          
+
           // Add optional parameters with delimiters
           if (insideDelimiter.isNotEmpty) {
             for (int i = 0; i < insideDelimiter.length; i++) {
               final isLast = i == insideDelimiter.length - 1;
               if (i == 0 && beforeDelimiter.isEmpty) {
                 // First parameter and no required params
-                parts.add('    $leftDelimiter${insideDelimiter[i]}${isLast && !hasTrailingComma ? '' : ','}');
+                parts.add(
+                  '    $leftDelimiter${insideDelimiter[i]}${isLast && !hasTrailingComma ? '' : ','}',
+                );
               } else if (i == 0) {
                 // First optional parameter with required params before
                 parts.add('    $leftDelimiter${insideDelimiter[i]},');
               } else if (isLast) {
                 // Last optional parameter
-                parts.add('    ${insideDelimiter[i]}$rightDelimiter${hasTrailingComma ? ',' : ''}');
+                parts.add(
+                  '    ${insideDelimiter[i]}$rightDelimiter${hasTrailingComma ? ',' : ''}',
+                );
               } else {
                 // Middle optional parameters
                 parts.add('    ${insideDelimiter[i]},');
               }
             }
           }
-          
+
           formattedParameterList = '(\n${parts.join('\n')}\n  )';
         }
       } else {
@@ -385,32 +392,39 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
           // Named parameters
           if (beforeDelimiter.isEmpty) {
             // All parameters are named
-            formattedParameterList = '($leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
+            formattedParameterList =
+                '($leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
           } else {
             // Mix of required positional and named parameters
-            formattedParameterList = '(${beforeDelimiter.join(', ')}, $leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
+            formattedParameterList =
+                '(${beforeDelimiter.join(', ')}, $leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
           }
         } else {
           // Positional optional parameters
           if (beforeDelimiter.isEmpty) {
             // Only optional parameters
-            formattedParameterList = '($leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
+            formattedParameterList =
+                '($leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
           } else if (insideDelimiter.isEmpty) {
             // Only required parameters (shouldn't happen if we have delimiters)
             formattedParameterList = '(${beforeDelimiter.join(', ')})';
           } else {
             // Both required and optional
-            formattedParameterList = '(${beforeDelimiter.join(', ')}, $leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
+            formattedParameterList =
+                '(${beforeDelimiter.join(', ')}, $leftDelimiter${insideDelimiter.join(', ')}$rightDelimiter)';
           }
         }
       }
     } else {
       // No delimiters - all parameters are either required positional or all named
       final newParameterList = newParams.join(', ');
-      
+
       if (isMultiLine) {
         final formattedParams = newParams
-            .map((p) => '    $p${hasTrailingComma || newParams.indexOf(p) < newParams.length - 1 ? ',' : ''}')
+            .map(
+              (p) =>
+                  '    $p${hasTrailingComma || newParams.indexOf(p) < newParams.length - 1 ? ',' : ''}',
+            )
             .join('\n');
         formattedParameterList = '(\n$formattedParams\n  )';
       } else {

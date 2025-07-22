@@ -224,6 +224,112 @@ Map<String, dynamic> _$$SyncFlowExtractedProjectCodebaseImplToJson(
   'runtimeType': instance.$type,
 };
 
+_$SyncFlowExtractedBabelFunctionDeclarationsImpl
+_$$SyncFlowExtractedBabelFunctionDeclarationsImplFromJson(
+  Map<String, dynamic> json,
+) => _$SyncFlowExtractedBabelFunctionDeclarationsImpl(
+  willLog: json['willLog'] as bool,
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  contextPaths:
+      (json['contextPaths'] as List<dynamic>).map((e) => e as String).toSet(),
+  declarationFunctions:
+      (json['declarationFunctions'] as List<dynamic>)
+          .map((e) => e as String)
+          .toSet(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$SyncFlowExtractedBabelFunctionDeclarationsImplToJson(
+  _$SyncFlowExtractedBabelFunctionDeclarationsImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'contextPaths': instance.contextPaths.toList(),
+  'declarationFunctions': instance.declarationFunctions.toList(),
+  'runtimeType': instance.$type,
+};
+
+_$SyncFlowGeneratedBabelClassImpl _$$SyncFlowGeneratedBabelClassImplFromJson(
+  Map<String, dynamic> json,
+) => _$SyncFlowGeneratedBabelClassImpl(
+  willLog: json['willLog'] as bool,
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  contextPaths:
+      (json['contextPaths'] as List<dynamic>).map((e) => e as String).toSet(),
+  declarationFunctions:
+      (json['declarationFunctions'] as List<dynamic>)
+          .map((e) => e as String)
+          .toSet(),
+  babelClass: json['babelClass'] as String,
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$SyncFlowGeneratedBabelClassImplToJson(
+  _$SyncFlowGeneratedBabelClassImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'contextPaths': instance.contextPaths.toList(),
+  'declarationFunctions': instance.declarationFunctions.toList(),
+  'babelClass': instance.babelClass,
+  'runtimeType': instance.$type,
+};
+
+_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
+_$$SyncFlowWrittedBabelTextFileIntoDirectoryImplFromJson(
+  Map<String, dynamic> json,
+) => _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl(
+  willLog: json['willLog'] as bool,
+  accountApiKey: json['accountApiKey'] as String,
+  directoryPath: json['directoryPath'] as String,
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  contextPaths:
+      (json['contextPaths'] as List<dynamic>).map((e) => e as String).toSet(),
+  declarationFunctions:
+      (json['declarationFunctions'] as List<dynamic>)
+          .map((e) => e as String)
+          .toSet(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplToJson(
+  _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'accountApiKey': instance.accountApiKey,
+  'directoryPath': instance.directoryPath,
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'contextPaths': instance.contextPaths.toList(),
+  'declarationFunctions': instance.declarationFunctions.toList(),
+  'runtimeType': instance.$type,
+};
+
 _$SyncFlowCreatedProjectInGobabelServerImpl
 _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(
   Map<String, dynamic> json,

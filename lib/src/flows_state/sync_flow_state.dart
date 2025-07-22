@@ -106,6 +106,43 @@ abstract class SyncFlowState
   }) = SyncFlowExtractedProjectCodebase;
 
   /// Step 10
+  factory SyncFlowState.extractedBabelFunctionDeclarations({
+    required bool willLog,
+    required String accountApiKey,
+    required String directoryPath,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required Set<ContextPath> contextPaths,
+    required Set<BabelFunctionDeclaration> declarationFunctions,
+  }) = SyncFlowExtractedBabelFunctionDeclarations;
+
+  /// Step 11
+  factory SyncFlowState.generatedBabelClass({
+    required bool willLog,
+    required String accountApiKey,
+    required String directoryPath,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required Set<ContextPath> contextPaths,
+    required Set<BabelFunctionDeclaration> declarationFunctions,
+    required String babelClass,
+  }) = SyncFlowGeneratedBabelClass;
+
+  /// Step 12
+  factory SyncFlowState.writtedBabelTextFileIntoDirectory({
+    required bool willLog,
+    required String accountApiKey,
+    required String directoryPath,
+    required ApiClientEntity client,
+    required CodeBaseYamlInfo yamlInfo,
+    required GitVariables gitVariables,
+    required Set<ContextPath> contextPaths,
+    required Set<BabelFunctionDeclaration> declarationFunctions,
+  }) = SyncFlowWrittedBabelTextFileIntoDirectory;
+
+  /// Step 13
   factory SyncFlowState.createdProjectInGobabelServer({
     required bool willLog,
     required String accountApiKey,
@@ -122,7 +159,7 @@ abstract class SyncFlowState
   }
 
   @override
-  int get maxAmountOfSteps => 10;
+  int get maxAmountOfSteps => 13;
 
   @override
   String get message => map(
@@ -134,7 +171,10 @@ abstract class SyncFlowState
     gotLastLocalCommit: (_) => 'Getting project origin URL...',
     gotProjectOriginUrl: (_) => 'Collecting git variables...',
     gotGitVariables: (_) => 'Extracting project codebase...',
-    extractedProjectCodebase: (_) => 'Syncing project with Gobabel server...',
+    extractedProjectCodebase: (_) => 'Extracting Babel function declarations...',
+    extractedBabelFunctionDeclarations: (_) => 'Generating Babel class...',
+    generatedBabelClass: (_) => 'Writing Babel text file...',
+    writtedBabelTextFileIntoDirectory: (_) => 'Syncing project with Gobabel server...',
     createdProjectInGobabelServer: (_) => 'Sync completed!',
   );
 
@@ -149,7 +189,10 @@ abstract class SyncFlowState
     gotProjectOriginUrl: (_) => 7,
     gotGitVariables: (_) => 8,
     extractedProjectCodebase: (_) => 9,
-    createdProjectInGobabelServer: (_) => 10,
+    extractedBabelFunctionDeclarations: (_) => 10,
+    generatedBabelClass: (_) => 11,
+    writtedBabelTextFileIntoDirectory: (_) => 12,
+    createdProjectInGobabelServer: (_) => 13,
   );
 
   factory SyncFlowState.fromJson(Map<String, dynamic> json) =>
@@ -163,7 +206,7 @@ abstract class SyncFlowState
   bool get shouldLog => willLog;
 
   @override
-  bool get shouldReset => stepCount > 29;
+  bool get shouldReset => stepCount >= 10 && stepCount < 13;
 }
 
 AsyncBabelResult<SyncFlowInitial> sync_initFlowState({

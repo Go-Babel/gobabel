@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
+import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/file_utils.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
@@ -59,6 +60,27 @@ generate_writeBabelTextFileIntoDirectory(
       remapedArbKeys: payload.remapedArbKeys,
       hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
       hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
+    ).toSuccess();
+  });
+}
+
+AsyncBabelResult<SyncFlowWrittedBabelTextFileIntoDirectory>
+sync_writeBabelTextFileIntoDirectory(
+  SyncFlowGeneratedBabelClass payload,
+) async {
+  return writeBabelTextFileIntoDirectory(
+    babelClass: payload.babelClass,
+    directory: payload.directory,
+  ).flatMap((_) {
+    return SyncFlowWrittedBabelTextFileIntoDirectory(
+      willLog: payload.willLog,
+      accountApiKey: payload.accountApiKey,
+      directoryPath: payload.directoryPath,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      contextPaths: payload.contextPaths,
+      declarationFunctions: payload.declarationFunctions,
     ).toSuccess();
   });
 }
