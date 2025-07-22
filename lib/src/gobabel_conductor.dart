@@ -14,7 +14,7 @@ import 'package:gobabel/src/usecases/babel_dependencies_setup/write_babel_text_f
 import 'package:gobabel/src/usecases/codebase_analyse_related/dart_fix_format_usecase.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/ensure_no_static_error_on_dart_files.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_code_base.dart';
-import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_function_param.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_adjacent_string_concatenation.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_keyword_usecase.dart';
@@ -91,7 +91,7 @@ class GobabelConductor {
         .toNextStep(sync_getProjectOriginUrl)
         .toNextStep(sync_getProjectGitDependencies)
         .toNextStep(sync_extractProjectCodeBase)
-        .toNextStep(sync_createProject)
+        .toNextStep(sync_syncProject)
         .log_if_needed;
   }
 

@@ -1,4 +1,4 @@
-import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_function_param.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -37,7 +37,7 @@ AsyncBabelResult<Unit> syncProject({
   }
 }
 
-AsyncBabelResult<SyncFlowCreatedProjectInGobabelServer> sync_createProject(
+AsyncBabelResult<SyncFlowCreatedProjectInGobabelServer> sync_syncProject(
   SyncFlowExtractedProjectCodebase payload,
 ) async {
   final yamlInfo = payload.yamlInfo;

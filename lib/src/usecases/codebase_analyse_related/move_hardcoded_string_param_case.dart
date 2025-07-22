@@ -55,17 +55,40 @@ AsyncBabelResult<Unit> multiMoveHardCodedStringParamUseCase({
 
 @visibleForTesting
 String singleMoveHardCodedStringParamUseCase(String source) {
-  final parseResult = parseString(
-    content: source,
-    featureSet: FeatureSet.latestLanguageVersion(),
-  );
+  try {
+    final parseResult = parseString(
+      content: source,
+      featureSet: FeatureSet.latestLanguageVersion(),
+      throwIfDiagnostics: false,
+    );
 
-  if (parseResult.errors.isNotEmpty) {
+    if (parseResult.errors.isNotEmpty) {
+      throw BabelException(
+        title: 'Dart Parse Error',
+        description:
+            'Failed to parse Dart file due to syntax errors.\n\n'
+            'Parse errors: ${parseResult.errors.map((e) => '• ${e.message} at line ${e.offset}').join('\n')}\n\n'
+            'Common causes:\n'
+            '• Missing semicolons or brackets\n'
+            '• Invalid Dart syntax\n'
+            '• Incomplete code statements\n'
+            '• Unsupported language features\n\n'
+            'Please fix the syntax errors before running GoBabel.',
+      );
+    }
+
+    final visitor = _ConstructorTransformVisitor(source);
+    parseResult.unit.accept(visitor);
+
+    return visitor.getTransformedSource();
+  } on ArgumentError {
+    // parseString throws ArgumentError when throwIfDiagnostics is not set
+    // and there are parse errors
     throw BabelException(
       title: 'Dart Parse Error',
       description:
           'Failed to parse Dart file due to syntax errors.\n\n'
-          'Parse errors: ${parseResult.errors.map((e) => '• ${e.message} at line ${e.offset}').join('\n')}\n\n'
+          'The file contains invalid Dart syntax that prevents parsing.\n\n'
           'Common causes:\n'
           '• Missing semicolons or brackets\n'
           '• Invalid Dart syntax\n'
@@ -74,11 +97,6 @@ String singleMoveHardCodedStringParamUseCase(String source) {
           'Please fix the syntax errors before running GoBabel.',
     );
   }
-
-  final visitor = _ConstructorTransformVisitor(source);
-  parseResult.unit.accept(visitor);
-
-  return visitor.getTransformedSource();
 }
 
 class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
@@ -89,6 +107,12 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
 
   @override
   void visitConstructorDeclaration(ConstructorDeclaration node) {
+    // Skip factory constructors
+    if (node.factoryKeyword != null) {
+      super.visitConstructorDeclaration(node);
+      return;
+    }
+
     final parametersToTransform = <_ParameterTransformation>[];
 
     if (node.parameters.parameters.isNotEmpty) {
@@ -99,11 +123,17 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
           final paramName = _getParameterName(param.parameter);
 
           if (paramName != null) {
+            // Get the raw string representation including quotes
+            final rawStringValue = _source.substring(
+              stringLiteral.offset,
+              stringLiteral.end,
+            );
             parametersToTransform.add(
               _ParameterTransformation(
                 parameter: param,
                 parameterName: paramName,
                 defaultValue: stringLiteral.value,
+                rawDefaultValue: rawStringValue,
               ),
             );
           }
@@ -148,6 +178,18 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
 
     return result;
   }
+  
+  String _formatMultiLineParams(List<String> params, bool hasTrailingComma) {
+    // Preserve multi-line formatting with proper indentation
+    final result = <String>[];
+    for (int i = 0; i < params.length; i++) {
+      final isLast = i == params.length - 1;
+      final needsComma = !isLast || hasTrailingComma;
+      result.add('    ${params[i]}${needsComma ? ',' : ''}');
+    }
+    return result.join('\n');
+  }
+
 
   String _applyTransformation(
     String source,
@@ -158,7 +200,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
 
     // Build new parameter list
     final newParameters = <String>[];
-    final initializerEntries = <String>[];
+    final newInitializerEntries = <String>[];
 
     for (final param in constructor.parameters.parameters) {
       final transformParam = parametersToTransform
@@ -178,12 +220,32 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         }
 
         // Add initializer entry
-        initializerEntries.add(
-          '$paramName = $paramName ?? \'${transformParam.defaultValue}\'',
+        // Use the raw string representation to preserve escape sequences
+        newInitializerEntries.add(
+          '$paramName = $paramName ?? ${transformParam.rawDefaultValue}',
         );
       } else {
         // Keep original parameter
         newParameters.add(param.toString());
+      }
+    }
+
+    // Get existing initializers (like super calls)
+    // but exclude simple field assignments for parameters we're transforming
+    final existingInitializers = <String>[];
+    final transformedParamNames = parametersToTransform
+        .map((t) => t.parameterName)
+        .toSet();
+    
+    if (constructor.initializers.isNotEmpty) {
+      for (final initializer in constructor.initializers) {
+        // Check if this is a simple field assignment for a transformed parameter
+        if (initializer is ConstructorFieldInitializer &&
+            transformedParamNames.contains(initializer.fieldName.name)) {
+          // Skip this initializer as we're replacing it
+          continue;
+        }
+        existingInitializers.add(initializer.toString());
       }
     }
 
@@ -193,17 +255,47 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     final isConst = constructor.constKeyword != null ? 'const ' : '';
 
     final newParameterList = newParameters.join(', ');
+    
+    // Combine new initializers with existing ones
+    final allInitializers = [...newInitializerEntries, ...existingInitializers];
     final initializerList =
-        initializerEntries.isNotEmpty
-            ? ' : ${initializerEntries.join(', ')}'
+        allInitializers.isNotEmpty
+            ? ' : ${allInitializers.join(', ')}'
             : '';
 
+    // Build constructor with same formatting style as original
+    final constructorSignature = 
+        '$isConst$className${constructorName.isNotEmpty ? '.$constructorName' : ''}';
+    
+    // Check if constructor body exists
+    final body = constructor.body;
+    final hasBody = body != null;
+    final bodySuffix = hasBody ? '' : ';';
+
+    // Preserve the original formatting of the parameter list if it's multi-line
+    final originalParams = _source.substring(
+      constructor.parameters.leftParenthesis.end,
+      constructor.parameters.rightParenthesis.offset,
+    );
+    final isMultiLine = originalParams.contains('\n');
+    
+    // Check if the last parameter has a trailing comma
+    final hasTrailingComma = constructor.parameters.parameters.isNotEmpty &&
+        _source.substring(
+          constructor.parameters.parameters.last.end,
+          constructor.parameters.rightParenthesis.offset,
+        ).trim().startsWith(',');
+    
+    final formattedParameterList = isMultiLine
+        ? '({\n${_formatMultiLineParams(newParameters, hasTrailingComma)}\n  })'
+        : '({$newParameterList})';
+
     final newConstructor =
-        '$isConst$className${constructorName.isNotEmpty ? '.$constructorName' : ''}({\n$newParameterList\n})$initializerList;';
+        '$constructorSignature$formattedParameterList$initializerList$bodySuffix';
 
     // Replace in source
     final constructorStart = constructor.offset;
-    final constructorEnd = constructor.end;
+    final constructorEnd = hasBody ? body.offset : constructor.end;
 
     return source.substring(0, constructorStart) +
         newConstructor +
@@ -225,11 +317,13 @@ class _ParameterTransformation {
   final DefaultFormalParameter parameter;
   final String parameterName;
   final String defaultValue;
+  final String rawDefaultValue;
 
   _ParameterTransformation({
     required this.parameter,
     required this.parameterName,
     required this.defaultValue,
+    required this.rawDefaultValue,
   });
 }
 
