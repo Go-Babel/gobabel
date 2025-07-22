@@ -68,8 +68,21 @@ class _StringConcatenationTransformer extends RecursiveAstVisitor<void> {
 
     // Determine quote style from the first string
     final firstString = node.strings.first;
-    final quoteStyle = _getQuoteStyle(firstString);
+    var quoteStyle = _getQuoteStyle(firstString);
     final isRaw = _isRawString(firstString);
+
+    // For raw strings, choose appropriate quote style based on content
+    if (isRaw && !quoteStyle.contains('"""') && !quoteStyle.contains("'''")) {
+      // For single-character quotes in raw strings, pick quote style that doesn't conflict with content
+      if (combinedValue.contains('"') && !combinedValue.contains("'")) {
+        quoteStyle = "'";
+      } else if (combinedValue.contains("'") && !combinedValue.contains('"')) {
+        quoteStyle = '"';
+      } else if (combinedValue.contains('"') && combinedValue.contains("'")) {
+        // If both quotes are present, use triple quotes
+        quoteStyle = '"""';
+      }
+    }
 
     // Create the replacement string
     final prefix = isRaw ? 'r' : '';

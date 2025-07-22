@@ -43,7 +43,7 @@ class MyTestWidget extends StatelessWidget {
 
     final result =
         singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(target);
-    print(result);
+
     expect(result, expected);
   });
 
@@ -81,7 +81,7 @@ class TestHardcodedFile extends StatelessWidget {
         singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(
           bigFileTest1,
         );
-    print(result);
+
     expect(result, expected);
   });
 }

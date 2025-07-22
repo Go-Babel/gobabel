@@ -2,6 +2,38 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_keywo
 import 'package:test/test.dart';
 
 void main() {
+  group('Should not remove const from varaibles declarations of any type', () {
+    test('Should not remove const direct string variables', () {
+      final target = '''const _keyThemeMode = 'THEME_MODE';''';
+
+      final result =
+          singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+            target,
+          );
+
+      expect(result, target);
+    });
+    test('Should not remove const from lists that contains strings', () {
+      final target = '''const listage = ['B', 'K', 'M', 'G', 'T', 'P'];''';
+
+      final result =
+          singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+            target,
+          );
+
+      expect(result, target);
+    });
+    test('Should not remove const from map that contains strings', () {
+      final target = '''const mappable = {'a': 'b'};''';
+
+      final result =
+          singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+            target,
+          );
+
+      expect(result, target);
+    });
+  });
   group('RemoveConstKeywordUsecase', () {
     test('Should remove const from widget tree that has hardcoded string', () {
       const input = '''import 'package:flutter/material.dart';

@@ -107,14 +107,13 @@ class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
       if (current is InstanceCreationExpression &&
           current.keyword?.lexeme == 'const') {
         _constTokensToRemove.add(current.keyword!);
-      } else if (current is VariableDeclarationList &&
-          current.keyword?.lexeme == 'const') {
-        _constTokensToRemove.add(current.keyword!);
       } else if (current is ConstructorDeclaration &&
           current.constKeyword != null) {
         // Don't remove const from constructor declarations
         // Based on tests, we should keep const constructors
       }
+      // Note: We deliberately don't remove const from VariableDeclarationList
+      // because const variables should remain const even if they contain strings
 
       current = current.parent;
     }
