@@ -14,6 +14,110 @@ void main() {
   const Person([String? name]) : name = name ?? 'Unknown';
 }''';
       final result = singleMoveHardCodedStringParamUseCase(target);
+      print(result);
+      expect(result, expected);
+    });
+
+    test('handles multiple optional positional parameters with string defaults', () {
+      final target = '''class Message {
+  final String title;
+  final String body;
+  final String footer;
+  Message([this.title = 'Title', this.body = 'Body', this.footer = 'Footer']);
+}''';
+      final expected = '''class Message {
+  final String title;
+  final String body;
+  final String footer;
+  Message([String? title, String? body, String? footer]) : title = title ?? 'Title', body = body ?? 'Body', footer = footer ?? 'Footer';
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles mix of required and optional positional parameters', () {
+      final target = '''class Widget {
+  final String id;
+  final String label;
+  Widget(this.id, [this.label = 'Default Label']);
+}''';
+      final expected = '''class Widget {
+  final String id;
+  final String label;
+  Widget(this.id, [String? label]) : label = label ?? 'Default Label';
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('preserves non-string defaults in optional positional parameters', () {
+      final target = '''class Config {
+  final String name;
+  final int priority;
+  final bool enabled;
+  Config([this.name = 'config', this.priority = 1, this.enabled = true]);
+}''';
+      final expected = '''class Config {
+  final String name;
+  final int priority;
+  final bool enabled;
+  Config([String? name, this.priority = 1, this.enabled = true]) : name = name ?? 'config';
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles optional positional with existing initializer list', () {
+      final target = '''class Child extends Parent {
+  final String name;
+  final int age;
+  Child([this.name = 'Child', this.age = 0]) : super();
+}''';
+      final expected = '''class Child extends Parent {
+  final String name;
+  final int age;
+  Child([String? name, this.age = 0]) : name = name ?? 'Child', super();
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('handles empty string default in optional positional parameter', () {
+      final target = '''class Text {
+  final String value;
+  Text([this.value = '']);
+}''';
+      final expected = '''class Text {
+  final String value;
+  Text([String? value]) : value = value ?? '';
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, expected);
+    });
+
+    test('preserves optional positional parameters without string defaults', () {
+      final target = '''class Data {
+  final String? text;
+  final int count;
+  Data([this.text, this.count = 5]);
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
+      expect(result, target); // Should not transform as text has no default
+    });
+
+    test('handles constructor with both named and positional parameters correctly', () {
+      // This test ensures we don't mix up parameter types
+      final target = '''class Mixed {
+  final String required;
+  final String optional;
+  Mixed(this.required, {this.optional = 'Optional'});
+}''';
+      final expected = '''class Mixed {
+  final String required;
+  final String optional;
+  Mixed(this.required, {String? optional}) : optional = optional ?? 'Optional';
+}''';
+      final result = singleMoveHardCodedStringParamUseCase(target);
       expect(result, expected);
     });
   });
