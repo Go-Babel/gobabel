@@ -5,6 +5,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/flows_state/sync_flow_state.dart';
 import 'package:gobabel/src/usecases/arb_related/get_l10n_project_config.dart';
 import 'package:gobabel/src/usecases/arb_related/map_project_arb_data.dart';
+import 'package:gobabel/src/usecases/arb_related/remove_unnecessary_arb_config_files.dart';
 import 'package:gobabel/src/usecases/arb_related/resolve_l10n_keys_ref_in_codebase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/add_babel_initialization_to_main_usecase.dart';
 import 'package:gobabel/src/usecases/babel_dependencies_setup/ensure_shared_prefs_if_flutter_project.dart';
@@ -16,8 +17,8 @@ import 'package:gobabel/src/usecases/codebase_analyse_related/extract_project_co
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_in_funtion_param.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/move_hardcoded_string_param_case.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_adjacent_string_concatenation.dart';
-import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_constructors_with_default_string_in_parameter.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_keyword_usecase.dart';
+import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_constructors_with_default_string_in_parameter.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/remove_const_of_lists_that_contain_hardcoded_strings.dart';
 import 'package:gobabel/src/usecases/codebase_analyse_related/resolve_enum_hardcoded_string_variables.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
@@ -122,9 +123,6 @@ class GobabelConductor {
         .toNextStep(generate_mapProjectArbDataUsecase)
         .toNextStep(generate_resolveProjectArbFilesPayload)
         .toNextStep(
-          generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
-        )
-        .toNextStep(
           generate_multiRemoveAdjacentStringLiteralConcatenationUsecase,
         )
         .toNextStep(generate_multiResolveEnumHardcodedStringsUsecase)
@@ -152,13 +150,17 @@ class GobabelConductor {
         .toNextStep(generate_addBabelInitializationToMainUsecase)
         .toNextStep(generate_ensureSharedPrefsIsInFlutterProject)
         .toNextStep(generate_multiDartFixFormatUsecase)
+        .toNextStep(
+          generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions,
+        )
+        .toNextStep(generate_removeUnnecessaryArbConfigFiles)
         .toNextStep(generate_extractProjectCodeBase)
         .toNextStep(generate_translateNewStringsArb)
         .toNextStep(generate_uploadTranslationNewVersion)
         .toNextStep(generate_commitAllChangesUsecase)
         .toNextStep(generate_getBabelChangesCommit)
         .toNextStep(generate_uploadBabelTranslationsChangesCommitToServer)
-        .generate_resetIfError
-        .log_if_needed;
+        .log_if_needed
+        .generate_resetIfError;
   }
 }

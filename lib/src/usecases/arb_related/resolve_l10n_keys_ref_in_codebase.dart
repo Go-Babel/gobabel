@@ -75,7 +75,7 @@ AsyncBabelResult<
   GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions
 >
 generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
-  GenerateFlowResolvedProjectArbTranslationPayload payload,
+  GenerateFlowAppliedCodebaseGeneralDartFixes payload,
 ) async {
   final projectConfig = payload.projectArbData.mapOrNull(
     withData: (value) => value.config,
@@ -98,6 +98,8 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
       codebaseArbTranslationPayloadInfo:
           payload.codebaseArbTranslationPayloadInfo,
       remapedArbKeys: payload.remapedArbKeys,
+      hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
     ).toSuccess();
   }
 
@@ -125,6 +127,8 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
       projectArbData: payload.projectArbData,
       codebaseArbTranslationPayloadInfo: response,
       remapedArbKeys: payload.remapedArbKeys,
+      hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
+      hardcodedStringsPerFile: payload.hardcodedStringsPerFile,
     ).toSuccess();
   });
 }

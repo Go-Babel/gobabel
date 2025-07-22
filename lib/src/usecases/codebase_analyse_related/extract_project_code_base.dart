@@ -91,7 +91,7 @@ AsyncBabelResult<SyncFlowExtractedProjectCodebase> sync_extractProjectCodeBase(
 }
 
 AsyncBabelResult<GenerateFlowExtractedCodeBase> generate_extractProjectCodeBase(
-  GenerateFlowAppliedCodebaseGeneralDartFixes payload,
+  GenerateFlowRemovedUnnecessaryArbConfigFiles payload,
 ) async {
   final dirrPath = payload.directoryPath;
   final codeBaseResult = await extractProjectCodeBase(dirrPath: dirrPath);

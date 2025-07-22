@@ -197,7 +197,7 @@ class _StringConcatenationReplacement {
 
 AsyncBabelResult<GenerateFlowRemovedAdjacentStringConcatenation>
 generate_multiRemoveAdjacentStringLiteralConcatenationUsecase(
-  GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
+  GenerateFlowResolvedProjectArbTranslationPayload payload,
 ) async {
   final targetFiles = await payload.filesToBeAnalysed;
 
