@@ -5,6 +5,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -12,15 +13,50 @@ AsyncBabelResult<Unit>
 multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
   required List<File> targetFiles,
 }) async {
-  for (final file in targetFiles) {
-    final source = await file.readAsString();
-    final transformed =
-        singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
-          source,
-        );
-    if (transformed != source) {
-      await file.writeAsString(transformed);
+  final totalFiles = targetFiles.length;
+  var processedFiles = 0;
+  
+  // Process files in batches to allow event loop to update UI
+  const batchSize = 5;
+  
+  for (var i = 0; i < targetFiles.length; i += batchSize) {
+    final endIndex = (i + batchSize > targetFiles.length) 
+        ? targetFiles.length 
+        : i + batchSize;
+    final batch = targetFiles.sublist(i, endIndex);
+    
+    // Process batch of files
+    for (final file in batch) {
+      try {
+        final source = await file.readAsString();
+        final transformed =
+            singleRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside(
+              source,
+            );
+        if (transformed != source) {
+          await file.writeAsString(transformed);
+        }
+        processedFiles++;
+        
+        // Update progress
+        if (totalFiles > 0) {
+          LoadingIndicator.instance.setLoadingProgressBar(
+            message: 'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
+            barProgressInfo: BarProgressInfo(
+              message: 'Removing const from lists/sets/maps with hardcoded strings',
+              totalSteps: totalFiles,
+              currentStep: processedFiles,
+            ),
+          );
+        }
+      } catch (e) {
+        // Log error but continue with other files
+        print('Error processing file ${file.path}: $e');
+      }
     }
+    
+    // Yield to event loop to allow UI updates
+    await Future.delayed(Duration.zero);
   }
   return Success(unit);
 }
