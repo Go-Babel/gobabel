@@ -43,78 +43,161 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
     return automaticallyValidStrings.toSuccess();
   }
 
+  // Separate large strings (> 800 chars) from regular strings
+  final List<HardcodedStringEntity> regularStrings = [];
+  final List<HardcodedStringEntity> largeStrings = [];
+
+  for (final string in stringsNeedingValidation) {
+    if (string.value.trimHardcodedString.length > 400) {
+      largeStrings.add(string);
+    } else {
+      regularStrings.add(string);
+    }
+  }
+
   // Create a map of SHA1 keys to string values for API validation
   final Map<L10nValue, Sha1> shaMap = {};
-  final Map<Sha1, L10nValue> extractedStrings = {};
-  for (final string in stringsNeedingValidation) {
+
+  // Process large strings individually with special error handling
+  final Map<String, bool> combinedResults = {};
+
+  // Handle large strings first - process individually
+  for (final largeString in largeStrings) {
+    final sha1Result = await generateSha1(largeString.value);
+    if (sha1Result.isError()) {
+      return sha1Result.asBabelResultErrorAsync();
+    }
+    final valueSha1 = sha1Result.getOrNull()!;
+    shaMap[largeString.value] = valueSha1;
+
+    // Create a map with only this single large string
+    final singleStringMap = {valueSha1: largeString.value.trimHardcodedString};
+
+    try {
+      final result = await client.publicArbHelpers
+          .analyseIfStringIsADisplayableLabel(
+            projectApiToken: projectApiToken,
+            projectShaIdentifier: projectShaIdentifier,
+            extractedStrings: singleStringMap,
+          );
+      combinedResults.addAll(result);
+    } catch (error) {
+      // For large strings, on error we mark them as false instead of throwing
+      combinedResults[valueSha1] = false;
+    }
+  }
+
+  // Process regular strings with the existing batch logic
+  final Map<Sha1, L10nValue> regularExtractedStrings = {};
+  for (final string in regularStrings) {
     final sha1Result = await generateSha1(string.value);
     if (sha1Result.isError()) {
       return sha1Result.asBabelResultErrorAsync();
     }
     final valueSha1 = sha1Result.getOrNull()!;
-    extractedStrings[valueSha1] = string.value.trimHardcodedString;
+    regularExtractedStrings[valueSha1] = string.value.trimHardcodedString;
     shaMap[string.value] = valueSha1;
   }
 
-  // Process each group and combine results
-  final Map<String, bool> combinedResults = {};
+  // Only process regular strings if there are any
+  if (regularStrings.isNotEmpty) {
+    final groups = splitIntoManageableGroupsForApi(regularExtractedStrings);
 
-  final groups = splitIntoManageableGroupsForApi(extractedStrings);
+    final bool isSmallAmountOfStrings = groups.length <= 2;
 
-  final bool isSmallAmountOfStrings = groups.length <= 2;
+    // Will use progress bar for larger datasets
 
-  // Will use progress bar for larger datasets
+    Future<BabelFailureResponse?> function() async {
+      // Process groups in batches of 3 for parallel execution
+      const batchSize = 3;
+      int processedGroups = 0;
 
-  Future<BabelFailureResponse?> function() async {
-    for (int i = 0; i < groups.length; i++) {
-      final group = groups[i];
-      if (!isSmallAmountOfStrings) {
-        LoadingIndicator.instance.setLoadingProgressBar(
-          message:
-              'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
-          barProgressInfo: BarProgressInfo(
-            message: 'Analysing strings...',
-            totalSteps: groups.length,
-            currentStep: i + 1,
-          ),
-        );
-      }
-      try {
-        final result = await client.publicArbHelpers
-            .analyseIfStringIsADisplayableLabel(
+      for (
+        int batchStart = 0;
+        batchStart < groups.length;
+        batchStart += batchSize
+      ) {
+        final batchEnd = (batchStart + batchSize).clamp(0, groups.length);
+        final batch = groups.sublist(batchStart, batchEnd);
+
+        // Update progress bar at the start of each batch
+        if (!isSmallAmountOfStrings) {
+          LoadingIndicator.instance.setLoadingProgressBar(
+            message:
+                'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+            barProgressInfo: BarProgressInfo(
+              message: 'Analysing strings...',
+              totalSteps: groups.length,
+              currentStep: processedGroups + 1,
+            ),
+          );
+        }
+
+        // Create futures for parallel execution
+        final futures = <Future<Map<String, bool>>>[];
+
+        for (final group in batch) {
+          futures.add(
+            client.publicArbHelpers.analyseIfStringIsADisplayableLabel(
               projectApiToken: projectApiToken,
               projectShaIdentifier: projectShaIdentifier,
               extractedStrings: group,
-            );
-        combinedResults.addAll(result);
-      } catch (error, stackTrace) {
-        final BabelException babelException = BabelException(
-          title: 'String analysis failed',
-          description:
-              'Failed to analyze strings with the AI service: "$error"\n'
-              'Please check your API key and network connection, then try again. If the issue persists, contact support.',
-        );
-        return BabelFailureResponse.withErrorAndStackTrace(
-          exception: babelException,
-          error: error,
-          stackTrace: stackTrace,
-        );
+            ),
+          );
+        }
+
+        try {
+          // Execute all futures in the batch in parallel
+          final results = await Future.wait(futures);
+
+          // Add all results to the combined map
+          for (final result in results) {
+            combinedResults.addAll(result);
+            processedGroups++;
+
+            // Update progress bar after each completed request
+            if (!isSmallAmountOfStrings && processedGroups < groups.length) {
+              LoadingIndicator.instance.setLoadingProgressBar(
+                message:
+                    'Analyzing which hardcoded strings are user-facing messages, labels, and descriptions...',
+                barProgressInfo: BarProgressInfo(
+                  message: 'Analysing strings...',
+                  totalSteps: groups.length,
+                  currentStep: processedGroups + 1,
+                ),
+              );
+            }
+          }
+        } catch (error, stackTrace) {
+          final BabelException babelException = BabelException(
+            title: 'String analysis failed',
+            description:
+                'Failed to analyze strings with the AI service: "$error"\n'
+                'Please check your API key and network connection, then try again. If the issue persists, contact support.',
+          );
+          return BabelFailureResponse.withErrorAndStackTrace(
+            exception: babelException,
+            error: error,
+            stackTrace: stackTrace,
+          );
+        }
       }
+      return null;
     }
-    return null;
-  }
 
-  final BabelFailureResponse? error = await function();
+    final BabelFailureResponse? error = await function();
 
-  if (error != null) {
-    return error.toFailure();
+    if (error != null) {
+      return error.toFailure();
+    }
   }
 
   // Filter the strings that needed validation based on the server responses
   final List<HardcodedStringEntity> apiValidatedStrings =
       stringsNeedingValidation.where((string) {
-        final sha1 = shaMap[string.value]!;
-        return combinedResults[sha1]!;
+        final sha1 = shaMap[string.value];
+        // Check if SHA exists and if the result is true
+        return sha1 != null && combinedResults[sha1] == true;
       }).toList();
 
   // Combine automatically valid strings with API-validated strings
