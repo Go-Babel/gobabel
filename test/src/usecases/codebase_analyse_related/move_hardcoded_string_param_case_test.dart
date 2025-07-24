@@ -18,22 +18,25 @@ void main() {
       expect(result, expected);
     });
 
-    test('handles multiple optional positional parameters with string defaults', () {
-      final target = '''class Message {
+    test(
+      'handles multiple optional positional parameters with string defaults',
+      () {
+        final target = '''class Message {
   final String title;
   final String body;
   final String footer;
   Message([this.title = 'Title', this.body = 'Body', this.footer = 'Footer']);
 }''';
-      final expected = '''class Message {
+        final expected = '''class Message {
   final String title;
   final String body;
   final String footer;
   Message([String? title, String? body, String? footer]) : title = title ?? 'Title', body = body ?? 'Body', footer = footer ?? 'Footer';
 }''';
-      final result = singleMoveHardCodedStringParamUseCase(target);
-      expect(result, expected);
-    });
+        final result = singleMoveHardCodedStringParamUseCase(target);
+        expect(result, expected);
+      },
+    );
 
     test('handles mix of required and optional positional parameters', () {
       final target = '''class Widget {
@@ -95,31 +98,37 @@ void main() {
       expect(result, expected);
     });
 
-    test('preserves optional positional parameters without string defaults', () {
-      final target = '''class Data {
+    test(
+      'preserves optional positional parameters without string defaults',
+      () {
+        final target = '''class Data {
   final String? text;
   final int count;
   Data([this.text, this.count = 5]);
 }''';
-      final result = singleMoveHardCodedStringParamUseCase(target);
-      expect(result, target); // Should not transform as text has no default
-    });
+        final result = singleMoveHardCodedStringParamUseCase(target);
+        expect(result, target); // Should not transform as text has no default
+      },
+    );
 
-    test('handles constructor with both named and positional parameters correctly', () {
-      // This test ensures we don't mix up parameter types
-      final target = '''class Mixed {
+    test(
+      'handles constructor with both named and positional parameters correctly',
+      () {
+        // This test ensures we don't mix up parameter types
+        final target = '''class Mixed {
   final String required;
   final String optional;
   Mixed(this.required, {this.optional = 'Optional'});
 }''';
-      final expected = '''class Mixed {
+        final expected = '''class Mixed {
   final String required;
   final String optional;
   Mixed(this.required, {String? optional}) : optional = optional ?? 'Optional';
 }''';
-      final result = singleMoveHardCodedStringParamUseCase(target);
-      expect(result, expected);
-    });
+        final result = singleMoveHardCodedStringParamUseCase(target);
+        expect(result, expected);
+      },
+    );
   });
 
   group('should handle super constructor calls', () {

@@ -171,10 +171,12 @@ abstract class SyncFlowState
     gotLastLocalCommit: (_) => 'Getting project origin URL...',
     gotProjectOriginUrl: (_) => 'Collecting git variables...',
     gotGitVariables: (_) => 'Extracting project codebase...',
-    extractedProjectCodebase: (_) => 'Extracting Babel function declarations...',
+    extractedProjectCodebase:
+        (_) => 'Extracting Babel function declarations...',
     extractedBabelFunctionDeclarations: (_) => 'Generating Babel class...',
     generatedBabelClass: (_) => 'Writing Babel text file...',
-    writtedBabelTextFileIntoDirectory: (_) => 'Syncing project with Gobabel server...',
+    writtedBabelTextFileIntoDirectory:
+        (_) => 'Syncing project with Gobabel server...',
     createdProjectInGobabelServer: (_) => 'Sync completed!',
   );
 

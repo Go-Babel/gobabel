@@ -9,22 +9,19 @@ import 'package:result_dart/result_dart.dart';
 
 String _addFlutterImport(String fileContent) {
   const flutterImport = "import 'package:flutter/widgets.dart';";
-  
+
   // Try to find existing imports to insert after
-  final importGroup = RegExp(
-    r'''^import ['"].*['"];$''',
-    multiLine: true,
-  ).allMatches(fileContent).lastOrNull;
-  
+  final importGroup =
+      RegExp(
+        r'''^import ['"].*['"];$''',
+        multiLine: true,
+      ).allMatches(fileContent).lastOrNull;
+
   if (importGroup != null) {
     final int end = importGroup.end;
-    return fileContent.replaceRange(
-      end,
-      end,
-      '\n$flutterImport',
-    );
+    return fileContent.replaceRange(end, end, '\n$flutterImport');
   }
-  
+
   // No imports found, add at the beginning
   return '$flutterImport\n\n$fileContent';
 }
@@ -77,10 +74,10 @@ AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
     fileContent: fileContent,
     codeBaseYamlInfo: codeBaseYamlInfo,
   );
-  
+
   // Add Flutter import if needed for Flutter projects
-  if (type == ProjectType.flutter && 
-      !fileContent.contains('WidgetsFlutterBinding') && 
+  if (type == ProjectType.flutter &&
+      !fileContent.contains('WidgetsFlutterBinding') &&
       !fileContent.contains("import 'package:flutter/widgets.dart'") &&
       !fileContent.contains('import "package:flutter/widgets.dart"') &&
       !fileContent.contains("import 'package:flutter/material.dart'") &&
@@ -111,9 +108,11 @@ AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
   }
 
   // Check if WidgetsFlutterBinding.ensureInitialized() exists
-  final bindingRegex = RegExp(r'WidgetsFlutterBinding\.ensureInitialized\(\s*\)\s*;');
+  final bindingRegex = RegExp(
+    r'WidgetsFlutterBinding\.ensureInitialized\(\s*\)\s*;',
+  );
   final bindingMatch = bindingRegex.firstMatch(fileContent);
-  
+
   if (!fileContent.contains('Babel.instance.initialize(')) {
     if (bindingMatch != null) {
       // Insert Babel initialization after WidgetsFlutterBinding.ensureInitialized()

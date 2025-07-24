@@ -221,7 +221,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
     final existingInitializers = <String>[];
     final transformedParamNames =
         parametersToTransform.map((t) => t.parameterName).toSet();
-    
+
     // Track which parameters are used in super calls
     final paramsUsedInSuper = <String>{};
 
@@ -233,17 +233,20 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
           // Skip this initializer as we're replacing it
           continue;
         }
-        
+
         // Check if this is a super constructor invocation
         if (initializer is SuperConstructorInvocation) {
           // Track which parameters are used in the super call
-          final superSource = _source.substring(initializer.offset, initializer.end);
+          final superSource = _source.substring(
+            initializer.offset,
+            initializer.end,
+          );
           for (final paramName in transformedParamNames) {
             if (superSource.contains(paramName)) {
               paramsUsedInSuper.add(paramName);
             }
           }
-          
+
           // Transform the super call to add null-aware operators
           String transformedSuper = superSource;
           for (final transform in parametersToTransform) {
@@ -251,7 +254,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
               // Replace parameter references with null-aware expression
               final paramName = transform.parameterName;
               final defaultValue = transform.rawDefaultValue;
-              
+
               // Simple replacement - this handles basic cases
               // For more complex cases, we'd need full AST analysis
               transformedSuper = transformedSuper.replaceAll(
@@ -266,7 +269,7 @@ class _ConstructorTransformVisitor extends RecursiveAstVisitor<void> {
         }
       }
     }
-    
+
     // Only add field initializers for parameters NOT used in super calls
     final fieldInitializers = <String>[];
     for (final transform in parametersToTransform) {

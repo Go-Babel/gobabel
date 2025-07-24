@@ -117,6 +117,8 @@ class _RawStringScanner extends RecursiveAstVisitor<void> {
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
     if (node.thisOrAncestorOfType<Annotation>() != null) return;
+    // Ignore strings that are map keys or values
+    if (node.thisOrAncestorOfType<MapLiteralEntry>() != null) return;
     _addRaw(node);
     super.visitSimpleStringLiteral(node);
   }
@@ -124,6 +126,8 @@ class _RawStringScanner extends RecursiveAstVisitor<void> {
   @override
   void visitStringInterpolation(StringInterpolation node) {
     if (node.thisOrAncestorOfType<Annotation>() != null) return;
+    // Ignore strings that are map keys or values
+    if (node.thisOrAncestorOfType<MapLiteralEntry>() != null) return;
     _addRaw(node);
     super.visitStringInterpolation(node);
   }
@@ -171,7 +175,32 @@ generate_extractAllStringsInDart(
 ) async {
   final targetFiles = await payload.filesToBeAnalysed;
 
-  final extractResult = await extractAllStringsInDart(files: targetFiles);
+  // Filter out files in ARB directory if projectArbData is withData
+  final filesToProcess =
+      payload.projectArbData.mapOrNull(
+        withData: (arbData) {
+          final arbDir = arbData.config.mapOrNull(
+            withData: (config) => config.arbDir,
+          );
+
+          if (arbDir != null) {
+            // Get absolute path of ARB directory
+            final arbDirPath = Directory(arbDir).absolute.path;
+
+            // Filter out files that are inside the ARB directory
+            return targetFiles.where((file) {
+              final fileAbsolutePath = file.absolute.path;
+              return !fileAbsolutePath.startsWith(arbDirPath);
+            }).toList();
+          }
+
+          return targetFiles;
+        },
+        noneData: (_) => targetFiles,
+      ) ??
+      targetFiles;
+
+  final extractResult = await extractAllStringsInDart(files: filesToProcess);
 
   if (extractResult.isError()) {
     return extractResult.asBabelResultErrorAsync();

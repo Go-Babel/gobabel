@@ -1004,7 +1004,9 @@ abstract class GenerateFlowState
     removedConstFromStructuresWithStrings:
         (_) =>
             '[ Normalizing codebase ] Removing const from structures with hardcoded strings...',
-    extractedAllStrings: (_) => '[ Normalizing codebase ] Extracting all strings from Dart files...',
+    extractedAllStrings:
+        (_) =>
+            '[ Normalizing codebase ] Extracting all strings from Dart files...',
     definedStringLabels: (_) => 'Identifying user-facing labels...',
     createdHumanFriendlyArbKeys: (_) => 'Creating human-friendly ARB keys...',
     mappedStringsHierarchy: (_) => 'Mapping strings hierarchy...',
@@ -1014,8 +1016,7 @@ abstract class GenerateFlowState
     replacedHardcodedStringsForBabelText:
         (_) => 'Replacing hardcoded strings with Babel text...',
     generatedBabelClass: (_) => 'Generating Babel class...',
-    writtedBabelClassInDartFile:
-        (_) => 'Writing Babel class to Dart file...',
+    writtedBabelClassInDartFile: (_) => 'Writing Babel class to Dart file...',
     addedBabelClassInitializationInMain:
         (_) => 'Adding Babel class initialization in main...',
     addedSharedPrefsInFlutterProjects:

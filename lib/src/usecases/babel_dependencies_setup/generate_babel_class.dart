@@ -64,8 +64,7 @@ generate_generateBabelClassUsecase(
   ).toSuccess();
 }
 
-AsyncBabelResult<SyncFlowGeneratedBabelClass>
-sync_generateBabelClassUsecase(
+AsyncBabelResult<SyncFlowGeneratedBabelClass> sync_generateBabelClassUsecase(
   SyncFlowExtractedBabelFunctionDeclarations payload,
 ) async {
   final babelClassResult = await generateBabelClassUsecase(

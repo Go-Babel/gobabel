@@ -8,25 +8,28 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 /// Fetches Babel function declarations from the API
-AsyncBabelResult<Set<BabelFunctionDeclaration>> extractBabelFunctionDeclarations({
+AsyncBabelResult<Set<BabelFunctionDeclaration>>
+extractBabelFunctionDeclarations({
   required ApiClientEntity client,
   required GitVariables gitVariables,
 }) async {
   try {
-    final declarationsMap = await client.server.publicProject.getProjectDeclarationFunctions(
-      projectShaIdentifier: gitVariables.projectShaIdentifier,
-    );
-    
+    final declarationsMap = await client.server.publicProject
+        .getProjectDeclarationFunctions(
+          projectShaIdentifier: gitVariables.projectShaIdentifier,
+        );
+
     // Convert Map<String, String> to Set<BabelFunctionDeclaration>
     // The map key is the function name, and the value is the function declaration
     final declarations = declarationsMap.values.toSet();
-    
+
     return declarations.toSuccess();
   } catch (e) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Failed to fetch Babel function declarations',
-        description: 'Could not retrieve function declarations from server: ${e.toString()}',
+        description:
+            'Could not retrieve function declarations from server: ${e.toString()}',
       ),
     ).toFailure();
   }
@@ -40,13 +43,13 @@ sync_extractBabelFunctionDeclarations(
     client: payload.client,
     gitVariables: payload.gitVariables,
   );
-  
+
   if (declarationsResult.isError()) {
     return declarationsResult.asBabelResultErrorAsync();
   }
-  
+
   final declarations = declarationsResult.getOrThrow();
-  
+
   return SyncFlowExtractedBabelFunctionDeclarations(
     willLog: payload.willLog,
     accountApiKey: payload.accountApiKey,

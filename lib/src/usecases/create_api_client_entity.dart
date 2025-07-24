@@ -21,7 +21,7 @@ AsyncBabelResult<ApiClientEntity> createClientEntity(Directory dir) async {
   final url = _runLocally ? localUrl : prodUrl;
   final client = ApiClientEntity(
     host: url,
-    connectionTimeout: const Duration(minutes: 7),
+    connectionTimeout: const Duration(minutes: 10),
   );
 
   final containsLib = await Directory('${dir.path}lib').exists();

@@ -79,8 +79,11 @@ generate_resolveCodebaseHardcodedStringsProject(
           babelLabel.babelFunctionImplementation;
 
       // Convert absolute path to relative path from project root
-      final relativePath = p.relative(babelLabel.filePath, from: payload.directoryPath);
-      
+      final relativePath = p.relative(
+        babelLabel.filePath,
+        from: payload.directoryPath,
+      );
+
       if (keyToContextsPaths.containsKey(translationKey)) {
         keyToContextsPaths[translationKey]!.add(relativePath);
       } else {

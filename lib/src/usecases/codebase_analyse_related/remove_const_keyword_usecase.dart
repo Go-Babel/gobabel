@@ -18,16 +18,17 @@ multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy({
 }) async {
   final totalFiles = targetFiles.length;
   var processedFiles = 0;
-  
+
   // Process files in batches to allow event loop to update UI
   const batchSize = 5;
-  
+
   for (var i = 0; i < targetFiles.length; i += batchSize) {
-    final endIndex = (i + batchSize > targetFiles.length) 
-        ? targetFiles.length 
-        : i + batchSize;
+    final endIndex =
+        (i + batchSize > targetFiles.length)
+            ? targetFiles.length
+            : i + batchSize;
     final batch = targetFiles.sublist(i, endIndex);
-    
+
     // Process batch of files
     for (final file in batch) {
       try {
@@ -40,11 +41,12 @@ multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy({
           await file.writeAsString(transformed);
         }
         processedFiles++;
-        
+
         // Update progress
         if (totalFiles > 0) {
           LoadingIndicator.instance.setLoadingProgressBar(
-            message: 'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
+            message:
+                'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
             barProgressInfo: BarProgressInfo(
               message: 'Removing const from structures with hardcoded strings',
               totalSteps: totalFiles,
@@ -57,7 +59,7 @@ multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy({
         print('Error processing file ${file.path}: $e');
       }
     }
-    
+
     // Yield to event loop to allow UI updates
     await Future.delayed(Duration.zero);
   }
@@ -189,9 +191,10 @@ generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
 ) async {
   final targetFiles = await payload.filesToBeAnalysed;
 
-  final result = await multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
-    targetFiles: targetFiles,
-  );
+  final result =
+      await multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+        targetFiles: targetFiles,
+      );
 
   if (result.isError()) {
     return result.asBabelResultErrorAsync();
@@ -212,6 +215,7 @@ generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
     filesVerificationState: payload.filesVerificationState,
     projectArbData: payload.projectArbData,
     remapedArbKeys: payload.remapedArbKeys,
-    codebaseArbTranslationPayloadInfo: payload.codebaseArbTranslationPayloadInfo,
+    codebaseArbTranslationPayloadInfo:
+        payload.codebaseArbTranslationPayloadInfo,
   ).toSuccess();
 }

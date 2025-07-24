@@ -35,7 +35,8 @@ AsyncBabelResult<ExtractArbDataResponse> extractArbDataFromFile(
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
           title: exception.title,
-          description: 'Failed to extract data from ARB file: "${file.path}".\n\n${exception.description}',
+          description:
+              'Failed to extract data from ARB file: "${file.path}".\n\n${exception.description}',
         ),
       ).toFailure();
     }
@@ -78,17 +79,21 @@ AsyncBabelResult<List<ExtractArbDataResponse>> extractArbDataFromMultipleFiles(
   return results.toSuccess();
 }
 
-ResultDart<({
-  int placeHoldersCount,
-  Map<L10nKey, L10nValue> allKeyValues,
-  Map<L10nKey, Set<VariableName>> variablesPlaceholdersPerKey,
-}), BabelFailureResponse>
+ResultDart<
+  ({
+    int placeHoldersCount,
+    Map<L10nKey, L10nValue> allKeyValues,
+    Map<L10nKey, Set<VariableName>> variablesPlaceholdersPerKey,
+  }),
+  BabelFailureResponse
+>
 _extract(String jsonContent) {
   if (jsonContent.isEmpty) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Empty ARB Content',
-        description: 'The ARB file is empty. An ARB file must contain at least an empty JSON object "{}".',
+        description:
+            'The ARB file is empty. An ARB file must contain at least an empty JSON object "{}".',
       ),
     ).toFailure();
   }
@@ -101,7 +106,8 @@ _extract(String jsonContent) {
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
           title: 'Invalid JSON Format',
-          description: 'Failed to parse JSON content. Error: ${e.toString()}\n\n'
+          description:
+              'Failed to parse JSON content. Error: ${e.toString()}\n\n'
               'Common causes:\n'
               '• Missing or extra commas\n'
               '• Unclosed brackets or quotes\n'
@@ -115,13 +121,14 @@ _extract(String jsonContent) {
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
           title: 'Invalid ARB Structure',
-          description: 'The JSON content is not a valid object. '
+          description:
+              'The JSON content is not a valid object. '
               'ARB files must be JSON objects (starting with "{" and ending with "}").\n'
               'Found type: ${decodedJson.runtimeType}',
         ),
       ).toFailure();
     }
-    
+
     final json = decodedJson;
 
     int placeHoldersCount = 0;
@@ -132,14 +139,15 @@ _extract(String jsonContent) {
     for (final entry in json.entries) {
       final key = entry.key;
       final value = entry.value;
-      
+
       final isTranslationKey = !key.startsWith('@');
       if (isTranslationKey) {
         if (value is! String) {
           return BabelFailureResponse.onlyBabelException(
             exception: BabelException(
               title: 'Invalid Translation Value',
-              description: 'Translation key "$key" has a non-string value.\n'
+              description:
+                  'Translation key "$key" has a non-string value.\n'
                   'Found type: ${value.runtimeType}\n'
                   'Value: $value\n\n'
                   'All translation values must be strings.',
@@ -158,26 +166,27 @@ _extract(String jsonContent) {
     for (final entry in json.entries) {
       final key = entry.key;
       final value = entry.value;
-      
+
       if (key.startsWith('@')) {
         if (value is! Map<String, dynamic>) {
           // Skip non-map metadata entries (they might be valid but we don't process them)
           continue;
         }
-        
+
         final String targetKey = key.substring(1); // Remove @ prefix
         if (!keyValues.containsKey(targetKey)) {
           // Metadata for non-existent key - this is allowed but we skip it
           continue;
         }
-        
+
         final placeholders = value['placeholders'];
         if (placeholders != null) {
           if (placeholders is! Map<String, dynamic>) {
             return BabelFailureResponse.onlyBabelException(
               exception: BabelException(
                 title: 'Invalid Placeholders Format',
-                description: 'The placeholders for key "$targetKey" must be a JSON object.\n'
+                description:
+                    'The placeholders for key "$targetKey" must be a JSON object.\n'
                     'Found type: ${placeholders.runtimeType}\n'
                     'Expected format: {"placeholders": {"variableName": {...}, ...}}',
               ),
@@ -193,7 +202,8 @@ _extract(String jsonContent) {
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
           title: 'No Translations Found',
-          description: 'The ARB file does not contain any translation keys.\n'
+          description:
+              'The ARB file does not contain any translation keys.\n'
               'Translation keys are non-@ prefixed keys with string values.\n'
               'Found ${json.length} total keys, but all appear to be metadata.',
         ),
@@ -209,7 +219,8 @@ _extract(String jsonContent) {
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Unexpected ARB Extraction Error',
-        description: 'An unexpected error occurred while extracting ARB data.\n'
+        description:
+            'An unexpected error occurred while extracting ARB data.\n'
             'Error: ${e.toString()}\n'
             'Stack trace: ${stackTrace.toString().split('\n').take(5).join('\n')}',
       ),

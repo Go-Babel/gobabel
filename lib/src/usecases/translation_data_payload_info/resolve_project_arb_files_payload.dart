@@ -72,7 +72,8 @@ resolveProjectArbFilesPayload({
 
       final L10nKey l10nKey = processedKey;
       final Set<VariableName> variablesNames =
-          arbDataStateWithData.variablesPlaceholdersPerKey[rawKey] ?? <VariableName>{};
+          arbDataStateWithData.variablesPlaceholdersPerKey[rawKey] ??
+          <VariableName>{};
 
       BabelFunctionImplementation gobabelFunctionImplementationString =
           variablesNames.isEmpty

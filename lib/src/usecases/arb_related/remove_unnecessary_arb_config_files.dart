@@ -7,7 +7,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
-    generate_removeUnnecessaryArbConfigFiles(
+generate_removeUnnecessaryArbConfigFiles(
   GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
 ) async {
   try {
@@ -38,14 +38,15 @@ AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
 
     // Run dart fix to remove unused imports
     print('Running dart fix to clean up imports...');
-    final result = await Process.run(
-      'dart',
-      ['fix', '--apply'],
-      workingDirectory: payload.directoryPath,
-    );
+    final result = await Process.run('dart', [
+      'fix',
+      '--apply',
+    ], workingDirectory: payload.directoryPath);
 
     if (result.exitCode != 0) {
-      print('Warning: dart fix returned non-zero exit code: ${result.exitCode}');
+      print(
+        'Warning: dart fix returned non-zero exit code: ${result.exitCode}',
+      );
       print('stdout: ${result.stdout}');
       print('stderr: ${result.stderr}');
     }
@@ -74,7 +75,8 @@ AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Failed to remove ARB config files',
-        description: 'Error while removing gen_l10n and ARB files: ${e.toString()}',
+        description:
+            'Error while removing gen_l10n and ARB files: ${e.toString()}',
       ),
     ).toFailure();
   }

@@ -16,33 +16,38 @@ multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
 }) async {
   final totalFiles = targetFiles.length;
   var processedFiles = 0;
-  
+
   // Process files in batches to allow event loop to update UI
   const batchSize = 5;
-  
+
   for (var i = 0; i < targetFiles.length; i += batchSize) {
-    final endIndex = (i + batchSize > targetFiles.length) 
-        ? targetFiles.length 
-        : i + batchSize;
+    final endIndex =
+        (i + batchSize > targetFiles.length)
+            ? targetFiles.length
+            : i + batchSize;
     final batch = targetFiles.sublist(i, endIndex);
-    
+
     // Process batch of files
     for (final file in batch) {
       try {
         final source = await file.readAsString();
         final transformed =
-            singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(source);
+            singleFileRemoveConstOfConstructorsWithDefaultStringInParameter(
+              source,
+            );
         if (transformed != source) {
           await file.writeAsString(transformed);
         }
         processedFiles++;
-        
+
         // Update progress
         if (totalFiles > 0) {
           LoadingIndicator.instance.setLoadingProgressBar(
-            message: 'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
+            message:
+                'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
             barProgressInfo: BarProgressInfo(
-              message: 'Removing const from constructors with default string parameters',
+              message:
+                  'Removing const from constructors with default string parameters',
               totalSteps: totalFiles,
               currentStep: processedFiles,
             ),
@@ -53,7 +58,7 @@ multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
         print('Error processing file ${file.path}: $e');
       }
     }
-    
+
     // Yield to event loop to allow UI updates
     await Future.delayed(Duration.zero);
   }
@@ -179,7 +184,7 @@ class _ConstConstructorVisitor extends RecursiveAstVisitor<void> {
       if (node.initializers.isNotEmpty) {
         final initStart = node.initializers.first.offset;
         final initEnd = node.initializers.last.end;
-        
+
         hasHardcodedStringInInitializers = hardcodedStrings.any(
           (stringPos) =>
               stringPos.start >= initStart && stringPos.end <= initEnd,
