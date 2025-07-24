@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -38,17 +39,13 @@ generate_removeUnnecessaryArbConfigFiles(
 
     // Run dart fix to remove unused imports
     print('Running dart fix to clean up imports...');
-    final result = await Process.run('dart', [
-      'fix',
-      '--apply',
-    ], workingDirectory: payload.directoryPath);
+    final result = await runBabelProcess(
+      command: 'dart fix --apply .',
+      dirrPath: payload.directoryPath,
+    );
 
-    if (result.exitCode != 0) {
-      print(
-        'Warning: dart fix returned non-zero exit code: ${result.exitCode}',
-      );
-      print('stdout: ${result.stdout}');
-      print('stderr: ${result.stderr}');
+    if (result.isError()) {
+      return Failure(result.exceptionOrNull()!);
     }
 
     return GenerateFlowRemovedUnnecessaryArbConfigFiles(

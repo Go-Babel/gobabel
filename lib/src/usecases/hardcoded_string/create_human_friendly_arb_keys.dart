@@ -75,30 +75,65 @@ createHumanFriendlyArbKeysWithAiOnServer({
 
     // Process API calls with proper error handling
     try {
-      for (int i = 0; i < groups.length; i++) {
-        final group = groups[i];
+      // Process groups in batches of 3 for parallel execution
+      const batchSize = 3;
+      int processedGroups = 0;
+
+      for (
+        int batchStart = 0;
+        batchStart < groups.length;
+        batchStart += batchSize
+      ) {
+        final batchEnd = (batchStart + batchSize).clamp(0, groups.length);
+        final batch = groups.sublist(batchStart, batchEnd);
+
+        // Update progress bar at the start of each batch
         if (willHaveProgressBar) {
           LoadingIndicator.instance.setLoadingProgressBar(
             message: 'Creating human-friendly ARB keys...',
             barProgressInfo: BarProgressInfo(
               message: 'Replacing hardcoded strings...',
               totalSteps: groups.length,
-              currentStep: i + 1,
+              currentStep: processedGroups + 1,
             ),
           );
         }
-        // Call the server endpoint to generate ARB keys
-        final Map<Sha1, TranslationKey> result = await client.publicArbHelpers
-            .createArbKeyNames(
+
+        // Create futures for parallel execution
+        final futures = <Future<Map<Sha1, TranslationKey>>>[];
+
+        for (final group in batch) {
+          futures.add(
+            client.publicArbHelpers.createArbKeyNames(
               projectApiToken: projectApiToken,
               projectShaIdentifier: projectShaIdentifier,
               translationContents: group,
-            );
+            ),
+          );
+        }
 
-        // Add results to the combined results map
-        combinedResults.addAll({
-          for (final entry in result.entries) entry.key: entry.value,
-        });
+        // Execute all futures in the batch in parallel
+        final results = await Future.wait(futures);
+
+        // Add all results to the combined map
+        for (final result in results) {
+          combinedResults.addAll({
+            for (final entry in result.entries) entry.key: entry.value,
+          });
+          processedGroups++;
+
+          // Update progress bar after each completed request
+          if (willHaveProgressBar && processedGroups < groups.length) {
+            LoadingIndicator.instance.setLoadingProgressBar(
+              message: 'Creating human-friendly ARB keys...',
+              barProgressInfo: BarProgressInfo(
+                message: 'Replacing hardcoded strings...',
+                totalSteps: groups.length,
+                currentStep: processedGroups + 1,
+              ),
+            );
+          }
+        }
       }
     } catch (error, stackTrace) {
       return BabelFailureResponse.withErrorAndStackTrace(
