@@ -5,6 +5,7 @@ import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/extract_all_hardcoded_strings.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 
 void main() {
   group('extractAllStringsInDart', () {
@@ -63,14 +64,14 @@ void main() {
 }
 ''');
 
-        // Create mock state with ARB data
+        // Create mock state with ARB data using relative path as it would be in l10n.yaml
         final projectArbData = ArbDataState.withData(
           config: L10nProjectConfig.withData(
             l10nFileName: 'l10n.yaml',
             templateArbFile: 'app_en.arb',
             outputClass: 'AppLocalizations',
             outputDir: 'lib/generated',
-            arbDir: arbDir.path,
+            arbDir: 'lib/l10n', // Relative path as it would be in l10n.yaml
           ),
           variablesPlaceholdersPerKey: {},
           mainLocale: BabelSupportedLocales.enUS,
@@ -81,18 +82,28 @@ void main() {
         // without a full flow state, we'll test the core filtering logic directly
         final allFiles = [normalFile, arbDirFile];
 
-        // Apply the same filtering logic
+        // Apply the same filtering logic as in the actual implementation
+        final projectDirectoryPath =
+            testDir.path; // Simulate payload.directoryPath
         final filesToProcess =
             projectArbData.mapOrNull(
               withData: (arbData) {
-                final arbDirPath = arbData.config.mapOrNull(
-                  withData: (config) => Directory(config.arbDir).absolute.path,
+                final arbDir = arbData.config.mapOrNull(
+                  withData: (config) => config.arbDir,
                 );
 
-                if (arbDirPath != null) {
+                if (arbDir != null) {
+                  // Resolve ARB directory relative to project directory
+                  final arbDirPath = p.join(projectDirectoryPath, arbDir);
+                  final normalizedArbDirPath = p.normalize(arbDirPath);
+
                   return allFiles.where((file) {
-                    final fileAbsolutePath = file.absolute.path;
-                    return !fileAbsolutePath.startsWith(arbDirPath);
+                    final normalizedFilePath = p.normalize(file.absolute.path);
+                    // Use isWithin for robust containment check
+                    return !p.isWithin(
+                      normalizedArbDirPath,
+                      normalizedFilePath,
+                    );
                   }).toList();
                 }
 
