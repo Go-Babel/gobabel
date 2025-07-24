@@ -1,19 +1,24 @@
 // Will see if a string is a displayable text for the final user or if
 // is just a configuration string. Such as a key of a map, a fromJson string,
 // a toString() string, etc. Mainly, anything that is cammelCase.
+// ignore_for_file: constant_identifier_names
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 bool validateCandidateHardcodedString({required String content}) {
   return content.length != 1 &&
+      content.length <= MAX_SENTENCE_LENGTH &&
       hasNoWords(content) == false &&
       CaseIdentifyRegex.isAnyCase(content) == false &&
       isUrl(content) == false;
 }
 
+const MAX_SENTENCE_LENGTH = 1000;
+
 @visibleForTesting
 bool hasNoWords(String input) {
-  return RegExp(r'^[^a-zA-Z0-9]+$').hasMatch(input) || input.isEmpty;
+  return input.isEmpty || RegExp(r'^[^a-zA-Z]+$').hasMatch(input);
 }
 
 @visibleForTesting

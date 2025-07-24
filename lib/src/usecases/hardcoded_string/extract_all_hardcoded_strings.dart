@@ -11,6 +11,7 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_enti
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
 @override
@@ -184,13 +185,15 @@ generate_extractAllStringsInDart(
           );
 
           if (arbDir != null) {
-            // Get absolute path of ARB directory
-            final arbDirPath = Directory(arbDir).absolute.path;
+            // Resolve ARB directory relative to project directory
+            final arbDirPath = p.join(payload.directoryPath, arbDir);
+            final normalizedArbDirPath = p.normalize(arbDirPath);
 
             // Filter out files that are inside the ARB directory
             return targetFiles.where((file) {
-              final fileAbsolutePath = file.absolute.path;
-              return !fileAbsolutePath.startsWith(arbDirPath);
+              final normalizedFilePath = p.normalize(file.absolute.path);
+              // Use isWithin for robust containment check
+              return !p.isWithin(normalizedArbDirPath, normalizedFilePath);
             }).toList();
           }
 

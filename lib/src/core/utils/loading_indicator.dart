@@ -55,6 +55,53 @@ class LoadingIndicator {
   String? _lastMessage;
   int _currentLineCount = 1;
 
+  String _truncateMessage(String message, int maxWidth) {
+    if (message.length <= maxWidth) return message;
+
+    // Remove ANSI escape codes for length calculation
+    final cleanMessage = message.replaceAll(RegExp(r'\x1B\[[0-9;]*m'), '');
+
+    if (cleanMessage.length <= maxWidth) return message;
+
+    // Truncate and add ellipsis
+    final truncateAt = maxWidth - 3; // Leave room for '...'
+
+    // Find a good truncation point (try to break at word boundary)
+    int breakPoint = truncateAt;
+    for (int i = truncateAt; i > truncateAt - 10 && i > 0; i--) {
+      if (cleanMessage[i] == ' ') {
+        breakPoint = i;
+        break;
+      }
+    }
+
+    // Apply truncation to the original message (with ANSI codes)
+    int realIndex = 0;
+    int cleanIndex = 0;
+
+    while (cleanIndex < breakPoint && realIndex < message.length) {
+      if (realIndex < message.length - 1 &&
+          message.substring(realIndex).startsWith('\x1B[')) {
+        // Skip ANSI escape sequence
+        final endIndex = message.indexOf('m', realIndex);
+        if (endIndex != -1) {
+          realIndex = endIndex + 1;
+          continue;
+        }
+      }
+      realIndex++;
+      cleanIndex++;
+    }
+
+    return '${message.substring(0, realIndex)}...';
+  }
+
+  int _calculateLineCount(String text, int terminalWidth) {
+    // Remove ANSI escape codes for accurate length calculation
+    final cleanText = text.replaceAll(RegExp(r'\x1B\[[0-9;]*m'), '');
+    return (cleanText.length / terminalWidth).ceil();
+  }
+
   void _cleanLine() {
     // Move cursor to beginning of line and clear it
     stdout.write('\r\x1B[2K');
@@ -88,8 +135,8 @@ class LoadingIndicator {
     return 80; // Default terminal width
   }
 
-  late int _totalCount;
-  late int _step;
+  int _totalCount = 0;
+  int _step = 0;
 
   void setLoadingProgressBar({
     required String message,
@@ -131,17 +178,19 @@ class LoadingIndicator {
     // Start a periodic timer to update the spinner
     _timer = Timer.periodic(_interval, (_) {
       _cleanLine();
+      final termWidth = _getTerminalWidth();
       final timeFormatted = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
       final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
-      final mainMessage =
+
+      // Build and truncate main message to fit terminal
+      var mainMessage =
           '[ ($step/$totalCount) $timeFormatted ] $spinnerChar ${message.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
+      mainMessage = _truncateMessage(mainMessage, termWidth - 1);
 
       if (barProgressInfo != null) {
         // Multi-line output with progress bar
-        _currentLineCount = 3;
 
-        // Get terminal width and calculate bar width (leave some space for text)
-        final termWidth = _getTerminalWidth();
+        // Calculate bar width (leave some space for text)
         final barWidth = (termWidth - 20).clamp(40, 100); // Min 40, max 100
 
         final progressBar = _generateProgressBar(
@@ -150,16 +199,32 @@ class LoadingIndicator {
           barWidth,
         );
 
+        // Truncate bar progress message to fit
+        final truncatedBarMessage = _truncateMessage(
+          barProgressInfo.message,
+          termWidth - 1,
+        );
+
+        // Calculate actual line count based on wrapped text
+        final mainMessageLines = _calculateLineCount(mainMessage, termWidth);
+        final barMessageLines = _calculateLineCount(
+          truncatedBarMessage,
+          termWidth,
+        );
+        final progressBarLines = _calculateLineCount(progressBar, termWidth);
+        _currentLineCount =
+            mainMessageLines + barMessageLines + progressBarLines;
+
         // Display all three lines
         stdout.write(mainMessage);
-        stdout.write('\n${barProgressInfo.message}');
+        stdout.write('\n$truncatedBarMessage');
         stdout.write('\n$progressBar');
         stdout.flush();
 
         _lastMessage = mainMessage;
       } else {
         // Single line output
-        _currentLineCount = 1;
+        _currentLineCount = _calculateLineCount(mainMessage, termWidth);
         stdout.write(mainMessage);
         stdout.flush();
         _lastMessage = mainMessage;

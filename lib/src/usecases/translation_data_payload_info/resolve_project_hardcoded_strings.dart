@@ -38,7 +38,8 @@ generate_resolveCodebaseHardcodedStringsProject(
     final Map<BabelSupportedLocales, Map<L10nKey, L10nValue>> referenceMap = {};
     for (final Translatables element
         in payload.codebaseArbTranslationPayloadInfo.referenceMap) {
-      referenceMap[element.locale] = element.referenceMap;
+      // Create a mutable copy of the reference map to avoid unmodifiable map errors
+      referenceMap[element.locale] = Map<L10nKey, L10nValue>.from(element.referenceMap);
     }
 
     // Add the new hardcoded string key cache from human friendly response

@@ -38,8 +38,11 @@ createHumanFriendlyArbKeysWithAiOnServer({
     final cachedKey =
         projectHardcodedStringKeyCache[string.value.trimHardcodedString];
     if (cachedKey != null) {
-      // Use cached key
-      keyMap.add(HumanFriendlyArbKeyResponse(key: cachedKey, value: string));
+      // Use cached key and ensure it's in camelCase format
+      final camelCaseCachedKey = cachedKey.toCamelCaseOrEmpty;
+      keyMap.add(
+        HumanFriendlyArbKeyResponse(key: camelCaseCachedKey, value: string),
+      );
     } else {
       // Need to generate key
       stringsNeedingGeneration.add(string);
@@ -185,7 +188,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
       final ProcessedKeyIntegrity garantedKeyIntegrity =
           garantedKeyIntegrityResponse.getOrThrow();
 
-      final camelCaseKey = garantedKeyIntegrity;
+      final camelCaseKey = garantedKeyIntegrity.toCamelCaseOrEmpty;
       if (camelCaseKey.isEmpty) {
         return BabelFailureResponse.onlyBabelException(
           exception: BabelException(
@@ -197,9 +200,10 @@ createHumanFriendlyArbKeysWithAiOnServer({
           ),
         ).toFailure();
       }
+      // Apply toCamelCaseOrEmpty to ensure consistent camelCase format
       keyMap.add(HumanFriendlyArbKeyResponse(key: camelCaseKey, value: string));
-      newHardcodedStringKeyCache[camelCaseKey] =
-          string.value.trimHardcodedString;
+      newHardcodedStringKeyCache[string.value.trimHardcodedString] =
+          camelCaseKey;
     }
   }
 

@@ -33,6 +33,4 @@ AsyncBabelResult<ProcessedKeyIntegrity> garanteeKeyUniqueness({
   return integrityEnsureKey.toSuccess();
 }
 
-// final Map<TranslationKey, AppearencesCount> _alreadyCreatedUniqueKeys = {};
-// final Map<TranslationKey, TranslationContent> _keyToMapValue = {};
 final Map<TranslationContent, TranslationKey> _valueToValue = {};

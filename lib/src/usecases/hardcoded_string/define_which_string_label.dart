@@ -101,7 +101,7 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
 
   // Only process regular strings if there are any
   if (regularStrings.isNotEmpty) {
-    final groups = splitIntoManageableGroupsForApi(regularExtractedStrings);
+    final groups = splitIntoManageableGroupsForApi(regularExtractedStrings, 1);
 
     final bool isSmallAmountOfStrings = groups.length <= 2;
 

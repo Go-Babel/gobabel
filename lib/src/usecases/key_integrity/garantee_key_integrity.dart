@@ -52,7 +52,7 @@ extension StringCamelCaseExtension on String {
   /// is empty, it returns "emptyVariable".
   String get toCamelCaseOrEmpty {
     if (CaseIdentifyRegex.isCamelCase(trim())) {
-      return this;
+      return trim();
     }
     // 1. Check if the original string is "empty" (after trimming)
     final trimmedOriginal = trim();
