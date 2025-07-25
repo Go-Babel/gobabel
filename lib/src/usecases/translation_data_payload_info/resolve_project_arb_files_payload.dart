@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/extensions/string_extension.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
@@ -76,18 +77,11 @@ resolveProjectArbFilesPayload({
           <VariableName>{};
 
       BabelFunctionImplementation gobabelFunctionImplementationString =
-          variablesNames.isEmpty
-              ? '$kBabelClass.$l10nKey()'
-              : '$kBabelClass.$l10nKey(${variablesNames.map((e) => e).join(', ')})';
+          '$kBabelClass.$l10nKey(${variablesNames.map((e) => e.cleanHardcoded).join(', ')})';
 
       BabelFunctionDeclaration gobabelFunctionDeclarationString =
-          variablesNames.isEmpty
-              ? '''${value.trimHardcodedString.formatToComment}
-  static String get $l10nKey => i._getByKey('$l10nKey');'''
-              : '''${value.trimHardcodedString.formatToComment}
-  static String $l10nKey(${variablesNames.map((e) => 'Object? $e').join(', ')}) {
-    return i._getByKey('$l10nKey')${variablesNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};
-  }''';
+          '''${'${value.trimHardcodedString} (from arb)'.formatToComment}
+  static String $l10nKey(${variablesNames.map((e) => 'Object? $e').join(', ')}) => i._getByKey('$l10nKey')${variablesNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};''';
 
       keyToImplementation[processedKey] = gobabelFunctionImplementationString;
       keyToDeclaration[processedKey] = gobabelFunctionDeclarationString;
