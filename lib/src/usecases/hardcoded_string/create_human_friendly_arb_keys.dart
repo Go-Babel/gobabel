@@ -63,14 +63,14 @@ createHumanFriendlyArbKeysWithAiOnServer({
       }
       final key = sha1Result.getOrNull()!;
       extractedStrings[key] = string.value.trimHardcodedString;
-      shaMap[string.value] = key;
+      shaMap[string.value.trimHardcodedString] = key;
     }
 
     // Split the strings into manageable groups for API requests
     final groups = splitIntoManageableGroupsForApi(extractedStrings, 1);
 
     // Process each group and combine results
-    final Map<Sha1, TranslationKey> combinedResults = {};
+    final Map<Sha1, TranslationKey> humanFriendlyResult = {};
     final bool isSmallAmountOfStrings = groups.length <= 2;
     final bool willHaveProgressBar = !isSmallAmountOfStrings;
 
@@ -120,9 +120,25 @@ createHumanFriendlyArbKeysWithAiOnServer({
 
         // Add all results to the combined map
         for (final result in results) {
-          combinedResults.addAll({
-            for (final entry in result.entries) entry.key: entry.value,
-          });
+          final Map<Sha1, TranslationKey> newResult = {};
+          for (final entry in result.entries) {
+            final Sha1 sha1 = entry.key;
+            final TranslationKey key = entry.value;
+            final HardCodedString value = extractedStrings[sha1]!;
+            newResult[entry.key] = entry.value.toCamelCaseOrEmpty;
+
+            // Ensure the key is unique and follows the camelCase format
+            final garantedKeyIntegrityResponse = await garanteeKeyIntegrity(
+              key: key.trim(),
+              value: value,
+            );
+            if (garantedKeyIntegrityResponse.isError()) {
+              return garantedKeyIntegrityResponse.asBabelResultErrorAsync();
+            }
+            final ProcessedKeyIntegrity garantedKeyIntegrity =
+                garantedKeyIntegrityResponse.getOrThrow();
+            humanFriendlyResult[sha1] = garantedKeyIntegrity;
+          }
           processedGroups++;
 
           // Update progress bar after each completed request
@@ -153,7 +169,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
 
     // Process the generated keys
     for (final string in stringsNeedingGeneration) {
-      final sha1 = shaMap[string.value];
+      final sha1 = shaMap[string.value.trimHardcodedString];
       if (sha1 == null) {
         return BabelFailureResponse.onlyBabelException(
           exception: BabelException(
@@ -165,7 +181,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
         ).toFailure();
       }
 
-      final key = combinedResults[sha1];
+      final key = humanFriendlyResult[sha1];
       if (key == null) {
         return BabelFailureResponse.onlyBabelException(
           exception: BabelException(
@@ -177,19 +193,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
         ).toFailure();
       }
 
-      // Ensure the key is unique and follows the camelCase format
-      final garantedKeyIntegrityResponse = await garanteeKeyIntegrity(
-        key: key.trim(),
-        value: string.value.trimHardcodedString,
-      );
-      if (garantedKeyIntegrityResponse.isError()) {
-        return garantedKeyIntegrityResponse.asBabelResultErrorAsync();
-      }
-      final ProcessedKeyIntegrity garantedKeyIntegrity =
-          garantedKeyIntegrityResponse.getOrThrow();
-
-      final camelCaseKey = garantedKeyIntegrity.toCamelCaseOrEmpty;
-      if (camelCaseKey.isEmpty) {
+      if (key.isEmpty) {
         return BabelFailureResponse.onlyBabelException(
           exception: BabelException(
             title: 'Empty ARB key generated',
@@ -201,9 +205,8 @@ createHumanFriendlyArbKeysWithAiOnServer({
         ).toFailure();
       }
       // Apply toCamelCaseOrEmpty to ensure consistent camelCase format
-      keyMap.add(HumanFriendlyArbKeyResponse(key: camelCaseKey, value: string));
-      newHardcodedStringKeyCache[string.value.trimHardcodedString] =
-          camelCaseKey;
+      keyMap.add(HumanFriendlyArbKeyResponse(key: key, value: string));
+      newHardcodedStringKeyCache[string.value.trimHardcodedString] = key;
     }
   }
 

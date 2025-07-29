@@ -1,9 +1,11 @@
+import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/extensions/string_extension.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/labels_entity.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
@@ -12,19 +14,30 @@ AsyncBabelResult<List<BabelLabelEntityRootLabel>> mapBabelLabels({
   required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
   required Map<TranslationKey, BabelFunctionDeclaration> keyToDeclaration,
 }) async {
-  final List<BabelLabelEntityRootLabel> result = [];
+  try {
+    final List<BabelLabelEntityRootLabel> result = [];
 
-  for (final rootLabel in strings) {
-    result.add(
-      _handleRootLabel(
-        entity: rootLabel,
-        keyToImplementation: keyToImplementation,
-        keyToDeclaration: keyToDeclaration,
+    for (final rootLabel in strings) {
+      result.add(
+        _handleRootLabel(
+          entity: rootLabel,
+          keyToImplementation: keyToImplementation,
+          keyToDeclaration: keyToDeclaration,
+        ),
+      );
+    }
+
+    return result.toSuccess();
+  } catch (error, stackTrace) {
+    return BabelFailureResponse.withErrorAndStackTrace(
+      error: error,
+      stackTrace: stackTrace,
+      exception: BabelException(
+        title: 'Error mapping Babel labels',
+        description: 'An error occurred while mapping Babel labels.',
       ),
-    );
+    ).toFailure();
   }
-
-  return result.toSuccess();
 }
 
 BabelLabelEntity _processBabelLabel({
@@ -107,11 +120,39 @@ BabelLabelEntityRootLabel _handleRootLabel({
       childLabel: (value) {
         final startIndex = value.parentStartIndex;
         final endIndex = value.parentEndIndex;
-        l10nValue = l10nValue.replaceRange(
-          startIndex,
-          endIndex,
-          '{${value.l10nKey}}',
-        );
+        try {
+          print('entered');
+          l10nValue = l10nValue.replaceRange(
+            startIndex,
+            endIndex,
+            '{${value.l10nKey}}',
+          );
+        } catch (e, s) {
+          print(
+            'Error replacing range in l10nValue:\n${' $e '.toString().onTan}\n\n'
+                .purple,
+          );
+          print('Data envolved:\n\n');
+          print('l10nValue:\n${l10nValue.toString()}\n\n');
+          print('startIndex: $startIndex | endIndex: $endIndex\n\n');
+          print('l10nKey:\n${value.l10nKey.toString()}\n\n');
+          print(
+            'startListOrder: $startListOrder | endListOrder: $endListOrder\n\n',
+          );
+          print('filePath:  ${filePath.toString().onTan}\n\n');
+          final startIndexChar = l10nValue.substring(0, startIndex);
+          final startExactIndexChar = l10nValue.split('')[startIndex];
+          final endIndexChar = l10nValue.substring(endIndex);
+          final endExactIndexChar = l10nValue.split('')[endIndex];
+          print(
+            'fileStartIndex:  $fileStartIndex ($startExactIndexChar "$startIndexChar") | fileEndIndex:  $fileEndIndex ($endExactIndexChar "$endIndexChar")\n\n',
+          );
+          print(
+            'children:\n${children.map((e) => e.toString().onTan).join('\n')}\n\n',
+          );
+          print('Stack trace: $s');
+          rethrow;
+        }
       },
     );
   }
@@ -197,10 +238,12 @@ BabelLabelEntityChildLabel _handleChildLabel({
   }
 
   BabelFunctionDeclaration gobabelFunctionDeclarationString =
+      keyToDeclaration[l10nKey] ??
       '''${hardcodedString.trimHardcodedString.formatToComment}
   static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) => i._getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};''';
 
   BabelFunctionImplementation gobabelFunctionImplementationString =
+      keyToImplementation[l10nKey] ??
       '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e.cleanHardcoded).join(', ')})';
 
   return BabelLabelEntityChildLabel(
