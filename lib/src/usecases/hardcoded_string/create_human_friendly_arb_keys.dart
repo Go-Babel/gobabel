@@ -56,6 +56,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
     // Create a map of SHA1 keys to string values for strings needing generation
     final Map<L10nValue, Sha1> shaMap = {};
     final Map<Sha1, L10nValue> extractedStrings = {};
+    final Map<Sha1, HardcodedStringEntity> extractedStringEntities = {};
     for (final HardcodedStringEntity string in stringsNeedingGeneration) {
       final sha1Result = await generateSha1(string.value);
       if (sha1Result.isError()) {
@@ -63,6 +64,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
       }
       final key = sha1Result.getOrNull()!;
       extractedStrings[key] = string.value.trimHardcodedString;
+      extractedStringEntities[key] = string;
       shaMap[string.value.trimHardcodedString] = key;
     }
 
@@ -124,7 +126,17 @@ createHumanFriendlyArbKeysWithAiOnServer({
           for (final entry in result.entries) {
             final Sha1 sha1 = entry.key;
             final TranslationKey key = entry.value;
-            final HardCodedString value = extractedStrings[sha1]!;
+            
+            // Check if we have the string entity for this SHA1
+            final stringEntity = extractedStringEntities[sha1];
+            if (stringEntity == null) {
+              // Skip this entry if we don't have the corresponding string
+              // This shouldn't happen in normal operation, but protects against
+              // mismatched responses from the API
+              continue;
+            }
+            
+            final HardCodedString value = stringEntity.value;
             newResult[entry.key] = entry.value.toCamelCaseOrEmpty;
 
             // Ensure the key is unique and follows the camelCase format

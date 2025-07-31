@@ -16,7 +16,8 @@ bool shouldAutomaticallyBeConsideredAValidString(String value) {
 }
 
 @override
-AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
+AsyncBabelResult<List<HardcodedStringEntity>>
+defineWhichStringLabelIsUserFacing({
   required List<HardcodedStringEntity> strings,
   required Client client,
   required String projectApiToken,
@@ -205,7 +206,9 @@ AsyncBabelResult<List<HardcodedStringEntity>> defineWhichStringLabel({
 }
 
 AsyncBabelResult<GenerateFlowDefinedStringLabels>
-generate_defineWhichStringLabel(GenerateFlowExtractedAllStrings payload) async {
+generate_defineWhichStringLabelIsUserFacing(
+  GenerateFlowExtractedAllStrings payload,
+) async {
   // Skip processing if there are no extracted strings
   if (payload.allExtractedStrings.isEmpty) {
     return GenerateFlowDefinedStringLabels(
@@ -230,7 +233,7 @@ generate_defineWhichStringLabel(GenerateFlowExtractedAllStrings payload) async {
     ).toSuccess();
   }
 
-  final labelStringsResult = await defineWhichStringLabel(
+  final labelStringsResult = await defineWhichStringLabelIsUserFacing(
     client: payload.client.server,
     strings: payload.allExtractedStrings,
     projectApiToken: payload.projectApiToken,

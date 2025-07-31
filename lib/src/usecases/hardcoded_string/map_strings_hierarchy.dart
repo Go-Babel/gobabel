@@ -71,7 +71,8 @@ List<LabelsEntity> _buildChildren(
         return entry.value.parentStartIndex != null &&
             entry.value.parentEndIndex != null &&
             entry.value.parentStartIndex! >= parent.fileStartIndex &&
-            entry.value.parentEndIndex! <= parent.fileEndIndex;
+            entry.value.parentEndIndex! <= parent.fileEndIndex &&
+            entry.value.filePath == parent.filePath; // Must be from same file
       }).toList();
 
   // Create child labels for each direct child string
@@ -101,6 +102,7 @@ List<LabelsEntity> _buildChildren(
     final dynamicValueChildren = _buildDynamicValueChildren(
       dynamicValue,
       allChildStrings,
+      parent.filePath,
     );
 
     children.add(
@@ -140,6 +142,7 @@ List<LabelsEntity> _buildChildren(
 List<LabelsEntity> _buildDynamicValueChildren(
   HardcodedStringDynamicValue dynamicValue,
   List<HumanFriendlyArbKeyResponse> allChildStrings,
+  String parentFilePath,
 ) {
   final List<LabelsEntity> children = [];
 
@@ -149,7 +152,8 @@ List<LabelsEntity> _buildDynamicValueChildren(
         return entry.value.parentStartIndex != null &&
             entry.value.parentEndIndex != null &&
             entry.value.parentStartIndex! >= dynamicValue.fileStartIndex &&
-            entry.value.parentEndIndex! <= dynamicValue.fileEndIndex;
+            entry.value.parentEndIndex! <= dynamicValue.fileEndIndex &&
+            entry.value.filePath == parentFilePath; // Must be from same file as parent
       }).toList();
 
   // Create child labels for each direct child string

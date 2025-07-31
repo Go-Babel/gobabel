@@ -144,7 +144,7 @@ class GobabelConductor {
           generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy,
         )
         .toNextStep(generate_extractAllStringsInDart)
-        .toNextStep(generate_defineWhichStringLabel)
+        .toNextStep(generate_defineWhichStringLabelIsUserFacing)
         .toNextStep(generate_createHumanFriendlyArbKeysWithAiOnServer)
         .toNextStep(generate_mapStringsHierarchy)
         .toNextStep(generate_mapBabelLabels)
