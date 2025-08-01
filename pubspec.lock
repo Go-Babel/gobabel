@@ -281,7 +281,7 @@ packages:
   gobabel_client:
     dependency: "direct main"
     description:
-      path: "../go_babel_app/gobabel_client"
+      path: "../gobabel_client"
       relative: true
     source: path
     version: "0.0.1"

@@ -30,7 +30,7 @@ dependencies:
   gobabel_core:
     path: ../gobabel_core
   gobabel_client:
-    path: ../go_babel_app/gobabel_client
+    path: ../gobabel_client
   yaml: ^3.1.3
   args:  2.7.0
   chalkdart: ^3.0.5
