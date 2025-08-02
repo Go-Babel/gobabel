@@ -81,53 +81,56 @@ translateNewStringsArb({
   if (localesNeedingTranslation.isNotEmpty) {
     // Track total work items for progress bar
     final List<_TranslationWorkItem> allWorkItems = [];
-    
+
     // First, prepare all work items by splitting pending translations into manageable groups
     for (final translatable in localesNeedingTranslation) {
       final locale = translatable.locale;
-      
+
       // Separate already translated from pending translations
       final Map<L10nKey, L10nValue> pendingTranslations = {};
       final Map<L10nKey, L10nValue> alreadyTranslated = {};
-      
+
       referenceTranslation.forEach((key, value) {
         final bool hasCache = translatable.referenceMap.containsKey(key);
-        
+
         if (hasCache) {
           alreadyTranslated[key] = translatable.referenceMap[key]!;
         } else {
           pendingTranslations[key] = value;
         }
       });
-      
+
       // Skip if no pending translations
       if (pendingTranslations.isEmpty) {
         // Add directly to results
-        madeTranslations[locale.languageCode]![locale.countryCode] =
-            Map.from(alreadyTranslated);
+        madeTranslations[locale.languageCode]![locale.countryCode] = Map.from(
+          alreadyTranslated,
+        );
         continue;
       }
-      
+
       // Split pending translations into manageable groups for API
       final groups = splitIntoManageableGroupsForApi(pendingTranslations);
-      
+
       // Create work items for each group
       for (final group in groups) {
-        allWorkItems.add(_TranslationWorkItem(
-          locale: locale,
-          pendingGroup: group,
-          alreadyTranslated: alreadyTranslated,
-        ));
+        allWorkItems.add(
+          _TranslationWorkItem(
+            locale: locale,
+            pendingGroup: group,
+            alreadyTranslated: alreadyTranslated,
+          ),
+        );
       }
     }
-    
+
     // Process work items in parallel batches
     if (allWorkItems.isNotEmpty) {
       const batchSize = 3;
       final totalWorkItems = allWorkItems.length;
       final bool showProgressBar = totalWorkItems > 2;
       int processedItems = 0;
-      
+
       for (
         int batchStart = 0;
         batchStart < totalWorkItems;
@@ -135,7 +138,7 @@ translateNewStringsArb({
       ) {
         final batchEnd = (batchStart + batchSize).clamp(0, totalWorkItems);
         final batch = allWorkItems.sublist(batchStart, batchEnd);
-        
+
         // Update progress bar at the start of each batch
         if (showProgressBar) {
           LoadingIndicator.instance.setLoadingProgressBar(
@@ -147,10 +150,10 @@ translateNewStringsArb({
             ),
           );
         }
-        
+
         // Create futures for parallel execution
         final futures = <Future<_TranslationResult>>[];
-        
+
         for (final workItem in batch) {
           futures.add(() async {
             // Make API call for this group
@@ -166,7 +169,7 @@ translateNewStringsArb({
                 pathAppearancesPerKey: pathAppearancesPerKey,
               ),
             );
-            
+
             return _TranslationResult(
               locale: workItem.locale,
               translations: pendingTranslated,
@@ -174,33 +177,36 @@ translateNewStringsArb({
             );
           }());
         }
-        
+
         try {
           // Execute all futures in the batch in parallel
           final results = await Future.wait(futures);
-          
+
           // Process results
           for (final result in results) {
             final locale = result.locale;
-            
+
             // Merge translations for this locale
-            if (madeTranslations[locale.languageCode]![locale.countryCode] == null) {
+            if (madeTranslations[locale.languageCode]![locale.countryCode] ==
+                null) {
               madeTranslations[locale.languageCode]![locale.countryCode] = {};
             }
-            
+
             // Add already translated items (only once per locale)
             if (result.alreadyTranslated.isNotEmpty &&
-                madeTranslations[locale.languageCode]![locale.countryCode]!.isEmpty) {
+                madeTranslations[locale.languageCode]![locale.countryCode]!
+                    .isEmpty) {
               madeTranslations[locale.languageCode]![locale.countryCode]!
                   .addAll(result.alreadyTranslated);
             }
-            
+
             // Add newly translated items
-            madeTranslations[locale.languageCode]![locale.countryCode]!
-                .addAll(result.translations);
-            
+            madeTranslations[locale.languageCode]![locale.countryCode]!.addAll(
+              result.translations,
+            );
+
             processedItems++;
-            
+
             // Update progress bar after each completed work item
             if (showProgressBar && processedItems < totalWorkItems) {
               LoadingIndicator.instance.setLoadingProgressBar(
@@ -219,7 +225,7 @@ translateNewStringsArb({
               .map((w) => '${w.locale.languageCode}_${w.locale.countryCode}')
               .toSet()
               .join(', ');
-          
+
           return BabelFailureResponse.withErrorAndStackTrace(
             exception: BabelException(
               title: 'Translation API request failed',
@@ -244,7 +250,7 @@ class _TranslationWorkItem {
   final BabelSupportedLocales locale;
   final Map<L10nKey, L10nValue> pendingGroup;
   final Map<L10nKey, L10nValue> alreadyTranslated;
-  
+
   const _TranslationWorkItem({
     required this.locale,
     required this.pendingGroup,
@@ -256,7 +262,7 @@ class _TranslationResult {
   final BabelSupportedLocales locale;
   final Map<L10nKey, L10nValue> translations;
   final Map<L10nKey, L10nValue> alreadyTranslated;
-  
+
   const _TranslationResult({
     required this.locale,
     required this.translations,
@@ -280,6 +286,8 @@ generate_translateNewStringsArb(GenerateFlowExtractedCodeBase payload) async {
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,

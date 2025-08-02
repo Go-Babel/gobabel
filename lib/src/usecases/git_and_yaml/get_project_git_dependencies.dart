@@ -137,6 +137,8 @@ generate_getProjectGitDependencies(
     return GenerateFlowGotGitVariables(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

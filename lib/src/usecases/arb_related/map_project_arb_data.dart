@@ -212,6 +212,8 @@ generate_mapProjectArbDataUsecase(
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directory.path,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,

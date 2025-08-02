@@ -39,7 +39,9 @@ generate_resolveCodebaseHardcodedStringsProject(
     for (final Translatables element
         in payload.codebaseArbTranslationPayloadInfo.referenceMap) {
       // Create a mutable copy of the reference map to avoid unmodifiable map errors
-      referenceMap[element.locale] = Map<L10nKey, L10nValue>.from(element.referenceMap);
+      referenceMap[element.locale] = Map<L10nKey, L10nValue>.from(
+        element.referenceMap,
+      );
     }
 
     // Add the new hardcoded string key cache from human friendly response
@@ -101,6 +103,8 @@ generate_resolveCodebaseHardcodedStringsProject(
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,

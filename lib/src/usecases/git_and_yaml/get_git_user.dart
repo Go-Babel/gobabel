@@ -81,6 +81,8 @@ AsyncBabelResult<GenerateFlowGotGitUser> generate_getGitUser(
     return GenerateFlowGotGitUser(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,

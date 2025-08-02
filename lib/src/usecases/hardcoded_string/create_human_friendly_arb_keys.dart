@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
-import 'package:gobabel/src/core/utils/cripto.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
@@ -58,9 +57,11 @@ createHumanFriendlyArbKeysWithAiOnServer({
     final Map<Sha1, L10nValue> extractedStrings = {};
     final Map<Sha1, HardcodedStringEntity> extractedStringEntities = {};
     for (final HardcodedStringEntity string in stringsNeedingGeneration) {
-      final sha1Result = await generateSha1(string.value);
+      final sha1Result = generateSha1(string.value);
       if (sha1Result.isError()) {
-        return sha1Result.asBabelResultErrorAsync();
+        return BabelFailureResponse.onlyBabelException(
+          exception: sha1Result.exceptionOrNull()!,
+        ).toFailure();
       }
       final key = sha1Result.getOrNull()!;
       extractedStrings[key] = string.value.trimHardcodedString;
@@ -109,7 +110,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
 
         for (final group in batch) {
           futures.add(
-            client.publicArbHelpers.createArbKeyNames(
+            client.publicCreateArbKeyNames(
               projectApiToken: projectApiToken,
               projectShaIdentifier: projectShaIdentifier,
               translationContents: group,
@@ -126,7 +127,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
           for (final entry in result.entries) {
             final Sha1 sha1 = entry.key;
             final TranslationKey key = entry.value;
-            
+
             // Check if we have the string entity for this SHA1
             final stringEntity = extractedStringEntities[sha1];
             if (stringEntity == null) {
@@ -135,7 +136,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
               // mismatched responses from the API
               continue;
             }
-            
+
             final HardCodedString value = stringEntity.value;
             newResult[entry.key] = entry.value.toCamelCaseOrEmpty;
 
@@ -334,6 +335,8 @@ generate_createHumanFriendlyArbKeysWithAiOnServer(
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,

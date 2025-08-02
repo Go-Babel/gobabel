@@ -105,12 +105,15 @@ class GobabelConductor {
     required String directoryPath,
     required BabelSupportedLocales inputedByUserLocale,
     bool willLog = false,
+    bool dangerouslyAutoDetectUserFacingHardcodedStrings = false,
   }) async {
     return generate_initFlowState(
           willLog: willLog,
           projectApiToken: projectApiToken,
           directoryPath: directoryPath,
           inputedByUserLocale: inputedByUserLocale,
+          dangerouslyAutoDetectUserFacingHardcodedStrings:
+              dangerouslyAutoDetectUserFacingHardcodedStrings,
         )
         .toNextStep(generate_createClientEntity)
         .toNextStep(generate_ensureGitDirectoryIsConfigured)

@@ -70,10 +70,12 @@ AsyncBabelResult<GenerateFlowCreatedClient> generate_createClientEntity(
   return createClientEntity(payload.directory).flatMap((client) {
     return GenerateFlowCreatedClient(
       willLog: payload.willLog,
-      inputedByUserLocale: payload.inputedByUserLocale,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       client: client,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
     ).toSuccess();
   });
 }

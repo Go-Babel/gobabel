@@ -153,7 +153,8 @@ List<LabelsEntity> _buildDynamicValueChildren(
             entry.value.parentEndIndex != null &&
             entry.value.parentStartIndex! >= dynamicValue.fileStartIndex &&
             entry.value.parentEndIndex! <= dynamicValue.fileEndIndex &&
-            entry.value.filePath == parentFilePath; // Must be from same file as parent
+            entry.value.filePath ==
+                parentFilePath; // Must be from same file as parent
       }).toList();
 
   // Create child labels for each direct child string
@@ -223,6 +224,8 @@ generate_mapStringsHierarchy(
     projectApiToken: payload.projectApiToken,
     directoryPath: payload.directoryPath,
     inputedByUserLocale: payload.inputedByUserLocale,
+    dangerouslyAutoDetectUserFacingHardcodedStrings:
+        payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
     client: payload.client,
     yamlInfo: payload.yamlInfo,
     gitVariables: payload.gitVariables,

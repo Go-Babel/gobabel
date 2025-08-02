@@ -93,6 +93,8 @@ AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
       projectApiToken: accountApiKey,
       directoryPath: directoryPath,
       inputedByUserLocale: inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: gitVariables,

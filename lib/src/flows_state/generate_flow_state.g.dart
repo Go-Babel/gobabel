@@ -15,6 +15,8 @@ _$GenerateFlowInitialImpl _$$GenerateFlowInitialImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   $type: json['runtimeType'] as String?,
 );
 
@@ -27,6 +29,8 @@ Map<String, dynamic> _$$GenerateFlowInitialImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'runtimeType': instance.$type,
 };
 
@@ -39,6 +43,8 @@ _$GenerateFlowCreatedClientImpl _$$GenerateFlowCreatedClientImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
@@ -52,6 +58,8 @@ Map<String, dynamic> _$$GenerateFlowCreatedClientImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'runtimeType': instance.$type,
 };
@@ -65,6 +73,8 @@ _$GenerateFlowEnsureGitImpl _$$GenerateFlowEnsureGitImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
@@ -78,6 +88,8 @@ Map<String, dynamic> _$$GenerateFlowEnsureGitImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'runtimeType': instance.$type,
 };
@@ -91,6 +103,8 @@ _$GenerateFlowGotCodeBaseYamlImpl _$$GenerateFlowGotCodeBaseYamlImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
@@ -105,6 +119,8 @@ Map<String, dynamic> _$$GenerateFlowGotCodeBaseYamlImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'runtimeType': instance.$type,
@@ -119,6 +135,8 @@ _$GenerateFlowGotGitUserImpl _$$GenerateFlowGotGitUserImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitUser: GitUser.fromJson(json['gitUser'] as Map<String, dynamic>),
@@ -134,6 +152,8 @@ Map<String, dynamic> _$$GenerateFlowGotGitUserImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -149,6 +169,8 @@ _$$GenerateFlowGotLastLocalCommitImplFromJson(Map<String, dynamic> json) =>
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
       ),
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -169,6 +191,8 @@ Map<String, dynamic> _$$GenerateFlowGotLastLocalCommitImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -185,6 +209,8 @@ _$$GenerateFlowGotProjectOriginUrlImplFromJson(Map<String, dynamic> json) =>
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
       ),
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -206,6 +232,8 @@ Map<String, dynamic> _$$GenerateFlowGotProjectOriginUrlImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitUser': instance.gitUser,
@@ -223,6 +251,8 @@ _$GenerateFlowGotGitVariablesImpl _$$GenerateFlowGotGitVariablesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -240,6 +270,8 @@ Map<String, dynamic> _$$GenerateFlowGotGitVariablesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -255,6 +287,8 @@ _$GenerateFlowGotAppLanguagesImpl _$$GenerateFlowGotAppLanguagesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -281,6 +315,8 @@ Map<String, dynamic> _$$GenerateFlowGotAppLanguagesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -301,6 +337,8 @@ _$GenerateFlowProjectCacheMapImpl _$$GenerateFlowProjectCacheMapImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -330,6 +368,8 @@ Map<String, dynamic> _$$GenerateFlowProjectCacheMapImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -352,6 +392,8 @@ _$$GenerateFlowResolvedProjectCacheTranslationImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -384,6 +426,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedProjectCacheTranslationImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -407,6 +451,8 @@ _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -439,6 +485,8 @@ Map<String, dynamic> _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -461,6 +509,8 @@ _$GenerateFlowGotTargetFilesImpl _$$GenerateFlowGotTargetFilesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -496,6 +546,8 @@ Map<String, dynamic> _$$GenerateFlowGotTargetFilesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -519,6 +571,8 @@ _$$GenerateFlowGotL10nProjectConfigImplFromJson(Map<String, dynamic> json) =>
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
       ),
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -559,6 +613,8 @@ Map<String, dynamic> _$$GenerateFlowGotL10nProjectConfigImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -583,6 +639,8 @@ _$$GenerateFlowMappedProjectArbDataImplFromJson(Map<String, dynamic> json) =>
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
       ),
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -623,6 +681,8 @@ Map<String, dynamic> _$$GenerateFlowMappedProjectArbDataImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -648,6 +708,8 @@ _$$GenerateFlowResolvedProjectArbTranslationPayloadImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -691,6 +753,8 @@ _$$GenerateFlowResolvedProjectArbTranslationPayloadImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -719,6 +783,8 @@ _$$GenerateFlowRemovedAdjacentStringConcatenationImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -762,6 +828,8 @@ _$$GenerateFlowRemovedAdjacentStringConcatenationImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -790,6 +858,8 @@ _$$GenerateFlowResolvedEnumHardcodedStringsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -832,6 +902,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedEnumHardcodedStringsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -859,6 +931,8 @@ _$$GenerateFlowAppliedInitialDartFixesImplFromJson(Map<String, dynamic> json) =>
       inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
         json['inputedByUserLocale'] as Map<String, dynamic>,
       ),
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo: CodeBaseYamlInfo.fromJson(
         json['yamlInfo'] as Map<String, dynamic>,
@@ -903,6 +977,8 @@ Map<String, dynamic> _$$GenerateFlowAppliedInitialDartFixesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -931,6 +1007,8 @@ _$$GenerateFlowMovedHardcodedStringsInFunctionParamsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -974,6 +1052,8 @@ _$$GenerateFlowMovedHardcodedStringsInFunctionParamsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1002,6 +1082,8 @@ _$$GenerateFlowMovedHardcodedStringParamsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1044,6 +1126,8 @@ Map<String, dynamic> _$$GenerateFlowMovedHardcodedStringParamsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1072,6 +1156,8 @@ _$$GenerateFlowRemovedConstFromCollectionsWithStringsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1115,6 +1201,8 @@ _$$GenerateFlowRemovedConstFromCollectionsWithStringsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1143,6 +1231,8 @@ _$$GenerateFlowRemovedConstFromConstructorsWithStringParamsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1186,6 +1276,8 @@ _$$GenerateFlowRemovedConstFromConstructorsWithStringParamsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1214,6 +1306,8 @@ _$$GenerateFlowRemovedConstFromStructuresWithStringsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1257,6 +1351,8 @@ _$$GenerateFlowRemovedConstFromStructuresWithStringsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1285,6 +1381,8 @@ _$$GenerateFlowExtractedAllStringsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1331,6 +1429,8 @@ Map<String, dynamic> _$$GenerateFlowExtractedAllStringsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1360,6 +1460,8 @@ _$$GenerateFlowDefinedStringLabelsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1410,6 +1512,8 @@ Map<String, dynamic> _$$GenerateFlowDefinedStringLabelsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1440,6 +1544,8 @@ _$$GenerateFlowCreatedHumanFriendlyArbKeysImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1493,6 +1599,8 @@ Map<String, dynamic> _$$GenerateFlowCreatedHumanFriendlyArbKeysImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1524,6 +1632,8 @@ _$$GenerateFlowMappedStringsHierarchyImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1581,6 +1691,8 @@ Map<String, dynamic> _$$GenerateFlowMappedStringsHierarchyImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1613,6 +1725,8 @@ _$$GenerateFlowMappedBabelLabelsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1677,6 +1791,8 @@ Map<String, dynamic> _$$GenerateFlowMappedBabelLabelsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1710,6 +1826,8 @@ _$$GenerateFlowResolvedHardcodedStringsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1768,6 +1886,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedHardcodedStringsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1798,6 +1918,8 @@ _$$GenerateFlowReplacedHardcodedStringsForBabelTextImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1857,6 +1979,8 @@ _$$GenerateFlowReplacedHardcodedStringsForBabelTextImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1887,6 +2011,8 @@ _$$GenerateFlowGeneratedBabelClassImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -1946,6 +2072,8 @@ Map<String, dynamic> _$$GenerateFlowGeneratedBabelClassImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -1977,6 +2105,8 @@ _$$GenerateFlowWrittedBabelClassInDartFileImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2035,6 +2165,8 @@ Map<String, dynamic> _$$GenerateFlowWrittedBabelClassInDartFileImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2065,6 +2197,8 @@ _$$GenerateFlowAddedBabelClassInitializationInMainImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2124,6 +2258,8 @@ _$$GenerateFlowAddedBabelClassInitializationInMainImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2154,6 +2290,8 @@ _$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2212,6 +2350,8 @@ Map<String, dynamic> _$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2242,6 +2382,8 @@ _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2300,6 +2442,8 @@ Map<String, dynamic> _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2330,6 +2474,8 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplFromJs
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2390,6 +2536,8 @@ _$$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImplToJson
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2420,6 +2568,8 @@ _$$GenerateFlowRemovedUnnecessaryArbConfigFilesImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2478,6 +2628,8 @@ Map<String, dynamic> _$$GenerateFlowRemovedUnnecessaryArbConfigFilesImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2508,6 +2660,8 @@ _$$GenerateFlowExtractedCodeBaseImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2568,6 +2722,8 @@ Map<String, dynamic> _$$GenerateFlowExtractedCodeBaseImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2599,6 +2755,8 @@ _$$GenerateFlowTranslatedNewStringsArbImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2667,6 +2825,8 @@ Map<String, dynamic> _$$GenerateFlowTranslatedNewStringsArbImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2699,6 +2859,8 @@ _$$GenerateFlowUploadedNewTranslationsImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2770,6 +2932,8 @@ Map<String, dynamic> _$$GenerateFlowUploadedNewTranslationsImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2803,6 +2967,8 @@ _$$GenerateFlowCommitedAllChangesOfCodebaseImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2874,6 +3040,8 @@ Map<String, dynamic> _$$GenerateFlowCommitedAllChangesOfCodebaseImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -2907,6 +3075,8 @@ _$$GenerateFlowGetBabelChangesCommitImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -2981,6 +3151,8 @@ Map<String, dynamic> _$$GenerateFlowGetBabelChangesCommitImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,
@@ -3015,6 +3187,8 @@ _$$GenerateFlowSincronizedBabelCommitWithApiImplFromJson(
   inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
     json['inputedByUserLocale'] as Map<String, dynamic>,
   ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
   client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
   yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
   gitVariables: GitVariables.fromJson(
@@ -3089,6 +3263,8 @@ Map<String, dynamic> _$$GenerateFlowSincronizedBabelCommitWithApiImplToJson(
   'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
     instance.inputedByUserLocale,
   ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
   'client': instance.client,
   'yamlInfo': instance.yamlInfo,
   'gitVariables': instance.gitVariables,

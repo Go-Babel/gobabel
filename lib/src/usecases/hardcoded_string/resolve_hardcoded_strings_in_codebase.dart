@@ -113,6 +113,8 @@ generate_resolveHardcodedStringsInCodebase(
         projectApiToken: payload.projectApiToken,
         directoryPath: payload.directoryPath,
         inputedByUserLocale: payload.inputedByUserLocale,
+        dangerouslyAutoDetectUserFacingHardcodedStrings:
+            payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
         client: payload.client,
         yamlInfo: payload.yamlInfo,
         gitVariables: payload.gitVariables,

@@ -116,6 +116,8 @@ generate_getLastLocalCommitInCurrentBranch(
     return GenerateFlowGotLastLocalCommit(
       willLog: payload.willLog,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       yamlInfo: payload.yamlInfo,
@@ -140,6 +142,8 @@ generate_getBabelChangesCommit(
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,
       inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,
