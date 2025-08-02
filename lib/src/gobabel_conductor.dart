@@ -104,8 +104,8 @@ class GobabelConductor {
     required String projectApiToken,
     required String directoryPath,
     required BabelSupportedLocales inputedByUserLocale,
-    bool willLog = false,
-    bool dangerouslyAutoDetectUserFacingHardcodedStrings = false,
+    required bool willLog,
+    required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
   }) async {
     return generate_initFlowState(
           willLog: willLog,

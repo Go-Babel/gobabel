@@ -31,18 +31,20 @@ defineWhichStringLabelIsUserFacing({
 
   final Map<Sha1, IsUserFacingString> combinedResults = {};
 
-  final ReviewSessionUuid sessionUuid = await client.stringsReviewSession
+  final ReviewSessionUuid sessionUuid = await client.publicStringsReviewSession
       .createSession(
         projectApiToken: projectApiToken,
         projectShaIdentifier: projectShaIdentifier,
         createdAt: DateTime.now(),
-        fieldsToBeAnalysed: fieldsToBeAnalysed,
+        hardcodedStringsToBeAnalysed: fieldsToBeAnalysed,
         dangerouslyAutoDetectUserFacingHardcodedStrings:
             dangerouslyAutoDetectUserFacingHardcodedStrings,
       );
 
   final Stream<Map<Sha1, AiGeneratedIsUserFacingString>> sessionResponse =
-      client.stringsReviewSession.getSessionResponse(sessionUuid: sessionUuid);
+      client.publicStringsReviewSession.getSessionResponse(
+        sessionUuid: sessionUuid,
+      );
   final Completer<void> completer = Completer<void>();
   final StreamSubscription<Map<String, bool>> subscription = sessionResponse
       .listen((data) {

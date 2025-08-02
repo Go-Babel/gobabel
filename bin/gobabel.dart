@@ -266,6 +266,8 @@ Future<void> main(List<String> arguments) async {
         inputedByUserLocale: babelSupportedLocale,
         directoryPath: directory.path,
         willLog: willLog,
+        dangerouslyAutoDetectUserFacingHardcodedStrings:
+            dangerouslyAutoDetectUserFacingHardcodedStrings,
       ),
     );
   } else if (argResults['create'] as bool) {
