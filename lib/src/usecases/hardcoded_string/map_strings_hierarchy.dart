@@ -239,6 +239,8 @@ generate_mapStringsHierarchy(
     codebaseArbTranslationPayloadInfo:
         payload.codebaseArbTranslationPayloadInfo,
     allExtractedStrings: payload.allExtractedStrings,
+    sessionUuid: payload.sessionUuid,
+    fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
     labelStrings: payload.labelStrings,
     humanFriendlyResponse: payload.humanFriendlyResponse,
     labelEntities: labelEntities,

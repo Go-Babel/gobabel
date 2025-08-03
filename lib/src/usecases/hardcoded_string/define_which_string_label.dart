@@ -13,34 +13,14 @@ AsyncBabelResult<List<HardcodedStringEntity>>
 defineWhichStringLabelIsUserFacing({
   required List<HardcodedStringEntity> strings,
   required Client client,
-  required String projectApiToken,
-  required BigInt projectShaIdentifier,
-  required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+  required ReviewSessionUuid sessionUuid,
+  required Map<Sha1, HardCodedString> fieldsToBeAnalysed,
 }) async {
-  if (strings.isEmpty) return <HardcodedStringEntity>[].toSuccess();
-
-  final Map<Sha1, HardCodedString> fieldsToBeAnalysed = {};
-  for (final string in strings) {
-    final sha1Result = generateSha1(string.value.trimHardcodedString);
-    if (sha1Result.isError()) {
-      return BabelFailureResponse.onlyBabelException(
-        exception: sha1Result.exceptionOrNull()!,
-      ).toFailure();
-    }
+  if (strings.isEmpty) {
+    return <HardcodedStringEntity>[].toSuccess();
   }
 
   final Map<Sha1, IsUserFacingString> combinedResults = {};
-
-  final ReviewSessionUuid sessionUuid = await client.publicStringsReviewSession
-      .createSession(
-        projectApiToken: projectApiToken,
-        projectShaIdentifier: projectShaIdentifier,
-        createdAt: DateTime.now(),
-        hardcodedStringsToBeAnalysed: fieldsToBeAnalysed,
-        dangerouslyAutoDetectUserFacingHardcodedStrings:
-            dangerouslyAutoDetectUserFacingHardcodedStrings,
-      );
-
   final Stream<Map<Sha1, AiGeneratedIsUserFacingString>> sessionResponse =
       client.publicStringsReviewSession.getSessionResponse(
         sessionUuid: sessionUuid,
@@ -66,10 +46,10 @@ defineWhichStringLabelIsUserFacing({
 
 AsyncBabelResult<GenerateFlowDefinedStringLabels>
 generate_defineWhichStringLabelIsUserFacing(
-  GenerateFlowExtractedAllStrings payload,
+  GenerateFlowCreatedHardcodedStringReviewSession payload,
 ) async {
-  // Skip processing if there are no extracted strings
-  if (payload.allExtractedStrings.isEmpty) {
+  // Skip processing if there are no extracted strings or no session
+  if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
     return GenerateFlowDefinedStringLabels(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -90,6 +70,8 @@ generate_defineWhichStringLabelIsUserFacing(
       codebaseArbTranslationPayloadInfo:
           payload.codebaseArbTranslationPayloadInfo,
       allExtractedStrings: payload.allExtractedStrings,
+      sessionUuid: payload.sessionUuid,
+      fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
       labelStrings: <HardcodedStringEntity>[],
     ).toSuccess();
   }
@@ -97,9 +79,8 @@ generate_defineWhichStringLabelIsUserFacing(
   final labelStringsResult = await defineWhichStringLabelIsUserFacing(
     client: payload.client.server,
     strings: payload.allExtractedStrings,
-    projectApiToken: payload.projectApiToken,
-    projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
-    dangerouslyAutoDetectUserFacingHardcodedStrings: true,
+    sessionUuid: payload.sessionUuid!,
+    fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
   );
 
   if (labelStringsResult.isError()) {
@@ -128,6 +109,8 @@ generate_defineWhichStringLabelIsUserFacing(
     codebaseArbTranslationPayloadInfo:
         payload.codebaseArbTranslationPayloadInfo,
     allExtractedStrings: payload.allExtractedStrings,
+    sessionUuid: payload.sessionUuid,
+    fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
     labelStrings: labelStrings,
   ).toSuccess();
 }

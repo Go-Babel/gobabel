@@ -1450,6 +1450,92 @@ Map<String, dynamic> _$$GenerateFlowExtractedAllStringsImplToJson(
   'runtimeType': instance.$type,
 };
 
+_$GenerateFlowCreatedHardcodedStringReviewSessionImpl
+_$$GenerateFlowCreatedHardcodedStringReviewSessionImplFromJson(
+  Map<String, dynamic> json,
+) => _$GenerateFlowCreatedHardcodedStringReviewSessionImpl(
+  willLog: json['willLog'] as bool,
+  projectApiToken: json['projectApiToken'] as String,
+  directoryPath: json['directoryPath'] as String,
+  inputedByUserLocale: const BabelSupportedLocalesJsonConverter().fromJson(
+    json['inputedByUserLocale'] as Map<String, dynamic>,
+  ),
+  dangerouslyAutoDetectUserFacingHardcodedStrings:
+      json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+  client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
+  yamlInfo: CodeBaseYamlInfo.fromJson(json['yamlInfo'] as Map<String, dynamic>),
+  gitVariables: GitVariables.fromJson(
+    json['gitVariables'] as Map<String, dynamic>,
+  ),
+  maxLanguageCount: (json['maxLanguageCount'] as num).toInt(),
+  languages:
+      (json['languages'] as List<dynamic>)
+          .map(
+            (e) => const BabelSupportedLocalesJsonConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toSet(),
+  projectCacheMap: ProjectCacheMap.fromJson(
+    json['projectCacheMap'] as Map<String, dynamic>,
+  ),
+  cacheMapTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['cacheMapTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  filesVerificationState: FilesVerification.fromJson(
+    json['filesVerificationState'] as Map<String, dynamic>,
+  ),
+  projectArbData: ArbDataState.fromJson(
+    json['projectArbData'] as Map<String, dynamic>,
+  ),
+  remapedArbKeys: Map<String, String>.from(json['remapedArbKeys'] as Map),
+  codebaseArbTranslationPayloadInfo: TranslationPayloadInfo.fromJson(
+    json['codebaseArbTranslationPayloadInfo'] as Map<String, dynamic>,
+  ),
+  allExtractedStrings:
+      (json['allExtractedStrings'] as List<dynamic>)
+          .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
+          .toList(),
+  sessionUuid: json['sessionUuid'] as String?,
+  fieldsToBeAnalysed: Map<String, String>.from(
+    json['fieldsToBeAnalysed'] as Map,
+  ),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic>
+_$$GenerateFlowCreatedHardcodedStringReviewSessionImplToJson(
+  _$GenerateFlowCreatedHardcodedStringReviewSessionImpl instance,
+) => <String, dynamic>{
+  'willLog': instance.willLog,
+  'projectApiToken': instance.projectApiToken,
+  'directoryPath': instance.directoryPath,
+  'inputedByUserLocale': const BabelSupportedLocalesJsonConverter().toJson(
+    instance.inputedByUserLocale,
+  ),
+  'dangerouslyAutoDetectUserFacingHardcodedStrings':
+      instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+  'client': instance.client,
+  'yamlInfo': instance.yamlInfo,
+  'gitVariables': instance.gitVariables,
+  'maxLanguageCount': instance.maxLanguageCount,
+  'languages':
+      instance.languages
+          .map(const BabelSupportedLocalesJsonConverter().toJson)
+          .toList(),
+  'projectCacheMap': instance.projectCacheMap,
+  'cacheMapTranslationPayloadInfo': instance.cacheMapTranslationPayloadInfo,
+  'filesVerificationState': instance.filesVerificationState,
+  'projectArbData': instance.projectArbData,
+  'remapedArbKeys': instance.remapedArbKeys,
+  'codebaseArbTranslationPayloadInfo':
+      instance.codebaseArbTranslationPayloadInfo,
+  'allExtractedStrings': instance.allExtractedStrings,
+  'sessionUuid': instance.sessionUuid,
+  'fieldsToBeAnalysed': instance.fieldsToBeAnalysed,
+  'runtimeType': instance.$type,
+};
+
 _$GenerateFlowDefinedStringLabelsImpl
 _$$GenerateFlowDefinedStringLabelsImplFromJson(
   Map<String, dynamic> json,
@@ -1496,6 +1582,10 @@ _$$GenerateFlowDefinedStringLabelsImplFromJson(
       (json['allExtractedStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
+  sessionUuid: json['sessionUuid'] as String?,
+  fieldsToBeAnalysed: Map<String, String>.from(
+    json['fieldsToBeAnalysed'] as Map,
+  ),
   labelStrings:
       (json['labelStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
@@ -1530,6 +1620,8 @@ Map<String, dynamic> _$$GenerateFlowDefinedStringLabelsImplToJson(
   'codebaseArbTranslationPayloadInfo':
       instance.codebaseArbTranslationPayloadInfo,
   'allExtractedStrings': instance.allExtractedStrings,
+  'sessionUuid': instance.sessionUuid,
+  'fieldsToBeAnalysed': instance.fieldsToBeAnalysed,
   'labelStrings': instance.labelStrings,
   'runtimeType': instance.$type,
 };
@@ -1580,6 +1672,10 @@ _$$GenerateFlowCreatedHumanFriendlyArbKeysImplFromJson(
       (json['allExtractedStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
+  sessionUuid: json['sessionUuid'] as String?,
+  fieldsToBeAnalysed: Map<String, String>.from(
+    json['fieldsToBeAnalysed'] as Map,
+  ),
   labelStrings:
       (json['labelStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
@@ -1617,6 +1713,8 @@ Map<String, dynamic> _$$GenerateFlowCreatedHumanFriendlyArbKeysImplToJson(
   'codebaseArbTranslationPayloadInfo':
       instance.codebaseArbTranslationPayloadInfo,
   'allExtractedStrings': instance.allExtractedStrings,
+  'sessionUuid': instance.sessionUuid,
+  'fieldsToBeAnalysed': instance.fieldsToBeAnalysed,
   'labelStrings': instance.labelStrings,
   'humanFriendlyResponse': instance.humanFriendlyResponse,
   'runtimeType': instance.$type,
@@ -1668,6 +1766,10 @@ _$$GenerateFlowMappedStringsHierarchyImplFromJson(
       (json['allExtractedStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
+  sessionUuid: json['sessionUuid'] as String?,
+  fieldsToBeAnalysed: Map<String, String>.from(
+    json['fieldsToBeAnalysed'] as Map,
+  ),
   labelStrings:
       (json['labelStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
@@ -1709,6 +1811,8 @@ Map<String, dynamic> _$$GenerateFlowMappedStringsHierarchyImplToJson(
   'codebaseArbTranslationPayloadInfo':
       instance.codebaseArbTranslationPayloadInfo,
   'allExtractedStrings': instance.allExtractedStrings,
+  'sessionUuid': instance.sessionUuid,
+  'fieldsToBeAnalysed': instance.fieldsToBeAnalysed,
   'labelStrings': instance.labelStrings,
   'humanFriendlyResponse': instance.humanFriendlyResponse,
   'labelEntities': instance.labelEntities,
@@ -1761,6 +1865,10 @@ _$$GenerateFlowMappedBabelLabelsImplFromJson(
       (json['allExtractedStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
+  sessionUuid: json['sessionUuid'] as String?,
+  fieldsToBeAnalysed: Map<String, String>.from(
+    json['fieldsToBeAnalysed'] as Map,
+  ),
   labelStrings:
       (json['labelStrings'] as List<dynamic>)
           .map((e) => HardcodedStringEntity.fromJson(e as Map<String, dynamic>))
@@ -1809,6 +1917,8 @@ Map<String, dynamic> _$$GenerateFlowMappedBabelLabelsImplToJson(
   'codebaseArbTranslationPayloadInfo':
       instance.codebaseArbTranslationPayloadInfo,
   'allExtractedStrings': instance.allExtractedStrings,
+  'sessionUuid': instance.sessionUuid,
+  'fieldsToBeAnalysed': instance.fieldsToBeAnalysed,
   'labelStrings': instance.labelStrings,
   'humanFriendlyResponse': instance.humanFriendlyResponse,
   'labelEntities': instance.labelEntities,

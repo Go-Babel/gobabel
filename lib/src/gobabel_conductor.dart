@@ -33,6 +33,7 @@ import 'package:gobabel/src/usecases/git_and_yaml/get_last_local_commit_in_curre
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_git_dependencies.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/get_project_origin_url.dart';
 import 'package:gobabel/src/usecases/git_and_yaml/reset_all_changes_in_codebase_if_needed.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/create_hardcoded_string_review_session.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/create_human_friendly_arb_keys.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/define_which_string_label.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/extract_all_hardcoded_strings.dart';
@@ -147,6 +148,7 @@ class GobabelConductor {
           generate_multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy,
         )
         .toNextStep(generate_extractAllStringsInDart)
+        .toNextStep(generate_createHardcodedStringReviewSession)
         .toNextStep(generate_defineWhichStringLabelIsUserFacing)
         .toNextStep(generate_createHumanFriendlyArbKeysWithAiOnServer)
         .toNextStep(generate_mapStringsHierarchy)
