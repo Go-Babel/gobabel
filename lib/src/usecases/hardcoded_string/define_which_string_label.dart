@@ -27,12 +27,38 @@ listenToUserFacingHardcodedStringSessionResult({
         sessionUuid: sessionUuid,
       );
   final Completer<void> completer = Completer<void>();
+  BabelFailureResponse? streamError;
   final StreamSubscription<Map<String, bool>> subscription = sessionResponse
-      .listen((data) {
-        combinedResults.addAll(data);
-      }, onDone: completer.complete);
+      .listen(
+        (data) {
+          combinedResults.addAll(data);
+        },
+        onError: (error) {
+          streamError = BabelFailureResponse.withErrorAndStackTrace(
+            exception: BabelException(
+              title: 'Error in Hardcoded String Review Session',
+              description: error.toString(),
+            ),
+            error: error,
+            stackTrace: StackTrace.current,
+          );
+          completer.complete();
+        },
+        onDone: () async {
+          try {
+            await client.publicStringsReviewSession
+                .notifyThatSessionCanBeDisposedSession(
+                  sessionUuid: sessionUuid,
+                );
+          } catch (_) {}
+          completer.complete();
+        },
+      );
   await completer.future;
   await subscription.cancel();
+  if (streamError != null) {
+    return streamError!.toFailure();
+  }
 
   // Filter the strings that needed validation based on the server responses
   final List<HardcodedStringEntity> apiValidatedStrings =
@@ -51,7 +77,7 @@ generate_listenToUserFacingHardcodedStringSessionResult(
 ) async {
   // Resume the loading indicator when user completes the review
   LoadingIndicator.instance.resumeAfterUserAction();
-  
+
   // Skip processing if there are no extracted strings or no session
   if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
     return GenerateFlowDefinedStringLabels(
