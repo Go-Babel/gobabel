@@ -10,7 +10,7 @@ import 'package:result_dart/result_dart.dart';
 
 @override
 AsyncBabelResult<List<HardcodedStringEntity>>
-defineWhichStringLabelIsUserFacing({
+listenToUserFacingHardcodedStringSessionResult({
   required List<HardcodedStringEntity> strings,
   required Client client,
   required ReviewSessionUuid sessionUuid,
@@ -45,8 +45,8 @@ defineWhichStringLabelIsUserFacing({
 }
 
 AsyncBabelResult<GenerateFlowDefinedStringLabels>
-generate_defineWhichStringLabelIsUserFacing(
-  GenerateFlowCreatedHardcodedStringReviewSession payload,
+generate_listenToUserFacingHardcodedStringSessionResult(
+  GenerateFlowDisplayedSessionReviewToUser payload,
 ) async {
   // Skip processing if there are no extracted strings or no session
   if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
@@ -76,12 +76,13 @@ generate_defineWhichStringLabelIsUserFacing(
     ).toSuccess();
   }
 
-  final labelStringsResult = await defineWhichStringLabelIsUserFacing(
-    client: payload.client.server,
-    strings: payload.allExtractedStrings,
-    sessionUuid: payload.sessionUuid!,
-    fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
-  );
+  final labelStringsResult =
+      await listenToUserFacingHardcodedStringSessionResult(
+        client: payload.client.server,
+        strings: payload.allExtractedStrings,
+        sessionUuid: payload.sessionUuid!,
+        fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
+      );
 
   if (labelStringsResult.isError()) {
     return labelStringsResult.asBabelResultErrorAsync();
