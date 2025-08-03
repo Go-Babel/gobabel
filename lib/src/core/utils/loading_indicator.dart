@@ -138,10 +138,13 @@ class LoadingIndicator {
   int _totalCount = 0;
   int _step = 0;
 
+  String? _lastRawMessage;
+
   void setLoadingProgressBar({
     required String message,
     required BarProgressInfo barProgressInfo,
   }) {
+    _lastRawMessage = message;
     manageLoading(
       message: message,
       totalCount: _totalCount,
@@ -157,6 +160,7 @@ class LoadingIndicator {
   }) {
     _totalCount = totalCount;
     _step = step;
+    _lastRawMessage = message;
     manageLoading(
       message: message,
       totalCount: totalCount,
@@ -241,6 +245,39 @@ class LoadingIndicator {
           'An error occurred'.red,
     );
     stdout.flush();
+  }
+
+  void pauseForUserAction() {
+    _timer?.cancel();
+    _cleanLine();
+    
+    // Get current time
+    final timeString = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
+    
+    // Display paused message with current progress
+    final messageToShow = _lastRawMessage ?? 'Processing';
+    final pausedMessage = '[ ($_step/$_totalCount) $timeString ] ${messageToShow.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)} ${'[PAUSED - WAITING USER ACTION]'.yellow}';
+    
+    stdout.write(pausedMessage);
+    stdout.flush();
+    
+    // Pause the stopwatch
+    _stopwatch.stop();
+  }
+  
+  void resumeAfterUserAction() {
+    // Resume the stopwatch
+    _stopwatch.start();
+    
+    // Resume the loading animation with the last message
+    if (_lastRawMessage != null) {
+      manageLoading(
+        message: _lastRawMessage!,
+        totalCount: _totalCount,
+        step: _step,
+        barProgressInfo: null,
+      );
+    }
   }
 
   void displaySuccess(String message) {

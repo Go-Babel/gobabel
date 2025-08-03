@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
 import 'package:gobabel_client/gobabel_client.dart';
@@ -48,6 +49,9 @@ AsyncBabelResult<GenerateFlowDefinedStringLabels>
 generate_listenToUserFacingHardcodedStringSessionResult(
   GenerateFlowDisplayedSessionReviewToUser payload,
 ) async {
+  // Resume the loading indicator when user completes the review
+  LoadingIndicator.instance.resumeAfterUserAction();
+  
   // Skip processing if there are no extracted strings or no session
   if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
     return GenerateFlowDefinedStringLabels(
