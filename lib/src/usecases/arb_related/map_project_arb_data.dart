@@ -115,17 +115,62 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
   });
 
   // Main should have all the keys
-  final Set<String> pendingKeys = retrivePendingKeys(
+  final List<MissingKeyInfo> pendingKeys = retrivePendingKeys(
     main: main,
     allArbData: allArbData,
   );
 
   if (pendingKeys.isNotEmpty) {
+    final StringBuffer description = StringBuffer();
+    description.writeln(
+      'The reference ARB file "${main.fileName.split('/').last}" is missing some keys that exist in other ARB files.\n',
+    );
+    description.writeln(
+      '┌─ Missing keys in main arb file (${main.fileName.split('/').last}):',
+    );
+    description.writeln('│');
+
+    for (int i = 0; i < pendingKeys.length; i++) {
+      final missingKey = pendingKeys[i];
+      final isLast = i == pendingKeys.length - 1;
+      final keyDisplay =
+          missingKey.key.isEmpty ? '"" (empty string)' : '"${missingKey.key}"';
+
+      description.writeln('${isLast ? "└" : "├"}──┬─ $keyDisplay');
+
+      for (int j = 0; j < missingKey.locations.length; j++) {
+        final location = missingKey.locations[j];
+        final isLastLocation = j == missingKey.locations.length - 1;
+        final prefix = isLast ? '   ' : '│  ';
+        description.writeln(
+          '$prefix${isLastLocation ? "└" : "├"}──── at line ${location.lineNumber}, in "${location.fileName}"',
+        );
+      }
+
+      if (!isLast) {
+        description.writeln('│');
+      }
+    }
+
+    description.writeln(
+      '\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+    );
+
+    final isAnyInMainArbEmpty = main.allKeyValues.keys.any(
+      (key) => key.isEmpty,
+    );
+    if (isAnyInMainArbEmpty) {
+      throw BabelException(
+        title: 'Empty Key in Main ARB',
+        description:
+            'The main ARB file "${main.fileName.split('/').last}" contains an empty key. Please remove it or replace it with a valid key.',
+      );
+    }
+
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
         title: 'Missing Keys in Reference ARB',
-        description:
-            'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => '- "$e"').join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+        description: description.toString(),
       ),
     ).toFailure();
   }
@@ -178,23 +223,44 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
   ).toSuccess();
 }
 
-Set<String> retrivePendingKeys({
+class MissingKeyInfo {
+  final String key;
+  final List<({String fileName, int lineNumber})> locations;
+
+  const MissingKeyInfo({required this.key, required this.locations});
+}
+
+List<MissingKeyInfo> retrivePendingKeys({
   required ExtractArbDataResponse main,
   required List<ExtractArbDataResponse> allArbData,
 }) {
   final listCopy = List<ExtractArbDataResponse>.from(allArbData);
   listCopy.removeWhere((arb) => arb.fileName == main.fileName);
-  final Set<String> pendingKeys = <String>{};
+  final Map<String, List<({String fileName, int lineNumber})>> pendingKeysInfo =
+      {};
+
   for (final arb in listCopy) {
     final keys = arb.allKeyValues.keys;
     for (final key in keys) {
       if (!main.allKeyValues.containsKey(key)) {
-        pendingKeys.add(key);
+        if (!pendingKeysInfo.containsKey(key)) {
+          pendingKeysInfo[key] = [];
+        }
+        final lineNumber = arb.keyLineNumbers[key] ?? 0;
+        pendingKeysInfo[key]!.add((
+          fileName:
+              arb.fileName
+                  .split('/')
+                  .last, // Only show file name, not full path
+          lineNumber: lineNumber,
+        ));
       }
     }
   }
 
-  return pendingKeys;
+  return pendingKeysInfo.entries
+      .map((entry) => MissingKeyInfo(key: entry.key, locations: entry.value))
+      .toList();
 }
 
 AsyncBabelResult<GenerateFlowMappedProjectArbData>

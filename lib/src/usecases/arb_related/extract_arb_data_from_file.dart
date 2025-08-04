@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
@@ -8,6 +7,7 @@ import 'package:gobabel/src/usecases/arb_related/extract_location_data_from_arb_
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
+import 'package:gobabel/src/usecases/arb_related/json_parser_with_line_tracking.dart';
 
 AsyncBabelResult<ExtractArbDataResponse> extractArbDataFromFile(
   File file,
@@ -49,6 +49,7 @@ AsyncBabelResult<ExtractArbDataResponse> extractArbDataFromFile(
       allKeyValues: arbData.allKeyValues,
       locale: locale,
       variablesPlaceholdersPerKey: arbData.variablesPlaceholdersPerKey,
+      keyLineNumbers: arbData.keyLineNumbers,
     ).toSuccess();
   } catch (error, stackTrace) {
     return BabelFailureResponse.withErrorAndStackTrace(
@@ -84,6 +85,7 @@ ResultDart<
     int placeHoldersCount,
     Map<L10nKey, L10nValue> allKeyValues,
     Map<L10nKey, Set<VariableName>> variablesPlaceholdersPerKey,
+    Map<L10nKey, int> keyLineNumbers,
   }),
   BabelFailureResponse
 >
@@ -99,9 +101,9 @@ _extract(String jsonContent) {
   }
 
   try {
-    final dynamic decodedJson;
+    final Map<String, JsonKeyWithLineInfo> parsedData;
     try {
-      decodedJson = jsonDecode(jsonContent);
+      parsedData = JsonParserWithLineTracking.parse(jsonContent);
     } catch (e) {
       return BabelFailureResponse.onlyBabelException(
         exception: BabelException(
@@ -117,28 +119,16 @@ _extract(String jsonContent) {
       ).toFailure();
     }
 
-    if (decodedJson is! Map<String, dynamic>) {
-      return BabelFailureResponse.onlyBabelException(
-        exception: BabelException(
-          title: 'Invalid ARB Structure',
-          description:
-              'The JSON content is not a valid object. '
-              'ARB files must be JSON objects (starting with "{" and ending with "}").\n'
-              'Found type: ${decodedJson.runtimeType}',
-        ),
-      ).toFailure();
-    }
-
-    final json = decodedJson;
-
     int placeHoldersCount = 0;
     final Map<L10nKey, L10nValue> keyValues = {};
     final Map<L10nKey, Set<VariableName>> variablesPlaceholdersPerKey = {};
+    final Map<L10nKey, int> keyLineNumbers = {};
 
     // First pass: collect translation keys and values
-    for (final entry in json.entries) {
+    for (final entry in parsedData.entries) {
       final key = entry.key;
-      final value = entry.value;
+      final keyInfo = entry.value;
+      final value = keyInfo.value;
 
       final isTranslationKey = !key.startsWith('@');
       if (isTranslationKey) {
@@ -156,6 +146,7 @@ _extract(String jsonContent) {
         }
         // Store the key as-is for now, it will be processed later
         keyValues[key] = value;
+        keyLineNumbers[key] = keyInfo.lineNumber;
         variablesPlaceholdersPerKey[key] = <VariableName>{};
       } else {
         placeHoldersCount++;
@@ -163,9 +154,10 @@ _extract(String jsonContent) {
     }
 
     // Second pass: extract placeholders from metadata (keys starting with @)
-    for (final entry in json.entries) {
+    for (final entry in parsedData.entries) {
       final key = entry.key;
-      final value = entry.value;
+      final keyInfo = entry.value;
+      final value = keyInfo.value;
 
       if (key.startsWith('@')) {
         if (value is! Map<String, dynamic>) {
@@ -205,7 +197,7 @@ _extract(String jsonContent) {
           description:
               'The ARB file does not contain any translation keys.\n'
               'Translation keys are non-@ prefixed keys with string values.\n'
-              'Found ${json.length} total keys, but all appear to be metadata.',
+              'Found ${parsedData.length} total keys, but all appear to be metadata.',
         ),
       ).toFailure();
     }
@@ -214,6 +206,7 @@ _extract(String jsonContent) {
       placeHoldersCount: placeHoldersCount,
       allKeyValues: keyValues,
       variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
+      keyLineNumbers: keyLineNumbers,
     ));
   } catch (e, stackTrace) {
     return BabelFailureResponse.onlyBabelException(
@@ -234,6 +227,7 @@ class ExtractArbDataResponse {
   final Map<L10nKey, L10nValue> allKeyValues;
   final BabelSupportedLocales locale;
   final Map<L10nKey, Set<VariableName>> variablesPlaceholdersPerKey;
+  final Map<L10nKey, int> keyLineNumbers;
 
   const ExtractArbDataResponse({
     required this.fileName,
@@ -241,5 +235,6 @@ class ExtractArbDataResponse {
     required this.allKeyValues,
     required this.locale,
     required this.variablesPlaceholdersPerKey,
+    required this.keyLineNumbers,
   });
 }
