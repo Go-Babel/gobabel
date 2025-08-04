@@ -8,6 +8,7 @@ import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
+import 'package:path/path.dart' as path;
 
 AsyncBabelResult<Unit>
 multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
@@ -43,7 +44,7 @@ multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
         if (totalFiles > 0) {
           LoadingIndicator.instance.setLoadingProgressBar(
             message:
-                'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
+                'Processing file $processedFiles/$totalFiles: ${path.basename(file.path)}',
             barProgressInfo: BarProgressInfo(
               message:
                   'Removing const from lists/sets/maps with hardcoded strings',

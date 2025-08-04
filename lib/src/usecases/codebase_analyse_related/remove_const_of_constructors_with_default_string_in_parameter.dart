@@ -9,6 +9,7 @@ import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
+import 'package:path/path.dart' as path;
 
 AsyncBabelResult<Unit>
 multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
@@ -44,7 +45,7 @@ multiFileRemoveConstOfConstructorsWithDefaultStringInParameter({
         if (totalFiles > 0) {
           LoadingIndicator.instance.setLoadingProgressBar(
             message:
-                'Processing file $processedFiles/$totalFiles: ${file.path.split('/').last}',
+                'Processing file $processedFiles/$totalFiles: ${path.basename(file.path)}',
             barProgressInfo: BarProgressInfo(
               message:
                   'Removing const from constructors with default string parameters',

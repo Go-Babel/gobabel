@@ -9,6 +9,7 @@ import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/arb_related/extract_arb_data_from_file.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:path/path.dart' as path;
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
@@ -114,6 +115,20 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
     return a.placeHoldersCount > b.placeHoldersCount ? a : b;
   });
 
+  // Check if main ARB has any empty keys
+  if (main.allKeyValues.containsKey('')) {
+    final lineNumber = main.keyLineNumbers[''] ?? 0;
+    return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+        title: 'Empty Key in Main ARB',
+        description:
+            'The main ARB file contains an empty key at line $lineNumber:\n'
+            'File: ${main.fileName}\n\n'
+            'Please remove this empty key or replace it with a valid key name.',
+      ),
+    ).toFailure();
+  }
+
   // Main should have all the keys
   final List<MissingKeyInfo> pendingKeys = retrivePendingKeys(
     main: main,
@@ -123,10 +138,10 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
   if (pendingKeys.isNotEmpty) {
     final StringBuffer description = StringBuffer();
     description.writeln(
-      'The reference ARB file "${main.fileName.split('/').last}" is missing some keys that exist in other ARB files.\n',
+      'The reference ARB file "${path.basename(main.fileName)}" is missing some keys that exist in other ARB files.\n',
     );
     description.writeln(
-      '┌─ Missing keys in main arb file (${main.fileName.split('/').last}):',
+      '┌─ Missing keys in main arb file (${path.basename(main.fileName)}):',
     );
     description.writeln('│');
 
@@ -155,17 +170,6 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
     description.writeln(
       '\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
     );
-
-    final isAnyInMainArbEmpty = main.allKeyValues.keys.any(
-      (key) => key.isEmpty,
-    );
-    if (isAnyInMainArbEmpty) {
-      throw BabelException(
-        title: 'Empty Key in Main ARB',
-        description:
-            'The main ARB file "${main.fileName.split('/').last}" contains an empty key. Please remove it or replace it with a valid key.',
-      );
-    }
 
     return BabelFailureResponse.onlyBabelException(
       exception: BabelException(
@@ -248,10 +252,7 @@ List<MissingKeyInfo> retrivePendingKeys({
         }
         final lineNumber = arb.keyLineNumbers[key] ?? 0;
         pendingKeysInfo[key]!.add((
-          fileName:
-              arb.fileName
-                  .split('/')
-                  .last, // Only show file name, not full path
+          fileName: path.basename(arb.fileName), // Only show file name, not full path
           lineNumber: lineNumber,
         ));
       }
