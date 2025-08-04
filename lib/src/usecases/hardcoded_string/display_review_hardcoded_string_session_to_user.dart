@@ -14,12 +14,14 @@ generate_displayReviewHardcodedStringSessionToUser(
 ) async {
   try {
     // Get the base URL from the client host
-    final baseUrl = payload.client.host;
+    final baseUrl = payload.client.host
+    // replace local host with the correct port for the web server for debugging
+    .replaceAll('localhost:8080', 'localhost:8082');
     final sessionUuid = payload.sessionUuid;
 
     // Construct the full URL
-    final reviewUrl = '$baseUrl/review-hardcoded-strings-session/$sessionUuid';
-    
+    final reviewUrl = '${baseUrl}review-hardcoded-strings-session/$sessionUuid';
+
     // Pause the loading indicator
     LoadingIndicator.instance.pauseForUserAction();
 

@@ -54,7 +54,7 @@ Future<void> main(List<String> arguments) async {
         ..addOption('api-key', abbr: 'k', help: 'API key')
         ..addOption('path', abbr: 'p', help: 'Path to the API directory')
         ..addFlag(
-          '--dangerously-auto-detect-user-facing-hardcoded-strings',
+          'dangerously-auto-detect-user-facing-hardcoded-strings',
           help:
               'Will automatically detect user-facing hardcoded strings with AI and won\'t enter the flow that asks for user confirmation in a web review session. This is dangerous since the AI may misinterpret strings and should be used only if you are sure that all hardcoded strings will be easily detected as user-facing.',
           defaultsTo: false,
