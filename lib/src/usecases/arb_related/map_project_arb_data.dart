@@ -125,7 +125,7 @@ AsyncBabelResult<ArbDataState> mapProjectArbDataUsecase({
       exception: BabelException(
         title: 'Missing Keys in Reference ARB',
         description:
-            'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => "- $e").join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
+            'The reference ARB file "${main.fileName}" is missing some keys that exist in other ARB files.\n\nMissing keys:\n${pendingKeys.map((e) => '- "$e"').join('\n')}\n\nThe reference ARB file must contain all keys used across all language files. Please add the missing keys to ensure proper translation management.',
       ),
     ).toFailure();
   }
