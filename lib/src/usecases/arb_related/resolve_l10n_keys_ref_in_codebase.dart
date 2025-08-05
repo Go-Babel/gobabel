@@ -38,41 +38,45 @@ AsyncBabelResult<TranslationPayloadInfo>
     try {
       String fileContent = await file.readAsString();
 
-      // Remove l10n-related imports based on outputDir
+      // Remove l10n-related imports based on outputDir and project name
       final escapedOutputDir = RegExp.escape(projectConfigWithData.outputDir);
-      // Also escape the output class filename (usually 's.dart' from class S)
-      final outputClassFileName = projectConfigWithData.outputClass.toLowerCase();
-      
-      // Match both relative and package imports that contain the outputDir
+      final projectName = codeBaseYamlInfo.projectName;
+
+      // Pattern to match package imports from the current project only
       // This will match patterns like:
-      // - import 'package:myapp/gen_l10n/s.dart';
-      // - import '../gen_l10n/app_localizations.dart';
       // - import 'package:scoutbox/gen_l10n/s.dart';
-      final importPattern = RegExp(
-        "import\\s+['\"][^'\"]*/$escapedOutputDir/[^'\"]+\\.dart['\"];?\\s*",
+      // - import 'package:scoutbox/gen_l10n/s.dart' as arb;
+      // - import 'package:scoutbox/gen_l10n/app_localizations.dart' show AppLocalizations;
+      // But NOT: import 'package:other_package/gen_l10n/s.dart';
+      final packageImportPattern = RegExp(
+        "import\\s+['\"]package:$projectName/$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
         multiLine: true,
       );
-      
-      // Additional pattern to catch imports with just the output class file
-      final outputClassImportPattern = RegExp(
-        "import\\s+['\"][^'\"]*/$outputClassFileName\\.dart['\"];?\\s*",
+
+      // Pattern for relative imports (these are always from the current project)
+      // This will match patterns like:
+      // - import '../gen_l10n/s.dart';
+      // - import './gen_l10n/s.dart' as arb;
+      // - import '../../gen_l10n/app_localizations.dart' show AppLocalizations;
+      final relativeImportPattern = RegExp(
+        "import\\s+['\"]\\.\\.?/[^'\"]*$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
         multiLine: true,
       );
-      
+
       bool hasImportChanges = false;
-      
-      // Remove imports containing the output directory
-      if (importPattern.hasMatch(fileContent)) {
-        fileContent = fileContent.replaceAll(importPattern, '');
+
+      // Remove package imports from the current project only
+      if (packageImportPattern.hasMatch(fileContent)) {
+        fileContent = fileContent.replaceAll(packageImportPattern, '');
         hasImportChanges = true;
       }
-      
-      // Remove imports containing just the output class file (e.g., s.dart)
-      if (outputClassImportPattern.hasMatch(fileContent)) {
-        fileContent = fileContent.replaceAll(outputClassImportPattern, '');
+
+      // Remove relative imports
+      if (relativeImportPattern.hasMatch(fileContent)) {
+        fileContent = fileContent.replaceAll(relativeImportPattern, '');
         hasImportChanges = true;
       }
-      
+
       // Clean up any multiple consecutive newlines left after import removal
       if (hasImportChanges) {
         fileContent = fileContent.replaceAll(RegExp(r'\n\n\n+'), '\n\n');
@@ -118,7 +122,10 @@ AsyncBabelResult<TranslationPayloadInfo>
             return match.group(0) ?? '';
           }
 
-          return '$kBabelClass.$newProcessedKey';
+          final BabelFunctionImplementation implementation =
+              currentPayloadInfo.keyToImplementation[newProcessedKey]!;
+
+          return implementation;
         });
       }
 
