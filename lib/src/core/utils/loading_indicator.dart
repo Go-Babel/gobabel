@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:meta/meta.dart';
 
 class BarProgressInfo {
@@ -27,8 +28,9 @@ class LoadingIndicator {
 
     final instance = (_instance ??= LoadingIndicator._()).._stopwatch.start();
 
+    final console = ConsoleManager.instance;
     final bool useUnicode =
-        stdout.hasTerminal &&
+        console.hasTerminal &&
         (!Platform.isWindows || Platform.environment.containsKey('WT_SESSION'));
 
     if (useUnicode) {
@@ -103,11 +105,13 @@ class LoadingIndicator {
   }
 
   void _cleanLine() {
+    final console = ConsoleManager.instance;
     // Move cursor to beginning of line and clear it
-    stdout.write('\r\x1B[2K');
+    console.clearLine();
     // If we have multiple lines, move up and clear those too
     for (int i = 1; i < _currentLineCount; i++) {
-      stdout.write('\x1B[1A\x1B[2K');
+      console.moveCursorUp(1);
+      console.clearLine();
     }
   }
 
@@ -127,9 +131,10 @@ class LoadingIndicator {
   }
 
   int _getTerminalWidth() {
+    final console = ConsoleManager.instance;
     try {
-      if (stdout.hasTerminal) {
-        return stdout.terminalColumns;
+      if (console.hasTerminal) {
+        return console.terminalWidth;
       }
     } catch (_) {}
     return 80; // Default terminal width
@@ -220,17 +225,19 @@ class LoadingIndicator {
             mainMessageLines + barMessageLines + progressBarLines;
 
         // Display all three lines
-        stdout.write(mainMessage);
-        stdout.write('\n$truncatedBarMessage');
-        stdout.write('\n$progressBar');
-        stdout.flush();
+        final console = ConsoleManager.instance;
+        console.write(mainMessage);
+        console.write('\n$truncatedBarMessage');
+        console.write('\n$progressBar');
+        console.flush();
 
         _lastMessage = mainMessage;
       } else {
         // Single line output
         _currentLineCount = _calculateLineCount(mainMessage, termWidth);
-        stdout.write(mainMessage);
-        stdout.flush();
+        final console = ConsoleManager.instance;
+        console.write(mainMessage);
+        console.flush();
         _lastMessage = mainMessage;
       }
 
@@ -240,11 +247,12 @@ class LoadingIndicator {
 
   void displayError() {
     _cleanLine();
-    stdout.write(
+    final console = ConsoleManager.instance;
+    console.write(
       (_lastMessage?.replaceAll(RegExp(_spinnerChars.join('|')), ''))?.red ??
           'An error occurred'.red,
     );
-    stdout.flush();
+    console.flush();
   }
 
   void pauseForUserAction() {
@@ -258,8 +266,9 @@ class LoadingIndicator {
     final messageToShow = _lastRawMessage ?? 'Processing';
     final pausedMessage = '[ ($_step/$_totalCount) $timeString ] ${messageToShow.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)} ${'[PAUSED - WAITING USER ACTION]'.yellow}';
     
-    stdout.write(pausedMessage);
-    stdout.flush();
+    final console = ConsoleManager.instance;
+    console.write(pausedMessage);
+    console.flush();
     
     // Pause the stopwatch
     _stopwatch.stop();
@@ -285,15 +294,16 @@ class LoadingIndicator {
     _cleanLine();
 
     // Clear the entire terminal screen
-    stdout.write('\x1B[2J\x1B[H');
+    final console = ConsoleManager.instance;
+    console.clearAndReset();
 
     // Calculate total elapsed time
     final timeString = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
 
     // Display only the success message with time
-    stdout.writeln(message);
-    stdout.writeln('\nCompleted in $timeString'.dim);
-    stdout.flush();
+    console.writeLine(message);
+    console.writeLine('\nCompleted in $timeString'.dim);
+    console.flush();
 
     dispose();
   }

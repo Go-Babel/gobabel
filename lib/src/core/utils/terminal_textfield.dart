@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:chalkdart/chalkstrings.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 
 enum _FocusMode { textfield, options }
 
@@ -61,18 +62,19 @@ Future<T?> getDataFromInput<T>({
     final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
 
     // Hide cursor during redraw to reduce flicker
-    stdout.write('\x1B[?25l');
+    final console = ConsoleManager.instance;
+    console.hideCursor();
 
     // Bulletproof redraw strategy:
     // 1. Save cursor position after prompt on first draw
     // 2. Always restore to that position and clear everything below
     // This avoids complex position tracking that causes duplication
     if (!firstDraw) {
-      stdout.write('\x1B[u'); // Restore to saved position (after prompt)
-      stdout.write('\x1B[J'); // Clear everything from cursor to end of screen
+      console.restoreCursorPosition();
+      console.clearToEndOfScreen();
     } else {
       // First draw - save current position as our reference point
-      stdout.write('\x1B[s'); // Save cursor position
+      console.saveCursorPosition();
       firstDraw = false;
     }
 
@@ -81,13 +83,13 @@ Future<T?> getDataFromInput<T>({
 
     // Draw error message if any
     if (hasError) {
-      stdout.write('\n');
-      stdout.write(' ❌ $lastError'.red);
+      console.write('\n');
+      console.write(' ❌ $lastError'.red);
     }
 
     // Draw options if available
     if (hasOptions && filteredOptions.isNotEmpty) {
-      stdout.write('\n');
+      console.write('\n');
       _drawGenericOptions(
         filteredOptions,
         inputOptions!.optionToString,
@@ -111,14 +113,14 @@ Future<T?> getDataFromInput<T>({
       linesToMoveUp += 1; // Bottom border line to get to content line
 
       // Move up to the content line of the textfield
-      stdout.write('\x1B[${linesToMoveUp}A');
+      console.moveCursorUp(linesToMoveUp);
 
       // Move to the correct horizontal position
       // Start at beginning of line, then move past the prompt and existing text
-      stdout.write('\r'); // Move to column 0 (start of line)
+      console.moveCursorToLineStart();
 
       // Calculate display content length for cursor position
-      final width = getTerminalWidth();
+      final width = ConsoleManager.instance.terminalWidth;
       final boxWidth = max(width, 20); // Use full width
       final availableWidth = max(10, boxWidth - 4); // Ensure minimum space
 
@@ -138,14 +140,14 @@ Future<T?> getDataFromInput<T>({
         horizontalPosition += buffer.length;
       }
 
-      stdout.write('\x1B[${horizontalPosition}C'); // Move to cursor position
+      console.moveCursorRight(horizontalPosition);
     } else {
       // In options mode, cursor should stay where it is (on the selected option)
       // No need to move it
     }
 
     // Show cursor again
-    stdout.write('\x1B[?25h');
+    console.showCursor();
   }
 
   try {
@@ -156,7 +158,7 @@ Future<T?> getDataFromInput<T>({
     }
 
     // Print initial prompt
-    print(prompt);
+    ConsoleManager.instance.writeLine(prompt);
 
     // Draw initial UI
     redrawUI();
@@ -262,9 +264,7 @@ Future<T?> getDataFromInput<T>({
           }
         } else if (code == 3) {
           // Ctrl+C
-          stdout.writeln('\n^C');
-          await resizeSubscription?.cancel();
-          exit(0);
+          ConsoleManager.instance.handleCtrlC();
         } else if (code >= 32 && code <= 126) {
           // Printable character
           if (focusMode == _FocusMode.options) {
@@ -283,9 +283,9 @@ Future<T?> getDataFromInput<T>({
     await resizeSubscription?.cancel();
 
     // Clear the UI and move to next line
-    stdout.write('\x1B[u'); // Restore to saved position
-    stdout.write('\x1B[J'); // Clear everything below
-    stdout.write('\n');
+    ConsoleManager.instance.restoreCursorPosition();
+    ConsoleManager.instance.clearToEndOfScreen();
+    ConsoleManager.instance.write('\n');
   } finally {
     // Restore terminal settings
     if (stdin.hasTerminal) {
@@ -324,7 +324,8 @@ Future<String> getTextFieldInput({
 }
 
 void _drawTextField(String content, bool hasFocus) {
-  final width = getTerminalWidth();
+  final console = ConsoleManager.instance;
+  final width = console.terminalWidth;
   final boxWidth = max(width, 20); // Use full width, minimum 20 chars
 
   // Calculate content display
@@ -360,7 +361,7 @@ void _drawTextField(String content, bool hasFocus) {
       borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
 
   // Draw the text field
-  stdout.write('$topBorder\n$contentLine\n$bottomBorder');
+  console.write('$topBorder\n$contentLine\n$bottomBorder');
 }
 
 void _drawGenericOptions<T>(
@@ -371,7 +372,8 @@ void _drawGenericOptions<T>(
 ) {
   if (options.isEmpty) return;
 
-  final width = getTerminalWidth();
+  final console = ConsoleManager.instance;
+  final width = console.terminalWidth;
   final boxWidth = max(width, 20); // Use full width
 
   // Show max 5 options with viewport scrolling
@@ -428,7 +430,7 @@ void _drawGenericOptions<T>(
       line = '   $displayOption';
     }
 
-    stdout.writeln(line);
+    console.writeLine(line);
   }
 
   // Show scroll indicators
@@ -437,85 +439,16 @@ void _drawGenericOptions<T>(
     final below = options.length - viewportEnd;
 
     if (above > 0 && below > 0) {
-      stdout.write('   ↑ $above more above, ↓ $below more below'.gray);
+      console.write('   ↑ $above more above, ↓ $below more below'.gray);
     } else if (above > 0) {
-      stdout.write('   ↑ $above more above'.gray);
+      console.write('   ↑ $above more above'.gray);
     } else if (below > 0) {
-      stdout.write('   ↓ $below more below'.gray);
+      console.write('   ↓ $below more below'.gray);
     }
   }
 }
 
 // Made visible for testing
 int getTerminalWidth() {
-  // Try Dart's native terminal width detection first
-  try {
-    if (stdout.hasTerminal) {
-      final columns = stdout.terminalColumns;
-      // VS Code sometimes returns 0, so validate the result
-      if (columns > 0) {
-        return columns;
-      }
-    }
-  } catch (_) {
-    // StdoutException or other errors - continue to fallbacks
-  }
-
-  // Check if running in VS Code
-  final isVSCode = Platform.environment.containsKey('VSCODE_PID') ||
-      (Platform.environment['TERM_PROGRAM'] == 'vscode');
-
-  if (isVSCode) {
-    // VS Code typically has wider terminals, use 100 as default
-    return 100;
-  }
-
-  // Platform-specific fallbacks for when stdout.terminalColumns fails
-  if (Platform.isWindows) {
-    // Windows terminal width detection
-    try {
-      final result = Process.runSync('powershell', [
-        '-Command',
-        '\$Host.UI.RawUI.WindowSize.Width',
-      ]);
-      if (result.exitCode == 0) {
-        final width = int.tryParse(result.stdout.toString().trim());
-        if (width != null && width > 0) {
-          return width;
-        }
-      }
-    } catch (_) {
-      // Continue to next fallback
-    }
-  } else {
-    // Unix-like systems
-    try {
-      final result = Process.runSync('tput', ['cols']);
-      if (result.exitCode == 0) {
-        final width = int.tryParse(result.stdout.toString().trim());
-        if (width != null && width > 0) {
-          return width;
-        }
-      }
-    } catch (_) {
-      // Try stty as fallback
-      try {
-        final result = Process.runSync('stty', ['size']);
-        if (result.exitCode == 0) {
-          final parts = result.stdout.toString().trim().split(' ');
-          if (parts.length >= 2) {
-            final width = int.tryParse(parts[1]);
-            if (width != null && width > 0) {
-              return width;
-            }
-          }
-        }
-      } catch (_) {
-        // Continue to default
-      }
-    }
-  }
-
-  // Default width - use 80 for standard terminals
-  return 80;
+  return ConsoleManager.instance.terminalWidth;
 }

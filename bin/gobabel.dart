@@ -3,11 +3,15 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/terminal_textfield.dart';
 import 'package:gobabel/src/gobabel_conductor.dart';
 import 'package:gobabel/src/usecases/create_api_client_entity.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:yaml/yaml.dart';
+
+// Global console instance
+final console = ConsoleManager.instance;
 
 // Helper function to get required parameter interactively if not provided
 Future<String> getRequiredParameter({
@@ -20,14 +24,14 @@ Future<String> getRequiredParameter({
     return providedValue;
   }
 
-  print('ℹ️  $description'.wheat);
+  console.info(description);
 
   final result = await getTextFieldInput(
     prompt: 'Please enter your $parameterName',
   );
 
   if (result.isEmpty) {
-    print('❌ Error: $parameterName is required.'.red);
+    console.error('Error: $parameterName is required.');
     exit(1);
   }
 
@@ -92,7 +96,7 @@ Future<void> main(List<String> arguments) async {
   try {
     argResults = parser.parse(arguments);
   } catch (e) {
-    print('❌ Error parsing arguments: $e'.red);
+    console.error('Error parsing arguments: $e');
     printUsage(parser);
     exit(1);
   }
@@ -107,10 +111,10 @@ Future<void> main(List<String> arguments) async {
   if (argResults['version'] as bool) {
     try {
       final version = await getPackageVersion();
-      print('go_babel version: $version');
+      console.writeLine('go_babel version: $version');
       exit(0);
     } catch (e) {
-      print('❌ Error reading package version: $e'.red);
+      console.error('Error reading package version: $e');
       exit(1);
     }
   }
@@ -125,10 +129,7 @@ Future<void> main(List<String> arguments) async {
   if (argResults['sync'] as bool && argResults['generate'] as bool ||
       argResults['sync'] as bool && argResults['create'] as bool ||
       argResults['generate'] as bool && argResults['create'] as bool) {
-    print(
-      '❌ Error: Cannot specify --sync, --generate, or --create together. Use one at a time.'
-          .red,
-    );
+    console.error('Error: Cannot specify --sync, --generate, or --create together. Use one at a time.');
     printUsage(parser);
     exit(1);
   }
@@ -137,14 +138,14 @@ Future<void> main(List<String> arguments) async {
   if (!(argResults['sync'] as bool) &&
       !(argResults['generate'] as bool) &&
       !(argResults['create'] as bool)) {
-    print('❌ Error: Must specify either --sync or --generate.'.red);
+    console.error('Error: Must specify either --sync or --generate.');
     printUsage(parser);
     exit(1);
   }
   final apiPath = argResults['path'] as String?;
   final directory = resolvePath(apiPath);
   if (apiPath != null) {
-    print('ℹ️  Running for dirrectory: $directory'.wheat);
+    console.info('Running for dirrectory: $directory');
   }
 
   // Get the will-create-log-file flag value
@@ -195,11 +196,9 @@ Future<void> main(List<String> arguments) async {
 
     if (language == null) {
       // Interactive mode - prompt user
-      print('⚠️ Language is required for generate operation.'.yellowBright);
-      print(
-        'Enter language in format language_country (e.g., en_US)'.yellowBright,
-      );
-      print('> Use arrow keys to navigate options or type to filter'.wheat);
+      console.warning('Language is required for generate operation.');
+      console.warning('Enter language in format language_country (e.g., en_US)');
+      console.info('Use arrow keys to navigate options or type to filter');
 
       babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
         prompt: 'Please select or type a language code (ex: en_US)',
@@ -226,7 +225,7 @@ Future<void> main(List<String> arguments) async {
       );
 
       if (babelSupportedLocale == null) {
-        print('❌ Error: Language selection cancelled or invalid.'.red);
+        console.error('Error: Language selection cancelled or invalid.');
         exit(1);
       }
     } else {
@@ -234,11 +233,7 @@ Future<void> main(List<String> arguments) async {
       // Normalize the language format
       final normalizedLanguage = normalizeLanguageFormat(language);
       if (normalizedLanguage == null) {
-        print(
-          '❌ Error: Invalid language format.\n'
-                  'Expected formats: en_US, enus, enUS, or ENUS.'
-              .red,
-        );
+        console.error('Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.');
         printSupportedLanguages();
         exit(1);
       }
@@ -253,7 +248,7 @@ Future<void> main(List<String> arguments) async {
         countryCode,
       );
       if (babelSupportedLocale == null) {
-        print('❌ Error: Invalid language/country code for $language'.red);
+        console.error('Error: Invalid language/country code for $language');
         printSupportedLanguages();
         exit(1);
       }
@@ -315,7 +310,7 @@ Future<void> runInTryCatch({
           failure.exception.description.red +
           suffixMessage;
 
-      stdout.writeln(mainMessage);
+      console.writeLine(mainMessage);
 
       exit(1);
     },
@@ -326,14 +321,14 @@ Future<void> runInTryCatch({
 Future<String> getPackageVersion() async {
   final file = File('pubspec.yaml');
   if (!await file.exists()) {
-    print('\n❌ pubspec.yaml not found'.red);
+    console.error('\npubspec.yaml not found');
     exit(0);
   }
   final content = await file.readAsString();
   final yaml = loadYaml(content);
   final version = yaml['version'];
   if (version == null) {
-    print('\n❌ Version not specified in pubspec.yaml'.red);
+    console.error('\nVersion not specified in pubspec.yaml');
     exit(0);
   }
   return version.toString();
@@ -341,21 +336,21 @@ Future<String> getPackageVersion() async {
 
 // Helper function to display usage information
 void printUsage(ArgParser parser) {
-  print('ℹ️ Usage: go_babel [options]'.white);
-  print('Options:'.white);
-  print(parser.usage.white);
+  console.usage('ℹ️ Usage: go_babel [options]');
+  console.usage('Options:');
+  console.usage(parser.usage);
 }
 
 // Helper function to display all supported languages
 void printSupportedLanguages() {
-  print('ℹ️ Supported Languages:'.wheat);
-  print('Format: language_country - Display Name\n'.wheat);
+  console.info('Supported Languages:');
+  console.info('Format: language_country - Display Name\n');
 
   final locales = BabelSupportedLocales.values;
 
   for (var locale in locales) {
     final code = '${locale.languageCode}_${locale.countryCode}'.padRight(6);
-    print('${locale.flagEmoji}  $code - ${locale.displayName}'.white);
+    console.usage('${locale.flagEmoji}  $code - ${locale.displayName}');
   }
 }
 
