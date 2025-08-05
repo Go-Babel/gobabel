@@ -34,7 +34,7 @@ AsyncBabelResult<Unit> generateLogIfNeeded(
   }
 }
 
-extension MakeExt<T extends FlowInterface<T>, F extends Object>
+extension MakeExt<T extends FlowInterface>
     on AsyncBabelResult<T> {
   AsyncBabelResult<T> get log_if_needed async {
     return foldAsync(

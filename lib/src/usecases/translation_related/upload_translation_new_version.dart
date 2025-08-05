@@ -11,11 +11,9 @@ AsyncBabelResult<GenerateHistory> uploadTranslationNewVersion({
   required GitVariables gitVariables,
   required String projectApiToken,
   required Set<ContextPath> codeBase,
-  required Map<
-    LanguageCode,
-    Map<CountryCode, Map<TranslationKey, TranslationContent>>
-  >
-  madeTranslations,
+  required Map<LanguageCode,
+          Map<CountryCode, Map<TranslationKey, TranslationContent>>>
+      madeTranslations,
   required TranslationPayloadInfo currentPayloadInfo,
 }) async {
   // return BabelFailureResponse.onlyBabelException(
@@ -57,11 +55,11 @@ AsyncBabelResult<GenerateHistory> uploadTranslationNewVersion({
 
 /// Creates a stream of translation chunks that are within API limits
 Stream<
+        Map<LanguageCode,
+            Map<CountryCode, Map<TranslationKey, TranslationContent>>>>
+    _createTranslationStream(
   Map<LanguageCode, Map<CountryCode, Map<TranslationKey, TranslationContent>>>
->
-_createTranslationStream(
-  Map<LanguageCode, Map<CountryCode, Map<TranslationKey, TranslationContent>>>
-  madeTranslations,
+      madeTranslations,
 ) async* {
   for (final entry1 in madeTranslations.entries) {
     final LanguageCode languageCode = entry1.key;
@@ -88,9 +86,15 @@ _createTranslationStream(
 }
 
 AsyncBabelResult<GenerateFlowUploadedNewTranslations>
-generate_uploadTranslationNewVersion(
+    generate_uploadTranslationNewVersion(
   GenerateFlowTranslatedNewStringsArb payload,
-) {
+) async {
+  return BabelFailureResponse.onlyBabelException(
+      exception: BabelException(
+    title: 'Test failure',
+    description: 'This is a test failure for uploadTranslationNewVersion',
+  )).toFailure();
+
   return uploadTranslationNewVersion(
     codeBase: payload.contextPaths,
     madeTranslations: payload.madeTranslations,

@@ -33,10 +33,10 @@ AsyncBabelResult<Unit> resetAllChangesInCodebaseIfNeeded({
   return Success(unit);
 }
 
-extension MakeExt<F extends Object> on AsyncBabelResult<GenerateFlowState> {
-  AsyncBabelResult<GenerateFlowState> get generate_resetIfError async {
+extension MakeExt<T extends GenerateFlowState> on AsyncBabelResult<T> {
+  AsyncBabelResult<T> get generate_resetIfError async {
     // TODOS: Remove false condition when end testing
-    if (await isError()) {
+    if (await isError() && false) {
       final bool shouldReset = lastCorrectState.shouldReset;
       if (!shouldReset) return this;
 
@@ -53,8 +53,8 @@ extension MakeExt<F extends Object> on AsyncBabelResult<GenerateFlowState> {
   }
 }
 
-extension SyncResetExt on AsyncBabelResult<SyncFlowState> {
-  AsyncBabelResult<SyncFlowState> get sync_resetIfError async {
+extension SyncResetExt<T extends SyncFlowState> on AsyncBabelResult<T> {
+  AsyncBabelResult<T> get sync_resetIfError async {
     if (await isError()) {
       final bool shouldReset = lastCorrectState.shouldReset;
       if (!shouldReset) return this;
