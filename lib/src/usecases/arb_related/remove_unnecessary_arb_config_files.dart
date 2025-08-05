@@ -8,7 +8,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
-generate_removeUnnecessaryArbConfigFiles(
+    generate_removeUnnecessaryArbConfigFiles(
   GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions payload,
 ) async {
   try {
@@ -35,10 +35,26 @@ generate_removeUnnecessaryArbConfigFiles(
         print('Deleting ARB directory: ${arbDir.path}');
         await arbDir.delete(recursive: true);
       }
+
+      // Delete l10n config file (all variations)
+      final preMappedNamesOfLanguageConfigFiles = <String>{
+        'l10n.yaml',
+        'L10n.yaml',
+        'i10n.yaml',
+        'I10n.yaml',
+      };
+
+      for (final configFileName in preMappedNamesOfLanguageConfigFiles) {
+        final configFile = File('${payload.directoryPath}/$configFileName');
+        if (await configFile.exists()) {
+          await configFile.delete();
+        }
+      }
     }
 
-    // Run dart fix to remove unused imports
-    print('Running dart fix to clean up imports...');
+    // Run dart fix to clean up any remaining unused imports
+    // Note: l10n-specific imports are already removed in resolve_l10n_keys_ref_in_codebase.dart
+    print('Running dart fix to clean up any remaining unused imports...');
     final result = await runBabelProcess(
       command: 'dart fix --apply .',
       dirrPath: payload.directoryPath,

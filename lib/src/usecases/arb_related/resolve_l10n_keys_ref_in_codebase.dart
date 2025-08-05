@@ -38,12 +38,52 @@ AsyncBabelResult<TranslationPayloadInfo>
     try {
       String fileContent = await file.readAsString();
 
+      // Remove l10n-related imports based on outputDir
+      final escapedOutputDir = RegExp.escape(projectConfigWithData.outputDir);
+      // Also escape the output class filename (usually 's.dart' from class S)
+      final outputClassFileName = projectConfigWithData.outputClass.toLowerCase();
+      
+      // Match both relative and package imports that contain the outputDir
+      // This will match patterns like:
+      // - import 'package:myapp/gen_l10n/s.dart';
+      // - import '../gen_l10n/app_localizations.dart';
+      // - import 'package:scoutbox/gen_l10n/s.dart';
+      final importPattern = RegExp(
+        "import\\s+['\"][^'\"]*/$escapedOutputDir/[^'\"]+\\.dart['\"];?\\s*",
+        multiLine: true,
+      );
+      
+      // Additional pattern to catch imports with just the output class file
+      final outputClassImportPattern = RegExp(
+        "import\\s+['\"][^'\"]*/$outputClassFileName\\.dart['\"];?\\s*",
+        multiLine: true,
+      );
+      
+      bool hasImportChanges = false;
+      
+      // Remove imports containing the output directory
+      if (importPattern.hasMatch(fileContent)) {
+        fileContent = fileContent.replaceAll(importPattern, '');
+        hasImportChanges = true;
+      }
+      
+      // Remove imports containing just the output class file (e.g., s.dart)
+      if (outputClassImportPattern.hasMatch(fileContent)) {
+        fileContent = fileContent.replaceAll(outputClassImportPattern, '');
+        hasImportChanges = true;
+      }
+      
+      // Clean up any multiple consecutive newlines left after import removal
+      if (hasImportChanges) {
+        fileContent = fileContent.replaceAll(RegExp(r'\n\n\n+'), '\n\n');
+      }
+
       final regex = RegExp(
         '($defaultPattern|$directDelegate)',
         caseSensitive: false,
         multiLine: true,
       );
-      bool hasChanges = false;
+      bool hasChanges = hasImportChanges;
       fileContent = fileContent.replaceAllMapped(regex, (match) {
         hasChanges = true;
         return kBabelClass;
