@@ -29,9 +29,6 @@ Future<T?> getDataFromInput<T>({
   var selectedOptionIndex = 0;
   String? lastError;
   bool firstDraw = true;
-  int lastTerminalWidth = getTerminalWidth();
-  int lastDrawnLines = 0;
-  DateTime lastResizeTime = DateTime.now();
 
   // Convert options to list for indexing
   final optionsList = inputOptions?.options.toList() ?? [];
@@ -46,11 +43,10 @@ Future<T?> getDataFromInput<T>({
     if (searchText.isEmpty) {
       filteredOptions = optionsList;
     } else {
-      filteredOptions =
-          optionsList.where((option) {
-            final optionString = inputOptions!.optionToString(option);
-            return optionString.toLowerCase().contains(searchText);
-          }).toList();
+      filteredOptions = optionsList.where((option) {
+        final optionString = inputOptions!.optionToString(option);
+        return optionString.toLowerCase().contains(searchText);
+      }).toList();
     }
     // Reset selected index if it's out of bounds
     if (selectedOptionIndex >= filteredOptions.length) {
@@ -59,61 +55,26 @@ Future<T?> getDataFromInput<T>({
   }
 
   void redrawUI() {
-    // Debounce rapid resize events
-    final now = DateTime.now();
-    final timeSinceLastResize = now.difference(lastResizeTime).inMilliseconds;
-    
-    // Check for terminal width changes
-    final currentWidth = getTerminalWidth();
-    final widthChanged = currentWidth != lastTerminalWidth;
-    if (widthChanged) {
-      lastTerminalWidth = currentWidth;
-      lastResizeTime = now;
-      
-      // Skip this redraw if we just resized very recently (debouncing)
-      if (timeSinceLastResize < 50 && !firstDraw) {
-        return;
-      }
-    }
-
-    // Calculate how many lines we need to draw
+    // Calculate how many lines to clear based on what's displayed
     final hasOptions = optionsList.isNotEmpty && filteredOptions.isNotEmpty;
     final hasError = lastError != null;
     final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
-    final hasScrollIndicator = hasOptions && filteredOptions.length > 5;
-
-    // Calculate total lines we will draw
-    int linesToDraw = 3; // textfield box (top border, content, bottom border)
-    if (hasError) linesToDraw += 2; // error line + newline before it
-    if (hasOptions) {
-      linesToDraw += 1; // newline before options
-      linesToDraw += optionsToShow; // option lines
-      if (hasScrollIndicator) linesToDraw += 1; // scroll indicator
-    }
 
     // Hide cursor during redraw to reduce flicker
     stdout.write('\x1B[?25l');
 
-    // CRITICAL FIX: Never reprint the prompt! Only clear and redraw our UI
-    if (!firstDraw && lastDrawnLines > 0) {
-      // Move up to the start of our UI (not the prompt!)
-      stdout.write('\x1B[${lastDrawnLines}A');
-      
-      // Clear each line individually to avoid terminal reflow issues
-      for (int i = 0; i < lastDrawnLines; i++) {
-        stdout.write('\x1B[2K'); // Clear entire line
-        if (i < lastDrawnLines - 1) {
-          stdout.write('\x1B[1B'); // Move down one line
-        }
-      }
-      
-      // Move back to start position
-      stdout.write('\x1B[${lastDrawnLines - 1}A');
+    // Bulletproof redraw strategy:
+    // 1. Save cursor position after prompt on first draw
+    // 2. Always restore to that position and clear everything below
+    // This avoids complex position tracking that causes duplication
+    if (!firstDraw) {
+      stdout.write('\x1B[u'); // Restore to saved position (after prompt)
+      stdout.write('\x1B[J'); // Clear everything from cursor to end of screen
+    } else {
+      // First draw - save current position as our reference point
+      stdout.write('\x1B[s'); // Save cursor position
+      firstDraw = false;
     }
-    
-    // Mark that we're no longer on first draw
-    firstDraw = false;
-    lastDrawnLines = linesToDraw;
 
     // Draw text field
     _drawTextField(buffer.toString(), focusMode == _FocusMode.textfield);
@@ -203,7 +164,6 @@ Future<T?> getDataFromInput<T>({
     // Set up terminal resize handler
     ProcessSignal? resizeSignal;
     StreamSubscription<ProcessSignal>? resizeSubscription;
-    Timer? resizeCheckTimer;
 
     // Try to set up SIGWINCH handler for resize events
     // This may not work in all environments (e.g., VS Code integrated terminal)
@@ -215,22 +175,12 @@ Future<T?> getDataFromInput<T>({
           redrawUI();
         });
       } catch (_) {
-        // SIGWINCH not available - fall back to timer
+        // SIGWINCH not available - width will still update on each redraw
       }
     }
 
-    // Fallback: periodically check terminal width for environments where
-    // SIGWINCH doesn't work (VS Code, Windows, etc.)
-    // Only set up timer if SIGWINCH is not available
-    if (resizeSubscription == null) {
-      resizeCheckTimer = Timer.periodic(Duration(milliseconds: 100), (_) {
-        final currentWidth = getTerminalWidth();
-        if (currentWidth != lastTerminalWidth) {
-          // The redrawUI function will handle debouncing internally
-          redrawUI();
-        }
-      });
-    }
+    // For environments where SIGWINCH doesn't work (VS Code, Windows),
+    // the terminal width is checked on every redraw operation
 
     // Read input character by character
     await for (final key in stdin) {
@@ -314,7 +264,6 @@ Future<T?> getDataFromInput<T>({
           // Ctrl+C
           stdout.writeln('\n^C');
           await resizeSubscription?.cancel();
-          resizeCheckTimer?.cancel();
           exit(0);
         } else if (code >= 32 && code <= 126) {
           // Printable character
@@ -332,24 +281,11 @@ Future<T?> getDataFromInput<T>({
 
     // Clean up
     await resizeSubscription?.cancel();
-    resizeCheckTimer?.cancel();
 
-    // Clear the UI properly using the tracked drawn lines
-    if (lastDrawnLines > 0) {
-      // Move up to the start of our UI
-      stdout.write('\x1B[${lastDrawnLines}A');
-      
-      // Clear each line individually
-      for (int i = 0; i < lastDrawnLines; i++) {
-        stdout.write('\x1B[2K'); // Clear entire line
-        if (i < lastDrawnLines - 1) {
-          stdout.write('\x1B[1B'); // Move down one line
-        }
-      }
-      
-      // Move to start of line after clearing
-      stdout.write('\r');
-    }
+    // Clear the UI and move to next line
+    stdout.write('\x1B[u'); // Restore to saved position
+    stdout.write('\x1B[J'); // Clear everything below
+    stdout.write('\n');
   } finally {
     // Restore terminal settings
     if (stdin.hasTerminal) {
@@ -375,13 +311,12 @@ Future<String> getTextFieldInput({
   final result = await getDataFromInput<String>(
     prompt: prompt,
     userInputToOptionMapper: (input) => input, // Direct string mapping
-    inputOptions:
-        options != null
-            ? InputFormOptions<String>(
-              options: options,
-              optionToString: (s) => s, // String to string is identity
-            )
-            : null,
+    inputOptions: options != null
+        ? InputFormOptions<String>(
+            options: options,
+            optionToString: (s) => s, // String to string is identity
+          )
+        : null,
   );
 
   // Handle null result (ESC pressed) by returning empty string
@@ -527,8 +462,7 @@ int getTerminalWidth() {
   }
 
   // Check if running in VS Code
-  final isVSCode =
-      Platform.environment.containsKey('VSCODE_PID') ||
+  final isVSCode = Platform.environment.containsKey('VSCODE_PID') ||
       (Platform.environment['TERM_PROGRAM'] == 'vscode');
 
   if (isVSCode) {
