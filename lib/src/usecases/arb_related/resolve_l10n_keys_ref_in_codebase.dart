@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
@@ -9,7 +10,64 @@ import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
+
+/// Removes l10n import statements from file content.
+/// Returns a tuple of (modifiedContent, hasChanges).
+@visibleForTesting
+(String content, bool hasChanges) replaceImportsIfNeeded({
+  required String fileContent,
+  required L10nProjectConfigWithData projectConfig,
+  required String projectName,
+}) {
+  final importToRemove = projectConfig.getImportString(projectName);
+  
+  // Create regex patterns to match different import styles
+  // This matches imports with or without aliases (as, show, hide)
+  final patterns = [
+    // Standard import: import 'package:...'
+    RegExp(
+      "^import\\s+['\"]${RegExp.escape(importToRemove)}['\"];?.*\$",
+      multiLine: true,
+    ),
+    // Import with alias: import 'package:...' as alias;
+    RegExp(
+      "^import\\s+['\"]${RegExp.escape(importToRemove)}['\"]\\s+as\\s+\\w+;?.*\$",
+      multiLine: true,
+    ),
+    // Import with show/hide: import 'package:...' show/hide ...;
+    RegExp(
+      "^import\\s+['\"]${RegExp.escape(importToRemove)}['\"]\\s+(show|hide)\\s+[^;]+;?.*\$",
+      multiLine: true,
+    ),
+    // Also check for flutter_gen imports if switching from synthetic
+    if (!projectConfig.syntheticPackage)
+      RegExp(
+        "^import\\s+['\"]package:flutter_gen/gen_l10n/${projectConfig.outputClass.toLowerCase()}\\.dart['\"].*\$",
+        multiLine: true,
+      ),
+    // Also check for project package imports if switching to synthetic
+    if (projectConfig.syntheticPackage)
+      RegExp(
+        "^import\\s+['\"]package:$projectName/[^'\"]*/${projectConfig.outputClass.toLowerCase()}\\.dart['\"].*\$",
+        multiLine: true,
+      ),
+  ];
+  
+  bool hasChanges = false;
+  String result = fileContent;
+  
+  for (final pattern in patterns) {
+    if (pattern.hasMatch(result)) {
+      hasChanges = true;
+      // Replace the entire line including the newline character
+      result = result.replaceAll(pattern, '');
+    }
+  }
+  
+  return (result, hasChanges);
+}
 
 AsyncBabelResult<TranslationPayloadInfo>
     replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
@@ -42,47 +100,20 @@ AsyncBabelResult<TranslationPayloadInfo>
   final clusteredRemapedArbs =
       ordoredKeysByBiggestLenghtFirst.splitIntoGroups(30);
 
-  // Remove l10n-related imports based on outputDir and project name
-  final escapedOutputDir = RegExp.escape(projectConfigWithData.outputDir);
-  final projectName = codeBaseYamlInfo.projectName;
-  // Pattern to match package imports from the current project only
-  // This will match patterns like:
-  // - import 'package:scoutbox/gen_l10n/s.dart';
-  // - import 'package:scoutbox/gen_l10n/s.dart' as arb;
-  // - import 'package:scoutbox/gen_l10n/app_localizations.dart' show AppLocalizations;
-  // But NOT: import 'package:other_package/gen_l10n/s.dart';
-  final packageImportPattern = RegExp(
-    "import\\s+['\"]package:$projectName/$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
-    multiLine: true,
-  );
-
-  // Pattern for relative imports (these are always from the current project)
-  // This will match patterns like:
-  // - import '../gen_l10n/s.dart';
-  // - import './gen_l10n/s.dart' as arb;
-  // - import '../../gen_l10n/app_localizations.dart' show AppLocalizations;
-  final relativeImportPattern = RegExp(
-    "import\\s+['\"]\\.\\.?/[^'\"]*$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
-    multiLine: true,
-  );
+  final String projectName = codeBaseYamlInfo.projectName;
 
   for (final file in targetFiles) {
     try {
       String fileContent = await file.readAsString();
 
-      bool hasImportChanges = false;
-
-      // Remove package imports from the current project only
-      if (packageImportPattern.hasMatch(fileContent)) {
-        fileContent = fileContent.replaceAll(packageImportPattern, '');
-        hasImportChanges = true;
-      }
-
-      // Remove relative imports
-      if (relativeImportPattern.hasMatch(fileContent)) {
-        fileContent = fileContent.replaceAll(relativeImportPattern, '');
-        hasImportChanges = true;
-      }
+      // Remove l10n imports if needed
+      final (modifiedContent, hasImportChanges) = replaceImportsIfNeeded(
+        fileContent: fileContent,
+        projectConfig: projectConfigWithData,
+        projectName: projectName,
+      );
+      
+      fileContent = modifiedContent;
 
       // Clean up any multiple consecutive newlines left after import removal
       if (hasImportChanges) {
@@ -147,6 +178,15 @@ AsyncBabelResult<TranslationPayloadInfo>
       print('Error processing file ${file.path}: $e');
       continue;
     }
+  }
+
+  final fixResultAsync = await runBabelProcess(
+    command: 'dart fix --apply',
+    dirrPath: directoryPath,
+  );
+
+  if (fixResultAsync.isError()) {
+    return Failure(fixResultAsync.exceptionOrNull()!);
   }
 
   return currentPayloadInfo
