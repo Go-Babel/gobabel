@@ -14,6 +14,7 @@ _$L10nProjectConfigWithDataImpl _$$L10nProjectConfigWithDataImplFromJson(
       outputClass: json['outputClass'] as String,
       outputDir: json['outputDir'] as String,
       arbDir: json['arbDir'] as String,
+      syntheticPackage: json['syntheticPackage'] as bool,
       $type: json['runtimeType'] as String?,
     );
 
@@ -25,6 +26,7 @@ Map<String, dynamic> _$$L10nProjectConfigWithDataImplToJson(
       'outputClass': instance.outputClass,
       'outputDir': instance.outputDir,
       'arbDir': instance.arbDir,
+      'syntheticPackage': instance.syntheticPackage,
       'runtimeType': instance.$type,
     };
 

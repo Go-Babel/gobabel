@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:test/test.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/hardcoded_string/extract_all_hardcoded_strings.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:path/path.dart' as p;
+import 'package:test/test.dart';
 
 void main() {
   group('extractAllStringsInDart', () {
@@ -72,6 +72,7 @@ void main() {
             outputClass: 'AppLocalizations',
             outputDir: 'lib/generated',
             arbDir: 'lib/l10n', // Relative path as it would be in l10n.yaml
+            syntheticPackage: true,
           ),
           variablesPlaceholdersPerKey: {},
           mainLocale: BabelSupportedLocales.enUS,
@@ -85,8 +86,7 @@ void main() {
         // Apply the same filtering logic as in the actual implementation
         final projectDirectoryPath =
             testDir.path; // Simulate payload.directoryPath
-        final filesToProcess =
-            projectArbData.mapOrNull(
+        final filesToProcess = projectArbData.mapOrNull(
               withData: (arbData) {
                 final arbDir = arbData.config.mapOrNull(
                   withData: (config) => config.arbDir,

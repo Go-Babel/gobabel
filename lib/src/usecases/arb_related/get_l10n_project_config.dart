@@ -15,10 +15,9 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
 
     L10nProjectConfig? projectConfig;
 
-    final allYamlFiles =
-        allFilesList
-            .where((element) => element.path.toLowerCase().endsWith('.yaml'))
-            .toList();
+    final allYamlFiles = allFilesList
+        .where((element) => element.path.toLowerCase().endsWith('.yaml'))
+        .toList();
     if (allYamlFiles.isEmpty) {
       return L10nProjectConfig.noData().toSuccess();
     }
@@ -33,6 +32,7 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
         String? outputClass;
         String? arbDir;
         String? outputDir;
+        bool? syntheticPackage;
 
         final lines = yamlContent.split('\n');
         for (final line in lines) {
@@ -49,6 +49,8 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
             arbDir = value;
           } else if (key == 'output-dir') {
             outputDir = value;
+          } else if (key == 'synthetic-package') {
+            syntheticPackage = value.toLowerCase() == 'true';
           }
         }
 
@@ -56,7 +58,8 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
             templateArbFile != null ||
             outputClass != null ||
             arbDir != null ||
-            outputDir != null) {
+            outputDir != null ||
+            syntheticPackage != null) {
           final arbDir0 = arbDir ?? _defaultArbDir;
           projectConfig = L10nProjectConfig.withData(
             l10nFileName: fileName,
@@ -66,6 +69,8 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
             // of flutter gen-l10n is to use the arbDir
             outputDir: outputDir ?? arbDir0,
             outputClass: outputClass ?? 'AppLocalizations',
+            // Flutter's default for synthetic-package is true
+            syntheticPackage: syntheticPackage ?? true,
           );
           projectConfig = projectConfig;
         }
@@ -78,14 +83,13 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
       'i10n.yaml',
       'I10n.yaml',
     };
-    final preMappedFiles =
-        allYamlFiles
-            .where(
-              (File element) => preMappedNamesOfLanguageConfigFiles.any(
-                (String element2) => element.path.endsWith(element2),
-              ),
-            )
-            .toList();
+    final preMappedFiles = allYamlFiles
+        .where(
+          (File element) => preMappedNamesOfLanguageConfigFiles.any(
+            (String element2) => element.path.endsWith(element2),
+          ),
+        )
+        .toList();
 
     for (final File file in preMappedFiles) {
       try {
@@ -101,16 +105,15 @@ AsyncBabelResult<L10nProjectConfig> getProjectYamlConfigUsecase({
       }
     }
 
-    final otherYamlFiles =
-        allYamlFiles
-            .where(
-              (File element) =>
-                  preMappedNamesOfLanguageConfigFiles.any(
-                    (String element2) => element.path.endsWith(element2),
-                  ) ==
-                  false,
-            )
-            .toList();
+    final otherYamlFiles = allYamlFiles
+        .where(
+          (File element) =>
+              preMappedNamesOfLanguageConfigFiles.any(
+                (String element2) => element.path.endsWith(element2),
+              ) ==
+              false,
+        )
+        .toList();
 
     /// Loop until we find a l10n.yaml dirr
     for (final File file in otherYamlFiles) {
@@ -142,7 +145,8 @@ const String _defaultArbDir = 'lib/l10n';
 const String _templateArbFile = 'app_en.arb';
 
 AsyncBabelResult<GenerateFlowGotL10nProjectConfig>
-generate_getProjectYamlConfigUsecase(GenerateFlowGotTargetFiles payload) async {
+    generate_getProjectYamlConfigUsecase(
+        GenerateFlowGotTargetFiles payload) async {
   final directory = payload.directory;
   final result = await getProjectYamlConfigUsecase(curr: directory);
 

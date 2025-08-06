@@ -31,24 +31,39 @@ L10nProjectConfig _$L10nProjectConfigFromJson(Map<String, dynamic> json) {
 mixin _$L10nProjectConfig {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)
+    required TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)
         withData,
     required TResult Function() noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult? Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult? Function()? noData,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult Function()? noData,
     required TResult orElse(),
@@ -111,7 +126,8 @@ abstract class _$$L10nProjectConfigWithDataImplCopyWith<$Res> {
       String templateArbFile,
       String outputClass,
       String outputDir,
-      String arbDir});
+      String arbDir,
+      bool syntheticPackage});
 }
 
 /// @nodoc
@@ -134,6 +150,7 @@ class __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>
     Object? outputClass = null,
     Object? outputDir = null,
     Object? arbDir = null,
+    Object? syntheticPackage = null,
   }) {
     return _then(_$L10nProjectConfigWithDataImpl(
       l10nFileName: null == l10nFileName
@@ -156,6 +173,10 @@ class __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>
           ? _value.arbDir
           : arbDir // ignore: cast_nullable_to_non_nullable
               as String,
+      syntheticPackage: null == syntheticPackage
+          ? _value.syntheticPackage
+          : syntheticPackage // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -169,6 +190,7 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
       required this.outputClass,
       required this.outputDir,
       required this.arbDir,
+      required this.syntheticPackage,
       final String? $type})
       : $type = $type ?? 'withData';
 
@@ -185,13 +207,15 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
   final String outputDir;
   @override
   final String arbDir;
+  @override
+  final bool syntheticPackage;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'L10nProjectConfig.withData(l10nFileName: $l10nFileName, templateArbFile: $templateArbFile, outputClass: $outputClass, outputDir: $outputDir, arbDir: $arbDir)';
+    return 'L10nProjectConfig.withData(l10nFileName: $l10nFileName, templateArbFile: $templateArbFile, outputClass: $outputClass, outputDir: $outputDir, arbDir: $arbDir, syntheticPackage: $syntheticPackage)';
   }
 
   @override
@@ -207,13 +231,15 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
                 other.outputClass == outputClass) &&
             (identical(other.outputDir, outputDir) ||
                 other.outputDir == outputDir) &&
-            (identical(other.arbDir, arbDir) || other.arbDir == arbDir));
+            (identical(other.arbDir, arbDir) || other.arbDir == arbDir) &&
+            (identical(other.syntheticPackage, syntheticPackage) ||
+                other.syntheticPackage == syntheticPackage));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, l10nFileName, templateArbFile,
-      outputClass, outputDir, arbDir);
+      outputClass, outputDir, arbDir, syntheticPackage);
 
   /// Create a copy of L10nProjectConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -227,39 +253,54 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)
+    required TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)
         withData,
     required TResult Function() noData,
   }) {
-    return withData(
-        l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
+    return withData(l10nFileName, templateArbFile, outputClass, outputDir,
+        arbDir, syntheticPackage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult? Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult? Function()? noData,
   }) {
-    return withData?.call(
-        l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
+    return withData?.call(l10nFileName, templateArbFile, outputClass, outputDir,
+        arbDir, syntheticPackage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult Function()? noData,
     required TResult orElse(),
   }) {
     if (withData != null) {
-      return withData(
-          l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
+      return withData(l10nFileName, templateArbFile, outputClass, outputDir,
+          arbDir, syntheticPackage);
     }
     return orElse();
   }
@@ -309,7 +350,8 @@ abstract class L10nProjectConfigWithData implements L10nProjectConfig {
       required final String templateArbFile,
       required final String outputClass,
       required final String outputDir,
-      required final String arbDir}) = _$L10nProjectConfigWithDataImpl;
+      required final String arbDir,
+      required final bool syntheticPackage}) = _$L10nProjectConfigWithDataImpl;
 
   factory L10nProjectConfigWithData.fromJson(Map<String, dynamic> json) =
       _$L10nProjectConfigWithDataImpl.fromJson;
@@ -319,6 +361,7 @@ abstract class L10nProjectConfigWithData implements L10nProjectConfig {
   String get outputClass;
   String get outputDir;
   String get arbDir;
+  bool get syntheticPackage;
 
   /// Create a copy of L10nProjectConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -379,8 +422,13 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)
+    required TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)
         withData,
     required TResult Function() noData,
   }) {
@@ -390,8 +438,13 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult? Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult? Function()? noData,
   }) {
@@ -401,8 +454,13 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String l10nFileName, String templateArbFile,
-            String outputClass, String outputDir, String arbDir)?
+    TResult Function(
+            String l10nFileName,
+            String templateArbFile,
+            String outputClass,
+            String outputDir,
+            String arbDir,
+            bool syntheticPackage)?
         withData,
     TResult Function()? noData,
     required TResult orElse(),

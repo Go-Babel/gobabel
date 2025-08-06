@@ -11,6 +11,7 @@ abstract class L10nProjectConfig with _$L10nProjectConfig {
     required String outputClass,
     required String outputDir,
     required String arbDir,
+    required bool syntheticPackage,
   }) = L10nProjectConfigWithData;
 
   factory L10nProjectConfig.noData() = _L10nProjectConfigNoData;

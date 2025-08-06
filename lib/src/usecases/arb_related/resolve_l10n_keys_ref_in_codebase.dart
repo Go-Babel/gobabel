@@ -34,34 +34,41 @@ AsyncBabelResult<TranslationPayloadInfo>
   final String directDelegate = '$outputClass'
       r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)\s*!?';
 
+  // The index 0 will be the one with the biggest length
+  final ordoredKeysByBiggestLenghtFirst = remapedArbKeys.keys.toList()
+    ..sort((a, b) => b.length.compareTo(a.length));
+  // Split into groups of 30 to avoid overwhelming the regex engine
+  // This is a heuristic to balance performance and complexity
+  final clusteredRemapedArbs =
+      ordoredKeysByBiggestLenghtFirst.splitIntoGroups(30);
+
+  // Remove l10n-related imports based on outputDir and project name
+  final escapedOutputDir = RegExp.escape(projectConfigWithData.outputDir);
+  final projectName = codeBaseYamlInfo.projectName;
+  // Pattern to match package imports from the current project only
+  // This will match patterns like:
+  // - import 'package:scoutbox/gen_l10n/s.dart';
+  // - import 'package:scoutbox/gen_l10n/s.dart' as arb;
+  // - import 'package:scoutbox/gen_l10n/app_localizations.dart' show AppLocalizations;
+  // But NOT: import 'package:other_package/gen_l10n/s.dart';
+  final packageImportPattern = RegExp(
+    "import\\s+['\"]package:$projectName/$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
+    multiLine: true,
+  );
+
+  // Pattern for relative imports (these are always from the current project)
+  // This will match patterns like:
+  // - import '../gen_l10n/s.dart';
+  // - import './gen_l10n/s.dart' as arb;
+  // - import '../../gen_l10n/app_localizations.dart' show AppLocalizations;
+  final relativeImportPattern = RegExp(
+    "import\\s+['\"]\\.\\.?/[^'\"]*$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
+    multiLine: true,
+  );
+
   for (final file in targetFiles) {
     try {
       String fileContent = await file.readAsString();
-
-      // Remove l10n-related imports based on outputDir and project name
-      final escapedOutputDir = RegExp.escape(projectConfigWithData.outputDir);
-      final projectName = codeBaseYamlInfo.projectName;
-
-      // Pattern to match package imports from the current project only
-      // This will match patterns like:
-      // - import 'package:scoutbox/gen_l10n/s.dart';
-      // - import 'package:scoutbox/gen_l10n/s.dart' as arb;
-      // - import 'package:scoutbox/gen_l10n/app_localizations.dart' show AppLocalizations;
-      // But NOT: import 'package:other_package/gen_l10n/s.dart';
-      final packageImportPattern = RegExp(
-        "import\\s+['\"]package:$projectName/$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
-        multiLine: true,
-      );
-
-      // Pattern for relative imports (these are always from the current project)
-      // This will match patterns like:
-      // - import '../gen_l10n/s.dart';
-      // - import './gen_l10n/s.dart' as arb;
-      // - import '../../gen_l10n/app_localizations.dart' show AppLocalizations;
-      final relativeImportPattern = RegExp(
-        "import\\s+['\"]\\.\\.?/[^'\"]*$escapedOutputDir/[^'\"]+\\.dart['\"][^;\\n]*;?\\s*\\n?",
-        multiLine: true,
-      );
 
       bool hasImportChanges = false;
 
@@ -93,12 +100,11 @@ AsyncBabelResult<TranslationPayloadInfo>
         return kBabelClass;
       });
       // Let's group the entries so we won't overhelm the regex engine
-      final clusteredRemapedArbs = remapedArbKeys.entries.splitIntoGroups(30);
+
       for (final group in clusteredRemapedArbs) {
         String variableNamesIdentifiers = '';
 
-        for (final entry in group) {
-          final L10nKey originalKey = entry.key;
+        for (final L10nKey originalKey in group) {
           variableNamesIdentifiers = variableNamesIdentifiers.isEmpty
               ? originalKey
               : '$variableNamesIdentifiers|$originalKey';
