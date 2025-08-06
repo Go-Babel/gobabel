@@ -12,12 +12,10 @@ part of 'project_last_commit_sha_stamps.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ProjectLastCommitShaStamps _$ProjectLastCommitShaStampsFromJson(
-  Map<String, dynamic> json,
-) {
+    Map<String, dynamic> json) {
   return _ProjectLastCommitShaStamps.fromJson(json);
 }
 
@@ -33,28 +31,22 @@ mixin _$ProjectLastCommitShaStamps {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $ProjectLastCommitShaStampsCopyWith<ProjectLastCommitShaStamps>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ProjectLastCommitShaStampsCopyWith<$Res> {
-  factory $ProjectLastCommitShaStampsCopyWith(
-    ProjectLastCommitShaStamps value,
-    $Res Function(ProjectLastCommitShaStamps) then,
-  ) =
-      _$ProjectLastCommitShaStampsCopyWithImpl<
-        $Res,
-        ProjectLastCommitShaStamps
-      >;
+  factory $ProjectLastCommitShaStampsCopyWith(ProjectLastCommitShaStamps value,
+          $Res Function(ProjectLastCommitShaStamps) then) =
+      _$ProjectLastCommitShaStampsCopyWithImpl<$Res,
+          ProjectLastCommitShaStamps>;
   @useResult
   $Res call({String lastCommitShaShort, String lastCommitShaFull});
 }
 
 /// @nodoc
-class _$ProjectLastCommitShaStampsCopyWithImpl<
-  $Res,
-  $Val extends ProjectLastCommitShaStamps
->
+class _$ProjectLastCommitShaStampsCopyWithImpl<$Res,
+        $Val extends ProjectLastCommitShaStamps>
     implements $ProjectLastCommitShaStampsCopyWith<$Res> {
   _$ProjectLastCommitShaStampsCopyWithImpl(this._value, this._then);
 
@@ -71,21 +63,16 @@ class _$ProjectLastCommitShaStampsCopyWithImpl<
     Object? lastCommitShaShort = null,
     Object? lastCommitShaFull = null,
   }) {
-    return _then(
-      _value.copyWith(
-            lastCommitShaShort:
-                null == lastCommitShaShort
-                    ? _value.lastCommitShaShort
-                    : lastCommitShaShort // ignore: cast_nullable_to_non_nullable
-                        as String,
-            lastCommitShaFull:
-                null == lastCommitShaFull
-                    ? _value.lastCommitShaFull
-                    : lastCommitShaFull // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      lastCommitShaShort: null == lastCommitShaShort
+          ? _value.lastCommitShaShort
+          : lastCommitShaShort // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastCommitShaFull: null == lastCommitShaFull
+          ? _value.lastCommitShaFull
+          : lastCommitShaFull // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
@@ -93,9 +80,9 @@ class _$ProjectLastCommitShaStampsCopyWithImpl<
 abstract class _$$ProjectLastCommitShaStampsImplCopyWith<$Res>
     implements $ProjectLastCommitShaStampsCopyWith<$Res> {
   factory _$$ProjectLastCommitShaStampsImplCopyWith(
-    _$ProjectLastCommitShaStampsImpl value,
-    $Res Function(_$ProjectLastCommitShaStampsImpl) then,
-  ) = __$$ProjectLastCommitShaStampsImplCopyWithImpl<$Res>;
+          _$ProjectLastCommitShaStampsImpl value,
+          $Res Function(_$ProjectLastCommitShaStampsImpl) then) =
+      __$$ProjectLastCommitShaStampsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String lastCommitShaShort, String lastCommitShaFull});
@@ -103,16 +90,13 @@ abstract class _$$ProjectLastCommitShaStampsImplCopyWith<$Res>
 
 /// @nodoc
 class __$$ProjectLastCommitShaStampsImplCopyWithImpl<$Res>
-    extends
-        _$ProjectLastCommitShaStampsCopyWithImpl<
-          $Res,
-          _$ProjectLastCommitShaStampsImpl
-        >
+    extends _$ProjectLastCommitShaStampsCopyWithImpl<$Res,
+        _$ProjectLastCommitShaStampsImpl>
     implements _$$ProjectLastCommitShaStampsImplCopyWith<$Res> {
   __$$ProjectLastCommitShaStampsImplCopyWithImpl(
-    _$ProjectLastCommitShaStampsImpl _value,
-    $Res Function(_$ProjectLastCommitShaStampsImpl) _then,
-  ) : super(_value, _then);
+      _$ProjectLastCommitShaStampsImpl _value,
+      $Res Function(_$ProjectLastCommitShaStampsImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of ProjectLastCommitShaStamps
   /// with the given fields replaced by the non-null parameter values.
@@ -122,34 +106,28 @@ class __$$ProjectLastCommitShaStampsImplCopyWithImpl<$Res>
     Object? lastCommitShaShort = null,
     Object? lastCommitShaFull = null,
   }) {
-    return _then(
-      _$ProjectLastCommitShaStampsImpl(
-        lastCommitShaShort:
-            null == lastCommitShaShort
-                ? _value.lastCommitShaShort
-                : lastCommitShaShort // ignore: cast_nullable_to_non_nullable
-                    as String,
-        lastCommitShaFull:
-            null == lastCommitShaFull
-                ? _value.lastCommitShaFull
-                : lastCommitShaFull // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$ProjectLastCommitShaStampsImpl(
+      lastCommitShaShort: null == lastCommitShaShort
+          ? _value.lastCommitShaShort
+          : lastCommitShaShort // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastCommitShaFull: null == lastCommitShaFull
+          ? _value.lastCommitShaFull
+          : lastCommitShaFull // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ProjectLastCommitShaStampsImpl implements _ProjectLastCommitShaStamps {
-  const _$ProjectLastCommitShaStampsImpl({
-    required this.lastCommitShaShort,
-    required this.lastCommitShaFull,
-  });
+  const _$ProjectLastCommitShaStampsImpl(
+      {required this.lastCommitShaShort, required this.lastCommitShaFull});
 
   factory _$ProjectLastCommitShaStampsImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$ProjectLastCommitShaStampsImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$ProjectLastCommitShaStampsImplFromJson(json);
 
   @override
   final String lastCommitShaShort;
@@ -183,22 +161,23 @@ class _$ProjectLastCommitShaStampsImpl implements _ProjectLastCommitShaStamps {
   @override
   @pragma('vm:prefer-inline')
   _$$ProjectLastCommitShaStampsImplCopyWith<_$ProjectLastCommitShaStampsImpl>
-  get copyWith => __$$ProjectLastCommitShaStampsImplCopyWithImpl<
-    _$ProjectLastCommitShaStampsImpl
-  >(this, _$identity);
+      get copyWith => __$$ProjectLastCommitShaStampsImplCopyWithImpl<
+          _$ProjectLastCommitShaStampsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProjectLastCommitShaStampsImplToJson(this);
+    return _$$ProjectLastCommitShaStampsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ProjectLastCommitShaStamps
     implements ProjectLastCommitShaStamps {
-  const factory _ProjectLastCommitShaStamps({
-    required final String lastCommitShaShort,
-    required final String lastCommitShaFull,
-  }) = _$ProjectLastCommitShaStampsImpl;
+  const factory _ProjectLastCommitShaStamps(
+          {required final String lastCommitShaShort,
+          required final String lastCommitShaFull}) =
+      _$ProjectLastCommitShaStampsImpl;
 
   factory _ProjectLastCommitShaStamps.fromJson(Map<String, dynamic> json) =
       _$ProjectLastCommitShaStampsImpl.fromJson;
@@ -213,5 +192,5 @@ abstract class _ProjectLastCommitShaStamps
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProjectLastCommitShaStampsImplCopyWith<_$ProjectLastCommitShaStampsImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }

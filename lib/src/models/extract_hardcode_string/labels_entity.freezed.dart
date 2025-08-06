@@ -12,8 +12,7 @@ part of 'labels_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LabelsEntity _$LabelsEntityFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -25,12 +24,8 @@ LabelsEntity _$LabelsEntityFromJson(Map<String, dynamic> json) {
       return LabelsEntityLabelDynamicValue.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'LabelsEntity',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'LabelsEntity',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -40,105 +35,88 @@ mixin _$LabelsEntity {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<LabelsEntity> children)
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String l10nKey, String hardcodedString, int fileStartIndex,
+            int fileEndIndex, String filePath, List<LabelsEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LabelsEntityRootLabel value) rootLabel,
     required TResult Function(LabelsEntityChildLabel value) childLabel,
     required TResult Function(LabelsEntityLabelDynamicValue value)
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LabelsEntityRootLabel value)? rootLabel,
     TResult? Function(LabelsEntityChildLabel value)? childLabel,
     TResult? Function(LabelsEntityLabelDynamicValue value)? labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LabelsEntityRootLabel value)? rootLabel,
     TResult Function(LabelsEntityChildLabel value)? childLabel,
     TResult Function(LabelsEntityLabelDynamicValue value)? labelDynamicValue,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this LabelsEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -153,9 +131,8 @@ mixin _$LabelsEntity {
 /// @nodoc
 abstract class $LabelsEntityCopyWith<$Res> {
   factory $LabelsEntityCopyWith(
-    LabelsEntity value,
-    $Res Function(LabelsEntity) then,
-  ) = _$LabelsEntityCopyWithImpl<$Res, LabelsEntity>;
+          LabelsEntity value, $Res Function(LabelsEntity) then) =
+      _$LabelsEntityCopyWithImpl<$Res, LabelsEntity>;
   @useResult
   $Res call({List<LabelsEntity> children});
 }
@@ -174,17 +151,15 @@ class _$LabelsEntityCopyWithImpl<$Res, $Val extends LabelsEntity>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? children = null}) {
-    return _then(
-      _value.copyWith(
-            children:
-                null == children
-                    ? _value.children
-                    : children // ignore: cast_nullable_to_non_nullable
-                        as List<LabelsEntity>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? children = null,
+  }) {
+    return _then(_value.copyWith(
+      children: null == children
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<LabelsEntity>,
+    ) as $Val);
   }
 }
 
@@ -192,29 +167,27 @@ class _$LabelsEntityCopyWithImpl<$Res, $Val extends LabelsEntity>
 abstract class _$$LabelsEntityRootLabelImplCopyWith<$Res>
     implements $LabelsEntityCopyWith<$Res> {
   factory _$$LabelsEntityRootLabelImplCopyWith(
-    _$LabelsEntityRootLabelImpl value,
-    $Res Function(_$LabelsEntityRootLabelImpl) then,
-  ) = __$$LabelsEntityRootLabelImplCopyWithImpl<$Res>;
+          _$LabelsEntityRootLabelImpl value,
+          $Res Function(_$LabelsEntityRootLabelImpl) then) =
+      __$$LabelsEntityRootLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String l10nKey,
-    String hardcodedString,
-    int fileStartIndex,
-    int fileEndIndex,
-    String filePath,
-    List<LabelsEntity> children,
-  });
+  $Res call(
+      {String l10nKey,
+      String hardcodedString,
+      int fileStartIndex,
+      int fileEndIndex,
+      String filePath,
+      List<LabelsEntity> children});
 }
 
 /// @nodoc
 class __$$LabelsEntityRootLabelImplCopyWithImpl<$Res>
     extends _$LabelsEntityCopyWithImpl<$Res, _$LabelsEntityRootLabelImpl>
     implements _$$LabelsEntityRootLabelImplCopyWith<$Res> {
-  __$$LabelsEntityRootLabelImplCopyWithImpl(
-    _$LabelsEntityRootLabelImpl _value,
-    $Res Function(_$LabelsEntityRootLabelImpl) _then,
-  ) : super(_value, _then);
+  __$$LabelsEntityRootLabelImplCopyWithImpl(_$LabelsEntityRootLabelImpl _value,
+      $Res Function(_$LabelsEntityRootLabelImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -228,56 +201,48 @@ class __$$LabelsEntityRootLabelImplCopyWithImpl<$Res>
     Object? filePath = null,
     Object? children = null,
   }) {
-    return _then(
-      _$LabelsEntityRootLabelImpl(
-        l10nKey:
-            null == l10nKey
-                ? _value.l10nKey
-                : l10nKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        hardcodedString:
-            null == hardcodedString
-                ? _value.hardcodedString
-                : hardcodedString // ignore: cast_nullable_to_non_nullable
-                    as String,
-        fileStartIndex:
-            null == fileStartIndex
-                ? _value.fileStartIndex
-                : fileStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        fileEndIndex:
-            null == fileEndIndex
-                ? _value.fileEndIndex
-                : fileEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        filePath:
-            null == filePath
-                ? _value.filePath
-                : filePath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<LabelsEntity>,
-      ),
-    );
+    return _then(_$LabelsEntityRootLabelImpl(
+      l10nKey: null == l10nKey
+          ? _value.l10nKey
+          : l10nKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      hardcodedString: null == hardcodedString
+          ? _value.hardcodedString
+          : hardcodedString // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileStartIndex: null == fileStartIndex
+          ? _value.fileStartIndex
+          : fileStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      fileEndIndex: null == fileEndIndex
+          ? _value.fileEndIndex
+          : fileEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filePath: null == filePath
+          ? _value.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<LabelsEntity>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LabelsEntityRootLabelImpl implements LabelsEntityRootLabel {
-  _$LabelsEntityRootLabelImpl({
-    required this.l10nKey,
-    required this.hardcodedString,
-    required this.fileStartIndex,
-    required this.fileEndIndex,
-    required this.filePath,
-    required final List<LabelsEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'rootLabel';
+  _$LabelsEntityRootLabelImpl(
+      {required this.l10nKey,
+      required this.hardcodedString,
+      required this.fileStartIndex,
+      required this.fileEndIndex,
+      required this.filePath,
+      required final List<LabelsEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'rootLabel';
 
   factory _$LabelsEntityRootLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelsEntityRootLabelImplFromJson(json);
@@ -328,14 +293,13 @@ class _$LabelsEntityRootLabelImpl implements LabelsEntityRootLabel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    l10nKey,
-    hardcodedString,
-    fileStartIndex,
-    fileEndIndex,
-    filePath,
-    const DeepCollectionEquality().hash(_children),
-  );
+      runtimeType,
+      l10nKey,
+      hardcodedString,
+      fileStartIndex,
+      fileEndIndex,
+      filePath,
+      const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -343,126 +307,82 @@ class _$LabelsEntityRootLabelImpl implements LabelsEntityRootLabel {
   @override
   @pragma('vm:prefer-inline')
   _$$LabelsEntityRootLabelImplCopyWith<_$LabelsEntityRootLabelImpl>
-  get copyWith =>
-      __$$LabelsEntityRootLabelImplCopyWithImpl<_$LabelsEntityRootLabelImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$LabelsEntityRootLabelImplCopyWithImpl<
+          _$LabelsEntityRootLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<LabelsEntity> children)
+        labelDynamicValue,
   }) {
-    return rootLabel(
-      l10nKey,
-      hardcodedString,
-      fileStartIndex,
-      fileEndIndex,
-      filePath,
-      children,
-    );
+    return rootLabel(l10nKey, hardcodedString, fileStartIndex, fileEndIndex,
+        filePath, children);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
   }) {
-    return rootLabel?.call(
-      l10nKey,
-      hardcodedString,
-      fileStartIndex,
-      fileEndIndex,
-      filePath,
-      children,
-    );
+    return rootLabel?.call(l10nKey, hardcodedString, fileStartIndex,
+        fileEndIndex, filePath, children);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String l10nKey, String hardcodedString, int fileStartIndex,
+            int fileEndIndex, String filePath, List<LabelsEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (rootLabel != null) {
-      return rootLabel(
-        l10nKey,
-        hardcodedString,
-        fileStartIndex,
-        fileEndIndex,
-        filePath,
-        children,
-      );
+      return rootLabel(l10nKey, hardcodedString, fileStartIndex, fileEndIndex,
+          filePath, children);
     }
     return orElse();
   }
@@ -473,7 +393,7 @@ class _$LabelsEntityRootLabelImpl implements LabelsEntityRootLabel {
     required TResult Function(LabelsEntityRootLabel value) rootLabel,
     required TResult Function(LabelsEntityChildLabel value) childLabel,
     required TResult Function(LabelsEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return rootLabel(this);
   }
@@ -504,19 +424,21 @@ class _$LabelsEntityRootLabelImpl implements LabelsEntityRootLabel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LabelsEntityRootLabelImplToJson(this);
+    return _$$LabelsEntityRootLabelImplToJson(
+      this,
+    );
   }
 }
 
 abstract class LabelsEntityRootLabel implements LabelsEntity {
-  factory LabelsEntityRootLabel({
-    required final String l10nKey,
-    required final String hardcodedString,
-    required final int fileStartIndex,
-    required final int fileEndIndex,
-    required final String filePath,
-    required final List<LabelsEntity> children,
-  }) = _$LabelsEntityRootLabelImpl;
+  factory LabelsEntityRootLabel(
+          {required final String l10nKey,
+          required final String hardcodedString,
+          required final int fileStartIndex,
+          required final int fileEndIndex,
+          required final String filePath,
+          required final List<LabelsEntity> children}) =
+      _$LabelsEntityRootLabelImpl;
 
   factory LabelsEntityRootLabel.fromJson(Map<String, dynamic> json) =
       _$LabelsEntityRootLabelImpl.fromJson;
@@ -534,25 +456,24 @@ abstract class LabelsEntityRootLabel implements LabelsEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelsEntityRootLabelImplCopyWith<_$LabelsEntityRootLabelImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LabelsEntityChildLabelImplCopyWith<$Res>
     implements $LabelsEntityCopyWith<$Res> {
   factory _$$LabelsEntityChildLabelImplCopyWith(
-    _$LabelsEntityChildLabelImpl value,
-    $Res Function(_$LabelsEntityChildLabelImpl) then,
-  ) = __$$LabelsEntityChildLabelImplCopyWithImpl<$Res>;
+          _$LabelsEntityChildLabelImpl value,
+          $Res Function(_$LabelsEntityChildLabelImpl) then) =
+      __$$LabelsEntityChildLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String l10nKey,
-    String hardcodedString,
-    int parentStartIndex,
-    int parentEndIndex,
-    List<LabelsEntity> children,
-  });
+  $Res call(
+      {String l10nKey,
+      String hardcodedString,
+      int parentStartIndex,
+      int parentEndIndex,
+      List<LabelsEntity> children});
 }
 
 /// @nodoc
@@ -560,9 +481,9 @@ class __$$LabelsEntityChildLabelImplCopyWithImpl<$Res>
     extends _$LabelsEntityCopyWithImpl<$Res, _$LabelsEntityChildLabelImpl>
     implements _$$LabelsEntityChildLabelImplCopyWith<$Res> {
   __$$LabelsEntityChildLabelImplCopyWithImpl(
-    _$LabelsEntityChildLabelImpl _value,
-    $Res Function(_$LabelsEntityChildLabelImpl) _then,
-  ) : super(_value, _then);
+      _$LabelsEntityChildLabelImpl _value,
+      $Res Function(_$LabelsEntityChildLabelImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -575,50 +496,43 @@ class __$$LabelsEntityChildLabelImplCopyWithImpl<$Res>
     Object? parentEndIndex = null,
     Object? children = null,
   }) {
-    return _then(
-      _$LabelsEntityChildLabelImpl(
-        l10nKey:
-            null == l10nKey
-                ? _value.l10nKey
-                : l10nKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        hardcodedString:
-            null == hardcodedString
-                ? _value.hardcodedString
-                : hardcodedString // ignore: cast_nullable_to_non_nullable
-                    as String,
-        parentStartIndex:
-            null == parentStartIndex
-                ? _value.parentStartIndex
-                : parentStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        parentEndIndex:
-            null == parentEndIndex
-                ? _value.parentEndIndex
-                : parentEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<LabelsEntity>,
-      ),
-    );
+    return _then(_$LabelsEntityChildLabelImpl(
+      l10nKey: null == l10nKey
+          ? _value.l10nKey
+          : l10nKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      hardcodedString: null == hardcodedString
+          ? _value.hardcodedString
+          : hardcodedString // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentStartIndex: null == parentStartIndex
+          ? _value.parentStartIndex
+          : parentStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentEndIndex: null == parentEndIndex
+          ? _value.parentEndIndex
+          : parentEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<LabelsEntity>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LabelsEntityChildLabelImpl implements LabelsEntityChildLabel {
-  _$LabelsEntityChildLabelImpl({
-    required this.l10nKey,
-    required this.hardcodedString,
-    required this.parentStartIndex,
-    required this.parentEndIndex,
-    required final List<LabelsEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'childLabel';
+  _$LabelsEntityChildLabelImpl(
+      {required this.l10nKey,
+      required this.hardcodedString,
+      required this.parentStartIndex,
+      required this.parentEndIndex,
+      required final List<LabelsEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'childLabel';
 
   factory _$LabelsEntityChildLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelsEntityChildLabelImplFromJson(json);
@@ -665,13 +579,12 @@ class _$LabelsEntityChildLabelImpl implements LabelsEntityChildLabel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    l10nKey,
-    hardcodedString,
-    parentStartIndex,
-    parentEndIndex,
-    const DeepCollectionEquality().hash(_children),
-  );
+      runtimeType,
+      l10nKey,
+      hardcodedString,
+      parentStartIndex,
+      parentEndIndex,
+      const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -679,123 +592,82 @@ class _$LabelsEntityChildLabelImpl implements LabelsEntityChildLabel {
   @override
   @pragma('vm:prefer-inline')
   _$$LabelsEntityChildLabelImplCopyWith<_$LabelsEntityChildLabelImpl>
-  get copyWith =>
-      __$$LabelsEntityChildLabelImplCopyWithImpl<_$LabelsEntityChildLabelImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$LabelsEntityChildLabelImplCopyWithImpl<
+          _$LabelsEntityChildLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<LabelsEntity> children)
+        labelDynamicValue,
   }) {
     return childLabel(
-      l10nKey,
-      hardcodedString,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        l10nKey, hardcodedString, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
   }) {
     return childLabel?.call(
-      l10nKey,
-      hardcodedString,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        l10nKey, hardcodedString, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String l10nKey, String hardcodedString, int fileStartIndex,
+            int fileEndIndex, String filePath, List<LabelsEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (childLabel != null) {
       return childLabel(
-        l10nKey,
-        hardcodedString,
-        parentStartIndex,
-        parentEndIndex,
-        children,
-      );
+          l10nKey, hardcodedString, parentStartIndex, parentEndIndex, children);
     }
     return orElse();
   }
@@ -806,7 +678,7 @@ class _$LabelsEntityChildLabelImpl implements LabelsEntityChildLabel {
     required TResult Function(LabelsEntityRootLabel value) rootLabel,
     required TResult Function(LabelsEntityChildLabel value) childLabel,
     required TResult Function(LabelsEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return childLabel(this);
   }
@@ -837,18 +709,20 @@ class _$LabelsEntityChildLabelImpl implements LabelsEntityChildLabel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LabelsEntityChildLabelImplToJson(this);
+    return _$$LabelsEntityChildLabelImplToJson(
+      this,
+    );
   }
 }
 
 abstract class LabelsEntityChildLabel implements LabelsEntity {
-  factory LabelsEntityChildLabel({
-    required final String l10nKey,
-    required final String hardcodedString,
-    required final int parentStartIndex,
-    required final int parentEndIndex,
-    required final List<LabelsEntity> children,
-  }) = _$LabelsEntityChildLabelImpl;
+  factory LabelsEntityChildLabel(
+          {required final String l10nKey,
+          required final String hardcodedString,
+          required final int parentStartIndex,
+          required final int parentEndIndex,
+          required final List<LabelsEntity> children}) =
+      _$LabelsEntityChildLabelImpl;
 
   factory LabelsEntityChildLabel.fromJson(Map<String, dynamic> json) =
       _$LabelsEntityChildLabelImpl.fromJson;
@@ -865,35 +739,34 @@ abstract class LabelsEntityChildLabel implements LabelsEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelsEntityChildLabelImplCopyWith<_$LabelsEntityChildLabelImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LabelsEntityLabelDynamicValueImplCopyWith<$Res>
     implements $LabelsEntityCopyWith<$Res> {
   factory _$$LabelsEntityLabelDynamicValueImplCopyWith(
-    _$LabelsEntityLabelDynamicValueImpl value,
-    $Res Function(_$LabelsEntityLabelDynamicValueImpl) then,
-  ) = __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<$Res>;
+          _$LabelsEntityLabelDynamicValueImpl value,
+          $Res Function(_$LabelsEntityLabelDynamicValueImpl) then) =
+      __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String content,
-    int parentStartIndex,
-    int parentEndIndex,
-    List<LabelsEntity> children,
-  });
+  $Res call(
+      {String content,
+      int parentStartIndex,
+      int parentEndIndex,
+      List<LabelsEntity> children});
 }
 
 /// @nodoc
 class __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<$Res>
-    extends
-        _$LabelsEntityCopyWithImpl<$Res, _$LabelsEntityLabelDynamicValueImpl>
+    extends _$LabelsEntityCopyWithImpl<$Res,
+        _$LabelsEntityLabelDynamicValueImpl>
     implements _$$LabelsEntityLabelDynamicValueImplCopyWith<$Res> {
   __$$LabelsEntityLabelDynamicValueImplCopyWithImpl(
-    _$LabelsEntityLabelDynamicValueImpl _value,
-    $Res Function(_$LabelsEntityLabelDynamicValueImpl) _then,
-  ) : super(_value, _then);
+      _$LabelsEntityLabelDynamicValueImpl _value,
+      $Res Function(_$LabelsEntityLabelDynamicValueImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -905,30 +778,24 @@ class __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<$Res>
     Object? parentEndIndex = null,
     Object? children = null,
   }) {
-    return _then(
-      _$LabelsEntityLabelDynamicValueImpl(
-        content:
-            null == content
-                ? _value.content
-                : content // ignore: cast_nullable_to_non_nullable
-                    as String,
-        parentStartIndex:
-            null == parentStartIndex
-                ? _value.parentStartIndex
-                : parentStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        parentEndIndex:
-            null == parentEndIndex
-                ? _value.parentEndIndex
-                : parentEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<LabelsEntity>,
-      ),
-    );
+    return _then(_$LabelsEntityLabelDynamicValueImpl(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentStartIndex: null == parentStartIndex
+          ? _value.parentStartIndex
+          : parentStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentEndIndex: null == parentEndIndex
+          ? _value.parentEndIndex
+          : parentEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<LabelsEntity>,
+    ));
   }
 }
 
@@ -936,18 +803,18 @@ class __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LabelsEntityLabelDynamicValueImpl
     implements LabelsEntityLabelDynamicValue {
-  _$LabelsEntityLabelDynamicValueImpl({
-    required this.content,
-    required this.parentStartIndex,
-    required this.parentEndIndex,
-    required final List<LabelsEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'labelDynamicValue';
+  _$LabelsEntityLabelDynamicValueImpl(
+      {required this.content,
+      required this.parentStartIndex,
+      required this.parentEndIndex,
+      required final List<LabelsEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'labelDynamicValue';
 
   factory _$LabelsEntityLabelDynamicValueImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$LabelsEntityLabelDynamicValueImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$LabelsEntityLabelDynamicValueImplFromJson(json);
 
   @override
   final String content;
@@ -986,13 +853,8 @@ class _$LabelsEntityLabelDynamicValueImpl
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    content,
-    parentStartIndex,
-    parentEndIndex,
-    const DeepCollectionEquality().hash(_children),
-  );
+  int get hashCode => Object.hash(runtimeType, content, parentStartIndex,
+      parentEndIndex, const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of LabelsEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -1000,120 +862,83 @@ class _$LabelsEntityLabelDynamicValueImpl
   @override
   @pragma('vm:prefer-inline')
   _$$LabelsEntityLabelDynamicValueImplCopyWith<
-    _$LabelsEntityLabelDynamicValueImpl
-  >
-  get copyWith => __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<
-    _$LabelsEntityLabelDynamicValueImpl
-  >(this, _$identity);
+          _$LabelsEntityLabelDynamicValueImpl>
+      get copyWith => __$$LabelsEntityLabelDynamicValueImplCopyWithImpl<
+          _$LabelsEntityLabelDynamicValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<LabelsEntity> children)
+        labelDynamicValue,
   }) {
     return labelDynamicValue(
-      content,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        content, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String hardcodedString,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<LabelsEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
   }) {
     return labelDynamicValue?.call(
-      content,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        content, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String l10nKey, String hardcodedString, int fileStartIndex,
+            int fileEndIndex, String filePath, List<LabelsEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<LabelsEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String hardcodedString,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<LabelsEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String hardcodedString,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<LabelsEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<LabelsEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (labelDynamicValue != null) {
       return labelDynamicValue(
-        content,
-        parentStartIndex,
-        parentEndIndex,
-        children,
-      );
+          content, parentStartIndex, parentEndIndex, children);
     }
     return orElse();
   }
@@ -1124,7 +949,7 @@ class _$LabelsEntityLabelDynamicValueImpl
     required TResult Function(LabelsEntityRootLabel value) rootLabel,
     required TResult Function(LabelsEntityChildLabel value) childLabel,
     required TResult Function(LabelsEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return labelDynamicValue(this);
   }
@@ -1155,17 +980,19 @@ class _$LabelsEntityLabelDynamicValueImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LabelsEntityLabelDynamicValueImplToJson(this);
+    return _$$LabelsEntityLabelDynamicValueImplToJson(
+      this,
+    );
   }
 }
 
 abstract class LabelsEntityLabelDynamicValue implements LabelsEntity {
-  factory LabelsEntityLabelDynamicValue({
-    required final String content,
-    required final int parentStartIndex,
-    required final int parentEndIndex,
-    required final List<LabelsEntity> children,
-  }) = _$LabelsEntityLabelDynamicValueImpl;
+  factory LabelsEntityLabelDynamicValue(
+          {required final String content,
+          required final int parentStartIndex,
+          required final int parentEndIndex,
+          required final List<LabelsEntity> children}) =
+      _$LabelsEntityLabelDynamicValueImpl;
 
   factory LabelsEntityLabelDynamicValue.fromJson(Map<String, dynamic> json) =
       _$LabelsEntityLabelDynamicValueImpl.fromJson;
@@ -1181,7 +1008,6 @@ abstract class LabelsEntityLabelDynamicValue implements LabelsEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LabelsEntityLabelDynamicValueImplCopyWith<
-    _$LabelsEntityLabelDynamicValueImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$LabelsEntityLabelDynamicValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -53,6 +53,7 @@ AsyncBabelResult<GenerateFlowProjectCacheMap> generate_getProjectCacheMap(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: gitVariables,

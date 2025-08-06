@@ -12,8 +12,7 @@ part of 'files_verification.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 FilesVerification _$FilesVerificationFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -23,12 +22,8 @@ FilesVerification _$FilesVerificationFromJson(Map<String, dynamic> json) {
       return _FilesVerificationFromLastCommit.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'FilesVerification',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'FilesVerification',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -38,35 +33,41 @@ mixin _$FilesVerification {
   TResult when<TResult extends Object?>({
     required TResult Function() fromZero,
     required TResult Function(List<String> changedFilesPath) fromLastCommit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fromZero,
     TResult? Function(List<String> changedFilesPath)? fromLastCommit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fromZero,
     TResult Function(List<String> changedFilesPath)? fromLastCommit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FilesVerificationFromZero value) fromZero,
     required TResult Function(_FilesVerificationFromLastCommit value)
-    fromLastCommit,
-  }) => throw _privateConstructorUsedError;
+        fromLastCommit,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FilesVerificationFromZero value)? fromZero,
     TResult? Function(_FilesVerificationFromLastCommit value)? fromLastCommit,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FilesVerificationFromZero value)? fromZero,
     TResult Function(_FilesVerificationFromLastCommit value)? fromLastCommit,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this FilesVerification to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -75,9 +76,8 @@ mixin _$FilesVerification {
 /// @nodoc
 abstract class $FilesVerificationCopyWith<$Res> {
   factory $FilesVerificationCopyWith(
-    FilesVerification value,
-    $Res Function(FilesVerification) then,
-  ) = _$FilesVerificationCopyWithImpl<$Res, FilesVerification>;
+          FilesVerification value, $Res Function(FilesVerification) then) =
+      _$FilesVerificationCopyWithImpl<$Res, FilesVerification>;
 }
 
 /// @nodoc
@@ -97,20 +97,20 @@ class _$FilesVerificationCopyWithImpl<$Res, $Val extends FilesVerification>
 /// @nodoc
 abstract class _$$FilesVerificationFromZeroImplCopyWith<$Res> {
   factory _$$FilesVerificationFromZeroImplCopyWith(
-    _$FilesVerificationFromZeroImpl value,
-    $Res Function(_$FilesVerificationFromZeroImpl) then,
-  ) = __$$FilesVerificationFromZeroImplCopyWithImpl<$Res>;
+          _$FilesVerificationFromZeroImpl value,
+          $Res Function(_$FilesVerificationFromZeroImpl) then) =
+      __$$FilesVerificationFromZeroImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$FilesVerificationFromZeroImplCopyWithImpl<$Res>
-    extends
-        _$FilesVerificationCopyWithImpl<$Res, _$FilesVerificationFromZeroImpl>
+    extends _$FilesVerificationCopyWithImpl<$Res,
+        _$FilesVerificationFromZeroImpl>
     implements _$$FilesVerificationFromZeroImplCopyWith<$Res> {
   __$$FilesVerificationFromZeroImplCopyWithImpl(
-    _$FilesVerificationFromZeroImpl _value,
-    $Res Function(_$FilesVerificationFromZeroImpl) _then,
-  ) : super(_value, _then);
+      _$FilesVerificationFromZeroImpl _value,
+      $Res Function(_$FilesVerificationFromZeroImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of FilesVerification
   /// with the given fields replaced by the non-null parameter values.
@@ -120,7 +120,7 @@ class __$$FilesVerificationFromZeroImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
   _$FilesVerificationFromZeroImpl({final String? $type})
-    : $type = $type ?? 'fromZero';
+      : $type = $type ?? 'fromZero';
 
   factory _$FilesVerificationFromZeroImpl.fromJson(Map<String, dynamic> json) =>
       _$$FilesVerificationFromZeroImplFromJson(json);
@@ -180,7 +180,7 @@ class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
   TResult map<TResult extends Object?>({
     required TResult Function(_FilesVerificationFromZero value) fromZero,
     required TResult Function(_FilesVerificationFromLastCommit value)
-    fromLastCommit,
+        fromLastCommit,
   }) {
     return fromZero(this);
   }
@@ -209,7 +209,9 @@ class _$FilesVerificationFromZeroImpl implements _FilesVerificationFromZero {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FilesVerificationFromZeroImplToJson(this);
+    return _$$FilesVerificationFromZeroImplToJson(
+      this,
+    );
   }
 }
 
@@ -223,40 +225,36 @@ abstract class _FilesVerificationFromZero implements FilesVerification {
 /// @nodoc
 abstract class _$$FilesVerificationFromLastCommitImplCopyWith<$Res> {
   factory _$$FilesVerificationFromLastCommitImplCopyWith(
-    _$FilesVerificationFromLastCommitImpl value,
-    $Res Function(_$FilesVerificationFromLastCommitImpl) then,
-  ) = __$$FilesVerificationFromLastCommitImplCopyWithImpl<$Res>;
+          _$FilesVerificationFromLastCommitImpl value,
+          $Res Function(_$FilesVerificationFromLastCommitImpl) then) =
+      __$$FilesVerificationFromLastCommitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> changedFilesPath});
 }
 
 /// @nodoc
 class __$$FilesVerificationFromLastCommitImplCopyWithImpl<$Res>
-    extends
-        _$FilesVerificationCopyWithImpl<
-          $Res,
-          _$FilesVerificationFromLastCommitImpl
-        >
+    extends _$FilesVerificationCopyWithImpl<$Res,
+        _$FilesVerificationFromLastCommitImpl>
     implements _$$FilesVerificationFromLastCommitImplCopyWith<$Res> {
   __$$FilesVerificationFromLastCommitImplCopyWithImpl(
-    _$FilesVerificationFromLastCommitImpl _value,
-    $Res Function(_$FilesVerificationFromLastCommitImpl) _then,
-  ) : super(_value, _then);
+      _$FilesVerificationFromLastCommitImpl _value,
+      $Res Function(_$FilesVerificationFromLastCommitImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of FilesVerification
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? changedFilesPath = null}) {
-    return _then(
-      _$FilesVerificationFromLastCommitImpl(
-        changedFilesPath:
-            null == changedFilesPath
-                ? _value._changedFilesPath
-                : changedFilesPath // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
-      ),
-    );
+  $Res call({
+    Object? changedFilesPath = null,
+  }) {
+    return _then(_$FilesVerificationFromLastCommitImpl(
+      changedFilesPath: null == changedFilesPath
+          ? _value._changedFilesPath
+          : changedFilesPath // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
   }
 }
 
@@ -264,15 +262,14 @@ class __$$FilesVerificationFromLastCommitImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FilesVerificationFromLastCommitImpl
     implements _FilesVerificationFromLastCommit {
-  _$FilesVerificationFromLastCommitImpl({
-    required final List<String> changedFilesPath,
-    final String? $type,
-  }) : _changedFilesPath = changedFilesPath,
-       $type = $type ?? 'fromLastCommit';
+  _$FilesVerificationFromLastCommitImpl(
+      {required final List<String> changedFilesPath, final String? $type})
+      : _changedFilesPath = changedFilesPath,
+        $type = $type ?? 'fromLastCommit';
 
   factory _$FilesVerificationFromLastCommitImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$FilesVerificationFromLastCommitImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$FilesVerificationFromLastCommitImplFromJson(json);
 
   final List<String> _changedFilesPath;
   @override
@@ -296,18 +293,14 @@ class _$FilesVerificationFromLastCommitImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilesVerificationFromLastCommitImpl &&
-            const DeepCollectionEquality().equals(
-              other._changedFilesPath,
-              _changedFilesPath,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._changedFilesPath, _changedFilesPath));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_changedFilesPath),
-  );
+      runtimeType, const DeepCollectionEquality().hash(_changedFilesPath));
 
   /// Create a copy of FilesVerification
   /// with the given fields replaced by the non-null parameter values.
@@ -315,11 +308,9 @@ class _$FilesVerificationFromLastCommitImpl
   @override
   @pragma('vm:prefer-inline')
   _$$FilesVerificationFromLastCommitImplCopyWith<
-    _$FilesVerificationFromLastCommitImpl
-  >
-  get copyWith => __$$FilesVerificationFromLastCommitImplCopyWithImpl<
-    _$FilesVerificationFromLastCommitImpl
-  >(this, _$identity);
+          _$FilesVerificationFromLastCommitImpl>
+      get copyWith => __$$FilesVerificationFromLastCommitImplCopyWithImpl<
+          _$FilesVerificationFromLastCommitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -357,7 +348,7 @@ class _$FilesVerificationFromLastCommitImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_FilesVerificationFromZero value) fromZero,
     required TResult Function(_FilesVerificationFromLastCommit value)
-    fromLastCommit,
+        fromLastCommit,
   }) {
     return fromLastCommit(this);
   }
@@ -386,14 +377,16 @@ class _$FilesVerificationFromLastCommitImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FilesVerificationFromLastCommitImplToJson(this);
+    return _$$FilesVerificationFromLastCommitImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _FilesVerificationFromLastCommit implements FilesVerification {
-  factory _FilesVerificationFromLastCommit({
-    required final List<String> changedFilesPath,
-  }) = _$FilesVerificationFromLastCommitImpl;
+  factory _FilesVerificationFromLastCommit(
+          {required final List<String> changedFilesPath}) =
+      _$FilesVerificationFromLastCommitImpl;
 
   factory _FilesVerificationFromLastCommit.fromJson(Map<String, dynamic> json) =
       _$FilesVerificationFromLastCommitImpl.fromJson;
@@ -404,7 +397,6 @@ abstract class _FilesVerificationFromLastCommit implements FilesVerification {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FilesVerificationFromLastCommitImplCopyWith<
-    _$FilesVerificationFromLastCommitImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$FilesVerificationFromLastCommitImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

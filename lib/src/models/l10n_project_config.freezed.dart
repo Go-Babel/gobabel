@@ -12,8 +12,7 @@ part of 'l10n_project_config.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 L10nProjectConfig _$L10nProjectConfigFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -23,12 +22,8 @@ L10nProjectConfig _$L10nProjectConfigFromJson(Map<String, dynamic> json) {
       return _L10nProjectConfigNoData.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'L10nProjectConfig',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'L10nProjectConfig',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -36,57 +31,48 @@ L10nProjectConfig _$L10nProjectConfigFromJson(Map<String, dynamic> json) {
 mixin _$L10nProjectConfig {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )
-    withData,
+    required TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)
+        withData,
     required TResult Function() noData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult? Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult? Function()? noData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult Function()? noData,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(L10nProjectConfigWithData value) withData,
     required TResult Function(_L10nProjectConfigNoData value) noData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(L10nProjectConfigWithData value)? withData,
     TResult? Function(_L10nProjectConfigNoData value)? noData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(L10nProjectConfigWithData value)? withData,
     TResult Function(_L10nProjectConfigNoData value)? noData,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this L10nProjectConfig to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -95,9 +81,8 @@ mixin _$L10nProjectConfig {
 /// @nodoc
 abstract class $L10nProjectConfigCopyWith<$Res> {
   factory $L10nProjectConfigCopyWith(
-    L10nProjectConfig value,
-    $Res Function(L10nProjectConfig) then,
-  ) = _$L10nProjectConfigCopyWithImpl<$Res, L10nProjectConfig>;
+          L10nProjectConfig value, $Res Function(L10nProjectConfig) then) =
+      _$L10nProjectConfigCopyWithImpl<$Res, L10nProjectConfig>;
 }
 
 /// @nodoc
@@ -117,28 +102,27 @@ class _$L10nProjectConfigCopyWithImpl<$Res, $Val extends L10nProjectConfig>
 /// @nodoc
 abstract class _$$L10nProjectConfigWithDataImplCopyWith<$Res> {
   factory _$$L10nProjectConfigWithDataImplCopyWith(
-    _$L10nProjectConfigWithDataImpl value,
-    $Res Function(_$L10nProjectConfigWithDataImpl) then,
-  ) = __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>;
+          _$L10nProjectConfigWithDataImpl value,
+          $Res Function(_$L10nProjectConfigWithDataImpl) then) =
+      __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    String l10nFileName,
-    String templateArbFile,
-    String outputClass,
-    String outputDir,
-    String arbDir,
-  });
+  $Res call(
+      {String l10nFileName,
+      String templateArbFile,
+      String outputClass,
+      String outputDir,
+      String arbDir});
 }
 
 /// @nodoc
 class __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>
-    extends
-        _$L10nProjectConfigCopyWithImpl<$Res, _$L10nProjectConfigWithDataImpl>
+    extends _$L10nProjectConfigCopyWithImpl<$Res,
+        _$L10nProjectConfigWithDataImpl>
     implements _$$L10nProjectConfigWithDataImplCopyWith<$Res> {
   __$$L10nProjectConfigWithDataImplCopyWithImpl(
-    _$L10nProjectConfigWithDataImpl _value,
-    $Res Function(_$L10nProjectConfigWithDataImpl) _then,
-  ) : super(_value, _then);
+      _$L10nProjectConfigWithDataImpl _value,
+      $Res Function(_$L10nProjectConfigWithDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of L10nProjectConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -151,49 +135,42 @@ class __$$L10nProjectConfigWithDataImplCopyWithImpl<$Res>
     Object? outputDir = null,
     Object? arbDir = null,
   }) {
-    return _then(
-      _$L10nProjectConfigWithDataImpl(
-        l10nFileName:
-            null == l10nFileName
-                ? _value.l10nFileName
-                : l10nFileName // ignore: cast_nullable_to_non_nullable
-                    as String,
-        templateArbFile:
-            null == templateArbFile
-                ? _value.templateArbFile
-                : templateArbFile // ignore: cast_nullable_to_non_nullable
-                    as String,
-        outputClass:
-            null == outputClass
-                ? _value.outputClass
-                : outputClass // ignore: cast_nullable_to_non_nullable
-                    as String,
-        outputDir:
-            null == outputDir
-                ? _value.outputDir
-                : outputDir // ignore: cast_nullable_to_non_nullable
-                    as String,
-        arbDir:
-            null == arbDir
-                ? _value.arbDir
-                : arbDir // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$L10nProjectConfigWithDataImpl(
+      l10nFileName: null == l10nFileName
+          ? _value.l10nFileName
+          : l10nFileName // ignore: cast_nullable_to_non_nullable
+              as String,
+      templateArbFile: null == templateArbFile
+          ? _value.templateArbFile
+          : templateArbFile // ignore: cast_nullable_to_non_nullable
+              as String,
+      outputClass: null == outputClass
+          ? _value.outputClass
+          : outputClass // ignore: cast_nullable_to_non_nullable
+              as String,
+      outputDir: null == outputDir
+          ? _value.outputDir
+          : outputDir // ignore: cast_nullable_to_non_nullable
+              as String,
+      arbDir: null == arbDir
+          ? _value.arbDir
+          : arbDir // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
-  _$L10nProjectConfigWithDataImpl({
-    required this.l10nFileName,
-    required this.templateArbFile,
-    required this.outputClass,
-    required this.outputDir,
-    required this.arbDir,
-    final String? $type,
-  }) : $type = $type ?? 'withData';
+  _$L10nProjectConfigWithDataImpl(
+      {required this.l10nFileName,
+      required this.templateArbFile,
+      required this.outputClass,
+      required this.outputDir,
+      required this.arbDir,
+      final String? $type})
+      : $type = $type ?? 'withData';
 
   factory _$L10nProjectConfigWithDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$L10nProjectConfigWithDataImplFromJson(json);
@@ -235,14 +212,8 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    l10nFileName,
-    templateArbFile,
-    outputClass,
-    outputDir,
-    arbDir,
-  );
+  int get hashCode => Object.hash(runtimeType, l10nFileName, templateArbFile,
+      outputClass, outputDir, arbDir);
 
   /// Create a copy of L10nProjectConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -250,76 +221,45 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
   @override
   @pragma('vm:prefer-inline')
   _$$L10nProjectConfigWithDataImplCopyWith<_$L10nProjectConfigWithDataImpl>
-  get copyWith => __$$L10nProjectConfigWithDataImplCopyWithImpl<
-    _$L10nProjectConfigWithDataImpl
-  >(this, _$identity);
+      get copyWith => __$$L10nProjectConfigWithDataImplCopyWithImpl<
+          _$L10nProjectConfigWithDataImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )
-    withData,
+    required TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)
+        withData,
     required TResult Function() noData,
   }) {
     return withData(
-      l10nFileName,
-      templateArbFile,
-      outputClass,
-      outputDir,
-      arbDir,
-    );
+        l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult? Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult? Function()? noData,
   }) {
     return withData?.call(
-      l10nFileName,
-      templateArbFile,
-      outputClass,
-      outputDir,
-      arbDir,
-    );
+        l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult Function()? noData,
     required TResult orElse(),
   }) {
     if (withData != null) {
       return withData(
-        l10nFileName,
-        templateArbFile,
-        outputClass,
-        outputDir,
-        arbDir,
-      );
+          l10nFileName, templateArbFile, outputClass, outputDir, arbDir);
     }
     return orElse();
   }
@@ -357,18 +297,19 @@ class _$L10nProjectConfigWithDataImpl implements L10nProjectConfigWithData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$L10nProjectConfigWithDataImplToJson(this);
+    return _$$L10nProjectConfigWithDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class L10nProjectConfigWithData implements L10nProjectConfig {
-  factory L10nProjectConfigWithData({
-    required final String l10nFileName,
-    required final String templateArbFile,
-    required final String outputClass,
-    required final String outputDir,
-    required final String arbDir,
-  }) = _$L10nProjectConfigWithDataImpl;
+  factory L10nProjectConfigWithData(
+      {required final String l10nFileName,
+      required final String templateArbFile,
+      required final String outputClass,
+      required final String outputDir,
+      required final String arbDir}) = _$L10nProjectConfigWithDataImpl;
 
   factory L10nProjectConfigWithData.fromJson(Map<String, dynamic> json) =
       _$L10nProjectConfigWithDataImpl.fromJson;
@@ -383,15 +324,15 @@ abstract class L10nProjectConfigWithData implements L10nProjectConfig {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$L10nProjectConfigWithDataImplCopyWith<_$L10nProjectConfigWithDataImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$L10nProjectConfigNoDataImplCopyWith<$Res> {
   factory _$$L10nProjectConfigNoDataImplCopyWith(
-    _$L10nProjectConfigNoDataImpl value,
-    $Res Function(_$L10nProjectConfigNoDataImpl) then,
-  ) = __$$L10nProjectConfigNoDataImplCopyWithImpl<$Res>;
+          _$L10nProjectConfigNoDataImpl value,
+          $Res Function(_$L10nProjectConfigNoDataImpl) then) =
+      __$$L10nProjectConfigNoDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -399,9 +340,9 @@ class __$$L10nProjectConfigNoDataImplCopyWithImpl<$Res>
     extends _$L10nProjectConfigCopyWithImpl<$Res, _$L10nProjectConfigNoDataImpl>
     implements _$$L10nProjectConfigNoDataImplCopyWith<$Res> {
   __$$L10nProjectConfigNoDataImplCopyWithImpl(
-    _$L10nProjectConfigNoDataImpl _value,
-    $Res Function(_$L10nProjectConfigNoDataImpl) _then,
-  ) : super(_value, _then);
+      _$L10nProjectConfigNoDataImpl _value,
+      $Res Function(_$L10nProjectConfigNoDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of L10nProjectConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -411,7 +352,7 @@ class __$$L10nProjectConfigNoDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   _$L10nProjectConfigNoDataImpl({final String? $type})
-    : $type = $type ?? 'noData';
+      : $type = $type ?? 'noData';
 
   factory _$L10nProjectConfigNoDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$L10nProjectConfigNoDataImplFromJson(json);
@@ -438,14 +379,9 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )
-    withData,
+    required TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)
+        withData,
     required TResult Function() noData,
   }) {
     return noData();
@@ -454,14 +390,9 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult? Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult? Function()? noData,
   }) {
     return noData?.call();
@@ -470,14 +401,9 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-      String l10nFileName,
-      String templateArbFile,
-      String outputClass,
-      String outputDir,
-      String arbDir,
-    )?
-    withData,
+    TResult Function(String l10nFileName, String templateArbFile,
+            String outputClass, String outputDir, String arbDir)?
+        withData,
     TResult Function()? noData,
     required TResult orElse(),
   }) {
@@ -520,7 +446,9 @@ class _$L10nProjectConfigNoDataImpl implements _L10nProjectConfigNoData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$L10nProjectConfigNoDataImplToJson(this);
+    return _$$L10nProjectConfigNoDataImplToJson(
+      this,
+    );
   }
 }
 

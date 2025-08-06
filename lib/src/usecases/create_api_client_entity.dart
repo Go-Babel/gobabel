@@ -76,6 +76,7 @@ AsyncBabelResult<GenerateFlowCreatedClient> generate_createClientEntity(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      runForAllFiles: payload.runForAllFiles,
     ).toSuccess();
   });
 }

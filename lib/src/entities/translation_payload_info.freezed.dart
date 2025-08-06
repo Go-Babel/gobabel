@@ -12,12 +12,10 @@ part of 'translation_payload_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TranslationPayloadInfo _$TranslationPayloadInfoFromJson(
-  Map<String, dynamic> json,
-) {
+    Map<String, dynamic> json) {
   return _TranslationPayloadInfo.fromJson(json);
 }
 
@@ -45,25 +43,21 @@ mixin _$TranslationPayloadInfo {
 
 /// @nodoc
 abstract class $TranslationPayloadInfoCopyWith<$Res> {
-  factory $TranslationPayloadInfoCopyWith(
-    TranslationPayloadInfo value,
-    $Res Function(TranslationPayloadInfo) then,
-  ) = _$TranslationPayloadInfoCopyWithImpl<$Res, TranslationPayloadInfo>;
+  factory $TranslationPayloadInfoCopyWith(TranslationPayloadInfo value,
+          $Res Function(TranslationPayloadInfo) then) =
+      _$TranslationPayloadInfoCopyWithImpl<$Res, TranslationPayloadInfo>;
   @useResult
-  $Res call({
-    Map<String, String> hardcodedStringToKeyCache,
-    Map<String, String> keyToDeclaration,
-    Map<String, String> keyToImplementation,
-    Map<String, Set<String>> keyToContextsPaths,
-    List<Translatables> referenceMap,
-  });
+  $Res call(
+      {Map<String, String> hardcodedStringToKeyCache,
+      Map<String, String> keyToDeclaration,
+      Map<String, String> keyToImplementation,
+      Map<String, Set<String>> keyToContextsPaths,
+      List<Translatables> referenceMap});
 }
 
 /// @nodoc
-class _$TranslationPayloadInfoCopyWithImpl<
-  $Res,
-  $Val extends TranslationPayloadInfo
->
+class _$TranslationPayloadInfoCopyWithImpl<$Res,
+        $Val extends TranslationPayloadInfo>
     implements $TranslationPayloadInfoCopyWith<$Res> {
   _$TranslationPayloadInfoCopyWithImpl(this._value, this._then);
 
@@ -83,36 +77,28 @@ class _$TranslationPayloadInfoCopyWithImpl<
     Object? keyToContextsPaths = null,
     Object? referenceMap = null,
   }) {
-    return _then(
-      _value.copyWith(
-            hardcodedStringToKeyCache:
-                null == hardcodedStringToKeyCache
-                    ? _value.hardcodedStringToKeyCache
-                    : hardcodedStringToKeyCache // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            keyToDeclaration:
-                null == keyToDeclaration
-                    ? _value.keyToDeclaration
-                    : keyToDeclaration // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            keyToImplementation:
-                null == keyToImplementation
-                    ? _value.keyToImplementation
-                    : keyToImplementation // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-            keyToContextsPaths:
-                null == keyToContextsPaths
-                    ? _value.keyToContextsPaths
-                    : keyToContextsPaths // ignore: cast_nullable_to_non_nullable
-                        as Map<String, Set<String>>,
-            referenceMap:
-                null == referenceMap
-                    ? _value.referenceMap
-                    : referenceMap // ignore: cast_nullable_to_non_nullable
-                        as List<Translatables>,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      hardcodedStringToKeyCache: null == hardcodedStringToKeyCache
+          ? _value.hardcodedStringToKeyCache
+          : hardcodedStringToKeyCache // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToDeclaration: null == keyToDeclaration
+          ? _value.keyToDeclaration
+          : keyToDeclaration // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToImplementation: null == keyToImplementation
+          ? _value.keyToImplementation
+          : keyToImplementation // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToContextsPaths: null == keyToContextsPaths
+          ? _value.keyToContextsPaths
+          : keyToContextsPaths // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
+      referenceMap: null == referenceMap
+          ? _value.referenceMap
+          : referenceMap // ignore: cast_nullable_to_non_nullable
+              as List<Translatables>,
+    ) as $Val);
   }
 }
 
@@ -120,29 +106,28 @@ class _$TranslationPayloadInfoCopyWithImpl<
 abstract class _$$TranslationPayloadInfoImplCopyWith<$Res>
     implements $TranslationPayloadInfoCopyWith<$Res> {
   factory _$$TranslationPayloadInfoImplCopyWith(
-    _$TranslationPayloadInfoImpl value,
-    $Res Function(_$TranslationPayloadInfoImpl) then,
-  ) = __$$TranslationPayloadInfoImplCopyWithImpl<$Res>;
+          _$TranslationPayloadInfoImpl value,
+          $Res Function(_$TranslationPayloadInfoImpl) then) =
+      __$$TranslationPayloadInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    Map<String, String> hardcodedStringToKeyCache,
-    Map<String, String> keyToDeclaration,
-    Map<String, String> keyToImplementation,
-    Map<String, Set<String>> keyToContextsPaths,
-    List<Translatables> referenceMap,
-  });
+  $Res call(
+      {Map<String, String> hardcodedStringToKeyCache,
+      Map<String, String> keyToDeclaration,
+      Map<String, String> keyToImplementation,
+      Map<String, Set<String>> keyToContextsPaths,
+      List<Translatables> referenceMap});
 }
 
 /// @nodoc
 class __$$TranslationPayloadInfoImplCopyWithImpl<$Res>
-    extends
-        _$TranslationPayloadInfoCopyWithImpl<$Res, _$TranslationPayloadInfoImpl>
+    extends _$TranslationPayloadInfoCopyWithImpl<$Res,
+        _$TranslationPayloadInfoImpl>
     implements _$$TranslationPayloadInfoImplCopyWith<$Res> {
   __$$TranslationPayloadInfoImplCopyWithImpl(
-    _$TranslationPayloadInfoImpl _value,
-    $Res Function(_$TranslationPayloadInfoImpl) _then,
-  ) : super(_value, _then);
+      _$TranslationPayloadInfoImpl _value,
+      $Res Function(_$TranslationPayloadInfoImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of TranslationPayloadInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -155,52 +140,45 @@ class __$$TranslationPayloadInfoImplCopyWithImpl<$Res>
     Object? keyToContextsPaths = null,
     Object? referenceMap = null,
   }) {
-    return _then(
-      _$TranslationPayloadInfoImpl(
-        hardcodedStringToKeyCache:
-            null == hardcodedStringToKeyCache
-                ? _value._hardcodedStringToKeyCache
-                : hardcodedStringToKeyCache // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        keyToDeclaration:
-            null == keyToDeclaration
-                ? _value._keyToDeclaration
-                : keyToDeclaration // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        keyToImplementation:
-            null == keyToImplementation
-                ? _value._keyToImplementation
-                : keyToImplementation // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-        keyToContextsPaths:
-            null == keyToContextsPaths
-                ? _value._keyToContextsPaths
-                : keyToContextsPaths // ignore: cast_nullable_to_non_nullable
-                    as Map<String, Set<String>>,
-        referenceMap:
-            null == referenceMap
-                ? _value._referenceMap
-                : referenceMap // ignore: cast_nullable_to_non_nullable
-                    as List<Translatables>,
-      ),
-    );
+    return _then(_$TranslationPayloadInfoImpl(
+      hardcodedStringToKeyCache: null == hardcodedStringToKeyCache
+          ? _value._hardcodedStringToKeyCache
+          : hardcodedStringToKeyCache // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToDeclaration: null == keyToDeclaration
+          ? _value._keyToDeclaration
+          : keyToDeclaration // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToImplementation: null == keyToImplementation
+          ? _value._keyToImplementation
+          : keyToImplementation // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      keyToContextsPaths: null == keyToContextsPaths
+          ? _value._keyToContextsPaths
+          : keyToContextsPaths // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
+      referenceMap: null == referenceMap
+          ? _value._referenceMap
+          : referenceMap // ignore: cast_nullable_to_non_nullable
+              as List<Translatables>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TranslationPayloadInfoImpl implements _TranslationPayloadInfo {
-  _$TranslationPayloadInfoImpl({
-    required final Map<String, String> hardcodedStringToKeyCache,
-    required final Map<String, String> keyToDeclaration,
-    required final Map<String, String> keyToImplementation,
-    required final Map<String, Set<String>> keyToContextsPaths,
-    required final List<Translatables> referenceMap,
-  }) : _hardcodedStringToKeyCache = hardcodedStringToKeyCache,
-       _keyToDeclaration = keyToDeclaration,
-       _keyToImplementation = keyToImplementation,
-       _keyToContextsPaths = keyToContextsPaths,
-       _referenceMap = referenceMap;
+  _$TranslationPayloadInfoImpl(
+      {required final Map<String, String> hardcodedStringToKeyCache,
+      required final Map<String, String> keyToDeclaration,
+      required final Map<String, String> keyToImplementation,
+      required final Map<String, Set<String>> keyToContextsPaths,
+      required final List<Translatables> referenceMap})
+      : _hardcodedStringToKeyCache = hardcodedStringToKeyCache,
+        _keyToDeclaration = keyToDeclaration,
+        _keyToImplementation = keyToImplementation,
+        _keyToContextsPaths = keyToContextsPaths,
+        _referenceMap = referenceMap;
 
   factory _$TranslationPayloadInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$TranslationPayloadInfoImplFromJson(json);
@@ -259,37 +237,26 @@ class _$TranslationPayloadInfoImpl implements _TranslationPayloadInfo {
         (other.runtimeType == runtimeType &&
             other is _$TranslationPayloadInfoImpl &&
             const DeepCollectionEquality().equals(
-              other._hardcodedStringToKeyCache,
-              _hardcodedStringToKeyCache,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._keyToDeclaration,
-              _keyToDeclaration,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._keyToImplementation,
-              _keyToImplementation,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._keyToContextsPaths,
-              _keyToContextsPaths,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._referenceMap,
-              _referenceMap,
-            ));
+                other._hardcodedStringToKeyCache, _hardcodedStringToKeyCache) &&
+            const DeepCollectionEquality()
+                .equals(other._keyToDeclaration, _keyToDeclaration) &&
+            const DeepCollectionEquality()
+                .equals(other._keyToImplementation, _keyToImplementation) &&
+            const DeepCollectionEquality()
+                .equals(other._keyToContextsPaths, _keyToContextsPaths) &&
+            const DeepCollectionEquality()
+                .equals(other._referenceMap, _referenceMap));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_hardcodedStringToKeyCache),
-    const DeepCollectionEquality().hash(_keyToDeclaration),
-    const DeepCollectionEquality().hash(_keyToImplementation),
-    const DeepCollectionEquality().hash(_keyToContextsPaths),
-    const DeepCollectionEquality().hash(_referenceMap),
-  );
+      runtimeType,
+      const DeepCollectionEquality().hash(_hardcodedStringToKeyCache),
+      const DeepCollectionEquality().hash(_keyToDeclaration),
+      const DeepCollectionEquality().hash(_keyToImplementation),
+      const DeepCollectionEquality().hash(_keyToContextsPaths),
+      const DeepCollectionEquality().hash(_referenceMap));
 
   /// Create a copy of TranslationPayloadInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -297,26 +264,25 @@ class _$TranslationPayloadInfoImpl implements _TranslationPayloadInfo {
   @override
   @pragma('vm:prefer-inline')
   _$$TranslationPayloadInfoImplCopyWith<_$TranslationPayloadInfoImpl>
-  get copyWith =>
-      __$$TranslationPayloadInfoImplCopyWithImpl<_$TranslationPayloadInfoImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$TranslationPayloadInfoImplCopyWithImpl<
+          _$TranslationPayloadInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TranslationPayloadInfoImplToJson(this);
+    return _$$TranslationPayloadInfoImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _TranslationPayloadInfo implements TranslationPayloadInfo {
-  factory _TranslationPayloadInfo({
-    required final Map<String, String> hardcodedStringToKeyCache,
-    required final Map<String, String> keyToDeclaration,
-    required final Map<String, String> keyToImplementation,
-    required final Map<String, Set<String>> keyToContextsPaths,
-    required final List<Translatables> referenceMap,
-  }) = _$TranslationPayloadInfoImpl;
+  factory _TranslationPayloadInfo(
+          {required final Map<String, String> hardcodedStringToKeyCache,
+          required final Map<String, String> keyToDeclaration,
+          required final Map<String, String> keyToImplementation,
+          required final Map<String, Set<String>> keyToContextsPaths,
+          required final List<Translatables> referenceMap}) =
+      _$TranslationPayloadInfoImpl;
 
   factory _TranslationPayloadInfo.fromJson(Map<String, dynamic> json) =
       _$TranslationPayloadInfoImpl.fromJson;
@@ -337,7 +303,7 @@ abstract class _TranslationPayloadInfo implements TranslationPayloadInfo {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TranslationPayloadInfoImplCopyWith<_$TranslationPayloadInfoImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Translatables _$TranslatablesFromJson(Map<String, dynamic> json) {
@@ -363,14 +329,12 @@ mixin _$Translatables {
 /// @nodoc
 abstract class $TranslatablesCopyWith<$Res> {
   factory $TranslatablesCopyWith(
-    Translatables value,
-    $Res Function(Translatables) then,
-  ) = _$TranslatablesCopyWithImpl<$Res, Translatables>;
+          Translatables value, $Res Function(Translatables) then) =
+      _$TranslatablesCopyWithImpl<$Res, Translatables>;
   @useResult
-  $Res call({
-    @BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
-    Map<String, String> referenceMap,
-  });
+  $Res call(
+      {@BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
+      Map<String, String> referenceMap});
 }
 
 /// @nodoc
@@ -387,22 +351,20 @@ class _$TranslatablesCopyWithImpl<$Res, $Val extends Translatables>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? locale = null, Object? referenceMap = null}) {
-    return _then(
-      _value.copyWith(
-            locale:
-                null == locale
-                    ? _value.locale
-                    : locale // ignore: cast_nullable_to_non_nullable
-                        as BabelSupportedLocales,
-            referenceMap:
-                null == referenceMap
-                    ? _value.referenceMap
-                    : referenceMap // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? locale = null,
+    Object? referenceMap = null,
+  }) {
+    return _then(_value.copyWith(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as BabelSupportedLocales,
+      referenceMap: null == referenceMap
+          ? _value.referenceMap
+          : referenceMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ) as $Val);
   }
 }
 
@@ -410,15 +372,13 @@ class _$TranslatablesCopyWithImpl<$Res, $Val extends Translatables>
 abstract class _$$TranslatablesImplCopyWith<$Res>
     implements $TranslatablesCopyWith<$Res> {
   factory _$$TranslatablesImplCopyWith(
-    _$TranslatablesImpl value,
-    $Res Function(_$TranslatablesImpl) then,
-  ) = __$$TranslatablesImplCopyWithImpl<$Res>;
+          _$TranslatablesImpl value, $Res Function(_$TranslatablesImpl) then) =
+      __$$TranslatablesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    @BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
-    Map<String, String> referenceMap,
-  });
+  $Res call(
+      {@BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
+      Map<String, String> referenceMap});
 }
 
 /// @nodoc
@@ -426,40 +386,38 @@ class __$$TranslatablesImplCopyWithImpl<$Res>
     extends _$TranslatablesCopyWithImpl<$Res, _$TranslatablesImpl>
     implements _$$TranslatablesImplCopyWith<$Res> {
   __$$TranslatablesImplCopyWithImpl(
-    _$TranslatablesImpl _value,
-    $Res Function(_$TranslatablesImpl) _then,
-  ) : super(_value, _then);
+      _$TranslatablesImpl _value, $Res Function(_$TranslatablesImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of Translatables
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? locale = null, Object? referenceMap = null}) {
-    return _then(
-      _$TranslatablesImpl(
-        locale:
-            null == locale
-                ? _value.locale
-                : locale // ignore: cast_nullable_to_non_nullable
-                    as BabelSupportedLocales,
-        referenceMap:
-            null == referenceMap
-                ? _value._referenceMap
-                : referenceMap // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-      ),
-    );
+  $Res call({
+    Object? locale = null,
+    Object? referenceMap = null,
+  }) {
+    return _then(_$TranslatablesImpl(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as BabelSupportedLocales,
+      referenceMap: null == referenceMap
+          ? _value._referenceMap
+          : referenceMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TranslatablesImpl extends _Translatables {
-  _$TranslatablesImpl({
-    @BabelSupportedLocalesJsonConverter() required this.locale,
-    required final Map<String, String> referenceMap,
-  }) : _referenceMap = referenceMap,
-       super._();
+  _$TranslatablesImpl(
+      {@BabelSupportedLocalesJsonConverter() required this.locale,
+      required final Map<String, String> referenceMap})
+      : _referenceMap = referenceMap,
+        super._();
 
   factory _$TranslatablesImpl.fromJson(Map<String, dynamic> json) =>
       _$$TranslatablesImplFromJson(json);
@@ -486,19 +444,14 @@ class _$TranslatablesImpl extends _Translatables {
         (other.runtimeType == runtimeType &&
             other is _$TranslatablesImpl &&
             (identical(other.locale, locale) || other.locale == locale) &&
-            const DeepCollectionEquality().equals(
-              other._referenceMap,
-              _referenceMap,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._referenceMap, _referenceMap));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    locale,
-    const DeepCollectionEquality().hash(_referenceMap),
-  );
+      runtimeType, locale, const DeepCollectionEquality().hash(_referenceMap));
 
   /// Create a copy of Translatables
   /// with the given fields replaced by the non-null parameter values.
@@ -510,16 +463,17 @@ class _$TranslatablesImpl extends _Translatables {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TranslatablesImplToJson(this);
+    return _$$TranslatablesImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Translatables extends Translatables {
-  factory _Translatables({
-    @BabelSupportedLocalesJsonConverter()
-    required final BabelSupportedLocales locale,
-    required final Map<String, String> referenceMap,
-  }) = _$TranslatablesImpl;
+  factory _Translatables(
+      {@BabelSupportedLocalesJsonConverter()
+      required final BabelSupportedLocales locale,
+      required final Map<String, String> referenceMap}) = _$TranslatablesImpl;
   _Translatables._() : super._();
 
   factory _Translatables.fromJson(Map<String, dynamic> json) =

@@ -12,8 +12,7 @@ part of 'get_app_languages.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GetAppLanguagesResponse {
@@ -30,19 +29,16 @@ mixin _$GetAppLanguagesResponse {
 
 /// @nodoc
 abstract class $GetAppLanguagesResponseCopyWith<$Res> {
-  factory $GetAppLanguagesResponseCopyWith(
-    GetAppLanguagesResponse value,
-    $Res Function(GetAppLanguagesResponse) then,
-  ) = _$GetAppLanguagesResponseCopyWithImpl<$Res, GetAppLanguagesResponse>;
+  factory $GetAppLanguagesResponseCopyWith(GetAppLanguagesResponse value,
+          $Res Function(GetAppLanguagesResponse) then) =
+      _$GetAppLanguagesResponseCopyWithImpl<$Res, GetAppLanguagesResponse>;
   @useResult
   $Res call({int maxLanguageCount, Set<BabelSupportedLocales> languages});
 }
 
 /// @nodoc
-class _$GetAppLanguagesResponseCopyWithImpl<
-  $Res,
-  $Val extends GetAppLanguagesResponse
->
+class _$GetAppLanguagesResponseCopyWithImpl<$Res,
+        $Val extends GetAppLanguagesResponse>
     implements $GetAppLanguagesResponseCopyWith<$Res> {
   _$GetAppLanguagesResponseCopyWithImpl(this._value, this._then);
 
@@ -55,34 +51,31 @@ class _$GetAppLanguagesResponseCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? maxLanguageCount = null, Object? languages = null}) {
-    return _then(
-      _value.copyWith(
-            maxLanguageCount:
-                null == maxLanguageCount
-                    ? _value.maxLanguageCount
-                    : maxLanguageCount // ignore: cast_nullable_to_non_nullable
-                        as int,
-            languages:
-                null == languages
-                    ? _value.languages
-                    : languages // ignore: cast_nullable_to_non_nullable
-                        as Set<BabelSupportedLocales>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? maxLanguageCount = null,
+    Object? languages = null,
+  }) {
+    return _then(_value.copyWith(
+      maxLanguageCount: null == maxLanguageCount
+          ? _value.maxLanguageCount
+          : maxLanguageCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      languages: null == languages
+          ? _value.languages
+          : languages // ignore: cast_nullable_to_non_nullable
+              as Set<BabelSupportedLocales>,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith<
-  $Res
->
-    implements $GetAppLanguagesResponseCopyWith<$Res> {
+    $Res> implements $GetAppLanguagesResponseCopyWith<$Res> {
   factory _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith(
-    _$GetAppLanguagesResponseWithoutDownloadableDataImpl value,
-    $Res Function(_$GetAppLanguagesResponseWithoutDownloadableDataImpl) then,
-  ) = __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<$Res>;
+          _$GetAppLanguagesResponseWithoutDownloadableDataImpl value,
+          $Res Function(_$GetAppLanguagesResponseWithoutDownloadableDataImpl)
+              then) =
+      __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int maxLanguageCount, Set<BabelSupportedLocales> languages});
@@ -90,37 +83,33 @@ abstract class _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith<
 
 /// @nodoc
 class __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<$Res>
-    extends
-        _$GetAppLanguagesResponseCopyWithImpl<
-          $Res,
-          _$GetAppLanguagesResponseWithoutDownloadableDataImpl
-        >
+    extends _$GetAppLanguagesResponseCopyWithImpl<$Res,
+        _$GetAppLanguagesResponseWithoutDownloadableDataImpl>
     implements
         _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith<$Res> {
   __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl(
-    _$GetAppLanguagesResponseWithoutDownloadableDataImpl _value,
-    $Res Function(_$GetAppLanguagesResponseWithoutDownloadableDataImpl) _then,
-  ) : super(_value, _then);
+      _$GetAppLanguagesResponseWithoutDownloadableDataImpl _value,
+      $Res Function(_$GetAppLanguagesResponseWithoutDownloadableDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of GetAppLanguagesResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? maxLanguageCount = null, Object? languages = null}) {
-    return _then(
-      _$GetAppLanguagesResponseWithoutDownloadableDataImpl(
-        maxLanguageCount:
-            null == maxLanguageCount
-                ? _value.maxLanguageCount
-                : maxLanguageCount // ignore: cast_nullable_to_non_nullable
-                    as int,
-        languages:
-            null == languages
-                ? _value._languages
-                : languages // ignore: cast_nullable_to_non_nullable
-                    as Set<BabelSupportedLocales>,
-      ),
-    );
+  $Res call({
+    Object? maxLanguageCount = null,
+    Object? languages = null,
+  }) {
+    return _then(_$GetAppLanguagesResponseWithoutDownloadableDataImpl(
+      maxLanguageCount: null == maxLanguageCount
+          ? _value.maxLanguageCount
+          : maxLanguageCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      languages: null == languages
+          ? _value._languages
+          : languages // ignore: cast_nullable_to_non_nullable
+              as Set<BabelSupportedLocales>,
+    ));
   }
 }
 
@@ -128,10 +117,10 @@ class __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<$Res>
 
 class _$GetAppLanguagesResponseWithoutDownloadableDataImpl
     implements _GetAppLanguagesResponseWithoutDownloadableData {
-  _$GetAppLanguagesResponseWithoutDownloadableDataImpl({
-    required this.maxLanguageCount,
-    required final Set<BabelSupportedLocales> languages,
-  }) : _languages = languages;
+  _$GetAppLanguagesResponseWithoutDownloadableDataImpl(
+      {required this.maxLanguageCount,
+      required final Set<BabelSupportedLocales> languages})
+      : _languages = languages;
 
   @override
   final int maxLanguageCount;
@@ -155,18 +144,13 @@ class _$GetAppLanguagesResponseWithoutDownloadableDataImpl
             other is _$GetAppLanguagesResponseWithoutDownloadableDataImpl &&
             (identical(other.maxLanguageCount, maxLanguageCount) ||
                 other.maxLanguageCount == maxLanguageCount) &&
-            const DeepCollectionEquality().equals(
-              other._languages,
-              _languages,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._languages, _languages));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    maxLanguageCount,
-    const DeepCollectionEquality().hash(_languages),
-  );
+  int get hashCode => Object.hash(runtimeType, maxLanguageCount,
+      const DeepCollectionEquality().hash(_languages));
 
   /// Create a copy of GetAppLanguagesResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -174,20 +158,19 @@ class _$GetAppLanguagesResponseWithoutDownloadableDataImpl
   @override
   @pragma('vm:prefer-inline')
   _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith<
-    _$GetAppLanguagesResponseWithoutDownloadableDataImpl
-  >
-  get copyWith =>
-      __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<
-        _$GetAppLanguagesResponseWithoutDownloadableDataImpl
-      >(this, _$identity);
+          _$GetAppLanguagesResponseWithoutDownloadableDataImpl>
+      get copyWith =>
+          __$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWithImpl<
+                  _$GetAppLanguagesResponseWithoutDownloadableDataImpl>(
+              this, _$identity);
 }
 
 abstract class _GetAppLanguagesResponseWithoutDownloadableData
     implements GetAppLanguagesResponse {
-  factory _GetAppLanguagesResponseWithoutDownloadableData({
-    required final int maxLanguageCount,
-    required final Set<BabelSupportedLocales> languages,
-  }) = _$GetAppLanguagesResponseWithoutDownloadableDataImpl;
+  factory _GetAppLanguagesResponseWithoutDownloadableData(
+          {required final int maxLanguageCount,
+          required final Set<BabelSupportedLocales> languages}) =
+      _$GetAppLanguagesResponseWithoutDownloadableDataImpl;
 
   @override
   int get maxLanguageCount;
@@ -199,7 +182,6 @@ abstract class _GetAppLanguagesResponseWithoutDownloadableData
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetAppLanguagesResponseWithoutDownloadableDataImplCopyWith<
-    _$GetAppLanguagesResponseWithoutDownloadableDataImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$GetAppLanguagesResponseWithoutDownloadableDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

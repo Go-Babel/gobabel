@@ -9,14 +9,12 @@ part of 'git_variables.dart';
 _$GitVariablesImpl _$$GitVariablesImplFromJson(Map<String, dynamic> json) =>
     _$GitVariablesImpl(
       user: GitUser.fromJson(json['user'] as Map<String, dynamic>),
-      previousCommit: GitCommit.fromJson(
-        json['previousCommit'] as Map<String, dynamic>,
-      ),
+      previousCommit:
+          GitCommit.fromJson(json['previousCommit'] as Map<String, dynamic>),
       latestShaIdentifier: json['latestShaIdentifier'] as String,
       originUrl: json['originUrl'] as String,
-      projectShaIdentifier: BigInt.parse(
-        json['projectShaIdentifier'] as String,
-      ),
+      projectShaIdentifier:
+          BigInt.parse(json['projectShaIdentifier'] as String),
     );
 
 Map<String, dynamic> _$$GitVariablesImplToJson(_$GitVariablesImpl instance) =>

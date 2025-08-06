@@ -12,8 +12,7 @@ part of 'sync_flow_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SyncFlowState _$SyncFlowStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -45,12 +44,8 @@ SyncFlowState _$SyncFlowStateFromJson(Map<String, dynamic> json) {
       return SyncFlowCreatedProjectInGobabelServer.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'SyncFlowState',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'SyncFlowState',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -62,368 +57,296 @@ mixin _$SyncFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
-  }) => throw _privateConstructorUsedError;
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-  }) => throw _privateConstructorUsedError;
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SyncFlowInitial value) initial,
@@ -432,21 +355,22 @@ mixin _$SyncFlowState {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
-  }) => throw _privateConstructorUsedError;
+        createdProjectInGobabelServer,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SyncFlowInitial value)? initial,
@@ -458,15 +382,16 @@ mixin _$SyncFlowState {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
-  }) => throw _privateConstructorUsedError;
+        createdProjectInGobabelServer,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SyncFlowInitial value)? initial,
@@ -478,16 +403,17 @@ mixin _$SyncFlowState {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this SyncFlowState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -502,9 +428,8 @@ mixin _$SyncFlowState {
 /// @nodoc
 abstract class $SyncFlowStateCopyWith<$Res> {
   factory $SyncFlowStateCopyWith(
-    SyncFlowState value,
-    $Res Function(SyncFlowState) then,
-  ) = _$SyncFlowStateCopyWithImpl<$Res, SyncFlowState>;
+          SyncFlowState value, $Res Function(SyncFlowState) then) =
+      _$SyncFlowStateCopyWithImpl<$Res, SyncFlowState>;
   @useResult
   $Res call({bool willLog, String accountApiKey, String directoryPath});
 }
@@ -528,36 +453,29 @@ class _$SyncFlowStateCopyWithImpl<$Res, $Val extends SyncFlowState>
     Object? accountApiKey = null,
     Object? directoryPath = null,
   }) {
-    return _then(
-      _value.copyWith(
-            willLog:
-                null == willLog
-                    ? _value.willLog
-                    : willLog // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            accountApiKey:
-                null == accountApiKey
-                    ? _value.accountApiKey
-                    : accountApiKey // ignore: cast_nullable_to_non_nullable
-                        as String,
-            directoryPath:
-                null == directoryPath
-                    ? _value.directoryPath
-                    : directoryPath // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$SyncFlowInitialImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
-  factory _$$SyncFlowInitialImplCopyWith(
-    _$SyncFlowInitialImpl value,
-    $Res Function(_$SyncFlowInitialImpl) then,
-  ) = __$$SyncFlowInitialImplCopyWithImpl<$Res>;
+  factory _$$SyncFlowInitialImplCopyWith(_$SyncFlowInitialImpl value,
+          $Res Function(_$SyncFlowInitialImpl) then) =
+      __$$SyncFlowInitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool willLog, String accountApiKey, String directoryPath});
@@ -568,9 +486,8 @@ class __$$SyncFlowInitialImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowInitialImpl>
     implements _$$SyncFlowInitialImplCopyWith<$Res> {
   __$$SyncFlowInitialImplCopyWithImpl(
-    _$SyncFlowInitialImpl _value,
-    $Res Function(_$SyncFlowInitialImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowInitialImpl _value, $Res Function(_$SyncFlowInitialImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -581,38 +498,33 @@ class __$$SyncFlowInitialImplCopyWithImpl<$Res>
     Object? accountApiKey = null,
     Object? directoryPath = null,
   }) {
-    return _then(
-      _$SyncFlowInitialImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$SyncFlowInitialImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowInitialImpl extends SyncFlowInitial {
-  _$SyncFlowInitialImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    final String? $type,
-  }) : $type = $type ?? 'initial',
-       super._();
+  _$SyncFlowInitialImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      final String? $type})
+      : $type = $type ?? 'initial',
+        super._();
 
   factory _$SyncFlowInitialImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowInitialImplFromJson(json);
@@ -656,134 +568,111 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
   @pragma('vm:prefer-inline')
   _$$SyncFlowInitialImplCopyWith<_$SyncFlowInitialImpl> get copyWith =>
       __$$SyncFlowInitialImplCopyWithImpl<_$SyncFlowInitialImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return initial(willLog, accountApiKey, directoryPath);
   }
@@ -792,122 +681,95 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return initial?.call(willLog, accountApiKey, directoryPath);
   }
@@ -916,122 +778,95 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1049,20 +884,20 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return initial(this);
   }
@@ -1079,14 +914,14 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return initial?.call(this);
   }
@@ -1103,14 +938,14 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1121,16 +956,17 @@ class _$SyncFlowInitialImpl extends SyncFlowInitial {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowInitialImplToJson(this);
+    return _$$SyncFlowInitialImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowInitial extends SyncFlowState {
-  factory SyncFlowInitial({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-  }) = _$SyncFlowInitialImpl;
+  factory SyncFlowInitial(
+      {required final bool willLog,
+      required final String accountApiKey,
+      required final String directoryPath}) = _$SyncFlowInitialImpl;
   SyncFlowInitial._() : super._();
 
   factory SyncFlowInitial.fromJson(Map<String, dynamic> json) =
@@ -1155,17 +991,16 @@ abstract class SyncFlowInitial extends SyncFlowState {
 abstract class _$$SyncFlowCreatedClientImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowCreatedClientImplCopyWith(
-    _$SyncFlowCreatedClientImpl value,
-    $Res Function(_$SyncFlowCreatedClientImpl) then,
-  ) = __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>;
+          _$SyncFlowCreatedClientImpl value,
+          $Res Function(_$SyncFlowCreatedClientImpl) then) =
+      __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client});
 
   $ApiClientEntityCopyWith<$Res> get client;
 }
@@ -1174,10 +1009,9 @@ abstract class _$$SyncFlowCreatedClientImplCopyWith<$Res>
 class __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowCreatedClientImpl>
     implements _$$SyncFlowCreatedClientImplCopyWith<$Res> {
-  __$$SyncFlowCreatedClientImplCopyWithImpl(
-    _$SyncFlowCreatedClientImpl _value,
-    $Res Function(_$SyncFlowCreatedClientImpl) _then,
-  ) : super(_value, _then);
+  __$$SyncFlowCreatedClientImplCopyWithImpl(_$SyncFlowCreatedClientImpl _value,
+      $Res Function(_$SyncFlowCreatedClientImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1189,30 +1023,24 @@ class __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>
     Object? directoryPath = null,
     Object? client = null,
   }) {
-    return _then(
-      _$SyncFlowCreatedClientImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-      ),
-    );
+    return _then(_$SyncFlowCreatedClientImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -1229,14 +1057,14 @@ class __$$SyncFlowCreatedClientImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
-  _$SyncFlowCreatedClientImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    final String? $type,
-  }) : $type = $type ?? 'createdClient',
-       super._();
+  _$SyncFlowCreatedClientImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      final String? $type})
+      : $type = $type ?? 'createdClient',
+        super._();
 
   factory _$SyncFlowCreatedClientImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowCreatedClientImplFromJson(json);
@@ -1282,136 +1110,112 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowCreatedClientImplCopyWith<_$SyncFlowCreatedClientImpl>
-  get copyWith =>
-      __$$SyncFlowCreatedClientImplCopyWithImpl<_$SyncFlowCreatedClientImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith => __$$SyncFlowCreatedClientImplCopyWithImpl<
+          _$SyncFlowCreatedClientImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return createdClient(willLog, accountApiKey, directoryPath, client);
   }
@@ -1420,122 +1224,95 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return createdClient?.call(willLog, accountApiKey, directoryPath, client);
   }
@@ -1544,122 +1321,95 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -1677,20 +1427,20 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return createdClient(this);
   }
@@ -1707,14 +1457,14 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return createdClient?.call(this);
   }
@@ -1731,14 +1481,14 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (createdClient != null) {
@@ -1749,17 +1499,18 @@ class _$SyncFlowCreatedClientImpl extends SyncFlowCreatedClient {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowCreatedClientImplToJson(this);
+    return _$$SyncFlowCreatedClientImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowCreatedClient extends SyncFlowState {
-  factory SyncFlowCreatedClient({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-  }) = _$SyncFlowCreatedClientImpl;
+  factory SyncFlowCreatedClient(
+      {required final bool willLog,
+      required final String accountApiKey,
+      required final String directoryPath,
+      required final ApiClientEntity client}) = _$SyncFlowCreatedClientImpl;
   SyncFlowCreatedClient._() : super._();
 
   factory SyncFlowCreatedClient.fromJson(Map<String, dynamic> json) =
@@ -1778,24 +1529,22 @@ abstract class SyncFlowCreatedClient extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowCreatedClientImplCopyWith<_$SyncFlowCreatedClientImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowEnsureGitImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
-  factory _$$SyncFlowEnsureGitImplCopyWith(
-    _$SyncFlowEnsureGitImpl value,
-    $Res Function(_$SyncFlowEnsureGitImpl) then,
-  ) = __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>;
+  factory _$$SyncFlowEnsureGitImplCopyWith(_$SyncFlowEnsureGitImpl value,
+          $Res Function(_$SyncFlowEnsureGitImpl) then) =
+      __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client});
 
   $ApiClientEntityCopyWith<$Res> get client;
 }
@@ -1804,10 +1553,9 @@ abstract class _$$SyncFlowEnsureGitImplCopyWith<$Res>
 class __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowEnsureGitImpl>
     implements _$$SyncFlowEnsureGitImplCopyWith<$Res> {
-  __$$SyncFlowEnsureGitImplCopyWithImpl(
-    _$SyncFlowEnsureGitImpl _value,
-    $Res Function(_$SyncFlowEnsureGitImpl) _then,
-  ) : super(_value, _then);
+  __$$SyncFlowEnsureGitImplCopyWithImpl(_$SyncFlowEnsureGitImpl _value,
+      $Res Function(_$SyncFlowEnsureGitImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -1819,30 +1567,24 @@ class __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>
     Object? directoryPath = null,
     Object? client = null,
   }) {
-    return _then(
-      _$SyncFlowEnsureGitImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-      ),
-    );
+    return _then(_$SyncFlowEnsureGitImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -1859,14 +1601,14 @@ class __$$SyncFlowEnsureGitImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
-  _$SyncFlowEnsureGitImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    final String? $type,
-  }) : $type = $type ?? 'ensuredGit',
-       super._();
+  _$SyncFlowEnsureGitImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      final String? $type})
+      : $type = $type ?? 'ensuredGit',
+        super._();
 
   factory _$SyncFlowEnsureGitImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowEnsureGitImplFromJson(json);
@@ -1913,134 +1655,111 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   @pragma('vm:prefer-inline')
   _$$SyncFlowEnsureGitImplCopyWith<_$SyncFlowEnsureGitImpl> get copyWith =>
       __$$SyncFlowEnsureGitImplCopyWithImpl<_$SyncFlowEnsureGitImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return ensuredGit(willLog, accountApiKey, directoryPath, client);
   }
@@ -2049,122 +1768,95 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return ensuredGit?.call(willLog, accountApiKey, directoryPath, client);
   }
@@ -2173,122 +1865,95 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -2306,20 +1971,20 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return ensuredGit(this);
   }
@@ -2336,14 +2001,14 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return ensuredGit?.call(this);
   }
@@ -2360,14 +2025,14 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (ensuredGit != null) {
@@ -2378,17 +2043,18 @@ class _$SyncFlowEnsureGitImpl extends SyncFlowEnsureGit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowEnsureGitImplToJson(this);
+    return _$$SyncFlowEnsureGitImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowEnsureGit extends SyncFlowState {
-  factory SyncFlowEnsureGit({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-  }) = _$SyncFlowEnsureGitImpl;
+  factory SyncFlowEnsureGit(
+      {required final bool willLog,
+      required final String accountApiKey,
+      required final String directoryPath,
+      required final ApiClientEntity client}) = _$SyncFlowEnsureGitImpl;
   SyncFlowEnsureGit._() : super._();
 
   factory SyncFlowEnsureGit.fromJson(Map<String, dynamic> json) =
@@ -2414,18 +2080,17 @@ abstract class SyncFlowEnsureGit extends SyncFlowState {
 abstract class _$$SyncFlowGotCodeBaseYamlImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowGotCodeBaseYamlImplCopyWith(
-    _$SyncFlowGotCodeBaseYamlImpl value,
-    $Res Function(_$SyncFlowGotCodeBaseYamlImpl) then,
-  ) = __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>;
+          _$SyncFlowGotCodeBaseYamlImpl value,
+          $Res Function(_$SyncFlowGotCodeBaseYamlImpl) then) =
+      __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -2436,9 +2101,9 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGotCodeBaseYamlImpl>
     implements _$$SyncFlowGotCodeBaseYamlImplCopyWith<$Res> {
   __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl(
-    _$SyncFlowGotCodeBaseYamlImpl _value,
-    $Res Function(_$SyncFlowGotCodeBaseYamlImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowGotCodeBaseYamlImpl _value,
+      $Res Function(_$SyncFlowGotCodeBaseYamlImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -2451,35 +2116,28 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
     Object? client = null,
     Object? yamlInfo = null,
   }) {
-    return _then(
-      _$SyncFlowGotCodeBaseYamlImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-      ),
-    );
+    return _then(_$SyncFlowGotCodeBaseYamlImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -2506,15 +2164,15 @@ class __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
-  _$SyncFlowGotCodeBaseYamlImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    final String? $type,
-  }) : $type = $type ?? 'gotCodeBaseYaml',
-       super._();
+  _$SyncFlowGotCodeBaseYamlImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      final String? $type})
+      : $type = $type ?? 'gotCodeBaseYaml',
+        super._();
 
   factory _$SyncFlowGotCodeBaseYamlImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotCodeBaseYamlImplFromJson(json);
@@ -2556,13 +2214,7 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-  );
+      runtimeType, willLog, accountApiKey, directoryPath, client, yamlInfo);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -2570,404 +2222,313 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowGotCodeBaseYamlImplCopyWith<_$SyncFlowGotCodeBaseYamlImpl>
-  get copyWith => __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<
-    _$SyncFlowGotCodeBaseYamlImpl
-  >(this, _$identity);
+      get copyWith => __$$SyncFlowGotCodeBaseYamlImplCopyWithImpl<
+          _$SyncFlowGotCodeBaseYamlImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
       return gotCodeBaseYaml(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-      );
+          willLog, accountApiKey, directoryPath, client, yamlInfo);
     }
     return orElse();
   }
@@ -2981,20 +2542,20 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml(this);
   }
@@ -3011,14 +2572,14 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotCodeBaseYaml?.call(this);
   }
@@ -3035,14 +2596,14 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotCodeBaseYaml != null) {
@@ -3053,18 +2614,20 @@ class _$SyncFlowGotCodeBaseYamlImpl extends SyncFlowGotCodeBaseYaml {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGotCodeBaseYamlImplToJson(this);
+    return _$$SyncFlowGotCodeBaseYamlImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGotCodeBaseYaml extends SyncFlowState {
-  factory SyncFlowGotCodeBaseYaml({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-  }) = _$SyncFlowGotCodeBaseYamlImpl;
+  factory SyncFlowGotCodeBaseYaml(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo}) =
+      _$SyncFlowGotCodeBaseYamlImpl;
   SyncFlowGotCodeBaseYaml._() : super._();
 
   factory SyncFlowGotCodeBaseYaml.fromJson(Map<String, dynamic> json) =
@@ -3084,26 +2647,24 @@ abstract class SyncFlowGotCodeBaseYaml extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowGotCodeBaseYamlImplCopyWith<_$SyncFlowGotCodeBaseYamlImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowGotGitUserImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
-  factory _$$SyncFlowGotGitUserImplCopyWith(
-    _$SyncFlowGotGitUserImpl value,
-    $Res Function(_$SyncFlowGotGitUserImpl) then,
-  ) = __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>;
+  factory _$$SyncFlowGotGitUserImplCopyWith(_$SyncFlowGotGitUserImpl value,
+          $Res Function(_$SyncFlowGotGitUserImpl) then) =
+      __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitUser gitUser,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -3113,10 +2674,9 @@ abstract class _$$SyncFlowGotGitUserImplCopyWith<$Res>
 class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGotGitUserImpl>
     implements _$$SyncFlowGotGitUserImplCopyWith<$Res> {
-  __$$SyncFlowGotGitUserImplCopyWithImpl(
-    _$SyncFlowGotGitUserImpl _value,
-    $Res Function(_$SyncFlowGotGitUserImpl) _then,
-  ) : super(_value, _then);
+  __$$SyncFlowGotGitUserImplCopyWithImpl(_$SyncFlowGotGitUserImpl _value,
+      $Res Function(_$SyncFlowGotGitUserImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -3130,40 +2690,32 @@ class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
     Object? yamlInfo = null,
     Object? gitUser = null,
   }) {
-    return _then(
-      _$SyncFlowGotGitUserImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitUser:
-            null == gitUser
-                ? _value.gitUser
-                : gitUser // ignore: cast_nullable_to_non_nullable
-                    as GitUser,
-      ),
-    );
+    return _then(_$SyncFlowGotGitUserImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitUser: null == gitUser
+          ? _value.gitUser
+          : gitUser // ignore: cast_nullable_to_non_nullable
+              as GitUser,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -3190,16 +2742,16 @@ class __$$SyncFlowGotGitUserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
-  _$SyncFlowGotGitUserImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitUser,
-    final String? $type,
-  }) : $type = $type ?? 'gotGitUser',
-       super._();
+  _$SyncFlowGotGitUserImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitUser,
+      final String? $type})
+      : $type = $type ?? 'gotGitUser',
+        super._();
 
   factory _$SyncFlowGotGitUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotGitUserImplFromJson(json);
@@ -3243,15 +2795,8 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitUser,
-  );
+  int get hashCode => Object.hash(runtimeType, willLog, accountApiKey,
+      directoryPath, client, yamlInfo, gitUser);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -3260,407 +2805,312 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
   @pragma('vm:prefer-inline')
   _$$SyncFlowGotGitUserImplCopyWith<_$SyncFlowGotGitUserImpl> get copyWith =>
       __$$SyncFlowGotGitUserImplCopyWithImpl<_$SyncFlowGotGitUserImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return gotGitUser(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo, gitUser);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return gotGitUser?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo, gitUser);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
       return gotGitUser(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitUser,
-      );
+          willLog, accountApiKey, directoryPath, client, yamlInfo, gitUser);
     }
     return orElse();
   }
@@ -3674,20 +3124,20 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotGitUser(this);
   }
@@ -3704,14 +3154,14 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotGitUser?.call(this);
   }
@@ -3728,14 +3178,14 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotGitUser != null) {
@@ -3746,19 +3196,20 @@ class _$SyncFlowGotGitUserImpl extends SyncFlowGotGitUser {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGotGitUserImplToJson(this);
+    return _$$SyncFlowGotGitUserImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGotGitUser extends SyncFlowState {
-  factory SyncFlowGotGitUser({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitUser gitUser,
-  }) = _$SyncFlowGotGitUserImpl;
+  factory SyncFlowGotGitUser(
+      {required final bool willLog,
+      required final String accountApiKey,
+      required final String directoryPath,
+      required final ApiClientEntity client,
+      required final CodeBaseYamlInfo yamlInfo,
+      required final GitUser gitUser}) = _$SyncFlowGotGitUserImpl;
   SyncFlowGotGitUser._() : super._();
 
   factory SyncFlowGotGitUser.fromJson(Map<String, dynamic> json) =
@@ -3786,20 +3237,19 @@ abstract class SyncFlowGotGitUser extends SyncFlowState {
 abstract class _$$SyncFlowGotLastLocalCommitImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowGotLastLocalCommitImplCopyWith(
-    _$SyncFlowGotLastLocalCommitImpl value,
-    $Res Function(_$SyncFlowGotLastLocalCommitImpl) then,
-  ) = __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>;
+          _$SyncFlowGotLastLocalCommitImpl value,
+          $Res Function(_$SyncFlowGotLastLocalCommitImpl) then) =
+      __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitUser gitUser,
-    GitCommit previousCommit,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -3810,9 +3260,9 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGotLastLocalCommitImpl>
     implements _$$SyncFlowGotLastLocalCommitImplCopyWith<$Res> {
   __$$SyncFlowGotLastLocalCommitImplCopyWithImpl(
-    _$SyncFlowGotLastLocalCommitImpl _value,
-    $Res Function(_$SyncFlowGotLastLocalCommitImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowGotLastLocalCommitImpl _value,
+      $Res Function(_$SyncFlowGotLastLocalCommitImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -3827,45 +3277,36 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
     Object? gitUser = null,
     Object? previousCommit = null,
   }) {
-    return _then(
-      _$SyncFlowGotLastLocalCommitImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitUser:
-            null == gitUser
-                ? _value.gitUser
-                : gitUser // ignore: cast_nullable_to_non_nullable
-                    as GitUser,
-        previousCommit:
-            null == previousCommit
-                ? _value.previousCommit
-                : previousCommit // ignore: cast_nullable_to_non_nullable
-                    as GitCommit,
-      ),
-    );
+    return _then(_$SyncFlowGotLastLocalCommitImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitUser: null == gitUser
+          ? _value.gitUser
+          : gitUser // ignore: cast_nullable_to_non_nullable
+              as GitUser,
+      previousCommit: null == previousCommit
+          ? _value.previousCommit
+          : previousCommit // ignore: cast_nullable_to_non_nullable
+              as GitCommit,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -3892,21 +3333,21 @@ class __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
-  _$SyncFlowGotLastLocalCommitImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitUser,
-    required this.previousCommit,
-    final String? $type,
-  }) : $type = $type ?? 'gotLastLocalCommit',
-       super._();
+  _$SyncFlowGotLastLocalCommitImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitUser,
+      required this.previousCommit,
+      final String? $type})
+      : $type = $type ?? 'gotLastLocalCommit',
+        super._();
 
   factory _$SyncFlowGotLastLocalCommitImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowGotLastLocalCommitImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowGotLastLocalCommitImplFromJson(json);
 
   @override
   final bool willLog;
@@ -3951,16 +3392,8 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitUser,
-    previousCommit,
-  );
+  int get hashCode => Object.hash(runtimeType, willLog, accountApiKey,
+      directoryPath, client, yamlInfo, gitUser, previousCommit);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -3968,410 +3401,313 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowGotLastLocalCommitImplCopyWith<_$SyncFlowGotLastLocalCommitImpl>
-  get copyWith => __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<
-    _$SyncFlowGotLastLocalCommitImpl
-  >(this, _$identity);
+      get copyWith => __$$SyncFlowGotLastLocalCommitImplCopyWithImpl<
+          _$SyncFlowGotLastLocalCommitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
-    return gotLastLocalCommit(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-      previousCommit,
-    );
+    return gotLastLocalCommit(willLog, accountApiKey, directoryPath, client,
+        yamlInfo, gitUser, previousCommit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
-    return gotLastLocalCommit?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-      previousCommit,
-    );
+    return gotLastLocalCommit?.call(willLog, accountApiKey, directoryPath,
+        client, yamlInfo, gitUser, previousCommit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
-      return gotLastLocalCommit(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitUser,
-        previousCommit,
-      );
+      return gotLastLocalCommit(willLog, accountApiKey, directoryPath, client,
+          yamlInfo, gitUser, previousCommit);
     }
     return orElse();
   }
@@ -4385,20 +3721,20 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit(this);
   }
@@ -4415,14 +3751,14 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotLastLocalCommit?.call(this);
   }
@@ -4439,14 +3775,14 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotLastLocalCommit != null) {
@@ -4457,20 +3793,22 @@ class _$SyncFlowGotLastLocalCommitImpl extends SyncFlowGotLastLocalCommit {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGotLastLocalCommitImplToJson(this);
+    return _$$SyncFlowGotLastLocalCommitImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGotLastLocalCommit extends SyncFlowState {
-  factory SyncFlowGotLastLocalCommit({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitUser gitUser,
-    required final GitCommit previousCommit,
-  }) = _$SyncFlowGotLastLocalCommitImpl;
+  factory SyncFlowGotLastLocalCommit(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitUser gitUser,
+          required final GitCommit previousCommit}) =
+      _$SyncFlowGotLastLocalCommitImpl;
   SyncFlowGotLastLocalCommit._() : super._();
 
   factory SyncFlowGotLastLocalCommit.fromJson(Map<String, dynamic> json) =
@@ -4492,28 +3830,27 @@ abstract class SyncFlowGotLastLocalCommit extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowGotLastLocalCommitImplCopyWith<_$SyncFlowGotLastLocalCommitImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowGotProjectOriginUrlImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowGotProjectOriginUrlImplCopyWith(
-    _$SyncFlowGotProjectOriginUrlImpl value,
-    $Res Function(_$SyncFlowGotProjectOriginUrlImpl) then,
-  ) = __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>;
+          _$SyncFlowGotProjectOriginUrlImpl value,
+          $Res Function(_$SyncFlowGotProjectOriginUrlImpl) then) =
+      __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitUser gitUser,
-    GitCommit previousCommit,
-    String projectOriginUrl,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitUser gitUser,
+      GitCommit previousCommit,
+      String projectOriginUrl});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -4524,9 +3861,9 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGotProjectOriginUrlImpl>
     implements _$$SyncFlowGotProjectOriginUrlImplCopyWith<$Res> {
   __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl(
-    _$SyncFlowGotProjectOriginUrlImpl _value,
-    $Res Function(_$SyncFlowGotProjectOriginUrlImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowGotProjectOriginUrlImpl _value,
+      $Res Function(_$SyncFlowGotProjectOriginUrlImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -4542,50 +3879,40 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
     Object? previousCommit = null,
     Object? projectOriginUrl = null,
   }) {
-    return _then(
-      _$SyncFlowGotProjectOriginUrlImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitUser:
-            null == gitUser
-                ? _value.gitUser
-                : gitUser // ignore: cast_nullable_to_non_nullable
-                    as GitUser,
-        previousCommit:
-            null == previousCommit
-                ? _value.previousCommit
-                : previousCommit // ignore: cast_nullable_to_non_nullable
-                    as GitCommit,
-        projectOriginUrl:
-            null == projectOriginUrl
-                ? _value.projectOriginUrl
-                : projectOriginUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$SyncFlowGotProjectOriginUrlImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitUser: null == gitUser
+          ? _value.gitUser
+          : gitUser // ignore: cast_nullable_to_non_nullable
+              as GitUser,
+      previousCommit: null == previousCommit
+          ? _value.previousCommit
+          : previousCommit // ignore: cast_nullable_to_non_nullable
+              as GitCommit,
+      projectOriginUrl: null == projectOriginUrl
+          ? _value.projectOriginUrl
+          : projectOriginUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -4612,22 +3939,22 @@ class __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
-  _$SyncFlowGotProjectOriginUrlImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitUser,
-    required this.previousCommit,
-    required this.projectOriginUrl,
-    final String? $type,
-  }) : $type = $type ?? 'gotProjectOriginUrl',
-       super._();
+  _$SyncFlowGotProjectOriginUrlImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitUser,
+      required this.previousCommit,
+      required this.projectOriginUrl,
+      final String? $type})
+      : $type = $type ?? 'gotProjectOriginUrl',
+        super._();
 
   factory _$SyncFlowGotProjectOriginUrlImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowGotProjectOriginUrlImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowGotProjectOriginUrlImplFromJson(json);
 
   @override
   final bool willLog;
@@ -4677,16 +4004,15 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitUser,
-    previousCommit,
-    projectOriginUrl,
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitUser,
+      previousCommit,
+      projectOriginUrl);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -4694,413 +4020,313 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowGotProjectOriginUrlImplCopyWith<_$SyncFlowGotProjectOriginUrlImpl>
-  get copyWith => __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<
-    _$SyncFlowGotProjectOriginUrlImpl
-  >(this, _$identity);
+      get copyWith => __$$SyncFlowGotProjectOriginUrlImplCopyWithImpl<
+          _$SyncFlowGotProjectOriginUrlImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
-    return gotProjectOriginUrl(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-      previousCommit,
-      projectOriginUrl,
-    );
+    return gotProjectOriginUrl(willLog, accountApiKey, directoryPath, client,
+        yamlInfo, gitUser, previousCommit, projectOriginUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
-    return gotProjectOriginUrl?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitUser,
-      previousCommit,
-      projectOriginUrl,
-    );
+    return gotProjectOriginUrl?.call(willLog, accountApiKey, directoryPath,
+        client, yamlInfo, gitUser, previousCommit, projectOriginUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
-      return gotProjectOriginUrl(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitUser,
-        previousCommit,
-        projectOriginUrl,
-      );
+      return gotProjectOriginUrl(willLog, accountApiKey, directoryPath, client,
+          yamlInfo, gitUser, previousCommit, projectOriginUrl);
     }
     return orElse();
   }
@@ -5114,20 +4340,20 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl(this);
   }
@@ -5144,14 +4370,14 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotProjectOriginUrl?.call(this);
   }
@@ -5168,14 +4394,14 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotProjectOriginUrl != null) {
@@ -5186,21 +4412,23 @@ class _$SyncFlowGotProjectOriginUrlImpl extends SyncFlowGotProjectOriginUrl {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGotProjectOriginUrlImplToJson(this);
+    return _$$SyncFlowGotProjectOriginUrlImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGotProjectOriginUrl extends SyncFlowState {
-  factory SyncFlowGotProjectOriginUrl({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitUser gitUser,
-    required final GitCommit previousCommit,
-    required final String projectOriginUrl,
-  }) = _$SyncFlowGotProjectOriginUrlImpl;
+  factory SyncFlowGotProjectOriginUrl(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitUser gitUser,
+          required final GitCommit previousCommit,
+          required final String projectOriginUrl}) =
+      _$SyncFlowGotProjectOriginUrlImpl;
   SyncFlowGotProjectOriginUrl._() : super._();
 
   factory SyncFlowGotProjectOriginUrl.fromJson(Map<String, dynamic> json) =
@@ -5223,26 +4451,25 @@ abstract class SyncFlowGotProjectOriginUrl extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowGotProjectOriginUrlImplCopyWith<_$SyncFlowGotProjectOriginUrlImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowGotGitVariablesImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowGotGitVariablesImplCopyWith(
-    _$SyncFlowGotGitVariablesImpl value,
-    $Res Function(_$SyncFlowGotGitVariablesImpl) then,
-  ) = __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>;
+          _$SyncFlowGotGitVariablesImpl value,
+          $Res Function(_$SyncFlowGotGitVariablesImpl) then) =
+      __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -5254,9 +4481,9 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGotGitVariablesImpl>
     implements _$$SyncFlowGotGitVariablesImplCopyWith<$Res> {
   __$$SyncFlowGotGitVariablesImplCopyWithImpl(
-    _$SyncFlowGotGitVariablesImpl _value,
-    $Res Function(_$SyncFlowGotGitVariablesImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowGotGitVariablesImpl _value,
+      $Res Function(_$SyncFlowGotGitVariablesImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -5270,40 +4497,32 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
     Object? yamlInfo = null,
     Object? gitVariables = null,
   }) {
-    return _then(
-      _$SyncFlowGotGitVariablesImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-      ),
-    );
+    return _then(_$SyncFlowGotGitVariablesImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -5340,16 +4559,16 @@ class __$$SyncFlowGotGitVariablesImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
-  _$SyncFlowGotGitVariablesImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    final String? $type,
-  }) : $type = $type ?? 'gotGitVariables',
-       super._();
+  _$SyncFlowGotGitVariablesImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      final String? $type})
+      : $type = $type ?? 'gotGitVariables',
+        super._();
 
   factory _$SyncFlowGotGitVariablesImpl.fromJson(Map<String, dynamic> json) =>
       _$$SyncFlowGotGitVariablesImplFromJson(json);
@@ -5394,15 +4613,8 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-  );
+  int get hashCode => Object.hash(runtimeType, willLog, accountApiKey,
+      directoryPath, client, yamlInfo, gitVariables);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -5410,407 +4622,313 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowGotGitVariablesImplCopyWith<_$SyncFlowGotGitVariablesImpl>
-  get copyWith => __$$SyncFlowGotGitVariablesImplCopyWithImpl<
-    _$SyncFlowGotGitVariablesImpl
-  >(this, _$identity);
+      get copyWith => __$$SyncFlowGotGitVariablesImplCopyWithImpl<
+          _$SyncFlowGotGitVariablesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return gotGitVariables(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo, gitVariables);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return gotGitVariables?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-    );
+        willLog, accountApiKey, directoryPath, client, yamlInfo, gitVariables);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
-      return gotGitVariables(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitVariables,
-      );
+      return gotGitVariables(willLog, accountApiKey, directoryPath, client,
+          yamlInfo, gitVariables);
     }
     return orElse();
   }
@@ -5824,20 +4942,20 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotGitVariables(this);
   }
@@ -5854,14 +4972,14 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return gotGitVariables?.call(this);
   }
@@ -5878,14 +4996,14 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (gotGitVariables != null) {
@@ -5896,19 +5014,21 @@ class _$SyncFlowGotGitVariablesImpl extends SyncFlowGotGitVariables {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGotGitVariablesImplToJson(this);
+    return _$$SyncFlowGotGitVariablesImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGotGitVariables extends SyncFlowState {
-  factory SyncFlowGotGitVariables({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-  }) = _$SyncFlowGotGitVariablesImpl;
+  factory SyncFlowGotGitVariables(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitVariables gitVariables}) =
+      _$SyncFlowGotGitVariablesImpl;
   SyncFlowGotGitVariables._() : super._();
 
   factory SyncFlowGotGitVariables.fromJson(Map<String, dynamic> json) =
@@ -5929,27 +5049,26 @@ abstract class SyncFlowGotGitVariables extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowGotGitVariablesImplCopyWith<_$SyncFlowGotGitVariablesImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowExtractedProjectCodebaseImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowExtractedProjectCodebaseImplCopyWith(
-    _$SyncFlowExtractedProjectCodebaseImpl value,
-    $Res Function(_$SyncFlowExtractedProjectCodebaseImpl) then,
-  ) = __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>;
+          _$SyncFlowExtractedProjectCodebaseImpl value,
+          $Res Function(_$SyncFlowExtractedProjectCodebaseImpl) then) =
+      __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-    Set<String> contextPaths,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      Set<String> contextPaths});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -5958,16 +5077,13 @@ abstract class _$$SyncFlowExtractedProjectCodebaseImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
-    extends
-        _$SyncFlowStateCopyWithImpl<
-          $Res,
-          _$SyncFlowExtractedProjectCodebaseImpl
-        >
+    extends _$SyncFlowStateCopyWithImpl<$Res,
+        _$SyncFlowExtractedProjectCodebaseImpl>
     implements _$$SyncFlowExtractedProjectCodebaseImplCopyWith<$Res> {
   __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl(
-    _$SyncFlowExtractedProjectCodebaseImpl _value,
-    $Res Function(_$SyncFlowExtractedProjectCodebaseImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowExtractedProjectCodebaseImpl _value,
+      $Res Function(_$SyncFlowExtractedProjectCodebaseImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -5982,45 +5098,36 @@ class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? contextPaths = null,
   }) {
-    return _then(
-      _$SyncFlowExtractedProjectCodebaseImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-        contextPaths:
-            null == contextPaths
-                ? _value._contextPaths
-                : contextPaths // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-      ),
-    );
+    return _then(_$SyncFlowExtractedProjectCodebaseImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+      contextPaths: null == contextPaths
+          ? _value._contextPaths
+          : contextPaths // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -6058,22 +5165,22 @@ class __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowExtractedProjectCodebaseImpl
     extends SyncFlowExtractedProjectCodebase {
-  _$SyncFlowExtractedProjectCodebaseImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    required final Set<String> contextPaths,
-    final String? $type,
-  }) : _contextPaths = contextPaths,
-       $type = $type ?? 'extractedProjectCodebase',
-       super._();
+  _$SyncFlowExtractedProjectCodebaseImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      required final Set<String> contextPaths,
+      final String? $type})
+      : _contextPaths = contextPaths,
+        $type = $type ?? 'extractedProjectCodebase',
+        super._();
 
   factory _$SyncFlowExtractedProjectCodebaseImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowExtractedProjectCodebaseImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowExtractedProjectCodebaseImplFromJson(json);
 
   @override
   final bool willLog;
@@ -6118,24 +5225,21 @@ class _$SyncFlowExtractedProjectCodebaseImpl
                 other.yamlInfo == yamlInfo) &&
             (identical(other.gitVariables, gitVariables) ||
                 other.gitVariables == gitVariables) &&
-            const DeepCollectionEquality().equals(
-              other._contextPaths,
-              _contextPaths,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._contextPaths, _contextPaths));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-    const DeepCollectionEquality().hash(_contextPaths),
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitVariables,
+      const DeepCollectionEquality().hash(_contextPaths));
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -6143,412 +5247,314 @@ class _$SyncFlowExtractedProjectCodebaseImpl
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowExtractedProjectCodebaseImplCopyWith<
-    _$SyncFlowExtractedProjectCodebaseImpl
-  >
-  get copyWith => __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<
-    _$SyncFlowExtractedProjectCodebaseImpl
-  >(this, _$identity);
+          _$SyncFlowExtractedProjectCodebaseImpl>
+      get copyWith => __$$SyncFlowExtractedProjectCodebaseImplCopyWithImpl<
+          _$SyncFlowExtractedProjectCodebaseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
-    return extractedProjectCodebase(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-    );
+    return extractedProjectCodebase(willLog, accountApiKey, directoryPath,
+        client, yamlInfo, gitVariables, contextPaths);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
-    return extractedProjectCodebase?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-    );
+    return extractedProjectCodebase?.call(willLog, accountApiKey, directoryPath,
+        client, yamlInfo, gitVariables, contextPaths);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (extractedProjectCodebase != null) {
-      return extractedProjectCodebase(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitVariables,
-        contextPaths,
-      );
+      return extractedProjectCodebase(willLog, accountApiKey, directoryPath,
+          client, yamlInfo, gitVariables, contextPaths);
     }
     return orElse();
   }
@@ -6562,20 +5568,20 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase(this);
   }
@@ -6592,14 +5598,14 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return extractedProjectCodebase?.call(this);
   }
@@ -6616,14 +5622,14 @@ class _$SyncFlowExtractedProjectCodebaseImpl
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (extractedProjectCodebase != null) {
@@ -6634,20 +5640,22 @@ class _$SyncFlowExtractedProjectCodebaseImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowExtractedProjectCodebaseImplToJson(this);
+    return _$$SyncFlowExtractedProjectCodebaseImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowExtractedProjectCodebase extends SyncFlowState {
-  factory SyncFlowExtractedProjectCodebase({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-    required final Set<String> contextPaths,
-  }) = _$SyncFlowExtractedProjectCodebaseImpl;
+  factory SyncFlowExtractedProjectCodebase(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitVariables gitVariables,
+          required final Set<String> contextPaths}) =
+      _$SyncFlowExtractedProjectCodebaseImpl;
   SyncFlowExtractedProjectCodebase._() : super._();
 
   factory SyncFlowExtractedProjectCodebase.fromJson(Map<String, dynamic> json) =
@@ -6669,30 +5677,29 @@ abstract class SyncFlowExtractedProjectCodebase extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowExtractedProjectCodebaseImplCopyWith<
-    _$SyncFlowExtractedProjectCodebaseImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$SyncFlowExtractedProjectCodebaseImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith(
-    _$SyncFlowExtractedBabelFunctionDeclarationsImpl value,
-    $Res Function(_$SyncFlowExtractedBabelFunctionDeclarationsImpl) then,
-  ) = __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<$Res>;
+          _$SyncFlowExtractedBabelFunctionDeclarationsImpl value,
+          $Res Function(_$SyncFlowExtractedBabelFunctionDeclarationsImpl)
+              then) =
+      __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-    Set<String> contextPaths,
-    Set<String> declarationFunctions,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      Set<String> contextPaths,
+      Set<String> declarationFunctions});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -6701,16 +5708,13 @@ abstract class _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<$Res>
-    extends
-        _$SyncFlowStateCopyWithImpl<
-          $Res,
-          _$SyncFlowExtractedBabelFunctionDeclarationsImpl
-        >
+    extends _$SyncFlowStateCopyWithImpl<$Res,
+        _$SyncFlowExtractedBabelFunctionDeclarationsImpl>
     implements _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith<$Res> {
   __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl(
-    _$SyncFlowExtractedBabelFunctionDeclarationsImpl _value,
-    $Res Function(_$SyncFlowExtractedBabelFunctionDeclarationsImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowExtractedBabelFunctionDeclarationsImpl _value,
+      $Res Function(_$SyncFlowExtractedBabelFunctionDeclarationsImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -6726,50 +5730,40 @@ class __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<$Res>
     Object? contextPaths = null,
     Object? declarationFunctions = null,
   }) {
-    return _then(
-      _$SyncFlowExtractedBabelFunctionDeclarationsImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-        contextPaths:
-            null == contextPaths
-                ? _value._contextPaths
-                : contextPaths // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        declarationFunctions:
-            null == declarationFunctions
-                ? _value._declarationFunctions
-                : declarationFunctions // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-      ),
-    );
+    return _then(_$SyncFlowExtractedBabelFunctionDeclarationsImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+      contextPaths: null == contextPaths
+          ? _value._contextPaths
+          : contextPaths // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      declarationFunctions: null == declarationFunctions
+          ? _value._declarationFunctions
+          : declarationFunctions // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -6807,24 +5801,24 @@ class __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
     extends SyncFlowExtractedBabelFunctionDeclarations {
-  _$SyncFlowExtractedBabelFunctionDeclarationsImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-    final String? $type,
-  }) : _contextPaths = contextPaths,
-       _declarationFunctions = declarationFunctions,
-       $type = $type ?? 'extractedBabelFunctionDeclarations',
-       super._();
+  _$SyncFlowExtractedBabelFunctionDeclarationsImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      required final Set<String> contextPaths,
+      required final Set<String> declarationFunctions,
+      final String? $type})
+      : _contextPaths = contextPaths,
+        _declarationFunctions = declarationFunctions,
+        $type = $type ?? 'extractedBabelFunctionDeclarations',
+        super._();
 
   factory _$SyncFlowExtractedBabelFunctionDeclarationsImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowExtractedBabelFunctionDeclarationsImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowExtractedBabelFunctionDeclarationsImplFromJson(json);
 
   @override
   final bool willLog;
@@ -6878,29 +5872,24 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
                 other.yamlInfo == yamlInfo) &&
             (identical(other.gitVariables, gitVariables) ||
                 other.gitVariables == gitVariables) &&
-            const DeepCollectionEquality().equals(
-              other._contextPaths,
-              _contextPaths,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._declarationFunctions,
-              _declarationFunctions,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._contextPaths, _contextPaths) &&
+            const DeepCollectionEquality()
+                .equals(other._declarationFunctions, _declarationFunctions));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-    const DeepCollectionEquality().hash(_contextPaths),
-    const DeepCollectionEquality().hash(_declarationFunctions),
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitVariables,
+      const DeepCollectionEquality().hash(_contextPaths),
+      const DeepCollectionEquality().hash(_declarationFunctions));
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -6908,407 +5897,117 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith<
-    _$SyncFlowExtractedBabelFunctionDeclarationsImpl
-  >
-  get copyWith =>
-      __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<
-        _$SyncFlowExtractedBabelFunctionDeclarationsImpl
-      >(this, _$identity);
+          _$SyncFlowExtractedBabelFunctionDeclarationsImpl>
+      get copyWith =>
+          __$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWithImpl<
+                  _$SyncFlowExtractedBabelFunctionDeclarationsImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return extractedBabelFunctionDeclarations(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-  }) {
-    return extractedBabelFunctionDeclarations?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-    required TResult orElse(),
-  }) {
-    if (extractedBabelFunctionDeclarations != null) {
-      return extractedBabelFunctionDeclarations(
         willLog,
         accountApiKey,
         directoryPath,
@@ -7316,8 +6015,219 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
         yamlInfo,
         gitVariables,
         contextPaths,
-        declarationFunctions,
-      );
+        declarationFunctions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+  }) {
+    return extractedBabelFunctionDeclarations?.call(
+        willLog,
+        accountApiKey,
+        directoryPath,
+        client,
+        yamlInfo,
+        gitVariables,
+        contextPaths,
+        declarationFunctions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+    required TResult orElse(),
+  }) {
+    if (extractedBabelFunctionDeclarations != null) {
+      return extractedBabelFunctionDeclarations(
+          willLog,
+          accountApiKey,
+          directoryPath,
+          client,
+          yamlInfo,
+          gitVariables,
+          contextPaths,
+          declarationFunctions);
     }
     return orElse();
   }
@@ -7331,20 +6241,20 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return extractedBabelFunctionDeclarations(this);
   }
@@ -7361,14 +6271,14 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return extractedBabelFunctionDeclarations?.call(this);
   }
@@ -7385,14 +6295,14 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (extractedBabelFunctionDeclarations != null) {
@@ -7403,27 +6313,29 @@ class _$SyncFlowExtractedBabelFunctionDeclarationsImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowExtractedBabelFunctionDeclarationsImplToJson(this);
+    return _$$SyncFlowExtractedBabelFunctionDeclarationsImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowExtractedBabelFunctionDeclarations
     extends SyncFlowState {
-  factory SyncFlowExtractedBabelFunctionDeclarations({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-  }) = _$SyncFlowExtractedBabelFunctionDeclarationsImpl;
+  factory SyncFlowExtractedBabelFunctionDeclarations(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitVariables gitVariables,
+          required final Set<String> contextPaths,
+          required final Set<String> declarationFunctions}) =
+      _$SyncFlowExtractedBabelFunctionDeclarationsImpl;
   SyncFlowExtractedBabelFunctionDeclarations._() : super._();
 
   factory SyncFlowExtractedBabelFunctionDeclarations.fromJson(
-    Map<String, dynamic> json,
-  ) = _$SyncFlowExtractedBabelFunctionDeclarationsImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$SyncFlowExtractedBabelFunctionDeclarationsImpl.fromJson;
 
   @override
   bool get willLog;
@@ -7442,31 +6354,29 @@ abstract class SyncFlowExtractedBabelFunctionDeclarations
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowExtractedBabelFunctionDeclarationsImplCopyWith<
-    _$SyncFlowExtractedBabelFunctionDeclarationsImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$SyncFlowExtractedBabelFunctionDeclarationsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowGeneratedBabelClassImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowGeneratedBabelClassImplCopyWith(
-    _$SyncFlowGeneratedBabelClassImpl value,
-    $Res Function(_$SyncFlowGeneratedBabelClassImpl) then,
-  ) = __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<$Res>;
+          _$SyncFlowGeneratedBabelClassImpl value,
+          $Res Function(_$SyncFlowGeneratedBabelClassImpl) then) =
+      __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-    Set<String> contextPaths,
-    Set<String> declarationFunctions,
-    String babelClass,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      Set<String> contextPaths,
+      Set<String> declarationFunctions,
+      String babelClass});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -7478,9 +6388,9 @@ class __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<$Res>
     extends _$SyncFlowStateCopyWithImpl<$Res, _$SyncFlowGeneratedBabelClassImpl>
     implements _$$SyncFlowGeneratedBabelClassImplCopyWith<$Res> {
   __$$SyncFlowGeneratedBabelClassImplCopyWithImpl(
-    _$SyncFlowGeneratedBabelClassImpl _value,
-    $Res Function(_$SyncFlowGeneratedBabelClassImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowGeneratedBabelClassImpl _value,
+      $Res Function(_$SyncFlowGeneratedBabelClassImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -7497,55 +6407,44 @@ class __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<$Res>
     Object? declarationFunctions = null,
     Object? babelClass = null,
   }) {
-    return _then(
-      _$SyncFlowGeneratedBabelClassImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-        contextPaths:
-            null == contextPaths
-                ? _value._contextPaths
-                : contextPaths // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        declarationFunctions:
-            null == declarationFunctions
-                ? _value._declarationFunctions
-                : declarationFunctions // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        babelClass:
-            null == babelClass
-                ? _value.babelClass
-                : babelClass // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
+    return _then(_$SyncFlowGeneratedBabelClassImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+      contextPaths: null == contextPaths
+          ? _value._contextPaths
+          : contextPaths // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      declarationFunctions: null == declarationFunctions
+          ? _value._declarationFunctions
+          : declarationFunctions // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      babelClass: null == babelClass
+          ? _value.babelClass
+          : babelClass // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -7582,25 +6481,25 @@ class __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
-  _$SyncFlowGeneratedBabelClassImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-    required this.babelClass,
-    final String? $type,
-  }) : _contextPaths = contextPaths,
-       _declarationFunctions = declarationFunctions,
-       $type = $type ?? 'generatedBabelClass',
-       super._();
+  _$SyncFlowGeneratedBabelClassImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      required final Set<String> contextPaths,
+      required final Set<String> declarationFunctions,
+      required this.babelClass,
+      final String? $type})
+      : _contextPaths = contextPaths,
+        _declarationFunctions = declarationFunctions,
+        $type = $type ?? 'generatedBabelClass',
+        super._();
 
   factory _$SyncFlowGeneratedBabelClassImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowGeneratedBabelClassImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowGeneratedBabelClassImplFromJson(json);
 
   @override
   final bool willLog;
@@ -7657,14 +6556,10 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
                 other.yamlInfo == yamlInfo) &&
             (identical(other.gitVariables, gitVariables) ||
                 other.gitVariables == gitVariables) &&
-            const DeepCollectionEquality().equals(
-              other._contextPaths,
-              _contextPaths,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._declarationFunctions,
-              _declarationFunctions,
-            ) &&
+            const DeepCollectionEquality()
+                .equals(other._contextPaths, _contextPaths) &&
+            const DeepCollectionEquality()
+                .equals(other._declarationFunctions, _declarationFunctions) &&
             (identical(other.babelClass, babelClass) ||
                 other.babelClass == babelClass));
   }
@@ -7672,17 +6567,16 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-    const DeepCollectionEquality().hash(_contextPaths),
-    const DeepCollectionEquality().hash(_declarationFunctions),
-    babelClass,
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitVariables,
+      const DeepCollectionEquality().hash(_contextPaths),
+      const DeepCollectionEquality().hash(_declarationFunctions),
+      babelClass);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -7690,406 +6584,212 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowGeneratedBabelClassImplCopyWith<_$SyncFlowGeneratedBabelClassImpl>
-  get copyWith => __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<
-    _$SyncFlowGeneratedBabelClassImpl
-  >(this, _$identity);
+      get copyWith => __$$SyncFlowGeneratedBabelClassImplCopyWithImpl<
+          _$SyncFlowGeneratedBabelClassImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
-    return generatedBabelClass(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-      babelClass,
-    );
+    return generatedBabelClass(willLog, accountApiKey, directoryPath, client,
+        yamlInfo, gitVariables, contextPaths, declarationFunctions, babelClass);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
     return generatedBabelClass?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-      babelClass,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-    required TResult orElse(),
-  }) {
-    if (generatedBabelClass != null) {
-      return generatedBabelClass(
         willLog,
         accountApiKey,
         directoryPath,
@@ -8098,8 +6798,115 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
         gitVariables,
         contextPaths,
         declarationFunctions,
-        babelClass,
-      );
+        babelClass);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+    required TResult orElse(),
+  }) {
+    if (generatedBabelClass != null) {
+      return generatedBabelClass(
+          willLog,
+          accountApiKey,
+          directoryPath,
+          client,
+          yamlInfo,
+          gitVariables,
+          contextPaths,
+          declarationFunctions,
+          babelClass);
     }
     return orElse();
   }
@@ -8113,20 +6920,20 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return generatedBabelClass(this);
   }
@@ -8143,14 +6950,14 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return generatedBabelClass?.call(this);
   }
@@ -8167,14 +6974,14 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (generatedBabelClass != null) {
@@ -8185,22 +6992,23 @@ class _$SyncFlowGeneratedBabelClassImpl extends SyncFlowGeneratedBabelClass {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowGeneratedBabelClassImplToJson(this);
+    return _$$SyncFlowGeneratedBabelClassImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowGeneratedBabelClass extends SyncFlowState {
-  factory SyncFlowGeneratedBabelClass({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-    required final String babelClass,
-  }) = _$SyncFlowGeneratedBabelClassImpl;
+  factory SyncFlowGeneratedBabelClass(
+      {required final bool willLog,
+      required final String accountApiKey,
+      required final String directoryPath,
+      required final ApiClientEntity client,
+      required final CodeBaseYamlInfo yamlInfo,
+      required final GitVariables gitVariables,
+      required final Set<String> contextPaths,
+      required final Set<String> declarationFunctions,
+      required final String babelClass}) = _$SyncFlowGeneratedBabelClassImpl;
   SyncFlowGeneratedBabelClass._() : super._();
 
   factory SyncFlowGeneratedBabelClass.fromJson(Map<String, dynamic> json) =
@@ -8224,28 +7032,27 @@ abstract class SyncFlowGeneratedBabelClass extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowGeneratedBabelClassImplCopyWith<_$SyncFlowGeneratedBabelClassImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith(
-    _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl value,
-    $Res Function(_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl) then,
-  ) = __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<$Res>;
+          _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl value,
+          $Res Function(_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl) then) =
+      __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-    Set<String> contextPaths,
-    Set<String> declarationFunctions,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      Set<String> contextPaths,
+      Set<String> declarationFunctions});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -8254,16 +7061,13 @@ abstract class _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<$Res>
-    extends
-        _$SyncFlowStateCopyWithImpl<
-          $Res,
-          _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
-        >
+    extends _$SyncFlowStateCopyWithImpl<$Res,
+        _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl>
     implements _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith<$Res> {
   __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl(
-    _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl _value,
-    $Res Function(_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl _value,
+      $Res Function(_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -8279,50 +7083,40 @@ class __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<$Res>
     Object? contextPaths = null,
     Object? declarationFunctions = null,
   }) {
-    return _then(
-      _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-        contextPaths:
-            null == contextPaths
-                ? _value._contextPaths
-                : contextPaths // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-        declarationFunctions:
-            null == declarationFunctions
-                ? _value._declarationFunctions
-                : declarationFunctions // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-      ),
-    );
+    return _then(_$SyncFlowWrittedBabelTextFileIntoDirectoryImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+      contextPaths: null == contextPaths
+          ? _value._contextPaths
+          : contextPaths // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      declarationFunctions: null == declarationFunctions
+          ? _value._declarationFunctions
+          : declarationFunctions // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -8360,24 +7154,24 @@ class __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
     extends SyncFlowWrittedBabelTextFileIntoDirectory {
-  _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-    final String? $type,
-  }) : _contextPaths = contextPaths,
-       _declarationFunctions = declarationFunctions,
-       $type = $type ?? 'writtedBabelTextFileIntoDirectory',
-       super._();
+  _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      required final Set<String> contextPaths,
+      required final Set<String> declarationFunctions,
+      final String? $type})
+      : _contextPaths = contextPaths,
+        _declarationFunctions = declarationFunctions,
+        $type = $type ?? 'writtedBabelTextFileIntoDirectory',
+        super._();
 
   factory _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplFromJson(json);
 
   @override
   final bool willLog;
@@ -8431,29 +7225,24 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
                 other.yamlInfo == yamlInfo) &&
             (identical(other.gitVariables, gitVariables) ||
                 other.gitVariables == gitVariables) &&
-            const DeepCollectionEquality().equals(
-              other._contextPaths,
-              _contextPaths,
-            ) &&
-            const DeepCollectionEquality().equals(
-              other._declarationFunctions,
-              _declarationFunctions,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._contextPaths, _contextPaths) &&
+            const DeepCollectionEquality()
+                .equals(other._declarationFunctions, _declarationFunctions));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-    const DeepCollectionEquality().hash(_contextPaths),
-    const DeepCollectionEquality().hash(_declarationFunctions),
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitVariables,
+      const DeepCollectionEquality().hash(_contextPaths),
+      const DeepCollectionEquality().hash(_declarationFunctions));
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -8461,406 +7250,117 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith<
-    _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
-  >
-  get copyWith => __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<
-    _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
-  >(this, _$identity);
+          _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl>
+      get copyWith =>
+          __$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWithImpl<
+                  _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
     return writtedBabelTextFileIntoDirectory(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-  }) {
-    return writtedBabelTextFileIntoDirectory?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-      declarationFunctions,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
-    required TResult orElse(),
-  }) {
-    if (writtedBabelTextFileIntoDirectory != null) {
-      return writtedBabelTextFileIntoDirectory(
         willLog,
         accountApiKey,
         directoryPath,
@@ -8868,8 +7368,219 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
         yamlInfo,
         gitVariables,
         contextPaths,
-        declarationFunctions,
-      );
+        declarationFunctions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
+    TResult? Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+  }) {
+    return writtedBabelTextFileIntoDirectory?.call(
+        willLog,
+        accountApiKey,
+        directoryPath,
+        client,
+        yamlInfo,
+        gitVariables,
+        contextPaths,
+        declarationFunctions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool willLog, String accountApiKey, String directoryPath)?
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
+    TResult Function(
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
+    required TResult orElse(),
+  }) {
+    if (writtedBabelTextFileIntoDirectory != null) {
+      return writtedBabelTextFileIntoDirectory(
+          willLog,
+          accountApiKey,
+          directoryPath,
+          client,
+          yamlInfo,
+          gitVariables,
+          contextPaths,
+          declarationFunctions);
     }
     return orElse();
   }
@@ -8883,20 +7594,20 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return writtedBabelTextFileIntoDirectory(this);
   }
@@ -8913,14 +7624,14 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return writtedBabelTextFileIntoDirectory?.call(this);
   }
@@ -8937,14 +7648,14 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (writtedBabelTextFileIntoDirectory != null) {
@@ -8955,26 +7666,28 @@ class _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplToJson(this);
+    return _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowWrittedBabelTextFileIntoDirectory extends SyncFlowState {
-  factory SyncFlowWrittedBabelTextFileIntoDirectory({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-    required final Set<String> contextPaths,
-    required final Set<String> declarationFunctions,
-  }) = _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl;
+  factory SyncFlowWrittedBabelTextFileIntoDirectory(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitVariables gitVariables,
+          required final Set<String> contextPaths,
+          required final Set<String> declarationFunctions}) =
+      _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl;
   SyncFlowWrittedBabelTextFileIntoDirectory._() : super._();
 
   factory SyncFlowWrittedBabelTextFileIntoDirectory.fromJson(
-    Map<String, dynamic> json,
-  ) = _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl.fromJson;
 
   @override
   bool get willLog;
@@ -8993,29 +7706,27 @@ abstract class SyncFlowWrittedBabelTextFileIntoDirectory extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowWrittedBabelTextFileIntoDirectoryImplCopyWith<
-    _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$SyncFlowWrittedBabelTextFileIntoDirectoryImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<$Res>
     implements $SyncFlowStateCopyWith<$Res> {
   factory _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith(
-    _$SyncFlowCreatedProjectInGobabelServerImpl value,
-    $Res Function(_$SyncFlowCreatedProjectInGobabelServerImpl) then,
-  ) = __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>;
+          _$SyncFlowCreatedProjectInGobabelServerImpl value,
+          $Res Function(_$SyncFlowCreatedProjectInGobabelServerImpl) then) =
+      __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    bool willLog,
-    String accountApiKey,
-    String directoryPath,
-    ApiClientEntity client,
-    CodeBaseYamlInfo yamlInfo,
-    GitVariables gitVariables,
-    Set<String> contextPaths,
-  });
+  $Res call(
+      {bool willLog,
+      String accountApiKey,
+      String directoryPath,
+      ApiClientEntity client,
+      CodeBaseYamlInfo yamlInfo,
+      GitVariables gitVariables,
+      Set<String> contextPaths});
 
   $ApiClientEntityCopyWith<$Res> get client;
   $CodeBaseYamlInfoCopyWith<$Res> get yamlInfo;
@@ -9024,16 +7735,13 @@ abstract class _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
-    extends
-        _$SyncFlowStateCopyWithImpl<
-          $Res,
-          _$SyncFlowCreatedProjectInGobabelServerImpl
-        >
+    extends _$SyncFlowStateCopyWithImpl<$Res,
+        _$SyncFlowCreatedProjectInGobabelServerImpl>
     implements _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<$Res> {
   __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl(
-    _$SyncFlowCreatedProjectInGobabelServerImpl _value,
-    $Res Function(_$SyncFlowCreatedProjectInGobabelServerImpl) _then,
-  ) : super(_value, _then);
+      _$SyncFlowCreatedProjectInGobabelServerImpl _value,
+      $Res Function(_$SyncFlowCreatedProjectInGobabelServerImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -9048,45 +7756,36 @@ class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
     Object? gitVariables = null,
     Object? contextPaths = null,
   }) {
-    return _then(
-      _$SyncFlowCreatedProjectInGobabelServerImpl(
-        willLog:
-            null == willLog
-                ? _value.willLog
-                : willLog // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        accountApiKey:
-            null == accountApiKey
-                ? _value.accountApiKey
-                : accountApiKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        directoryPath:
-            null == directoryPath
-                ? _value.directoryPath
-                : directoryPath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        client:
-            null == client
-                ? _value.client
-                : client // ignore: cast_nullable_to_non_nullable
-                    as ApiClientEntity,
-        yamlInfo:
-            null == yamlInfo
-                ? _value.yamlInfo
-                : yamlInfo // ignore: cast_nullable_to_non_nullable
-                    as CodeBaseYamlInfo,
-        gitVariables:
-            null == gitVariables
-                ? _value.gitVariables
-                : gitVariables // ignore: cast_nullable_to_non_nullable
-                    as GitVariables,
-        contextPaths:
-            null == contextPaths
-                ? _value._contextPaths
-                : contextPaths // ignore: cast_nullable_to_non_nullable
-                    as Set<String>,
-      ),
-    );
+    return _then(_$SyncFlowCreatedProjectInGobabelServerImpl(
+      willLog: null == willLog
+          ? _value.willLog
+          : willLog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      accountApiKey: null == accountApiKey
+          ? _value.accountApiKey
+          : accountApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      directoryPath: null == directoryPath
+          ? _value.directoryPath
+          : directoryPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      client: null == client
+          ? _value.client
+          : client // ignore: cast_nullable_to_non_nullable
+              as ApiClientEntity,
+      yamlInfo: null == yamlInfo
+          ? _value.yamlInfo
+          : yamlInfo // ignore: cast_nullable_to_non_nullable
+              as CodeBaseYamlInfo,
+      gitVariables: null == gitVariables
+          ? _value.gitVariables
+          : gitVariables // ignore: cast_nullable_to_non_nullable
+              as GitVariables,
+      contextPaths: null == contextPaths
+          ? _value._contextPaths
+          : contextPaths // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
   }
 
   /// Create a copy of SyncFlowState
@@ -9124,22 +7823,22 @@ class __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SyncFlowCreatedProjectInGobabelServerImpl
     extends SyncFlowCreatedProjectInGobabelServer {
-  _$SyncFlowCreatedProjectInGobabelServerImpl({
-    required this.willLog,
-    required this.accountApiKey,
-    required this.directoryPath,
-    required this.client,
-    required this.yamlInfo,
-    required this.gitVariables,
-    required final Set<String> contextPaths,
-    final String? $type,
-  }) : _contextPaths = contextPaths,
-       $type = $type ?? 'createdProjectInGobabelServer',
-       super._();
+  _$SyncFlowCreatedProjectInGobabelServerImpl(
+      {required this.willLog,
+      required this.accountApiKey,
+      required this.directoryPath,
+      required this.client,
+      required this.yamlInfo,
+      required this.gitVariables,
+      required final Set<String> contextPaths,
+      final String? $type})
+      : _contextPaths = contextPaths,
+        $type = $type ?? 'createdProjectInGobabelServer',
+        super._();
 
   factory _$SyncFlowCreatedProjectInGobabelServerImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$SyncFlowCreatedProjectInGobabelServerImplFromJson(json);
 
   @override
   final bool willLog;
@@ -9184,24 +7883,21 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
                 other.yamlInfo == yamlInfo) &&
             (identical(other.gitVariables, gitVariables) ||
                 other.gitVariables == gitVariables) &&
-            const DeepCollectionEquality().equals(
-              other._contextPaths,
-              _contextPaths,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._contextPaths, _contextPaths));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    willLog,
-    accountApiKey,
-    directoryPath,
-    client,
-    yamlInfo,
-    gitVariables,
-    const DeepCollectionEquality().hash(_contextPaths),
-  );
+      runtimeType,
+      willLog,
+      accountApiKey,
+      directoryPath,
+      client,
+      yamlInfo,
+      gitVariables,
+      const DeepCollectionEquality().hash(_contextPaths));
 
   /// Create a copy of SyncFlowState
   /// with the given fields replaced by the non-null parameter values.
@@ -9209,412 +7905,314 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
   @override
   @pragma('vm:prefer-inline')
   _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<
-    _$SyncFlowCreatedProjectInGobabelServerImpl
-  >
-  get copyWith => __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<
-    _$SyncFlowCreatedProjectInGobabelServerImpl
-  >(this, _$identity);
+          _$SyncFlowCreatedProjectInGobabelServerImpl>
+      get copyWith => __$$SyncFlowCreatedProjectInGobabelServerImplCopyWithImpl<
+          _$SyncFlowCreatedProjectInGobabelServerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-    )
-    initial,
+            bool willLog, String accountApiKey, String directoryPath)
+        initial,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        createdClient,
+    required TResult Function(bool willLog, String accountApiKey,
+            String directoryPath, ApiClientEntity client)
+        ensuredGit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo)
+        gotCodeBaseYaml,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser)
+        gotGitUser,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)
+        gotLastLocalCommit,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)
+        gotProjectOriginUrl,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)
+        gotGitVariables,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        extractedProjectCodebase,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        extractedBabelFunctionDeclarations,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    extractedProjectCodebase,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)
+        generatedBabelClass,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    extractedBabelFunctionDeclarations,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )
-    generatedBabelClass,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )
-    writtedBabelTextFileIntoDirectory,
-    required TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)
+        createdProjectInGobabelServer,
   }) {
-    return createdProjectInGobabelServer(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-    );
+    return createdProjectInGobabelServer(willLog, accountApiKey, directoryPath,
+        client, yamlInfo, gitVariables, contextPaths);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult? Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult? Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
   }) {
-    return createdProjectInGobabelServer?.call(
-      willLog,
-      accountApiKey,
-      directoryPath,
-      client,
-      yamlInfo,
-      gitVariables,
-      contextPaths,
-    );
+    return createdProjectInGobabelServer?.call(willLog, accountApiKey,
+        directoryPath, client, yamlInfo, gitVariables, contextPaths);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool willLog, String accountApiKey, String directoryPath)?
-    initial,
+        initial,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        createdClient,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client)?
+        ensuredGit,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo)?
+        gotCodeBaseYaml,
+    TResult Function(bool willLog, String accountApiKey, String directoryPath,
+            ApiClientEntity client, CodeBaseYamlInfo yamlInfo, GitUser gitUser)?
+        gotGitUser,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    createdClient,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit)?
+        gotLastLocalCommit,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-    )?
-    ensuredGit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitUser gitUser,
+            GitCommit previousCommit,
+            String projectOriginUrl)?
+        gotProjectOriginUrl,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-    )?
-    gotCodeBaseYaml,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables)?
+        gotGitVariables,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-    )?
-    gotGitUser,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        extractedProjectCodebase,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-    )?
-    gotLastLocalCommit,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        extractedBabelFunctionDeclarations,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitUser gitUser,
-      GitCommit previousCommit,
-      String projectOriginUrl,
-    )?
-    gotProjectOriginUrl,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions,
+            String babelClass)?
+        generatedBabelClass,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-    )?
-    gotGitVariables,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths,
+            Set<String> declarationFunctions)?
+        writtedBabelTextFileIntoDirectory,
     TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    extractedProjectCodebase,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    extractedBabelFunctionDeclarations,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-      String babelClass,
-    )?
-    generatedBabelClass,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-      Set<String> declarationFunctions,
-    )?
-    writtedBabelTextFileIntoDirectory,
-    TResult Function(
-      bool willLog,
-      String accountApiKey,
-      String directoryPath,
-      ApiClientEntity client,
-      CodeBaseYamlInfo yamlInfo,
-      GitVariables gitVariables,
-      Set<String> contextPaths,
-    )?
-    createdProjectInGobabelServer,
+            bool willLog,
+            String accountApiKey,
+            String directoryPath,
+            ApiClientEntity client,
+            CodeBaseYamlInfo yamlInfo,
+            GitVariables gitVariables,
+            Set<String> contextPaths)?
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (createdProjectInGobabelServer != null) {
-      return createdProjectInGobabelServer(
-        willLog,
-        accountApiKey,
-        directoryPath,
-        client,
-        yamlInfo,
-        gitVariables,
-        contextPaths,
-      );
+      return createdProjectInGobabelServer(willLog, accountApiKey,
+          directoryPath, client, yamlInfo, gitVariables, contextPaths);
     }
     return orElse();
   }
@@ -9628,20 +8226,20 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     required TResult Function(SyncFlowGotCodeBaseYaml value) gotCodeBaseYaml,
     required TResult Function(SyncFlowGotGitUser value) gotGitUser,
     required TResult Function(SyncFlowGotLastLocalCommit value)
-    gotLastLocalCommit,
+        gotLastLocalCommit,
     required TResult Function(SyncFlowGotProjectOriginUrl value)
-    gotProjectOriginUrl,
+        gotProjectOriginUrl,
     required TResult Function(SyncFlowGotGitVariables value) gotGitVariables,
     required TResult Function(SyncFlowExtractedProjectCodebase value)
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     required TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     required TResult Function(SyncFlowGeneratedBabelClass value)
-    generatedBabelClass,
+        generatedBabelClass,
     required TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     required TResult Function(SyncFlowCreatedProjectInGobabelServer value)
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer(this);
   }
@@ -9658,14 +8256,14 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     TResult? Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult? Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult? Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult? Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult? Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult? Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult? Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
   }) {
     return createdProjectInGobabelServer?.call(this);
   }
@@ -9682,14 +8280,14 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
     TResult Function(SyncFlowGotProjectOriginUrl value)? gotProjectOriginUrl,
     TResult Function(SyncFlowGotGitVariables value)? gotGitVariables,
     TResult Function(SyncFlowExtractedProjectCodebase value)?
-    extractedProjectCodebase,
+        extractedProjectCodebase,
     TResult Function(SyncFlowExtractedBabelFunctionDeclarations value)?
-    extractedBabelFunctionDeclarations,
+        extractedBabelFunctionDeclarations,
     TResult Function(SyncFlowGeneratedBabelClass value)? generatedBabelClass,
     TResult Function(SyncFlowWrittedBabelTextFileIntoDirectory value)?
-    writtedBabelTextFileIntoDirectory,
+        writtedBabelTextFileIntoDirectory,
     TResult Function(SyncFlowCreatedProjectInGobabelServer value)?
-    createdProjectInGobabelServer,
+        createdProjectInGobabelServer,
     required TResult orElse(),
   }) {
     if (createdProjectInGobabelServer != null) {
@@ -9700,25 +8298,27 @@ class _$SyncFlowCreatedProjectInGobabelServerImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SyncFlowCreatedProjectInGobabelServerImplToJson(this);
+    return _$$SyncFlowCreatedProjectInGobabelServerImplToJson(
+      this,
+    );
   }
 }
 
 abstract class SyncFlowCreatedProjectInGobabelServer extends SyncFlowState {
-  factory SyncFlowCreatedProjectInGobabelServer({
-    required final bool willLog,
-    required final String accountApiKey,
-    required final String directoryPath,
-    required final ApiClientEntity client,
-    required final CodeBaseYamlInfo yamlInfo,
-    required final GitVariables gitVariables,
-    required final Set<String> contextPaths,
-  }) = _$SyncFlowCreatedProjectInGobabelServerImpl;
+  factory SyncFlowCreatedProjectInGobabelServer(
+          {required final bool willLog,
+          required final String accountApiKey,
+          required final String directoryPath,
+          required final ApiClientEntity client,
+          required final CodeBaseYamlInfo yamlInfo,
+          required final GitVariables gitVariables,
+          required final Set<String> contextPaths}) =
+      _$SyncFlowCreatedProjectInGobabelServerImpl;
   SyncFlowCreatedProjectInGobabelServer._() : super._();
 
   factory SyncFlowCreatedProjectInGobabelServer.fromJson(
-    Map<String, dynamic> json,
-  ) = _$SyncFlowCreatedProjectInGobabelServerImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$SyncFlowCreatedProjectInGobabelServerImpl.fromJson;
 
   @override
   bool get willLog;
@@ -9736,7 +8336,6 @@ abstract class SyncFlowCreatedProjectInGobabelServer extends SyncFlowState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SyncFlowCreatedProjectInGobabelServerImplCopyWith<
-    _$SyncFlowCreatedProjectInGobabelServerImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$SyncFlowCreatedProjectInGobabelServerImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

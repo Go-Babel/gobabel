@@ -12,8 +12,7 @@ part of 'babel_label_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BabelLabelEntity _$BabelLabelEntityFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -25,12 +24,8 @@ BabelLabelEntity _$BabelLabelEntityFromJson(Map<String, dynamic> json) {
       return BabelLabelEntityLabelDynamicValue.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'BabelLabelEntity',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'BabelLabelEntity',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -40,119 +35,107 @@ mixin _$BabelLabelEntity {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<BabelLabelEntity> children)
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(BabelLabelEntityRootLabel value) rootLabel,
     required TResult Function(BabelLabelEntityChildLabel value) childLabel,
     required TResult Function(BabelLabelEntityLabelDynamicValue value)
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult? Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult? Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
-  }) => throw _privateConstructorUsedError;
+        labelDynamicValue,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this BabelLabelEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -167,9 +150,8 @@ mixin _$BabelLabelEntity {
 /// @nodoc
 abstract class $BabelLabelEntityCopyWith<$Res> {
   factory $BabelLabelEntityCopyWith(
-    BabelLabelEntity value,
-    $Res Function(BabelLabelEntity) then,
-  ) = _$BabelLabelEntityCopyWithImpl<$Res, BabelLabelEntity>;
+          BabelLabelEntity value, $Res Function(BabelLabelEntity) then) =
+      _$BabelLabelEntityCopyWithImpl<$Res, BabelLabelEntity>;
   @useResult
   $Res call({List<BabelLabelEntity> children});
 }
@@ -188,17 +170,15 @@ class _$BabelLabelEntityCopyWithImpl<$Res, $Val extends BabelLabelEntity>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? children = null}) {
-    return _then(
-      _value.copyWith(
-            children:
-                null == children
-                    ? _value.children
-                    : children // ignore: cast_nullable_to_non_nullable
-                        as List<BabelLabelEntity>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? children = null,
+  }) {
+    return _then(_value.copyWith(
+      children: null == children
+          ? _value.children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<BabelLabelEntity>,
+    ) as $Val);
   }
 }
 
@@ -206,32 +186,31 @@ class _$BabelLabelEntityCopyWithImpl<$Res, $Val extends BabelLabelEntity>
 abstract class _$$BabelLabelEntityRootLabelImplCopyWith<$Res>
     implements $BabelLabelEntityCopyWith<$Res> {
   factory _$$BabelLabelEntityRootLabelImplCopyWith(
-    _$BabelLabelEntityRootLabelImpl value,
-    $Res Function(_$BabelLabelEntityRootLabelImpl) then,
-  ) = __$$BabelLabelEntityRootLabelImplCopyWithImpl<$Res>;
+          _$BabelLabelEntityRootLabelImpl value,
+          $Res Function(_$BabelLabelEntityRootLabelImpl) then) =
+      __$$BabelLabelEntityRootLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String l10nKey,
-    String l10nValue,
-    String babelFunctionDeclaration,
-    String babelFunctionImplementation,
-    int fileStartIndex,
-    int fileEndIndex,
-    String filePath,
-    List<BabelLabelEntity> children,
-  });
+  $Res call(
+      {String l10nKey,
+      String l10nValue,
+      String babelFunctionDeclaration,
+      String babelFunctionImplementation,
+      int fileStartIndex,
+      int fileEndIndex,
+      String filePath,
+      List<BabelLabelEntity> children});
 }
 
 /// @nodoc
 class __$$BabelLabelEntityRootLabelImplCopyWithImpl<$Res>
-    extends
-        _$BabelLabelEntityCopyWithImpl<$Res, _$BabelLabelEntityRootLabelImpl>
+    extends _$BabelLabelEntityCopyWithImpl<$Res,
+        _$BabelLabelEntityRootLabelImpl>
     implements _$$BabelLabelEntityRootLabelImplCopyWith<$Res> {
   __$$BabelLabelEntityRootLabelImplCopyWithImpl(
-    _$BabelLabelEntityRootLabelImpl _value,
-    $Res Function(_$BabelLabelEntityRootLabelImpl) _then,
-  ) : super(_value, _then);
+      _$BabelLabelEntityRootLabelImpl _value,
+      $Res Function(_$BabelLabelEntityRootLabelImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -247,68 +226,58 @@ class __$$BabelLabelEntityRootLabelImplCopyWithImpl<$Res>
     Object? filePath = null,
     Object? children = null,
   }) {
-    return _then(
-      _$BabelLabelEntityRootLabelImpl(
-        l10nKey:
-            null == l10nKey
-                ? _value.l10nKey
-                : l10nKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        l10nValue:
-            null == l10nValue
-                ? _value.l10nValue
-                : l10nValue // ignore: cast_nullable_to_non_nullable
-                    as String,
-        babelFunctionDeclaration:
-            null == babelFunctionDeclaration
-                ? _value.babelFunctionDeclaration
-                : babelFunctionDeclaration // ignore: cast_nullable_to_non_nullable
-                    as String,
-        babelFunctionImplementation:
-            null == babelFunctionImplementation
-                ? _value.babelFunctionImplementation
-                : babelFunctionImplementation // ignore: cast_nullable_to_non_nullable
-                    as String,
-        fileStartIndex:
-            null == fileStartIndex
-                ? _value.fileStartIndex
-                : fileStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        fileEndIndex:
-            null == fileEndIndex
-                ? _value.fileEndIndex
-                : fileEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        filePath:
-            null == filePath
-                ? _value.filePath
-                : filePath // ignore: cast_nullable_to_non_nullable
-                    as String,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<BabelLabelEntity>,
-      ),
-    );
+    return _then(_$BabelLabelEntityRootLabelImpl(
+      l10nKey: null == l10nKey
+          ? _value.l10nKey
+          : l10nKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      l10nValue: null == l10nValue
+          ? _value.l10nValue
+          : l10nValue // ignore: cast_nullable_to_non_nullable
+              as String,
+      babelFunctionDeclaration: null == babelFunctionDeclaration
+          ? _value.babelFunctionDeclaration
+          : babelFunctionDeclaration // ignore: cast_nullable_to_non_nullable
+              as String,
+      babelFunctionImplementation: null == babelFunctionImplementation
+          ? _value.babelFunctionImplementation
+          : babelFunctionImplementation // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileStartIndex: null == fileStartIndex
+          ? _value.fileStartIndex
+          : fileStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      fileEndIndex: null == fileEndIndex
+          ? _value.fileEndIndex
+          : fileEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filePath: null == filePath
+          ? _value.filePath
+          : filePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<BabelLabelEntity>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
-  _$BabelLabelEntityRootLabelImpl({
-    required this.l10nKey,
-    required this.l10nValue,
-    required this.babelFunctionDeclaration,
-    required this.babelFunctionImplementation,
-    required this.fileStartIndex,
-    required this.fileEndIndex,
-    required this.filePath,
-    required final List<BabelLabelEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'rootLabel';
+  _$BabelLabelEntityRootLabelImpl(
+      {required this.l10nKey,
+      required this.l10nValue,
+      required this.babelFunctionDeclaration,
+      required this.babelFunctionImplementation,
+      required this.fileStartIndex,
+      required this.fileEndIndex,
+      required this.filePath,
+      required final List<BabelLabelEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'rootLabel';
 
   factory _$BabelLabelEntityRootLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$BabelLabelEntityRootLabelImplFromJson(json);
@@ -352,14 +321,10 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
             (identical(other.l10nValue, l10nValue) ||
                 other.l10nValue == l10nValue) &&
             (identical(
-                  other.babelFunctionDeclaration,
-                  babelFunctionDeclaration,
-                ) ||
+                    other.babelFunctionDeclaration, babelFunctionDeclaration) ||
                 other.babelFunctionDeclaration == babelFunctionDeclaration) &&
-            (identical(
-                  other.babelFunctionImplementation,
-                  babelFunctionImplementation,
-                ) ||
+            (identical(other.babelFunctionImplementation,
+                    babelFunctionImplementation) ||
                 other.babelFunctionImplementation ==
                     babelFunctionImplementation) &&
             (identical(other.fileStartIndex, fileStartIndex) ||
@@ -374,16 +339,15 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    l10nKey,
-    l10nValue,
-    babelFunctionDeclaration,
-    babelFunctionImplementation,
-    fileStartIndex,
-    fileEndIndex,
-    filePath,
-    const DeepCollectionEquality().hash(_children),
-  );
+      runtimeType,
+      l10nKey,
+      l10nValue,
+      babelFunctionDeclaration,
+      babelFunctionImplementation,
+      fileStartIndex,
+      fileEndIndex,
+      filePath,
+      const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -391,133 +355,36 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
   @override
   @pragma('vm:prefer-inline')
   _$$BabelLabelEntityRootLabelImplCopyWith<_$BabelLabelEntityRootLabelImpl>
-  get copyWith => __$$BabelLabelEntityRootLabelImplCopyWithImpl<
-    _$BabelLabelEntityRootLabelImpl
-  >(this, _$identity);
+      get copyWith => __$$BabelLabelEntityRootLabelImplCopyWithImpl<
+          _$BabelLabelEntityRootLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<BabelLabelEntity> children)
+        labelDynamicValue,
   }) {
     return rootLabel(
-      l10nKey,
-      l10nValue,
-      babelFunctionDeclaration,
-      babelFunctionImplementation,
-      fileStartIndex,
-      fileEndIndex,
-      filePath,
-      children,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
-    TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
-  }) {
-    return rootLabel?.call(
-      l10nKey,
-      l10nValue,
-      babelFunctionDeclaration,
-      babelFunctionImplementation,
-      fileStartIndex,
-      fileEndIndex,
-      filePath,
-      children,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
-    required TResult orElse(),
-  }) {
-    if (rootLabel != null) {
-      return rootLabel(
         l10nKey,
         l10nValue,
         babelFunctionDeclaration,
@@ -525,8 +392,83 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
         fileStartIndex,
         fileEndIndex,
         filePath,
-        children,
-      );
+        children);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
+    TResult? Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
+  }) {
+    return rootLabel?.call(
+        l10nKey,
+        l10nValue,
+        babelFunctionDeclaration,
+        babelFunctionImplementation,
+        fileStartIndex,
+        fileEndIndex,
+        filePath,
+        children);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
+    TResult Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
+    required TResult orElse(),
+  }) {
+    if (rootLabel != null) {
+      return rootLabel(
+          l10nKey,
+          l10nValue,
+          babelFunctionDeclaration,
+          babelFunctionImplementation,
+          fileStartIndex,
+          fileEndIndex,
+          filePath,
+          children);
     }
     return orElse();
   }
@@ -537,7 +479,7 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
     required TResult Function(BabelLabelEntityRootLabel value) rootLabel,
     required TResult Function(BabelLabelEntityChildLabel value) childLabel,
     required TResult Function(BabelLabelEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return rootLabel(this);
   }
@@ -548,7 +490,7 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
     TResult? Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult? Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult? Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return rootLabel?.call(this);
   }
@@ -559,7 +501,7 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
     TResult Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (rootLabel != null) {
@@ -570,21 +512,23 @@ class _$BabelLabelEntityRootLabelImpl implements BabelLabelEntityRootLabel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BabelLabelEntityRootLabelImplToJson(this);
+    return _$$BabelLabelEntityRootLabelImplToJson(
+      this,
+    );
   }
 }
 
 abstract class BabelLabelEntityRootLabel implements BabelLabelEntity {
-  factory BabelLabelEntityRootLabel({
-    required final String l10nKey,
-    required final String l10nValue,
-    required final String babelFunctionDeclaration,
-    required final String babelFunctionImplementation,
-    required final int fileStartIndex,
-    required final int fileEndIndex,
-    required final String filePath,
-    required final List<BabelLabelEntity> children,
-  }) = _$BabelLabelEntityRootLabelImpl;
+  factory BabelLabelEntityRootLabel(
+          {required final String l10nKey,
+          required final String l10nValue,
+          required final String babelFunctionDeclaration,
+          required final String babelFunctionImplementation,
+          required final int fileStartIndex,
+          required final int fileEndIndex,
+          required final String filePath,
+          required final List<BabelLabelEntity> children}) =
+      _$BabelLabelEntityRootLabelImpl;
 
   factory BabelLabelEntityRootLabel.fromJson(Map<String, dynamic> json) =
       _$BabelLabelEntityRootLabelImpl.fromJson;
@@ -604,38 +548,37 @@ abstract class BabelLabelEntityRootLabel implements BabelLabelEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BabelLabelEntityRootLabelImplCopyWith<_$BabelLabelEntityRootLabelImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$BabelLabelEntityChildLabelImplCopyWith<$Res>
     implements $BabelLabelEntityCopyWith<$Res> {
   factory _$$BabelLabelEntityChildLabelImplCopyWith(
-    _$BabelLabelEntityChildLabelImpl value,
-    $Res Function(_$BabelLabelEntityChildLabelImpl) then,
-  ) = __$$BabelLabelEntityChildLabelImplCopyWithImpl<$Res>;
+          _$BabelLabelEntityChildLabelImpl value,
+          $Res Function(_$BabelLabelEntityChildLabelImpl) then) =
+      __$$BabelLabelEntityChildLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String l10nKey,
-    String l10nValue,
-    String babelFunctionDeclaration,
-    String babelFunctionImplementation,
-    int parentStartIndex,
-    int parentEndIndex,
-    List<BabelLabelEntity> children,
-  });
+  $Res call(
+      {String l10nKey,
+      String l10nValue,
+      String babelFunctionDeclaration,
+      String babelFunctionImplementation,
+      int parentStartIndex,
+      int parentEndIndex,
+      List<BabelLabelEntity> children});
 }
 
 /// @nodoc
 class __$$BabelLabelEntityChildLabelImplCopyWithImpl<$Res>
-    extends
-        _$BabelLabelEntityCopyWithImpl<$Res, _$BabelLabelEntityChildLabelImpl>
+    extends _$BabelLabelEntityCopyWithImpl<$Res,
+        _$BabelLabelEntityChildLabelImpl>
     implements _$$BabelLabelEntityChildLabelImplCopyWith<$Res> {
   __$$BabelLabelEntityChildLabelImplCopyWithImpl(
-    _$BabelLabelEntityChildLabelImpl _value,
-    $Res Function(_$BabelLabelEntityChildLabelImpl) _then,
-  ) : super(_value, _then);
+      _$BabelLabelEntityChildLabelImpl _value,
+      $Res Function(_$BabelLabelEntityChildLabelImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -650,70 +593,61 @@ class __$$BabelLabelEntityChildLabelImplCopyWithImpl<$Res>
     Object? parentEndIndex = null,
     Object? children = null,
   }) {
-    return _then(
-      _$BabelLabelEntityChildLabelImpl(
-        l10nKey:
-            null == l10nKey
-                ? _value.l10nKey
-                : l10nKey // ignore: cast_nullable_to_non_nullable
-                    as String,
-        l10nValue:
-            null == l10nValue
-                ? _value.l10nValue
-                : l10nValue // ignore: cast_nullable_to_non_nullable
-                    as String,
-        babelFunctionDeclaration:
-            null == babelFunctionDeclaration
-                ? _value.babelFunctionDeclaration
-                : babelFunctionDeclaration // ignore: cast_nullable_to_non_nullable
-                    as String,
-        babelFunctionImplementation:
-            null == babelFunctionImplementation
-                ? _value.babelFunctionImplementation
-                : babelFunctionImplementation // ignore: cast_nullable_to_non_nullable
-                    as String,
-        parentStartIndex:
-            null == parentStartIndex
-                ? _value.parentStartIndex
-                : parentStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        parentEndIndex:
-            null == parentEndIndex
-                ? _value.parentEndIndex
-                : parentEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<BabelLabelEntity>,
-      ),
-    );
+    return _then(_$BabelLabelEntityChildLabelImpl(
+      l10nKey: null == l10nKey
+          ? _value.l10nKey
+          : l10nKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      l10nValue: null == l10nValue
+          ? _value.l10nValue
+          : l10nValue // ignore: cast_nullable_to_non_nullable
+              as String,
+      babelFunctionDeclaration: null == babelFunctionDeclaration
+          ? _value.babelFunctionDeclaration
+          : babelFunctionDeclaration // ignore: cast_nullable_to_non_nullable
+              as String,
+      babelFunctionImplementation: null == babelFunctionImplementation
+          ? _value.babelFunctionImplementation
+          : babelFunctionImplementation // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentStartIndex: null == parentStartIndex
+          ? _value.parentStartIndex
+          : parentStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentEndIndex: null == parentEndIndex
+          ? _value.parentEndIndex
+          : parentEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<BabelLabelEntity>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
-  _$BabelLabelEntityChildLabelImpl({
-    required this.l10nKey,
-    required this.l10nValue,
-    required this.babelFunctionDeclaration,
-    required this.babelFunctionImplementation,
-    required this.parentStartIndex,
-    required this.parentEndIndex,
-    required final List<BabelLabelEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'childLabel';
+  _$BabelLabelEntityChildLabelImpl(
+      {required this.l10nKey,
+      required this.l10nValue,
+      required this.babelFunctionDeclaration,
+      required this.babelFunctionImplementation,
+      required this.parentStartIndex,
+      required this.parentEndIndex,
+      required final List<BabelLabelEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'childLabel';
 
   factory _$BabelLabelEntityChildLabelImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$BabelLabelEntityChildLabelImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$BabelLabelEntityChildLabelImplFromJson(json);
 
   @override
   final String l10nKey;
-  // ✅ CHECK
+// ✅ CHECK
   @override
   final String l10nValue;
   @override
@@ -722,12 +656,12 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
   final String babelFunctionImplementation;
   @override
   final int parentStartIndex;
-  // ✅ CHECK
+// ✅ CHECK
   @override
   final int parentEndIndex;
-  // ✅ CHECK
+// ✅ CHECK
   final List<BabelLabelEntity> _children;
-  // ✅ CHECK
+// ✅ CHECK
   @override
   List<BabelLabelEntity> get children {
     if (_children is EqualUnmodifiableListView) return _children;
@@ -752,14 +686,10 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
             (identical(other.l10nValue, l10nValue) ||
                 other.l10nValue == l10nValue) &&
             (identical(
-                  other.babelFunctionDeclaration,
-                  babelFunctionDeclaration,
-                ) ||
+                    other.babelFunctionDeclaration, babelFunctionDeclaration) ||
                 other.babelFunctionDeclaration == babelFunctionDeclaration) &&
-            (identical(
-                  other.babelFunctionImplementation,
-                  babelFunctionImplementation,
-                ) ||
+            (identical(other.babelFunctionImplementation,
+                    babelFunctionImplementation) ||
                 other.babelFunctionImplementation ==
                     babelFunctionImplementation) &&
             (identical(other.parentStartIndex, parentStartIndex) ||
@@ -772,15 +702,14 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    l10nKey,
-    l10nValue,
-    babelFunctionDeclaration,
-    babelFunctionImplementation,
-    parentStartIndex,
-    parentEndIndex,
-    const DeepCollectionEquality().hash(_children),
-  );
+      runtimeType,
+      l10nKey,
+      l10nValue,
+      babelFunctionDeclaration,
+      babelFunctionImplementation,
+      parentStartIndex,
+      parentEndIndex,
+      const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -788,139 +717,117 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
   @override
   @pragma('vm:prefer-inline')
   _$$BabelLabelEntityChildLabelImplCopyWith<_$BabelLabelEntityChildLabelImpl>
-  get copyWith => __$$BabelLabelEntityChildLabelImplCopyWithImpl<
-    _$BabelLabelEntityChildLabelImpl
-  >(this, _$identity);
+      get copyWith => __$$BabelLabelEntityChildLabelImplCopyWithImpl<
+          _$BabelLabelEntityChildLabelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<BabelLabelEntity> children)
+        labelDynamicValue,
   }) {
     return childLabel(
-      l10nKey,
-      l10nValue,
-      babelFunctionDeclaration,
-      babelFunctionImplementation,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
-    TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
-  }) {
-    return childLabel?.call(
-      l10nKey,
-      l10nValue,
-      babelFunctionDeclaration,
-      babelFunctionImplementation,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
-    TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
-    required TResult orElse(),
-  }) {
-    if (childLabel != null) {
-      return childLabel(
         l10nKey,
         l10nValue,
         babelFunctionDeclaration,
         babelFunctionImplementation,
         parentStartIndex,
         parentEndIndex,
-        children,
-      );
+        children);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
+    TResult? Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
+  }) {
+    return childLabel?.call(
+        l10nKey,
+        l10nValue,
+        babelFunctionDeclaration,
+        babelFunctionImplementation,
+        parentStartIndex,
+        parentEndIndex,
+        children);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
+    TResult Function(
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
+    required TResult orElse(),
+  }) {
+    if (childLabel != null) {
+      return childLabel(
+          l10nKey,
+          l10nValue,
+          babelFunctionDeclaration,
+          babelFunctionImplementation,
+          parentStartIndex,
+          parentEndIndex,
+          children);
     }
     return orElse();
   }
@@ -931,7 +838,7 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
     required TResult Function(BabelLabelEntityRootLabel value) rootLabel,
     required TResult Function(BabelLabelEntityChildLabel value) childLabel,
     required TResult Function(BabelLabelEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return childLabel(this);
   }
@@ -942,7 +849,7 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
     TResult? Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult? Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult? Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return childLabel?.call(this);
   }
@@ -953,7 +860,7 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
     TResult Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (childLabel != null) {
@@ -964,20 +871,22 @@ class _$BabelLabelEntityChildLabelImpl implements BabelLabelEntityChildLabel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BabelLabelEntityChildLabelImplToJson(this);
+    return _$$BabelLabelEntityChildLabelImplToJson(
+      this,
+    );
   }
 }
 
 abstract class BabelLabelEntityChildLabel implements BabelLabelEntity {
-  factory BabelLabelEntityChildLabel({
-    required final String l10nKey,
-    required final String l10nValue,
-    required final String babelFunctionDeclaration,
-    required final String babelFunctionImplementation,
-    required final int parentStartIndex,
-    required final int parentEndIndex,
-    required final List<BabelLabelEntity> children,
-  }) = _$BabelLabelEntityChildLabelImpl;
+  factory BabelLabelEntityChildLabel(
+          {required final String l10nKey,
+          required final String l10nValue,
+          required final String babelFunctionDeclaration,
+          required final String babelFunctionImplementation,
+          required final int parentStartIndex,
+          required final int parentEndIndex,
+          required final List<BabelLabelEntity> children}) =
+      _$BabelLabelEntityChildLabelImpl;
 
   factory BabelLabelEntityChildLabel.fromJson(Map<String, dynamic> json) =
       _$BabelLabelEntityChildLabelImpl.fromJson;
@@ -996,38 +905,34 @@ abstract class BabelLabelEntityChildLabel implements BabelLabelEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BabelLabelEntityChildLabelImplCopyWith<_$BabelLabelEntityChildLabelImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$BabelLabelEntityLabelDynamicValueImplCopyWith<$Res>
     implements $BabelLabelEntityCopyWith<$Res> {
   factory _$$BabelLabelEntityLabelDynamicValueImplCopyWith(
-    _$BabelLabelEntityLabelDynamicValueImpl value,
-    $Res Function(_$BabelLabelEntityLabelDynamicValueImpl) then,
-  ) = __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<$Res>;
+          _$BabelLabelEntityLabelDynamicValueImpl value,
+          $Res Function(_$BabelLabelEntityLabelDynamicValueImpl) then) =
+      __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String content,
-    int parentStartIndex,
-    int parentEndIndex,
-    List<BabelLabelEntity> children,
-  });
+  $Res call(
+      {String content,
+      int parentStartIndex,
+      int parentEndIndex,
+      List<BabelLabelEntity> children});
 }
 
 /// @nodoc
 class __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<$Res>
-    extends
-        _$BabelLabelEntityCopyWithImpl<
-          $Res,
-          _$BabelLabelEntityLabelDynamicValueImpl
-        >
+    extends _$BabelLabelEntityCopyWithImpl<$Res,
+        _$BabelLabelEntityLabelDynamicValueImpl>
     implements _$$BabelLabelEntityLabelDynamicValueImplCopyWith<$Res> {
   __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl(
-    _$BabelLabelEntityLabelDynamicValueImpl _value,
-    $Res Function(_$BabelLabelEntityLabelDynamicValueImpl) _then,
-  ) : super(_value, _then);
+      _$BabelLabelEntityLabelDynamicValueImpl _value,
+      $Res Function(_$BabelLabelEntityLabelDynamicValueImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -1039,30 +944,24 @@ class __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<$Res>
     Object? parentEndIndex = null,
     Object? children = null,
   }) {
-    return _then(
-      _$BabelLabelEntityLabelDynamicValueImpl(
-        content:
-            null == content
-                ? _value.content
-                : content // ignore: cast_nullable_to_non_nullable
-                    as String,
-        parentStartIndex:
-            null == parentStartIndex
-                ? _value.parentStartIndex
-                : parentStartIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        parentEndIndex:
-            null == parentEndIndex
-                ? _value.parentEndIndex
-                : parentEndIndex // ignore: cast_nullable_to_non_nullable
-                    as int,
-        children:
-            null == children
-                ? _value._children
-                : children // ignore: cast_nullable_to_non_nullable
-                    as List<BabelLabelEntity>,
-      ),
-    );
+    return _then(_$BabelLabelEntityLabelDynamicValueImpl(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      parentStartIndex: null == parentStartIndex
+          ? _value.parentStartIndex
+          : parentStartIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      parentEndIndex: null == parentEndIndex
+          ? _value.parentEndIndex
+          : parentEndIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      children: null == children
+          ? _value._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<BabelLabelEntity>,
+    ));
   }
 }
 
@@ -1070,18 +969,18 @@ class __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BabelLabelEntityLabelDynamicValueImpl
     implements BabelLabelEntityLabelDynamicValue {
-  _$BabelLabelEntityLabelDynamicValueImpl({
-    required this.content,
-    required this.parentStartIndex,
-    required this.parentEndIndex,
-    required final List<BabelLabelEntity> children,
-    final String? $type,
-  }) : _children = children,
-       $type = $type ?? 'labelDynamicValue';
+  _$BabelLabelEntityLabelDynamicValueImpl(
+      {required this.content,
+      required this.parentStartIndex,
+      required this.parentEndIndex,
+      required final List<BabelLabelEntity> children,
+      final String? $type})
+      : _children = children,
+        $type = $type ?? 'labelDynamicValue';
 
   factory _$BabelLabelEntityLabelDynamicValueImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$BabelLabelEntityLabelDynamicValueImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$BabelLabelEntityLabelDynamicValueImplFromJson(json);
 
   @override
   final String content;
@@ -1120,13 +1019,8 @@ class _$BabelLabelEntityLabelDynamicValueImpl
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    content,
-    parentStartIndex,
-    parentEndIndex,
-    const DeepCollectionEquality().hash(_children),
-  );
+  int get hashCode => Object.hash(runtimeType, content, parentStartIndex,
+      parentEndIndex, const DeepCollectionEquality().hash(_children));
 
   /// Create a copy of BabelLabelEntity
   /// with the given fields replaced by the non-null parameter values.
@@ -1134,132 +1028,100 @@ class _$BabelLabelEntityLabelDynamicValueImpl
   @override
   @pragma('vm:prefer-inline')
   _$$BabelLabelEntityLabelDynamicValueImplCopyWith<
-    _$BabelLabelEntityLabelDynamicValueImpl
-  >
-  get copyWith => __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<
-    _$BabelLabelEntityLabelDynamicValueImpl
-  >(this, _$identity);
+          _$BabelLabelEntityLabelDynamicValueImpl>
+      get copyWith => __$$BabelLabelEntityLabelDynamicValueImplCopyWithImpl<
+          _$BabelLabelEntityLabelDynamicValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)
+        rootLabel,
     required TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    childLabel,
-    required TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)
+        childLabel,
+    required TResult Function(String content, int parentStartIndex,
+            int parentEndIndex, List<BabelLabelEntity> children)
+        labelDynamicValue,
   }) {
     return labelDynamicValue(
-      content,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        content, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
     TResult? Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult? Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult? Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
   }) {
     return labelDynamicValue?.call(
-      content,
-      parentStartIndex,
-      parentEndIndex,
-      children,
-    );
+        content, parentStartIndex, parentEndIndex, children);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int fileStartIndex,
-      int fileEndIndex,
-      String filePath,
-      List<BabelLabelEntity> children,
-    )?
-    rootLabel,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int fileStartIndex,
+            int fileEndIndex,
+            String filePath,
+            List<BabelLabelEntity> children)?
+        rootLabel,
     TResult Function(
-      String l10nKey,
-      String l10nValue,
-      String babelFunctionDeclaration,
-      String babelFunctionImplementation,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    childLabel,
-    TResult Function(
-      String content,
-      int parentStartIndex,
-      int parentEndIndex,
-      List<BabelLabelEntity> children,
-    )?
-    labelDynamicValue,
+            String l10nKey,
+            String l10nValue,
+            String babelFunctionDeclaration,
+            String babelFunctionImplementation,
+            int parentStartIndex,
+            int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        childLabel,
+    TResult Function(String content, int parentStartIndex, int parentEndIndex,
+            List<BabelLabelEntity> children)?
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (labelDynamicValue != null) {
       return labelDynamicValue(
-        content,
-        parentStartIndex,
-        parentEndIndex,
-        children,
-      );
+          content, parentStartIndex, parentEndIndex, children);
     }
     return orElse();
   }
@@ -1270,7 +1132,7 @@ class _$BabelLabelEntityLabelDynamicValueImpl
     required TResult Function(BabelLabelEntityRootLabel value) rootLabel,
     required TResult Function(BabelLabelEntityChildLabel value) childLabel,
     required TResult Function(BabelLabelEntityLabelDynamicValue value)
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return labelDynamicValue(this);
   }
@@ -1281,7 +1143,7 @@ class _$BabelLabelEntityLabelDynamicValueImpl
     TResult? Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult? Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult? Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
   }) {
     return labelDynamicValue?.call(this);
   }
@@ -1292,7 +1154,7 @@ class _$BabelLabelEntityLabelDynamicValueImpl
     TResult Function(BabelLabelEntityRootLabel value)? rootLabel,
     TResult Function(BabelLabelEntityChildLabel value)? childLabel,
     TResult Function(BabelLabelEntityLabelDynamicValue value)?
-    labelDynamicValue,
+        labelDynamicValue,
     required TResult orElse(),
   }) {
     if (labelDynamicValue != null) {
@@ -1303,21 +1165,23 @@ class _$BabelLabelEntityLabelDynamicValueImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BabelLabelEntityLabelDynamicValueImplToJson(this);
+    return _$$BabelLabelEntityLabelDynamicValueImplToJson(
+      this,
+    );
   }
 }
 
 abstract class BabelLabelEntityLabelDynamicValue implements BabelLabelEntity {
-  factory BabelLabelEntityLabelDynamicValue({
-    required final String content,
-    required final int parentStartIndex,
-    required final int parentEndIndex,
-    required final List<BabelLabelEntity> children,
-  }) = _$BabelLabelEntityLabelDynamicValueImpl;
+  factory BabelLabelEntityLabelDynamicValue(
+          {required final String content,
+          required final int parentStartIndex,
+          required final int parentEndIndex,
+          required final List<BabelLabelEntity> children}) =
+      _$BabelLabelEntityLabelDynamicValueImpl;
 
   factory BabelLabelEntityLabelDynamicValue.fromJson(
-    Map<String, dynamic> json,
-  ) = _$BabelLabelEntityLabelDynamicValueImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$BabelLabelEntityLabelDynamicValueImpl.fromJson;
 
   String get content;
   int get parentStartIndex;
@@ -1330,7 +1194,6 @@ abstract class BabelLabelEntityLabelDynamicValue implements BabelLabelEntity {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BabelLabelEntityLabelDynamicValueImplCopyWith<
-    _$BabelLabelEntityLabelDynamicValueImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$BabelLabelEntityLabelDynamicValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

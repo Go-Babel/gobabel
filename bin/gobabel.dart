@@ -71,6 +71,12 @@ Future<void> main(List<String> arguments) async {
           negatable: true,
         )
         ..addFlag(
+          'run-for-all-files',
+          help: 'Force checking all files for hardcoded strings instead of only files changed since the last translation checkpoint. By default, the CLI optimizes performance by only checking files that have been modified since the last commit checkpoint, as unchanged files don\'t need to be rechecked.',
+          defaultsTo: false,
+          negatable: true,
+        )
+        ..addFlag(
           'help',
           abbr: 'h',
           help: 'Show this help message',
@@ -254,6 +260,8 @@ Future<void> main(List<String> arguments) async {
       }
     }
 
+    final runForAllFiles = argResults['run-for-all-files'] as bool;
+    
     await runInTryCatch(
       errorMessage: 'Error during generate operation',
       operation: controller.generate(
@@ -263,6 +271,7 @@ Future<void> main(List<String> arguments) async {
         willLog: willLog,
         dangerouslyAutoDetectUserFacingHardcodedStrings:
             dangerouslyAutoDetectUserFacingHardcodedStrings,
+        runForAllFiles: runForAllFiles,
       ),
     );
   } else if (argResults['create'] as bool) {

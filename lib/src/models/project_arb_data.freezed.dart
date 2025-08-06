@@ -12,8 +12,7 @@ part of 'project_arb_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ArbDataState _$ArbDataStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -23,12 +22,8 @@ ArbDataState _$ArbDataStateFromJson(Map<String, dynamic> json) {
       return _ArbDataStateNoneData.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'ArbDataState',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+      throw CheckedFromJsonException(json, 'runtimeType', 'ArbDataState',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -37,53 +32,59 @@ mixin _$ArbDataState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)
+        withData,
     required TResult Function() noneData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult? Function()? noneData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult Function()? noneData,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ArbDataStateWithData value) withData,
     required TResult Function(_ArbDataStateNoneData value) noneData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ArbDataStateWithData value)? withData,
     TResult? Function(_ArbDataStateNoneData value)? noneData,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ArbDataStateWithData value)? withData,
     TResult Function(_ArbDataStateNoneData value)? noneData,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this ArbDataState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -92,9 +93,8 @@ mixin _$ArbDataState {
 /// @nodoc
 abstract class $ArbDataStateCopyWith<$Res> {
   factory $ArbDataStateCopyWith(
-    ArbDataState value,
-    $Res Function(ArbDataState) then,
-  ) = _$ArbDataStateCopyWithImpl<$Res, ArbDataState>;
+          ArbDataState value, $Res Function(ArbDataState) then) =
+      _$ArbDataStateCopyWithImpl<$Res, ArbDataState>;
 }
 
 /// @nodoc
@@ -113,17 +113,15 @@ class _$ArbDataStateCopyWithImpl<$Res, $Val extends ArbDataState>
 
 /// @nodoc
 abstract class _$$ArbDataStateWithDataImplCopyWith<$Res> {
-  factory _$$ArbDataStateWithDataImplCopyWith(
-    _$ArbDataStateWithDataImpl value,
-    $Res Function(_$ArbDataStateWithDataImpl) then,
-  ) = __$$ArbDataStateWithDataImplCopyWithImpl<$Res>;
+  factory _$$ArbDataStateWithDataImplCopyWith(_$ArbDataStateWithDataImpl value,
+          $Res Function(_$ArbDataStateWithDataImpl) then) =
+      __$$ArbDataStateWithDataImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    L10nProjectConfig config,
-    Map<String, Set<String>> variablesPlaceholdersPerKey,
-    @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-    List<ArbFileData> preMadeTranslationArb,
-  });
+  $Res call(
+      {L10nProjectConfig config,
+      Map<String, Set<String>> variablesPlaceholdersPerKey,
+      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
+      List<ArbFileData> preMadeTranslationArb});
 
   $L10nProjectConfigCopyWith<$Res> get config;
 }
@@ -132,10 +130,9 @@ abstract class _$$ArbDataStateWithDataImplCopyWith<$Res> {
 class __$$ArbDataStateWithDataImplCopyWithImpl<$Res>
     extends _$ArbDataStateCopyWithImpl<$Res, _$ArbDataStateWithDataImpl>
     implements _$$ArbDataStateWithDataImplCopyWith<$Res> {
-  __$$ArbDataStateWithDataImplCopyWithImpl(
-    _$ArbDataStateWithDataImpl _value,
-    $Res Function(_$ArbDataStateWithDataImpl) _then,
-  ) : super(_value, _then);
+  __$$ArbDataStateWithDataImplCopyWithImpl(_$ArbDataStateWithDataImpl _value,
+      $Res Function(_$ArbDataStateWithDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of ArbDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -147,30 +144,24 @@ class __$$ArbDataStateWithDataImplCopyWithImpl<$Res>
     Object? mainLocale = null,
     Object? preMadeTranslationArb = null,
   }) {
-    return _then(
-      _$ArbDataStateWithDataImpl(
-        config:
-            null == config
-                ? _value.config
-                : config // ignore: cast_nullable_to_non_nullable
-                    as L10nProjectConfig,
-        variablesPlaceholdersPerKey:
-            null == variablesPlaceholdersPerKey
-                ? _value._variablesPlaceholdersPerKey
-                : variablesPlaceholdersPerKey // ignore: cast_nullable_to_non_nullable
-                    as Map<String, Set<String>>,
-        mainLocale:
-            null == mainLocale
-                ? _value.mainLocale
-                : mainLocale // ignore: cast_nullable_to_non_nullable
-                    as BabelSupportedLocales,
-        preMadeTranslationArb:
-            null == preMadeTranslationArb
-                ? _value._preMadeTranslationArb
-                : preMadeTranslationArb // ignore: cast_nullable_to_non_nullable
-                    as List<ArbFileData>,
-      ),
-    );
+    return _then(_$ArbDataStateWithDataImpl(
+      config: null == config
+          ? _value.config
+          : config // ignore: cast_nullable_to_non_nullable
+              as L10nProjectConfig,
+      variablesPlaceholdersPerKey: null == variablesPlaceholdersPerKey
+          ? _value._variablesPlaceholdersPerKey
+          : variablesPlaceholdersPerKey // ignore: cast_nullable_to_non_nullable
+              as Map<String, Set<String>>,
+      mainLocale: null == mainLocale
+          ? _value.mainLocale
+          : mainLocale // ignore: cast_nullable_to_non_nullable
+              as BabelSupportedLocales,
+      preMadeTranslationArb: null == preMadeTranslationArb
+          ? _value._preMadeTranslationArb
+          : preMadeTranslationArb // ignore: cast_nullable_to_non_nullable
+              as List<ArbFileData>,
+    ));
   }
 
   /// Create a copy of ArbDataState
@@ -187,16 +178,16 @@ class __$$ArbDataStateWithDataImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ArbDataStateWithDataImpl extends ArbDataStateWithData {
-  _$ArbDataStateWithDataImpl({
-    required this.config,
-    required final Map<String, Set<String>> variablesPlaceholdersPerKey,
-    @BabelSupportedLocalesJsonConverter() required this.mainLocale,
-    required final List<ArbFileData> preMadeTranslationArb,
-    final String? $type,
-  }) : _variablesPlaceholdersPerKey = variablesPlaceholdersPerKey,
-       _preMadeTranslationArb = preMadeTranslationArb,
-       $type = $type ?? 'withData',
-       super._();
+  _$ArbDataStateWithDataImpl(
+      {required this.config,
+      required final Map<String, Set<String>> variablesPlaceholdersPerKey,
+      @BabelSupportedLocalesJsonConverter() required this.mainLocale,
+      required final List<ArbFileData> preMadeTranslationArb,
+      final String? $type})
+      : _variablesPlaceholdersPerKey = variablesPlaceholdersPerKey,
+        _preMadeTranslationArb = preMadeTranslationArb,
+        $type = $type ?? 'withData',
+        super._();
 
   factory _$ArbDataStateWithDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArbDataStateWithDataImplFromJson(json);
@@ -239,26 +230,22 @@ class _$ArbDataStateWithDataImpl extends ArbDataStateWithData {
             other is _$ArbDataStateWithDataImpl &&
             (identical(other.config, config) || other.config == config) &&
             const DeepCollectionEquality().equals(
-              other._variablesPlaceholdersPerKey,
-              _variablesPlaceholdersPerKey,
-            ) &&
+                other._variablesPlaceholdersPerKey,
+                _variablesPlaceholdersPerKey) &&
             (identical(other.mainLocale, mainLocale) ||
                 other.mainLocale == mainLocale) &&
-            const DeepCollectionEquality().equals(
-              other._preMadeTranslationArb,
-              _preMadeTranslationArb,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._preMadeTranslationArb, _preMadeTranslationArb));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    config,
-    const DeepCollectionEquality().hash(_variablesPlaceholdersPerKey),
-    mainLocale,
-    const DeepCollectionEquality().hash(_preMadeTranslationArb),
-  );
+      runtimeType,
+      config,
+      const DeepCollectionEquality().hash(_variablesPlaceholdersPerKey),
+      mainLocale,
+      const DeepCollectionEquality().hash(_preMadeTranslationArb));
 
   /// Create a copy of ArbDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -266,72 +253,58 @@ class _$ArbDataStateWithDataImpl extends ArbDataStateWithData {
   @override
   @pragma('vm:prefer-inline')
   _$$ArbDataStateWithDataImplCopyWith<_$ArbDataStateWithDataImpl>
-  get copyWith =>
-      __$$ArbDataStateWithDataImplCopyWithImpl<_$ArbDataStateWithDataImpl>(
-        this,
-        _$identity,
-      );
+      get copyWith =>
+          __$$ArbDataStateWithDataImplCopyWithImpl<_$ArbDataStateWithDataImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)
+        withData,
     required TResult Function() noneData,
   }) {
     return withData(
-      config,
-      variablesPlaceholdersPerKey,
-      mainLocale,
-      preMadeTranslationArb,
-    );
+        config, variablesPlaceholdersPerKey, mainLocale, preMadeTranslationArb);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult? Function()? noneData,
   }) {
     return withData?.call(
-      config,
-      variablesPlaceholdersPerKey,
-      mainLocale,
-      preMadeTranslationArb,
-    );
+        config, variablesPlaceholdersPerKey, mainLocale, preMadeTranslationArb);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult Function()? noneData,
     required TResult orElse(),
   }) {
     if (withData != null) {
-      return withData(
-        config,
-        variablesPlaceholdersPerKey,
-        mainLocale,
-        preMadeTranslationArb,
-      );
+      return withData(config, variablesPlaceholdersPerKey, mainLocale,
+          preMadeTranslationArb);
     }
     return orElse();
   }
@@ -369,18 +342,20 @@ class _$ArbDataStateWithDataImpl extends ArbDataStateWithData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ArbDataStateWithDataImplToJson(this);
+    return _$$ArbDataStateWithDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class ArbDataStateWithData extends ArbDataState {
-  factory ArbDataStateWithData({
-    required final L10nProjectConfig config,
-    required final Map<String, Set<String>> variablesPlaceholdersPerKey,
-    @BabelSupportedLocalesJsonConverter()
-    required final BabelSupportedLocales mainLocale,
-    required final List<ArbFileData> preMadeTranslationArb,
-  }) = _$ArbDataStateWithDataImpl;
+  factory ArbDataStateWithData(
+          {required final L10nProjectConfig config,
+          required final Map<String, Set<String>> variablesPlaceholdersPerKey,
+          @BabelSupportedLocalesJsonConverter()
+          required final BabelSupportedLocales mainLocale,
+          required final List<ArbFileData> preMadeTranslationArb}) =
+      _$ArbDataStateWithDataImpl;
   ArbDataStateWithData._() : super._();
 
   factory ArbDataStateWithData.fromJson(Map<String, dynamic> json) =
@@ -396,25 +371,23 @@ abstract class ArbDataStateWithData extends ArbDataState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ArbDataStateWithDataImplCopyWith<_$ArbDataStateWithDataImpl>
-  get copyWith => throw _privateConstructorUsedError;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ArbDataStateNoneDataImplCopyWith<$Res> {
-  factory _$$ArbDataStateNoneDataImplCopyWith(
-    _$ArbDataStateNoneDataImpl value,
-    $Res Function(_$ArbDataStateNoneDataImpl) then,
-  ) = __$$ArbDataStateNoneDataImplCopyWithImpl<$Res>;
+  factory _$$ArbDataStateNoneDataImplCopyWith(_$ArbDataStateNoneDataImpl value,
+          $Res Function(_$ArbDataStateNoneDataImpl) then) =
+      __$$ArbDataStateNoneDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$ArbDataStateNoneDataImplCopyWithImpl<$Res>
     extends _$ArbDataStateCopyWithImpl<$Res, _$ArbDataStateNoneDataImpl>
     implements _$$ArbDataStateNoneDataImplCopyWith<$Res> {
-  __$$ArbDataStateNoneDataImplCopyWithImpl(
-    _$ArbDataStateNoneDataImpl _value,
-    $Res Function(_$ArbDataStateNoneDataImpl) _then,
-  ) : super(_value, _then);
+  __$$ArbDataStateNoneDataImplCopyWithImpl(_$ArbDataStateNoneDataImpl _value,
+      $Res Function(_$ArbDataStateNoneDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of ArbDataState
   /// with the given fields replaced by the non-null parameter values.
@@ -424,8 +397,8 @@ class __$$ArbDataStateNoneDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
   _$ArbDataStateNoneDataImpl({final String? $type})
-    : $type = $type ?? 'noneData',
-      super._();
+      : $type = $type ?? 'noneData',
+        super._();
 
   factory _$ArbDataStateNoneDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArbDataStateNoneDataImplFromJson(json);
@@ -453,12 +426,12 @@ class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)
+        withData,
     required TResult Function() noneData,
   }) {
     return noneData();
@@ -468,12 +441,12 @@ class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult? Function()? noneData,
   }) {
     return noneData?.call();
@@ -483,12 +456,12 @@ class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-      L10nProjectConfig config,
-      Map<String, Set<String>> variablesPlaceholdersPerKey,
-      @BabelSupportedLocalesJsonConverter() BabelSupportedLocales mainLocale,
-      List<ArbFileData> preMadeTranslationArb,
-    )?
-    withData,
+            L10nProjectConfig config,
+            Map<String, Set<String>> variablesPlaceholdersPerKey,
+            @BabelSupportedLocalesJsonConverter()
+            BabelSupportedLocales mainLocale,
+            List<ArbFileData> preMadeTranslationArb)?
+        withData,
     TResult Function()? noneData,
     required TResult orElse(),
   }) {
@@ -531,7 +504,9 @@ class _$ArbDataStateNoneDataImpl extends _ArbDataStateNoneData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ArbDataStateNoneDataImplToJson(this);
+    return _$$ArbDataStateNoneDataImplToJson(
+      this,
+    );
   }
 }
 
@@ -566,14 +541,12 @@ mixin _$ArbFileData {
 /// @nodoc
 abstract class $ArbFileDataCopyWith<$Res> {
   factory $ArbFileDataCopyWith(
-    ArbFileData value,
-    $Res Function(ArbFileData) then,
-  ) = _$ArbFileDataCopyWithImpl<$Res, ArbFileData>;
+          ArbFileData value, $Res Function(ArbFileData) then) =
+      _$ArbFileDataCopyWithImpl<$Res, ArbFileData>;
   @useResult
-  $Res call({
-    @BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
-    Map<String, String> allKeyValues,
-  });
+  $Res call(
+      {@BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
+      Map<String, String> allKeyValues});
 }
 
 /// @nodoc
@@ -590,22 +563,20 @@ class _$ArbFileDataCopyWithImpl<$Res, $Val extends ArbFileData>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? locale = null, Object? allKeyValues = null}) {
-    return _then(
-      _value.copyWith(
-            locale:
-                null == locale
-                    ? _value.locale
-                    : locale // ignore: cast_nullable_to_non_nullable
-                        as BabelSupportedLocales,
-            allKeyValues:
-                null == allKeyValues
-                    ? _value.allKeyValues
-                    : allKeyValues // ignore: cast_nullable_to_non_nullable
-                        as Map<String, String>,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? locale = null,
+    Object? allKeyValues = null,
+  }) {
+    return _then(_value.copyWith(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as BabelSupportedLocales,
+      allKeyValues: null == allKeyValues
+          ? _value.allKeyValues
+          : allKeyValues // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ) as $Val);
   }
 }
 
@@ -613,15 +584,13 @@ class _$ArbFileDataCopyWithImpl<$Res, $Val extends ArbFileData>
 abstract class _$$ArbFileDataImplCopyWith<$Res>
     implements $ArbFileDataCopyWith<$Res> {
   factory _$$ArbFileDataImplCopyWith(
-    _$ArbFileDataImpl value,
-    $Res Function(_$ArbFileDataImpl) then,
-  ) = __$$ArbFileDataImplCopyWithImpl<$Res>;
+          _$ArbFileDataImpl value, $Res Function(_$ArbFileDataImpl) then) =
+      __$$ArbFileDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    @BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
-    Map<String, String> allKeyValues,
-  });
+  $Res call(
+      {@BabelSupportedLocalesJsonConverter() BabelSupportedLocales locale,
+      Map<String, String> allKeyValues});
 }
 
 /// @nodoc
@@ -629,39 +598,37 @@ class __$$ArbFileDataImplCopyWithImpl<$Res>
     extends _$ArbFileDataCopyWithImpl<$Res, _$ArbFileDataImpl>
     implements _$$ArbFileDataImplCopyWith<$Res> {
   __$$ArbFileDataImplCopyWithImpl(
-    _$ArbFileDataImpl _value,
-    $Res Function(_$ArbFileDataImpl) _then,
-  ) : super(_value, _then);
+      _$ArbFileDataImpl _value, $Res Function(_$ArbFileDataImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of ArbFileData
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? locale = null, Object? allKeyValues = null}) {
-    return _then(
-      _$ArbFileDataImpl(
-        locale:
-            null == locale
-                ? _value.locale
-                : locale // ignore: cast_nullable_to_non_nullable
-                    as BabelSupportedLocales,
-        allKeyValues:
-            null == allKeyValues
-                ? _value._allKeyValues
-                : allKeyValues // ignore: cast_nullable_to_non_nullable
-                    as Map<String, String>,
-      ),
-    );
+  $Res call({
+    Object? locale = null,
+    Object? allKeyValues = null,
+  }) {
+    return _then(_$ArbFileDataImpl(
+      locale: null == locale
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as BabelSupportedLocales,
+      allKeyValues: null == allKeyValues
+          ? _value._allKeyValues
+          : allKeyValues // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ArbFileDataImpl implements _ArbFileData {
-  _$ArbFileDataImpl({
-    @BabelSupportedLocalesJsonConverter() required this.locale,
-    required final Map<String, String> allKeyValues,
-  }) : _allKeyValues = allKeyValues;
+  _$ArbFileDataImpl(
+      {@BabelSupportedLocalesJsonConverter() required this.locale,
+      required final Map<String, String> allKeyValues})
+      : _allKeyValues = allKeyValues;
 
   factory _$ArbFileDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArbFileDataImplFromJson(json);
@@ -688,19 +655,14 @@ class _$ArbFileDataImpl implements _ArbFileData {
         (other.runtimeType == runtimeType &&
             other is _$ArbFileDataImpl &&
             (identical(other.locale, locale) || other.locale == locale) &&
-            const DeepCollectionEquality().equals(
-              other._allKeyValues,
-              _allKeyValues,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._allKeyValues, _allKeyValues));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    locale,
-    const DeepCollectionEquality().hash(_allKeyValues),
-  );
+      runtimeType, locale, const DeepCollectionEquality().hash(_allKeyValues));
 
   /// Create a copy of ArbFileData
   /// with the given fields replaced by the non-null parameter values.
@@ -712,16 +674,17 @@ class _$ArbFileDataImpl implements _ArbFileData {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ArbFileDataImplToJson(this);
+    return _$$ArbFileDataImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ArbFileData implements ArbFileData {
-  factory _ArbFileData({
-    @BabelSupportedLocalesJsonConverter()
-    required final BabelSupportedLocales locale,
-    required final Map<String, String> allKeyValues,
-  }) = _$ArbFileDataImpl;
+  factory _ArbFileData(
+      {@BabelSupportedLocalesJsonConverter()
+      required final BabelSupportedLocales locale,
+      required final Map<String, String> allKeyValues}) = _$ArbFileDataImpl;
 
   factory _ArbFileData.fromJson(Map<String, dynamic> json) =
       _$ArbFileDataImpl.fromJson;

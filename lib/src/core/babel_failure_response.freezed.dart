@@ -12,8 +12,7 @@ part of 'babel_failure_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BabelFailureResponse _$BabelFailureResponseFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -24,11 +23,10 @@ BabelFailureResponse _$BabelFailureResponseFromJson(Map<String, dynamic> json) {
 
     default:
       throw CheckedFromJsonException(
-        json,
-        'runtimeType',
-        'BabelFailureResponse',
-        'Invalid union type "${json['runtimeType']}"!',
-      );
+          json,
+          'runtimeType',
+          'BabelFailureResponse',
+          'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -39,55 +37,58 @@ mixin _$BabelFailureResponse {
   TResult when<TResult extends Object?>({
     required TResult Function(BabelException exception) onlyBabelException,
     required TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )
-    withErrorAndStackTrace,
-  }) => throw _privateConstructorUsedError;
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)
+        withErrorAndStackTrace,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BabelException exception)? onlyBabelException,
     TResult? Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
-  }) => throw _privateConstructorUsedError;
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BabelException exception)? onlyBabelException,
     TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_BabelFailureResponseOnlyBabelException value)
-    onlyBabelException,
+        onlyBabelException,
     required TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)
-    withErrorAndStackTrace,
-  }) => throw _privateConstructorUsedError;
+        withErrorAndStackTrace,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult? Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
-  }) => throw _privateConstructorUsedError;
+        withErrorAndStackTrace,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 
   /// Serializes this BabelFailureResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -101,19 +102,16 @@ mixin _$BabelFailureResponse {
 
 /// @nodoc
 abstract class $BabelFailureResponseCopyWith<$Res> {
-  factory $BabelFailureResponseCopyWith(
-    BabelFailureResponse value,
-    $Res Function(BabelFailureResponse) then,
-  ) = _$BabelFailureResponseCopyWithImpl<$Res, BabelFailureResponse>;
+  factory $BabelFailureResponseCopyWith(BabelFailureResponse value,
+          $Res Function(BabelFailureResponse) then) =
+      _$BabelFailureResponseCopyWithImpl<$Res, BabelFailureResponse>;
   @useResult
   $Res call({BabelException exception});
 }
 
 /// @nodoc
-class _$BabelFailureResponseCopyWithImpl<
-  $Res,
-  $Val extends BabelFailureResponse
->
+class _$BabelFailureResponseCopyWithImpl<$Res,
+        $Val extends BabelFailureResponse>
     implements $BabelFailureResponseCopyWith<$Res> {
   _$BabelFailureResponseCopyWithImpl(this._value, this._then);
 
@@ -126,17 +124,15 @@ class _$BabelFailureResponseCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? exception = null}) {
-    return _then(
-      _value.copyWith(
-            exception:
-                null == exception
-                    ? _value.exception
-                    : exception // ignore: cast_nullable_to_non_nullable
-                        as BabelException,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? exception = null,
+  }) {
+    return _then(_value.copyWith(
+      exception: null == exception
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as BabelException,
+    ) as $Val);
   }
 }
 
@@ -144,9 +140,9 @@ class _$BabelFailureResponseCopyWithImpl<
 abstract class _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith<$Res>
     implements $BabelFailureResponseCopyWith<$Res> {
   factory _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith(
-    _$BabelFailureResponseOnlyBabelExceptionImpl value,
-    $Res Function(_$BabelFailureResponseOnlyBabelExceptionImpl) then,
-  ) = __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<$Res>;
+          _$BabelFailureResponseOnlyBabelExceptionImpl value,
+          $Res Function(_$BabelFailureResponseOnlyBabelExceptionImpl) then) =
+      __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({BabelException exception});
@@ -154,31 +150,27 @@ abstract class _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<$Res>
-    extends
-        _$BabelFailureResponseCopyWithImpl<
-          $Res,
-          _$BabelFailureResponseOnlyBabelExceptionImpl
-        >
+    extends _$BabelFailureResponseCopyWithImpl<$Res,
+        _$BabelFailureResponseOnlyBabelExceptionImpl>
     implements _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith<$Res> {
   __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl(
-    _$BabelFailureResponseOnlyBabelExceptionImpl _value,
-    $Res Function(_$BabelFailureResponseOnlyBabelExceptionImpl) _then,
-  ) : super(_value, _then);
+      _$BabelFailureResponseOnlyBabelExceptionImpl _value,
+      $Res Function(_$BabelFailureResponseOnlyBabelExceptionImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of BabelFailureResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? exception = null}) {
-    return _then(
-      _$BabelFailureResponseOnlyBabelExceptionImpl(
-        exception:
-            null == exception
-                ? _value.exception
-                : exception // ignore: cast_nullable_to_non_nullable
-                    as BabelException,
-      ),
-    );
+  $Res call({
+    Object? exception = null,
+  }) {
+    return _then(_$BabelFailureResponseOnlyBabelExceptionImpl(
+      exception: null == exception
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as BabelException,
+    ));
   }
 }
 
@@ -186,14 +178,13 @@ class __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BabelFailureResponseOnlyBabelExceptionImpl
     implements _BabelFailureResponseOnlyBabelException {
-  _$BabelFailureResponseOnlyBabelExceptionImpl({
-    required this.exception,
-    final String? $type,
-  }) : $type = $type ?? 'onlyBabelException';
+  _$BabelFailureResponseOnlyBabelExceptionImpl(
+      {required this.exception, final String? $type})
+      : $type = $type ?? 'onlyBabelException';
 
   factory _$BabelFailureResponseOnlyBabelExceptionImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$BabelFailureResponseOnlyBabelExceptionImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$BabelFailureResponseOnlyBabelExceptionImplFromJson(json);
 
   @override
   final BabelException exception;
@@ -225,22 +216,20 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   @override
   @pragma('vm:prefer-inline')
   _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith<
-    _$BabelFailureResponseOnlyBabelExceptionImpl
-  >
-  get copyWith => __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<
-    _$BabelFailureResponseOnlyBabelExceptionImpl
-  >(this, _$identity);
+          _$BabelFailureResponseOnlyBabelExceptionImpl>
+      get copyWith =>
+          __$$BabelFailureResponseOnlyBabelExceptionImplCopyWithImpl<
+              _$BabelFailureResponseOnlyBabelExceptionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BabelException exception) onlyBabelException,
     required TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)
+        withErrorAndStackTrace,
   }) {
     return onlyBabelException(exception);
   }
@@ -250,11 +239,10 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BabelException exception)? onlyBabelException,
     TResult? Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
   }) {
     return onlyBabelException?.call(exception);
   }
@@ -264,11 +252,10 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BabelException exception)? onlyBabelException,
     TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
     required TResult orElse(),
   }) {
     if (onlyBabelException != null) {
@@ -281,9 +268,9 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_BabelFailureResponseOnlyBabelException value)
-    onlyBabelException,
+        onlyBabelException,
     required TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
   }) {
     return onlyBabelException(this);
   }
@@ -292,9 +279,9 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult? Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
   }) {
     return onlyBabelException?.call(this);
   }
@@ -303,9 +290,9 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
     required TResult orElse(),
   }) {
     if (onlyBabelException != null) {
@@ -316,19 +303,21 @@ class _$BabelFailureResponseOnlyBabelExceptionImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BabelFailureResponseOnlyBabelExceptionImplToJson(this);
+    return _$$BabelFailureResponseOnlyBabelExceptionImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _BabelFailureResponseOnlyBabelException
     implements BabelFailureResponse {
-  factory _BabelFailureResponseOnlyBabelException({
-    required final BabelException exception,
-  }) = _$BabelFailureResponseOnlyBabelExceptionImpl;
+  factory _BabelFailureResponseOnlyBabelException(
+          {required final BabelException exception}) =
+      _$BabelFailureResponseOnlyBabelExceptionImpl;
 
   factory _BabelFailureResponseOnlyBabelException.fromJson(
-    Map<String, dynamic> json,
-  ) = _$BabelFailureResponseOnlyBabelExceptionImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$BabelFailureResponseOnlyBabelExceptionImpl.fromJson;
 
   @override
   BabelException get exception;
@@ -338,39 +327,35 @@ abstract class _BabelFailureResponseOnlyBabelException
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BabelFailureResponseOnlyBabelExceptionImplCopyWith<
-    _$BabelFailureResponseOnlyBabelExceptionImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$BabelFailureResponseOnlyBabelExceptionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$BabelFailureResponseWithErrorAndStackTraceImplCopyWith<$Res>
     implements $BabelFailureResponseCopyWith<$Res> {
   factory _$$BabelFailureResponseWithErrorAndStackTraceImplCopyWith(
-    _$BabelFailureResponseWithErrorAndStackTraceImpl value,
-    $Res Function(_$BabelFailureResponseWithErrorAndStackTraceImpl) then,
-  ) = __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<$Res>;
+          _$BabelFailureResponseWithErrorAndStackTraceImpl value,
+          $Res Function(_$BabelFailureResponseWithErrorAndStackTraceImpl)
+              then) =
+      __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    BabelException exception,
-    @ErrorObjectConverter() Object error,
-    @StackTraceConverter() StackTrace stackTrace,
-  });
+  $Res call(
+      {BabelException exception,
+      @ErrorObjectConverter() Object error,
+      @StackTraceConverter() StackTrace stackTrace});
 }
 
 /// @nodoc
 class __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<$Res>
-    extends
-        _$BabelFailureResponseCopyWithImpl<
-          $Res,
-          _$BabelFailureResponseWithErrorAndStackTraceImpl
-        >
+    extends _$BabelFailureResponseCopyWithImpl<$Res,
+        _$BabelFailureResponseWithErrorAndStackTraceImpl>
     implements _$$BabelFailureResponseWithErrorAndStackTraceImplCopyWith<$Res> {
   __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl(
-    _$BabelFailureResponseWithErrorAndStackTraceImpl _value,
-    $Res Function(_$BabelFailureResponseWithErrorAndStackTraceImpl) _then,
-  ) : super(_value, _then);
+      _$BabelFailureResponseWithErrorAndStackTraceImpl _value,
+      $Res Function(_$BabelFailureResponseWithErrorAndStackTraceImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of BabelFailureResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -381,21 +366,17 @@ class __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<$Res>
     Object? error = null,
     Object? stackTrace = null,
   }) {
-    return _then(
-      _$BabelFailureResponseWithErrorAndStackTraceImpl(
-        exception:
-            null == exception
-                ? _value.exception
-                : exception // ignore: cast_nullable_to_non_nullable
-                    as BabelException,
-        error: null == error ? _value.error : error,
-        stackTrace:
-            null == stackTrace
-                ? _value.stackTrace
-                : stackTrace // ignore: cast_nullable_to_non_nullable
-                    as StackTrace,
-      ),
-    );
+    return _then(_$BabelFailureResponseWithErrorAndStackTraceImpl(
+      exception: null == exception
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as BabelException,
+      error: null == error ? _value.error : error,
+      stackTrace: null == stackTrace
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace,
+    ));
   }
 }
 
@@ -403,16 +384,16 @@ class __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BabelFailureResponseWithErrorAndStackTraceImpl
     implements _BabelFailureResponseWithErrorAndStackTrace {
-  _$BabelFailureResponseWithErrorAndStackTraceImpl({
-    required this.exception,
-    @ErrorObjectConverter() required this.error,
-    @StackTraceConverter() required this.stackTrace,
-    final String? $type,
-  }) : $type = $type ?? 'withErrorAndStackTrace';
+  _$BabelFailureResponseWithErrorAndStackTraceImpl(
+      {required this.exception,
+      @ErrorObjectConverter() required this.error,
+      @StackTraceConverter() required this.stackTrace,
+      final String? $type})
+      : $type = $type ?? 'withErrorAndStackTrace';
 
   factory _$BabelFailureResponseWithErrorAndStackTraceImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$BabelFailureResponseWithErrorAndStackTraceImplFromJson(json);
+          Map<String, dynamic> json) =>
+      _$$BabelFailureResponseWithErrorAndStackTraceImplFromJson(json);
 
   @override
   final BabelException exception;
@@ -445,12 +426,8 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    exception,
-    const DeepCollectionEquality().hash(error),
-    stackTrace,
-  );
+  int get hashCode => Object.hash(runtimeType, exception,
+      const DeepCollectionEquality().hash(error), stackTrace);
 
   /// Create a copy of BabelFailureResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -458,23 +435,21 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   @override
   @pragma('vm:prefer-inline')
   _$$BabelFailureResponseWithErrorAndStackTraceImplCopyWith<
-    _$BabelFailureResponseWithErrorAndStackTraceImpl
-  >
-  get copyWith =>
-      __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<
-        _$BabelFailureResponseWithErrorAndStackTraceImpl
-      >(this, _$identity);
+          _$BabelFailureResponseWithErrorAndStackTraceImpl>
+      get copyWith =>
+          __$$BabelFailureResponseWithErrorAndStackTraceImplCopyWithImpl<
+                  _$BabelFailureResponseWithErrorAndStackTraceImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BabelException exception) onlyBabelException,
     required TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)
+        withErrorAndStackTrace,
   }) {
     return withErrorAndStackTrace(exception, error, stackTrace);
   }
@@ -484,11 +459,10 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BabelException exception)? onlyBabelException,
     TResult? Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
   }) {
     return withErrorAndStackTrace?.call(exception, error, stackTrace);
   }
@@ -498,11 +472,10 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BabelException exception)? onlyBabelException,
     TResult Function(
-      BabelException exception,
-      @ErrorObjectConverter() Object error,
-      @StackTraceConverter() StackTrace stackTrace,
-    )?
-    withErrorAndStackTrace,
+            BabelException exception,
+            @ErrorObjectConverter() Object error,
+            @StackTraceConverter() StackTrace stackTrace)?
+        withErrorAndStackTrace,
     required TResult orElse(),
   }) {
     if (withErrorAndStackTrace != null) {
@@ -515,9 +488,9 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_BabelFailureResponseOnlyBabelException value)
-    onlyBabelException,
+        onlyBabelException,
     required TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
   }) {
     return withErrorAndStackTrace(this);
   }
@@ -526,9 +499,9 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult? Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
   }) {
     return withErrorAndStackTrace?.call(this);
   }
@@ -537,9 +510,9 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_BabelFailureResponseOnlyBabelException value)?
-    onlyBabelException,
+        onlyBabelException,
     TResult Function(_BabelFailureResponseWithErrorAndStackTrace value)?
-    withErrorAndStackTrace,
+        withErrorAndStackTrace,
     required TResult orElse(),
   }) {
     if (withErrorAndStackTrace != null) {
@@ -550,21 +523,23 @@ class _$BabelFailureResponseWithErrorAndStackTraceImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BabelFailureResponseWithErrorAndStackTraceImplToJson(this);
+    return _$$BabelFailureResponseWithErrorAndStackTraceImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _BabelFailureResponseWithErrorAndStackTrace
     implements BabelFailureResponse {
-  factory _BabelFailureResponseWithErrorAndStackTrace({
-    required final BabelException exception,
-    @ErrorObjectConverter() required final Object error,
-    @StackTraceConverter() required final StackTrace stackTrace,
-  }) = _$BabelFailureResponseWithErrorAndStackTraceImpl;
+  factory _BabelFailureResponseWithErrorAndStackTrace(
+          {required final BabelException exception,
+          @ErrorObjectConverter() required final Object error,
+          @StackTraceConverter() required final StackTrace stackTrace}) =
+      _$BabelFailureResponseWithErrorAndStackTraceImpl;
 
   factory _BabelFailureResponseWithErrorAndStackTrace.fromJson(
-    Map<String, dynamic> json,
-  ) = _$BabelFailureResponseWithErrorAndStackTraceImpl.fromJson;
+          Map<String, dynamic> json) =
+      _$BabelFailureResponseWithErrorAndStackTraceImpl.fromJson;
 
   @override
   BabelException get exception;
@@ -578,7 +553,6 @@ abstract class _BabelFailureResponseWithErrorAndStackTrace
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$BabelFailureResponseWithErrorAndStackTraceImplCopyWith<
-    _$BabelFailureResponseWithErrorAndStackTraceImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+          _$BabelFailureResponseWithErrorAndStackTraceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

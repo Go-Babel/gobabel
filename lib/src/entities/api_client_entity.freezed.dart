@@ -12,8 +12,7 @@ part of 'api_client_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApiClientEntity _$ApiClientEntityFromJson(Map<String, dynamic> json) {
   return _ApiClientEntity.fromJson(json);
@@ -37,9 +36,8 @@ mixin _$ApiClientEntity {
 /// @nodoc
 abstract class $ApiClientEntityCopyWith<$Res> {
   factory $ApiClientEntityCopyWith(
-    ApiClientEntity value,
-    $Res Function(ApiClientEntity) then,
-  ) = _$ApiClientEntityCopyWithImpl<$Res, ApiClientEntity>;
+          ApiClientEntity value, $Res Function(ApiClientEntity) then) =
+      _$ApiClientEntityCopyWithImpl<$Res, ApiClientEntity>;
   @useResult
   $Res call({String host, Duration connectionTimeout});
 }
@@ -58,32 +56,29 @@ class _$ApiClientEntityCopyWithImpl<$Res, $Val extends ApiClientEntity>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? host = null, Object? connectionTimeout = null}) {
-    return _then(
-      _value.copyWith(
-            host:
-                null == host
-                    ? _value.host
-                    : host // ignore: cast_nullable_to_non_nullable
-                        as String,
-            connectionTimeout:
-                null == connectionTimeout
-                    ? _value.connectionTimeout
-                    : connectionTimeout // ignore: cast_nullable_to_non_nullable
-                        as Duration,
-          )
-          as $Val,
-    );
+  $Res call({
+    Object? host = null,
+    Object? connectionTimeout = null,
+  }) {
+    return _then(_value.copyWith(
+      host: null == host
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as String,
+      connectionTimeout: null == connectionTimeout
+          ? _value.connectionTimeout
+          : connectionTimeout // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ) as $Val);
   }
 }
 
 /// @nodoc
 abstract class _$$ApiClientEntityImplCopyWith<$Res>
     implements $ApiClientEntityCopyWith<$Res> {
-  factory _$$ApiClientEntityImplCopyWith(
-    _$ApiClientEntityImpl value,
-    $Res Function(_$ApiClientEntityImpl) then,
-  ) = __$$ApiClientEntityImplCopyWithImpl<$Res>;
+  factory _$$ApiClientEntityImplCopyWith(_$ApiClientEntityImpl value,
+          $Res Function(_$ApiClientEntityImpl) then) =
+      __$$ApiClientEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String host, Duration connectionTimeout});
@@ -94,29 +89,27 @@ class __$$ApiClientEntityImplCopyWithImpl<$Res>
     extends _$ApiClientEntityCopyWithImpl<$Res, _$ApiClientEntityImpl>
     implements _$$ApiClientEntityImplCopyWith<$Res> {
   __$$ApiClientEntityImplCopyWithImpl(
-    _$ApiClientEntityImpl _value,
-    $Res Function(_$ApiClientEntityImpl) _then,
-  ) : super(_value, _then);
+      _$ApiClientEntityImpl _value, $Res Function(_$ApiClientEntityImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of ApiClientEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? host = null, Object? connectionTimeout = null}) {
-    return _then(
-      _$ApiClientEntityImpl(
-        host:
-            null == host
-                ? _value.host
-                : host // ignore: cast_nullable_to_non_nullable
-                    as String,
-        connectionTimeout:
-            null == connectionTimeout
-                ? _value.connectionTimeout
-                : connectionTimeout // ignore: cast_nullable_to_non_nullable
-                    as Duration,
-      ),
-    );
+  $Res call({
+    Object? host = null,
+    Object? connectionTimeout = null,
+  }) {
+    return _then(_$ApiClientEntityImpl(
+      host: null == host
+          ? _value.host
+          : host // ignore: cast_nullable_to_non_nullable
+              as String,
+      connectionTimeout: null == connectionTimeout
+          ? _value.connectionTimeout
+          : connectionTimeout // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
   }
 }
 
@@ -124,7 +117,7 @@ class __$$ApiClientEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ApiClientEntityImpl extends _ApiClientEntity {
   _$ApiClientEntityImpl({required this.host, required this.connectionTimeout})
-    : super._();
+      : super._();
 
   factory _$ApiClientEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiClientEntityImplFromJson(json);
@@ -160,21 +153,20 @@ class _$ApiClientEntityImpl extends _ApiClientEntity {
   @pragma('vm:prefer-inline')
   _$$ApiClientEntityImplCopyWith<_$ApiClientEntityImpl> get copyWith =>
       __$$ApiClientEntityImplCopyWithImpl<_$ApiClientEntityImpl>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApiClientEntityImplToJson(this);
+    return _$$ApiClientEntityImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ApiClientEntity extends ApiClientEntity {
-  factory _ApiClientEntity({
-    required final String host,
-    required final Duration connectionTimeout,
-  }) = _$ApiClientEntityImpl;
+  factory _ApiClientEntity(
+      {required final String host,
+      required final Duration connectionTimeout}) = _$ApiClientEntityImpl;
   _ApiClientEntity._() : super._();
 
   factory _ApiClientEntity.fromJson(Map<String, dynamic> json) =

@@ -15,12 +15,18 @@ AsyncBabelResult<FilesVerification> getFilesVerificationState({
   required GitVariables gitVariables,
   required Client client,
   required String directoryPath,
+  required bool runForAllFiles,
 }) async {
+  // If runForAllFiles is true, force checking all files from scratch
+  if (runForAllFiles) {
+    return FilesVerification.fromZero().toSuccess();
+  }
+  
   final ShaCommit curentSha = gitVariables.latestShaIdentifier;
   final projectVersionsShasResponse =
       await getAllCommitsInCurrentGitTreeOrderedByTime(
-        directoryPath: directoryPath,
-      );
+    directoryPath: directoryPath,
+  );
 
   if (projectVersionsShasResponse.isError()) {
     return projectVersionsShasResponse.asBabelResultErrorAsync();
@@ -75,10 +81,10 @@ AsyncBabelResult<FilesVerification> getFilesVerificationState({
 
   final changedFilesBetweenCommitsResponse =
       await getChangedFilesPathBetweenCommits(
-        dirrPath: directoryPath,
-        commit1: lastTrackedCommit,
-        commit2: curentSha,
-      );
+    dirrPath: directoryPath,
+    commit1: lastTrackedCommit,
+    commit2: curentSha,
+  );
 
   if (changedFilesBetweenCommitsResponse.isError()) {
     return changedFilesBetweenCommitsResponse.asBabelResultErrorAsync();
@@ -100,6 +106,7 @@ AsyncBabelResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
     client: payload.client.server,
     gitVariables: payload.gitVariables,
     directoryPath: payload.directoryPath,
+    runForAllFiles: payload.runForAllFiles,
   );
 
   return filesVerificationState.flatMap((filesVerification) {
@@ -110,6 +117,7 @@ AsyncBabelResult<GenerateFlowGotTargetFiles> generate_getFilesVerificationState(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
       gitVariables: payload.gitVariables,

@@ -38,6 +38,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
   }) = GenerateFlowInitial;
 
   /// Step 2
@@ -48,6 +49,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
   }) = GenerateFlowCreatedClient;
 
@@ -59,6 +61,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
   }) = GenerateFlowEnsureGit;
 
@@ -70,6 +73,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
   }) = GenerateFlowGotCodeBaseYaml;
@@ -82,6 +86,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -95,6 +100,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -109,6 +115,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitUser gitUser,
@@ -124,6 +131,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -137,6 +145,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -153,6 +162,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -170,6 +180,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -188,6 +199,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -206,6 +218,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -225,6 +238,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -245,6 +259,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -265,6 +280,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -287,6 +303,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -309,6 +326,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -331,6 +349,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -353,6 +372,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -375,6 +395,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -397,6 +418,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -419,6 +441,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -441,6 +464,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -463,6 +487,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -486,6 +511,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -511,6 +537,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -536,6 +563,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -562,6 +590,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -589,6 +618,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -617,6 +647,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -646,6 +677,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -671,6 +703,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -696,6 +729,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -722,6 +756,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -747,6 +782,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -772,6 +808,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -797,6 +834,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -822,6 +860,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -847,6 +886,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -872,6 +912,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -898,6 +939,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -930,6 +972,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -964,6 +1007,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -997,6 +1041,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -1031,6 +1076,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
     required GitVariables gitVariables,
@@ -1288,6 +1334,7 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
   required String directoryPath,
   required BabelSupportedLocales inputedByUserLocale,
   required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+  required bool runForAllFiles,
 }) async {
   final createFlowInitial = GenerateFlowInitial(
     willLog: willLog,
@@ -1296,6 +1343,7 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
     inputedByUserLocale: inputedByUserLocale,
     dangerouslyAutoDetectUserFacingHardcodedStrings:
         dangerouslyAutoDetectUserFacingHardcodedStrings,
+    runForAllFiles: runForAllFiles,
   );
 
   // Start the loading indicator with the initial state

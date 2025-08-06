@@ -1,4 +1,3 @@
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/extensions/string_extension.dart';
@@ -47,20 +46,20 @@ BabelLabelEntity _processBabelLabel({
 }) {
   return switch (entity) {
     LabelsEntityRootLabel() => _handleRootLabel(
-      entity: entity,
-      keyToImplementation: keyToImplementation,
-      keyToDeclaration: keyToDeclaration,
-    ),
+        entity: entity,
+        keyToImplementation: keyToImplementation,
+        keyToDeclaration: keyToDeclaration,
+      ),
     LabelsEntityChildLabel() => _handleChildLabel(
-      entity: entity,
-      keyToDeclaration: keyToDeclaration,
-      keyToImplementation: keyToImplementation,
-    ),
+        entity: entity,
+        keyToDeclaration: keyToDeclaration,
+        keyToImplementation: keyToImplementation,
+      ),
     LabelsEntityLabelDynamicValue() => _handleDynamicValue(
-      entity: entity,
-      keyToImplementation: keyToImplementation,
-      keyToDeclaration: keyToDeclaration,
-    ),
+        entity: entity,
+        keyToImplementation: keyToImplementation,
+        keyToDeclaration: keyToDeclaration,
+      ),
   };
 }
 
@@ -120,51 +119,24 @@ BabelLabelEntityRootLabel _handleRootLabel({
       childLabel: (value) {
         final startIndex = value.parentStartIndex;
         final endIndex = value.parentEndIndex;
-        try {
-          print('entered');
-          l10nValue = l10nValue.replaceRange(
-            startIndex,
-            endIndex,
-            '{${value.l10nKey}}',
-          );
-        } catch (e, s) {
-          print(
-            'Error replacing range in l10nValue:\n${' $e '.toString().onTan}\n\n'
-                .purple,
-          );
-          print('Data envolved:\n\n');
-          print('l10nValue:\n${l10nValue.toString()}\n\n');
-          print('startIndex: $startIndex | endIndex: $endIndex\n\n');
-          print('l10nKey:\n${value.l10nKey.toString()}\n\n');
-          print(
-            'startListOrder: $startListOrder | endListOrder: $endListOrder\n\n',
-          );
-          print('filePath:  ${filePath.toString().onTan}\n\n');
-          final startIndexChar = l10nValue.substring(0, startIndex);
-          final startExactIndexChar = l10nValue.split('')[startIndex];
-          final endIndexChar = l10nValue.substring(endIndex);
-          final endExactIndexChar = l10nValue.split('')[endIndex];
-          print(
-            'fileStartIndex:  $fileStartIndex ($startExactIndexChar "$startIndexChar") | fileEndIndex:  $fileEndIndex ($endExactIndexChar "$endIndexChar")\n\n',
-          );
-          print(
-            'children:\n${children.map((e) => e.toString().onTan).join('\n')}\n\n',
-          );
-          print('Stack trace: $s');
-          rethrow;
-        }
+
+        l10nValue = l10nValue.replaceRange(
+          startIndex,
+          endIndex,
+          '{${value.l10nKey}}',
+        );
       },
     );
   }
 
   BabelFunctionDeclaration gobabelFunctionDeclarationString =
       keyToDeclaration[l10nKey] ??
-      '''${l10nValue.trimHardcodedString.formatToComment}
+          '''${l10nValue.trimHardcodedString.formatToComment}
   static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) => i._getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};''';
 
   BabelFunctionImplementation gobabelFunctionImplementationString =
       keyToImplementation[l10nKey] ??
-      '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e.cleanHardcoded).join(', ')})';
+          '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e.cleanHardcoded).join(', ')})';
 
   return BabelLabelEntityRootLabel(
     l10nKey: l10nKey,
@@ -239,12 +211,12 @@ BabelLabelEntityChildLabel _handleChildLabel({
 
   BabelFunctionDeclaration gobabelFunctionDeclarationString =
       keyToDeclaration[l10nKey] ??
-      '''${hardcodedString.trimHardcodedString.formatToComment}
+          '''${hardcodedString.trimHardcodedString.formatToComment}
   static String $l10nKey(${variableNames.map((e) => 'Object? $e').join(', ')}) => i._getByKey('$l10nKey')${variableNames.map((e) => '.replaceAll(\'{$e}\', $e.toString())').join()};''';
 
   BabelFunctionImplementation gobabelFunctionImplementationString =
       keyToImplementation[l10nKey] ??
-      '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e.cleanHardcoded).join(', ')})';
+          '$kBabelClass.$l10nKey(${implementationParameters.map((e) => e.cleanHardcoded).join(', ')})';
 
   return BabelLabelEntityChildLabel(
     l10nKey: l10nKey,
@@ -366,6 +338,7 @@ AsyncBabelResult<GenerateFlowMappedBabelLabels> generate_mapBabelLabels(
     inputedByUserLocale: payload.inputedByUserLocale,
     dangerouslyAutoDetectUserFacingHardcodedStrings:
         payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+    runForAllFiles: payload.runForAllFiles,
     client: payload.client,
     yamlInfo: payload.yamlInfo,
     gitVariables: payload.gitVariables,

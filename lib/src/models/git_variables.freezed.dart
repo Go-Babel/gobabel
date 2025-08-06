@@ -12,8 +12,7 @@ part of 'git_variables.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GitVariables _$GitVariablesFromJson(Map<String, dynamic> json) {
   return _GitVariables.fromJson(json);
@@ -40,17 +39,15 @@ mixin _$GitVariables {
 /// @nodoc
 abstract class $GitVariablesCopyWith<$Res> {
   factory $GitVariablesCopyWith(
-    GitVariables value,
-    $Res Function(GitVariables) then,
-  ) = _$GitVariablesCopyWithImpl<$Res, GitVariables>;
+          GitVariables value, $Res Function(GitVariables) then) =
+      _$GitVariablesCopyWithImpl<$Res, GitVariables>;
   @useResult
-  $Res call({
-    GitUser user,
-    GitCommit previousCommit,
-    String latestShaIdentifier,
-    String originUrl,
-    BigInt projectShaIdentifier,
-  });
+  $Res call(
+      {GitUser user,
+      GitCommit previousCommit,
+      String latestShaIdentifier,
+      String originUrl,
+      BigInt projectShaIdentifier});
 }
 
 /// @nodoc
@@ -74,36 +71,28 @@ class _$GitVariablesCopyWithImpl<$Res, $Val extends GitVariables>
     Object? originUrl = null,
     Object? projectShaIdentifier = null,
   }) {
-    return _then(
-      _value.copyWith(
-            user:
-                null == user
-                    ? _value.user
-                    : user // ignore: cast_nullable_to_non_nullable
-                        as GitUser,
-            previousCommit:
-                null == previousCommit
-                    ? _value.previousCommit
-                    : previousCommit // ignore: cast_nullable_to_non_nullable
-                        as GitCommit,
-            latestShaIdentifier:
-                null == latestShaIdentifier
-                    ? _value.latestShaIdentifier
-                    : latestShaIdentifier // ignore: cast_nullable_to_non_nullable
-                        as String,
-            originUrl:
-                null == originUrl
-                    ? _value.originUrl
-                    : originUrl // ignore: cast_nullable_to_non_nullable
-                        as String,
-            projectShaIdentifier:
-                null == projectShaIdentifier
-                    ? _value.projectShaIdentifier
-                    : projectShaIdentifier // ignore: cast_nullable_to_non_nullable
-                        as BigInt,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as GitUser,
+      previousCommit: null == previousCommit
+          ? _value.previousCommit
+          : previousCommit // ignore: cast_nullable_to_non_nullable
+              as GitCommit,
+      latestShaIdentifier: null == latestShaIdentifier
+          ? _value.latestShaIdentifier
+          : latestShaIdentifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      originUrl: null == originUrl
+          ? _value.originUrl
+          : originUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectShaIdentifier: null == projectShaIdentifier
+          ? _value.projectShaIdentifier
+          : projectShaIdentifier // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ) as $Val);
   }
 }
 
@@ -111,18 +100,16 @@ class _$GitVariablesCopyWithImpl<$Res, $Val extends GitVariables>
 abstract class _$$GitVariablesImplCopyWith<$Res>
     implements $GitVariablesCopyWith<$Res> {
   factory _$$GitVariablesImplCopyWith(
-    _$GitVariablesImpl value,
-    $Res Function(_$GitVariablesImpl) then,
-  ) = __$$GitVariablesImplCopyWithImpl<$Res>;
+          _$GitVariablesImpl value, $Res Function(_$GitVariablesImpl) then) =
+      __$$GitVariablesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    GitUser user,
-    GitCommit previousCommit,
-    String latestShaIdentifier,
-    String originUrl,
-    BigInt projectShaIdentifier,
-  });
+  $Res call(
+      {GitUser user,
+      GitCommit previousCommit,
+      String latestShaIdentifier,
+      String originUrl,
+      BigInt projectShaIdentifier});
 }
 
 /// @nodoc
@@ -130,9 +117,8 @@ class __$$GitVariablesImplCopyWithImpl<$Res>
     extends _$GitVariablesCopyWithImpl<$Res, _$GitVariablesImpl>
     implements _$$GitVariablesImplCopyWith<$Res> {
   __$$GitVariablesImplCopyWithImpl(
-    _$GitVariablesImpl _value,
-    $Res Function(_$GitVariablesImpl) _then,
-  ) : super(_value, _then);
+      _$GitVariablesImpl _value, $Res Function(_$GitVariablesImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of GitVariables
   /// with the given fields replaced by the non-null parameter values.
@@ -145,48 +131,40 @@ class __$$GitVariablesImplCopyWithImpl<$Res>
     Object? originUrl = null,
     Object? projectShaIdentifier = null,
   }) {
-    return _then(
-      _$GitVariablesImpl(
-        user:
-            null == user
-                ? _value.user
-                : user // ignore: cast_nullable_to_non_nullable
-                    as GitUser,
-        previousCommit:
-            null == previousCommit
-                ? _value.previousCommit
-                : previousCommit // ignore: cast_nullable_to_non_nullable
-                    as GitCommit,
-        latestShaIdentifier:
-            null == latestShaIdentifier
-                ? _value.latestShaIdentifier
-                : latestShaIdentifier // ignore: cast_nullable_to_non_nullable
-                    as String,
-        originUrl:
-            null == originUrl
-                ? _value.originUrl
-                : originUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
-        projectShaIdentifier:
-            null == projectShaIdentifier
-                ? _value.projectShaIdentifier
-                : projectShaIdentifier // ignore: cast_nullable_to_non_nullable
-                    as BigInt,
-      ),
-    );
+    return _then(_$GitVariablesImpl(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as GitUser,
+      previousCommit: null == previousCommit
+          ? _value.previousCommit
+          : previousCommit // ignore: cast_nullable_to_non_nullable
+              as GitCommit,
+      latestShaIdentifier: null == latestShaIdentifier
+          ? _value.latestShaIdentifier
+          : latestShaIdentifier // ignore: cast_nullable_to_non_nullable
+              as String,
+      originUrl: null == originUrl
+          ? _value.originUrl
+          : originUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectShaIdentifier: null == projectShaIdentifier
+          ? _value.projectShaIdentifier
+          : projectShaIdentifier // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$GitVariablesImpl implements _GitVariables {
-  _$GitVariablesImpl({
-    required this.user,
-    required this.previousCommit,
-    required this.latestShaIdentifier,
-    required this.originUrl,
-    required this.projectShaIdentifier,
-  });
+  _$GitVariablesImpl(
+      {required this.user,
+      required this.previousCommit,
+      required this.latestShaIdentifier,
+      required this.originUrl,
+      required this.projectShaIdentifier});
 
   factory _$GitVariablesImpl.fromJson(Map<String, dynamic> json) =>
       _$$GitVariablesImplFromJson(json);
@@ -225,14 +203,8 @@ class _$GitVariablesImpl implements _GitVariables {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    user,
-    previousCommit,
-    latestShaIdentifier,
-    originUrl,
-    projectShaIdentifier,
-  );
+  int get hashCode => Object.hash(runtimeType, user, previousCommit,
+      latestShaIdentifier, originUrl, projectShaIdentifier);
 
   /// Create a copy of GitVariables
   /// with the given fields replaced by the non-null parameter values.
@@ -244,18 +216,19 @@ class _$GitVariablesImpl implements _GitVariables {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GitVariablesImplToJson(this);
+    return _$$GitVariablesImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _GitVariables implements GitVariables {
-  factory _GitVariables({
-    required final GitUser user,
-    required final GitCommit previousCommit,
-    required final String latestShaIdentifier,
-    required final String originUrl,
-    required final BigInt projectShaIdentifier,
-  }) = _$GitVariablesImpl;
+  factory _GitVariables(
+      {required final GitUser user,
+      required final GitCommit previousCommit,
+      required final String latestShaIdentifier,
+      required final String originUrl,
+      required final BigInt projectShaIdentifier}) = _$GitVariablesImpl;
 
   factory _GitVariables.fromJson(Map<String, dynamic> json) =
       _$GitVariablesImpl.fromJson;

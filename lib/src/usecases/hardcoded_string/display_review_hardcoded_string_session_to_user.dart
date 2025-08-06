@@ -9,14 +9,45 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
-generate_displayReviewHardcodedStringSessionToUser(
+    generate_displayReviewHardcodedStringSessionToUser(
   GenerateFlowCreatedHardcodedStringReviewSession payload,
 ) async {
   try {
+    final response = GenerateFlowDisplayedSessionReviewToUser(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      runForAllFiles: payload.runForAllFiles,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      allExtractedStrings: payload.allExtractedStrings,
+      sessionUuid: payload.sessionUuid,
+      fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
+    );
+
+    final bool dangerouslyAutoDetectUserFacingHardcodedStrings =
+        payload.dangerouslyAutoDetectUserFacingHardcodedStrings;
+    if (dangerouslyAutoDetectUserFacingHardcodedStrings) {
+      return response.toSuccess();
+    }
+
     // Get the base URL from the client host
     final baseUrl = payload.client.host
-    // replace local host with the correct port for the web server for debugging
-    .replaceAll('localhost:8080', 'localhost:8082');
+        // replace local host with the correct port for the web server for debugging
+        .replaceAll('localhost:8080', 'localhost:8082');
     final sessionUuid = payload.sessionUuid;
 
     // Construct the full URL
@@ -41,57 +72,13 @@ generate_displayReviewHardcodedStringSessionToUser(
       // Fallback - just print the URL
       print('Please open the following URL in your browser:');
       print(reviewUrl.blue);
-      return GenerateFlowDisplayedSessionReviewToUser(
-        willLog: payload.willLog,
-        projectApiToken: payload.projectApiToken,
-        directoryPath: payload.directoryPath,
-        inputedByUserLocale: payload.inputedByUserLocale,
-        dangerouslyAutoDetectUserFacingHardcodedStrings:
-            payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
-        client: payload.client,
-        yamlInfo: payload.yamlInfo,
-        gitVariables: payload.gitVariables,
-        maxLanguageCount: payload.maxLanguageCount,
-        languages: payload.languages,
-        projectCacheMap: payload.projectCacheMap,
-        cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
-        filesVerificationState: payload.filesVerificationState,
-        projectArbData: payload.projectArbData,
-        remapedArbKeys: payload.remapedArbKeys,
-        codebaseArbTranslationPayloadInfo:
-            payload.codebaseArbTranslationPayloadInfo,
-        allExtractedStrings: payload.allExtractedStrings,
-        sessionUuid: payload.sessionUuid,
-        fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
-      ).toSuccess();
+      return response.toSuccess();
     }
 
     // Run the command to open the browser
     await runBabelProcess(command: command, dirrPath: payload.directoryPath);
 
-    return GenerateFlowDisplayedSessionReviewToUser(
-      willLog: payload.willLog,
-      projectApiToken: payload.projectApiToken,
-      directoryPath: payload.directoryPath,
-      inputedByUserLocale: payload.inputedByUserLocale,
-      dangerouslyAutoDetectUserFacingHardcodedStrings:
-          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
-      client: payload.client,
-      yamlInfo: payload.yamlInfo,
-      gitVariables: payload.gitVariables,
-      maxLanguageCount: payload.maxLanguageCount,
-      languages: payload.languages,
-      projectCacheMap: payload.projectCacheMap,
-      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
-      filesVerificationState: payload.filesVerificationState,
-      projectArbData: payload.projectArbData,
-      remapedArbKeys: payload.remapedArbKeys,
-      codebaseArbTranslationPayloadInfo:
-          payload.codebaseArbTranslationPayloadInfo,
-      allExtractedStrings: payload.allExtractedStrings,
-      sessionUuid: payload.sessionUuid,
-      fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
-    ).toSuccess();
+    return response.toSuccess();
   } catch (error, stackTrace) {
     return BabelFailureResponse.withErrorAndStackTrace(
       error: error,
