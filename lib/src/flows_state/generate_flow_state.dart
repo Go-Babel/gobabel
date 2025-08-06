@@ -38,6 +38,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
   }) = GenerateFlowInitial;
 
@@ -49,6 +50,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
   }) = GenerateFlowCreatedClient;
@@ -61,6 +63,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
   }) = GenerateFlowEnsureGit;
@@ -73,6 +76,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -86,6 +90,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -100,6 +105,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -115,6 +121,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -131,6 +138,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -145,6 +153,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -162,6 +171,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -180,6 +190,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -199,6 +210,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -218,6 +230,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -238,6 +251,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -259,6 +273,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -280,6 +295,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -303,6 +319,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -326,6 +343,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -349,6 +367,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -372,6 +391,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -395,6 +415,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -418,6 +439,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -441,6 +463,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -464,6 +487,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -487,6 +511,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -511,6 +536,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -537,6 +563,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -563,6 +590,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -590,6 +618,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -618,6 +647,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -647,6 +677,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -677,6 +708,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -703,6 +735,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -729,6 +762,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -756,6 +790,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -782,6 +817,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -808,6 +844,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -834,6 +871,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -860,6 +898,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -886,6 +925,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -912,6 +952,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -939,6 +980,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -972,6 +1014,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -1007,6 +1050,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -1041,6 +1085,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -1076,6 +1121,7 @@ abstract class GenerateFlowState
     @BabelSupportedLocalesJsonConverter()
     required BabelSupportedLocales inputedByUserLocale,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
     required ApiClientEntity client,
     required CodeBaseYamlInfo yamlInfo,
@@ -1334,6 +1380,7 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
   required String directoryPath,
   required BabelSupportedLocales inputedByUserLocale,
   required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+  required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
   required bool runForAllFiles,
 }) async {
   final createFlowInitial = GenerateFlowInitial(
@@ -1343,6 +1390,8 @@ AsyncBabelResult<GenerateFlowInitial> generate_initFlowState({
     inputedByUserLocale: inputedByUserLocale,
     dangerouslyAutoDetectUserFacingHardcodedStrings:
         dangerouslyAutoDetectUserFacingHardcodedStrings,
+    dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+        dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     runForAllFiles: runForAllFiles,
   );
 

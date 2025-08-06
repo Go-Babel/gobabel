@@ -83,6 +83,8 @@ AsyncBabelResult<GenerateFlowGotGitUser> generate_getGitUser(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,

@@ -87,6 +87,8 @@ AsyncBabelResult<GenerateFlowGotProjectOriginUrl> generate_getProjectOriginUrl(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,

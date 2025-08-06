@@ -108,6 +108,7 @@ class GobabelConductor {
     required BabelSupportedLocales inputedByUserLocale,
     required bool willLog,
     required bool dangerouslyAutoDetectUserFacingHardcodedStrings,
+    required bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     required bool runForAllFiles,
   }) async {
     return generate_initFlowState(
@@ -117,6 +118,8 @@ class GobabelConductor {
           inputedByUserLocale: inputedByUserLocale,
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               dangerouslyAutoDetectUserFacingHardcodedStrings,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           runForAllFiles: runForAllFiles,
         )
         .toNextStep(generate_createClientEntity)

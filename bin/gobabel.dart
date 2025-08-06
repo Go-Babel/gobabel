@@ -40,60 +40,67 @@ Future<String> getRequiredParameter({
 
 Future<void> main(List<String> arguments) async {
   // Set up the argument parser
-  final parser =
-      ArgParser()
-        ..addFlag('sync', abbr: 's', help: 'Perform sync operation')
-        ..addFlag('generate', abbr: 'g', help: 'Generate new version')
-        ..addFlag(
-          'create',
-          abbr: 'c',
-          help: 'Add a new project in GoBabel system',
-        )
-        ..addOption(
-          'language',
-          abbr: 'l',
-          help: 'Language in format language_country, e.g., en_US',
-        )
-        ..addOption('attach-to-user-with-id', abbr: 'u', help: 'Attach to user')
-        ..addOption('api-key', abbr: 'k', help: 'API key')
-        ..addOption('path', abbr: 'p', help: 'Path to the API directory')
-        ..addFlag(
-          'dangerously-auto-detect-user-facing-hardcoded-strings',
-          help:
-              'Will automatically detect user-facing hardcoded strings with AI and won\'t enter the flow that asks for user confirmation in a web review session. This is dangerous since the AI may misinterpret strings and should be used only if you are sure that all hardcoded strings will be easily detected as user-facing.',
-          defaultsTo: false,
-          negatable: true,
-        )
-        ..addFlag(
-          'will-create-log-file',
-          help: 'Enable detailed logging output',
-          defaultsTo: false,
-          negatable: true,
-        )
-        ..addFlag(
-          'run-for-all-files',
-          help: 'Force checking all files for hardcoded strings instead of only files changed since the last translation checkpoint. By default, the CLI optimizes performance by only checking files that have been modified since the last commit checkpoint, as unchanged files don\'t need to be rechecked.',
-          defaultsTo: false,
-          negatable: true,
-        )
-        ..addFlag(
-          'help',
-          abbr: 'h',
-          help: 'Show this help message',
-          negatable: false,
-        )
-        ..addFlag(
-          'version',
-          abbr: 'v',
-          help: 'Show the package version',
-          negatable: false,
-        )
-        ..addFlag(
-          'list-languages',
-          help: 'Show all supported languages',
-          negatable: false,
-        )
-        ..addFlag('run-locally', hide: true);
+  final parser = ArgParser()
+    ..addFlag('sync', abbr: 's', help: 'Perform sync operation')
+    ..addFlag('generate', abbr: 'g', help: 'Generate new version')
+    ..addFlag(
+      'create',
+      abbr: 'c',
+      help: 'Add a new project in GoBabel system',
+    )
+    ..addOption(
+      'language',
+      abbr: 'l',
+      help: 'Language in format language_country, e.g., en_US',
+    )
+    ..addOption('attach-to-user-with-id', abbr: 'u', help: 'Attach to user')
+    ..addOption('api-key', abbr: 'k', help: 'API key')
+    ..addOption('path', abbr: 'p', help: 'Path to the API directory')
+    ..addFlag(
+      'dangerously-detect-user-facing-hardcoded-strings-only-with-ai-without-mannual-review',
+      help:
+          'Will automatically detect user-facing hardcoded strings with AI and won\'t enter the flow that asks for user confirmation in a web review session. This is dangerous since the AI may misinterpret strings and should be used only if you are sure that all hardcoded strings will be easily detected as user-facing.',
+      defaultsTo: false,
+      negatable: true,
+    )
+    ..addFlag(
+      'dangerously-auto-accept-all-hardcoded-strings-as-user-facing-without-mannual-review',
+      help:
+          'Will accept ALL hardcoded strings as user-facing without any review or AI detection. This bypasses both manual review and AI detection completely. Use with extreme caution as this will translate every single hardcoded string found in your codebase - you can end up with some false positives - use this only if you are sure that every hardcoded string you added since the last translation checkpoint is user-facing.',
+      defaultsTo: false,
+      negatable: true,
+    )
+    ..addFlag(
+      'will-create-log-file',
+      help: 'Enable detailed logging output',
+      defaultsTo: false,
+      negatable: true,
+    )
+    ..addFlag(
+      'run-for-all-files',
+      help:
+          'Force checking all files for hardcoded strings instead of only files changed since the last translation checkpoint. By default, the CLI optimizes performance by only checking files that have been modified since the last commit checkpoint, as unchanged files don\'t need to be rechecked.',
+      defaultsTo: false,
+      negatable: true,
+    )
+    ..addFlag(
+      'help',
+      abbr: 'h',
+      help: 'Show this help message',
+      negatable: false,
+    )
+    ..addFlag(
+      'version',
+      abbr: 'v',
+      help: 'Show the package version',
+      negatable: false,
+    )
+    ..addFlag(
+      'list-languages',
+      help: 'Show all supported languages',
+      negatable: false,
+    )
+    ..addFlag('run-locally', hide: true);
 
   final GobabelConductor controller = GobabelConductor();
 
@@ -135,7 +142,8 @@ Future<void> main(List<String> arguments) async {
   if (argResults['sync'] as bool && argResults['generate'] as bool ||
       argResults['sync'] as bool && argResults['create'] as bool ||
       argResults['generate'] as bool && argResults['create'] as bool) {
-    console.error('Error: Cannot specify --sync, --generate, or --create together. Use one at a time.');
+    console.error(
+        'Error: Cannot specify --sync, --generate, or --create together. Use one at a time.');
     printUsage(parser);
     exit(1);
   }
@@ -156,9 +164,12 @@ Future<void> main(List<String> arguments) async {
 
   // Get the will-create-log-file flag value
   final bool willLog = argResults['will-create-log-file'] as bool;
-  final bool dangerouslyAutoDetectUserFacingHardcodedStrings =
-      argResults['dangerously-auto-detect-user-facing-hardcoded-strings']
-          as bool;
+  final bool dangerouslyAutoDetectUserFacingHardcodedStrings = argResults[
+          'dangerously-detect-user-facing-hardcoded-strings-only-with-ai-without-mannual-review']
+      as bool;
+  final bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing = argResults[
+          'dangerously-auto-accept-all-hardcoded-strings-as-user-facing-without-mannual-review']
+      as bool;
 
   // Get the run-locally flag value (hidden flag for debug)
   final runLocally = argResults['run-locally'] as bool;
@@ -203,7 +214,8 @@ Future<void> main(List<String> arguments) async {
     if (language == null) {
       // Interactive mode - prompt user
       console.warning('Language is required for generate operation.');
-      console.warning('Enter language in format language_country (e.g., en_US)');
+      console
+          .warning('Enter language in format language_country (e.g., en_US)');
       console.info('Use arrow keys to navigate options or type to filter');
 
       babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
@@ -224,9 +236,8 @@ Future<void> main(List<String> arguments) async {
         },
         inputOptions: InputFormOptions<BabelSupportedLocales>(
           options: BabelSupportedLocales.values.toSet(),
-          optionToString:
-              (locale) =>
-                  '${locale.flagEmoji} ${locale.languageCode}_${locale.countryCode} - ${locale.displayName}',
+          optionToString: (locale) =>
+              '${locale.flagEmoji} ${locale.languageCode}_${locale.countryCode} - ${locale.displayName}',
         ),
       );
 
@@ -239,7 +250,8 @@ Future<void> main(List<String> arguments) async {
       // Normalize the language format
       final normalizedLanguage = normalizeLanguageFormat(language);
       if (normalizedLanguage == null) {
-        console.error('Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.');
+        console.error(
+            'Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.');
         printSupportedLanguages();
         exit(1);
       }
@@ -261,7 +273,7 @@ Future<void> main(List<String> arguments) async {
     }
 
     final runForAllFiles = argResults['run-for-all-files'] as bool;
-    
+
     await runInTryCatch(
       errorMessage: 'Error during generate operation',
       operation: controller.generate(
@@ -271,6 +283,8 @@ Future<void> main(List<String> arguments) async {
         willLog: willLog,
         dangerouslyAutoDetectUserFacingHardcodedStrings:
             dangerouslyAutoDetectUserFacingHardcodedStrings,
+        dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+            dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
         runForAllFiles: runForAllFiles,
       ),
     );
@@ -313,8 +327,7 @@ Future<void> runInTryCatch({
         },
       );
 
-      final mainMessage =
-          '\n❌ $errorMessage:\n'.red +
+      final mainMessage = '\n❌ $errorMessage:\n'.red +
           "[ ${failure.exception.title} ]\n".darkOrange +
           failure.exception.description.red +
           suffixMessage;
@@ -400,11 +413,10 @@ Directory resolvePath(String? pathInput) {
   }
 
   // Split the path into segments
-  List<String> segments =
-      normalizedPath
-          .split(RegExp(r'[\\/]'))
-          .where((s) => s.isNotEmpty)
-          .toList();
+  List<String> segments = normalizedPath
+      .split(RegExp(r'[\\/]'))
+      .where((s) => s.isNotEmpty)
+      .toList();
 
   // Start from current directory
   Directory current = currDir;

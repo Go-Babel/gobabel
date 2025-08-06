@@ -16,6 +16,8 @@ _$GenerateFlowInitialImpl _$$GenerateFlowInitialImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       $type: json['runtimeType'] as String?,
     );
@@ -30,6 +32,8 @@ Map<String, dynamic> _$$GenerateFlowInitialImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'runtimeType': instance.$type,
     };
@@ -44,6 +48,8 @@ _$GenerateFlowCreatedClientImpl _$$GenerateFlowCreatedClientImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -59,6 +65,8 @@ Map<String, dynamic> _$$GenerateFlowCreatedClientImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'runtimeType': instance.$type,
@@ -74,6 +82,8 @@ _$GenerateFlowEnsureGitImpl _$$GenerateFlowEnsureGitImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -89,6 +99,8 @@ Map<String, dynamic> _$$GenerateFlowEnsureGitImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'runtimeType': instance.$type,
@@ -104,6 +116,8 @@ _$GenerateFlowGotCodeBaseYamlImpl _$$GenerateFlowGotCodeBaseYamlImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -121,6 +135,8 @@ Map<String, dynamic> _$$GenerateFlowGotCodeBaseYamlImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -137,6 +153,8 @@ _$GenerateFlowGotGitUserImpl _$$GenerateFlowGotGitUserImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -155,6 +173,8 @@ Map<String, dynamic> _$$GenerateFlowGotGitUserImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -172,6 +192,9 @@ _$GenerateFlowGotLastLocalCommitImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -193,6 +216,8 @@ Map<String, dynamic> _$$GenerateFlowGotLastLocalCommitImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -211,6 +236,9 @@ _$GenerateFlowGotProjectOriginUrlImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -233,6 +261,8 @@ Map<String, dynamic> _$$GenerateFlowGotProjectOriginUrlImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -252,6 +282,8 @@ _$GenerateFlowGotGitVariablesImpl _$$GenerateFlowGotGitVariablesImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -271,6 +303,8 @@ Map<String, dynamic> _$$GenerateFlowGotGitVariablesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -288,6 +322,8 @@ _$GenerateFlowGotAppLanguagesImpl _$$GenerateFlowGotAppLanguagesImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -312,6 +348,8 @@ Map<String, dynamic> _$$GenerateFlowGotAppLanguagesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -333,6 +371,8 @@ _$GenerateFlowProjectCacheMapImpl _$$GenerateFlowProjectCacheMapImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -359,6 +399,8 @@ Map<String, dynamic> _$$GenerateFlowProjectCacheMapImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -382,6 +424,9 @@ _$GenerateFlowResolvedProjectCacheTranslationImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -411,6 +456,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedProjectCacheTranslationImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -435,6 +482,9 @@ _$GenerateFlowEnsuredNoStaticErrorOnDartFilesImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -464,6 +514,8 @@ Map<String, dynamic> _$$GenerateFlowEnsuredNoStaticErrorOnDartFilesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -487,6 +539,8 @@ _$GenerateFlowGotTargetFilesImpl _$$GenerateFlowGotTargetFilesImplFromJson(
           .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing'] as bool,
       runForAllFiles: json['runForAllFiles'] as bool,
       client: ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
       yamlInfo:
@@ -517,6 +571,8 @@ Map<String, dynamic> _$$GenerateFlowGotTargetFilesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -542,6 +598,9 @@ _$GenerateFlowGotL10nProjectConfigImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -575,6 +634,8 @@ Map<String, dynamic> _$$GenerateFlowGotL10nProjectConfigImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -601,6 +662,9 @@ _$GenerateFlowMappedProjectArbDataImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -634,6 +698,8 @@ Map<String, dynamic> _$$GenerateFlowMappedProjectArbDataImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -660,6 +726,9 @@ _$GenerateFlowResolvedProjectArbTranslationPayloadImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -699,6 +768,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -729,6 +800,9 @@ _$GenerateFlowRemovedAdjacentStringConcatenationImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -768,6 +842,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -798,6 +874,9 @@ _$GenerateFlowResolvedEnumHardcodedStringsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -836,6 +915,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedEnumHardcodedStringsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -865,6 +946,9 @@ _$GenerateFlowAppliedInitialDartFixesImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -903,6 +987,8 @@ Map<String, dynamic> _$$GenerateFlowAppliedInitialDartFixesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -932,6 +1018,9 @@ _$GenerateFlowMovedHardcodedStringsInFunctionParamsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -971,6 +1060,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -1001,6 +1092,9 @@ _$GenerateFlowMovedHardcodedStringParamsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1039,6 +1133,8 @@ Map<String, dynamic> _$$GenerateFlowMovedHardcodedStringParamsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1068,6 +1164,9 @@ _$GenerateFlowRemovedConstFromCollectionsWithStringsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1107,6 +1206,8 @@ Map<String,
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1136,6 +1237,9 @@ _$GenerateFlowRemovedConstFromConstructorsWithStringParamsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1176,6 +1280,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -1206,6 +1312,9 @@ _$GenerateFlowRemovedConstFromStructuresWithStringsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1245,6 +1354,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -1274,6 +1385,9 @@ _$GenerateFlowExtractedAllStringsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1316,6 +1430,8 @@ Map<String, dynamic> _$$GenerateFlowExtractedAllStringsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1346,6 +1462,9 @@ _$GenerateFlowCreatedHardcodedStringReviewSessionImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1392,6 +1511,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -1425,6 +1546,9 @@ _$GenerateFlowDisplayedSessionReviewToUserImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1470,6 +1594,8 @@ Map<String, dynamic> _$$GenerateFlowDisplayedSessionReviewToUserImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1501,6 +1627,9 @@ _$GenerateFlowDefinedStringLabelsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1550,6 +1679,8 @@ Map<String, dynamic> _$$GenerateFlowDefinedStringLabelsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1583,6 +1714,9 @@ _$GenerateFlowCreatedHumanFriendlyArbKeysImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1634,6 +1768,8 @@ Map<String, dynamic> _$$GenerateFlowCreatedHumanFriendlyArbKeysImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1668,6 +1804,9 @@ _$GenerateFlowMappedStringsHierarchyImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1723,6 +1862,8 @@ Map<String, dynamic> _$$GenerateFlowMappedStringsHierarchyImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1757,6 +1898,9 @@ _$GenerateFlowMappedBabelLabelsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1816,6 +1960,8 @@ Map<String, dynamic> _$$GenerateFlowMappedBabelLabelsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1852,6 +1998,9 @@ _$GenerateFlowResolvedHardcodedStringsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1901,6 +2050,8 @@ Map<String, dynamic> _$$GenerateFlowResolvedHardcodedStringsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -1932,6 +2083,9 @@ _$GenerateFlowReplacedHardcodedStringsForBabelTextImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -1982,6 +2136,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -2013,6 +2169,9 @@ _$GenerateFlowGeneratedBabelClassImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2063,6 +2222,8 @@ Map<String, dynamic> _$$GenerateFlowGeneratedBabelClassImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2095,6 +2256,9 @@ _$GenerateFlowWrittedBabelClassInDartFileImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2144,6 +2308,8 @@ Map<String, dynamic> _$$GenerateFlowWrittedBabelClassInDartFileImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2175,6 +2341,9 @@ _$GenerateFlowAddedBabelClassInitializationInMainImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2225,6 +2394,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -2257,6 +2428,9 @@ _$GenerateFlowAddedSharedPrefsInFlutterProjectsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2306,6 +2480,8 @@ Map<String, dynamic> _$$GenerateFlowAddedSharedPrefsInFlutterProjectsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2337,6 +2513,9 @@ _$GenerateFlowAppliedCodebaseGeneralDartFixesImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2386,6 +2565,8 @@ Map<String, dynamic> _$$GenerateFlowAppliedCodebaseGeneralDartFixesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2417,6 +2598,9 @@ _$GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctionsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2468,6 +2652,8 @@ Map<String, dynamic>
               .toJson(instance.inputedByUserLocale),
           'dangerouslyAutoDetectUserFacingHardcodedStrings':
               instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+          'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+              instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
           'runForAllFiles': instance.runForAllFiles,
           'client': instance.client,
           'yamlInfo': instance.yamlInfo,
@@ -2500,6 +2686,9 @@ _$GenerateFlowRemovedUnnecessaryArbConfigFilesImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2549,6 +2738,8 @@ Map<String, dynamic> _$$GenerateFlowRemovedUnnecessaryArbConfigFilesImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2579,6 +2770,9 @@ _$GenerateFlowExtractedCodeBaseImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2631,6 +2825,8 @@ Map<String, dynamic> _$$GenerateFlowExtractedCodeBaseImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2663,6 +2859,9 @@ _$GenerateFlowTranslatedNewStringsArbImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2723,6 +2922,8 @@ Map<String, dynamic> _$$GenerateFlowTranslatedNewStringsArbImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2756,6 +2957,9 @@ _$GenerateFlowUploadedNewTranslationsImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2818,6 +3022,8 @@ Map<String, dynamic> _$$GenerateFlowUploadedNewTranslationsImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2852,6 +3058,9 @@ _$GenerateFlowCommitedAllChangesOfCodebaseImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -2914,6 +3123,8 @@ Map<String, dynamic> _$$GenerateFlowCommitedAllChangesOfCodebaseImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -2948,6 +3159,9 @@ _$GenerateFlowGetBabelChangesCommitImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -3012,6 +3226,8 @@ Map<String, dynamic> _$$GenerateFlowGetBabelChangesCommitImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,
@@ -3047,6 +3263,9 @@ _$GenerateFlowSincronizedBabelCommitWithApiImpl
               .fromJson(json['inputedByUserLocale'] as Map<String, dynamic>),
           dangerouslyAutoDetectUserFacingHardcodedStrings:
               json['dangerouslyAutoDetectUserFacingHardcodedStrings'] as bool,
+          dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+              json['dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing']
+                  as bool,
           runForAllFiles: json['runForAllFiles'] as bool,
           client:
               ApiClientEntity.fromJson(json['client'] as Map<String, dynamic>),
@@ -3111,6 +3330,8 @@ Map<String, dynamic> _$$GenerateFlowSincronizedBabelCommitWithApiImplToJson(
           .toJson(instance.inputedByUserLocale),
       'dangerouslyAutoDetectUserFacingHardcodedStrings':
           instance.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      'dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing':
+          instance.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       'runForAllFiles': instance.runForAllFiles,
       'client': instance.client,
       'yamlInfo': instance.yamlInfo,

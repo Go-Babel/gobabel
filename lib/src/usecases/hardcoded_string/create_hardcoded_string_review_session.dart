@@ -16,6 +16,8 @@ AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
@@ -32,6 +34,48 @@ AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
       allExtractedStrings: payload.allExtractedStrings,
       sessionUuid: null,
       fieldsToBeAnalysed: {},
+    ).toSuccess();
+  }
+
+  // If the new flag is true, bypass the review session creation entirely
+  if (payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing) {
+    // Create fieldsToBeAnalysed map even when bypassing, as it might be needed downstream
+    final Map<Sha1, HardCodedString> fieldsToBeAnalysed = {};
+    for (final string in payload.allExtractedStrings) {
+      final sha1Result = generateSha1(string.value.trimHardcodedString);
+      if (sha1Result.isError()) {
+        return BabelFailureResponse.onlyBabelException(
+          exception: sha1Result.exceptionOrNull()!,
+        ).toFailure();
+      }
+      fieldsToBeAnalysed[sha1Result.getOrThrow()] = string.value.trimHardcodedString;
+    }
+    
+    return GenerateFlowCreatedHardcodedStringReviewSession(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
+      runForAllFiles: payload.runForAllFiles,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      allExtractedStrings: payload.allExtractedStrings,
+      sessionUuid: null, // No session UUID when bypassing
+      fieldsToBeAnalysed: fieldsToBeAnalysed,
     ).toSuccess();
   }
 
@@ -65,6 +109,8 @@ AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,

@@ -20,6 +20,8 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
@@ -38,9 +40,9 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
       fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
     );
 
-    final bool dangerouslyAutoDetectUserFacingHardcodedStrings =
-        payload.dangerouslyAutoDetectUserFacingHardcodedStrings;
-    if (dangerouslyAutoDetectUserFacingHardcodedStrings) {
+    // Skip display if either dangerous flag is true
+    if (payload.dangerouslyAutoDetectUserFacingHardcodedStrings ||
+        payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing) {
       return response.toSuccess();
     }
 

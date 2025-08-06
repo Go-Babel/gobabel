@@ -390,6 +390,8 @@ generate_multiMoveHardcodedStringInFuntionParamUsecase(
     inputedByUserLocale: payload.inputedByUserLocale,
     dangerouslyAutoDetectUserFacingHardcodedStrings:
         payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+    dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+        payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     runForAllFiles: payload.runForAllFiles,
     client: payload.client,
     yamlInfo: payload.yamlInfo,

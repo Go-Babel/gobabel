@@ -114,6 +114,8 @@ AsyncBabelResult<GenerateFlowEnsureGit> generate_ensureGitDirectoryIsConfigured(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,

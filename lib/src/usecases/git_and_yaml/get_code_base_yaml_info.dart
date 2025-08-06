@@ -142,6 +142,8 @@ AsyncBabelResult<GenerateFlowGotCodeBaseYaml> generate_getCodeBaseYamlInfo(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       projectApiToken: payload.projectApiToken,
       directoryPath: payload.directoryPath,

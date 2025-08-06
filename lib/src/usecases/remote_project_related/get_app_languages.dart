@@ -95,6 +95,8 @@ AsyncBabelResult<GenerateFlowGotAppLanguages> generate_getAppLanguages(
       inputedByUserLocale: inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,

@@ -78,6 +78,37 @@ generate_listenToUserFacingHardcodedStringSessionResult(
   // Resume the loading indicator when user completes the review
   LoadingIndicator.instance.resumeAfterUserAction();
 
+  // If the new flag is true, accept all hardcoded strings as user-facing
+  if (payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing) {
+    return GenerateFlowDefinedStringLabels(
+      willLog: payload.willLog,
+      projectApiToken: payload.projectApiToken,
+      directoryPath: payload.directoryPath,
+      inputedByUserLocale: payload.inputedByUserLocale,
+      dangerouslyAutoDetectUserFacingHardcodedStrings:
+          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
+      runForAllFiles: payload.runForAllFiles,
+      client: payload.client,
+      yamlInfo: payload.yamlInfo,
+      gitVariables: payload.gitVariables,
+      maxLanguageCount: payload.maxLanguageCount,
+      languages: payload.languages,
+      projectCacheMap: payload.projectCacheMap,
+      cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
+      filesVerificationState: payload.filesVerificationState,
+      projectArbData: payload.projectArbData,
+      remapedArbKeys: payload.remapedArbKeys,
+      codebaseArbTranslationPayloadInfo:
+          payload.codebaseArbTranslationPayloadInfo,
+      allExtractedStrings: payload.allExtractedStrings,
+      sessionUuid: payload.sessionUuid,
+      fieldsToBeAnalysed: payload.fieldsToBeAnalysed,
+      labelStrings: payload.allExtractedStrings, // Accept all strings
+    ).toSuccess();
+  }
+
   // Skip processing if there are no extracted strings or no session
   if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
     return GenerateFlowDefinedStringLabels(
@@ -87,6 +118,8 @@ generate_listenToUserFacingHardcodedStringSessionResult(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
@@ -128,6 +161,8 @@ generate_listenToUserFacingHardcodedStringSessionResult(
     inputedByUserLocale: payload.inputedByUserLocale,
     dangerouslyAutoDetectUserFacingHardcodedStrings:
         payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+    dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+        payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
     runForAllFiles: payload.runForAllFiles,
     client: payload.client,
     yamlInfo: payload.yamlInfo,

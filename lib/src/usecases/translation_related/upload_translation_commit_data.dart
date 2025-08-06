@@ -5,6 +5,7 @@ import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<Unit> uploadBabelTranslationsChangesCommitToServer({
+  required String projectApiToken,
   required Client client,
   required GitVariables gitVariables,
   required GitCommit babelGitCommit,
@@ -12,6 +13,7 @@ AsyncBabelResult<Unit> uploadBabelTranslationsChangesCommitToServer({
 }) async {
   try {
     await client.publicHistory.setCommit(
+      projectApiToken: projectApiToken,
       projectShaIdentifier: gitVariables.projectShaIdentifier,
       commit: babelGitCommit,
       generateHistoryId: historyItem.id!,
@@ -31,10 +33,11 @@ AsyncBabelResult<Unit> uploadBabelTranslationsChangesCommitToServer({
 }
 
 AsyncBabelResult<GenerateFlowSincronizedBabelCommitWithApi>
-generate_uploadBabelTranslationsChangesCommitToServer(
+    generate_uploadBabelTranslationsChangesCommitToServer(
   GenerateFlowGetBabelChangesCommit payload,
 ) {
   return uploadBabelTranslationsChangesCommitToServer(
+    projectApiToken: payload.projectApiToken,
     client: payload.client.server,
     gitVariables: payload.gitVariables,
     babelGitCommit: payload.babelGitCommit,
@@ -47,6 +50,8 @@ generate_uploadBabelTranslationsChangesCommitToServer(
       inputedByUserLocale: payload.inputedByUserLocale,
       dangerouslyAutoDetectUserFacingHardcodedStrings:
           payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+      dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing:
+          payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing,
       runForAllFiles: payload.runForAllFiles,
       client: payload.client,
       yamlInfo: payload.yamlInfo,
