@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -77,18 +78,18 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
           .getSessionStartTime(sessionUuid);
     } catch (e) {
       // If we can't get the expiration time, continue without timer
-      print('Warning: Could not fetch session expiration time'.yellow);
+      ConsoleManager.instance.warning('Could not fetch session expiration time');
     }
 
     // Print the URL in blue color using chalk
-    print('\n${reviewUrl.blue}\n');
-    print('Opening review session in your default browser...\n');
+    ConsoleManager.instance.writeLine('\n${reviewUrl.blue}\n');
+    ConsoleManager.instance.writeLine('Opening review session in your default browser...\n');
     
     // Start the countdown timer if we have expiration time
     if (sessionExpirationTime != null) {
-      print('Session will expire in 1 hour. Timer will update below:');
+      ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:');
       _startSessionCountdownTimer(sessionExpirationTime);
-      print(''); // Add empty line for timer to display
+      ConsoleManager.instance.writeEmptyLine(); // Add empty line for timer to display
     }
 
     // Determine the command based on the operating system
@@ -101,8 +102,8 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
       command = 'start "$reviewUrl"';
     } else {
       // Fallback - just print the URL
-      print('Please open the following URL in your browser:');
-      print(reviewUrl.blue);
+      ConsoleManager.instance.writeLine('Please open the following URL in your browser:');
+      ConsoleManager.instance.writeLine(reviewUrl.blue);
       return response.toSuccess();
     }
 
@@ -124,14 +125,15 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
 }
 
 void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
+  final console = ConsoleManager.instance;
   Timer.periodic(const Duration(seconds: 1), (timer) {
     final now = DateTime.now();
     final remaining = sessionExpirationTime.difference(now);
     
     if (remaining.isNegative) {
       // Clear the current line and print final message
-      stdout.write('\r\x1B[K'); // Clear line
-      print('⏰ Session has expired!'.red.bold);
+      console.clearLine();
+      console.writeLine('⏰ Session has expired!'.red.bold);
       timer.cancel();
       return;
     }
@@ -163,8 +165,7 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
       statusIcon = '⚠️';
     }
     
-    // Use carriage return to update the same line
-    stdout.write('\r\x1B[K'); // Clear line
-    stdout.write('$statusIcon Session time remaining: $coloredTime');
+    // Use the console manager to update progress
+    console.updateProgress('$statusIcon Session time remaining: $coloredTime');
   });
 }

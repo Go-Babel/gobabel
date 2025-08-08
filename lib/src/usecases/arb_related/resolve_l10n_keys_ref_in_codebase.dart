@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:enchanted_collection/enchanted_collection.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
@@ -22,7 +23,7 @@ import 'package:result_dart/result_dart.dart';
   required String projectName,
 }) {
   final importToRemove = projectConfig.getImportString(projectName);
-  
+
   // Create regex patterns to match different import styles
   // This matches imports with or without aliases (as, show, hide)
   final patterns = [
@@ -54,10 +55,10 @@ import 'package:result_dart/result_dart.dart';
         multiLine: true,
       ),
   ];
-  
+
   bool hasChanges = false;
   String result = fileContent;
-  
+
   for (final pattern in patterns) {
     if (pattern.hasMatch(result)) {
       hasChanges = true;
@@ -65,7 +66,7 @@ import 'package:result_dart/result_dart.dart';
       result = result.replaceAll(pattern, '');
     }
   }
-  
+
   return (result, hasChanges);
 }
 
@@ -81,12 +82,12 @@ String extractImportAlias({
     "import\\s+['\"]${RegExp.escape(importString)}['\"]\\s+as\\s+(\\w+)",
     multiLine: true,
   );
-  
+
   final match = aliasPattern.firstMatch(fileContent);
   if (match != null) {
     return match.group(1) ?? '';
   }
-  
+
   return '';
 }
 
@@ -102,25 +103,32 @@ String extractImportAlias({
   if (!fileContent.contains('localizationsDelegates')) {
     return (fileContent, false);
   }
-  
+
   // Get the import string and extract alias if any
   final importString = projectConfig.getImportString(projectName);
   final alias = extractImportAlias(
     fileContent: fileContent,
     importString: importString,
   );
-  
+
   // Build the delegate reference pattern
   String delegateReference;
   if (alias.isNotEmpty) {
     // With alias: alias.OutputClass.delegate
-    delegateReference = RegExp.escape(alias) + r'\.' + RegExp.escape(projectConfig.outputClass) + r'\.delegates?';
+    delegateReference =
+        RegExp.escape(alias) +
+        r'\.' +
+        RegExp.escape(projectConfig.outputClass) +
+        r'\.delegates?';
   } else {
     // Without alias: OutputClass.delegate
     // Make sure it's not prefixed by another identifier (negative lookbehind)
-    delegateReference = r'(?<![a-zA-Z_]\.)' + RegExp.escape(projectConfig.outputClass) + r'\.delegates?';
+    delegateReference =
+        r'(?<![a-zA-Z_]\.)' +
+        RegExp.escape(projectConfig.outputClass) +
+        r'\.delegates?';
   }
-  
+
   // Use regex-based approach directly as it's more reliable
   return _removeWithRegex(
     fileContent: fileContent,
@@ -137,19 +145,19 @@ String extractImportAlias({
 }) {
   String result = fileContent;
   bool hasChanges = false;
-  
+
   // Pattern for spread operator with delegates including comma and whitespace
   final spreadPattern = RegExp(
     r'\.\.\.(' + delegateReference + r')(\s*,)?(\s*\n)?',
     multiLine: true,
   );
-  
+
   // Pattern for direct reference including comma and whitespace
   final directPattern = RegExp(
     r'(' + delegateReference + r')(\s*,)?(\s*\n)?',
     multiLine: true,
   );
-  
+
   // First handle spread operator references
   if (spreadPattern.hasMatch(result)) {
     result = result.replaceAllMapped(spreadPattern, (match) {
@@ -158,14 +166,15 @@ String extractImportAlias({
       return match.group(3) ?? '';
     });
   }
-  
+
   // Then handle direct references (but not those that are part of spread)
   if (!delegateReference.contains('...') && directPattern.hasMatch(result)) {
     result = result.replaceAllMapped(directPattern, (match) {
       // Check this isn't part of a spread operator we missed
       final fullMatch = match.group(0)!;
       final startIndex = match.start;
-      if (startIndex >= 3 && result.substring(startIndex - 3, startIndex) == '...') {
+      if (startIndex >= 3 &&
+          result.substring(startIndex - 3, startIndex) == '...') {
         return fullMatch; // Don't remove, it's part of spread
       }
       hasChanges = true;
@@ -173,35 +182,41 @@ String extractImportAlias({
       return match.group(3) ?? '';
     });
   }
-  
+
   if (hasChanges) {
     result = _cleanupEmptyArraysAndCommas(result);
   }
-  
+
   return (result, hasChanges);
 }
 
 /// Cleans up empty arrays and trailing commas after removal
 String _cleanupEmptyArraysAndCommas(String content) {
   // Remove empty arrays
-  content = content.replaceAll(RegExp(r'localizationsDelegates\s*:\s*\[\s*\]'), '');
-  content = content.replaceAll(RegExp(r'localizationsDelegates\s*:\s*const\s*\[\s*\]'), '');
-  
+  content = content.replaceAll(
+    RegExp(r'localizationsDelegates\s*:\s*\[\s*\]'),
+    '',
+  );
+  content = content.replaceAll(
+    RegExp(r'localizationsDelegates\s*:\s*const\s*\[\s*\]'),
+    '',
+  );
+
   // Clean up double commas
   content = content.replaceAll(RegExp(r',\s*,'), ',');
-  
+
   // Clean up trailing commas before closing brackets
   content = content.replaceAll(RegExp(r',\s*\]'), ']');
   content = content.replaceAll(RegExp(r',\s*\)'), ')');
-  
+
   // Clean up multiple newlines
   content = content.replaceAll(RegExp(r'\n\s*\n\s*\n+'), '\n\n');
-  
+
   return content;
 }
 
 AsyncBabelResult<TranslationPayloadInfo>
-    replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
+replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   required L10nProjectConfig projectConfig,
   required CodeBaseYamlInfo codeBaseYamlInfo,
   required Map<L10nKey, ProcessedKeyIntegrity> remapedArbKeys,
@@ -209,8 +224,8 @@ AsyncBabelResult<TranslationPayloadInfo>
   required TranslationPayloadInfo currentPayloadInfo,
   required String directoryPath,
 }) async {
-  final L10nProjectConfigWithData? projectConfigWithData =
-      projectConfig.mapOrNull(withData: (value) => value);
+  final L10nProjectConfigWithData? projectConfigWithData = projectConfig
+      .mapOrNull(withData: (value) => value);
   if (projectConfigWithData == null) {
     return currentPayloadInfo.toSuccess();
   }
@@ -218,9 +233,11 @@ AsyncBabelResult<TranslationPayloadInfo>
     ...currentPayloadInfo.keyToContextsPaths,
   };
   final String outputClass = projectConfigWithData.outputClass;
-  final String defaultPattern = '$outputClass'
+  final String defaultPattern =
+      '$outputClass'
       r'\s*\.of\(\s*(?:[a-zA-Z]|\r|\n|\t|\f|\v)+\s*,?\s*\)\s*!?';
-  final String directDelegate = '$outputClass'
+  final String directDelegate =
+      '$outputClass'
       r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)\s*!?';
 
   // The index 0 will be the one with the biggest length
@@ -228,8 +245,11 @@ AsyncBabelResult<TranslationPayloadInfo>
     ..sort((a, b) => b.length.compareTo(a.length));
   // Split into groups of 30 to avoid overwhelming the regex engine
   // This is a heuristic to balance performance and complexity
-  final clusteredRemapedArbs =
-      ordoredKeysByBiggestLenghtFirst.splitIntoGroups(30);
+  final clusteredRemapedArbs = ordoredKeysByBiggestLenghtFirst.splitIntoGroups(
+    30,
+  );
+  print('biggestOne: ${ordoredKeysByBiggestLenghtFirst.first}');
+  print('smallestOne: ${ordoredKeysByBiggestLenghtFirst.last}');
 
   final String projectName = codeBaseYamlInfo.projectName;
 
@@ -243,16 +263,19 @@ AsyncBabelResult<TranslationPayloadInfo>
         projectConfig: projectConfigWithData,
         projectName: projectName,
       );
-      
+
       fileContent = modifiedContent;
-      
+
       // Remove localizationsDelegates if needed
-      final (delegatesRemovedContent, hasDelegateChanges) = removeLocalizationsDelegatesIfNeeded(
+      final (
+        delegatesRemovedContent,
+        hasDelegateChanges,
+      ) = removeLocalizationsDelegatesIfNeeded(
         fileContent: fileContent,
         projectConfig: projectConfigWithData,
         projectName: projectName,
       );
-      
+
       fileContent = delegatesRemovedContent;
 
       // Clean up any multiple consecutive newlines left after removal
@@ -282,7 +305,7 @@ AsyncBabelResult<TranslationPayloadInfo>
         }
 
         final groupRegex = RegExp(
-          kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)',
+          kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)\b',
           caseSensitive: false,
           multiLine: true,
         );
@@ -315,7 +338,7 @@ AsyncBabelResult<TranslationPayloadInfo>
       }
     } catch (e) {
       // Log error but continue processing other files
-      print('Error processing file ${file.path}: $e');
+      ConsoleManager.instance.error('Error processing file ${file.path}: $e');
       continue;
     }
   }
@@ -335,8 +358,9 @@ AsyncBabelResult<TranslationPayloadInfo>
 }
 
 AsyncBabelResult<
-        GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions>
-    generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
+  GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions
+>
+generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
   GenerateFlowAppliedCodebaseGeneralDartFixes payload,
 ) async {
   final projectConfig = payload.projectArbData.mapOrNull(

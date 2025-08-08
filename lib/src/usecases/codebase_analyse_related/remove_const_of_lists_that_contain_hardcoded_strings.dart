@@ -5,6 +5,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:result_dart/result_dart.dart';
@@ -55,7 +56,7 @@ multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
         }
       } catch (e) {
         // Log error but continue with other files
-        print('Error processing file ${file.path}: $e');
+        ConsoleManager.instance.error('Error processing file ${file.path}: $e');
       }
     }
 

@@ -36,7 +36,7 @@ AsyncBabelResult<Unit> resetAllChangesInCodebaseIfNeeded({
 extension MakeExt<T extends GenerateFlowState> on AsyncBabelResult<T> {
   AsyncBabelResult<T> get generate_resetIfError async {
     // TODOS: Remove false condition when end testing
-    if (await isError()) {
+    if (await isError() && false) {
       final bool shouldReset = lastCorrectState.shouldReset;
       if (!shouldReset) return this;
 

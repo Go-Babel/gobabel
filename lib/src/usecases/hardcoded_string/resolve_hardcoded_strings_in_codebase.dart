@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:chalkdart/chalkstrings.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/babel_label_entity.dart';
@@ -50,7 +50,7 @@ AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
           await file.writeAsString(fileContent);
           didAtLeastOneFileChange = true;
         } catch (e) {
-          print('Error processing file $entry: "$e"'.red);
+          ConsoleManager.instance.error('Error processing file $entry: "$e"');
         }
       }
 

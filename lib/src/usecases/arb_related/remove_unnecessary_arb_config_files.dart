@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
+import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
@@ -23,7 +24,7 @@ AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
         '${payload.directoryPath}/${projectConfig.outputDir}',
       );
       if (await outputDir.exists()) {
-        print('Deleting output directory: ${outputDir.path}');
+        ConsoleManager.instance.info('Deleting output directory: ${outputDir.path}');
         await outputDir.delete(recursive: true);
       }
 
@@ -32,7 +33,7 @@ AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
         '${payload.directoryPath}/${projectConfig.arbDir}',
       );
       if (await arbDir.exists()) {
-        print('Deleting ARB directory: ${arbDir.path}');
+        ConsoleManager.instance.info('Deleting ARB directory: ${arbDir.path}');
         await arbDir.delete(recursive: true);
       }
 
@@ -54,7 +55,7 @@ AsyncBabelResult<GenerateFlowRemovedUnnecessaryArbConfigFiles>
 
     // Run dart fix to clean up any remaining unused imports
     // Note: l10n-specific imports are already removed in resolve_l10n_keys_ref_in_codebase.dart
-    print('Running dart fix to clean up any remaining unused imports...');
+    ConsoleManager.instance.info('Running dart fix to clean up any remaining unused imports...');
     final result = await runBabelProcess(
       command: 'dart fix --apply .',
       dirrPath: payload.directoryPath,

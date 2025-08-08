@@ -22,16 +22,17 @@ listenToUserFacingHardcodedStringSessionResult({
   }
 
   final Map<Sha1, IsUserFacingString> combinedResults = {};
-  final Stream<Map<Sha1, AiGeneratedIsUserFacingString>> sessionResponse =
-      client.publicStringsReviewSession.getSessionResponse(
-        sessionUuid: sessionUuid,
-      );
+  Map<Sha1, NewRemapedString> remapedStrings = {};
+  final Stream<ReviewSessionResponse> sessionResponse = client
+      .publicStringsReviewSession
+      .getSessionResponse(sessionUuid: sessionUuid);
   final Completer<void> completer = Completer<void>();
   BabelFailureResponse? streamError;
-  final StreamSubscription<Map<String, bool>> subscription = sessionResponse
+  final StreamSubscription<ReviewSessionResponse> subscription = sessionResponse
       .listen(
         (data) {
-          combinedResults.addAll(data);
+          combinedResults.addAll(data.sessionResponse);
+          remapedStrings.addAll(data.remapedHardcodedString);
         },
         onError: (error) {
           streamError = BabelFailureResponse.withErrorAndStackTrace(
@@ -60,15 +61,6 @@ listenToUserFacingHardcodedStringSessionResult({
     return streamError!.toFailure();
   }
 
-  // Retrieve remapped hardcoded strings from the server
-  Map<Sha1, NewRemapedString> remapedStrings = {};
-  try {
-    remapedStrings = await client.publicStringsReviewSession
-        .getRemapedHardcodedStrings(sessionUuid);
-  } catch (_) {
-    // If we can't get remapped strings, continue without them
-  }
-
   // Filter and update the strings that needed validation based on the server responses
   final List<HardcodedStringEntity> apiValidatedStrings = [];
   for (final string in strings) {
@@ -81,22 +73,24 @@ listenToUserFacingHardcodedStringSessionResult({
         break;
       }
     }
-    
+
     // Check if SHA exists and if the result is true
     if (sha1 != null && combinedResults[sha1] == true) {
       // Check if this string has been remapped
       final remappedContent = remapedStrings[sha1];
       if (remappedContent != null) {
         // Create a new entity with the remapped content
-        apiValidatedStrings.add(HardcodedStringEntity(
-          value: remappedContent,
-          filePath: string.filePath,
-          parentStartIndex: string.parentStartIndex,
-          parentEndIndex: string.parentEndIndex,
-          fileStartIndex: string.fileStartIndex,
-          fileEndIndex: string.fileEndIndex,
-          dynamicFields: string.dynamicFields,
-        ));
+        apiValidatedStrings.add(
+          HardcodedStringEntity(
+            value: remappedContent,
+            filePath: string.filePath,
+            parentStartIndex: string.parentStartIndex,
+            parentEndIndex: string.parentEndIndex,
+            fileStartIndex: string.fileStartIndex,
+            fileEndIndex: string.fileEndIndex,
+            dynamicFields: string.dynamicFields,
+          ),
+        );
       } else {
         // Use the original string
         apiValidatedStrings.add(string);
