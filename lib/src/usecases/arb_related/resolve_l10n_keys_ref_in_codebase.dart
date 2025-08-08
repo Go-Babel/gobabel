@@ -257,15 +257,6 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     try {
       String fileContent = await file.readAsString();
 
-      // Remove l10n imports if needed
-      final (modifiedContent, hasImportChanges) = replaceImportsIfNeeded(
-        fileContent: fileContent,
-        projectConfig: projectConfigWithData,
-        projectName: projectName,
-      );
-
-      fileContent = modifiedContent;
-
       // Remove localizationsDelegates if needed
       final (
         delegatesRemovedContent,
@@ -277,6 +268,15 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
       );
 
       fileContent = delegatesRemovedContent;
+
+      // Remove l10n imports if needed
+      final (modifiedContent, hasImportChanges) = replaceImportsIfNeeded(
+        fileContent: fileContent,
+        projectConfig: projectConfigWithData,
+        projectName: projectName,
+      );
+
+      fileContent = modifiedContent;
 
       // Clean up any multiple consecutive newlines left after removal
       if (hasImportChanges || hasDelegateChanges) {

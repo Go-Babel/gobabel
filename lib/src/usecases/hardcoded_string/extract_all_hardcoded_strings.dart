@@ -20,18 +20,18 @@ AsyncBabelResult<List<HardcodedStringEntity>> extractAllStringsInDart({
   required List<File> files,
 }) async {
   final List<HardcodedStringEntity> allStrings = [];
-  
+
   final totalFiles = files.where((f) => f.path.endsWith('.dart')).length;
   int processedFiles = 0;
-  
+
   // Show progress bar only if there are multiple files
   final showProgressBar = totalFiles > 10;
 
   for (final file in files) {
     if (!file.path.endsWith('.dart')) continue;
-    
+
     processedFiles++;
-    
+
     if (showProgressBar) {
       LoadingIndicator.instance.setLoadingProgressBar(
         message: 'Extracting all strings from Dart files...',
