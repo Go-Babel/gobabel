@@ -5,6 +5,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/extensions/result.dart';
+import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_dynamic_value_entity.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
@@ -19,9 +20,28 @@ AsyncBabelResult<List<HardcodedStringEntity>> extractAllStringsInDart({
   required List<File> files,
 }) async {
   final List<HardcodedStringEntity> allStrings = [];
+  
+  final totalFiles = files.where((f) => f.path.endsWith('.dart')).length;
+  int processedFiles = 0;
+  
+  // Show progress bar only if there are multiple files
+  final showProgressBar = totalFiles > 10;
 
   for (final file in files) {
     if (!file.path.endsWith('.dart')) continue;
+    
+    processedFiles++;
+    
+    if (showProgressBar) {
+      LoadingIndicator.instance.setLoadingProgressBar(
+        message: 'Extracting all strings from Dart files...',
+        barProgressInfo: BarProgressInfo(
+          message: 'Processing ${p.basename(file.path)}',
+          totalSteps: totalFiles,
+          currentStep: processedFiles,
+        ),
+      );
+    }
 
     final String content;
     try {

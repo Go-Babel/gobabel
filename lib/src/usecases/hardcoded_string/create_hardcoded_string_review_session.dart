@@ -5,7 +5,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
 AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
-    generate_createHardcodedStringReviewSession(
+generate_createHardcodedStringReviewSession(
   GenerateFlowExtractedAllStrings payload,
 ) async {
   if (payload.allExtractedStrings.isEmpty) {
@@ -48,9 +48,10 @@ AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
           exception: sha1Result.exceptionOrNull()!,
         ).toFailure();
       }
-      fieldsToBeAnalysed[sha1Result.getOrThrow()] = string.value.trimHardcodedString;
+      fieldsToBeAnalysed[sha1Result.getOrThrow()] =
+          string.value.trimHardcodedString;
     }
-    
+
     return GenerateFlowCreatedHardcodedStringReviewSession(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -87,20 +88,22 @@ AsyncBabelResult<GenerateFlowCreatedHardcodedStringReviewSession>
         exception: sha1Result.exceptionOrNull()!,
       ).toFailure();
     }
-    fieldsToBeAnalysed[sha1Result.getOrThrow()] = string.value.trimHardcodedString;
+    fieldsToBeAnalysed[sha1Result.getOrThrow()] =
+        string.value.trimHardcodedString;
   }
 
   try {
-    final ReviewSessionUuid sessionUuid = await payload.client.server
+    final ReviewSessionUuid sessionUuid = await payload
+        .client
+        .server
         .publicStringsReviewSession
         .createSession(
-      projectApiToken: payload.projectApiToken,
-      projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
-      createdAt: DateTime.now(),
-      hardcodedStringsToBeAnalysed: fieldsToBeAnalysed,
-      dangerouslyAutoDetectUserFacingHardcodedStrings:
-          payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
-    );
+          projectApiToken: payload.projectApiToken,
+          projectShaIdentifier: payload.gitVariables.projectShaIdentifier,
+          hardcodedStringsToBeAnalysed: fieldsToBeAnalysed,
+          dangerouslyAutoDetectUserFacingHardcodedStrings:
+              payload.dangerouslyAutoDetectUserFacingHardcodedStrings,
+        );
 
     return GenerateFlowCreatedHardcodedStringReviewSession(
       willLog: payload.willLog,
