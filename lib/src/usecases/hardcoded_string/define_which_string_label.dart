@@ -60,13 +60,49 @@ listenToUserFacingHardcodedStringSessionResult({
     return streamError!.toFailure();
   }
 
-  // Filter the strings that needed validation based on the server responses
-  final List<HardcodedStringEntity> apiValidatedStrings =
-      strings.where((string) {
-        final sha1 = fieldsToBeAnalysed[string.value.trimHardcodedString];
-        // Check if SHA exists and if the result is true
-        return sha1 != null && combinedResults[sha1] == true;
-      }).toList();
+  // Retrieve remapped hardcoded strings from the server
+  Map<Sha1, NewRemapedString> remapedStrings = {};
+  try {
+    remapedStrings = await client.publicStringsReviewSession
+        .getRemapedHardcodedStrings(sessionUuid);
+  } catch (_) {
+    // If we can't get remapped strings, continue without them
+  }
+
+  // Filter and update the strings that needed validation based on the server responses
+  final List<HardcodedStringEntity> apiValidatedStrings = [];
+  for (final string in strings) {
+    final trimmedString = string.value.trimHardcodedString;
+    // First find the SHA for this string value
+    Sha1? sha1;
+    for (final entry in fieldsToBeAnalysed.entries) {
+      if (entry.value == trimmedString) {
+        sha1 = entry.key;
+        break;
+      }
+    }
+    
+    // Check if SHA exists and if the result is true
+    if (sha1 != null && combinedResults[sha1] == true) {
+      // Check if this string has been remapped
+      final remappedContent = remapedStrings[sha1];
+      if (remappedContent != null) {
+        // Create a new entity with the remapped content
+        apiValidatedStrings.add(HardcodedStringEntity(
+          value: remappedContent,
+          filePath: string.filePath,
+          parentStartIndex: string.parentStartIndex,
+          parentEndIndex: string.parentEndIndex,
+          fileStartIndex: string.fileStartIndex,
+          fileEndIndex: string.fileEndIndex,
+          dynamicFields: string.dynamicFields,
+        ));
+      } else {
+        // Use the original string
+        apiValidatedStrings.add(string);
+      }
+    }
+  }
 
   return apiValidatedStrings.toSuccess();
 }
