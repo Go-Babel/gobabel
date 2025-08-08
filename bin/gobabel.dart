@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -39,15 +40,12 @@ Future<String> getRequiredParameter({
 }
 
 Future<void> main(List<String> arguments) async {
+  stdout.encoding = utf8; // important on Windows and some shells
   // Set up the argument parser
   final parser = ArgParser()
     ..addFlag('sync', abbr: 's', help: 'Perform sync operation')
     ..addFlag('generate', abbr: 'g', help: 'Generate new version')
-    ..addFlag(
-      'create',
-      abbr: 'c',
-      help: 'Add a new project in GoBabel system',
-    )
+    ..addFlag('create', abbr: 'c', help: 'Add a new project in GoBabel system')
     ..addOption(
       'language',
       abbr: 'l',
@@ -143,7 +141,8 @@ Future<void> main(List<String> arguments) async {
       argResults['sync'] as bool && argResults['create'] as bool ||
       argResults['generate'] as bool && argResults['create'] as bool) {
     console.error(
-        'Error: Cannot specify --sync, --generate, or --create together. Use one at a time.');
+      'Error: Cannot specify --sync, --generate, or --create together. Use one at a time.',
+    );
     printUsage(parser);
     exit(1);
   }
@@ -164,12 +163,12 @@ Future<void> main(List<String> arguments) async {
 
   // Get the will-create-log-file flag value
   final bool willLog = argResults['will-create-log-file'] as bool;
-  final bool dangerouslyAutoDetectUserFacingHardcodedStrings = argResults[
-          'dangerously-detect-user-facing-hardcoded-strings-only-with-ai-without-mannual-review']
-      as bool;
-  final bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing = argResults[
-          'dangerously-auto-accept-all-hardcoded-strings-as-user-facing-without-mannual-review']
-      as bool;
+  final bool dangerouslyAutoDetectUserFacingHardcodedStrings =
+      argResults['dangerously-detect-user-facing-hardcoded-strings-only-with-ai-without-mannual-review']
+          as bool;
+  final bool dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing =
+      argResults['dangerously-auto-accept-all-hardcoded-strings-as-user-facing-without-mannual-review']
+          as bool;
 
   // Get the run-locally flag value (hidden flag for debug)
   final runLocally = argResults['run-locally'] as bool;
@@ -214,8 +213,9 @@ Future<void> main(List<String> arguments) async {
     if (language == null) {
       // Interactive mode - prompt user
       console.warning('Language is required for generate operation.');
-      console
-          .warning('Enter language in format language_country (e.g., en_US)');
+      console.warning(
+        'Enter language in format language_country (e.g., en_US)',
+      );
       console.info('Use arrow keys to navigate options or type to filter');
 
       babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
@@ -251,7 +251,8 @@ Future<void> main(List<String> arguments) async {
       final normalizedLanguage = normalizeLanguageFormat(language);
       if (normalizedLanguage == null) {
         console.error(
-            'Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.');
+          'Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.',
+        );
         printSupportedLanguages();
         exit(1);
       }
@@ -327,7 +328,8 @@ Future<void> runInTryCatch({
         },
       );
 
-      final mainMessage = '\n❌ $errorMessage:\n'.red +
+      final mainMessage =
+          '\n❌ $errorMessage:\n'.red +
           "[ ${failure.exception.title} ]\n".darkOrange +
           failure.exception.description.red +
           suffixMessage;

@@ -10,6 +10,9 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:result_dart/result_dart.dart';
 
+// Global timer reference to allow cancellation when loading resumes
+Timer? _sessionTimer;
+
 AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     generate_displayReviewHardcodedStringSessionToUser(
   GenerateFlowCreatedHardcodedStringReviewSession payload,
@@ -67,8 +70,12 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Construct the full URL
     final reviewUrl = '${baseUrl}review-hardcoded-strings-session/$sessionUuid';
 
-    // Pause the loading indicator
+    // Pause the loading indicator and clear its line
     LoadingIndicator.instance.pauseForUserAction();
+    
+    // Clear the loading indicator line completely
+    ConsoleManager.instance.clearLine();
+    ConsoleManager.instance.moveCursorToLineStart();
 
     // Fetch session expiration time
     DateTime? sessionExpirationTime;
@@ -88,8 +95,16 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Start the countdown timer if we have expiration time
     if (sessionExpirationTime != null) {
       ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:');
+      ConsoleManager.instance.writeLine('Press Ctrl+C to cancel at any time.\n');
+      
+      // Register signal handler to stop timer on Ctrl+C
+      ProcessSignal.sigint.watch().listen((_) {
+        stopSessionCountdownTimer();
+        ConsoleManager.instance.writeLine('\nSession cancelled by user.');
+        exit(0);
+      });
+      
       _startSessionCountdownTimer(sessionExpirationTime);
-      ConsoleManager.instance.writeEmptyLine(); // Add empty line for timer to display
     }
 
     // Determine the command based on the operating system
@@ -125,8 +140,11 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
 }
 
 void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
+  // Cancel any existing timer
+  _sessionTimer?.cancel();
+  
   final console = ConsoleManager.instance;
-  Timer.periodic(const Duration(seconds: 1), (timer) {
+  _sessionTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
     final now = DateTime.now();
     final remaining = sessionExpirationTime.difference(now);
     
@@ -135,6 +153,7 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
       console.clearLine();
       console.writeLine('⏰ Session has expired!'.red.bold);
       timer.cancel();
+      _sessionTimer = null;
       return;
     }
     
@@ -168,4 +187,19 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
     // Use the console manager to update progress
     console.updateProgress('$statusIcon Session time remaining: $coloredTime');
   });
+}
+
+// Function to stop the session timer (can be called from other files)
+void stopSessionCountdownTimer() {
+  if (_sessionTimer != null && _sessionTimer!.isActive) {
+    _sessionTimer!.cancel();
+    _sessionTimer = null;
+    // Clear the timer line only if console is available
+    try {
+      ConsoleManager.instance.clearLine();
+      ConsoleManager.instance.moveCursorToLineStart();
+    } catch (_) {
+      // Ignore errors if console is not available
+    }
+  }
 }

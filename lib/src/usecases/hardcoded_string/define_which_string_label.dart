@@ -5,6 +5,7 @@ import 'package:gobabel/src/core/extensions/result.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_entity.dart';
+import 'package:gobabel/src/usecases/hardcoded_string/display_review_hardcoded_string_session_to_user.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
@@ -35,6 +36,8 @@ listenToUserFacingHardcodedStringSessionResult({
           remapedStrings.addAll(data.remapedHardcodedString);
         },
         onError: (error) {
+          // Stop the session timer on error
+          stopSessionCountdownTimer();
           streamError = BabelFailureResponse.withErrorAndStackTrace(
             exception: BabelException(
               title: 'Error in Hardcoded String Review Session',
@@ -46,6 +49,8 @@ listenToUserFacingHardcodedStringSessionResult({
           completer.complete();
         },
         onDone: () async {
+          // Stop the session timer when the stream completes
+          stopSessionCountdownTimer();
           try {
             await client.publicStringsReviewSession
                 .notifyThatSessionCanBeDisposedSession(
@@ -106,6 +111,7 @@ generate_listenToUserFacingHardcodedStringSessionResult(
   GenerateFlowDisplayedSessionReviewToUser payload,
 ) async {
   // Resume the loading indicator when user completes the review
+  // Note: The session timer is already stopped in listenToUserFacingHardcodedStringSessionResult
   LoadingIndicator.instance.resumeAfterUserAction();
 
   // If the new flag is true, accept all hardcoded strings as user-facing
