@@ -334,22 +334,28 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
           codeBaseYamlInfo: codeBaseYamlInfo,
           fileContent: fileContent,
         );
+
         await file.writeAsString(fileContentWithImport);
+
+        // Calculate relative path from directoryPath to the file
+        final relativePath = file.path.startsWith(directoryPath)
+            ? file.path.substring(directoryPath.length).replaceFirst(RegExp(r'^[/\\]'), '')
+            : file.path;
+
+        final fixResultAsync = await runBabelProcess(
+          command: 'dart fix --apply "$relativePath"',
+          dirrPath: directoryPath,
+        );
+
+        if (fixResultAsync.isError()) {
+          return Failure(fixResultAsync.exceptionOrNull()!);
+        }
       }
     } catch (e) {
       // Log error but continue processing other files
       ConsoleManager.instance.error('Error processing file ${file.path}: $e');
       continue;
     }
-  }
-
-  final fixResultAsync = await runBabelProcess(
-    command: 'dart fix --apply',
-    dirrPath: directoryPath,
-  );
-
-  if (fixResultAsync.isError()) {
-    return Failure(fixResultAsync.exceptionOrNull()!);
   }
 
   return currentPayloadInfo

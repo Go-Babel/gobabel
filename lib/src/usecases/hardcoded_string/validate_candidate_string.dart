@@ -9,6 +9,7 @@ import 'package:gobabel_core/gobabel_core.dart';
 bool validateCandidateHardcodedString({required String content}) {
   return content.length != 1 &&
       content.length <= MAX_SENTENCE_LENGTH &&
+      content.isValidSmallWord() &&
       hasNoWords(content) == false &&
       CaseIdentifyRegex.isAnyCase(content) == false &&
       isUrl(content) == false;
@@ -19,6 +20,37 @@ const MAX_SENTENCE_LENGTH = 1000;
 @visibleForTesting
 bool hasNoWords(String input) {
   return input.isEmpty || RegExp(r'^[^a-zA-Z]+$').hasMatch(input);
+}
+
+extension LetterCountExtension on String {
+  // It it is a valid small word (less or equal then 5 letters)
+  bool isValidSmallWord() {
+    if (length > 5) {
+      return true;
+    }
+
+    if (length <= 2) {
+      return countHowManyLettersAreInTheString() == length;
+    }
+
+    // Only 4 letters? letters should be at least 50%
+    return percentageOfLettersInString() >= 50.0;
+  }
+
+  int countHowManyLettersAreInTheString() {
+    final regex = RegExp(r'[A-Za-z]');
+    return regex.allMatches(this).length;
+  }
+
+  double percentageOfLettersInString() {
+    if (isEmpty) return 0.0;
+    final letters = countHowManyLettersAreInTheString();
+    return (letters / length) * 100;
+  }
+}
+
+void main() {
+  print('Hello, World! 123'.countHowManyLettersAreInTheString()); // 10
 }
 
 @visibleForTesting
