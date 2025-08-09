@@ -108,6 +108,7 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
       'errorObject': error.toString(),
       'stackTrace': stackTrace.toString(),
       'lastSuccessState': lastSuccessStateInJson,
+      'logMessages': logMessages,
       if (filesToBeAnalysedPaths.isNotEmpty)
         'filesAnalysed': filesToBeAnalysedPaths,
     };
