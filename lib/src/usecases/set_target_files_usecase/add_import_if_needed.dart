@@ -1,11 +1,9 @@
-import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 
 NewFileContent addImportIfNeededUsecase({
   required String fileContent,
-  required CodeBaseYamlInfo codeBaseYamlInfo,
+  required String projectName,
 }) {
-  final String projectName = codeBaseYamlInfo.projectName;
   final importText = "import 'package:$projectName/$kBabelFileName';";
 
   if (!fileContent.contains(importText)) {

@@ -120,7 +120,7 @@ String extractImportAlias({
 
 /// Cleans up empty arrays and trailing commas after removal
 String _cleanupEmptyArraysAndCommas(String content) {
-  // Remove empty arrays
+  // Remove empty arrays (property becomes unnecessary if nothing remains)
   content = content.replaceAll(
     RegExp(r'localizationsDelegates\s*:\s*\[\s*\]'),
     '',
@@ -130,15 +130,21 @@ String _cleanupEmptyArraysAndCommas(String content) {
     '',
   );
 
-  // Clean up double commas
-  content = content.replaceAll(RegExp(r',\s*,'), ',');
-
-  // Clean up trailing commas before closing brackets
-  content = content.replaceAll(RegExp(r',\s*\]'), ']');
-  content = content.replaceAll(RegExp(r',\s*\)'), ')');
-
-  // Clean up multiple newlines
-  content = content.replaceAll(RegExp(r'\n\s*\n\s*\n+'), '\n\n');
+  // Fix a dangling comma that could appear at the start of the first remaining line
+  // inside the localizationsDelegates list after removing the first element.
+  // Example to fix:
+  // localizationsDelegates: [\n
+  //   ,        ...report_generator.S.localizationsDelegates,
+  // becomes
+  // localizationsDelegates: [\n
+  //           ...report_generator.S.localizationsDelegates,
+  content = content.replaceAllMapped(
+    RegExp(
+      r'(localizationsDelegates\s*:\s*(?:const\s*)?\[\s*\n)([ \t]*)\,([ \t]*)',
+      multiLine: true,
+    ),
+    (m) => (m.group(1) ?? '') + (m.group(2) ?? ''),
+  );
 
   return content;
 }

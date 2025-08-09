@@ -342,7 +342,14 @@ MaterialApp.router(
       expect(hasChanges, isTrue);
       // All project's AppLocalizations.delegate should be removed
       expect(result, isNot(contains('...AppLocalizations.delegate')));
-      expect(result, isNot(contains('AppLocalizations.delegate,')));
+      // Ensure there is no unqualified AppLocalizations.delegate item left
+      expect(
+        RegExp(
+          r'^\s*AppLocalizations\.delegate,',
+          multiLine: true,
+        ).hasMatch(result),
+        isFalse,
+      );
       // But keep ones from other packages
       expect(result, contains('other.AppLocalizations.delegate'));
       expect(result, contains('GlobalMaterialLocalizations.delegate'));
@@ -426,6 +433,8 @@ class MyApp extends StatelessWidget {
         expect(result, contains('dsf_video_player.S.localizationsDelegates'));
         // Should still have the localizationsDelegates property with remaining delegates
         expect(result, contains('localizationsDelegates:'));
+        // Entire output must match the expected output exactly (no formatting drift)
+        expect(result, equals(expectedMainOutput));
       },
     );
 
@@ -439,7 +448,51 @@ class MyApp extends StatelessWidget {
         );
         print(result);
 
-        // TODO(IMPLEMENT THE TEST)
+        // Sanity check: we changed something
+        expect(hasChanges, isTrue);
+
+        // The whole output should exactly match the expected output
+        expect(result, equals(expectedMainOutput));
+
+        // Additionally, guarantee that only the target line was modified by
+        // verifying that all lines before and after the removed one remain intact.
+        final inputLines = mainExample.split('\n');
+        final resultLines = result.split('\n');
+
+        // Ensure the removed line exists in the input
+        final removedIndex = inputLines.indexWhere(
+          (l) => l.contains('...S.localizationsDelegates,'),
+        );
+        expect(removedIndex, isNonNegative);
+
+        // Lines before the removed one must be identical
+        for (var i = 0; i < removedIndex; i++) {
+          expect(
+            resultLines[i],
+            inputLines[i],
+            reason: 'Line ${i + 1} changed unexpectedly.',
+          );
+        }
+
+        // Lines after the removed one must also be identical (accounting for the deletion)
+        final inputLen = inputLines.length;
+        final resultLen = resultLines.length;
+        expect(
+          resultLen,
+          inputLen - 1,
+          reason: 'Exactly one line should have been removed.',
+        );
+
+        // Compare from the end backwards
+        for (var k = 1; k <= resultLen - removedIndex; k++) {
+          final inputIdx = inputLen - k;
+          final resultIdx = resultLen - k;
+          expect(
+            resultLines[resultIdx],
+            inputLines[inputIdx],
+            reason: 'Trailing line at ${inputIdx + 1} changed unexpectedly.',
+          );
+        }
       },
     );
   });
@@ -489,7 +542,9 @@ class _MainExampleState extends State<MainExample> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       localizationsDelegates: [
-        ,        ...report_generator.S.localizationsDelegates,
-        ...dsf_video_player.S.localizationsDelegates]);
+        ...report_generator.S.localizationsDelegates,
+        ...dsf_video_player.S.localizationsDelegates,
+      ],
+    );
   }
 }''';

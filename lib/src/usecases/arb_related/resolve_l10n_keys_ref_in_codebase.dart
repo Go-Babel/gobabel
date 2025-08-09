@@ -5,34 +5,34 @@ import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/console_manager.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
-import 'package:gobabel/src/entities/translation_payload_info.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
-import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
-import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
-import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/arb_related/remove_localizations_delegates.dart';
 import 'package:gobabel/src/usecases/arb_related/replace_l10n_imports.dart';
+import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
+import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
 
-AsyncBabelResult<TranslationPayloadInfo>
+AsyncBabelResult<Map<TranslationKey, Set<ContextPath>>>
 replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   required L10nProjectConfig projectConfig,
-  required CodeBaseYamlInfo codeBaseYamlInfo,
+  required String projectName,
   required Map<L10nKey, ProcessedKeyIntegrity> remapedArbKeys,
   required List<File> targetFiles,
-  required TranslationPayloadInfo currentPayloadInfo,
+  required Map<TranslationKey, BabelFunctionImplementation>
+  curentKeyToImplementation,
+  required Map<TranslationKey, Set<ContextPath>> currentKeyToContextsPaths,
   required String directoryPath,
 }) async {
   final L10nProjectConfigWithData? projectConfigWithData = projectConfig
       .mapOrNull(withData: (value) => value);
   if (projectConfigWithData == null) {
-    return currentPayloadInfo.toSuccess();
+    return currentKeyToContextsPaths.toSuccess();
   }
   final Map<TranslationKey, Set<ContextPath>> keyToContextsPaths = {
-    ...currentPayloadInfo.keyToContextsPaths,
+    ...currentKeyToContextsPaths,
   };
   final String outputClass = projectConfigWithData.outputClass;
   final String defaultPattern =
@@ -51,8 +51,6 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     20,
   );
 
-  final String projectName = codeBaseYamlInfo.projectName;
-  
   // Track progress for the progress bar
   int processedFiles = 0;
   final totalFiles = targetFiles.length;
@@ -69,7 +67,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
           currentStep: processedFiles,
         ),
       );
-      
+
       String fileContent = await file.readAsString();
 
       // Remove localizationsDelegates if needed
@@ -108,24 +106,25 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
         return kBabelClass;
       });
       // Let's group the entries so we won't overhelm the regex engine
-      
+
       // Track progress for key groups
       int processedGroups = 0;
       final totalGroups = clusteredRemapedArbs.length;
 
       for (final group in clusteredRemapedArbs) {
         processedGroups++;
-        
+
         // Update progress bar with detailed file and group progress
         LoadingIndicator.instance.setLoadingProgressBar(
           message: 'Replacing L10n references in codebase',
           barProgressInfo: BarProgressInfo(
-            message: 'File ${file.path.split('/').last} - Key group $processedGroups/$totalGroups',
+            message:
+                'File ${file.path.split('/').last} - Key group $processedGroups/$totalGroups',
             totalSteps: totalFiles,
             currentStep: processedFiles,
           ),
         );
-        
+
         String variableNamesIdentifiers = '';
 
         for (final L10nKey originalKey in group) {
@@ -157,7 +156,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
           }
 
           final BabelFunctionImplementation? implementation =
-              currentPayloadInfo.keyToImplementation[newProcessedKey];
+              curentKeyToImplementation[newProcessedKey];
           if (implementation == null) {
             logMessages.add(
               '''No implementation found for key: $originalKey''',
@@ -170,7 +169,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
 
       if (hasChanges) {
         final fileContentWithImport = addImportIfNeededUsecase(
-          codeBaseYamlInfo: codeBaseYamlInfo,
+          projectName: projectName,
           fileContent: fileContent,
         );
 
@@ -200,7 +199,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
       // continue;
     }
   }
-  
+
   // Clear the progress bar after completion
   LoadingIndicator.instance.setLoadingState(
     message: 'Completed L10n reference replacement',
@@ -208,9 +207,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     step: totalFiles,
   );
 
-  return currentPayloadInfo
-      .copyWith(keyToContextsPaths: keyToContextsPaths)
-      .toSuccess();
+  return keyToContextsPaths.toSuccess();
 }
 
 AsyncBabelResult<
@@ -252,10 +249,13 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
 
   return replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
     projectConfig: projectConfig,
-    codeBaseYamlInfo: payload.yamlInfo,
+    projectName: payload.yamlInfo.projectName,
     remapedArbKeys: payload.remapedArbKeys,
     targetFiles: await payload.filesToBeAnalysed,
-    currentPayloadInfo: payload.hardcodedStringsPayloadInfo,
+    currentKeyToContextsPaths:
+        payload.hardcodedStringsPayloadInfo.keyToContextsPaths,
+    curentKeyToImplementation:
+        payload.hardcodedStringsPayloadInfo.keyToImplementation,
     directoryPath: payload.directoryPath,
   ).flatMap((response) {
     return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
@@ -277,7 +277,8 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
       cacheMapTranslationPayloadInfo: payload.cacheMapTranslationPayloadInfo,
       filesVerificationState: payload.filesVerificationState,
       projectArbData: payload.projectArbData,
-      codebaseArbTranslationPayloadInfo: response,
+      codebaseArbTranslationPayloadInfo: payload.hardcodedStringsPayloadInfo
+          .copyWith(keyToContextsPaths: response),
       remapedArbKeys: payload.remapedArbKeys,
       hardcodedStringsPayloadInfo: payload.hardcodedStringsPayloadInfo,
       hardcodedStringsPerFile: payload.hardcodedStringsPerFile,

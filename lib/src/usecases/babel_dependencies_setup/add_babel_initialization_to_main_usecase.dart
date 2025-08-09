@@ -72,7 +72,7 @@ AsyncBabelResult<Unit> addBabelInitializationToMainUsecase({
 
   fileContent = addImportIfNeededUsecase(
     fileContent: fileContent,
-    codeBaseYamlInfo: codeBaseYamlInfo,
+    projectName: codeBaseYamlInfo.projectName,
   );
 
   // Add Flutter import if needed for Flutter projects

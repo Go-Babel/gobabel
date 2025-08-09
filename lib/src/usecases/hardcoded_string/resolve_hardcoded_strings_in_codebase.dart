@@ -43,7 +43,7 @@ AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
 
           fileContent = addImportIfNeededUsecase(
             fileContent: fileContent,
-            codeBaseYamlInfo: codeBaseYamlInfo,
+            projectName: codeBaseYamlInfo.projectName,
           );
 
           // Write the modified content back to the file
