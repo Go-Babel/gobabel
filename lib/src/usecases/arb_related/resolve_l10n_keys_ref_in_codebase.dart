@@ -9,6 +9,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/code_base_yaml_info.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
+import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:meta/meta.dart';
@@ -246,10 +247,8 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   // Split into groups of 30 to avoid overwhelming the regex engine
   // This is a heuristic to balance performance and complexity
   final clusteredRemapedArbs = ordoredKeysByBiggestLenghtFirst.splitIntoGroups(
-    30,
+    20,
   );
-  print('biggestOne: ${ordoredKeysByBiggestLenghtFirst.first}');
-  print('smallestOne: ${ordoredKeysByBiggestLenghtFirst.last}');
 
   final String projectName = codeBaseYamlInfo.projectName;
 
@@ -285,7 +284,6 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
 
       final regex = RegExp(
         '($defaultPattern|$directDelegate)',
-        caseSensitive: false,
         multiLine: true,
       );
       bool hasChanges = hasImportChanges || hasDelegateChanges;
@@ -303,29 +301,38 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
               ? originalKey
               : '$variableNamesIdentifiers|$originalKey';
         }
+        final regex =
+            kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)\b';
 
-        final groupRegex = RegExp(
-          kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)\b',
-          caseSensitive: false,
-          multiLine: true,
-        );
+        final groupRegex = RegExp(regex, multiLine: true);
 
         fileContent = fileContent.replaceAllMapped(groupRegex, (match) {
           final L10nKey? originalKey = match.group(1);
           if (originalKey == null) {
+            logMessages.add(
+              '''No original key found for "$regex" in match: $match''',
+            );
             return match.group(0) ?? '';
           }
 
           final ProcessedKeyIntegrity? newProcessedKey =
               remapedArbKeys[originalKey];
           if (newProcessedKey == null) {
+            logMessages.add(
+              '''No processedKey key found for "$regex" in match: $match''',
+            );
             return match.group(0) ?? '';
           }
 
-          final BabelFunctionImplementation implementation =
-              currentPayloadInfo.keyToImplementation[newProcessedKey]!;
+          final BabelFunctionImplementation? implementation =
+              currentPayloadInfo.keyToImplementation[newProcessedKey];
+          if (implementation == null) {
+            logMessages.add(
+              '''No implementation found for key: $originalKey''',
+            );
+          }
 
-          return implementation;
+          return implementation!;
         });
       }
 
@@ -339,7 +346,9 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
 
         // Calculate relative path from directoryPath to the file
         final relativePath = file.path.startsWith(directoryPath)
-            ? file.path.substring(directoryPath.length).replaceFirst(RegExp(r'^[/\\]'), '')
+            ? file.path
+                  .substring(directoryPath.length)
+                  .replaceFirst(RegExp(r'^[/\\]'), '')
             : file.path;
 
         final fixResultAsync = await runBabelProcess(
@@ -351,10 +360,12 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
           return Failure(fixResultAsync.exceptionOrNull()!);
         }
       }
-    } catch (e) {
+    } catch (e, s) {
       // Log error but continue processing other files
-      ConsoleManager.instance.error('Error processing file ${file.path}: $e');
-      continue;
+      logMessages.add('Error processing file "${file.path}": $e\n$s');
+      ConsoleManager.instance.error('Error processing file "${file.path}": $e');
+      rethrow;
+      // continue;
     }
   }
 
@@ -405,7 +416,7 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
     codeBaseYamlInfo: payload.yamlInfo,
     remapedArbKeys: payload.remapedArbKeys,
     targetFiles: await payload.filesToBeAnalysed,
-    currentPayloadInfo: payload.codebaseArbTranslationPayloadInfo,
+    currentPayloadInfo: payload.hardcodedStringsPayloadInfo,
     directoryPath: payload.directoryPath,
   ).flatMap((response) {
     return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(

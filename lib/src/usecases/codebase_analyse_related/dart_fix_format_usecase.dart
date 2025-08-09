@@ -45,14 +45,14 @@ AsyncBabelResult<Unit> multiDartFixFormatUsecase({
     }
   }
 
-  final fixResultAsync = await runBabelProcess(
-    command: 'dart fix --apply .',
-    dirrPath: dirrPath,
-  );
+  // final fixResultAsync = await runBabelProcess(
+  //   command: 'dart fix --apply .',
+  //   dirrPath: dirrPath,
+  // );
 
-  if (fixResultAsync.isError()) {
-    return Failure(fixResultAsync.exceptionOrNull()!);
-  }
+  // if (fixResultAsync.isError()) {
+  //   return Failure(fixResultAsync.exceptionOrNull()!);
+  // }
 
   return Success(unit);
 }

@@ -9,11 +9,10 @@ NewFileContent addImportIfNeededUsecase({
   final importText = "import 'package:$projectName/$kBabelFileName';";
 
   if (!fileContent.contains(importText)) {
-    final importGroup =
-        RegExp(
-          '^import (\'|").+(\\1);\$',
-          multiLine: true,
-        ).allMatches(fileContent).lastOrNull;
+    final importGroup = RegExp(
+      '^import (\'|").+(\\1);\$',
+      multiLine: true,
+    ).allMatches(fileContent).lastOrNull;
     if (importGroup != null) {
       final int start = importGroup.start;
       final int end = importGroup.end;
@@ -26,11 +25,10 @@ NewFileContent addImportIfNeededUsecase({
       return fileContent;
     }
 
-    final ignoreRef =
-        RegExp(
-          r'ignore_for_file: .*$',
-          multiLine: true,
-        ).allMatches(fileContent).lastOrNull;
+    final ignoreRef = RegExp(
+      r'ignore_for_file: .*$',
+      multiLine: true,
+    ).allMatches(fileContent).lastOrNull;
 
     if (ignoreRef != null) {
       final int start = ignoreRef.start;

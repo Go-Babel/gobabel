@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
+import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
@@ -94,6 +95,8 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
     final logPayload = {
       'errorTitle': errorTitle,
       'errorDescription': errorDescription,
+      if (logMessages.isNotEmpty)
+        'specificLogMessages': logMessages.join('\n\n'),
       'targetDirectory': directory.path,
       'errorObject': error.toString(),
       'stackTrace': stackTrace.toString(),

@@ -34,8 +34,9 @@ AsyncBabelResult<Unit> generateLogIfNeeded(
   }
 }
 
-extension MakeExt<T extends FlowInterface>
-    on AsyncBabelResult<T> {
+final List<String> logMessages = [];
+
+extension MakeExt<T extends FlowInterface> on AsyncBabelResult<T> {
   AsyncBabelResult<T> get log_if_needed async {
     return foldAsync(
       (value) async {
@@ -74,10 +75,10 @@ extension MakeExt<T extends FlowInterface>
         if (!shouldReset) return error.toFailure();
         lastCorrectState.toJson();
 
-        final resetResponse = await generateLogIfNeeded(
-          lastCorrectState.toJson(),
-          lastCorrectState.directory,
-        );
+        final resetResponse = await generateLogIfNeeded({
+          ...lastCorrectState.toJson(),
+          'logMessages': logMessages,
+        }, lastCorrectState.directory);
         if (resetResponse.isError()) {}
 
         return error.toFailure();

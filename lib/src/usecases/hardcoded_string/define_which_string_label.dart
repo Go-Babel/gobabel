@@ -36,7 +36,7 @@ listenToUserFacingHardcodedStringSessionResult({
           remapedStrings.addAll(data.remapedHardcodedString);
         },
         onError: (error) {
-          // Stop the session timer on error
+          // Stop the timer and clean up the review session display on error
           stopSessionCountdownTimer();
           streamError = BabelFailureResponse.withErrorAndStackTrace(
             exception: BabelException(
@@ -49,7 +49,7 @@ listenToUserFacingHardcodedStringSessionResult({
           completer.complete();
         },
         onDone: () async {
-          // Stop the session timer when the stream completes
+          // Stop the timer and clean up the review session display when the stream completes
           stopSessionCountdownTimer();
           try {
             await client.publicStringsReviewSession
@@ -110,12 +110,11 @@ AsyncBabelResult<GenerateFlowDefinedStringLabels>
 generate_listenToUserFacingHardcodedStringSessionResult(
   GenerateFlowDisplayedSessionReviewToUser payload,
 ) async {
-  // Resume the loading indicator when user completes the review
-  // Note: The session timer is already stopped in listenToUserFacingHardcodedStringSessionResult
-  LoadingIndicator.instance.resumeAfterUserAction();
 
   // If the new flag is true, accept all hardcoded strings as user-facing
   if (payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing) {
+    // Resume loading indicator (no session was displayed)
+    LoadingIndicator.instance.resumeAfterUserAction();
     return GenerateFlowDefinedStringLabels(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -147,6 +146,8 @@ generate_listenToUserFacingHardcodedStringSessionResult(
 
   // Skip processing if there are no extracted strings or no session
   if (payload.allExtractedStrings.isEmpty || payload.sessionUuid == null) {
+    // Resume loading indicator (no session was displayed)
+    LoadingIndicator.instance.resumeAfterUserAction();
     return GenerateFlowDefinedStringLabels(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -185,10 +186,15 @@ generate_listenToUserFacingHardcodedStringSessionResult(
       );
 
   if (labelStringsResult.isError()) {
+    // Resume loading indicator even on error
+    LoadingIndicator.instance.resumeAfterUserAction();
     return labelStringsResult.asBabelResultErrorAsync();
   }
 
   final labelStrings = labelStringsResult.getOrThrow();
+
+  // Resume the loading indicator after the session has completed
+  LoadingIndicator.instance.resumeAfterUserAction();
 
   return GenerateFlowDefinedStringLabels(
     willLog: payload.willLog,

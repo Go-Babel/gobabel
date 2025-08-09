@@ -13,6 +13,9 @@ import 'package:result_dart/result_dart.dart';
 // Global timer reference to allow cancellation when loading resumes
 Timer? _sessionTimer;
 
+// Track how many lines were written during the review session display
+int _reviewSessionLinesWritten = 0;
+
 AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     generate_displayReviewHardcodedStringSessionToUser(
   GenerateFlowCreatedHardcodedStringReviewSession payload,
@@ -48,6 +51,7 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Skip display if either dangerous flag is true
     if (payload.dangerouslyAutoDetectUserFacingHardcodedStrings ||
         payload.dangerouslyAutoAcceptAllHardcodedStringsAsUserFacing) {
+      _reviewSessionLinesWritten = 0; // Ensure counter is reset
       return response.toSuccess();
     }
 
@@ -76,6 +80,9 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Add a small delay to ensure the console stream is fully released
     await Future.delayed(const Duration(milliseconds: 100));
 
+    // Reset line counter for new session
+    _reviewSessionLinesWritten = 0;
+
     // Fetch session expiration time
     DateTime? sessionExpirationTime;
     try {
@@ -85,16 +92,27 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     } catch (e) {
       // If we can't get the expiration time, continue without timer
       ConsoleManager.instance.warning('Could not fetch session expiration time');
+      _reviewSessionLinesWritten++; // Count warning line
     }
 
     // Print the URL in blue color using chalk
-    ConsoleManager.instance.writeLine('\n${reviewUrl.blue}\n');
-    ConsoleManager.instance.writeLine('Opening review session in your default browser...\n');
+    ConsoleManager.instance.writeLine(''); // Empty line
+    _reviewSessionLinesWritten++;
+    ConsoleManager.instance.writeLine(reviewUrl.blue);
+    _reviewSessionLinesWritten++;
+    ConsoleManager.instance.writeLine(''); // Empty line
+    _reviewSessionLinesWritten++;
+    ConsoleManager.instance.writeLine('Opening review session in your default browser...');
+    _reviewSessionLinesWritten++;
+    ConsoleManager.instance.writeLine(''); // Empty line
+    _reviewSessionLinesWritten++;
     
     // Start the countdown timer if we have expiration time
     if (sessionExpirationTime != null) {
       ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:');
-      ConsoleManager.instance.writeLine('Waiting for you to complete the review in your browser...\n');
+      _reviewSessionLinesWritten++;
+      ConsoleManager.instance.writeLine('Waiting for you to complete the review in your browser...');
+      _reviewSessionLinesWritten++;
       
       _startSessionCountdownTimer(sessionExpirationTime);
     }
@@ -110,6 +128,7 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     } else {
       // Fallback - just print the URL
       ConsoleManager.instance.writeLine('Please open the following URL in your browser:');
+      _reviewSessionLinesWritten += 2; // Count the fallback lines
       ConsoleManager.instance.writeLine(reviewUrl.blue);
       return response.toSuccess();
     }
@@ -136,16 +155,24 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
   _sessionTimer?.cancel();
   
   final console = ConsoleManager.instance;
+  
+  // Store initial cursor position for the timer line
+  console.writeLine(''); // Create a dedicated line for the timer
+  _reviewSessionLinesWritten++;
+  
   _sessionTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
     final now = DateTime.now();
     final remaining = sessionExpirationTime.difference(now);
     
     if (remaining.isNegative) {
-      // Clear the current line and print final message
+      // Move up to timer line, clear it, and print final message
+      console.moveCursorUp(1);
       console.clearLine();
       console.writeLine('⏰ Session has expired!'.red.bold);
+      console.moveCursorDown(1);
       timer.cancel();
       _sessionTimer = null;
+      // Don't cleanup here, let the stream completion handle it
       return;
     }
     
@@ -176,8 +203,12 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
       statusIcon = '⚠️';
     }
     
-    // Use the console manager to update progress
-    console.updateProgress('$statusIcon Session time remaining: $coloredTime');
+    // Move up to the timer line, clear it, and update with new time
+    console.moveCursorUp(1);
+    console.clearLine();
+    console.write('$statusIcon Session time remaining: $coloredTime');
+    console.moveCursorDown(1);
+    console.flush();
   });
 }
 
@@ -186,12 +217,41 @@ void stopSessionCountdownTimer() {
   if (_sessionTimer != null && _sessionTimer!.isActive) {
     _sessionTimer!.cancel();
     _sessionTimer = null;
-    // Clear the timer line only if console is available
+  }
+  
+  // Clear all the review session output lines
+  cleanupReviewSessionDisplay();
+}
+
+// Function to clean up all review session display lines
+void cleanupReviewSessionDisplay() {
+  if (_reviewSessionLinesWritten > 0) {
     try {
-      ConsoleManager.instance.clearLine();
-      ConsoleManager.instance.moveCursorToLineStart();
+      final console = ConsoleManager.instance;
+      
+      // Clear the current line first
+      console.clearLine();
+      console.moveCursorToLineStart();
+      
+      // Move up and clear each line that was written during review session
+      // This includes all the lines we wrote plus the timer line
+      for (int i = 0; i < _reviewSessionLinesWritten + 1; i++) {
+        console.moveCursorUp(1);
+        console.clearLine();
+      }
+      
+      // Also need to clear the PAUSED line from LoadingIndicator
+      console.moveCursorUp(1);
+      console.clearLine();
+      
+      // Move cursor to start of line
+      console.moveCursorToLineStart();
+      
+      // Reset the counter
+      _reviewSessionLinesWritten = 0;
     } catch (_) {
-      // Ignore errors if console is not available
+      // Ignore errors if console operations fail
+      _reviewSessionLinesWritten = 0;
     }
   }
 }
