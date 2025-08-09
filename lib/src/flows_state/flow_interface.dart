@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:gobabel/src/core/babel_failure_response.dart';
 import 'package:gobabel/src/core/utils/loading_indicator.dart';
+import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:path/path.dart' as p;
@@ -92,6 +93,12 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
     );
 
     final lastSuccessStateInJson = lastCorrectState.toJson();
+    final List<String> filesToBeAnalysedPaths = [];
+    if (lastCorrectState is GenerateFlowState) {
+      final files =
+          await (lastCorrectState as GenerateFlowState).filesToBeAnalysed;
+      filesToBeAnalysedPaths.addAll(files.map((file) => file.path));
+    }
     final logPayload = {
       'errorTitle': errorTitle,
       'errorDescription': errorDescription,
@@ -101,6 +108,8 @@ Future<void> resolveError(BabelFailureResponse babelFailure) async {
       'errorObject': error.toString(),
       'stackTrace': stackTrace.toString(),
       'lastSuccessState': lastSuccessStateInJson,
+      if (filesToBeAnalysedPaths.isNotEmpty)
+        'filesAnalysed': filesToBeAnalysedPaths,
     };
 
     await saveStringData(
