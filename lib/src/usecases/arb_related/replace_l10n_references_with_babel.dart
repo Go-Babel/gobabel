@@ -1,0 +1,85 @@
+import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
+import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
+import 'package:gobabel_core/gobabel_core.dart';
+
+/// Result of replacing L10n references with Babel implementations
+class ReplacementResult {
+  final String content;
+  final bool hasChanges;
+
+  const ReplacementResult({required this.content, required this.hasChanges});
+}
+
+/// Replaces all L10n references with Babel class and implementations
+/// Returns a ReplacementResult with the modified content and whether changes were made
+ReplacementResult replaceL10nReferencesWithBabel({
+  required String fileContent,
+  required String outputClass,
+  required List<List<L10nKey>> clusteredRemapedArbs,
+  required Map<L10nKey, ProcessedKeyIntegrity> remapedArbKeys,
+  required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
+}) {
+  String content = fileContent;
+  bool hasChanges = false;
+
+  // Replace outputClass patterns with Babel class
+  final defaultPattern =
+      '$outputClass'
+      r'\s*\.of\(\s*(?:[a-zA-Z]|\r|\n|\t|\f|\v)+\s*,?\s*\)\s*!?';
+  final directDelegate =
+      '$outputClass'
+      r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)\s*!?';
+
+  final regex = RegExp('($defaultPattern|$directDelegate)', multiLine: true);
+
+  content = content.replaceAllMapped(regex, (match) {
+    hasChanges = true;
+    return kBabelClass;
+  });
+
+  // Process each group of remapped ARB keys
+  for (final group in clusteredRemapedArbs) {
+    String variableNamesIdentifiers = '';
+
+    // Build regex pattern for all keys in this group
+    for (final L10nKey originalKey in group) {
+      variableNamesIdentifiers = variableNamesIdentifiers.isEmpty
+          ? originalKey
+          : '$variableNamesIdentifiers|$originalKey';
+    }
+
+    final regex = kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)\b';
+
+    final groupRegex = RegExp(regex, multiLine: true);
+
+    content = content.replaceAllMapped(groupRegex, (match) {
+      final L10nKey? originalKey = match.group(1);
+      if (originalKey == null) {
+        logMessages.add(
+          '''No original key found for "$regex" in match: $match''',
+        );
+        return match.group(0) ?? '';
+      }
+
+      final ProcessedKeyIntegrity? newProcessedKey =
+          remapedArbKeys[originalKey];
+      if (newProcessedKey == null) {
+        logMessages.add(
+          '''No processedKey key found for "$regex" in match: $match''',
+        );
+        return match.group(0) ?? '';
+      }
+
+      final BabelFunctionImplementation? implementation =
+          keyToImplementation[newProcessedKey];
+      if (implementation == null) {
+        logMessages.add('''No implementation found for key: $originalKey''');
+        return match.group(0) ?? '';
+      }
+
+      return implementation;
+    });
+  }
+
+  return ReplacementResult(content: content, hasChanges: hasChanges);
+}

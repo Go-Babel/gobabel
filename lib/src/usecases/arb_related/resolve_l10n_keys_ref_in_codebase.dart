@@ -9,6 +9,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
 import 'package:gobabel/src/usecases/arb_related/remove_localizations_delegates.dart';
 import 'package:gobabel/src/usecases/arb_related/replace_l10n_imports.dart';
+import 'package:gobabel/src/usecases/arb_related/replace_l10n_references_with_babel.dart';
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
@@ -35,17 +36,11 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     ...currentKeyToContextsPaths,
   };
   final String outputClass = projectConfigWithData.outputClass;
-  final String defaultPattern =
-      '$outputClass'
-      r'\s*\.of\(\s*(?:[a-zA-Z]|\r|\n|\t|\f|\v)+\s*,?\s*\)\s*!?';
-  final String directDelegate =
-      '$outputClass'
-      r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)\s*!?';
 
   // The index 0 will be the one with the biggest length
   final ordoredKeysByBiggestLenghtFirst = remapedArbKeys.keys.toList()
     ..sort((a, b) => b.length.compareTo(a.length));
-  // Split into groups of 30 to avoid overwhelming the regex engine
+  // Split into groups of 20 to avoid overwhelming the regex engine
   // This is a heuristic to balance performance and complexity
   final clusteredRemapedArbs = ordoredKeysByBiggestLenghtFirst.splitIntoGroups(
     20,
@@ -90,82 +85,26 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
       );
 
       fileContent = modifiedContent;
+      final bool hadFlutterGenDependencyChange =
+          hasImportChanges || hasDelegateChanges;
 
       // Clean up any multiple consecutive newlines left after removal
-      if (hasImportChanges || hasDelegateChanges) {
+      if (hadFlutterGenDependencyChange) {
         fileContent = fileContent.replaceAll(RegExp(r'\n\n\n+'), '\n\n');
       }
+      bool hasChanges = hadFlutterGenDependencyChange;
 
-      final regex = RegExp(
-        '($defaultPattern|$directDelegate)',
-        multiLine: true,
+      // Replace L10n references with Babel implementations
+      final replacementResult = replaceL10nReferencesWithBabel(
+        fileContent: fileContent,
+        outputClass: outputClass,
+        clusteredRemapedArbs: clusteredRemapedArbs,
+        remapedArbKeys: remapedArbKeys,
+        keyToImplementation: curentKeyToImplementation,
       );
-      bool hasChanges = hasImportChanges || hasDelegateChanges;
-      fileContent = fileContent.replaceAllMapped(regex, (match) {
-        hasChanges = true;
-        return kBabelClass;
-      });
-      // Let's group the entries so we won't overhelm the regex engine
 
-      // Track progress for key groups
-      int processedGroups = 0;
-      final totalGroups = clusteredRemapedArbs.length;
-
-      for (final group in clusteredRemapedArbs) {
-        processedGroups++;
-
-        // Update progress bar with detailed file and group progress
-        LoadingIndicator.instance.setLoadingProgressBar(
-          message: 'Replacing L10n references in codebase',
-          barProgressInfo: BarProgressInfo(
-            message:
-                'File ${file.path.split('/').last} - Key group $processedGroups/$totalGroups',
-            totalSteps: totalFiles,
-            currentStep: processedFiles,
-          ),
-        );
-
-        String variableNamesIdentifiers = '';
-
-        for (final L10nKey originalKey in group) {
-          variableNamesIdentifiers = variableNamesIdentifiers.isEmpty
-              ? originalKey
-              : '$variableNamesIdentifiers|$originalKey';
-        }
-        final regex =
-            kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)\b';
-
-        final groupRegex = RegExp(regex, multiLine: true);
-
-        fileContent = fileContent.replaceAllMapped(groupRegex, (match) {
-          final L10nKey? originalKey = match.group(1);
-          if (originalKey == null) {
-            logMessages.add(
-              '''No original key found for "$regex" in match: $match''',
-            );
-            return match.group(0) ?? '';
-          }
-
-          final ProcessedKeyIntegrity? newProcessedKey =
-              remapedArbKeys[originalKey];
-          if (newProcessedKey == null) {
-            logMessages.add(
-              '''No processedKey key found for "$regex" in match: $match''',
-            );
-            return match.group(0) ?? '';
-          }
-
-          final BabelFunctionImplementation? implementation =
-              curentKeyToImplementation[newProcessedKey];
-          if (implementation == null) {
-            logMessages.add(
-              '''No implementation found for key: $originalKey''',
-            );
-          }
-
-          return implementation!;
-        });
-      }
+      fileContent = replacementResult.content;
+      hasChanges = hasChanges || replacementResult.hasChanges;
 
       if (hasChanges) {
         final fileContentWithImport = addImportIfNeededUsecase(
