@@ -114,19 +114,19 @@ String extractImportAlias({
   // Build the delegate reference pattern
   String delegateReference;
   if (alias.isNotEmpty) {
-    // With alias: alias.OutputClass.delegate
+    // With alias: alias.OutputClass.delegate or alias.OutputClass.localizationsDelegates
     delegateReference =
         RegExp.escape(alias) +
         r'\.' +
         RegExp.escape(projectConfig.outputClass) +
-        r'\.delegates?';
+        r'\.(localizationsDelegates|delegates?)';
   } else {
-    // Without alias: OutputClass.delegate
+    // Without alias: OutputClass.delegate or OutputClass.localizationsDelegates
     // Make sure it's not prefixed by another identifier (negative lookbehind)
     delegateReference =
         r'(?<![a-zA-Z_]\.)' +
         RegExp.escape(projectConfig.outputClass) +
-        r'\.delegates?';
+        r'\.(localizationsDelegates|delegates?)';
   }
 
   // Use regex-based approach directly as it's more reliable

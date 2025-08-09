@@ -70,12 +70,11 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Construct the full URL
     final reviewUrl = '${baseUrl}review-hardcoded-strings-session/$sessionUuid';
 
-    // Pause the loading indicator and clear its line
+    // Pause the loading indicator
     LoadingIndicator.instance.pauseForUserAction();
     
-    // Clear the loading indicator line completely
-    ConsoleManager.instance.clearLine();
-    ConsoleManager.instance.moveCursorToLineStart();
+    // Add a small delay to ensure the console stream is fully released
+    await Future.delayed(const Duration(milliseconds: 100));
 
     // Fetch session expiration time
     DateTime? sessionExpirationTime;
@@ -95,14 +94,7 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
     // Start the countdown timer if we have expiration time
     if (sessionExpirationTime != null) {
       ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:');
-      ConsoleManager.instance.writeLine('Press Ctrl+C to cancel at any time.\n');
-      
-      // Register signal handler to stop timer on Ctrl+C
-      ProcessSignal.sigint.watch().listen((_) {
-        stopSessionCountdownTimer();
-        ConsoleManager.instance.writeLine('\nSession cancelled by user.');
-        exit(0);
-      });
+      ConsoleManager.instance.writeLine('Waiting for you to complete the review in your browser...\n');
       
       _startSessionCountdownTimer(sessionExpirationTime);
     }

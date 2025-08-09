@@ -267,7 +267,7 @@ class LoadingIndicator {
     final pausedMessage = '[ ($_step/$_totalCount) $timeString ] ${messageToShow.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)} ${'[PAUSED - WAITING USER ACTION]'.yellow}';
     
     final console = ConsoleManager.instance;
-    console.write(pausedMessage);
+    console.writeLine(pausedMessage);  // Use writeLine instead of write to ensure proper line ending
     console.flush();
     
     // Pause the stopwatch
