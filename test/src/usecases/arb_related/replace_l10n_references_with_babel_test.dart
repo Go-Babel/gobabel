@@ -31,8 +31,9 @@ void main() {
         "unknown": "Babel.unknown()",
       },
     );
-    print('hadChanges: ${result.hasChanges}');
-    print(result.content);
+    expect(result.hasChanges, isTrue);
+    expect(result.content, isNot(equals(enumExampleResponse)));
+    expect(result.content, equals(expectedEnumExampleResponse));
   });
 }
 
