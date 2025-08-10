@@ -138,7 +138,6 @@ createHumanFriendlyArbKeysWithAiOnServer({
             }
 
             final HardCodedString value = stringEntity.value;
-            newResult[entry.key] = entry.value.toCamelCaseOrEmpty;
 
             // Ensure the key is unique and follows the camelCase format
             final garantedKeyIntegrityResponse = await garanteeKeyIntegrity(
@@ -151,6 +150,7 @@ createHumanFriendlyArbKeysWithAiOnServer({
             final ProcessedKeyIntegrity garantedKeyIntegrity =
                 garantedKeyIntegrityResponse.getOrThrow();
             humanFriendlyResult[sha1] = garantedKeyIntegrity;
+            newResult[sha1] = garantedKeyIntegrity;
           }
           processedGroups++;
 
@@ -281,8 +281,9 @@ class HumanFriendlyResponse {
   Map<String, dynamic> toMap() {
     return {
       'newHardcodedStringKeyCache': newHardcodedStringKeyCache,
-      'humanFriendlyArbKeys':
-          humanFriendlyArbKeys.map((e) => e.toMap()).toList(),
+      'humanFriendlyArbKeys': humanFriendlyArbKeys
+          .map((e) => e.toMap())
+          .toList(),
     };
   }
 
@@ -291,14 +292,12 @@ class HumanFriendlyResponse {
       newHardcodedStringKeyCache: Map<String, String>.from(
         map['newHardcodedStringKeyCache'] as Map<dynamic, dynamic>,
       ),
-      humanFriendlyArbKeys:
-          (map['humanFriendlyArbKeys'] as List<dynamic>)
-              .map(
-                (e) => HumanFriendlyArbKeyResponse.fromMap(
-                  e as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
+      humanFriendlyArbKeys: (map['humanFriendlyArbKeys'] as List<dynamic>)
+          .map(
+            (e) =>
+                HumanFriendlyArbKeyResponse.fromMap(e as Map<String, dynamic>),
+          )
+          .toList(),
     );
   }
 

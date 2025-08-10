@@ -18,7 +18,7 @@ AsyncBabelResult<ProcessedKeyIntegrity> garanteeKeyUniqueness({
   // Let's check if the key is available for use.
   TranslationKey integrityEnsureKey = key;
   int integrityEnsureIndex = 1;
-  while (_valueToValue.keys.contains(integrityEnsureKey)) {
+  while (_valueToValue.containsKey(integrityEnsureKey)) {
     integrityEnsureIndex++;
     final bool alreadyEndsWithUnderline = integrityEnsureKey.endsWith('_');
     if (alreadyEndsWithUnderline) {

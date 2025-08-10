@@ -9,14 +9,14 @@ AsyncBabelResult<ProcessedKeyIntegrity> garanteeKeyIntegrity({
   required TranslationKey key,
   required HardCodedString value,
 }) async {
+  final cleanValue = value.trimHardcodedString.toCamelCaseOrEmpty;
   final validKeyNameResponse = await garanteeKeyIsValidFunctionName(
-    key: key.trimHardcodedString.toCamelCaseOrEmpty,
+    key: cleanValue,
   );
   if (validKeyNameResponse.isError()) {
     return validKeyNameResponse;
   }
   final validKeyName = validKeyNameResponse.getOrThrow();
-  final cleanValue = value.trimHardcodedString;
   final uniqueKeyGaranteedResponse = await garanteeKeyUniqueness(
     key: validKeyName,
     value: cleanValue,

@@ -65,8 +65,8 @@ resolveProjectArbFilesPayload({
       if (integrityKeyResponse.isError()) {
         return integrityKeyResponse.asBabelResultErrorAsync();
       }
-      final ProcessedKeyIntegrity processedKey =
-          integrityKeyResponse.getOrThrow();
+      final ProcessedKeyIntegrity processedKey = integrityKeyResponse
+          .getOrThrow();
 
       hardcodedStringToKeyCache[processedKey] = value.trimHardcodedString;
       remapedArbKeys[rawKey] = processedKey;
@@ -105,8 +105,9 @@ resolveProjectArbFilesPayload({
       keyToDeclaration: keyToDeclaration,
       keyToImplementation: keyToImplementation,
       keyToContextsPaths: keyToContextsPaths,
-      referenceMap:
-          referenceMap.entries.map(Translatables.fromEntries).toList(),
+      referenceMap: referenceMap.entries
+          .map(Translatables.fromEntries)
+          .toList(),
     );
 
     return ResolveProjectArbFilesPayloadResponse(
