@@ -14,8 +14,122 @@ import 'package:gobabel/src/usecases/arb_related/replace_l10n_references_with_ba
 import 'package:gobabel/src/usecases/key_integrity/garantee_key_integrity.dart';
 import 'package:gobabel/src/usecases/key_integrity/generate_log_if_requested.dart';
 import 'package:gobabel/src/usecases/set_target_files_usecase/add_import_if_needed.dart';
+import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
 import 'package:result_dart/result_dart.dart';
+
+const int numberOfParallelProcesses = 4;
+
+// Helper function to process a single file
+Future<ResultDart<void, BabelFailureResponse>> _processSingleFile({
+  required File file,
+  required L10nProjectConfigWithData projectConfigWithData,
+  required String projectName,
+  required String outputClass,
+  required List<List<L10nKey>> clusteredRemapedArbs,
+  required Map<L10nKey, ProcessedKeyIntegrity> remapedArbKeys,
+  required Map<TranslationKey, Set<VariableName>> variablesPlaceholdersPerKey,
+  required String directoryPath,
+  required int fileIndex,
+  required int totalFiles,
+}) async {
+  try {
+    // Update progress bar
+    LoadingIndicator.instance.setLoadingProgressBar(
+      message: 'Replacing L10n references in codebase',
+      barProgressInfo: BarProgressInfo(
+        message: 'Processing: ${file.path.split('/').last}',
+        totalSteps: totalFiles,
+        currentStep: fileIndex,
+      ),
+    );
+
+    String fileContent = await file.readAsString();
+
+    // Remove localizationsDelegates if needed
+    final (
+      delegatesRemovedContent,
+      hasDelegateChanges,
+    ) = removeLocalizationsDelegatesIfNeeded(
+      fileContent: fileContent,
+      projectConfig: projectConfigWithData,
+      projectName: projectName,
+    );
+
+    fileContent = delegatesRemovedContent;
+
+    // Remove l10n imports if needed
+    final (modifiedContent, hasImportChanges) = replaceImportsIfNeeded(
+      fileContent: fileContent,
+      projectConfig: projectConfigWithData,
+      projectName: projectName,
+    );
+
+    fileContent = modifiedContent;
+    final bool hadFlutterGenDependencyChange =
+        hasImportChanges || hasDelegateChanges;
+
+    // Clean up any multiple consecutive newlines left after removal
+    if (hadFlutterGenDependencyChange) {
+      fileContent = fileContent.replaceAll(RegExp(r'\n\n\n+'), '\n\n');
+    }
+    bool hasChanges = hadFlutterGenDependencyChange;
+
+    // Replace L10n references with Babel implementations
+    final replacementResult = replaceL10nReferencesWithBabel(
+      fileContent: fileContent,
+      outputClass: outputClass,
+      clusteredRemapedArbs: clusteredRemapedArbs,
+      remapedArbKeys: remapedArbKeys,
+      variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
+    );
+
+    fileContent = replacementResult.content;
+    hasChanges = hasChanges || replacementResult.hasChanges;
+
+    if (hasChanges) {
+      final fileContentWithImport = addImportIfNeededUsecase(
+        projectName: projectName,
+        fileContent: fileContent,
+      );
+
+      await file.writeAsString(fileContentWithImport);
+
+      // Calculate relative path from directoryPath to the file
+      final relativePath = file.path.startsWith(directoryPath)
+          ? file.path
+                .substring(directoryPath.length)
+                .replaceFirst(RegExp(r'^[/\\]'), '')
+          : file.path;
+
+      final fixResultAsync = await runBabelProcess(
+        command: 'dart fix --apply "$relativePath"',
+        dirrPath: directoryPath,
+      );
+
+      if (fixResultAsync.isError()) {
+        return Failure(fixResultAsync.exceptionOrNull()!);
+      }
+    }
+    
+    return const Success(());
+  } catch (e, s) {
+    // Log error but continue processing other files
+    logMessages.add('Error processing file "${file.path}": $e\n$s');
+    ConsoleManager.instance.error(
+      'Error processing file "${file.path}": $e',
+      id: 'error_processing_file',
+    );
+    return Failure(BabelFailureResponse.withErrorAndStackTrace(
+      exception: BabelException(
+        title: 'File Processing Error',
+        description: 'Error processing file "${file.path}": $e',
+      ),
+      error: e,
+      stackTrace: s,
+    ));
+  }
+}
 
 AsyncBabelResult<Map<TranslationKey, Set<ContextPath>>>
 replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
@@ -48,96 +162,53 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     20,
   );
 
-  // Track progress for the progress bar
-  int processedFiles = 0;
   final totalFiles = targetFiles.length;
-
-  for (final file in targetFiles) {
-    try {
-      // Update progress bar
-      processedFiles++;
-      LoadingIndicator.instance.setLoadingProgressBar(
-        message: 'Replacing L10n references in codebase',
-        barProgressInfo: BarProgressInfo(
-          message: 'Processing: ${file.path.split('/').last}',
-          totalSteps: totalFiles,
-          currentStep: processedFiles,
-        ),
-      );
-
-      String fileContent = await file.readAsString();
-
-      // Remove localizationsDelegates if needed
-      final (
-        delegatesRemovedContent,
-        hasDelegateChanges,
-      ) = removeLocalizationsDelegatesIfNeeded(
-        fileContent: fileContent,
-        projectConfig: projectConfigWithData,
-        projectName: projectName,
-      );
-
-      fileContent = delegatesRemovedContent;
-
-      // Remove l10n imports if needed
-      final (modifiedContent, hasImportChanges) = replaceImportsIfNeeded(
-        fileContent: fileContent,
-        projectConfig: projectConfigWithData,
-        projectName: projectName,
-      );
-
-      fileContent = modifiedContent;
-      final bool hadFlutterGenDependencyChange =
-          hasImportChanges || hasDelegateChanges;
-
-      // Clean up any multiple consecutive newlines left after removal
-      if (hadFlutterGenDependencyChange) {
-        fileContent = fileContent.replaceAll(RegExp(r'\n\n\n+'), '\n\n');
-      }
-      bool hasChanges = hadFlutterGenDependencyChange;
-
-      // Replace L10n references with Babel implementations
-      final replacementResult = replaceL10nReferencesWithBabel(
-        fileContent: fileContent,
-        outputClass: outputClass,
-        clusteredRemapedArbs: clusteredRemapedArbs,
-        remapedArbKeys: remapedArbKeys,
-        variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
-      );
-
-      fileContent = replacementResult.content;
-      hasChanges = hasChanges || replacementResult.hasChanges;
-
-      if (hasChanges) {
-        final fileContentWithImport = addImportIfNeededUsecase(
+  int processedFiles = 0;
+  
+  // Process files in parallel batches
+  for (int i = 0; i < targetFiles.length; i += numberOfParallelProcesses) {
+    // Calculate the end index for this batch
+    final batchEnd = (i + numberOfParallelProcesses < targetFiles.length)
+        ? i + numberOfParallelProcesses
+        : targetFiles.length;
+    
+    // Get the current batch of files
+    final batchFiles = targetFiles.sublist(i, batchEnd);
+    
+    // Process batch in parallel
+    final batchResults = await Future.wait(
+      batchFiles.map((file) async {
+        processedFiles++;
+        return _processSingleFile(
+          file: file,
+          projectConfigWithData: projectConfigWithData,
           projectName: projectName,
-          fileContent: fileContent,
+          outputClass: outputClass,
+          clusteredRemapedArbs: clusteredRemapedArbs,
+          remapedArbKeys: remapedArbKeys,
+          variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
+          directoryPath: directoryPath,
+          fileIndex: processedFiles,
+          totalFiles: totalFiles,
         );
-
-        await file.writeAsString(fileContentWithImport);
-
-        // Calculate relative path from directoryPath to the file
-        final relativePath = file.path.startsWith(directoryPath)
-            ? file.path
-                  .substring(directoryPath.length)
-                  .replaceFirst(RegExp(r'^[/\\]'), '')
-            : file.path;
-
-        final fixResultAsync = await runBabelProcess(
-          command: 'dart fix --apply "$relativePath"',
-          dirrPath: directoryPath,
+      }),
+    );
+    
+    // Check if any file in the batch failed critically
+    for (final result in batchResults) {
+      if (result.isError()) {
+        final error = result.exceptionOrNull()!;
+        // Only return failure for critical errors (dart fix failures)
+        // Check if this is a dart fix error by examining the error
+        final errorDescription = error.maybeMap(
+          onlyBabelException: (e) => e.exception.description,
+          withErrorAndStackTrace: (e) => e.exception.description,
+          orElse: () => '',
         );
-
-        if (fixResultAsync.isError()) {
-          return Failure(fixResultAsync.exceptionOrNull()!);
+        if (errorDescription.contains('dart fix')) {
+          return Failure(error);
         }
       }
-    } catch (e, s) {
-      // Log error but continue processing other files
-      logMessages.add('Error processing file "${file.path}": $e\n$s');
-      ConsoleManager.instance.error('Error processing file "${file.path}": $e', id: 'error_processing_file');
-      rethrow;
-      // continue;
     }
   }
 

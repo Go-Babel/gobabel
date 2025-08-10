@@ -30,13 +30,6 @@ ReplacementResult replaceL10nReferencesWithBabel({
       '$outputClass'
       r'\s*.of\(\s*(?:[a-zA-Z])+,\s*S\s*,?\s*\)\s*!?';
 
-  final regex = RegExp('($defaultPattern|$directDelegate)', multiLine: true);
-
-  content = content.replaceAllMapped(regex, (match) {
-    hasChanges = true;
-    return kBabelClass;
-  });
-
   // Process each group of remapped ARB keys
   for (final group in clusteredRemapedArbs) {
     String variableNamesIdentifiers = '';
@@ -49,12 +42,15 @@ ReplacementResult replaceL10nReferencesWithBabel({
     }
 
     final regex =
-        kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)' + r'\b';
-    print(regex);
+        '(?:$defaultPattern|$directDelegate)'
+        r'\s*\.\s*'
+        '($variableNamesIdentifiers)'
+        r'\b';
 
     final groupRegex = RegExp(regex, multiLine: true);
 
     content = content.replaceAllMapped(groupRegex, (match) {
+      hasChanges = true;
       final L10nKey? originalKey = match.group(1);
       if (originalKey == null) {
         logMessages.add(
@@ -74,6 +70,13 @@ ReplacementResult replaceL10nReferencesWithBabel({
       return '$kBabelClass.$newProcessedKey$suffix';
     });
   }
+
+  final regex = RegExp('($defaultPattern|$directDelegate)', multiLine: true);
+
+  content = content.replaceAllMapped(regex, (match) {
+    hasChanges = true;
+    return kBabelClass;
+  });
 
   return ReplacementResult(content: content, hasChanges: hasChanges);
 }
