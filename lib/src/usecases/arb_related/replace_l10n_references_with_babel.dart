@@ -17,7 +17,7 @@ ReplacementResult replaceL10nReferencesWithBabel({
   required String outputClass,
   required List<List<L10nKey>> clusteredRemapedArbs,
   required Map<L10nKey, ProcessedKeyIntegrity> remapedArbKeys,
-  required Map<TranslationKey, BabelFunctionImplementation> keyToImplementation,
+  required Map<TranslationKey, Set<VariableName>> variablesPlaceholdersPerKey,
 }) {
   String content = fileContent;
   bool hasChanges = false;
@@ -62,23 +62,15 @@ ReplacementResult replaceL10nReferencesWithBabel({
         return match.group(0) ?? '';
       }
 
-      final ProcessedKeyIntegrity? newProcessedKey =
-          remapedArbKeys[originalKey];
-      if (newProcessedKey == null) {
-        logMessages.add(
-          '''No processedKey key found for "$regex" in match: $match''',
-        );
-        return match.group(0) ?? '';
-      }
+      final placeHolders = variablesPlaceholdersPerKey[originalKey];
+      final bool havePlaceHolders =
+          placeHolders != null && placeHolders.isNotEmpty;
 
-      final BabelFunctionImplementation? implementation =
-          keyToImplementation[newProcessedKey];
-      if (implementation == null) {
-        logMessages.add('''No implementation found for key: $originalKey''');
-        return match.group(0) ?? '';
-      }
+      final ProcessedKeyIntegrity newProcessedKey =
+          remapedArbKeys[originalKey]!;
+      final String suffix = havePlaceHolders ? '' : '()';
 
-      return implementation;
+      return '$kBabelClass.$newProcessedKey$suffix';
     });
   }
 

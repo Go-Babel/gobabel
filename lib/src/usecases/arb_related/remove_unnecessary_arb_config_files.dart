@@ -59,14 +59,6 @@ generate_removeUnnecessaryArbConfigFiles(
     ConsoleManager.instance.info(
       'Running dart fix to clean up any remaining unused imports...',
     );
-    // final result = await runBabelProcess(
-    //   command: 'dart fix --apply .',
-    //   dirrPath: payload.directoryPath,
-    // );
-
-    // if (result.isError()) {
-    //   return Failure(result.exceptionOrNull()!);
-    // }
 
     return GenerateFlowRemovedUnnecessaryArbConfigFiles(
       willLog: payload.willLog,

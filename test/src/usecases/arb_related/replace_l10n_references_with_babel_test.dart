@@ -7,6 +7,13 @@ void main() {
     final result = replaceL10nReferencesWithBabel(
       fileContent: enumExampleResponse,
       outputClass: 'S',
+      variablesPlaceholdersPerKey: {
+        "below_3_months_or_less_to_expire": <VariableName>{},
+        "between_3_and_6_months_to_expire": <VariableName>{},
+        "more_than_6_months_to_expire": <VariableName>{},
+        "already_expired": <VariableName>{},
+        "unknown": <VariableName>{},
+      },
       clusteredRemapedArbs: <List<L10nKey>>[
         <L10nKey>[
           'below_3_months_or_less_to_expire',
@@ -23,13 +30,13 @@ void main() {
         "more_than_6_months_to_expire": "moreThan6MonthsToExpire",
         "unknown": "unknown",
       },
-      keyToImplementation: {
-        "alreadyExpired": "Babel.alreadyExpired()",
-        "below3MonthsOrLessToExpire": "Babel.below3MonthsOrLessToExpire()",
-        "between3And6MonthsToExpire": "Babel.between3And6MonthsToExpire()",
-        "moreThan6MonthsToExpire": "Babel.moreThan6MonthsToExpire()",
-        "unknown": "Babel.unknown()",
-      },
+      // keyToImplementation: {
+      //   "alreadyExpired": "Babel.alreadyExpired()",
+      //   "below3MonthsOrLessToExpire": "Babel.below3MonthsOrLessToExpire()",
+      //   "between3And6MonthsToExpire": "Babel.between3And6MonthsToExpire()",
+      //   "moreThan6MonthsToExpire": "Babel.moreThan6MonthsToExpire()",
+      //   "unknown": "Babel.unknown()",
+      // },
     );
     expect(result.hasChanges, isTrue);
     expect(result.content, isNot(equals(enumExampleResponse)));

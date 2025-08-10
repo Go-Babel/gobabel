@@ -7,6 +7,7 @@ import 'package:gobabel/src/core/utils/loading_indicator.dart';
 import 'package:gobabel/src/core/utils/process_runner.dart';
 import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:gobabel/src/models/l10n_project_config.dart';
+import 'package:gobabel/src/models/project_arb_data.dart';
 import 'package:gobabel/src/usecases/arb_related/remove_localizations_delegates.dart';
 import 'package:gobabel/src/usecases/arb_related/replace_l10n_imports.dart';
 import 'package:gobabel/src/usecases/arb_related/replace_l10n_references_with_babel.dart';
@@ -26,6 +27,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
   curentKeyToImplementation,
   required Map<TranslationKey, Set<ContextPath>> currentKeyToContextsPaths,
   required String directoryPath,
+  required Map<TranslationKey, Set<VariableName>> variablesPlaceholdersPerKey,
 }) async {
   final L10nProjectConfigWithData? projectConfigWithData = projectConfig
       .mapOrNull(withData: (value) => value);
@@ -100,7 +102,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
         outputClass: outputClass,
         clusteredRemapedArbs: clusteredRemapedArbs,
         remapedArbKeys: remapedArbKeys,
-        keyToImplementation: curentKeyToImplementation,
+        variablesPlaceholdersPerKey: variablesPlaceholdersPerKey,
       );
 
       fileContent = replacementResult.content;
@@ -158,7 +160,10 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
   final projectConfig = payload.projectArbData.mapOrNull(
     withData: (value) => value.config,
   );
-  if (projectConfig == null) {
+  final ArbDataStateWithData? arbData = payload.projectArbData.mapOrNull(
+    withData: (value) => value,
+  );
+  if (projectConfig == null || arbData == null) {
     return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
       willLog: payload.willLog,
       projectApiToken: payload.projectApiToken,
@@ -196,6 +201,7 @@ generate_replaceAllL10nKeyReferencesInCodebaseForBabelFunctions(
     curentKeyToImplementation:
         payload.hardcodedStringsPayloadInfo.keyToImplementation,
     directoryPath: payload.directoryPath,
+    variablesPlaceholdersPerKey: arbData.variablesPlaceholdersPerKey,
   ).flatMap((response) {
     return GenerateFlowReplacedAllL10nKeyReferencesInCodebaseForBabelFunctions(
       willLog: payload.willLog,
