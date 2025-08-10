@@ -25,6 +25,7 @@ generate_removeUnnecessaryArbConfigFiles(
       if (await outputDir.exists()) {
         ConsoleManager.instance.info(
           'Deleting output directory: ${outputDir.path}',
+          id: 'info_arb_operations',
         );
         await outputDir.delete(recursive: true);
       }
@@ -34,7 +35,7 @@ generate_removeUnnecessaryArbConfigFiles(
         '${payload.directoryPath}/${projectConfig.arbDir}',
       );
       if (await arbDir.exists()) {
-        ConsoleManager.instance.info('Deleting ARB directory: ${arbDir.path}');
+        ConsoleManager.instance.info('Deleting ARB directory: ${arbDir.path}', id: 'info_arb_operations');
         await arbDir.delete(recursive: true);
       }
 
@@ -58,6 +59,7 @@ generate_removeUnnecessaryArbConfigFiles(
     // Note: l10n-specific imports are already removed in resolve_l10n_keys_ref_in_codebase.dart
     ConsoleManager.instance.info(
       'Running dart fix to clean up any remaining unused imports...',
+      id: 'info_arb_operations',
     );
 
     return GenerateFlowRemovedUnnecessaryArbConfigFiles(

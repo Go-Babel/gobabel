@@ -91,27 +91,27 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
           .getSessionStartTime(sessionUuid);
     } catch (e) {
       // If we can't get the expiration time, continue without timer
-      ConsoleManager.instance.warning('Could not fetch session expiration time');
+      ConsoleManager.instance.warning('Could not fetch session expiration time', id: 'review_session_warning');
       _reviewSessionLinesWritten++; // Count warning line
     }
 
     // Print the URL in blue color using chalk
-    ConsoleManager.instance.writeLine(''); // Empty line
+    ConsoleManager.instance.writeLine('', id: 'review_session_empty1'); // Empty line
     _reviewSessionLinesWritten++;
-    ConsoleManager.instance.writeLine(reviewUrl.blue);
+    ConsoleManager.instance.writeLine(reviewUrl.blue, id: 'review_session_url');
     _reviewSessionLinesWritten++;
-    ConsoleManager.instance.writeLine(''); // Empty line
+    ConsoleManager.instance.writeLine('', id: 'review_session_empty2'); // Empty line
     _reviewSessionLinesWritten++;
-    ConsoleManager.instance.writeLine('Opening review session in your default browser...');
+    ConsoleManager.instance.writeLine('Opening review session in your default browser...', id: 'review_session_info');
     _reviewSessionLinesWritten++;
-    ConsoleManager.instance.writeLine(''); // Empty line
+    ConsoleManager.instance.writeLine('', id: 'review_session_empty3'); // Empty line
     _reviewSessionLinesWritten++;
     
     // Start the countdown timer if we have expiration time
     if (sessionExpirationTime != null) {
-      ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:');
+      ConsoleManager.instance.writeLine('Session will expire in 1 hour. Timer will update below:', id: 'review_session_expire_info');
       _reviewSessionLinesWritten++;
-      ConsoleManager.instance.writeLine('Waiting for you to complete the review in your browser...');
+      ConsoleManager.instance.writeLine('Waiting for you to complete the review in your browser...', id: 'review_session_waiting');
       _reviewSessionLinesWritten++;
       
       _startSessionCountdownTimer(sessionExpirationTime);
@@ -127,9 +127,9 @@ AsyncBabelResult<GenerateFlowDisplayedSessionReviewToUser>
       command = 'start "$reviewUrl"';
     } else {
       // Fallback - just print the URL
-      ConsoleManager.instance.writeLine('Please open the following URL in your browser:');
+      ConsoleManager.instance.writeLine('Please open the following URL in your browser:', id: 'review_session_manual_open');
       _reviewSessionLinesWritten += 2; // Count the fallback lines
-      ConsoleManager.instance.writeLine(reviewUrl.blue);
+      ConsoleManager.instance.writeLine(reviewUrl.blue, id: 'review_session_manual_url');
       return response.toSuccess();
     }
 
@@ -157,7 +157,7 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
   final console = ConsoleManager.instance;
   
   // Store initial cursor position for the timer line
-  console.writeLine(''); // Create a dedicated line for the timer
+  console.writeLine('', id: 'review_session_timer'); // Create a dedicated line for the timer
   _reviewSessionLinesWritten++;
   
   _sessionTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -168,7 +168,7 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
       // Move up to timer line, clear it, and print final message
       console.moveCursorUp(1);
       console.clearLine();
-      console.writeLine('⏰ Session has expired!'.red.bold);
+      console.writeLine('⏰ Session has expired!'.red.bold, id: 'review_session_timer');
       console.moveCursorDown(1);
       timer.cancel();
       _sessionTimer = null;
@@ -206,7 +206,7 @@ void _startSessionCountdownTimer(DateTime sessionExpirationTime) {
     // Move up to the timer line, clear it, and update with new time
     console.moveCursorUp(1);
     console.clearLine();
-    console.write('$statusIcon Session time remaining: $coloredTime');
+    console.write('$statusIcon Session time remaining: $coloredTime', id: 'review_session_timer');
     console.moveCursorDown(1);
     console.flush();
   });

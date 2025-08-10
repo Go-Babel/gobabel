@@ -50,6 +50,7 @@ ReplacementResult replaceL10nReferencesWithBabel({
 
     final regex =
         kBabelClass + r'\s*\.\s*' + '($variableNamesIdentifiers)' + r'\b';
+    print(regex);
 
     final groupRegex = RegExp(regex, multiLine: true);
 

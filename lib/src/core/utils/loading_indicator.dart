@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
@@ -39,6 +38,9 @@ class LoadingIndicator {
       instance._spinnerChars = ['|', '/', '-', '\\'];
     }
 
+    // Set up the loading display callback
+    instance._setupLoadingCallback();
+
     return instance;
   }
 
@@ -50,12 +52,14 @@ class LoadingIndicator {
 
   final Stopwatch _stopwatch = Stopwatch();
   List<String> _spinnerChars = [];
-  static const Duration _interval = Duration(milliseconds: 120);
   int _idx = 0;
-  Timer? _timer;
 
   String? _lastMessage;
-  int _currentLineCount = 1;
+  BarProgressInfo? _currentBarProgressInfo;
+  int _totalCount = 0;
+  int _step = 0;
+  String? _lastRawMessage;
+  bool _isPaused = false;
 
   String _truncateMessage(String message, int maxWidth) {
     if (message.length <= maxWidth) return message;
@@ -98,23 +102,6 @@ class LoadingIndicator {
     return '${message.substring(0, realIndex)}...';
   }
 
-  int _calculateLineCount(String text, int terminalWidth) {
-    // Remove ANSI escape codes for accurate length calculation
-    final cleanText = text.replaceAll(RegExp(r'\x1B\[[0-9;]*m'), '');
-    return (cleanText.length / terminalWidth).ceil();
-  }
-
-  void _cleanLine() {
-    final console = ConsoleManager.instance;
-    // Move cursor to beginning of line and clear it
-    console.clearLine();
-    // If we have multiple lines, move up and clear those too
-    for (int i = 1; i < _currentLineCount; i++) {
-      console.moveCursorUp(1);
-      console.clearLine();
-    }
-  }
-
   String _generateProgressBar(int current, int total, int width) {
     if (total <= 0) return '';
 
@@ -130,32 +117,63 @@ class LoadingIndicator {
     return '[$bar] $percentage%';
   }
 
-  int _getTerminalWidth() {
-    final console = ConsoleManager.instance;
-    try {
-      if (console.hasTerminal) {
-        return console.terminalWidth;
-      }
-    } catch (_) {}
-    return 80; // Default terminal width
+  void _setupLoadingCallback() {
+    ConsoleManager.instance.writeWithCallback(
+      (terminalWidth, terminalHeight) {
+        if (_lastMessage == null) return '';
+        
+        // Update spinner index every time we're called (roughly every 150ms from ConsoleManager timer)
+        _idx++;
+        
+        final timeFormatted = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
+        final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
+
+        // Build and truncate main message to fit terminal
+        var mainMessage = '[ ($_step/$_totalCount) $timeFormatted ] $spinnerChar ${_lastMessage!.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
+        
+        if (_isPaused) {
+          mainMessage = '[ ($_step/$_totalCount) $timeFormatted ] ${_lastRawMessage?.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine) ?? 'Processing'} ${'[PAUSED - WAITING USER ACTION]'.yellow}';
+        }
+        
+        mainMessage = _truncateMessage(mainMessage, terminalWidth - 1);
+
+        if (_currentBarProgressInfo != null && !_isPaused) {
+          // Multi-line output with progress bar
+          // Calculate bar width (leave some space for text)
+          final barWidth = (terminalWidth - 20).clamp(40, 100); // Min 40, max 100
+
+          final progressBar = _generateProgressBar(
+            _currentBarProgressInfo!.currentStep,
+            _currentBarProgressInfo!.totalSteps,
+            barWidth,
+          );
+
+          // Truncate bar progress message to fit
+          final truncatedBarMessage = _truncateMessage(
+            _currentBarProgressInfo!.message,
+            terminalWidth - 1,
+          );
+
+          // Display all three lines
+          return '$mainMessage\n$truncatedBarMessage\n$progressBar';
+        } else {
+          // Single line output
+          return mainMessage;
+        }
+      },
+      id: 'flow_messages',
+    );
   }
-
-  int _totalCount = 0;
-  int _step = 0;
-
-  String? _lastRawMessage;
 
   void setLoadingProgressBar({
     required String message,
     required BarProgressInfo barProgressInfo,
   }) {
     _lastRawMessage = message;
-    manageLoading(
-      message: message,
-      totalCount: _totalCount,
-      step: _step,
-      barProgressInfo: barProgressInfo,
-    );
+    _lastMessage = message;
+    _currentBarProgressInfo = barProgressInfo;
+    _totalCount = _totalCount;
+    _step = _step;
   }
 
   void setLoadingState({
@@ -166,12 +184,8 @@ class LoadingIndicator {
     _totalCount = totalCount;
     _step = step;
     _lastRawMessage = message;
-    manageLoading(
-      message: message,
-      totalCount: totalCount,
-      step: step,
-      barProgressInfo: null,
-    );
+    _lastMessage = message;
+    _currentBarProgressInfo = null;
   }
 
   @visibleForTesting
@@ -181,136 +195,54 @@ class LoadingIndicator {
     required int step,
     BarProgressInfo? barProgressInfo,
   }) {
-    // Cancel any existing timer first
-    _timer?.cancel();
-
-    // Start a periodic timer to update the spinner
-    _timer = Timer.periodic(_interval, (_) {
-      _cleanLine();
-      final termWidth = _getTerminalWidth();
-      final timeFormatted = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
-      final spinnerChar = _spinnerChars[_idx % _spinnerChars.length];
-
-      // Build and truncate main message to fit terminal
-      var mainMessage =
-          '[ ($step/$totalCount) $timeFormatted ] $spinnerChar ${message.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)}';
-      mainMessage = _truncateMessage(mainMessage, termWidth - 1);
-
-      if (barProgressInfo != null) {
-        // Multi-line output with progress bar
-
-        // Calculate bar width (leave some space for text)
-        final barWidth = (termWidth - 20).clamp(40, 100); // Min 40, max 100
-
-        final progressBar = _generateProgressBar(
-          barProgressInfo.currentStep,
-          barProgressInfo.totalSteps,
-          barWidth,
-        );
-
-        // Truncate bar progress message to fit
-        final truncatedBarMessage = _truncateMessage(
-          barProgressInfo.message,
-          termWidth - 1,
-        );
-
-        // Calculate actual line count based on wrapped text
-        final mainMessageLines = _calculateLineCount(mainMessage, termWidth);
-        final barMessageLines = _calculateLineCount(
-          truncatedBarMessage,
-          termWidth,
-        );
-        final progressBarLines = _calculateLineCount(progressBar, termWidth);
-        _currentLineCount =
-            mainMessageLines + barMessageLines + progressBarLines;
-
-        // Display all three lines
-        final console = ConsoleManager.instance;
-        console.write(mainMessage);
-        console.write('\n$truncatedBarMessage');
-        console.write('\n$progressBar');
-        console.flush();
-
-        _lastMessage = mainMessage;
-      } else {
-        // Single line output
-        _currentLineCount = _calculateLineCount(mainMessage, termWidth);
-        final console = ConsoleManager.instance;
-        console.write(mainMessage);
-        console.flush();
-        _lastMessage = mainMessage;
-      }
-
-      _idx++;
-    });
+    // Simply update the state, the callback will handle display
+    _lastMessage = message;
+    _totalCount = totalCount;
+    _step = step;
+    _currentBarProgressInfo = barProgressInfo;
   }
 
   void displayError() {
-    _cleanLine();
     final console = ConsoleManager.instance;
+    // Replace the flow_messages with an error message
     console.write(
       (_lastMessage?.replaceAll(RegExp(_spinnerChars.join('|')), ''))?.red ??
           'An error occurred'.red,
+      id: 'flow_messages',
     );
-    console.flush();
   }
 
   void pauseForUserAction() {
-    _timer?.cancel();
-    _cleanLine();
-    
-    // Get current time
-    final timeString = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
-    
-    // Display paused message with current progress
-    final messageToShow = _lastRawMessage ?? 'Processing';
-    final pausedMessage = '[ ($_step/$_totalCount) $timeString ] ${messageToShow.replaceAll('[ Normalizing codebase ]', '[ Normalizing codebase ]'.aquamarine)} ${'[PAUSED - WAITING USER ACTION]'.yellow}';
-    
-    final console = ConsoleManager.instance;
-    console.writeLine(pausedMessage);  // Use writeLine instead of write to ensure proper line ending
-    console.flush();
-    
-    // Pause the stopwatch
+    _isPaused = true;
     _stopwatch.stop();
   }
   
   void resumeAfterUserAction() {
-    // Resume the stopwatch
+    _isPaused = false;
     _stopwatch.start();
-    
-    // Resume the loading animation with the last message
-    if (_lastRawMessage != null) {
-      manageLoading(
-        message: _lastRawMessage!,
-        totalCount: _totalCount,
-        step: _step,
-        barProgressInfo: null,
-      );
-    }
   }
 
   void displaySuccess(String message) {
-    _timer?.cancel();
-    _cleanLine();
-
-    // Clear the entire terminal screen
-    final console = ConsoleManager.instance;
-    console.clearAndReset();
-
+    // Clear the loading display
+    ConsoleManager.instance.excludeConsoleId('flow_messages');
+    
     // Calculate total elapsed time
     final timeString = _formatElapsedTime(_stopwatch.elapsedMilliseconds);
 
-    // Display only the success message with time
-    console.writeLine(message);
-    console.writeLine('\nCompleted in $timeString'.dim);
-    console.flush();
+    // Display success message
+    final console = ConsoleManager.instance;
+    console.writeLine(message, id: 'flow_success_message');
+    console.writeLine('\nCompleted in $timeString'.dim, id: 'flow_success_time');
 
     dispose();
   }
 
   void dispose() {
-    _timer?.cancel();
     _stopwatch.stop();
+    // Clear the flow_messages when disposing
+    ConsoleManager.instance.excludeConsoleId('flow_messages');
+    ConsoleManager.instance.excludeConsoleId('flow_success_message');
+    ConsoleManager.instance.excludeConsoleId('flow_success_time');
   }
 
   /// Formats elapsed time in milliseconds to a human-readable string

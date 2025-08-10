@@ -56,7 +56,7 @@ multiRemoveConstOfListsSetsAndMapThatContainHardcodedStringsInside({
         }
       } catch (e) {
         // Log error but continue with other files
-        ConsoleManager.instance.error('Error processing file ${file.path}: $e');
+        ConsoleManager.instance.error('Error processing file ${file.path}: $e', id: 'error_processing_file');
       }
     }
 

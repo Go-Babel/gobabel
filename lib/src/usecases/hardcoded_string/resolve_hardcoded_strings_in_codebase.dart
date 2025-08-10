@@ -50,7 +50,7 @@ AsyncBabelResult<Unit> resolveHardcodedStringsInCodebase({
           await file.writeAsString(fileContent);
           didAtLeastOneFileChange = true;
         } catch (e) {
-          ConsoleManager.instance.error('Error processing file $entry: "$e"');
+          ConsoleManager.instance.error('Error processing file $entry: "$e"', id: 'error_processing_file');
         }
       }
 

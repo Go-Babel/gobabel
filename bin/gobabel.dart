@@ -25,14 +25,14 @@ Future<String> getRequiredParameter({
     return providedValue;
   }
 
-  console.info(description);
+  console.info(description, id: 'cli_info');
 
   final result = await getTextFieldInput(
     prompt: 'Please enter your $parameterName',
   );
 
   if (result.isEmpty) {
-    console.error('Error: $parameterName is required.');
+    console.error('Error: $parameterName is required.', id: 'cli_error');
     exit(1);
   }
 
@@ -107,7 +107,7 @@ Future<void> main(List<String> arguments) async {
   try {
     argResults = parser.parse(arguments);
   } catch (e) {
-    console.error('Error parsing arguments: $e');
+    console.error('Error parsing arguments: $e', id: 'cli_error');
     printUsage(parser);
     exit(1);
   }
@@ -122,10 +122,10 @@ Future<void> main(List<String> arguments) async {
   if (argResults['version'] as bool) {
     try {
       final version = await getPackageVersion();
-      console.writeLine('go_babel version: $version');
+      console.writeLine('go_babel version: $version', id: 'cli_info');
       exit(0);
     } catch (e) {
-      console.error('Error reading package version: $e');
+      console.error('Error reading package version: $e', id: 'cli_error');
       exit(1);
     }
   }
@@ -142,6 +142,7 @@ Future<void> main(List<String> arguments) async {
       argResults['generate'] as bool && argResults['create'] as bool) {
     console.error(
       'Error: Cannot specify --sync, --generate, or --create together. Use one at a time.',
+      id: 'cli_error',
     );
     printUsage(parser);
     exit(1);
@@ -151,14 +152,14 @@ Future<void> main(List<String> arguments) async {
   if (!(argResults['sync'] as bool) &&
       !(argResults['generate'] as bool) &&
       !(argResults['create'] as bool)) {
-    console.error('Error: Must specify either --sync or --generate.');
+    console.error('Error: Must specify either --sync or --generate.', id: 'cli_error');
     printUsage(parser);
     exit(1);
   }
   final apiPath = argResults['path'] as String?;
   final directory = resolvePath(apiPath);
   if (apiPath != null) {
-    console.info('Running for dirrectory: $directory');
+    console.info('Running for dirrectory: $directory', id: 'cli_info');
   }
 
   // Get the will-create-log-file flag value
@@ -212,11 +213,12 @@ Future<void> main(List<String> arguments) async {
 
     if (language == null) {
       // Interactive mode - prompt user
-      console.warning('Language is required for generate operation.');
+      console.warning('Language is required for generate operation.', id: 'cli_warning');
       console.warning(
         'Enter language in format language_country (e.g., en_US)',
+        id: 'cli_warning',
       );
-      console.info('Use arrow keys to navigate options or type to filter');
+      console.info('Use arrow keys to navigate options or type to filter', id: 'cli_info');
 
       babelSupportedLocale = await getDataFromInput<BabelSupportedLocales>(
         prompt: 'Please select or type a language code (ex: en_US)',
@@ -242,7 +244,7 @@ Future<void> main(List<String> arguments) async {
       );
 
       if (babelSupportedLocale == null) {
-        console.error('Error: Language selection cancelled or invalid.');
+        console.error('Error: Language selection cancelled or invalid.', id: 'cli_error');
         exit(1);
       }
     } else {
@@ -252,6 +254,7 @@ Future<void> main(List<String> arguments) async {
       if (normalizedLanguage == null) {
         console.error(
           'Error: Invalid language format.\nExpected formats: en_US, enus, enUS, or ENUS.',
+          id: 'cli_error',
         );
         printSupportedLanguages();
         exit(1);
@@ -267,7 +270,7 @@ Future<void> main(List<String> arguments) async {
         countryCode,
       );
       if (babelSupportedLocale == null) {
-        console.error('Error: Invalid language/country code for $language');
+        console.error('Error: Invalid language/country code for $language', id: 'cli_error');
         printSupportedLanguages();
         exit(1);
       }
@@ -334,7 +337,7 @@ Future<void> runInTryCatch({
           failure.exception.description.red +
           suffixMessage;
 
-      console.writeLine(mainMessage);
+      console.writeLine(mainMessage, id: 'cli_error');
 
       exit(1);
     },
@@ -345,14 +348,14 @@ Future<void> runInTryCatch({
 Future<String> getPackageVersion() async {
   final file = File('pubspec.yaml');
   if (!await file.exists()) {
-    console.error('\npubspec.yaml not found');
+    console.error('\npubspec.yaml not found', id: 'cli_error');
     exit(0);
   }
   final content = await file.readAsString();
   final yaml = loadYaml(content);
   final version = yaml['version'];
   if (version == null) {
-    console.error('\nVersion not specified in pubspec.yaml');
+    console.error('\nVersion not specified in pubspec.yaml', id: 'cli_error');
     exit(0);
   }
   return version.toString();
@@ -360,21 +363,21 @@ Future<String> getPackageVersion() async {
 
 // Helper function to display usage information
 void printUsage(ArgParser parser) {
-  console.usage('ℹ️ Usage: go_babel [options]');
-  console.usage('Options:');
-  console.usage(parser.usage);
+  console.usage('ℹ️ Usage: go_babel [options]', id: 'cli_usage');
+  console.usage('Options:', id: 'cli_usage_options');
+  console.usage(parser.usage, id: 'cli_usage_details');
 }
 
 // Helper function to display all supported languages
 void printSupportedLanguages() {
-  console.info('Supported Languages:');
-  console.info('Format: language_country - Display Name\n');
+  console.info('Supported Languages:', id: 'cli_languages_header');
+  console.info('Format: language_country - Display Name\n', id: 'cli_languages_format');
 
   final locales = BabelSupportedLocales.values;
 
   for (var locale in locales) {
     final code = '${locale.languageCode}_${locale.countryCode}'.padRight(6);
-    console.usage('${locale.flagEmoji}  $code - ${locale.displayName}');
+    console.usage('${locale.flagEmoji}  $code - ${locale.displayName}', id: 'cli_language_$code');
   }
 }
 

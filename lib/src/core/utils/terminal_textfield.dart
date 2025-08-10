@@ -25,11 +25,10 @@ Future<T?> getDataFromInput<T>({
   InputFormOptions<T>? inputOptions,
 }) async {
   final completer = Completer<T?>();
-  final buffer = StringBuffer();
+  final inputBuffer = StringBuffer();
   var focusMode = _FocusMode.textfield;
   var selectedOptionIndex = 0;
   String? lastError;
-  bool firstDraw = true;
 
   // Convert options to list for indexing
   final optionsList = inputOptions?.options.toList() ?? [];
@@ -40,7 +39,7 @@ Future<T?> getDataFromInput<T>({
   final hasLineMode = stdin.hasTerminal && stdin.lineMode;
 
   void updateFilteredOptions() {
-    final searchText = buffer.toString().toLowerCase();
+    final searchText = inputBuffer.toString().toLowerCase();
     if (searchText.isEmpty) {
       filteredOptions = optionsList;
     } else {
@@ -55,99 +54,66 @@ Future<T?> getDataFromInput<T>({
     }
   }
 
-  void redrawUI() {
-    // Calculate how many lines to clear based on what's displayed
-    final hasOptions = optionsList.isNotEmpty && filteredOptions.isNotEmpty;
-    final hasError = lastError != null;
-    final optionsToShow = hasOptions ? min(filteredOptions.length, 5) : 0;
-
-    // Hide cursor during redraw to reduce flicker
-    final console = ConsoleManager.instance;
-    console.hideCursor();
-
-    // Bulletproof redraw strategy:
-    // 1. Save cursor position after prompt on first draw
-    // 2. Always restore to that position and clear everything below
-    // This avoids complex position tracking that causes duplication
-    if (!firstDraw) {
-      console.restoreCursorPosition();
-      console.clearToEndOfScreen();
-    } else {
-      // First draw - save current position as our reference point
-      console.saveCursorPosition();
-      firstDraw = false;
-    }
-
-    // Draw text field
-    _drawTextField(buffer.toString(), focusMode == _FocusMode.textfield);
-
-    // Draw error message if any
-    if (hasError) {
-      console.write('\n');
-      console.write(' ❌ $lastError'.red);
-    }
-
-    // Draw options if available
-    if (hasOptions && filteredOptions.isNotEmpty) {
-      console.write('\n');
-      _drawGenericOptions(
-        filteredOptions,
-        inputOptions!.optionToString,
-        selectedOptionIndex,
-        focusMode == _FocusMode.options,
+  // Set up the UI display using callback system
+  final console = ConsoleManager.instance;
+  
+  // Display the prompt
+  console.write(prompt, id: 'textfield_prompt');
+  
+  // Set up the textfield display callback
+  console.writeWithCallback(
+    (terminalWidth, terminalHeight) {
+      final hasOptions = optionsList.isNotEmpty && filteredOptions.isNotEmpty;
+      final hasError = lastError != null;
+      
+      // Build the complete UI
+      final uiBuffer = StringBuffer();
+      
+      // Draw text field
+      final textFieldContent = _getTextFieldContent(
+        inputBuffer.toString(),
+        focusMode == _FocusMode.textfield,
+        terminalWidth,
       );
-    }
-
-    // Position cursor based on focus mode
-    if (focusMode == _FocusMode.textfield) {
-      // Calculate how many lines we need to move up from current position
-      // After drawing, cursor is at the end of the last drawn element
-      int linesToMoveUp = 0;
-      if (hasOptions) {
-        // Options + newline before them
-        linesToMoveUp += optionsToShow + 1;
-      }
+      uiBuffer.write(textFieldContent);
+      
+      // Draw error message if any
       if (hasError) {
-        linesToMoveUp += 2; // Error line + newline before error
+        uiBuffer.write('\n');
+        uiBuffer.write(' ❌ $lastError'.red);
       }
-      linesToMoveUp += 1; // Bottom border line to get to content line
-
-      // Move up to the content line of the textfield
-      console.moveCursorUp(linesToMoveUp);
-
-      // Move to the correct horizontal position
-      // Start at beginning of line, then move past the prompt and existing text
-      console.moveCursorToLineStart();
-
-      // Calculate display content length for cursor position
-      final width = ConsoleManager.instance.terminalWidth;
-      final boxWidth = max(width, 20); // Use full width
-      final availableWidth = max(10, boxWidth - 4); // Ensure minimum space
-
-      // Account for the "│ > " prefix: border (1) + space (1) + > (1) + space (1) = 4
-      // The cursor needs to be positioned AFTER the typed text
-      int horizontalPosition = 4; // "│ > "
-
-      // Add the length of the buffer content
-      if (buffer.length > availableWidth && availableWidth > 3) {
-        // Content is truncated with "..."
-        horizontalPosition += availableWidth;
-      } else if (buffer.length > availableWidth) {
-        // Very narrow, no ellipsis
-        horizontalPosition += availableWidth;
-      } else {
-        // Content fits
-        horizontalPosition += buffer.length;
+      
+      // Draw options if available
+      if (hasOptions && filteredOptions.isNotEmpty) {
+        uiBuffer.write('\n');
+        final optionsContent = _getGenericOptionsContent(
+          filteredOptions,
+          inputOptions!.optionToString,
+          selectedOptionIndex,
+          focusMode == _FocusMode.options,
+          terminalWidth,
+        );
+        uiBuffer.write(optionsContent);
       }
+      
+      return uiBuffer.toString();
+    },
+    id: 'textfield_ui',
+  );
 
-      console.moveCursorRight(horizontalPosition);
-    } else {
-      // In options mode, cursor should stay where it is (on the selected option)
-      // No need to move it
+  ProcessSignal? resizeSignal;
+  StreamSubscription<ProcessSignal>? resizeSubscription;
+
+  // Try to set up SIGWINCH handler for resize events (non-Windows)
+  if (!Platform.isWindows) {
+    try {
+      resizeSignal = ProcessSignal.sigwinch;
+      resizeSubscription = resizeSignal.watch().listen((_) {
+        // Terminal resized - display will update automatically on next refresh
+      });
+    } catch (_) {
+      // SIGWINCH not available
     }
-
-    // Show cursor again
-    console.showCursor();
   }
 
   try {
@@ -156,33 +122,6 @@ Future<T?> getDataFromInput<T>({
       stdin.echoMode = false;
       stdin.lineMode = false;
     }
-
-    // Print initial prompt
-    ConsoleManager.instance.writeLine(prompt);
-
-    // Draw initial UI
-    redrawUI();
-
-    // Set up terminal resize handler
-    ProcessSignal? resizeSignal;
-    StreamSubscription<ProcessSignal>? resizeSubscription;
-
-    // Try to set up SIGWINCH handler for resize events
-    // This may not work in all environments (e.g., VS Code integrated terminal)
-    if (!Platform.isWindows) {
-      try {
-        resizeSignal = ProcessSignal.sigwinch;
-        resizeSubscription = resizeSignal.watch().listen((_) {
-          // Force a redraw on resize signal
-          redrawUI();
-        });
-      } catch (_) {
-        // SIGWINCH not available - width will still update on each redraw
-      }
-    }
-
-    // For environments where SIGWINCH doesn't work (VS Code, Windows),
-    // the terminal width is checked on every redraw operation
 
     // Read input character by character
     await for (final key in stdin) {
@@ -195,7 +134,6 @@ Future<T?> getDataFromInput<T>({
           // Up arrow
           if (focusMode == _FocusMode.options && selectedOptionIndex > 0) {
             selectedOptionIndex--;
-            redrawUI();
           }
         } else if (code == 66) {
           // Down arrow
@@ -204,11 +142,9 @@ Future<T?> getDataFromInput<T>({
               filteredOptions.isNotEmpty) {
             focusMode = _FocusMode.options;
             selectedOptionIndex = 0;
-            redrawUI();
           } else if (focusMode == _FocusMode.options &&
               selectedOptionIndex < filteredOptions.length - 1) {
             selectedOptionIndex++;
-            redrawUI();
           }
         }
         continue;
@@ -223,7 +159,6 @@ Future<T?> getDataFromInput<T>({
           if (focusMode == _FocusMode.options) {
             // Go back to textfield
             focusMode = _FocusMode.textfield;
-            redrawUI();
           } else {
             // Return null when ESC pressed in textfield
             completer.complete(null);
@@ -237,7 +172,7 @@ Future<T?> getDataFromInput<T>({
             break;
           } else {
             // Try to map the input
-            final inputText = buffer.toString();
+            final inputText = inputBuffer.toString();
             final mapped = userInputToOptionMapper(inputText);
             if (mapped != null) {
               completer.complete(mapped);
@@ -245,22 +180,19 @@ Future<T?> getDataFromInput<T>({
             } else {
               // Show error
               lastError = errorMessage;
-              redrawUI();
             }
           }
         } else if (code == 127 || code == 8) {
           // Backspace
-          if (focusMode == _FocusMode.textfield && buffer.isNotEmpty) {
-            final currentText = buffer.toString();
-            buffer.clear();
-            buffer.write(currentText.substring(0, currentText.length - 1));
+          if (focusMode == _FocusMode.textfield && inputBuffer.isNotEmpty) {
+            final currentText = inputBuffer.toString();
+            inputBuffer.clear();
+            inputBuffer.write(currentText.substring(0, currentText.length - 1));
             lastError = null; // Clear error on input change
             updateFilteredOptions();
-            redrawUI();
           } else if (focusMode == _FocusMode.options) {
             // Go back to textfield on backspace in options mode
             focusMode = _FocusMode.textfield;
-            redrawUI();
           }
         } else if (code == 3) {
           // Ctrl+C
@@ -271,10 +203,9 @@ Future<T?> getDataFromInput<T>({
             // Switch back to textfield when typing
             focusMode = _FocusMode.textfield;
           }
-          buffer.write(String.fromCharCodes(key));
+          inputBuffer.write(String.fromCharCodes(key));
           lastError = null; // Clear error on input change
           updateFilteredOptions();
-          redrawUI();
         }
       }
     }
@@ -282,10 +213,10 @@ Future<T?> getDataFromInput<T>({
     // Clean up
     await resizeSubscription?.cancel();
 
-    // Clear the UI and move to next line
-    ConsoleManager.instance.restoreCursorPosition();
-    ConsoleManager.instance.clearToEndOfScreen();
-    ConsoleManager.instance.write('\n');
+    // Clear the textfield UI
+    console.excludeConsoleId('textfield_prompt');
+    console.excludeConsoleId('textfield_ui');
+    
   } finally {
     // Restore terminal settings
     if (stdin.hasTerminal) {
@@ -323,10 +254,8 @@ Future<String> getTextFieldInput({
   return result ?? '';
 }
 
-void _drawTextField(String content, bool hasFocus) {
-  final console = ConsoleManager.instance;
-  final width = console.terminalWidth;
-  final boxWidth = max(width, 20); // Use full width, minimum 20 chars
+String _getTextFieldContent(String content, bool hasFocus, int terminalWidth) {
+  final boxWidth = max(terminalWidth, 20); // Use full width, minimum 20 chars
 
   // Calculate content display
   final availableWidth = max(
@@ -360,21 +289,21 @@ void _drawTextField(String content, bool hasFocus) {
   final contentLine =
       borderColor('│') + contentWithPrompt + ' ' * padding + borderColor('│');
 
-  // Draw the text field
-  console.write('$topBorder\n$contentLine\n$bottomBorder');
+  // Return the text field
+  return '$topBorder\n$contentLine\n$bottomBorder';
 }
 
-void _drawGenericOptions<T>(
+String _getGenericOptionsContent<T>(
   List<T> options,
   String Function(T) optionToString,
   int selectedIndex,
   bool hasFocus,
+  int terminalWidth,
 ) {
-  if (options.isEmpty) return;
+  if (options.isEmpty) return '';
 
-  final console = ConsoleManager.instance;
-  final width = console.terminalWidth;
-  final boxWidth = max(width, 20); // Use full width
+  final buffer = StringBuffer();
+  final boxWidth = max(terminalWidth, 20); // Use full width
 
   // Show max 5 options with viewport scrolling
   final maxVisible = 5;
@@ -430,7 +359,7 @@ void _drawGenericOptions<T>(
       line = '   $displayOption';
     }
 
-    console.writeLine(line);
+    buffer.writeln(line);
   }
 
   // Show scroll indicators
@@ -439,16 +368,18 @@ void _drawGenericOptions<T>(
     final below = options.length - viewportEnd;
 
     if (above > 0 && below > 0) {
-      console.write('   ↑ $above more above, ↓ $below more below'.gray);
+      buffer.write('   ↑ $above more above, ↓ $below more below'.gray);
     } else if (above > 0) {
-      console.write('   ↑ $above more above'.gray);
+      buffer.write('   ↑ $above more above'.gray);
     } else if (below > 0) {
-      console.write('   ↓ $below more below'.gray);
+      buffer.write('   ↓ $below more below'.gray);
     }
   }
+
+  return buffer.toString().trimRight();
 }
 
-// Made visible for testing
+// Made visible for testing - now just returns a default width since ConsoleManager handles width
 int getTerminalWidth() {
-  return ConsoleManager.instance.terminalWidth;
+  return 80; // Default width for testing
 }

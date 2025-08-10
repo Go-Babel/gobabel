@@ -1,6 +1,11 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:dart_console/dart_console.dart';
 import 'package:chalkdart/chalkstrings.dart';
+
+typedef ConsoleLogId = String;
+typedef ConsoleLogContent = String;
+typedef WriteCallback = ConsoleLogContent Function(int terminalWidth, int terminalHeight);
 
 /// Centralized console management for all CLI output operations.
 /// This singleton class wraps dart_console and provides a unified interface
@@ -8,12 +13,11 @@ import 'package:chalkdart/chalkstrings.dart';
 class ConsoleManager {
   static ConsoleManager? _instance;
   late final Console _console;
+  bool _didAlreadyInit = false;
+  Timer? _refreshTimer;
   
   // Track if we're in raw mode for proper cleanup
   bool _isRawMode = false;
-  
-  // Track last operation for smart clearing
-  bool _hasActiveContent = false;
   
   ConsoleManager._() {
     _console = Console();
@@ -21,153 +25,132 @@ class ConsoleManager {
   
   /// Get the singleton instance of ConsoleManager
   static ConsoleManager get instance {
-    _instance ??= ConsoleManager._();
+    _instance ??= ConsoleManager._().._init();
     return _instance!;
   }
   
   /// Get the underlying Console instance for advanced operations
   Console get console => _console;
   
-  /// Get terminal width
-  int get terminalWidth => _console.windowWidth;
-  
-  /// Get terminal height
-  int get terminalHeight => _console.windowHeight;
-  
   /// Check if terminal is available
   bool get hasTerminal => stdout.hasTerminal;
   
-  /// Check if any content has been written
-  bool get hasActiveContent => _hasActiveContent;
+  // ===== Core Map-based System =====
   
-  // ===== Basic Output Methods =====
+  Map<ConsoleLogId, WriteCallback> consoleLogState = {};
   
-  /// Write a line of text (equivalent to print)
-  void writeLine(String message, {TextAlignment? alignment}) {
-    _hasActiveContent = true;
-    if (alignment != null) {
-      _console.writeLine(message, alignment);
-    } else {
-      _console.writeLine(message);
-    }
+  void write(ConsoleLogContent message, {required ConsoleLogId id}) {
+    consoleLogState[id] = (_, __) => message;
   }
   
-  /// Write text without newline (equivalent to stdout.write)
-  void write(String message) {
-    _hasActiveContent = true;
-    _console.write(message);
+  void writeWithCallback(
+    WriteCallback messageCallback, {
+    required ConsoleLogId id,
+  }) {
+    consoleLogState[id] = messageCallback;
   }
   
-  /// Write empty line
-  void writeEmptyLine() {
-    writeLine('');
+  void excludeConsoleId(ConsoleLogId id) => consoleLogState.remove(id);
+  
+  void _init() {
+    if (_didAlreadyInit) return;
+    _didAlreadyInit = true;
+    
+    _refreshTimer = Timer.periodic(Duration(milliseconds: 150), (_) {
+      final int terminalWidth = _console.windowWidth;
+      final int terminalHeight = _console.windowHeight;
+      _console.clearScreen();
+      _console.resetCursorPosition();
+      
+      for (final WriteCallback callback in consoleLogState.values) {
+        final content = callback(terminalWidth, terminalHeight);
+        if (content.isNotEmpty) {
+          _console.writeLine(content);
+        }
+      }
+      
+      stdout.flush();
+    });
   }
   
   // ===== Formatted Message Methods =====
   
+  /// Write a line of text (equivalent to print)
+  void writeLine(String message, {required ConsoleLogId id, TextAlignment? alignment}) {
+    write(message, id: id);
+  }
+  
   /// Write an info message with icon
-  void info(String message) {
-    writeLine('ℹ️  $message'.wheat);
+  void info(String message, {required ConsoleLogId id}) {
+    write('ℹ️  $message'.wheat, id: id);
   }
   
   /// Write an error message with icon
-  void error(String message) {
-    writeLine('❌ $message'.red);
+  void error(String message, {required ConsoleLogId id}) {
+    write('❌ $message'.red, id: id);
   }
   
   /// Write a warning message with icon
-  void warning(String message) {
-    writeLine('⚠️ $message'.yellowBright);
+  void warning(String message, {required ConsoleLogId id}) {
+    write('⚠️ $message'.yellowBright, id: id);
   }
   
   /// Write a success message with icon
-  void success(String message) {
-    writeLine('✅ $message'.green);
+  void success(String message, {required ConsoleLogId id}) {
+    write('✅ $message'.green, id: id);
   }
   
   /// Write a dimmed message
-  void dim(String message) {
-    writeLine(message.dim);
+  void dim(String message, {required ConsoleLogId id}) {
+    write(message.dim, id: id);
   }
   
   /// Write usage/help text
-  void usage(String message) {
-    writeLine(message.white);
+  void usage(String message, {required ConsoleLogId id}) {
+    write(message.white, id: id);
   }
   
-  // ===== Screen Management Methods =====
+  // ===== Cursor Position Management =====
+  // These are kept for compatibility but do nothing since screen is cleared every refresh
   
-  /// Clear the entire screen
-  void clearScreen() {
-    _console.clearScreen();
-    _hasActiveContent = false;
-  }
-  
-  /// Reset cursor to top-left position
-  void resetCursor() {
-    _console.resetCursorPosition();
-  }
-  
-  /// Clear screen and reset cursor
-  void clearAndReset() {
-    clearScreen();
-    resetCursor();
-  }
-  
-  /// Save current cursor position
   void saveCursorPosition() {
-    write('\x1B[s');
+    // No-op in new system
   }
   
-  /// Restore saved cursor position
   void restoreCursorPosition() {
-    write('\x1B[u');
+    // No-op in new system
   }
   
-  /// Clear from cursor to end of screen
   void clearToEndOfScreen() {
-    write('\x1B[J');
+    // No-op in new system
   }
   
-  /// Clear current line
   void clearLine() {
-    write('\r\x1B[2K');
+    // No-op in new system
   }
   
-  /// Move cursor up by n lines
   void moveCursorUp(int lines) {
-    if (lines > 0) {
-      write('\x1B[${lines}A');
-    }
+    // No-op in new system
   }
   
-  /// Move cursor down by n lines
   void moveCursorDown(int lines) {
-    if (lines > 0) {
-      write('\x1B[${lines}B');
-    }
+    // No-op in new system
   }
   
-  /// Move cursor to beginning of line
   void moveCursorToLineStart() {
-    write('\r');
+    // No-op in new system
   }
   
-  /// Move cursor right by n columns
   void moveCursorRight(int columns) {
-    if (columns > 0) {
-      write('\x1B[${columns}C');
-    }
+    // No-op in new system
   }
   
-  /// Hide cursor
   void hideCursor() {
-    write('\x1B[?25l');
+    _console.write('\x1B[?25l');
   }
   
-  /// Show cursor
   void showCursor() {
-    write('\x1B[?25h');
+    _console.write('\x1B[?25h');
   }
   
   // ===== Terminal Mode Methods =====
@@ -192,6 +175,7 @@ class ConsoleManager {
   
   /// Ensure terminal is restored on exit
   void dispose() {
+    _refreshTimer?.cancel();
     if (_isRawMode) {
       disableRawMode();
     }
@@ -207,14 +191,17 @@ class ConsoleManager {
   
   /// Handle Ctrl+C gracefully
   void handleCtrlC() {
-    writeLine('\n^C');
+    _refreshTimer?.cancel();
+    _console.clearScreen();
+    _console.resetCursorPosition();
+    _console.writeLine('\n^C');
     dispose();
     exit(0);
   }
   
   /// Calculate how many lines a message will take given terminal width
   int calculateLineCount(String message, {int? maxWidth}) {
-    final width = maxWidth ?? terminalWidth;
+    final width = maxWidth ?? _console.windowWidth;
     if (width <= 0) return 1;
     
     // Remove ANSI color codes for accurate length calculation
@@ -226,7 +213,7 @@ class ConsoleManager {
   
   /// Wrap text to fit terminal width
   List<String> wrapText(String text, {int? maxWidth}) {
-    final width = maxWidth ?? terminalWidth;
+    final width = maxWidth ?? _console.windowWidth;
     if (width <= 0 || text.length <= width) return [text];
     
     final lines = <String>[];
@@ -254,27 +241,27 @@ class ConsoleManager {
     return lines;
   }
   
-  /// Write a progress message that updates in place
-  void updateProgress(String message) {
-    clearLine();
-    write(message);
-    flush();
-  }
-  
   /// Write a table with proper alignment
-  void writeTable(List<List<String>> rows, {List<int>? columnWidths}) {
+  void writeTable(List<List<String>> rows, {List<int>? columnWidths, required ConsoleLogId id}) {
     if (rows.isEmpty) return;
     
-    // Calculate column widths if not provided
-    final widths = columnWidths ?? _calculateColumnWidths(rows);
-    
-    for (final row in rows) {
-      final formattedRow = <String>[];
-      for (var i = 0; i < row.length && i < widths.length; i++) {
-        formattedRow.add(row[i].padRight(widths[i]));
-      }
-      writeLine(formattedRow.join('  '));
-    }
+    writeWithCallback(
+      (terminalWidth, _) {
+        // Calculate column widths if not provided
+        final widths = columnWidths ?? _calculateColumnWidths(rows);
+        
+        final buffer = StringBuffer();
+        for (final row in rows) {
+          final formattedRow = <String>[];
+          for (var i = 0; i < row.length && i < widths.length; i++) {
+            formattedRow.add(row[i].padRight(widths[i]));
+          }
+          buffer.writeln(formattedRow.join('  '));
+        }
+        return buffer.toString().trimRight();
+      },
+      id: id,
+    );
   }
   
   List<int> _calculateColumnWidths(List<List<String>> rows) {
@@ -294,5 +281,22 @@ class ConsoleManager {
     }
     
     return widths;
+  }
+  
+  // Legacy screen management methods - kept for backward compatibility
+  void clearScreen() {
+    // No-op - screen is cleared automatically in refresh cycle
+  }
+  
+  void resetCursor() {
+    // No-op - cursor is reset automatically in refresh cycle
+  }
+  
+  void clearAndReset() {
+    // No-op - handled automatically in refresh cycle
+  }
+  
+  void updateProgress(String message, {required ConsoleLogId id}) {
+    write(message, id: id);
   }
 }

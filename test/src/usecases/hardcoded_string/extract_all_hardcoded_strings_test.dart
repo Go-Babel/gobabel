@@ -86,7 +86,8 @@ void main() {
         // Apply the same filtering logic as in the actual implementation
         final projectDirectoryPath =
             testDir.path; // Simulate payload.directoryPath
-        final filesToProcess = projectArbData.mapOrNull(
+        final filesToProcess =
+            projectArbData.mapOrNull(
               withData: (arbData) {
                 final arbDir = arbData.config.mapOrNull(
                   withData: (config) => config.arbDir,
@@ -133,3 +134,76 @@ void main() {
     );
   });
 }
+
+final String contentTest = '''import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:scoutbox/gen_l10n/s.dart';
+import 'package:scoutbox/main.dart';
+
+class LoadingBuilder<T> extends StatefulWidget {
+  const LoadingBuilder({
+    super.key,
+    required this.future,
+    required this.builder,
+  });
+  final Future<T> future;
+  final Widget Function(BuildContext, T) builder;
+
+  @override
+  State<LoadingBuilder<T>> createState() => _LoadingBuilderState<T>();
+}
+
+final class _LoadingBuilderState<T> extends State<LoadingBuilder<T>> {
+  final _completer = Completer<T>();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.future.then((value) {
+        if (mounted) {
+          _completer.complete(value);
+        }
+      }).catchError((Object e, StackTrace s) {
+        talker.error(
+          'Error in LoadingBuilder',
+          e,
+          s,
+        );
+        if (mounted) {
+          _completer.completeError(e, s);
+        }
+        throw e;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _completer.future,
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<T> snapshot,
+      ) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (snapshot.hasError) {
+          return Center(
+            child: Text(S.of(context)!.an_error_occurred),
+          );
+        }
+        if (snapshot.hasData) {
+          return widget.builder(context, snapshot.data as T);
+        } else {
+          return const SizedBox.shrink();
+        }
+      },
+    );
+  }
+}
+''';

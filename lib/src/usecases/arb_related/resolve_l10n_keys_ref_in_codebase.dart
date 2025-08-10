@@ -135,7 +135,7 @@ replaceAllL10nKeyReferencesInCodebaseForBabelFunctions({
     } catch (e, s) {
       // Log error but continue processing other files
       logMessages.add('Error processing file "${file.path}": $e\n$s');
-      ConsoleManager.instance.error('Error processing file "${file.path}": $e');
+      ConsoleManager.instance.error('Error processing file "${file.path}": $e', id: 'error_processing_file');
       rethrow;
       // continue;
     }

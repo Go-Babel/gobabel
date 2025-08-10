@@ -55,6 +55,8 @@ class MyWidget extends StatelessWidget {
       expect(result, contains("import 'package:flutter/material.dart';"));
       expect(result, contains("import 'package:provider/provider.dart';"));
       expect(result, isNot(contains('flutter_gen')));
+      // Ensure we matched the concrete filename app_localizations.dart (not just outputClass.toLowerCase).
+      expect(result, isNot(contains('app_localizations.dart')));
     });
 
     test('removes import with alias', () {
@@ -228,6 +230,7 @@ import 'package:provider/provider.dart';
 
       expect(hasChanges, isTrue);
       expect(result, isNot(contains('flutter_gen')));
+      expect(result, isNot(contains('app_localizations.dart')));
     });
 
     test('handles imports with double quotes', () {
@@ -245,6 +248,7 @@ import 'package:provider/provider.dart';
 
       expect(hasChanges, isTrue);
       expect(result, isNot(contains('flutter_gen')));
+      expect(result, isNot(contains('app_localizations.dart')));
     });
 
     test('preserves other imports untouched', () {
@@ -324,6 +328,73 @@ import 'package:provider/provider.dart';
       expect(result, isNot(contains('flutter_gen')));
       expect(result, contains("import 'package:flutter/material.dart';"));
       expect(result, contains("import 'package:provider/provider.dart';"));
+    });
+
+    test('removes relative gen_l10n import for AppLocalizations', () {
+      const fileContent = '''
+import 'package:flutter/material.dart';
+import '../../../../gen_l10n/applocalizations.dart';
+import 'package:provider/provider.dart';
+''';
+
+      final (result, hasChanges) = replaceImportsIfNeeded(
+        fileContent: fileContent,
+        projectConfig: syntheticConfig,
+        projectName: 'my_app',
+      );
+
+      expect(hasChanges, isTrue);
+      expect(result, contains("import 'package:flutter/material.dart';"));
+      expect(result, contains("import 'package:provider/provider.dart';"));
+      expect(result, isNot(contains('gen_l10n/applocalizations.dart')));
+    });
+
+    test('removes relative gen_l10n import with alias', () {
+      const fileContent = '''
+import 'package:flutter/material.dart';
+import '../../../../gen_l10n/applocalizations.dart' as l10n;
+import 'package:provider/provider.dart';
+''';
+
+      final (result, hasChanges) = replaceImportsIfNeeded(
+        fileContent: fileContent,
+        projectConfig: syntheticConfig,
+        projectName: 'my_app',
+      );
+
+      expect(hasChanges, isTrue);
+      expect(result, isNot(contains("as l10n")));
+      expect(result, isNot(contains('gen_l10n/applocalizations.dart')));
+    });
+
+    test('removes relative gen_l10n import for S class', () {
+      final sConfig =
+          L10nProjectConfig.withData(
+                l10nFileName: '/Users/test/project/l10n.yaml',
+                templateArbFile: 'app_en.arb',
+                outputClass: 'S',
+                outputDir: 'lib/gen_l10n',
+                arbDir: 'lib/l10n',
+                syntheticPackage: true,
+              )
+              as L10nProjectConfigWithData;
+
+      const fileContent = '''
+import 'package:flutter/material.dart';
+import '../../../../gen_l10n/s.dart';
+import 'package:provider/provider.dart';
+''';
+
+      final (result, hasChanges) = replaceImportsIfNeeded(
+        fileContent: fileContent,
+        projectConfig: sConfig,
+        projectName: 'scoutbox',
+      );
+
+      expect(hasChanges, isTrue);
+      expect(result, contains("import 'package:flutter/material.dart';"));
+      expect(result, contains("import 'package:provider/provider.dart';"));
+      expect(result, isNot(contains("gen_l10n/s.dart")));
     });
   });
 }

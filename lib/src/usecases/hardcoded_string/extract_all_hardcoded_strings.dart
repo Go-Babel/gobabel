@@ -63,7 +63,7 @@ AsyncBabelResult<List<HardcodedStringEntity>> extractAllStringsInDart({
 
     try {
       final unit = parseString(content: content, path: file.path).unit;
-      unit.accept(_RawStringScanner(file.path, content, rawList));
+      unit.accept(RawStringScanner(file.path, content, rawList));
     } catch (e) {
       // Skip files that can't be parsed
       continue;
@@ -128,12 +128,12 @@ class _RawString {
 }
 
 /// AST visitor that collects raw string literals and their interpolations.
-class _RawStringScanner extends RecursiveAstVisitor<void> {
+class RawStringScanner extends RecursiveAstVisitor<void> {
   final String filePath;
   final String content;
   final List<_RawString> rawList;
 
-  _RawStringScanner(this.filePath, this.content, this.rawList);
+  RawStringScanner(this.filePath, this.content, this.rawList);
 
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
