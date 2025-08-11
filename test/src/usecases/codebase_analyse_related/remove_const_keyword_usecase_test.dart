@@ -13,6 +13,16 @@ void main() {
 
       expect(result, target);
     });
+    test('Should replace const with final for valid user-facing strings', () {
+      final target = '''const greeting = 'Hello, world!';''';
+
+      final result =
+          singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+            target,
+          );
+
+      expect(result, equals('''final greeting = 'Hello, world!';'''));
+    });
     test('Should not remove const from lists that contains strings', () {
       final target = '''const listage = ['B', 'K', 'M', 'G', 'T', 'P'];''';
 
@@ -21,7 +31,7 @@ void main() {
             target,
           );
 
-      expect(result, target);
+      expect(result, target); // Single letters don't pass validation
     });
     test('Should not remove const from map that contains strings', () {
       final target = '''const mappable = {'a': 'b'};''';
@@ -31,7 +41,20 @@ void main() {
             target,
           );
 
-      expect(result, target);
+      expect(result, target); // Single letters don't pass validation
+    });
+    test('Should replace const with final for map with valid strings', () {
+      final target = '''const translations = {'key': 'Welcome to our app'};''';
+
+      final result =
+          singleRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy(
+            target,
+          );
+
+      expect(
+        result,
+        equals('''final translations = {'key': 'Welcome to our app'};'''),
+      );
     });
   });
   group('RemoveConstKeywordUsecase', () {

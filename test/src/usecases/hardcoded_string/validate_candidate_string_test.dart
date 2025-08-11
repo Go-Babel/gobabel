@@ -6,4 +6,8 @@ void main() {
     final result = validateCandidateHardcodedString(content: 'a!');
     expect(result, isFalse);
   });
+  test('Should not accept "THEME_MODE"', () {
+    final result = validateCandidateHardcodedString(content: 'THEME_MODE');
+    expect(result, isFalse);
+  });
 }

@@ -13,6 +13,7 @@ import 'package:gobabel/src/flows_state/generate_flow_state.dart';
 import 'package:meta/meta.dart';
 import 'package:result_dart/result_dart.dart';
 import 'package:path/path.dart' as path;
+import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 
 AsyncBabelResult<Unit>
 multiRemoveConstFromAnyStructureThatHasHardcodedStringsInHierarchy({
@@ -116,6 +117,7 @@ String removeConsts(String source) {
 class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
   final String _source;
   final Set<Token> _constTokensToRemove = {};
+  final Map<Token, String> _constTokensToReplace = {};
 
   _ConstRemovalVisitor(this._source);
 
@@ -140,6 +142,15 @@ class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
   }
 
   void _findAndMarkConstKeywordsInHierarchy(AstNode node) {
+    // First check if this is a string literal that should be validated
+    String? stringContent;
+    if (node is SimpleStringLiteral) {
+      stringContent = node.value;
+    } else if (node is StringInterpolation) {
+      // For interpolations, we'll still process as before
+      stringContent = null;
+    }
+
     AstNode? current = node.parent;
 
     while (current != null) {
@@ -151,36 +162,49 @@ class _ConstRemovalVisitor extends RecursiveAstVisitor<void> {
           current.constKeyword != null) {
         // Don't remove const from constructor declarations
         // Based on tests, we should keep const constructors
+      } else if (current is VariableDeclarationList &&
+          current.keyword?.lexeme == 'const' &&
+          stringContent != null) {
+        // For variable declarations with const keyword and string content
+        // Check if the string passes validation
+        if (validateCandidateHardcodedString(content: stringContent)) {
+          // Replace const with final
+          _constTokensToReplace[current.keyword!] = 'final';
+        }
+        // If validation returns false, we don't add it to either set (keep const)
       }
-      // Note: We deliberately don't remove const from VariableDeclarationList
-      // because const variables should remain const even if they contain strings
 
       current = current.parent;
     }
   }
 
   String getTransformedSource() {
-    if (_constTokensToRemove.isEmpty) {
+    if (_constTokensToRemove.isEmpty && _constTokensToReplace.isEmpty) {
       return _source;
     }
 
-    // Sort tokens by offset in descending order
-    final sortedTokens =
-        _constTokensToRemove.toList()
-          ..sort((a, b) => b.offset.compareTo(a.offset));
+    // Combine both sets of tokens and sort by offset in descending order
+    final allTokens = <Token>[];
+    allTokens.addAll(_constTokensToRemove);
+    allTokens.addAll(_constTokensToReplace.keys);
+    allTokens.sort((a, b) => b.offset.compareTo(a.offset));
 
     String result = _source;
-    for (final token in sortedTokens) {
-      // Remove the const keyword and any trailing space
+    for (final token in allTokens) {
       final start = token.offset;
       var end = token.end;
 
-      // Check if there's a space after const
-      if (end < result.length && result[end] == ' ') {
-        end++;
+      if (_constTokensToReplace.containsKey(token)) {
+        // Replace const with final
+        result = result.replaceRange(start, end, _constTokensToReplace[token]!);
+      } else {
+        // Remove the const keyword and any trailing space
+        // Check if there's a space after const
+        if (end < result.length && result[end] == ' ') {
+          end++;
+        }
+        result = result.replaceRange(start, end, '');
       }
-
-      result = result.replaceRange(start, end, '');
     }
 
     return result;
