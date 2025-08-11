@@ -12,6 +12,7 @@ import 'package:gobabel/src/models/extract_hardcode_string/hardcoded_string_enti
 import 'package:gobabel/src/usecases/hardcoded_string/validate_candidate_string.dart';
 import 'package:gobabel_client/gobabel_client.dart';
 import 'package:gobabel_core/gobabel_core.dart';
+import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:result_dart/result_dart.dart';
 
@@ -59,55 +60,71 @@ AsyncBabelResult<List<HardcodedStringEntity>> extractAllStringsInDart({
       ).toFailure();
     }
 
-    final rawList = <_RawString>[];
-
-    try {
-      final unit = parseString(content: content, path: file.path).unit;
-      unit.accept(RawStringScanner(file.path, content, rawList));
-    } catch (e) {
-      // Skip files that can't be parsed
-      continue;
-    }
-
-    // Sort rawList by start position ascending
-    rawList.sort((a, b) => a.start.compareTo(b.start));
-
-    // For each raw string, find parent raw if any
-    for (var raw in rawList) {
-      _RawString? parent;
-      for (var cand in rawList) {
-        if (cand == raw) break;
-        if (cand.start <= raw.start && cand.end >= raw.end) {
-          if (parent == null ||
-              (cand.end - cand.start) < (parent.end - parent.start)) {
-            parent = cand;
-          }
-        }
-      }
-
-      final parentStart = parent != null ? raw.start - parent.start : null;
-      final parentEnd = parent != null ? raw.end - parent.start : null;
-
-      final isValid = validateCandidateHardcodedString.call(
-        content: raw.stringValue?.trimHardcodedString ?? '',
-      );
-      if (!isValid) continue;
-
-      allStrings.add(
-        HardcodedStringEntity(
-          value: raw.stringValue ?? '',
-          filePath: raw.filePath,
-          parentStartIndex: parentStart,
-          parentEndIndex: parentEnd,
-          fileStartIndex: raw.start,
-          fileEndIndex: raw.end,
-          dynamicFields: raw.dynamics,
-        ),
-      );
-    }
+    final extractedStrings = extractStringsFromContent(
+      content: content,
+      filePath: file.path,
+    );
+    
+    allStrings.addAll(extractedStrings);
   }
 
   return allStrings.toSuccess();
+}
+
+@visibleForTesting
+List<HardcodedStringEntity> extractStringsFromContent({
+  required String content,
+  required String filePath,
+}) {
+  final List<HardcodedStringEntity> allStrings = [];
+  final rawList = <_RawString>[];
+
+  try {
+    final unit = parseString(content: content, path: filePath).unit;
+    unit.accept(_RawStringScanner(filePath, content, rawList));
+  } catch (e) {
+    // Return empty list if file can't be parsed
+    return allStrings;
+  }
+
+  // Sort rawList by start position ascending
+  rawList.sort((a, b) => a.start.compareTo(b.start));
+
+  // For each raw string, find parent raw if any
+  for (var raw in rawList) {
+    _RawString? parent;
+    for (var cand in rawList) {
+      if (cand == raw) break;
+      if (cand.start <= raw.start && cand.end >= raw.end) {
+        if (parent == null ||
+            (cand.end - cand.start) < (parent.end - parent.start)) {
+          parent = cand;
+        }
+      }
+    }
+
+    final parentStart = parent != null ? raw.start - parent.start : null;
+    final parentEnd = parent != null ? raw.end - parent.start : null;
+
+    final isValid = validateCandidateHardcodedString.call(
+      content: raw.stringValue?.trimHardcodedString ?? '',
+    );
+    if (!isValid) continue;
+
+    allStrings.add(
+      HardcodedStringEntity(
+        value: raw.stringValue ?? '',
+        filePath: raw.filePath,
+        parentStartIndex: parentStart,
+        parentEndIndex: parentEnd,
+        fileStartIndex: raw.start,
+        fileEndIndex: raw.end,
+        dynamicFields: raw.dynamics,
+      ),
+    );
+  }
+
+  return allStrings;
 }
 
 /// Temporary record for raw string nodes.
@@ -128,18 +145,21 @@ class _RawString {
 }
 
 /// AST visitor that collects raw string literals and their interpolations.
-class RawStringScanner extends RecursiveAstVisitor<void> {
+class _RawStringScanner extends RecursiveAstVisitor<void> {
   final String filePath;
   final String content;
   final List<_RawString> rawList;
 
-  RawStringScanner(this.filePath, this.content, this.rawList);
+  _RawStringScanner(this.filePath, this.content, this.rawList);
 
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
     if (node.thisOrAncestorOfType<Annotation>() != null) return;
     // Ignore strings that are map keys or values
     if (node.thisOrAncestorOfType<MapLiteralEntry>() != null) return;
+    // Ignore strings in switch case statements (both old and new pattern syntax)
+    if (node.thisOrAncestorOfType<SwitchCase>() != null) return;
+    if (node.thisOrAncestorOfType<SwitchPatternCase>() != null) return;
     _addRaw(node);
     super.visitSimpleStringLiteral(node);
   }
@@ -149,6 +169,9 @@ class RawStringScanner extends RecursiveAstVisitor<void> {
     if (node.thisOrAncestorOfType<Annotation>() != null) return;
     // Ignore strings that are map keys or values
     if (node.thisOrAncestorOfType<MapLiteralEntry>() != null) return;
+    // Ignore strings in switch case statements (both old and new pattern syntax)
+    if (node.thisOrAncestorOfType<SwitchCase>() != null) return;
+    if (node.thisOrAncestorOfType<SwitchPatternCase>() != null) return;
     _addRaw(node);
     super.visitStringInterpolation(node);
   }

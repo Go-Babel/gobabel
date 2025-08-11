@@ -8,6 +8,82 @@ import 'package:path/path.dart' as p;
 import 'package:test/test.dart';
 
 void main() {
+  group('extractStringsFromContent', () {
+    test('should not extract strings from switch case statements', () {
+      // Test using the enumTest string
+      final strings = extractStringsFromContent(
+        content: enumTest,
+        filePath: 'test.dart',
+      );
+
+      // Verify that no strings from switch cases are extracted
+      expect(strings.length, 0);
+
+      // These strings should NOT be in the results
+      final switchCaseStrings = [
+        'Free Transfer',
+        'Paid Transfer',
+        'Free Loan',
+        'Cree Loan w/ Buy Option',
+        'Paid Loan w/ Buy Option',
+        'Paid Loan',
+      ];
+
+      expect(strings.any((s) => switchCaseStrings.contains(s.value)), isFalse);
+      expect(strings, isEmpty);
+    });
+
+    test('should extract regular strings not in switch cases', () {
+      // Test with contentTest which has strings not in switch cases
+      final strings = extractStringsFromContent(
+        content: contentTest,
+        filePath: 'test.dart',
+      );
+
+      // Should extract the error message string
+      expect(strings.length, 1);
+      expect(strings.first.value, contains('Error in LoadingBuilder'));
+    });
+
+    test(
+      'should extract strings from regular code while ignoring switch cases',
+      () {
+        // Create a test case with both regular strings and switch case strings
+        const mixedContent = '''
+void main() {
+  print("This should be extracted");
+  
+  final result = switch (value) {
+    'IgnoreThis' => 1,
+    'AlsoIgnore' => 2,
+    _ => 0,
+  };
+  
+  print("This should also be extracted");
+}
+''';
+
+        final strings = extractStringsFromContent(
+          content: mixedContent,
+          filePath: 'test.dart',
+        );
+
+        // Should extract the two print strings but not the switch case strings
+        expect(strings.length, 2);
+        expect(
+          strings.any((s) => s.value.contains('This should be extracted')),
+          true,
+        );
+        expect(
+          strings.any((s) => s.value.contains('This should also be extracted')),
+          true,
+        );
+        expect(strings.any((s) => s.value.contains('IgnoreThis')), false);
+        expect(strings.any((s) => s.value.contains('AlsoIgnore')), false);
+      },
+    );
+  });
+
   group('extractAllStringsInDart', () {
     test('should skip non-dart files', () async {
       // Create test files
@@ -134,6 +210,38 @@ void main() {
     );
   });
 }
+
+final String enumTest = '''enum PlayerTransferCondition {
+  freeTransfer,
+  freeLoan,
+  freeLoanWithBuyOption,
+  paidTransfer,
+  paidLoan,
+  paidLoanWithBuyOption,
+  tbd;
+}
+
+
+extension PlayerTransferConditionExt on PlayerTransferCondition {
+  static PlayerTransferCondition fromText(String text) {
+    switch (text) {
+      case 'Free Transfer':
+        return PlayerTransferCondition.freeTransfer;
+      case 'Paid Transfer':
+        return PlayerTransferCondition.paidTransfer;
+      case 'Free Loan':
+        return PlayerTransferCondition.freeLoan;
+      case 'Cree Loan w/ Buy Option':
+        return PlayerTransferCondition.freeLoanWithBuyOption;
+      case 'Paid Loan w/ Buy Option':
+        return PlayerTransferCondition.paidLoanWithBuyOption;
+      case 'Paid Loan':
+        return PlayerTransferCondition.paidLoan;
+      default:
+        return PlayerTransferCondition.tbd;
+    }
+  }
+}''';
 
 final String contentTest = '''import 'dart:async';
 
